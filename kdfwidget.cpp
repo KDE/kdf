@@ -40,6 +40,7 @@
 #include <qtimer.h>
 #include <qlayout.h>
 
+#include <kdebug.h>
 #include <kapp.h> 
 #include <kcmenumngr.h>
 #include <kglobal.h>
@@ -90,10 +91,10 @@ KDFWidget::KDFWidget( QWidget *parent, const char *name, bool init )
     mList->setFrameStyle( QFrame::WinPanel + QFrame::Sunken );
     mList->setShowSortIndicator(true);
     connect( mList, 
-      SIGNAL( rightButtonPressed( QListViewItem *, const QPoint &, int )),
+      SIGNAL( pressed( QListViewItem *, const QPoint &, int )),
       this, SLOT( rightButtonPressed( QListViewItem *, const QPoint &, int )));
     connect( mList, 
-      SIGNAL( rightButtonClicked( QListViewItem *, const QPoint &, int )),
+      SIGNAL( clicked( QListViewItem *, const QPoint &, int )),
       this, SLOT( rightButtonClicked( QListViewItem *, const QPoint &, int )));
     connect( mList->header(), SIGNAL(sizeChange(int, int, int)),
       this, SLOT(columnSizeChanged(int, int, int)) );
@@ -323,8 +324,8 @@ void KDFWidget::updateDFDone( void ){
     }
     else
     {
-      percent = i18n("Na");
-      size    = i18n("Na");
+      percent = i18n("N/A");
+      size    = i18n("N/A");
     }
 
     int k=0;
@@ -352,6 +353,14 @@ void KDFWidget::updateDFDone( void ){
   updateDiskBarPixmaps();
 }
 
+/***************************************************************************
+  * Update display
+**/
+void KDFWidget::resizeEvent( QResizeEvent * )
+{
+   kdDebug() << "resize: " << width() << "x" << height() << endl;
+   updateDiskBarPixmaps();
+}
 
 
  
@@ -498,10 +507,25 @@ void KDFWidget::popupMenu( QListViewItem *item, const QPoint &p )
 **/
 void KDFWidget::updateDiskBarPixmaps( void )
 {
+  int visible=-1;
+  int size=0, w=0;
+
   if( mBarColumn == -1 )
   {
     return;
   }
+
+   for(uint i=0; i<mTabProp.size()-1; i++ )
+    {
+      CTabEntry &e = *mTabProp[i];
+      if (e.mVisible) {
+	visible++;
+	size += mList->columnWidth(visible);
+      }
+    }
+   w=mList->width() - size - 4;
+   if (w<0) w=0;
+   mList->setColumnWidth(visible + 1, w );
 
   int h = mList->fontMetrics().lineSpacing()-2;
   if( h <= 0 )
@@ -527,7 +551,13 @@ void KDFWidget::updateDiskBarPixmaps( void )
       QPainter p(pix);
       p.setPen(black);
       p.drawRect(0,0,w,h);
-      p.setBrush( disk->percentFull() > FULL_PERCENT ? red : darkGreen );
+      QColor c;
+      if ( (disk->iconName().find("cdrom") != -1)
+	   || (disk->iconName().find("writer") != -1) )
+	c = gray;
+      else
+	c = disk->percentFull() > FULL_PERCENT ? red : darkGreen;
+      p.setBrush(c );
       p.setPen(white);
       p.drawRect(1,1,(int)(((float)pix->width()-2)*(disk->percentFull()/100)),
 		 pix->height()-2);
@@ -539,12 +569,8 @@ void KDFWidget::updateDiskBarPixmaps( void )
 }
 
 
-void KDFWidget::columnSizeChanged( int column, int, int newSize )
+void KDFWidget::columnSizeChanged( int, int, int )
 {
-  if( column != mBarColumn )
-  {
-    return;
-  }
 
   if( mTimer == 0 )
   {

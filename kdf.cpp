@@ -3,7 +3,7 @@
  *
  * kdf.cpp - KDiskFree
  *
- * written 1998-1999 by Michael Kropfberger <michael.kropfberger@gmx.net>
+ * written 1998-2001 by Michael Kropfberger <michael.kropfberger@gmx.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -61,7 +61,8 @@ KDFTopLevel::KDFTopLevel(QWidget *, const char *name)
   menuBar()->insertItem( i18n("&Help"), help );
 
   setCentralWidget(kdf);
-  kdf->setMinimumSize(kdf->sizeHint());
+  //  kdf->setMinimumSize(kdf->sizeHint());
+  kdf->resize(kdf->sizeHint());
 }
 
 
@@ -80,7 +81,7 @@ int main(int argc, char **argv)
 {
   KAboutData aboutData( "kdf", I18N_NOOP("KDiskFree"),
     version, description, KAboutData::License_GPL,
-    "(c) 1998-1999, Michael Kropfberger");
+    "(c) 1998-2001, Michael Kropfberger");
   aboutData.addAuthor("Michael Kropfberger",0, "michael.kropfberger@gmx.net");
   KCmdLineArgs::init( argc, argv, &aboutData );
 

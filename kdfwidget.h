@@ -108,6 +108,7 @@ class KDFWidget : public QWidget
   protected:
     void timerEvent( QTimerEvent * );
     void closeEvent( QCloseEvent * );
+    void resizeEvent( QResizeEvent * );
 
   private:
     void makeColumns( void );
