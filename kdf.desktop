@@ -96,4 +96,4 @@ Comment[zh_CN.GB2312]=显示挂接的设备的磁盘利用率
 Comment[zh_TW.Big5]=顯示已掛載設備的磁碟使用狀態
 Terminal=0
 DocPath=kdf/index.html
-KDE-X-StartupNotify=true
+X-KDE-StartupNotify=true
