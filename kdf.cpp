@@ -42,13 +42,10 @@ KDFTopLevel::KDFTopLevel(QWidget *, const char *name)
 {
   kdf = new KDFWidget(this,"kdf",FALSE); CHECK_PTR(kdf);
 
-  KStdAccel *keys = new KStdAccel();
-  if( keys == 0 ) { return; }
-
   QPopupMenu *file = new QPopupMenu; CHECK_PTR(file);
   file->insertItem( i18n( "&Update" ), kdf, SLOT(updateDF()) );
   file->insertSeparator();
-  file->insertItem( i18n( "&Quit" ), this, SLOT(close()), keys->quit() );
+  file->insertItem( i18n( "&Quit" ), this, SLOT(close()), KStdAccel::key(KStdAccel::Quit) );
 
   QPopupMenu *option = new QPopupMenu; CHECK_PTR(option);
   option->insertItem( i18n("&Configure %1...").arg(kapp->caption()),
@@ -62,8 +59,6 @@ KDFTopLevel::KDFTopLevel(QWidget *, const char *name)
   menuBar()->insertItem( i18n("&Options"), option );
   menuBar()->insertSeparator();
   menuBar()->insertItem( i18n("&Help"), help );
-
-  delete keys;
 
   setView(kdf);
   resize(kdf->width(),kdf->height()+menuBar()->height());
