@@ -48,8 +48,8 @@ KDFTopLevel::KDFTopLevel(QWidget *, const char *name)
    file->insertItem( i18n( "&Quit" ), kapp, SLOT(quit()) );
    menu->insertItem( i18n( "&File" ), file );
 
-   QPopupMenu *help = kapp->helpMenu(TRUE, i18n(
-        "KDiskFree\n\n (C) 1998,1999 by Michael Kropfberger (michael.kropfberger@gmx.net)") );
+   QPopupMenu *help = helpMenu(i18n(
+     "KDiskFree\n\n (C) 1998,1999 by Michael Kropfberger (michael.kropfberger@gmx.net)") );
    menu->insertItem( i18n( "&Help" ), help );  
 
    menu->show();
