@@ -106,7 +106,7 @@ class DockWidget : public QLabel
     void updateDF( void );
     void updateDFDone( void );
     void setUpdateFrequency( int frequency );
-    void sysCallError(DiskEntry *disk, int errno);
+    void sysCallError(DiskEntry *disk, int err_no);
 
   protected:
     void mousePressEvent(QMouseEvent *);
