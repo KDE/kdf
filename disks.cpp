@@ -21,7 +21,6 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#include <qregexp.h>
 #include <qfileinfo.h>
 #include <qdir.h>
 
@@ -108,10 +107,10 @@ int DiskEntry::mount()
       cmdS=QString::fromLatin1("mount -t%t -o%o %d %m");
       }
 
-  cmdS.replace(QRegExp("%d"),deviceName());
-  cmdS.replace(QRegExp("%m"),mountPoint());
-  cmdS.replace(QRegExp("%t"),fsType());
-  cmdS.replace(QRegExp("%o"),mountOptions());
+  cmdS.replace(QString::fromLatin1("%d"),deviceName());
+  cmdS.replace(QString::fromLatin1("%m"),mountPoint());
+  cmdS.replace(QString::fromLatin1("%t"),fsType());
+  cmdS.replace(QString::fromLatin1("%o"),mountOptions());
 
   kdDebug() << "mount-cmd: [" << cmdS << "]" << endl;
   int e=sysCall(cmdS);
@@ -127,8 +126,8 @@ int DiskEntry::umount()
   if (cmdS.isEmpty()) // generate default umount cmd
       cmdS="umount %d";
 
-  cmdS.replace(QRegExp("%d"),deviceName());
-  cmdS.replace(QRegExp("%m"),mountPoint());
+  cmdS.replace(QString::fromLatin1("%d"),deviceName());
+  cmdS.replace(QString::fromLatin1("%m"),mountPoint());
 
   kdDebug() << "umount-cmd: [" << cmdS << "]" << endl;
   int e=sysCall(cmdS);
