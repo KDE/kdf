@@ -36,7 +36,6 @@
 #include <qpaintd.h>
 
 #include <kapp.h> 
-#include <kmsgbox.h> 
 #include <kiconloader.h>
 
 #include "disklist.h"
@@ -215,7 +214,7 @@ QFile f(FSTAB);
 /***************************************************************************
   * is called, when the df-command writes on StdOut or StdErr
 **/
-void DiskList::receivedDFStdErrOut(KProcess *, char *data, int len)
+void DiskList::receivedDFStdErrOut(KProcess *, char *data, int)
 {
   debug("DiskList::receivedDFStdErrOut");
 

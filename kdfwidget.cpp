@@ -38,7 +38,6 @@
 
 #include <kapp.h> 
 #include <kglobal.h>
-#include <kmsgbox.h> 
 #include <kiconloader.h>
 #include "kdfwidget.h"
 
@@ -397,13 +396,9 @@ void KDFWidget::criticallyFull(DiskEntry *disk )
 {
   debug("KDFWidget::criticallyFull");
   if (popupIfFull) {
-    QString s;
-    s.sprintf("Device [%s] on [%s] is getting critically full!",
-             disk->deviceName().latin1(),
-             disk->mountPoint().latin1());
-       KMsgBox::message(this,i18n("KDiskFree"),
-              i18n(s.latin1())
-               ,KMsgBox::EXCLAMATION);
+    QString s = i18n("Device [%1] on [%1] is getting critically full!").
+      arg(disk->deviceName()).arg(disk->mountPoint());
+    QMessageBox::warning(this,kapp->getCaption(), s, i18n("OK"));
   }
 }
 
@@ -463,8 +458,8 @@ void KDFWidget::popupMenu(int row,int column)
       }//while        
   
       if (!disk->toggleMount())
-         KMsgBox::message(this,i18n("KDiskFree"),
-              disk->lastSysError(),KMsgBox::STOP);
+         QMessageBox::warning(this, kapp->getCaption(),
+			      disk->lastSysError(), i18n("OK"));
       else 
         if ((openFileMgrOnMount) && (!disk->mounted())) popupMenu(row,4); 
       updateDF();

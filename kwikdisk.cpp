@@ -31,9 +31,9 @@
 #include <kstddirs.h>
 #include <kwm.h>
 #include <kiconloader.h>
-#include <kmsgbox.h>
 
 #include "kwikdisk.h"
+#include <qmessagebox.h>
 
 
 #define DEFAULT_FREQ 60
@@ -184,13 +184,10 @@ void DockWidget::criticallyFull(DiskEntry *disk )
 {
   debug("DockWidget::criticallyFull");
   if (popupIfFull) {
-    QString s;
-    s.sprintf("Device [%s] on [%s] is getting critically full!",
-             disk->deviceName().latin1(),
-             disk->mountPoint().latin1());
-       KMsgBox::message(this,i18n("KwikDisk"),
-              i18n(s.latin1())
-               ,KMsgBox::EXCLAMATION);
+    QString s = i18n("Device [%1] on [%2] is getting critically full!").
+      arg(disk->deviceName()).arg(disk->mountPoint());
+    
+    QMessageBox::warning(this,kapp->getCaption(), s, i18n("OK"));
   }
 }
 
@@ -233,8 +230,8 @@ void DockWidget::mousePressEvent(QMouseEvent *)
 void DockWidget::sysCallError(DiskEntry *disk, int errno)
 { 
   if (errno!=0)
-     KMsgBox::message(this,i18n("KwikDisk"),
-              disk->lastSysError(),KMsgBox::STOP);
+    QMessageBox::warning(this,kapp->getCaption(),
+			 disk->lastSysError(),i18n("OK"));
 };
 
 /***************************************************************************
@@ -254,8 +251,8 @@ void DockWidget::toggleMount( )
   
     if (!readingDF) {
       if (!disk->toggleMount())
-         KMsgBox::message(this,i18n("KDiskFree"),
-              disk->lastSysError(),KMsgBox::STOP);
+        QMessageBox::warning(this,kapp->getCaption(),
+              disk->lastSysError(),i18n("OK"));
       else 
         if ((openFileMgrOnMount) && (!disk->mounted())) {
            //open fileManager on MountPoint

@@ -36,7 +36,6 @@
 #include <qpaintd.h>
 
 #include <kglobal.h>
-#include <kmsgbox.h> 
 #include <kiconloader.h>
 #include "kdfconfig.h"
 

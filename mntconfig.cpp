@@ -37,7 +37,6 @@
 #include <kapp.h>
 #include <kglobal.h>
 #include <klocale.h> 
-#include <kmsgbox.h> 
 #include <kiconloader.h>
 #include <kiconloaderdialog.h>
 #include <kfiledialog.h>
@@ -298,10 +297,10 @@ void MntConfigWidget::selectIcon()
                         != "_mount.xpm") &&
           (icoName.right(icoName.length()-icoName.findRev('_'))
                         != "_unmount.xpm") ) )
-       KMsgBox::message(this, i18n("KDiskFree"),
-              i18n("This filename is not valid.\nIt has to be ending in \n\"_mount.xpm\" or \"_unmount.xpm\".")
-               ,KMsgBox::EXCLAMATION);
-     else {
+       QMessageBox::warning(this, kapp->getCaption(),
+			    i18n("This filename is not valid.\n"
+				 "It has to be ending in \n\"_mount.xpm\" or \"_unmount.xpm\"."), i18n("OK"));
+    else {
        icoName=icoName.left(icoName.findRev('_'));
        actDisk->setIconName(icoName);
   QString icon;

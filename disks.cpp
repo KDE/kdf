@@ -232,7 +232,7 @@ int DiskEntry::sysCall(QString command)
 /***************************************************************************
   * is called, when the Sys-command writes on StdOut or StdErr
 **/
-void DiskEntry::receivedSysStdErrOut(KProcess *, char *data, int len)
+void DiskEntry::receivedSysStdErrOut(KProcess *, char *data, int )
 {
   debug("DiskEntry::receivedSysStdErrOut");
   QString tmp = QString(data) + QString("\0");  // adds a zero-byte
