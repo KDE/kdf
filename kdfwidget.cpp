@@ -60,13 +60,6 @@ CListViewItem::CListViewItem( CListView * parent, QListViewItem * after )
   :QListViewItem( parent, after )
 {}
 
-// 2001-03-10 Walter F.J. Mueller <W.F.J.Mueller@gsi.de>
-// This method returns for all numeric columns the converted number.
-// The conversion is done with
-//    1. fixed position of the colon
-//    2. a sufficient number of leading blanks
-// This ensures that the lexical string comparison gives numerical order.
-
 int CListViewItem::compare ( QListViewItem *i, int column, bool ) const
 {
   QString tmp;
