@@ -10,9 +10,9 @@ kde_mini_DATA = nfs_mount.xpm nfs_unmount.xpm
 # if you have more of them, create a subdirectory with an extra Makefile 
 install-data-local: 
 	$(mkinstalldirs) $(kde_minidir)
-	$(INSTALL_DATA) mini-kdf.xpm $(kde_minidir)/kdf.xpm
-	$(INSTALL_DATA) mini-kcmdf.xpm $(kde_minidir)/kcmdf.xpm
-	$(INSTALL_DATA) mini-kwikdisk.xpm $(kde_minidir)/kwikdisk.xpm
+	$(INSTALL_DATA) $(srcdir)/mini-kdf.xpm $(kde_minidir)/kdf.xpm
+	$(INSTALL_DATA) $(srcdir)/mini-kcmdf.xpm $(kde_minidir)/kcmdf.xpm
+	$(INSTALL_DATA) $(srcdir)/mini-kwikdisk.xpm $(kde_minidir)/kwikdisk.xpm
 
 # remove ALL you have installed in install-data-local or install-exec-local
 uninstall-local:
