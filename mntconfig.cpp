@@ -163,8 +163,7 @@ void MntConfigWidget::readDFDone( void )
   {
      item = new QListViewItem( mList, item, QString::null, disk->deviceName(), 
       disk->mountPoint(), disk->mountCommand(), disk->umountCommand() );
-    item->setPixmap( ICONCOL, KGlobal::iconLoader()->loadIcon
-                                    ( disk->iconName(),KIconLoader::Small ) );
+    item->setPixmap( ICONCOL, SmallIcon( disk->iconName() ) );
   }
 
   loadSettings();

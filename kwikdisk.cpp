@@ -341,9 +341,7 @@ void DockWidget::updateDFDone( void )
     }
     int id = mPopupMenu->insertItem("",this, SLOT(toggleMount()) );
 
-    QPixmap *pix = new QPixmap(
-      KGlobal::iconLoader()->loadIcon(disk->iconName(), KIconLoader::Small, 0 ,false)
-        );
+    QPixmap *pix = new QPixmap(SmallIcon(disk->iconName()));
  
     if( getuid() !=0 && disk->mountOptions().find("user",0, false) == -1 ) 
     {
@@ -469,7 +467,7 @@ KwikDiskTopLevel::KwikDiskTopLevel(QWidget *, const char *name)
 
   mDockIcon = new DockWidget(this,"docked_icon");
   connect( mDockIcon, SIGNAL(quitProgram()), this, SLOT(close()) );
-  mDockIcon->setPixmap(KGlobal::iconLoader()->loadIcon("kdf", KIconLoader::Small) );
+  mDockIcon->setPixmap(SmallIcon("kdf"));
   setView( mDockIcon );
   resize(24,24);
 }
