@@ -43,7 +43,7 @@ public:
   DiskEntry(QObject *parent=0, const char *name=0);
   DiskEntry(QString deviceName, QObject *parent=0, const char *name=0);
   ~DiskEntry();
-  const char * lastSysError() {return sysStringErrOut; };
+  QString lastSysError() {return sysStringErrOut; };
   QString deviceName() const { return device; };
   QString mountPoint() const { return mountedOn; };
   QString mountOptions() const { return options; };

@@ -223,7 +223,7 @@ int DiskEntry::sysCall(QString command)
   debug("DiskEntry::sysCall");
   if (readingSysStdErrOut || sysProc->isRunning() )  return -1;
 
-  sysStringErrOut="called: "+command+"\n\n"; // put the called command on ErrOut
+  sysStringErrOut=i18n("Called: %1\n\n").arg(command); // put the called command on ErrOut
   sysProc->clearArguments();
   (*sysProc) << (const char *)command;
     if (!sysProc->start( KProcess::Block, KProcess::AllOutput ))
