@@ -73,6 +73,8 @@ class MyPopupMenu : public QPopupMenu
 
   private slots:
     void registerActiveItem( int id );
+    void aboutToHide();
+    void aboutToShow();
 
   private:
     int mCurrentId;

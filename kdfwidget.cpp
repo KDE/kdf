@@ -3,7 +3,7 @@
  *
  * $Id$
  *
- * Copyright (c) 1998 Michael Kropfberger <michael.kropfberger@gmx.net>
+ * Copyright (c) 1998-2000 Michael Kropfberger <michael.kropfberger@gmx.net>
  *
  * Requires the Qt widget libraries, available at no cost at
  * http://www.troll.no/
@@ -306,8 +306,8 @@ void KDFWidget::updateDF( void )
 /***************************************************************************
   * gets the signal when the diskList is complete and up to date
 **/
-void KDFWidget::updateDFDone( void )
-{
+void KDFWidget::updateDFDone( void ){
+
   mList->clear();
 
   int i=0;
@@ -444,19 +444,21 @@ void KDFWidget::popupMenu( QListViewItem *item, const QPoint &p )
   }
   else if( position == 0 || position == 1 )
   {
-    item->setText( sizeCol, i18n("MOUNTING") );
-    item->setText( freeCol, i18n("MOUNTING") );
-    item->setPixmap( 0, mList->icon( "mini-clock", false ) );
-
-    int val = disk->toggleMount();
-    if( val != 0 /*== false*/ )
-    {
-      KMessageBox::error( this, disk->lastSysError() );
-    }
-    else if( mStd.openFileManager() == false || disk->mounted() == true )
-    {
-      openFileManager = true;
-    }
+      item->setText( sizeCol, i18n("MOUNTING") );
+      item->setText( freeCol, i18n("MOUNTING") );
+      item->setPixmap( 0, mList->icon( "mini-clock", false ) );
+      
+      int val = disk->toggleMount();
+      if( val != 0 /*== false*/ )
+	{
+	  KMessageBox::error( this, disk->lastSysError() );
+	}
+      //else if( mStd.openFileManager() == false || disk->mounted() == true )
+      else if ( ( mStd.openFileManager() == true)
+		&& (position == 0) ) //only on mount
+	{
+	  openFileManager = true;
+	}
   }
   else if( position == 2 )
   {
@@ -465,6 +467,7 @@ void KDFWidget::popupMenu( QListViewItem *item, const QPoint &p )
 
   if( openFileManager == true )
   {
+    kdDebug() << "opening filemanager" << endl;
     if(  mStd.fileManager().isEmpty() == false ) 
     {
       QString cmd = mStd.fileManager();

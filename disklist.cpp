@@ -196,9 +196,11 @@ QFile f(FSTAB);
          disk->setMountOptions(s.left(s.find(BLANK)) );
             s=s.remove(0,s.find(BLANK)+1 );
 	    kdDebug() << "    Mount-Options: [" << disk->mountOptions() << "]" << endl;
-         if ( (disk->deviceName() != "none") && (disk->fsType() != "swap")
-                             && (disk->mountPoint() != "/dev/swap")
-                             && (disk->mountPoint() != "/proc") )
+         if ( (disk->deviceName() != "none")
+	      && (disk->fsType() != "swap")
+	      && (disk->mountPoint() != "/dev/swap")
+	      && (disk->mountPoint() != "/dev/pts")
+	      && (disk->mountPoint().find("/proc") == -1 ) )
 	   replaceDeviceEntry(disk);
          else
            delete disk;
@@ -317,13 +319,17 @@ void DiskList::dfDone()
       s=s.remove(0,s.find(BLANK)+1 );
       kdDebug() << "    MountPoint:       [" << disk->mountPoint() << "]" << endl;
 
-      if (disk->kBSize() > 0) {
+      if ( (disk->kBSize() > 0)
+	   && (disk->deviceName() != "none")
+	   && (disk->fsType() != "swap")
+	   && (disk->mountPoint() != "/dev/swap")
+	   && (disk->mountPoint() != "/dev/pts")
+	   && (disk->mountPoint().find("/proc") == -1 ) ) {
         disk->setMounted(TRUE);    // its now mounted (df lists only mounted)
-        replaceDeviceEntry(disk);
-      } else {
-	kdWarning() << disk->deviceName() << " has a kBSize == 0!" << endl;
+	replaceDeviceEntry(disk);
+      } else
 	delete disk;
-      }
+
     }//if not header
   }//while further lines available
 

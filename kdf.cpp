@@ -52,7 +52,7 @@ KDFTopLevel::KDFTopLevel(QWidget *, const char *name)
 		      kdf, SLOT(settingsBtnClicked()) );
 
   QPopupMenu *help = helpMenu(i18n(""
-    "KDiskFree\n\n(C) 1998-2000\n"
+    "KDiskFree\n\n(C) 1998-2001\n"
     "Michael Kropfberger (michael.kropfberger@gmx.net)") );
 
   menuBar()->insertItem( i18n("&File"), file );

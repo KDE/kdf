@@ -153,6 +153,7 @@ int DiskEntry::remount()
    else return e;
   }
 };
+
 void DiskEntry::setMountCommand(const QString & mnt)
 {
   mntcmd=mnt;
@@ -233,7 +234,7 @@ int DiskEntry::sysCall(const QString & command)
   if (sysProc->exitStatus()!=0) emit sysCallError(this, sysProc->exitStatus());
 
   kdDebug() << "DiskEntry::sysCall sysProc->exitStatus=" << sysProc->exitStatus() << endl;
-  return !sysProc->exitStatus();
+  return (sysProc->exitStatus());
 };
 
 
@@ -242,8 +243,8 @@ int DiskEntry::sysCall(const QString & command)
 **/
 void DiskEntry::receivedSysStdErrOut(KProcess *, char *data, int len)
 {
-  kdDebug() << "DiskEntry::receivedSysStdErrOut" << endl;
   QString tmp = QString::fromLocal8Bit(data, len);
+  kdDebug() << "DiskEntry::receivedSysStdErrOut: " << tmp << endl;
   sysStringErrOut.append(tmp);
 };
 

@@ -31,6 +31,7 @@
 #include <qbitmap.h>
 #include <qpixmap.h>
 
+#include <kdebug.h>
 #include <kapp.h>
 #include <kconfig.h>
 #include <kglobal.h>
@@ -96,7 +97,8 @@ MyPopupMenu::MyPopupMenu(QWidget *parent, const char *name)
 {
   mToolTip = new MyToolTip(this);
   mToolTipStrings.setAutoDelete(true);
-  connect(this,SIGNAL(highlighted(int)),this,SLOT(registerActiveItem(int)));
+  connect(this,SIGNAL(aboutToHide()),this,SLOT(aboutToHide()));
+  connect(this,SIGNAL(aboutToShow()),this,SLOT(aboutToShow()));
 }
 
 
@@ -134,10 +136,23 @@ void MyPopupMenu::setToolTip( int id, const QString & text )
 }
 
 
+void MyPopupMenu::aboutToHide()
+{
+  kdDebug() << "aboutToHide: " << endl;
+  disconnect(this,SIGNAL(highlighted(int)),this,SLOT(registerActiveItem(int)));
+}
+
+void MyPopupMenu::aboutToShow()
+{
+  kdDebug() << "aboutToShow: " << endl;
+  connect(this,SIGNAL(highlighted(int)),this,SLOT(registerActiveItem(int)));
+}
+
 void MyPopupMenu::registerActiveItem( int id )
 {
   mCurrentIndex = indexOf(id);
 
+  kdDebug() << "activeItemIndex: " << mCurrentIndex << endl;
   if( id != -1 && id != mCurrentId )
   {
     QRect r = itemRectangle(id);
@@ -216,6 +231,11 @@ DiskEntry *DockWidget::selectedDisk( void )
     return( 0 );
   }
  
+  kdDebug() << "selectedDisk: " 
+	    << mDiskList.at(mPopupMenu->activeIndex())->mountPoint()
+	    << "==> index: "
+	    << mPopupMenu->activeIndex() << endl;
+
   return( mDiskList.at(mPopupMenu->activeIndex()) );
 }
 
@@ -289,6 +309,8 @@ void DockWidget::updateDF( void )
 
 void DockWidget::toggleMount( void )
 {
+  kdDebug() << "toggleMount" << endl;
+
   DiskEntry *disk = selectedDisk();
   if( disk == 0 )
   {
@@ -300,8 +322,9 @@ void DockWidget::toggleMount( void )
   {
     KMessageBox::error( this, disk->lastSysError() );
   }
-  else if( mStd.openFileManager() == true && disk->mounted() == false )
+  else if( (mStd.openFileManager() == true) && (disk->mounted() == true ))
   {
+    kdDebug() << "opening filemanager" << endl;
     if( mStd.fileManager().isEmpty() == false ) 
     {
       QString cmd = mStd.fileManager();
@@ -375,15 +398,15 @@ void DockWidget::updateDFDone( void )
 
     mPopupMenu->changeItem(*pix,entryName,id);    
     // mPopupMenu->changeItem(DevIcon(disk->iconName()),entryName,id);    
-    connect(disk, SIGNAL(sysCallError(DiskEntry *, int) ),
-            this, SLOT(sysCallError(DiskEntry *, int)) );
+    //    connect(disk, SIGNAL(sysCallError(DiskEntry *, int) ),
+    //      this, SLOT(sysCallError(DiskEntry *, int)) );
     mPopupMenu->setToolTip(id, toolTipText );
   }
 
   mPopupMenu->insertSeparator();
 
   mPopupMenu->insertItem(
-    UserIcon( "kdf" ),
+    SmallIcon( "kdf" ),
     i18n("&Start KDiskFree"), this, SLOT(startKDF()),0);
 
   mPopupMenu->insertItem(
@@ -493,7 +516,7 @@ bool KwikDiskTopLevel::queryExit( void )
 int main(int argc, char **argv)
 {
   // WABA: Two applications with the same name???
-  KCmdLineArgs::init(argc, argv, "kdf", description, version);
+  KCmdLineArgs::init(argc, argv, "kwikdisk", description, version);
 
   KApplication app;
   
