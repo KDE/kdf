@@ -40,8 +40,12 @@
 #include <kstdguiitem.h>
 #include <stdlib.h>
 
+#include <netwm.h>
+#include <fixx11h.h>
+
 #include "kwikdisk.h"
 #include "optiondialog.h"
+
 
 static const char description[] =
 	I18N_NOOP("KDE Free disk space utility (another one?)");
@@ -452,7 +456,7 @@ void DockWidget::showPopupMenu( void )
     return;
   }
 
-  QRect g = KWin::info(winId()).geometry;
+  QRect g = KWin::windowInfo(winId(), NET::WMGeometry).geometry();
   QSize s = mPopupMenu->sizeHint();
   QRect desk = KGlobalSettings::desktopGeometry(this);
 
