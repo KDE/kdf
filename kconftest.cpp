@@ -41,7 +41,7 @@
 #include <kcmdlineargs.h>
 
 static const char description[] =
-	I18N_NOOP("A test application.");
+	I18N_NOOP("A test application");
 
 static const char version[] = "v0.0.1";
 

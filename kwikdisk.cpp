@@ -48,7 +48,7 @@
 
 
 static const char description[] =
-	I18N_NOOP("KDE Free disk space utility (another one?)");
+	I18N_NOOP("KDE Free disk space utility");
 
 static const char programName[] = I18N_NOOP("KwikDisk");
 
@@ -391,7 +391,7 @@ void DockWidget::updateDFDone( void )
     if( getuid() !=0 && disk->mountOptions().find("user",0, false) == -1 )
     {
       //
-      // Special root icon, normal user can´t mount.
+      // Special root icon, normal user cant mount.
       //
       // 2000-01-23 Espen Sand
       // Careful here: If the mask has not been defined we can
