@@ -302,22 +302,39 @@ void MntConfigWidget::selectIcon( void )
 
 void MntConfigWidget::selectMntFile()
 {
-  QString cmd = KFileDialog::getOpenFileName( "","*", this );
-  if (!cmd.isEmpty()) mMountLineEdit->setText(cmd);
-}
+  KURL url = KFileDialog::getOpenURL( "","*", this );
+  
+  if( url.isEmpty() )
+    return;
 
+  if( !url.isLocalFile() )
+  {
+    KMessageBox::sorry( 0L, i18n( "Only local files supported." ) );
+    return;
+  }
+  
+  mMountLineEdit->setText( url.path() );
+}
 
 void MntConfigWidget::selectUmntFile()
 {
-  QString cmd = KFileDialog::getOpenFileName( "", "*", this );
-  if (!cmd.isEmpty()) mUmountLineEdit->setText(cmd);
+  KURL url = KFileDialog::getOpenURL( "", "*", this );
+  
+  if( url.isEmpty() )
+    return;
+    
+  if( !url.isLocalFile() )
+  {
+    KMessageBox::sorry( 0L, i18n( "Only local files are supported yet." ) );
+    return;
+  }
+  
+  mUmountLineEdit->setText( url.path() );
 }
-
 
 void MntConfigWidget::iconChanged(const QString& )
 {
 }
-
 
 void MntConfigWidget::mntCmdChanged( const QString &data )
 {
