@@ -20,416 +20,330 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
- 
-#include <math.h>
 
-#include <qstring.h>
-#include <qmessagebox.h> 
-#include <qfile.h>
+
+//
+// 1999-11-29 Espen Sand
+// Converted to QLayout and QListView + cleanups
+//
+
+#include <qbitmap.h>
 #include <qgroupbox.h>
-#include <qtextstream.h>
-#include <qstring.h>
+#include <qheader.h>
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qlineedit.h>
+#include <qlistview.h>
 #include <qpixmap.h>
-#include <qbitmap.h>
 #include <qpaintdevice.h>
+#include <qstring.h>
 
 #include <kapp.h>
+#include <kdialog.h>
+#include <kfiledialog.h>
 #include <kglobal.h>
-#include <klocale.h> 
 #include <kiconloader.h>
 #include <kiconloaderdialog.h>
-#include <kfiledialog.h>
-#include <ktablistbox.h>
+#include <klocale.h> 
+#include <kmessagebox.h>
 
+#include "listview.h"
 #include "mntconfig.h"
 
 #ifndef KDE_USE_FINAL
 static bool GUI;
 #endif
 
-#define NRCOLS 5
-#define ICONCOL 0
-#define DEVCOL 1
-#define MNTPNTCOL 2
-#define MNTCMDCOL 3
-#define UMNTCMDCOL 4
-
-/***************************************************************************
-  * Constructor
-**/
-MntConfigWidget::MntConfigWidget (QWidget * parent, const char *name
-                      , bool init)
-    : KConfigWidget (parent, name)
+MntConfigWidget::MntConfigWidget(QWidget *parent, const char *name, bool init)
+  : KConfigWidget(parent, name)
 {
-  debug("Construct: MntConfigWidget::MntConfigWidget");
-  if (init) {
-    GUI = FALSE;
-  } else
-    GUI = TRUE;
-  tabWidths.resize(NRCOLS);
-  tabHeaders.append( i18n("Icon") );
-  tabWidths[0]=32;
-  tabHeaders.append( i18n("Device") );
-  tabWidths[1]=80;
-  tabHeaders.append( i18n("MountPoint") );
-  tabWidths[2]=90;
-  tabHeaders.append( i18n("MountCommand") );
-  tabWidths[3]=120;
-  tabHeaders.append( i18n("UmountCommand") );
-  tabWidths[4]=120;
-  actRow=-1;
-  actDisk=0;
+  mInitializing = false;
 
+  GUI = init ? false : true;
   if (GUI)
-    {  // inits go here
-       diskList.readFSTAB();
-       diskList.readDF();
-       //tabList fillup waits until disklist.readDF() is done...
-       initializing=TRUE;
-       loader = KGlobal::iconLoader(); CHECK_PTR(loader);
-       connect(&diskList,SIGNAL(readDFDone()),this,SLOT(readDFDone()));
-       tabList=new KTabListBox(this,"tabList",NRCOLS,0); CHECK_PTR(tabList);
-       tabList->setSeparator('\t');
-       tabList->setColumn(0,tabHeaders.at(0)
-                         ,tabWidths[0]
-                         ,KTabListBox::PixmapColumn);
-       for (int i=1;i<NRCOLS;i++)
-       tabList->setColumn(i,tabHeaders.at(i)
-                         ,tabWidths[i],KTabListBox::TextColumn);
-       boxActDev=new QGroupBox(this); CHECK_PTR(boxActDev);
-       boxActDev->setEnabled(FALSE);
-       QString title;
-       title.sprintf("%s [%s] %s [%s]",tabHeaders.at(1),"NONE"
-                                      ,tabHeaders.at(2),"NONE");
-       boxActDev->setTitle(title);
- 
-       btnActIcon=new QPushButton(boxActDev); CHECK_PTR(btnActIcon);
-       btnActIcon->setEnabled(FALSE);
-       connect(btnActIcon,SIGNAL(clicked()),this,SLOT(selectIcon()));
-       qleIcon=new QLineEdit(boxActDev); CHECK_PTR(qleIcon);
-       connect(qleIcon,SIGNAL(textChanged(const QString&))
-               ,this,SLOT(iconChanged(const QString&)));
-       qleIcon->setEnabled(FALSE);
+  {
+    //tabList fillup waits until disklist.readDF() is done...
+    mDiskList.readFSTAB();
+    mDiskList.readDF();
+    //mDiskList.readFSTAB();
+    mInitializing = true;
+    connect( &mDiskList,SIGNAL(readDFDone()),this,SLOT(readDFDone()));
 
-       //Mount
-       qleMnt=new QLineEdit(boxActDev); CHECK_PTR(qleMnt);
-       connect(qleMnt,SIGNAL(textChanged(const QString&))
-               ,this,SLOT(mntCmdChanged(const QString&)));
-       qleMnt->setEnabled(FALSE);
-       btnMntFile=new QPushButton( i18n("get &MountCommand"), boxActDev);
-       CHECK_PTR(btnMntFile);
-       connect(btnMntFile,SIGNAL(clicked()),this,SLOT(selectMntFile()));
-       btnMntFile->setEnabled(FALSE);
+    QString text;
+    QVBoxLayout *topLayout = new QVBoxLayout( this, 0, KDialog::spacingHint());
 
-       //Umount
-       qleUmnt=new QLineEdit(boxActDev); CHECK_PTR(qleUmnt);
-       connect(qleUmnt,SIGNAL(textChanged(const QString&))
-               ,this,SLOT(umntCmdChanged(const QString&)));
-       qleUmnt->setEnabled(FALSE);
-       btnUmntFile=new QPushButton(i18n("get &UmountCommand"), boxActDev);
-       CHECK_PTR(btnUmntFile);
-       connect(btnUmntFile,SIGNAL(clicked()),this,SLOT(selectUmntFile()));
-       btnUmntFile->setEnabled(FALSE);
+    mList = new CListView( this, "list", 8 );
+    mList->setAllColumnsShowFocus( true );
+    mList->addColumn( i18n("Icon") );
+    mList->addColumn( i18n("Device") );
+    mList->addColumn( i18n("Mount point") );
+    mList->addColumn( i18n("Mount command") );
+    mList->addColumn( i18n("Unmount command") );
+    mList->setFrameStyle( QFrame::WinPanel + QFrame::Sunken );
+    connect( mList, SIGNAL(selectionChanged(QListViewItem *)),
+	     this, SLOT(clicked(QListViewItem *)));
 
-   }//if GUI
- config = kapp->config();
- loadSettings();
- if (init) applySettings();
-} // Constructor
+    topLayout->addWidget( mList );
 
+    text = QString("%1: %2  %3: %4").
+      arg(mList->header()->label(DEVCOL)).
+      arg(i18n("None")).
+      arg(mList->header()->label(MNTPNTCOL)).
+      arg(i18n("None"));
+    mGroupBox = new QGroupBox( text, this ); 
+    CHECK_PTR(mGroupBox);
+    topLayout->addWidget(mGroupBox);
 
-/**********************************************************************/
-void MntConfigWidget::readDFDone() {
-  debug("MntConfigWidget::readDFDone");
-  initializing=FALSE;
-  tabList->clear();
-       //fill up the tabListBox
-       DiskEntry *disk;
-       QPixmap *pix;
-       QString s,icon;
-       for (disk=diskList.first();disk!=0;disk=diskList.next()) {
-        icon.sprintf("%s%s%s",disk->iconName().latin1()
-                             ,disk->deviceName().latin1()
-                             ,disk->mountPoint().latin1());
-         s.sprintf("%s\t%s\t%s\t%s\t%s",icon.latin1()
-                                   ,disk->deviceName().latin1()
-                                   ,disk->mountPoint().latin1()
-                                   ,disk->mountCommand().latin1()
-                                   ,disk->umountCommand().latin1());
-         tabList->appendItem((const char *)s);
-       pix=tabList->dict()[icon.data()];
-       if (pix == 0) { // pix not already in cache
-          pix = new QPixmap(loader->loadApplicationIcon(disk->iconName(), KIconLoader::Small));
-          if ( -1==disk->mountOptions().find("user",0,FALSE) ) {
-             // special root icon, normal user can´t mount
-            QPainter *qp;
-            QBitmap *bm=new QBitmap(*(pix->mask()));
-            int w=1;  //width of the rect
-            if (bm != 0) { //a mask exists, draw the rect on the mask first
-              qp=new QPainter(bm);
-              qp->setPen(QPen(white,w));
-              qp->drawRect(0,0,bm->width(),bm->height());
-              qp->end();
-              pix->setMask(*bm);
-            }
-            qp=new QPainter(pix);
-            qp->setPen(QPen(red,w));
-            qp->drawRect(0,0,pix->width(),pix->height());
-            qp->end();
-         }
-         tabList->dict().replace(icon.data(),pix );
-       }
-       }//for every disk
-       tabList->show();
-       connect(tabList,SIGNAL(highlighted(int,int)),this,SLOT(clicked(int,int)));
-       connect(tabList,SIGNAL(selected(int,int)),this,SLOT(clicked(int,int)));
-       connect(tabList,SIGNAL(midClick(int,int)),this,SLOT(clicked(int,int)));
-       connect(tabList,SIGNAL(popupMenu(int,int)),this,SLOT(clicked(int,int)));
+    QGridLayout *gl = new QGridLayout(mGroupBox, 3, 4, KDialog::spacingHint());
+    if( gl == 0 ) { return; }
+    gl->addRowSpacing( 0, fontMetrics().lineSpacing() );
 
-   loadSettings();
-   applySettings();
-}
+    mIconLineEdit = new QLineEdit(mGroupBox); 
+    CHECK_PTR(mIconLineEdit);
+    mIconLineEdit->setMinimumWidth( fontMetrics().maxWidth()*10 );
+    connect( mIconLineEdit, SIGNAL(textChanged(const QString&)),
+	     this,SLOT(iconChanged(const QString&)));
+    gl->addWidget( mIconLineEdit, 2, 0 );
 
+    mIconButton = new QPushButton(mGroupBox); 
+    CHECK_PTR(mIconButton);
+    mIconButton->setFixedWidth( mIconButton->sizeHint().height() );
+    connect(mIconButton,SIGNAL(clicked()),this,SLOT(selectIcon()));
+    gl->addWidget( mIconButton, 2, 1 );
 
-/***************************************************************************
-  * saves KConfig and starts the df-cmd
-**/
-void MntConfigWidget::applySettings()
-{
-  debug("MntConfigWidget::applySettings");
- diskList.applySettings();
- config->setGroup("MntConfig");
- if (GUI) {
-   config->writeEntry("Width",this->width() );
-   config->writeEntry("Height",this->height() );
- }
- config->sync();
-}
+    //Mount
+    mMountButton = new QPushButton( i18n("Get mount command"), mGroupBox );
+    CHECK_PTR(mMountButton);
+    connect(mMountButton,SIGNAL(clicked()),this,SLOT(selectMntFile()));
+    gl->addWidget( mMountButton, 1, 2 );
 
-/***************************************************************************
-  * reads the KConfig
-**/
-void MntConfigWidget::loadSettings()
-{
-  debug("MntConfigWidget::loadSettings");
- if ((!initializing) && (GUI)) {
-       config->setGroup("MntConfig");
-       if (isTopLevel()) {
-         int w=config->readNumEntry("Width",this->width() );
-         int h=config->readNumEntry("Height",this->height() );
-         this->resize(w,h);
-       }
-       
-    //renew the views (qle etc)
-   if (qleMnt->hasFocus())
-     this->clicked(actRow,MNTCMDCOL);
-   else if (qleUmnt->hasFocus())
-     this->clicked(actRow,UMNTCMDCOL);
-   else this->clicked(actRow,DEVCOL);
-       
- }//if not initializing and GUI
+    mMountLineEdit = new QLineEdit(mGroupBox); 
+    CHECK_PTR(mMountLineEdit);
+    mMountLineEdit->setMinimumWidth( fontMetrics().maxWidth()*10 );
+    connect(mMountLineEdit,SIGNAL(textChanged(const QString&)),
+	    this,SLOT(mntCmdChanged(const QString&)));
+    gl->addWidget( mMountLineEdit, 1, 3 );
+
+    //Umount
+    mUmountButton = new QPushButton(i18n("Get unmount command"), mGroupBox );
+    CHECK_PTR( mUmountButton );
+    connect(mUmountButton,SIGNAL(clicked()),this,SLOT(selectUmntFile()));
+    gl->addWidget( mUmountButton, 2, 2 );
+
+    mUmountLineEdit=new QLineEdit(mGroupBox); 
+    CHECK_PTR(mUmountLineEdit);
+    mUmountLineEdit->setMinimumWidth( fontMetrics().maxWidth()*10 );
+    connect(mUmountLineEdit,SIGNAL(textChanged(const QString&)),
+	    this,SLOT(umntCmdChanged(const QString&)));
+    gl->addWidget( mUmountLineEdit, 2, 3 );
   
+  }
+
+  loadSettings();
+  if(init) 
+  {
+    applySettings();
+  }
+
+  mGroupBox->setEnabled( false );
 }
 
-/***************************************************************************
-  * is invoked when you click on an entry in the list
-**/
-void MntConfigWidget::clicked(int index, int column)
+
+MntConfigWidget::~MntConfigWidget( void ) 
+{ 
+}
+
+
+void MntConfigWidget::readDFDone( void ) 
 {
-  debug("MntConfigWidget::clicked row %i column %i",index, column);
-  if ((index == -1) || (tabList->count()<(uint)index)) return;
-  actRow=index;
-  tabList->unmarkAll();
-  tabList->markItem(actRow);
-  boxActDev->setEnabled(TRUE);
-  btnActIcon->setEnabled(TRUE);
-  qleIcon->setEnabled(TRUE);
-  qleMnt->setEnabled(TRUE);
-  qleUmnt->setEnabled(TRUE);
-  btnMntFile->setEnabled(TRUE);
-  btnUmntFile->setEnabled(TRUE);
-  btnUmntFile->setEnabled(TRUE);
-  if (column==MNTCMDCOL) qleMnt->setFocus();
-  if (column==UMNTCMDCOL) qleUmnt->setFocus();
-  DiskEntry *disk = new DiskEntry();
-  debug("devicename: %s", tabList->text(index, DEVCOL).ascii());
+  mInitializing = false;
+  mList->clear();
+
+  QListViewItem *item = 0;
+  KIconLoader &loader = *KGlobal::iconLoader();
+  for( DiskEntry *disk=mDiskList.first(); disk!=0; disk=mDiskList.next() ) 
+  {
+    item = new QListViewItem( mList, item, QString::null, disk->deviceName(), 
+      disk->mountPoint(), disk->mountCommand(), disk->umountCommand() );
+    item->setPixmap( ICONCOL, loader.loadIcon( disk->iconName(), false ) );
+  }
+
+  loadSettings();
+  applySettings();
+}
+
+
+void MntConfigWidget::applySettings( void )
+{
+  mDiskList.applySettings();
+
+  KConfig &config = *kapp->config();
+  config.setGroup("MntConfig");
+  if(GUI ) 
+  {
+   config.writeEntry("Width", width() );
+   config.writeEntry("Height", height() );
+  }
+  config.sync();
+}
+
+
+void MntConfigWidget::loadSettings( void )
+{
+  KConfig &config = *kapp->config();
+  if( mInitializing == false && GUI )
+  {
+    config.setGroup("MntConfig");
+    if( isTopLevel() ) 
+    {
+      int w = config.readNumEntry("Width",this->width() );
+      int h = config.readNumEntry("Height",this->height() );
+      resize(w,h);
+    }
+    
+    QListViewItem *item = mList->selectedItem();
+    if( item != 0 )
+    {
+      clicked( item );
+    }
+  }
+}
+
+
+void MntConfigWidget::clicked( QListViewItem *item )
+{
+  mGroupBox->setEnabled( true );
+  mGroupBox->setTitle( QString("%1: %2  %3: %4").
+    arg(mList->header()->label(DEVCOL)).
+    arg(item->text(DEVCOL)).
+    arg(mList->header()->label(MNTPNTCOL)).
+    arg(item->text(MNTPNTCOL)) );
+
+
+  const QPixmap *pix = item->pixmap(ICONCOL);
+  if( pix != 0 )
+  {
+    mIconButton->setPixmap( *pix );
+  }
+
+  int i=0;
+  for( QListViewItem *it=mList->firstChild(); it!=0; it=it->nextSibling(),i++ )
+  {
+    if( it == item )
+    {
+      DiskEntry *disk = mDiskList.at(i);
+      if( disk != 0 )
+      {
+	mIconLineEdit->setText( disk->iconName() );
+      }
+      break;
+    }
+  }
+  mMountLineEdit->setText( item->text(MNTCMDCOL) );
+  mUmountLineEdit->setText( item->text(UMNTCMDCOL) );
+}
   
-  disk->setDeviceName(tabList->text(index,DEVCOL));
-  disk->setMountPoint(tabList->text(index,MNTPNTCOL));
-  actDisk=diskList.at(diskList.find(disk));
-  delete disk;
-  QString title;
-  title.sprintf("%s [%s] %s [%s]",tabHeaders.at(DEVCOL)
-                                 ,actDisk->deviceName().latin1()
-                                 ,tabHeaders.at(MNTPNTCOL)
-                                 ,actDisk->mountPoint().latin1());
-  QString icon;
-         icon.sprintf("%s%s%s",actDisk->iconName().latin1()
-                            ,actDisk->deviceName().latin1()
-                            ,actDisk->mountPoint().latin1());
-
-  boxActDev->setTitle(title);
-  btnActIcon->setPixmap(*(tabList->dict()[icon.data()]));
-  qleIcon->setText(actDisk->iconName().left(actDisk->iconName().findRev('_')) );
-  qleMnt->setText(actDisk->mountCommand());
-  qleUmnt->setText(actDisk->umountCommand());
-
-}
 
 
-void MntConfigWidget::selectIcon()
+void MntConfigWidget::selectIcon( void )
 {
-  KIconLoaderDialog *kild=new KIconLoaderDialog(loader,this);
-  CHECK_PTR(kild);
+  KIconLoaderDialog *dialog = new KIconLoaderDialog(this);
+  if( dialog == 0 )
+  {
+    return;
+  }
+
   QStringList dirs;
-
-  //dirs.append(mini");
+  //dirs.append("mini");
   //dirs.append(KApplication::localkdedir()+"/share/icons/mini");
+  dirs.append("/opt/kde2/share/icons/small/locolor/devices/");
+  dialog->changeDirs(dirs);
+  
+  QString iconName;
+  dialog->selectIcon(iconName,"*");
+  delete dialog;
 
-  kild->changeDirs(dirs);
-  QString icoName;
-  QPixmap *pix=new QPixmap(kild->selectIcon(icoName,"*"));
-  delete pix;
-  delete kild;
-  if (!icoName.isEmpty()) {
-    if ( (icoName.findRev('_')==0) || //file starts with a _
-          ((icoName.right(icoName.length()-icoName.findRev('_'))
-                        != "_mount.xpm") &&
-          (icoName.right(icoName.length()-icoName.findRev('_'))
-                        != "_unmount.xpm") ) )
-       QMessageBox::warning(this, kapp->caption(),
-			    i18n("This filename is not valid.\n"
-				 "It has to be ending in \n\"_mount.xpm\" or \"_unmount.xpm\"."), i18n("OK"));
-    else {
-       icoName=icoName.left(icoName.findRev('_'));
-       actDisk->setIconName(icoName);
-  QString icon;
-       icon.sprintf("%s%s%s",actDisk->iconName().latin1()
-                            ,actDisk->deviceName().latin1()
-                            ,actDisk->mountPoint().latin1());
+  if( iconName == QString::null )
+  {
+    return;
+  }
 
-       pix=tabList->dict()[icon.data()];
-       if (pix == 0) { // pix not already in cache
-          pix = new QPixmap(loader->loadApplicationIcon(actDisk->iconName(), KIconLoader::Small));
-          if ( -1==actDisk->mountOptions().find("user",0,FALSE) ) {
-             // special root icon, normal user can´t mount
-            QPainter *qp;
-            QBitmap *bm=new QBitmap(*(pix->mask()));
-            int w=1;  //width of the rect
-            if (bm != 0) { //a mask exists, draw the rect on the mask first
-              qp=new QPainter(bm);
-              qp->setPen(QPen(white,w));
-              qp->drawRect(0,0,bm->width(),bm->height());
-              qp->end();
-              pix->setMask(*bm);
-            }
-            qp=new QPainter(pix);
-            qp->setPen(QPen(red,w));
-            qp->drawRect(0,0,pix->width(),pix->height());
-            qp->end();
-         }
-         tabList->dict().replace(icon.data(),pix );
-       }
-     btnActIcon->setPixmap(*pix);
-     qleIcon->setText(icoName);
-     tabList->changeItemPart(icon.data(),actRow,ICONCOL);
-     //     tabList->repaint();
-     }
-  };
+  if( iconName.findRev('_') == QString::null || 
+      (iconName.right(iconName.length()-iconName.findRev('_'))!="_mount.png" &&
+      iconName.right(iconName.length()-iconName.findRev('_'))!="_unmount.png"))
+  {
+    QString msg = i18n(""
+      "This filename is not valid: %1\n"
+      "It has to be ending in\n"
+      "\"_mount.png\" or \"_unmount.png\".").arg(iconName);       
+    KMessageBox::sorry( this, msg );
+    return;
+  }
 
+
+  int i=0;
+  QListViewItem *item = mList->selectedItem();
+  for( QListViewItem *it=mList->firstChild(); it!=0; it=it->nextSibling(),i++ )
+  {
+    if( it == item )
+    {
+      DiskEntry *disk = mDiskList.at(i);
+      if( disk != 0 )
+      {
+	disk->setIconName(iconName);
+	mIconLineEdit->setText(iconName);
+	KIconLoader &loader = *KGlobal::iconLoader();
+	item->setPixmap( ICONCOL, loader.loadApplicationIcon( iconName, 
+	  KIconLoader::Small, 0, false ) );
+      }
+      break;
+    }
+  }
 }
+
 
 void MntConfigWidget::selectMntFile()
 {
-  QString cmd=KFileDialog::getOpenFileName("","*",this);
-  if (!cmd.isEmpty()) qleMnt->setText(cmd);
+  QString cmd = KFileDialog::getOpenFileName( "","*", this );
+  if (!cmd.isEmpty()) mMountLineEdit->setText(cmd);
 }
+
 
 void MntConfigWidget::selectUmntFile()
 {
-  QString cmd=KFileDialog::getOpenFileName("","*",this);
-  if (!cmd.isEmpty()) qleUmnt->setText(cmd);
+  QString cmd = KFileDialog::getOpenFileName( "", "*", this );
+  if (!cmd.isEmpty()) mUmountLineEdit->setText(cmd);
 }
+
 
 void MntConfigWidget::iconChanged(const QString& )
 {
 }
 
-void MntConfigWidget::mntCmdChanged(const QString& data)
+
+void MntConfigWidget::mntCmdChanged( const QString &data )
 {
-  tabList->changeItemPart(data,actRow,MNTCMDCOL);
-  actDisk->setMountCommand(data);
-}
-
-void MntConfigWidget::umntCmdChanged(const QString& data)
-{
-  tabList->changeItemPart(data,actRow,UMNTCMDCOL);
-  actDisk->setUmountCommand(data);
-}
-
-/***************************************************************************
-  * Destructor
-**/
-MntConfigWidget::~MntConfigWidget() 
-{ 
-  debug("DESTRUCT: MntConfigWidget::~MntConfigWidget");
-  if (GUI) {
-    delete btnActIcon;
-    delete qleIcon;
-    delete qleMnt;
-    delete btnMntFile;
-    delete qleUmnt;
-    delete btnUmntFile;
-
-    delete boxActDev;
-    delete tabList;
-   
+  QListViewItem *item = mList->selectedItem();
+  if( item != 0 )
+  {
+    item->setText( MNTCMDCOL, data );
   }
-}; 
+}
 
-/***************************************************************************
-  * is called when the program is exiting
-**/
+
+void MntConfigWidget::umntCmdChanged( const QString &data )
+{
+  QListViewItem *item = mList->selectedItem();
+  if( item != 0 )
+  {
+    item->setText( UMNTCMDCOL, data );
+  }
+}
+
+
 void MntConfigWidget::closeEvent(QCloseEvent *)
 {
-  debug("MntConfigWidget::closeEvent");
-  //applySettings(); 
-  // kapp->quit();
 };
 
-/**************************************************************************
-  * calculates the sizes of the settings and the device-tabList
-**/
-void MntConfigWidget::resizeEvent(QResizeEvent *)
-{
-  boxActDev->setGeometry(0,this->height()-80,this->width(),80);
-  
-  tabList->setGeometry(0,0,this->width(),boxActDev->y());
-  int frontCols=0;
-  for(int i=0;i<=MNTPNTCOL;i++)
-     frontCols+=tabList->columnWidth(i);
-
-  //mount and umount col is same width  (range: 0..NRCOLS-1)
-  int col=(this->width()-4-frontCols)/2;
-  tabList->setColumnWidth(MNTCMDCOL,col);
-  tabList->setColumnWidth(UMNTCMDCOL,col);
-
-  qleMnt->setGeometry(frontCols,20,col,25);
-  btnMntFile->setGeometry(qleMnt->x(),qleMnt->y()+qleMnt->height()+5
-                         ,qleMnt->width(),qleMnt->height());
-  btnActIcon->setGeometry(btnMntFile->x()-qleMnt->height()-5
-                         ,btnMntFile->y(),qleMnt->height()
-                         ,qleMnt->height());
-  qleIcon->setGeometry(5,btnActIcon->y()
-                       ,btnActIcon->x()-5-5,btnActIcon->height());
-  qleUmnt->setGeometry(frontCols+col,20,col,25);
-  btnUmntFile->setGeometry(qleUmnt->x(),qleUmnt->y()+qleUmnt->height()+5
-                          ,qleUmnt->width(),qleUmnt->height());
-
-}
 
 #include "mntconfig.moc"
-

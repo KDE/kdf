@@ -22,175 +22,140 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
- 
-#include <math.h>
 
-#include <qstring.h>
+
+//
+// 1999-11-29 Espen Sand
+// Converted to QLayout and QListView + cleanups
+//
+
+
+#include <qcheckbox.h>
 #include <qfile.h>
-#include <qtextstream.h>
-#include <qstring.h>
+#include <qheader.h>
 #include <qlabel.h>
 #include <qlayout.h>
-#include <qpixmap.h>
-#include <qpaintdevice.h>
-#include <qlineedit.h>
 #include <qlcdnumber.h>
-#include <qcheckbox.h>
+#include <qlineedit.h>
+#include <qlistview.h>
 #include <qscrollbar.h>
+#include <qstring.h>
 
+#include <kconfig.h>
+#include <kdialog.h>
 #include <kglobal.h>
-#include <kiconloader.h>
-#include <ktablistbox.h>
-#include "kdfconfig.h"
+#include <klocale.h>
 
-#define BLANK ' '
-#define DELIMITER '#'
-#define BORDER 5
-#define PIX_COLUMN 7
-#define FULL_PERCENT 95.0
-#define VISIBLE i18n("visible")
-#define INVISIBLE i18n("invisible")
+#include "listview.h"
+#include "kdfconfig.h"
 
 #define DEFAULT_FREQ 60
 #define DEFAULT_FILEMGR_COMMAND "kfmclient openURL %m"
-//#define DEFAULT_FILEMGR_COMMAND "kvt -e mc %m"
 
 #ifndef GUI_DEFINED
 static bool GUI;
 #define GUI_DEFINED
 #endif
 
-/***************************************************************************
-  * Constructor
-**/
-KDFConfigWidget::KDFConfigWidget (QWidget * parent, const char *name
-                      , bool init)
-    : KConfigWidget (parent, name)
+
+KDFConfigWidget::KDFConfigWidget(QWidget *parent, const char *name, bool init)
+  : KConfigWidget (parent, name)
 {
-  debug("Construct: KDFConfigWidget::KDFConfigWidget");
+
+  mTabName.resize(8);
+  mTabName[0] = new CTabName( "Icon", i18n("Icon") );
+  mTabName[1] = new CTabName( "Device", i18n("Device") );
+  mTabName[2] = new CTabName( "Type", i18n("Type") );
+  mTabName[3] = new CTabName( "Size", i18n("Size") );
+  mTabName[4] = new CTabName( "MountPoint", i18n("Mount point") );
+  mTabName[5] = new CTabName( "Free", i18n("Free") );
+  mTabName[6] = new CTabName( "Full%", i18n("Full %") );
+  mTabName[7] = new CTabName( "UsageBar", i18n("Usage") );
+
+  GUI = init ? FALSE : TRUE;
+  if(GUI)
+  {
+    QString text;
+    QVBoxLayout *topLayout = new QVBoxLayout( this, 0, KDialog::spacingHint());
+
+    mList = new CListView( this, "list", 1 );
+    mList->setAllColumnsShowFocus(true);
+    mList->setFrameStyle( QFrame::WinPanel + QFrame::Sunken );
+    mList->header()->setMovingEnabled(false);
+    for( uint i=0; i < mTabName.size(); i++ )
+    {
+      mList->addColumn( mTabName[i]->mName );
+    }
+    connect( mList, SIGNAL(clicked(QListViewItem *, const QPoint &, int)),
+	     this, SLOT(toggleListText(QListViewItem *,const QPoint &,int)));
+    topLayout->addWidget( mList );
+
+    QListViewItem *mListItem = new QListViewItem( mList );  
+    for( uint i=mList->header()->count(); i>0; i-- )
+    {
+      mListItem->setText(i-1, i18n("visible") );
+    }
+    mList->setSelected( mListItem, true );
+
+    QGridLayout *gl = new QGridLayout( 2, 2 );
+    topLayout->addLayout( gl );
+    gl->setColStretch( 1, 10 );  
+
+    mScroll = new QScrollBar( this ); 
+    CHECK_PTR(mScroll); 
+    mScroll->setOrientation( QScrollBar::Horizontal );
+    mScroll->setSteps(1,20);
+    mScroll->setRange(0, 180 ); 
+    mScroll->setValue(DEFAULT_FREQ);
+    gl->addWidget( mScroll, 1, 1 );  
+
+    mLCD = new QLCDNumber( this ); 
+    CHECK_PTR(mLCD);
+    mLCD->setNumDigits( 3 );
+    mLCD->setSegmentStyle(QLCDNumber::Filled);
+    connect(mScroll,SIGNAL(valueChanged(int)),mLCD,SLOT(display(int)));
+    gl->addMultiCellWidget( mLCD, 0, 1, 0, 0 );
+
+    QLabel *label = new QLabel( i18n("Update frequency (seconds)"), this ); 
+    CHECK_PTR(label);
+    gl->addWidget( label, 0, 1 );  
 
 
-  tabWidths.resize(PIX_COLUMN+1);
-  tabHeaders.append(i18n("Icon") );
-  tabWidths[0]=32;
-  tabHeaders.append(i18n("Device") );
-  tabWidths[1]=80;
-  tabHeaders.append(i18n("Type") );
-  tabWidths[2]=50;
-  tabHeaders.append(i18n("Size") );
-  tabWidths[3]=72;
-  tabHeaders.append(i18n("MountPoint") );
-  tabWidths[4]=90;
-  tabHeaders.append(i18n("Free") );
-  tabWidths[5]=55;
-  tabHeaders.append(i18n("Full%") );
-  tabWidths[6]=70;
-  tabHeaders.append(i18n("UsageBar") );
-  tabWidths[7]=100;
+    label = new QLabel( i18n("FileManager (e.g. kvt -e mc %m)") ,this);
+    CHECK_PTR(label);
+    topLayout->addWidget( label );
 
-  if (init) {
-    GUI = FALSE;
-  } else
-    GUI = TRUE;
+    mFileManagerEdit = new QLineEdit( this ); 
+    CHECK_PTR(mFileManagerEdit);
+    topLayout->addWidget( mFileManagerEdit );
 
-  if (GUI)
-    {  // inits go here
-      this->setMinimumSize(325,200);
-      KIconLoader *loader = KGlobal::iconLoader();
+    text = i18n("Open the above filemanager on mount");
+    mOpenMountCheck = new QCheckBox(text, this ); 
+    CHECK_PTR(mOpenMountCheck);
+    topLayout->addWidget( mOpenMountCheck );
 
-      freqLabel = new QLabel( i18n("update frequency (seconds)")
-                              ,this); CHECK_PTR(freqLabel);
-      fileMgrLabel = new QLabel( i18n("FileManager (e.g. kvt -e mc %m)")
-                              ,this); CHECK_PTR(fileMgrLabel);
-      freqScroll = new QScrollBar( this ); CHECK_PTR(freqScroll); 
-      freqScroll->setOrientation( QScrollBar::Horizontal );
-      freqScroll->setSteps(1,20);
-      freqScroll->setRange(0, 180 ); 
-      freqScroll->setValue(DEFAULT_FREQ);
+    text = i18n("Pop up a window when a disk gets critically full");
+    mPopupFullCheck = new QCheckBox( text, this ); 
+    CHECK_PTR(mPopupFullCheck);
+    topLayout->addWidget( mPopupFullCheck );
+
+    text = parent->className();
+    isTopLevel = text == "KDFTopLevel" ? TRUE : FALSE;
+  }
+
+  loadSettings();
+  if( init )
+  {
+    applySettings();
+  }
+}
 
 
-      freqLCD = new QLCDNumber( this ); CHECK_PTR(freqLCD);
-      freqLCD->setNumDigits( 3 );
-      freqLCD->setSegmentStyle(QLCDNumber::Filled);
-      connect(freqScroll, SIGNAL(valueChanged(int)), 
-              freqLCD, SLOT(display(int)) );
-      fileMgrEdit = new QLineEdit( this ); CHECK_PTR(fileMgrEdit);
-      
-      cbOpenFileMgrOnMount = new QCheckBox(i18n("Open the above filemanager on mount"),this); 
-      CHECK_PTR(cbOpenFileMgrOnMount);
-
-      cbPopupIfFull = new QCheckBox(i18n("Pop up a window when a disk gets critically full"),this); 
-      CHECK_PTR(cbPopupIfFull);
- 
-      QString pcn=parent->className();
-      debug("parent: [%s]",pcn.latin1());
-      if ( pcn == "KDFTopLevel" ) {
-         //it is used from KTMainWindow "kdf" --> provides a help-btn
-         isTopLevel=TRUE;  
-      } else 
-         isTopLevel=FALSE;
-
-
-   // config-tabList ****************************************
-
-      confTabList = new KTabListBox(this,"confTabList",PIX_COLUMN+1,0); 
-      CHECK_PTR(confTabList);
-      for (int i=0;i<=PIX_COLUMN;i++)
-        confTabList->setColumn(i,tabHeaders.at(i)
-                         ,tabWidths[i],KTabListBox::PixmapColumn);
-      confTabList->setSeparator(BLANK);
-      confTabList->dict().setAutoDelete(TRUE);
-      QPixmap *pix;
-      pix = new QPixmap(loader->loadApplicationIcon("tick", KIconLoader::Small));
-      confTabList->dict().replace(VISIBLE,pix );
-      pix = new QPixmap(loader->loadApplicationIcon("delete", KIconLoader::Small));
-      confTabList->dict().replace(INVISIBLE,pix );
-      confTabList->show();
-    
-      QString s;
-      for (int i=0;i<=PIX_COLUMN;i++)
-         s = s + i18n(VISIBLE) + " ";
-      confTabList->appendItem((const char *)s);
-      connect(confTabList,SIGNAL(headerClicked(int))
-             ,this,SLOT(toggleColumnVisibility(int)) );
-      connect(confTabList,SIGNAL(popupMenu(int,int))
-             ,this,SLOT(toggleColumnVisibility(int,int)) );
-      connect(confTabList,SIGNAL(selected(int,int))
-             ,this,SLOT(toggleColumnVisibility(int,int)) );
-      connect(confTabList,SIGNAL(midClick(int,int))
-             ,this,SLOT(toggleColumnVisibility(int,int)) );
-      connect(confTabList,SIGNAL(highlighted(int,int)) 
-           ,this,SLOT(toggleColumnVisibility(int,int)) );
- 
-   }//if GUI
-
-   config = kapp->config();
-   loadSettings();
-   if (init)
-     applySettings();
-} // Constructor
-
-
-/***************************************************************************
-  * Destructor
-**/
 KDFConfigWidget::~KDFConfigWidget() 
 { 
-  debug("DESTRUCT: KDFConfigWidget::~KDFConfigWidget");
-  if (GUI) {
-   delete freqLabel;
-   delete fileMgrLabel;
-   delete freqScroll;
-   delete freqLCD;
-   delete cbOpenFileMgrOnMount;
-   delete cbPopupIfFull;
-   delete confTabList;
-  }
 }; 
 
-/***************************************************************************
-  * is called when the program is exiting
-**/
+
 void KDFConfigWidget::closeEvent(QCloseEvent *)
 {
   debug("KDFConfigWidget::closeEvent");
@@ -198,145 +163,104 @@ void KDFConfigWidget::closeEvent(QCloseEvent *)
   kapp->quit();
 };
 
-/***************************************************************************
-  * saves KConfig and starts the df-cmd
-**/
-void KDFConfigWidget::applySettings()
+
+void KDFConfigWidget::applySettings( void )
 {
-  debug("KDFConfigWidget::applySettings");
- config->setGroup("KDFConfig");
- if (GUI) {
-    config->writeEntry("Width",width() );
-    config->writeEntry("Height",height() );
-    config->writeEntry("UpdateFrequency",freqScroll->value());
-    config->writeEntry("FileManagerCommand",fileMgrEdit->text() );
-    config->writeEntry("PopupIfFull",cbPopupIfFull->isChecked());
-    config->writeEntry("OpenFileMgrOnMount",cbOpenFileMgrOnMount->isChecked());
-    for (int i=0;i<PIX_COLUMN;i++)
-      config->writeEntry(tabHeaders.at(i),(confTabList->text(0,i)==VISIBLE));
- } else { //init
-    config->writeEntry("FileManagerCommand",DEFAULT_FILEMGR_COMMAND );
- }//if GUI
- config->sync();
-}
+  KConfig &config = *kapp->config();
+  config.setGroup("KDFConfig");
 
+  if( GUI ) 
+  {
+    config.writeEntry( "Width", width() );
+    config.writeEntry( "Height", height() );
+    config.writeEntry( "UpdateFrequency", mScroll->value() );
+    config.writeEntry( "FileManagerCommand", mFileManagerEdit->text() );
+    config.writeEntry( "PopupIfFull", mPopupFullCheck->isChecked() );
+    config.writeEntry( "OpenFileMgrOnMount", mOpenMountCheck->isChecked() );
 
-/***************************************************************************
-  * reads the KConfig
-**/
-void KDFConfigWidget::loadSettings()
-{
-  debug("KDFConfigWidget::loadSettings");
- config->setGroup("KDFConfig");
-
- if (GUI) {
-    if (isTopLevel) { //only "kdf" can be resized
-       int appWidth=config->readNumEntry("Width",width());
-       int appHeight=config->readNumEntry("Height",height());
-       this->resize(appWidth,appHeight);
+    QListViewItem *item = mList->firstChild();
+    if( item != 0 )
+    {
+      for( int i=mList->header()->count(); i>0; i-- )
+      {
+	bool state = item->text(i-1) == i18n("visible") ? true : false;	
+	config.writeEntry( mTabName[i-1]->mRes, state );
+      }
     }
-    freqScroll->setValue(config->readNumEntry("UpdateFrequency",DEFAULT_FREQ));
-    cbPopupIfFull->setChecked(config->readBoolEntry("PopupIfFull",TRUE));
-    cbOpenFileMgrOnMount->setChecked(config->readBoolEntry("OpenFileMgrOnMount",FALSE));
-    freqLCD->display(freqScroll->value());
-    fileMgrEdit->setText(config->readEntry("FileManagerCommand"
-                         ,DEFAULT_FILEMGR_COMMAND));
-    for (int i=0;i<=PIX_COLUMN;i++) {
-      int j=config->readNumEntry(tabHeaders.at(i),tabWidths[i]);
-      if (j != 0)
-        confTabList->changeItemPart(i18n(VISIBLE),0,i); 
-      else
-        confTabList->changeItemPart(i18n(INVISIBLE),0,i); 
-   
-    }//for
- }//if GUI
-}
-
-/***************************************************************************
-  * resets all to its defaults
-**/
-void KDFConfigWidget::defaultsBtnClicked()
-{
-  debug("KDFConfigWidget::defaultsBtnClicked");
-  freqScroll->setValue(DEFAULT_FREQ);
-  fileMgrEdit->setText(DEFAULT_FILEMGR_COMMAND);
-  for (int i=0;i<=PIX_COLUMN;i++) {
-       confTabList->changeItemPart(i18n(VISIBLE),0,i); 
-  }//for
-  this->update();
-}
-
-
-/**************************************************************************
-  * connected with the confTabList-Signal
-**/
-void KDFConfigWidget::toggleColumnVisibility(int column)
-{
-  debug("KDFConfigWidget::toggleColumnVisibility: %d",column);
-
-  if(confTabList->text(0,column) == i18n(INVISIBLE) ) {
-    confTabList->changeItemPart(i18n(VISIBLE),0,column); 
-  } else {
-    confTabList->changeItemPart(i18n(INVISIBLE),0,column); 
+  } 
+  else 
+  {
+    config.writeEntry( "FileManagerCommand", DEFAULT_FILEMGR_COMMAND );
   }
-  //confTabList->unmarkAll();
-  this->update();
+  config.sync();
 }
 
 
-/**************************************************************************
-  * calculates the sizes of the settings and the device-tabList
-**/
-void KDFConfigWidget::resizeEvent(QResizeEvent *)
+void KDFConfigWidget::loadSettings( void )
 {
-  debug("KDFConfigWidget::resizeEvent  %dx%d",width(),height());
-  
-  //set widths to default-values
-  for (int i=0;i<=PIX_COLUMN;i++)
-      confTabList->setColumnWidth(i,tabWidths[i]);
-  //same with confTabList
-  int totalWidth=0;
-  for (int i=0;i<PIX_COLUMN;i++) //all except the last (pix) column
-    totalWidth += confTabList->columnWidth(i);
-  //adjust size to fit completely into tabList-widget...
-  if (confTabList->width() > totalWidth+4)
-     confTabList->setColumnWidth(PIX_COLUMN
-                        ,confTabList->width()-totalWidth-4);
+  KConfig &config = *kapp->config();
+  config.setGroup("KDFConfig");
 
-   confTabList->setGeometry(0,0,this->width()-BORDER,60);
+  if (GUI) 
+  {
+    if( isTopLevel ) 
+    {
+      //int appWidth=config->readNumEntry("Width",width());
+      //int appHeight=config->readNumEntry("Height",height());
+      //resize(appWidth,appHeight);
+    }
+    mScroll->setValue(config.readNumEntry("UpdateFrequency",DEFAULT_FREQ));
+    mPopupFullCheck->setChecked(config.readBoolEntry("PopupIfFull",TRUE));
+    mOpenMountCheck->setChecked(config.readBoolEntry("OpenFileMgrOnMount",
+						     FALSE));
+    mLCD->display(mScroll->value());
+    mFileManagerEdit->setText( config.readEntry( "FileManagerCommand",
+						 DEFAULT_FILEMGR_COMMAND));
 
-   freqLCD->setGeometry(5,confTabList->y()+confTabList->height()+BORDER,52,32);
- {
-   int x=freqLCD->x()+freqLCD->width()+BORDER;
-   int w=160;
-   w=this->width() - x - 2*BORDER;
-   freqScroll->setGeometry(x,freqLCD->y()+freqLCD->height()-16,w,16);
- }
+    QListViewItem *item = mList->firstChild();
+    if( item != 0 )
+    {
+      for( int i=mList->header()->count(); i>0; i-- )
+      {
+	int j = config.readNumEntry( mTabName[i-1]->mRes, 1 );
+	item->setText( i-1, j==0 ? i18n("hidden") : i18n("visible") );
+      }
+    }
+  }
 
-  freqLabel->setGeometry(freqLCD->x()+freqLCD->width()+BORDER
-                  ,freqLCD->y()
-		  ,freqScroll->width()+3
-                  ,freqLCD->height()-freqScroll->height() );
-
-  fileMgrLabel->setGeometry(freqLCD->x()
-                  ,freqScroll->y()+freqScroll->height()+BORDER
-                  ,freqScroll->width()+freqLCD->width()+BORDER
-                  ,16 );
-
-  fileMgrEdit->setGeometry(fileMgrLabel->x()
-                 ,(fileMgrLabel->y()+fileMgrLabel->height())
-                 ,fileMgrLabel->width()
-                 ,25 );
-
-  cbOpenFileMgrOnMount->setGeometry(fileMgrEdit->x()
-              ,fileMgrEdit->y()+fileMgrEdit->height()+3,
-              fileMgrEdit->width(),fileMgrEdit->height());
-
-  cbPopupIfFull->setGeometry(cbOpenFileMgrOnMount->x()
-              ,cbOpenFileMgrOnMount->y()+cbOpenFileMgrOnMount->height()+3,
-              cbOpenFileMgrOnMount->width(),cbOpenFileMgrOnMount->height());
-                 
-  // repaint();
 }
+
+void KDFConfigWidget::defaultsBtnClicked( void )
+{
+  mScroll->setValue( DEFAULT_FREQ );
+  mFileManagerEdit->setText( DEFAULT_FILEMGR_COMMAND );
+  mPopupFullCheck->setChecked( true );
+  mOpenMountCheck->setChecked( false );
+
+  QListViewItem *item = mList->firstChild();
+  if( item != 0 )
+  {
+    for( int i=mList->header()->count(); i>0; i-- )
+    {
+      item->setText( i-1, i18n("visible") );
+    }
+  }
+}
+
+
+void KDFConfigWidget::toggleListText( QListViewItem *item, const QPoint &,
+				      int column )
+{
+  QString text = item->text( column );
+  item->setText(column, text==i18n("visible")?i18n("hidden"):i18n("visible"));
+}
+
+
 
 #include "kdfconfig.moc"
+
+
+
+
+
+

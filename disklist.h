@@ -64,6 +64,20 @@ class Disks : public DisksBase
   Disks(bool deepCopies=TRUE) { dc = deepCopies;};
   ~Disks() { clear(); };
 private: 
+  int compareItems( DiskEntry* s1, DiskEntry* s2 ) 
+  {
+    int ret = strcmp( s1->deviceName(), s2->deviceName() );
+    if( ret == 0 )
+    {
+      ret = strcmp( s1->mountPoint(), s2->mountPoint() );
+    }
+
+    printf("%s vs %s (%d)\n", s1->deviceName().latin1(),
+	   s2->deviceName().latin1(), ret );
+    return( ret );
+  }
+
+  /*
   int compareItems( DiskEntry* s1, DiskEntry* s2 ) {
 	int ret;
 	ret = strcmp (static_cast<DiskEntry*>(s1)->deviceName(),
@@ -73,6 +87,7 @@ private:
 			 static_cast<DiskEntry*>(s2)->mountPoint());
 	return ret;
       };
+  */
 
   bool  dc;
 };

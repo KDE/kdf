@@ -24,9 +24,12 @@ SUBDIRS = pics
 bin_PROGRAMS = 	kcmdf kdf kwikdisk
 
 # Which sources should be compiled
-kdf_SOURCES	= kdf.cpp kdfwidget.cpp kdfconfig.cpp mntconfig.cpp disklist.cpp disks.cpp
-kcmdf_SOURCES	= kcmdf.cpp kdfwidget.cpp kdfconfig.cpp mntconfig.cpp disklist.cpp disks.cpp
-kwikdisk_SOURCES	= kwikdisk.cpp kdfconfig.cpp mntconfig.cpp disklist.cpp disks.cpp
+kdf_SOURCES	= kdf.cpp kdfwidget.cpp kdfconfig.cpp mntconfig.cpp \
+disklist.cpp disks.cpp listview.cpp optiondialog.cpp
+kcmdf_SOURCES	= kcmdf.cpp kdfwidget.cpp kdfconfig.cpp mntconfig.cpp \
+disklist.cpp disks.cpp listview.cpp optiondialog.cpp
+kwikdisk_SOURCES	= kwikdisk.cpp kdfconfig.cpp mntconfig.cpp \
+disklist.cpp disks.cpp listview.cpp optiondialog.cpp
 
 # the library search path
 kdf_LDFLAGS = $(all_libraries) $(KDE_RPATH)
@@ -40,10 +43,13 @@ kcmdf_LDADD   = $(LIB_KFILE)
 kwikdisk_LDADD   = $(LIB_KFILE)
 
 # this option you can leave out. Just, if you use "make dist", you need it
-noinst_HEADERS = kdfwidget.h  kcmdf.h kdfconfig.h  mntconfig.h disks.h kdf.h  disklist.h kwikdisk.h
+noinst_HEADERS = kdfwidget.h  kcmdf.h kdfconfig.h  mntconfig.h \
+disks.h kdf.h  disklist.h kwikdisk.h listview.h optiondialog.h
 
 # just to make sure, automake makes them 
-METASOURCES =	kcmdf.moc kdf.moc kdfwidget.moc kdfconfig.moc  mntconfig.moc disks.moc disklist.moc kwikdisk.moc
+METASOURCES =	kcmdf.moc kdf.moc kdfwidget.moc kdfconfig.moc  \
+mntconfig.moc disks.moc disklist.moc kwikdisk.moc listview.moc \
+optiondialog.moc
 
 # make messages.po. Move this one to ../po/ and "make merge" in po
 messages:

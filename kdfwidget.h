@@ -25,73 +25,111 @@
 #ifndef __KDFWIDGET_H__
 #define __KDFWIDGET_H__
 
-#include <qstring.h>
+#include <qarray.h>
 #include <qglobal.h>
+#include <qstring.h>
 
-#include <kcontrol.h>
 
 #include "disks.h"
 #include "disklist.h"
 #include "mntconfig.h"
 #include "kdfconfig.h"
 
-class QTabDialog;
-
-class KTabListBox;
+class CListView;
+class COptionDialog;
+class QListViewItem;
+class KPopupMenu;
 
 /**************************************************************/
+
+
+class CTabEntry
+{
+  public:
+    CTabEntry( const QString &res, const QString &name, bool visible,
+	       uint width )
+    {
+      mRes     = res;
+      mName    = name;
+      mVisible = visible;
+      mWidth   = width;
+    };
+    CTabEntry( void ) { }
+    ~CTabEntry( void ) { }
+
+
+    QString mRes;
+    QString mName;
+    bool mVisible;
+    uint mWidth;
+};
+
+
+
+
+
+
 
 class KDFWidget : public KConfigWidget
 {
   Q_OBJECT
-public:
-  KDFWidget( QWidget *parent=0, const char *name=0, bool init=FALSE);
-  ~KDFWidget();
 
-public slots:
-  void loadSettings();
-  void applySettings();
-  void updateDF();
-  void updateDFDone();
-  void settingsBtnClicked();
+  public:
+    enum ColId
+    {
+      iconCol   = 0,
+      deviceCol = 1,
+      typeCol   = 2,
+      sizeCol   = 3,
+      mntCol    = 4,
+      freeCol   = 5,
+      fullCol   = 6,
+      usageCol  = 7
+    };
+
+  public:
+    KDFWidget( QWidget *parent=0, const char *name=0, bool init=false);
+    ~KDFWidget( void );
+
+  public slots:
+    void loadSettings( void );
+    void applySettings( void );
+    void updateDF( void );
+    void updateDFDone( void );
+    void settingsBtnClicked( void );
   
-private slots:
-   void confLoadSettings();
-   void confApplySettings();
-   void criticallyFull(DiskEntry *disk);
-   void toggleColumnVisibility(int column);
-   void toggleColumnVisibility(int,int column)
-         { toggleColumnVisibility(column); }; //overloaded
-   void popupMenu(int row,int column);
-   void setUpdateFreq(int freq);
-   void invokeHTMLHelp();
+  private slots:
+    void criticallyFull( DiskEntry *disk );
+    void popupMenu( QListViewItem *item, const QPoint &, int column );
+    void setUpdateFreq( int freq );
+    void invokeHTMLHelp( void );
 
-protected:
-  void paintEvent( QPaintEvent * );       
-  void resizeEvent( QResizeEvent * );       
-  void  timerEvent( QTimerEvent * );
-  void closeEvent( QCloseEvent * );
+  protected:
+    void paintEvent( QPaintEvent * );
+    void timerEvent( QTimerEvent * );
+    void closeEvent( QCloseEvent * );
 
-private:
-  void updatePixmaps();
+  private:
+    void makeColumns( void );
+    void updatePixmaps( void );
+    DiskEntry *selectedDisk( QListViewItem *item=0 );
 
-  KConfig           *config;
-  QTabDialog       *tabconf;
-  MntConfigWidget   *mntconf;
-  KDFConfigWidget   *kdfconf;
+  private:
+    bool        readingDF;
 
-  bool              readingDF;
-  QStrList          tabHeaders;
-  QArray<int>       tabWidths;
+    QArray<CTabEntry*> mTabProp;
 
-  KTabListBox      *tabList;
-  DiskList          diskList;
-  int               updateFreq;
-  QString          fileMgr;
+    CListView     *mList;
+    COptionDialog *mOptionDialog;
+    KPopupMenu    *mPopup;
 
-  bool             isTopLevel;
-  bool             popupIfFull;
-  bool             openFileMgrOnMount;
+    DiskList    diskList;
+    int         updateFreq;
+    QString     fileMgr;
+
+    bool mIsTopLevel;
+    bool mPopupIfFull;
+    bool openFileMgrOnMount;
  
 };
 

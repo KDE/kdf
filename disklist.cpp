@@ -169,7 +169,9 @@ QFile f(FSTAB);
     QTextStream t (&f);
     QString s;
     DiskEntry *disk;
-    // disks->clear();
+
+    //disks->clear(); // ############
+
     while (! t.eof()) {
       s=t.readLine();
       s=s.simplifyWhiteSpace();
@@ -207,6 +209,8 @@ QFile f(FSTAB);
   } //if f.open
 
   loadSettings(); //to get the mountCommands
+
+  debug("DiskList::readFSTAB DONE");
   return 1;
 }
 
@@ -214,7 +218,7 @@ QFile f(FSTAB);
 /***************************************************************************
   * is called, when the df-command writes on StdOut or StdErr
 **/
-void DiskList::receivedDFStdErrOut(KProcess *, char *data, int)
+void DiskList::receivedDFStdErrOut(KProcess *, char *data, int len )
 {
   debug("DiskList::receivedDFStdErrOut");
 
@@ -224,7 +228,10 @@ void DiskList::receivedDFStdErrOut(KProcess *, char *data, int)
    * but this shouldn't cause a real problem
    */
   
-  dfStringErrOut.append(data);
+  QString tmp = QString(data) + QString("\0");  // adds a zero-byte
+  tmp.truncate(len);
+  
+  dfStringErrOut.append(tmp);
 }
 
 /***************************************************************************
@@ -330,9 +337,33 @@ void DiskList::dfDone()
 **/
 void DiskList::replaceDeviceEntry(DiskEntry *disk)
 { 
-  //  debug("DiskList::replaceDeviceEntry [%s] isMounted %i",disk->deviceName().latin1(),disk->mounted());
+  //
+  // The 'disks' may already already contain the 'disk'. If it do 
+  // we will replace some data. Otherwise 'disk' will be added to the list
+  //
 
-  int pos=disks->find(disk);
+  //
+  // 1999-27-11 Espen Sand:
+  // I can't get find() to work. The Disks::compareItems(..) is 
+  // never called.
+  //
+  //int pos=disks->find(disk);
+
+  int pos = -1;
+  for( int i=0; i<disks->count(); i++ )
+  {
+    DiskEntry *item = disks->at(i);
+    int res = strcmp( disk->deviceName(), item->deviceName() );
+    if( res == 0 )
+    {
+      res = strcmp( disk->mountPoint(), item->mountPoint() );
+    }
+    if( res == 0 )
+    {
+      pos = i;
+      break;
+    }
+  }
 
   if ((pos == -1) && (disk->mounted()) )
     // no matching entry found for mounted disk
@@ -417,4 +448,9 @@ void DiskList::replaceDeviceEntry(DiskEntry *disk)
 }
 
 #include "disklist.moc"
+
+
+
+
+
 

@@ -111,6 +111,7 @@ int DiskEntry::mount()
   debug("mount-cmd: [%s]",(const char *)cmdS);
   int e=sysCall(cmdS);
   if (!e) setMounted(TRUE);
+  debug("mount-cmd: e=%d", e);
   return e;
 };
 
@@ -127,6 +128,7 @@ int DiskEntry::umount()
   debug("umount-cmd: [%s]",(const char *)cmdS);
   int e=sysCall(cmdS);
   if (!e) setMounted(FALSE);
+  debug("umount-cmd: e=%d", e);
  return e;
 };
 
@@ -224,7 +226,11 @@ int DiskEntry::sysCall(QString command)
   (*sysProc) << (const char *)command;
     if (!sysProc->start( KProcess::Block, KProcess::AllOutput ))
      fatal(i18n("could not execute [%s]"),(const char *)command);
+
+  debug("DiskEntry::sysCall sysProc->normaleExit=%d", sysProc->normalExit());
   if (sysProc->exitStatus()!=0) emit sysCallError(this, sysProc->exitStatus());
+
+  debug("DiskEntry::sysCall sysProc->exitStatus=%d", sysProc->exitStatus() );
   return !sysProc->exitStatus();  
 };
 
@@ -232,13 +238,12 @@ int DiskEntry::sysCall(QString command)
 /***************************************************************************
   * is called, when the Sys-command writes on StdOut or StdErr
 **/
-void DiskEntry::receivedSysStdErrOut(KProcess *, char *data, int )
+void DiskEntry::receivedSysStdErrOut(KProcess *, char *data, int len)
 {
   debug("DiskEntry::receivedSysStdErrOut");
   QString tmp = QString(data) + QString("\0");  // adds a zero-byte
-  debug("receivedSysStdErrOut: %s", tmp.ascii());
-  
-  sysStringErrOut.append(data);
+  tmp.truncate(len);
+  sysStringErrOut.append(tmp);
 };
 
 QString DiskEntry::prettyPrint(int kBValue) const
@@ -301,6 +306,9 @@ void DiskEntry::setFsType(QString fsType)
 
 void DiskEntry::setMounted(bool nowMounted) 
 { 
+  printf("SET MOUNTED: %d\n", nowMounted );
+
+
   isMounted=nowMounted;
   emit mountedChanged();
 };

@@ -21,42 +21,44 @@
  *  
  */
 
-#include <qlabel.h>
-
 #include <kapp.h>
-#include <klocale.h>
 #include <kconfig.h>
-#include <kwm.h>
-#include <kiconloader.h>
+#include <klocale.h>
+#include <kstdaccel.h>
 
 #include "kdf.h"
 
 /***************************************************************/
 KDFTopLevel::KDFTopLevel(QWidget *, const char *name)
-      : KTMainWindow(name) 
+  : KTMainWindow(name) 
 {
-   KMenuBar *menu = new KMenuBar(this);
-   kdf = new KDFWidget(this,"kdf",FALSE); CHECK_PTR(kdf);
-   kdf->loadSettings();
+  kdf = new KDFWidget(this,"kdf",FALSE); CHECK_PTR(kdf);
+  kdf->loadSettings();
+  setView(kdf);
 
-   QPopupMenu *file = new QPopupMenu; CHECK_PTR(file);
-   file->insertItem( i18n( "&Update" )
-                        , kdf, SLOT(updateDF()) );
-   file->insertItem( i18n( "&Settings" )
-                        , kdf, SLOT(settingsBtnClicked()) );
-   file->insertSeparator();
-   file->insertItem( i18n( "&Quit" ), kapp, SLOT(quit()) );
-   menu->insertItem( i18n( "&File" ), file );
+  KStdAccel *keys = new KStdAccel();
+  if( keys == 0 ) { return; }
 
-   QPopupMenu *help = helpMenu(i18n(
-     "KDiskFree\n\n (C) 1998,1999 by Michael Kropfberger (michael.kropfberger@gmx.net)") );
-   menu->insertItem( i18n( "&Help" ), help );  
+  QPopupMenu *file = new QPopupMenu; CHECK_PTR(file);
+  file->insertItem( i18n( "&Update" ), kdf, SLOT(updateDF()) );
+  file->insertSeparator();
+  file->insertItem( i18n( "&Quit" ), kapp, SLOT(quit()), keys->quit() );
 
-   menu->show();
-   setMenu(menu);
-   this->setMinimumSize(440,180);
-   resize(kdf->width(),kdf->height()+menu->height());
-   setView(kdf);
+  QPopupMenu *option = new QPopupMenu; CHECK_PTR(option);
+  option->insertItem( i18n( "&Customize" ), kdf, SLOT(settingsBtnClicked()) );
+
+  QPopupMenu *help = helpMenu(i18n(""
+    "KDiskFree\n\n(C) 1998,1999\n"
+    "Michael Kropfberger (michael.kropfberger@gmx.net)") );
+
+  menuBar()->insertItem( i18n("&File"), file );
+  menuBar()->insertItem( i18n("&Options"), option );
+  menuBar()->insertSeparator();
+  menuBar()->insertItem( i18n("&Help"), help );
+
+  delete keys;
+
+  resize(kdf->width(),kdf->height()+menuBar()->height());
 };
 
 
@@ -64,26 +66,26 @@ KDFTopLevel::KDFTopLevel(QWidget *, const char *name)
 int main(int argc, char **argv)
 {
   KApplication app(argc, argv, "kdf");
-  //SessionManagement
-    if (app.isRestored()) {
-      int n = 1;
-      while (KTMainWindow::canBeRestored(n)) {
-        KDFTopLevel *ktl = new KDFTopLevel();
-        CHECK_PTR(ktl);
-        ktl->setCaption("KDiskFree");
-        app.setMainWidget(ktl);
-        ktl->restore(n);
-        n++;
-      } 
-    } else {
-        KDFTopLevel *ktl = new KDFTopLevel();
-        CHECK_PTR(ktl);
-        ktl->setCaption("KDiskFree");
-        app.setMainWidget(ktl);
-        ktl->show();
-    }
+
+  if( app.isRestored() ) //SessionManagement
+  {
+    for( int n=1; KTMainWindow::canBeRestored(n); n++ ) 
+    {
+      KDFTopLevel *ktl = new KDFTopLevel();
+      CHECK_PTR(ktl);
+      app.setMainWidget(ktl);
+      ktl->restore(n);
+    } 
+  } 
+  else 
+  {
+    KDFTopLevel *ktl = new KDFTopLevel();
+    CHECK_PTR(ktl);
+    ktl->show();
+  }
 
   return app.exec();
 };
 
 #include "kdf.moc"
+

@@ -37,55 +37,57 @@ class QPushButton;
 class QRadioButton;
 class QLineEdit;
 
-class KTabListBox;
-
+class CListView;
+class QListViewItem;
 
 /**************************************************************/
 
 class MntConfigWidget : public KConfigWidget
 {
   Q_OBJECT
-public:
-  MntConfigWidget( QWidget *parent=0, const char *name=0, bool init=FALSE);
-  ~MntConfigWidget();
 
-public slots:
-  void loadSettings();
-  void applySettings();
+  public:
+    enum ColType
+    {
+      ICONCOL=0,
+      DEVCOL=1,
+      MNTPNTCOL=2,
+      MNTCMDCOL=3,
+      UMNTCMDCOL=4
+    };
+
+  public:
+    MntConfigWidget( QWidget *parent=0, const char *name=0, bool init=false );
+    ~MntConfigWidget();
+
+  public slots:
+    void loadSettings( void );
+    void applySettings( void );
   
-private slots:
-  void readDFDone();
-  void clicked(int index, int column);
-  void selectIcon();
-  void selectMntFile();
-  void selectUmntFile();
-  void iconChanged(const QString&);
-  void mntCmdChanged(const QString&);
-  void umntCmdChanged(const QString&);
+  private slots:
+    void readDFDone( void );
+    void clicked( QListViewItem *item );
+    void selectIcon( void );
+    void selectMntFile( void );
+    void selectUmntFile( void );
+    void iconChanged( const QString & );
+    void mntCmdChanged( const QString & );
+    void umntCmdChanged( const QString & );
 
-protected:
-  void resizeEvent( QResizeEvent * );       
-  void closeEvent( QCloseEvent * );
+  protected:       
+    void closeEvent( QCloseEvent * );
 
-private:
-  KIconLoader       *loader;
-  KConfig           *config;
-  QStrList          tabHeaders;
-  QArray<int>       tabWidths;
-  KTabListBox      *tabList;
-
-  int               actRow;
-  DiskEntry        *actDisk;
-  QGroupBox        *boxActDev;
-  QPushButton      *btnActIcon;
-  QLineEdit        *qleIcon;
-  QLineEdit        *qleMnt;
-  QLineEdit        *qleUmnt;
-  QPushButton      *btnMntFile;
-  QPushButton      *btnUmntFile;
-
-  DiskList          diskList;
-  bool              initializing;
+  private:
+    CListView   *mList;
+    QGroupBox   *mGroupBox;
+    QPushButton *mIconButton;
+    QLineEdit   *mIconLineEdit;
+    QLineEdit   *mMountLineEdit;
+    QLineEdit   *mUmountLineEdit;
+    QPushButton *mMountButton;
+    QPushButton *mUmountButton;
+    DiskList    mDiskList;
+    bool        mInitializing;
 };
 
 

@@ -26,60 +26,66 @@
 #define __KDFCONFIG_H__
 
 #include <qarray.h>
-
-#include <klocale.h>
-#include <kconfig.h>
+#include <qstring.h>
 #include <kcontrol.h>
 
+class QCheckBox;
 class QLabel;
-class QScrollBar;
 class QLCDNumber;
 class QLineEdit;
-class QCheckBox;
+class QListViewItem;
+class QScrollBar;
 
-class KTabListBox;
-
-/**************************************************************/
+class CListView;
 
 class KDFConfigWidget : public KConfigWidget
 {
+  class CTabName
+  {
+    public:
+      CTabName( const QString &res, const QString &name )
+      {
+        mRes     = res;
+        mName    = name;
+      };
+      CTabName( void ) { }
+      ~CTabName( void ) { }
+
+      QString mRes;
+      QString mName;
+  };
+
   Q_OBJECT
-public:
-  KDFConfigWidget( QWidget *parent=0, const char *name=0, bool init=FALSE);
-  ~KDFConfigWidget();
 
-public slots:
-  void loadSettings();
-  void applySettings();
-  void defaultsBtnClicked();
+  public:
+    KDFConfigWidget( QWidget *parent=0, const char *name=0, bool init=false);
+    ~KDFConfigWidget();
 
-private slots:
-   void toggleColumnVisibility(int column);
-   void toggleColumnVisibility(int,int column)
-         { toggleColumnVisibility(column); }; //overloaded
+  public slots:
+    void loadSettings( void );
+    void applySettings( void );
+    void defaultsBtnClicked( void );
 
-protected:
-  void resizeEvent( QResizeEvent * );       
-  void closeEvent( QCloseEvent * );
+  private slots:
+    void toggleListText( QListViewItem *item, const QPoint &, int column );
 
-private:
-  KConfig           *config;
-  QStrList          tabHeaders;
-  QArray<int>       tabWidths;
+  protected:
+    void closeEvent( QCloseEvent * );
 
-
-  KTabListBox      *confTabList;
-  QLabel           *freqLabel
-                  ,*fileMgrLabel;
-  QScrollBar       *freqScroll;
-  QLCDNumber       *freqLCD;
-  QLineEdit        *fileMgrEdit;
-  QCheckBox        *cbPopupIfFull;
-  QCheckBox        *cbOpenFileMgrOnMount;
-
-  bool             isTopLevel;
+  private:
+    QArray<CTabName*> mTabName;
+    CListView  *mList;
+    QScrollBar *mScroll;
+    QLCDNumber *mLCD;
+    QLineEdit  *mFileManagerEdit;
+    QCheckBox  *mOpenMountCheck;
+    QCheckBox  *mPopupFullCheck;
+    bool       isTopLevel;
  
 };
 
 
 #endif
+
+
+
