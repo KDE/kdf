@@ -98,7 +98,7 @@ class DockWidget : public QLabel
     void criticallyFull(DiskEntry *disk);
     void toggleMount( void );
     void settingsBtnClicked( void );
-    void invokeHTMLHelp( void );
+    void invokeHelp( void );
     void quit( void );
     void startKDF( void );
     void updateDF( void );

@@ -103,7 +103,7 @@ class KDFWidget : public QWidget
     void setUpdateFrequency( int frequency );
     void columnSizeChanged( int column, int, int newSize );
     void updateDiskBarPixmaps( void );
-    void invokeHTMLHelp( void );
+    void invokeHelp( void );
 
   protected:
     void timerEvent( QTimerEvent * );

@@ -557,9 +557,9 @@ void KDFWidget::columnSizeChanged( int column, int, int newSize )
 }
 
 
-void KDFWidget::invokeHTMLHelp()
+void KDFWidget::invokeHelp()
 {
-  kapp->invokeHTMLHelp("kcontrol/kdf/index.html","");
+  kapp->invokeHelp("", "kcontrol/kdf");
 }
 
 #include "kdfwidget.moc"

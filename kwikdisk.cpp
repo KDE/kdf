@@ -391,7 +391,7 @@ void DockWidget::updateDFDone( void )
 
   mPopupMenu->insertItem(
     BarIcon( "help" ),
-    i18n("&Help"), this, SLOT(invokeHTMLHelp()),0);
+    i18n("&Help"), this, SLOT(invokeHelp()),0);
 
   mPopupMenu->insertSeparator();
 
@@ -447,9 +447,9 @@ void DockWidget::settingsBtnClicked( void )
 }
 
 
-void DockWidget::invokeHTMLHelp( void ) 
+void DockWidget::invokeHelp( void ) 
 {
-  kapp->invokeHTMLHelp("kcontrol/kdf/index.html","");
+  kapp->invokeHelp("", "kcontrol/kdf );
 }
 
 
