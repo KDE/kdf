@@ -255,11 +255,11 @@ void MntConfigWidget::selectIcon( void )
   QStringList dirs;
   //dirs.append("mini");
   //dirs.append(KApplication::localkdedir()+"/share/icons/mini");
-  dirs.append("/opt/kde2/share/icons/small/locolor/devices/");
-  dialog->changeDirs(dirs);
+  //dirs.append("/opt/kde2/share/icons/small/locolor/devices/");
+  //dialog->changeDirs(dirs);
   
   QString iconName;
-  dialog->selectIcon(iconName,"*");
+  dialog->selectIcon(iconName,KIconLoader::Default);
   delete dialog;
 
   if( iconName == QString::null )

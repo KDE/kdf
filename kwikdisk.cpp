@@ -384,7 +384,7 @@ void DockWidget::updateDFDone( void )
   mPopupMenu->insertSeparator();
 
   mPopupMenu->insertItem(
-    AppIcon( "kdf" ),
+    UserIcon( "kdf" ),
     i18n("&Start KDiskFree"), this, SLOT(startKDF()),0);
 
   mPopupMenu->insertItem(
