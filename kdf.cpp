@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
- *  
+ *
  */
 
 #include <kapp.h>
@@ -30,7 +30,7 @@
 
 #include "kdf.h"
 
-static const char *description = 
+static const char *description =
 	I18N_NOOP("KDE free disk space utility");
 
 static const char *version = "v0.0.1";
@@ -38,7 +38,7 @@ static const char *version = "v0.0.1";
 
 /***************************************************************/
 KDFTopLevel::KDFTopLevel(QWidget *, const char *name)
-  : KMainWindow(0, name) 
+  : KMainWindow(0, name)
 {
   kdf = new KDFWidget(this,"kdf",FALSE); CHECK_PTR(kdf);
 
@@ -61,7 +61,7 @@ KDFTopLevel::KDFTopLevel(QWidget *, const char *name)
   menuBar()->insertItem( i18n("&Help"), help );
 
   setCentralWidget(kdf);
-  kdf->setFixedSize(kdf->sizeHint());
+  kdf->setMinimumSize(kdf->sizeHint());
 }
 
 
@@ -88,15 +88,15 @@ int main(int argc, char **argv)
 
   if( app.isRestored() ) //SessionManagement
   {
-    for( int n=1; KDFTopLevel::canBeRestored(n); n++ ) 
+    for( int n=1; KDFTopLevel::canBeRestored(n); n++ )
     {
       KDFTopLevel *ktl = new KDFTopLevel();
       CHECK_PTR(ktl);
       app.setMainWidget(ktl);
       ktl->restore(n);
-    } 
-  } 
-  else 
+    }
+  }
+  else
   {
     KDFTopLevel *ktl = new KDFTopLevel();
     CHECK_PTR(ktl);
