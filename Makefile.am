@@ -58,7 +58,7 @@ DISTCLEANFILES = $(BUILTSOURCES)
 
 # make messages.po. Move this one to ../po/ and "make merge" in po
 messages:
-	$(XGETTEXT) -C -ktranslate $(kdf_SOURCES) $(kcmdf_SOURCES) $(kwikdisk_SOURCES)
+	$(XGETTEXT) -C -ktranslate -ki18n $(kdf_SOURCES) $(kcmdf_SOURCES) $(kwikdisk_SOURCES) && mv messages.po ../po/kdf.po
 
 # just install datas here. Use install-exec-data for scripts and etc.
 # the binary itself is already installed from automake
