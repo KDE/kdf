@@ -93,7 +93,7 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, const char *name, bool init)
     for( uint i=mList->header()->count(); i>0; i-- )
     {
      mListItem->setText(i-1, i18n("visible") );
-     mListItem->setPixmap( i-1, BarIcon ( "tick" ) );
+     mListItem->setPixmap( i-1, UserIcon ( "tick" ) );
     }
     mList->setSelected( mListItem, true );
 
@@ -215,8 +215,8 @@ void KDFConfigWidget::loadSettings( void )
       {
 	int j = config.readNumEntry( mTabName[i-1]->mRes, 1 );
 	item->setText( i-1, j==0 ? i18n("hidden") : i18n("visible") );
-     	item->setPixmap( i-1, j==0 ? BarIcon ( "delete" ) 
-                                   : BarIcon ( "tick" ) );
+     	item->setPixmap( i-1, j==0 ? UserIcon ( "delete" ) 
+                                   : UserIcon ( "tick" ) );
       }
     }
   }
@@ -238,7 +238,7 @@ void KDFConfigWidget::defaultsBtnClicked( void )
     for( int i=mList->header()->count(); i>0; i-- )
     {
         item->setText( i-1, i18n("visible") );
-     	item->setPixmap( i-1, BarIcon ( "tick" ) );
+     	item->setPixmap( i-1, UserIcon ( "tick" ) );
 
     }
   }
@@ -251,8 +251,8 @@ void KDFConfigWidget::toggleListText( QListViewItem *item, const QPoint &,
   if (!item) return;
   QString text = item->text( column );
   item->setText(column, text==i18n("visible")?i18n("hidden"):i18n("visible"));
-  item->setPixmap( column, text==i18n("visible") ?  BarIcon ( "delete" ) 
-                                   : BarIcon ( "tick" ) );
+  item->setPixmap( column, text==i18n("visible") ?  UserIcon ( "delete" ) 
+                                   : UserIcon ( "tick" ) );
 }
 
 

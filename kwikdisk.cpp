@@ -512,8 +512,7 @@ bool KwikDiskTopLevel::queryExit( void )
 
 int main(int argc, char **argv)
 {
-  // WABA: Two applications with the same name???
-  KCmdLineArgs::init(argc, argv, "kwikdisk", description, version);
+  KCmdLineArgs::init(argc, argv, "kdf", description, version);
 
   KApplication app;
   
