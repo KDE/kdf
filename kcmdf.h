@@ -36,9 +36,7 @@ class KDiskFreeWidget : public KCModule
   
   public:
     KDiskFreeWidget( QWidget *parent=0, const char *name=0 );
-    virtual void load( void );
-    virtual void save( void );
-    virtual void defaults( void );
+    ~KDiskFreeWidget();
 
   private:
     QFrame *mPage;

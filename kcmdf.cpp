@@ -40,7 +40,7 @@
 KDiskFreeWidget::KDiskFreeWidget( QWidget *parent, const char *name )
  : KCModule( parent, name )
 {
-  setButtons(Help|Ok);
+  setButtons(Help);
 
   QVBoxLayout *topLayout = new QVBoxLayout( this );
 
@@ -51,25 +51,9 @@ KDiskFreeWidget::KDiskFreeWidget( QWidget *parent, const char *name )
   vbox->addWidget( mKdf, 10 );
 }
 
-void KDiskFreeWidget::load( void )
-{
-  //
-  // 1999-12-05 Espen Sand
-  // I don't use this one because 1) The widgets will do a 
-  // loadSettings() on startup and 2) Reset button is not used.
-  //
-}
-
-
-void KDiskFreeWidget::save( void )
+KDiskFreeWidget::~KDiskFreeWidget()
 {
   mKdf->applySettings();
-}
-
-
-void KDiskFreeWidget::defaults( void )
-{
-  mKdf->loadSettings();
 }
 
 extern "C"
