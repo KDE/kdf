@@ -225,7 +225,7 @@ void DiskList::receivedDFStdErrOut(KProcess *, char *data, int len)
    * but this shouldn't cause a real problem
    */
   
-  QString tmp = QString(data,len+1);  // adds a zero-byte 
+  QString tmp = QString(data) + QString("\0");  // adds a zero-byte 
   dfStringErrOut.append(tmp);
 }
 

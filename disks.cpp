@@ -233,7 +233,7 @@ int DiskEntry::sysCall(QString command)
 void DiskEntry::receivedSysStdErrOut(KProcess *, char *data, int len)
 {
   //debug("DiskEntry::receivedSysStdErrOut");
-  QString tmp = QString(data,len+1);  // adds a zero-byte 
+  QString tmp = QString(data) + QString("\0");  // adds a zero-byte 
   sysStringErrOut.append(tmp);
 };
 
