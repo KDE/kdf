@@ -53,7 +53,7 @@ optiondialog.moc
 
 # make messages.po. Move this one to $(podir)/ and "make merge" in po
 messages:
-	$(XGETTEXT) -C -ktranslate -ki18n $(kdf_SOURCES) $(kcmdf_SOURCES) $(kwikdisk_SOURCES) && mv messages.po $(podir)/kdf.pot
+	$(XGETTEXT) -C -ktranslate -kI18N_NOOP -ki18n $(kdf_SOURCES) $(kcmdf_SOURCES) $(kwikdisk_SOURCES) && mv messages.po $(podir)/kdf.pot
 
 # just install datas here. Use install-exec-data for scripts and etc.
 # the binary itself is already installed from automake

@@ -26,6 +26,7 @@
 #include <klocale.h>
 #include <kstdaccel.h>
 #include <kcmdlineargs.h>
+#include <kaboutdata.h>
 
 #include "kdf.h"
 
@@ -82,7 +83,11 @@ bool KDFTopLevel::queryExit( void )
 /***************************************************************/
 int main(int argc, char **argv)
 {
-  KCmdLineArgs::init(argc, argv, "kdf", description, version);
+  KAboutData aboutData( "kdf", I18N_NOOP("KDiskFree"),
+    version, description, KAboutData::License_GPL,
+    "(c) 1998-1999, Michael Kropfberger");
+  aboutData.addAuthor("Michael Kropfberger",0, "michael.kropfberger@gmx.net");
+  KCmdLineArgs::init( argc, argv, &aboutData );
 
   KApplication app;
 
