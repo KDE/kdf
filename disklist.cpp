@@ -380,7 +380,7 @@ void DiskList::deleteAllMountedAt(const QString &mountpoint)
 **/
 void DiskList::replaceDeviceEntry(DiskEntry *disk)
 {
-  kdDebug() << k_funcinfo << endl;
+  //kdDebug() << k_funcinfo << disk->deviceRealName() << " " << disk->mountPoint() << endl;
 
   //
   // The 'disks' may already already contain the 'disk'. If it do
@@ -394,11 +394,13 @@ void DiskList::replaceDeviceEntry(DiskEntry *disk)
   //
   //int pos=disks->find(disk);
 
+  QString deviceRealName = disk->deviceRealName();
+
   int pos = -1;
   for( u_int i=0; i<disks->count(); i++ )
   {
     DiskEntry *item = disks->at(i);
-    int res = disk->deviceName().compare( item->deviceName() );
+    int res = deviceRealName.compare( item->deviceRealName() );
     if( res == 0 )
     {
       res = disk->mountPoint().compare( item->mountPoint() );
@@ -415,13 +417,12 @@ void DiskList::replaceDeviceEntry(DiskEntry *disk)
     if ((disk->fsType() == "?") || (disk->fsType() == "cachefs")) {
       //search for fitting cachefs-entry in static /etc/vfstab-data
       DiskEntry* olddisk = disks->first();
-      QString odiskName;
       while (olddisk != 0) {
         int p;
         // cachefs deviceNames have no / behind the host-column
 	// eg. /cache/cache/.cfs_mnt_points/srv:_home_jesus
 	//                                      ^    ^
-        odiskName = olddisk->deviceName().copy();
+        QString odiskName = olddisk->deviceName();
         int ci=odiskName.find(':'); // goto host-column
         while ((ci =odiskName.find('/',ci)) > 0) {
            odiskName.replace(ci,1,"_");
@@ -463,6 +464,11 @@ void DiskList::replaceDeviceEntry(DiskEntry *disk)
        }
       disk->setMountCommand(olddisk->mountCommand());
       disk->setUmountCommand(olddisk->umountCommand());
+
+      // Same device name, but maybe one is a symlink and the other is its target
+      // Keep the shorter one then, /dev/hda1 looks better than /dev/ide/host0/bus0/target0/lun0/part1
+      if ( disk->deviceName().length() > olddisk->deviceName().length() )
+          disk->setDeviceName(olddisk->deviceName());
 
       //FStab after an older DF ... needed for critFull
       //so the DF-KBUsed survive a FStab lookup...

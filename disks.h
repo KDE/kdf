@@ -44,10 +44,12 @@ public:
   DiskEntry(QObject *parent=0, const char *name=0);
   DiskEntry(const QString & deviceName, QObject *parent=0, const char *name=0);
   ~DiskEntry();
-  QString lastSysError() {return sysStringErrOut; };
-  QString deviceName() const { return device; };
-  QString mountPoint() const { return mountedOn; };
-  QString mountOptions() const { return options; };
+  QString lastSysError() {return sysStringErrOut; }
+  QString deviceName() const { return device; }
+  // The real device (in case deviceName() is a symlink)
+  QString deviceRealName() const;
+  QString mountPoint() const { return mountedOn; }
+  QString mountOptions() const { return options; }
   /**
    * sets the used mountCommand for the actual DiskEntry.
    * @param mntcmd   is a string containing the executable file and

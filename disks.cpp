@@ -22,6 +22,8 @@
  */
 
 #include <qregexp.h>
+#include <qfileinfo.h>
+#include <qdir.h>
 
 #include <kglobal.h>
 #include <kdebug.h>
@@ -259,6 +261,20 @@ void DiskEntry::setDeviceName(const QString & deviceName)
 {
  device=deviceName;
  emit deviceNameChanged();
+}
+
+QString DiskEntry::deviceRealName() const
+{
+ QFileInfo inf( device );
+ QDir dir( inf.dirPath( true ) );
+ QString relPath = inf.fileName();
+ if ( inf.isSymLink() ) {
+  QString link = inf.readLink();
+  if ( link.startsWith( "/" ) )
+    return link;
+  relPath = link;
+ }
+ return dir.canonicalPath() + "/" + relPath;
 }
 
 void DiskEntry::setMountPoint(const QString & mountPoint)
