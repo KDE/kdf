@@ -232,6 +232,9 @@ int DiskList::readDF()
   if (readingDFStdErrOut || dfProc->isRunning()) return -1;
   setenv("LANG", "en_US", 1);
   setenv("LC_ALL", "en_US", 1);
+  setenv("LC_MESSAGES", "en_US", 1);
+  setenv("LC_TYPE", "en_US", 1);
+  setenv("LANGUAGE", "en_US", 1);
   dfStringErrOut=""; // yet no data received
   dfProc->clearArguments();
   (*dfProc) << DF_COMMAND << DF_ARGS;
