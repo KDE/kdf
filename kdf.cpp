@@ -21,9 +21,7 @@
  *
  */
 
-#include <kapp.h>
-#include <kconfig.h>
-#include <klocale.h>
+#include <kapplication.h>
 #include <kstdaccel.h>
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>

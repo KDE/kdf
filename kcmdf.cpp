@@ -26,16 +26,11 @@
 //
 
 
-#include <kapp.h>
 #include <kdialog.h>
-#include <kcmdlineargs.h>
-#include <klocale.h>
 
-#include <qframe.h>
 #include <qlayout.h>
 
 #include "kcmdf.h"
-#include "kcmodule.h"
 
 KDiskFreeWidget::KDiskFreeWidget( QWidget *parent, const char *name )
  : KCModule( parent, name )

@@ -27,23 +27,13 @@
 //
 
 
-#include <qlabel.h>
 #include <qbitmap.h>
-#include <qpixmap.h>
-#include <qpen.h>
 #include <qpainter.h>
-#include <qfile.h>
 
-#include <kdebug.h>
-#include <kapp.h>
-#include <kconfig.h>
-#include <kglobal.h>
+#include <kapplication.h>
 #include <kmessagebox.h>
-#include <kstdaccel.h>
-#include <kstddirs.h>
 #include <kwin.h>
 #include <kcmdlineargs.h>
-#include <klocale.h>
 
 #include <stdlib.h>
 

@@ -25,17 +25,8 @@
 
 #include <math.h>
 
-#include <qstring.h>
-#include <qfile.h>
-#include <qtextstream.h>
-#include <qlabel.h>
-#include <qlayout.h>
-#include <qpixmap.h>
-#include <qpaintdevice.h>
 
-#include <kdebug.h>
-#include <kapp.h>
-#include <kiconloader.h>
+#include <kapplication.h>
 
 #include "disklist.h"
 

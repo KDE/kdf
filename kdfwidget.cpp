@@ -32,21 +32,13 @@
 
 #include <stdlib.h>
 
-#include <qbitmap.h>
 #include <qheader.h>
-#include <qpixmap.h>
-#include <qpaintdevice.h>
-#include <qstring.h>
 #include <qtimer.h>
 #include <qlayout.h>
-#include <qfile.h>
 #include <qpainter.h>
 
-#include <kdebug.h>
-#include <kapp.h>
+#include <kapplication.h>
 #include <kcmenumngr.h>
-#include <kglobal.h>
-#include <kiconloader.h>
 #include <kmessagebox.h>
 #include <kpopupmenu.h>
 

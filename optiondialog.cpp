@@ -17,7 +17,6 @@
  *
  */
 
-#include <qframe.h>
 #include <qlayout.h>
 
 #include "kdfconfig.h"

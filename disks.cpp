@@ -23,8 +23,6 @@
 
 #include <qregexp.h>
 
-#include <kapp.h>
-#include <kstddirs.h>
 #include <kglobal.h>
 #include <kdebug.h>
 

@@ -31,20 +31,15 @@
 
 
 #include <qcheckbox.h>
-#include <qfile.h>
 #include <qheader.h>
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qlcdnumber.h>
 #include <qlineedit.h>
-#include <qlistview.h>
-#include <qscrollbar.h>
-#include <qstring.h>
 
-#include <kapp.h>
+#include <kapplication.h>
 #include <kconfig.h>
 #include <kdialog.h>
-#include <kglobal.h>
 #include <klocale.h>
 #include <kiconloader.h>
 

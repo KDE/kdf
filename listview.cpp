@@ -27,12 +27,8 @@
 #include <qbitmap.h>
 #include <qheader.h>
 #include <qpainter.h>
-#include <qpen.h>
 
-#include <kapp.h>
-#include <kglobal.h>
 #include <kiconloader.h>
-#include <klocale.h>
 
 #include "listview.h"
 

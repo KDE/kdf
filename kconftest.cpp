@@ -8,7 +8,7 @@
 #include <qdict.h>
 #include <kconfig.h>
 #include <kdebug.h>
-#include <kapp.h>
+#include <kapplication.h>
 #include <klocale.h>
 #include <kcmdlineargs.h>
 

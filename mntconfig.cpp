@@ -27,26 +27,16 @@
 // Converted to QLayout and QListView + cleanups
 //
 
-#include <qbitmap.h>
 #include <qgroupbox.h>
 #include <qheader.h>
-#include <qlabel.h>
 #include <qlayout.h>
 #include <qlineedit.h>
-#include <qlistview.h>
-#include <qpixmap.h>
-#include <qpaintdevice.h>
-#include <qstring.h>
 
 #undef Unsorted
 
-#include <kapp.h>
-#include <kdialog.h>
+#include <kapplication.h>
 #include <kfiledialog.h>
-#include <kglobal.h>
-#include <kiconloader.h>
 #include <kicondialog.h>
-#include <klocale.h>
 #include <kmessagebox.h>
 
 #include "listview.h"
