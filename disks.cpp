@@ -81,7 +81,7 @@ DiskEntry::~DiskEntry()
 {
   disconnect(this);
   delete sysProc;
-};
+}
 
 int DiskEntry::toggleMount()
 {
@@ -89,7 +89,7 @@ int DiskEntry::toggleMount()
       return mount();
   else
       return umount();
-};
+}
 
 int DiskEntry::mount()
 {
@@ -110,7 +110,7 @@ int DiskEntry::mount()
   if (!e) setMounted(TRUE);
   kdDebug() << "mount-cmd: e=" << e << endl;
   return e;
-};
+}
 
 int DiskEntry::umount()
 {
@@ -128,7 +128,7 @@ int DiskEntry::umount()
   kdDebug() << "umount-cmd: e=" << e << endl;
 
   return e;
-};
+}
 
 int DiskEntry::remount()
 {
@@ -148,17 +148,17 @@ int DiskEntry::remount()
       return this->mount();
    else return e;
   }
-};
+}
 
 void DiskEntry::setMountCommand(const QString & mnt)
 {
   mntcmd=mnt;
-};
+}
 
 void DiskEntry::setUmountCommand(const QString & umnt)
 {
   umntcmd=umnt;
-};
+}
 
 void DiskEntry::setIconName(const QString & iconName)
 {
@@ -170,7 +170,7 @@ void DiskEntry::setIconName(const QString & iconName)
      icoName.truncate(icoName.length()-8);
 
   emit iconNameChanged();
-};
+}
 
 QString DiskEntry::iconName()
 {
@@ -180,7 +180,7 @@ QString DiskEntry::iconName()
    return iconName;
   } else
    return guessIconName();
-};
+}
 
 QString DiskEntry::guessIconName()
 {
@@ -209,7 +209,7 @@ QString DiskEntry::guessIconName()
 
     //emit iconNameChanged();
   return iconName;
-};
+}
 
 
 /***************************************************************************
@@ -228,7 +228,7 @@ int DiskEntry::sysCall(const QString & command)
   if (sysProc->exitStatus()!=0) emit sysCallError(this, sysProc->exitStatus());
 
   return (sysProc->exitStatus());
-};
+}
 
 
 /***************************************************************************
@@ -238,7 +238,7 @@ void DiskEntry::receivedSysStdErrOut(KProcess *, char *data, int len)
 {
   QString tmp = QString::fromLocal8Bit(data, len);
   sysStringErrOut.append(tmp);
-};
+}
 
 float DiskEntry::percentFull() const
 {
@@ -253,37 +253,37 @@ void DiskEntry::setDeviceName(const QString & deviceName)
 {
  device=deviceName;
  emit deviceNameChanged();
-};
+}
 
 void DiskEntry::setMountPoint(const QString & mountPoint)
 {
   mountedOn=mountPoint;
  emit mountPointChanged();
-};
+}
 
 void DiskEntry::setMountOptions(const QString & mountOptions)
 {
  options=mountOptions;
  emit mountOptionsChanged();
-};
+}
 
 void DiskEntry::setFsType(const QString & fsType)
 {
   type=fsType;
   emit fsTypeChanged();
-};
+}
 
 void DiskEntry::setMounted(bool nowMounted)
 {
   isMounted=nowMounted;
   emit mountedChanged();
-};
+}
 
 void DiskEntry::setKBSize(int kb_size)
 {
   size=kb_size;
   emit kBSizeChanged();
-};
+}
 
 void DiskEntry::setKBUsed(int kb_used)
 {
@@ -293,7 +293,7 @@ void DiskEntry::setKBUsed(int kb_used)
      setKBAvail(size-used);
   }
   emit kBUsedChanged();
-};
+}
 
 void DiskEntry::setKBAvail(int kb_avail)
 {
@@ -303,6 +303,6 @@ void DiskEntry::setKBAvail(int kb_avail)
      setKBUsed(size-avail);
   }
   emit kBAvailChanged();
-};
+}
 
 

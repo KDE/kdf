@@ -84,7 +84,7 @@ if (NO_FS_TYPE)
        loadSettings();
        //readFSTAB();
        //readDF();
-};
+}
 
 
 /***************************************************************************
@@ -92,7 +92,7 @@ if (NO_FS_TYPE)
 **/
 DiskList::~DiskList()
 {
-};
+}
 
 /**
 Updated need to be disabled sometimes to avoid pulling the DiskEntry out from the popupmenu handler

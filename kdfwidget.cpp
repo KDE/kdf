@@ -200,7 +200,7 @@ void KDFWidget::closeEvent(QCloseEvent *)
 {
   applySettings();
   kapp->quit();
-};
+}
 
 
 void KDFWidget::settingsChanged( void )
