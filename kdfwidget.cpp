@@ -54,8 +54,10 @@
 #define DEFAULT_FILEMGR_COMMAND "kfmclient openURL %m"
 //#define DEFAULT_FILEMGR_COMMAND "kvt -e mc %m"
 
+#ifndef GUI_DEFINED
 static bool GUI;
-
+#define GUI_DEFINED
+#endif
 
 /***************************************************************************
   * Constructor

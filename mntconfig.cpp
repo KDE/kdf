@@ -44,7 +44,10 @@
 
 #include "mntconfig.h"
 
+#ifndef KDE_USE_FINAL
 static bool GUI;
+#endif
+
 #define NRCOLS 5
 #define ICONCOL 0
 #define DEVCOL 1
