@@ -17,15 +17,11 @@ kdf_APPSDIR = $(kde_appsdir)/System
 kwikdisk_APPSDIR = $(kde_appsdir)/System
 kcmdf_APPSDIR = $(kde_appsdir)/Settings/Information
 # set the include path for X, qt and KDE
-INCLUDES= @all_includes@
+INCLUDES= $(all_includes)
 # claim, which subdirectories you want to install
-SUBDIRS = doc pics
+SUBDIRS = pics
 
-####### This part is very specific
-# you can add here more. This one gets installed 
-TARGET = 	kcmdf kdf kwikdisk
-
-bin_PROGRAMS = 	$(TARGET)
+bin_PROGRAMS = 	kcmdf kdf kwikdisk
 
 # Which sources should be compiled
 kdf_SOURCES	= kdf.cpp kdfwidget.cpp kdfconfig.cpp mntconfig.cpp disklist.cpp disks.cpp
@@ -33,28 +29,21 @@ kcmdf_SOURCES	= kcmdf.cpp kdfwidget.cpp kdfconfig.cpp mntconfig.cpp disklist.cpp
 kwikdisk_SOURCES	= kwikdisk.cpp kdfconfig.cpp mntconfig.cpp disklist.cpp disks.cpp
 
 # the library search path
-kdf_LDFLAGS = @all_libraries@ $(KDE_RPATH)
-kcmdf_LDFLAGS = @all_libraries@ $(KDE_RPATH)
-kwikdisk_LDFLAGS = @all_libraries@ $(KDE_RPATH)
+kdf_LDFLAGS = $(all_libraries) $(KDE_RPATH)
+kcmdf_LDFLAGS = $(all_libraries) $(KDE_RPATH)
+kwikdisk_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 
 # the libraries to link against. Be aware of the order. First the libraries,
 # that depend on the following ones.
-kdf_LDADD   = -lkfile -lkfm -lkdeui -lkdecore -lqt -lX11 -lXext @LIBSOCKET@
-kcmdf_LDADD   = -lkfile -lkfm -lkdeui -lkdecore -lqt -lX11 -lXext @LIBSOCKET@
-kwikdisk_LDADD   = -lkfile -lkfm -lkdeui -lkdecore -lqt -lX11 -lXext @LIBSOCKET@
+kdf_LDADD   = $(LIB_KFILE)
+kcmdf_LDADD   = $(LIB_KFILE)
+kwikdisk_LDADD   = $(LIB_KFILE)
 
 # this option you can leave out. Just, if you use "make dist", you need it
 noinst_HEADERS = kdfwidget.h  kcmdf.h kdfconfig.h  mntconfig.h disks.h kdf.h  disklist.h kwikdisk.h
 
 # just to make sure, automake makes them 
-BUILTSOURCES =	kcmdf.moc kdf.moc kdfwidget.moc kdfconfig.moc  mntconfig.moc disks.moc disklist.moc kwikdisk.moc
-
-# just to make sure, automake makes them 
-CLEANFILES =	kcmdf.moc kdf.moc kdfwidget.moc kdfconfig.moc mntconfig.moc disks.moc disklist.moc kwikdisk.moc
-
-# if you "make distclean", this files get removed. If you want to remove
-# them while "make clean", use CLEANFILES
-DISTCLEANFILES = $(BUILTSOURCES)
+METASOURCES =	kcmdf.moc kdf.moc kdfwidget.moc kdfconfig.moc  mntconfig.moc disks.moc disklist.moc kwikdisk.moc
 
 # make messages.po. Move this one to ../po/ and "make merge" in po
 messages:
@@ -69,9 +58,9 @@ install-data-local:
 	$(mkinstalldirs) $(kdf_APPSDIR)
 	$(mkinstalldirs) $(kcmdf_APPSDIR)
 	$(mkinstalldirs) $(kwikdisk_APPSDIR)
-	$(INSTALL_DATA) kdf.kdelnk $(kdf_APPSDIR)
-	$(INSTALL_DATA) kcmdf.kdelnk $(kcmdf_APPSDIR)
-	$(INSTALL_DATA) kwikdisk.kdelnk $(kwikdisk_APPSDIR)
+	$(INSTALL_DATA) $(srcdir)/kdf.kdelnk $(kdf_APPSDIR)
+	$(INSTALL_DATA) $(srcdir)/kcmdf.kdelnk $(kcmdf_APPSDIR)
+	$(INSTALL_DATA) $(srcdir)/kwikdisk.kdelnk $(kwikdisk_APPSDIR)
 
 # remove ALL you have installed in install-data-local or install-exec-local
 uninstall-local:
@@ -79,37 +68,3 @@ uninstall-local:
 	-rm -f $(kcmdf_APPSDIR)/kcmdf.kdelnk
 	-rm -f $(kwikdisk_APPSDIR)/kwikdisk.kdelnk
 
-# add a dependency for every moc file to be full portable
-# I've added a key binding to emacs for this.
-
-kcmdf.cpp:kcmdf.moc
-kcmdf.moc: kcmdf.h
-	$(MOC) kcmdf.h -o kcmdf.moc
-
-kdf.cpp:kdf.moc
-kdf.moc: kdf.h
-	$(MOC) kdf.h -o kdf.moc
-
-kwikdisk.cpp:kwikdisk.moc
-kwikdisk.moc: kwikdisk.h
-	$(MOC) kwikdisk.h -o kwikdisk.moc
-
-kdfwidget.cpp:kdfwidget.moc
-kdfwidget.moc: kdfwidget.h
-	$(MOC) kdfwidget.h -o kdfwidget.moc
-
-kdfconfig.cpp:kdfconfig.moc
-kdfconfig.moc: kdfconfig.h
-	$(MOC) kdfconfig.h -o kdfconfig.moc
-
-mntconfig.cpp:mntconfig.moc
-mntconfig.moc: mntconfig.h
-	$(MOC) mntconfig.h -o mntconfig.moc
-
-disklist.cpp:disklist.moc
-disklist.moc: disklist.h
-	$(MOC) disklist.h -o disklist.moc
-
-disks.cpp:disks.moc
-disks.moc: disks.h
-	$(MOC) disks.h -o disks.moc
