@@ -66,7 +66,7 @@ KDFWidget::KDFWidget (QWidget * parent, const char *name
                       , bool init)
     : KConfigWidget (parent, name)
 {
-  //debug("Construct: KDFWidget::KDFWidget");
+  debug("Construct: KDFWidget::KDFWidget");
 
   popupIfFull=TRUE;
   openFileMgrOnMount=FALSE;
@@ -110,7 +110,7 @@ KDFWidget::KDFWidget (QWidget * parent, const char *name
       kdfconf=new KDFConfigWidget(tabconf,"kdfconf");CHECK_PTR(kdfconf);
 
       QString pcn=parent->className();
-      //debug("parent: [%s]",pcn.data());
+      debug("parent: [%s]",pcn.latin1());
       if ( pcn == "KDFTopLevel" ) {
          //it is used from KTopLevelWidget "kdf"
          isTopLevel=TRUE;  
@@ -160,7 +160,7 @@ KDFWidget::KDFWidget (QWidget * parent, const char *name
 **/
 KDFWidget::~KDFWidget() 
 { 
-  //debug("DESTRUCT: KDFWidget::~KDFWidget");
+  debug("DESTRUCT: KDFWidget::~KDFWidget");
   if (GUI) {
   }
 }; 
@@ -180,7 +180,7 @@ void KDFWidget::closeEvent(QCloseEvent *)
 **/
 void KDFWidget::applySettings()
 {
-  //debug("KDFWidget::applySettings");
+  debug("KDFWidget::applySettings");
  config->setGroup("KDiskFree");
  if (isTopLevel) { // only "kdf" is resizable
    config->writeEntry("Width",width() );
@@ -212,7 +212,7 @@ void KDFWidget::confApplySettings()
 **/
 void KDFWidget::loadSettings()
 {
-  //debug("KDFWidget::loadSettings");
+  debug("KDFWidget::loadSettings");
  config->setGroup("KDFConfig");
  updateFreq=config->readNumEntry("UpdateFrequency",DEFAULT_FREQ);
  fileMgr=config->readEntry("FileManagerCommand",DEFAULT_FILEMGR_COMMAND);
@@ -250,7 +250,7 @@ openFileMgrOnMount=config->readBoolEntry("OpenFileMgrOnMount",openFileMgrOnMount
 
 void KDFWidget::confLoadSettings()
 {
-  //debug("KDFWidget::confLoadSettings");
+  debug("KDFWidget::confLoadSettings");
  mntconf->loadSettings();
  kdfconf->loadSettings();
 }
@@ -297,7 +297,7 @@ void KDFWidget::settingsBtnClicked()
 **/
 void KDFWidget::setUpdateFreq(int freq)
 {
-  //debug("KDFWidget::setUpdateFreq");
+  debug("KDFWidget::setUpdateFreq");
   killTimers(); //kills !all! running timers
   updateFreq=freq;
   if (updateFreq > 0)  //0 sets to NO_AUTO_UPDATE   ;)
@@ -310,7 +310,7 @@ void KDFWidget::setUpdateFreq(int freq)
 **/
 void KDFWidget::timerEvent(QTimerEvent *) 
 { 
-  //debug("KDFWidget::timerEvent");
+  debug("KDFWidget::timerEvent");
   updateDF();
 };
 
@@ -329,7 +329,7 @@ void KDFWidget::updateDF()
 **/
 void KDFWidget::updateDFDone()
 {
-  //debug("KDFWidget::updateDFdone()");
+  debug("KDFWidget::updateDFdone()");
   tabList->setAutoUpdate(FALSE);
   tabList->clear();
   DiskEntry *disk;
@@ -344,12 +344,12 @@ void KDFWidget::updateDFDone()
          sizeS=i18n("UNKNOWN");    
          percS=i18n("UNKNOWN");    
        }
-       icon.sprintf("%s%s%s",disk->iconName().data()
-                            ,disk->deviceName().data()
-                            ,disk->mountPoint().data());
+       icon.sprintf("%s%s%s",disk->iconName().latin1()
+                            ,disk->deviceName().latin1()
+                            ,disk->mountPoint().latin1());
        fullbar.sprintf("%s%s%s","BAR"
-                            ,disk->deviceName().data()
-                            ,disk->mountPoint().data());
+                            ,disk->deviceName().latin1()
+                            ,disk->mountPoint().latin1());
     s.sprintf("%s %s %s %s %s %s %s %s"
                           ,(const char *)icon
                           ,(const char *)disk->deviceName()
@@ -361,7 +361,7 @@ void KDFWidget::updateDFDone()
                           ,(const char *)fullbar );
        //   debug("store [%s]", (const char *)s);
        tabList->appendItem((const char *)s);
-       pix=tabList->dict()[icon.data()];
+       pix=tabList->dict()[icon.latin1()];
        if (pix == 0) { // pix not already in cache
           pix = new QPixmap(loader->loadApplicationMiniIcon(disk->iconName()));
           if ( -1==disk->mountOptions().find("user",0,FALSE) ) {
@@ -381,7 +381,7 @@ void KDFWidget::updateDFDone()
             qp->drawRect(0,0,pix->width(),pix->height());
             qp->end();
          }
-         tabList->dict().replace(icon.data(),pix );
+         tabList->dict().replace(icon.latin1(),pix );
        }
   }
   tabList->setAutoUpdate(TRUE);
@@ -395,14 +395,14 @@ void KDFWidget::updateDFDone()
 **/
 void KDFWidget::criticallyFull(DiskEntry *disk )
 {
-  //debug("KDFWidget::criticallyFull");
+  debug("KDFWidget::criticallyFull");
   if (popupIfFull) {
     QString s;
     s.sprintf("Device [%s] on [%s] is getting critically full!",
-             disk->deviceName().data(),
-             disk->mountPoint().data());
+             disk->deviceName().latin1(),
+             disk->mountPoint().latin1());
        KMsgBox::message(this,i18n("KDiskFree"),
-              i18n(s.data())
+              i18n(s.latin1())
                ,KMsgBox::EXCLAMATION);
   }
 }
@@ -412,7 +412,7 @@ void KDFWidget::criticallyFull(DiskEntry *disk )
 **/
 void KDFWidget::toggleColumnVisibility(int column)
 {
-  //debug("KDFWidget::toggleColumnVisibility: %d %d",column,tabList->columnWidth(column));
+  debug("KDFWidget::toggleColumnVisibility: %d %d",column,tabList->columnWidth(column));
 
   if(tabList->columnWidth(column) == 0) {
     tabList->setColumnWidth(column,tabWidths[column]);
@@ -429,7 +429,7 @@ void KDFWidget::toggleColumnVisibility(int column)
 **/
 void KDFWidget::popupMenu(int row,int column)
 {
-  //debug("KDFWidget::popupMenu: %d:%d",row,column);
+  debug("KDFWidget::popupMenu: %d:%d",row,column);
 
   // get the clicked disk
       QString dev=tabList->text(row,1);
@@ -494,7 +494,7 @@ void KDFWidget::popupMenu(int row,int column)
 **/
 void KDFWidget::updatePixmaps()
 {
-  //debug("KDFWidget::updatePixmaps");
+  debug("KDFWidget::updatePixmaps");
   tabList->setAutoUpdate(FALSE);
   tabList->unmarkAll();
   for ( DiskEntry *disk=diskList.first(); disk != 0; disk=diskList.next() ) {
@@ -511,8 +511,8 @@ void KDFWidget::updatePixmaps()
              tabList->changeItemColor(lightGray,ipos);
              QString fullbar;
              fullbar.sprintf("%s%s%s","BAR"
-                            ,disk->deviceName().data()
-                            ,disk->mountPoint().data());
+                            ,disk->deviceName().latin1()
+                            ,disk->mountPoint().latin1());
              tabList->dict().remove((const char *)fullbar);
              tabList->changeItemPart("",ipos,PIX_COLUMN);
           }//if
@@ -556,8 +556,8 @@ void KDFWidget::updatePixmaps()
              ,pix->height()-2 );
        QString fullbar;
        fullbar.sprintf("%s%s%s","BAR"
-                            ,disk->deviceName().data()
-                            ,disk->mountPoint().data());
+                            ,disk->deviceName().latin1()
+                            ,disk->mountPoint().latin1());
         tabList->dict().replace((const char *)fullbar, pix);
       }//if usageBar is visible
     }//was mounted
@@ -572,7 +572,7 @@ void KDFWidget::updatePixmaps()
 **/
 void KDFWidget::paintEvent(QPaintEvent *)
 {
-  //debug("KDFWidget::paintEvent");
+  debug("KDFWidget::paintEvent");
 
   //resizing of PIX_COLUMN *************************************
   if (tabList->columnWidth(PIX_COLUMN) != 0 ){
@@ -592,14 +592,14 @@ void KDFWidget::paintEvent(QPaintEvent *)
 **/
 void KDFWidget::resizeEvent(QResizeEvent *)
 {
-  //debug("KDFWidget::resizeEvent  %dx%d",width(),height());
+  debug("KDFWidget::resizeEvent  %dx%d",width(),height());
   int tabListHeight=this->height();
   int oldPixColumnWidth=tabList->columnWidth(PIX_COLUMN);
   tabList->setGeometry(0, 0, this->width()-1,tabListHeight);
        //this -1 is necessary....         ^^^^  god knows why?
       //setGeometry also changes the width of last column!!
   tabList->setColumnWidth(PIX_COLUMN,oldPixColumnWidth);
-  //debug("PIX_COLUMN_width=%d",tabList->columnWidth(PIX_COLUMN));
+  debug("PIX_COLUMN_width=%d",tabList->columnWidth(PIX_COLUMN));
 
   repaint();
   applySettings();

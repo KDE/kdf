@@ -109,26 +109,26 @@ DiskList::~DiskList()
 **/
 void DiskList::applySettings()
 {
-  //debug("  DiskList::applySettings");
+  debug("  DiskList::applySettings");
  QString oldgroup=config->group();
  config->setGroup("DiskList");
  QString key;
  DiskEntry *disk;
  for (disk=disks->first();disk!=0;disk=disks->next()) {
-   key.sprintf("Mount%s%s%s%s",SEPARATOR,disk->deviceName().data()
-                              ,SEPARATOR,disk->mountPoint().data());
-   config->writeEntry(key.data(),disk->mountCommand());
+   key.sprintf("Mount%s%s%s%s",SEPARATOR,disk->deviceName().latin1()
+                              ,SEPARATOR,disk->mountPoint().latin1());
+   config->writeEntry(key,disk->mountCommand());
    
-   key.sprintf("Umount%s%s%s%s",SEPARATOR,disk->deviceName().data()
-                              ,SEPARATOR,disk->mountPoint().data());
-   config->writeEntry(key.data(),disk->umountCommand());
+   key.sprintf("Umount%s%s%s%s",SEPARATOR,disk->deviceName().latin1()
+                              ,SEPARATOR,disk->mountPoint().latin1());
+   config->writeEntry(key,disk->umountCommand());
 
-   key.sprintf("Icon%s%s%s%s",SEPARATOR,disk->deviceName().data()
-                              ,SEPARATOR,disk->mountPoint().data());
-   config->writeEntry(key.data(),disk->realIconName());
+   key.sprintf("Icon%s%s%s%s",SEPARATOR,disk->deviceName().latin1()
+                              ,SEPARATOR,disk->mountPoint().latin1());
+   config->writeEntry(key,disk->realIconName());
  }
  config->sync();
- config->setGroup(oldgroup.data());
+ config->setGroup(oldgroup);
 }
 
 
@@ -137,22 +137,22 @@ void DiskList::applySettings()
 **/
 void DiskList::loadSettings()
 {
-  //debug("DiskList::loadSettings");
+  debug("DiskList::loadSettings");
  config->setGroup("DiskList");
  QString key;
  DiskEntry *disk;
  for (disk=disks->first();disk!=0;disk=disks->next()) {
-   key.sprintf("Mount%s%s%s%s",SEPARATOR,disk->deviceName().data()
-                              ,SEPARATOR,disk->mountPoint().data());
-   disk->setMountCommand(config->readEntry(key.data(),""));
+   key.sprintf("Mount%s%s%s%s",SEPARATOR,disk->deviceName().latin1()
+                              ,SEPARATOR,disk->mountPoint().latin1());
+   disk->setMountCommand(config->readEntry(key,""));
 
-   key.sprintf("Umount%s%s%s%s",SEPARATOR,disk->deviceName().data()
-                              ,SEPARATOR,disk->mountPoint().data());
-   disk->setUmountCommand(config->readEntry(key.data(),""));
+   key.sprintf("Umount%s%s%s%s",SEPARATOR,disk->deviceName().latin1()
+                              ,SEPARATOR,disk->mountPoint().latin1());
+   disk->setUmountCommand(config->readEntry(key,""));
 
-   key.sprintf("Icon%s%s%s%s",SEPARATOR,disk->deviceName().data()
-                              ,SEPARATOR,disk->mountPoint().data());
-   QString icon=config->readEntry(key.data(),"");
+   key.sprintf("Icon%s%s%s%s",SEPARATOR,disk->deviceName().latin1()
+                              ,SEPARATOR,disk->mountPoint().latin1());
+   QString icon=config->readEntry(key,"");
    if (!icon.isEmpty()) disk->setIconName(icon);
  }
 }
@@ -163,7 +163,7 @@ void DiskList::loadSettings()
 int DiskList::readFSTAB()
 {
   if (readingDFStdErrOut || dfProc->isRunning()) return -1;
-  //debug("DiskList::readFSTAB");
+  debug("DiskList::readFSTAB");
 
 QFile f(FSTAB);
   if ( f.open(IO_ReadOnly) ) {
@@ -176,25 +176,25 @@ QFile f(FSTAB);
       s=s.simplifyWhiteSpace();
       if ( (!s.isEmpty() ) && (s.find(DELIMITER)!=0) ) {
                // not empty or commented out by '#'
-	//debug("GOT: [%s]",s.data() );
+	debug("GOT: [%s]",s.latin1() );
 	disk = new DiskEntry();// CHECK_PTR(disk);	
         disk->setMounted(FALSE);
         disk->setDeviceName(s.left(s.find(BLANK)) );
             s=s.remove(0,s.find(BLANK)+1 );
-	    //debug("    deviceName:    [%s]",(const char*)disk->deviceName() );
+	    debug("    deviceName:    [%s]",(const char*)disk->deviceName() );
 #ifdef _OS_SOLARIS_
             //device to fsck
             s=s.remove(0,s.find(BLANK)+1 );
 #endif        
          disk->setMountPoint(s.left(s.find(BLANK)) );
             s=s.remove(0,s.find(BLANK)+1 );
-	    //debug("    MountPoint:    [%s]",(const char*)disk->mountPoint() );
+	    debug("    MountPoint:    [%s]",(const char*)disk->mountPoint() );
          disk->setFsType(s.left(s.find(BLANK)) );
             s=s.remove(0,s.find(BLANK)+1 );
-	    //debug("    FS-Type:       [%s]",(const char*)disk->fsType() );
+	    debug("    FS-Type:       [%s]",(const char*)disk->fsType() );
          disk->setMountOptions(s.left(s.find(BLANK)) );
             s=s.remove(0,s.find(BLANK)+1 );
-	    //debug("    Mount-Options: [%s]",(const char*)disk->mountOptions() );
+	    debug("    Mount-Options: [%s]",(const char*)disk->mountOptions() );
          if ( (disk->deviceName() != "none") && (disk->fsType() != "swap") 
                              && (disk->mountPoint() != "/dev/swap")
                              && (disk->mountPoint() != "/proc") )
@@ -217,7 +217,7 @@ QFile f(FSTAB);
 **/
 void DiskList::receivedDFStdErrOut(KProcess *, char *data, int len)
 {
-  //debug("DiskList::receivedDFStdErrOut");
+  debug("DiskList::receivedDFStdErrOut");
 
   /* ATTENTION: StdERR no longer connected to this... 
    * Do we really need StdErr?? on HP-UX there was eg. a line
@@ -225,8 +225,7 @@ void DiskList::receivedDFStdErrOut(KProcess *, char *data, int len)
    * but this shouldn't cause a real problem
    */
   
-  QString tmp = QString(data) + QString("\0");  // adds a zero-byte 
-  dfStringErrOut.append(tmp);
+  dfStringErrOut.append(data);
 }
 
 /***************************************************************************
@@ -235,7 +234,7 @@ void DiskList::receivedDFStdErrOut(KProcess *, char *data, int len)
 int DiskList::readDF()
 { 
   if (readingDFStdErrOut || dfProc->isRunning()) return -1; 
-  //debug("DiskList::readDF");
+  debug("DiskList::readDF");
   dfStringErrOut=""; // yet no data received
   dfProc->clearArguments();
   (*dfProc) << DF_COMMAND << DF_ARGS;
@@ -250,7 +249,7 @@ int DiskList::readDF()
 **/
 void DiskList::dfDone()
 {
-  //debug("DiskList::dfDone");
+  debug("DiskList::dfDone");
   readingDFStdErrOut=TRUE;
   for ( DiskEntry *disk=disks->first(); disk != 0; disk=disks->next() )
     disk->setMounted(FALSE);  // set all devs unmounted
@@ -258,65 +257,64 @@ void DiskList::dfDone()
   QTextStream t (dfStringErrOut, IO_ReadOnly);
   QString s=t.readLine();
   if ( (s.isEmpty()) || ( s.left(10) != "Filesystem" ) ) 
-    fatal("Error running df command... got [%s]",(const char *)s);
-  while ( !t.eof() ) {
+    fatal("Error running df command... got [%s]",s.latin1());
+  while ( !t.atEnd() ) {
     QString u,v;
     DiskEntry *disk;
     s=t.readLine();
     s=s.simplifyWhiteSpace();
     if ( !s.isEmpty() ) {
-      //debug("GOT: [%s]",s.data() );
       disk = new DiskEntry(); CHECK_PTR(disk);
       
       if (s.find(BLANK)<0)      // devicename was too long, rest in next line
 	if ( !t.eof() ) {       // just appends the next line
             v=t.readLine();
-            s=s.append(v.data() );
+            s=s.append(v.latin1() );
             s=s.simplifyWhiteSpace();
-            //debug("SPECIAL GOT: [%s]",s.data() );
+            debug("SPECIAL GOT: [%s]",s.latin1() );
 	 }//if silly linefeed
 
-      //debug("EFFECTIVELY GOT %i chars: [%s]",s.length(),s.data() );
+      debug("EFFECTIVELY GOT %i chars: [%s]",s.length(),s.latin1() );
 	 
       disk->setDeviceName(s.left(s.find(BLANK)) );
       s=s.remove(0,s.find(BLANK)+1 );
-      //debug("    DeviceName:    [%s]",(const char*)disk->deviceName() );
+      debug("    DeviceName:    [%s]",(const char*)disk->deviceName() );
 
       if (NO_FS_TYPE) {
-	//debug("THERE IS NO FS_TYPE_FIELD!");
+	debug("THERE IS NO FS_TYPE_FIELD!");
          disk->setFsType("?");
       } else {
          disk->setFsType(s.left(s.find(BLANK)) );
          s=s.remove(0,s.find(BLANK)+1 );
       };
-      //debug("    FS-Type:       [%s]",(const char*)disk->fsType() );
+      debug("    FS-Type:       [%s]",(const char*)disk->fsType() );
 
       u=s.left(s.find(BLANK));
       disk->setKBSize(u.toInt() );
       s=s.remove(0,s.find(BLANK)+1 );
-      //debug("    Size:       [%d]",disk->kBSize() );
+      debug("    Size:       [%d]",disk->kBSize() );
 
       u=s.left(s.find(BLANK));
       disk->setKBUsed(u.toInt() );
       s=s.remove(0,s.find(BLANK)+1 );
-      //debug("    Used:       [%d]",disk->kBUsed() );
+      debug("    Used:       [%d]",disk->kBUsed() );
     
       u=s.left(s.find(BLANK));
       disk->setKBAvail(u.toInt() );
       s=s.remove(0,s.find(BLANK)+1 );
-      //debug("    Avail:       [%d]",disk->kBAvail() );
+      debug("    Avail:       [%d]",disk->kBAvail() );
     
 
       s=s.remove(0,s.find(BLANK)+1 );  // delete the capacity 94%
       disk->setMountPoint(s.left(s.find(BLANK)) );
       s=s.remove(0,s.find(BLANK)+1 );
-      //debug("    MountPoint:       [%s]",(const char*)disk->mountPoint() );
+      debug("    MountPoint:       [%s]",(const char*)disk->mountPoint() );
   
       if (disk->kBSize() > 0) {
         disk->setMounted(TRUE);    // its now mounted (df lists only mounted)
         replaceDeviceEntry(disk);
       } else {
-       warning("[%s] has a kBSize == 0!",disk->deviceName().data());
+       warning("[%s] has a kBSize == 0!",disk->deviceName().latin1());
        delete disk;
       }
     }//if not header
@@ -333,7 +331,7 @@ void DiskList::dfDone()
 **/
 void DiskList::replaceDeviceEntry(DiskEntry *disk)
 { 
-  //  debug("DiskList::replaceDeviceEntry [%s] isMounted %i",disk->deviceName().data(),disk->mounted());
+  //  debug("DiskList::replaceDeviceEntry [%s] isMounted %i",disk->deviceName().latin1(),disk->mounted());
 
   int pos=disks->find(disk);
 
@@ -341,7 +339,7 @@ void DiskList::replaceDeviceEntry(DiskEntry *disk)
     // no matching entry found for mounted disk
     if ((disk->fsType() == "?") || (disk->fsType() == "cachefs")) {
       //search for fitting cachefs-entry in static /etc/vfstab-data
-      //debug("search for [%s]",(const char *)disk->deviceName());
+      debug("search for [%s]",(const char *)disk->deviceName());
       DiskEntry* olddisk = disks->first();
       QString odiskName;
       while (olddisk != 0) {
@@ -354,7 +352,7 @@ void DiskList::replaceDeviceEntry(DiskEntry *disk)
         while ((ci =odiskName.find('/',ci)) > 0) {
            odiskName.replace(ci,1,"_");
         }//while
-        //debug("     check against [%s]",(const char *)olddisk->deviceName());
+        debug("     check against [%s]",(const char *)olddisk->deviceName());
         // check if there is something that is exactly the tail
 	// eg. [srv:/tmp3] is exact tail of [/cache/.cfs_mnt_points/srv:_tmp3]
         if ( ( (p=disk->deviceName().findRev(odiskName
@@ -364,8 +362,7 @@ void DiskList::replaceDeviceEntry(DiskEntry *disk)
 	          == disk->deviceName().length()) ) 
         {
              pos = disks->at(); //store the actual position
-	     //debug("   FOUND [%s] at pos %i at ListPos %i"
-	     //  ,(const char *)olddisk->deviceName(),p,pos);
+	     debug("   FOUND [%s] at pos %i at ListPos %i",olddisk->deviceName().latin1(),p,pos);
              disk->setDeviceName(olddisk->deviceName());
              olddisk=0;
 	} else 
@@ -383,7 +380,7 @@ void DiskList::replaceDeviceEntry(DiskEntry *disk)
 #endif  
 
   if (pos != -1) {  // replace
-    //debug("dev %s is replaced",disk->deviceName().data());
+    debug("dev %s is replaced",disk->deviceName().latin1());
       DiskEntry * olddisk = disks->at(pos);
       if ( (-1!=olddisk->mountOptions().find("user")) &&
            (-1==disk->mountOptions().find("user")) ) {

@@ -74,11 +74,13 @@ DiskEntry::DiskEntry(QString deviceName, QObject *parent, const char *name)
  : QObject (parent, name)
 {
   init();
+  debug("devname: %s", deviceName.latin1());
+  
   setDeviceName(deviceName);
 }
 DiskEntry::~DiskEntry()
 {
-  //debug("DESTRUCT: DiskList"); 
+  debug("DESTRUCT: DiskList"); 
   disconnect(this);
   delete sysProc;
 };
@@ -93,7 +95,7 @@ int DiskEntry::toggleMount()
 
 int DiskEntry::mount()
 { 
-  //debug("mounting");
+  debug("mounting");
   QString cmdS=mntcmd;
   if (cmdS.isEmpty()) // generate default mount cmd
     if (getuid()!=0 ) // user mountable
@@ -114,7 +116,7 @@ int DiskEntry::mount()
 
 int DiskEntry::umount()
 {
-  //debug("umounting");
+  debug("umounting");
   QString cmdS=umntcmd;
   if (cmdS.isEmpty()) // generate default umount cmd
       cmdS="umount %d";
@@ -195,14 +197,14 @@ QString DiskEntry::guessIconName()
 //    if ( -1==mountOptions().find("user",0,FALSE) )
 //      iconName.prepend("root_"); // special root icon, normal user can´t mount
 
-    //debug("file is [%s]",iconName.data());
+    //debug("file is [%s]",iconName.latin1());
     if ( (!QFile::exists(locate("icon", iconName))))
     {
-      warning("file [%s] doesn't exist (not even mini)!",iconName.data());
+      warning("file [%s] doesn't exist (not even mini)!",iconName.latin1());
       iconName="unknown.xpm";
     }
     
-    //debug("device %s is %s",deviceName().data(),iconName.data());
+    //debug("device %s is %s",deviceName().latin1(),iconName.latin1());
     
     //emit iconNameChanged();
   return iconName;
@@ -214,7 +216,7 @@ QString DiskEntry::guessIconName()
 **/
 int DiskEntry::sysCall(QString command)
 {
-  //debug("DiskEntry::sysCall");
+  debug("DiskEntry::sysCall");
   if (readingSysStdErrOut || sysProc->isRunning() )  return -1;
 
   sysStringErrOut="called: "+command+"\n\n"; // put the called command on ErrOut
@@ -232,9 +234,11 @@ int DiskEntry::sysCall(QString command)
 **/
 void DiskEntry::receivedSysStdErrOut(KProcess *, char *data, int len)
 {
-  //debug("DiskEntry::receivedSysStdErrOut");
-  QString tmp = QString(data) + QString("\0");  // adds a zero-byte 
-  sysStringErrOut.append(tmp);
+  debug("DiskEntry::receivedSysStdErrOut");
+  QString tmp = QString(data) + QString("\0");  // adds a zero-byte
+  debug("receivedSysStdErrOut: %s", tmp.ascii());
+  
+  sysStringErrOut.append(data);
 };
 
 QString DiskEntry::prettyPrint(int kBValue) const
@@ -303,14 +307,14 @@ void DiskEntry::setMounted(bool nowMounted)
   
 void DiskEntry::setKBSize(int kb_size)
 {
-  //debug("DiskEntry::setKBSize(%d)",kb_size);
+  debug("DiskEntry::setKBSize(%d)",kb_size);
   size=kb_size;
   emit kBSizeChanged();
 };
 
 void DiskEntry::setKBUsed(int kb_used)
 {
-  //debug("DiskEntry::setKBUsed(%d)",kb_used);
+  debug("DiskEntry::setKBUsed(%d)",kb_used);
   used=kb_used;
   if ( size < (used+avail) ) {  //adjust kBAvail
      warning("device %s: kBAvail(%d)+*kBUsed(%d) exceeds kBSize(%d)"
@@ -322,7 +326,7 @@ void DiskEntry::setKBUsed(int kb_used)
 
 void DiskEntry::setKBAvail(int kb_avail)
 {
-  //debug("DiskEntry::setKBAvail(%d)",kb_avail);
+  debug("DiskEntry::setKBAvail(%d)",kb_avail);
   avail=kb_avail;
   if ( size < (used+avail) ) {  //adjust kBUsed
      warning("device %s: *kBAvail(%d)+kBUsed(%d) exceeds kBSize(%d)"

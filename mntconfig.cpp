@@ -62,7 +62,7 @@ MntConfigWidget::MntConfigWidget (QWidget * parent, const char *name
                       , bool init)
     : KConfigWidget (parent, name)
 {
-  //debug("Construct: MntConfigWidget::MntConfigWidget");
+  debug("Construct: MntConfigWidget::MntConfigWidget");
   if (init) {
     GUI = FALSE;
   } else
@@ -108,14 +108,14 @@ MntConfigWidget::MntConfigWidget (QWidget * parent, const char *name
        btnActIcon->setEnabled(FALSE);
        connect(btnActIcon,SIGNAL(clicked()),this,SLOT(selectIcon()));
        qleIcon=new QLineEdit(boxActDev); CHECK_PTR(qleIcon);
-       connect(qleIcon,SIGNAL(textChanged(const char *))
-               ,this,SLOT(iconChanged(const char *)));
+       connect(qleIcon,SIGNAL(textChanged(const QString&))
+               ,this,SLOT(iconChanged(const QString&)));
        qleIcon->setEnabled(FALSE);
 
        //Mount
        qleMnt=new QLineEdit(boxActDev); CHECK_PTR(qleMnt);
-       connect(qleMnt,SIGNAL(textChanged(const char *))
-               ,this,SLOT(mntCmdChanged(const char *)));
+       connect(qleMnt,SIGNAL(textChanged(const QString&))
+               ,this,SLOT(mntCmdChanged(const QString&)));
        qleMnt->setEnabled(FALSE);
        btnMntFile=new QPushButton( i18n("get &MountCommand"), boxActDev);
        CHECK_PTR(btnMntFile);
@@ -124,8 +124,8 @@ MntConfigWidget::MntConfigWidget (QWidget * parent, const char *name
 
        //Umount
        qleUmnt=new QLineEdit(boxActDev); CHECK_PTR(qleUmnt);
-       connect(qleUmnt,SIGNAL(textChanged(const char *))
-               ,this,SLOT(umntCmdChanged(const char *)));
+       connect(qleUmnt,SIGNAL(textChanged(const QString&))
+               ,this,SLOT(umntCmdChanged(const QString&)));
        qleUmnt->setEnabled(FALSE);
        btnUmntFile=new QPushButton(i18n("get &UmountCommand"), boxActDev);
        CHECK_PTR(btnUmntFile);
@@ -141,7 +141,7 @@ MntConfigWidget::MntConfigWidget (QWidget * parent, const char *name
 
 /**********************************************************************/
 void MntConfigWidget::readDFDone() {
-  //debug("MntConfigWidget::readDFDone");
+  debug("MntConfigWidget::readDFDone");
   initializing=FALSE;
   tabList->clear();
        //fill up the tabListBox
@@ -149,14 +149,14 @@ void MntConfigWidget::readDFDone() {
        QPixmap *pix;
        QString s,icon;
        for (disk=diskList.first();disk!=0;disk=diskList.next()) {
-        icon.sprintf("%s%s%s",disk->iconName().data()
-                             ,disk->deviceName().data()
-                             ,disk->mountPoint().data());
-         s.sprintf("%s\t%s\t%s\t%s\t%s",icon.data()
-                                   ,disk->deviceName().data()
-                                   ,disk->mountPoint().data()
-                                   ,disk->mountCommand().data()
-                                   ,disk->umountCommand().data());
+        icon.sprintf("%s%s%s",disk->iconName().latin1()
+                             ,disk->deviceName().latin1()
+                             ,disk->mountPoint().latin1());
+         s.sprintf("%s\t%s\t%s\t%s\t%s",icon.latin1()
+                                   ,disk->deviceName().latin1()
+                                   ,disk->mountPoint().latin1()
+                                   ,disk->mountCommand().latin1()
+                                   ,disk->umountCommand().latin1());
          tabList->appendItem((const char *)s);
        pix=tabList->dict()[icon.data()];
        if (pix == 0) { // pix not already in cache
@@ -197,7 +197,7 @@ void MntConfigWidget::readDFDone() {
 **/
 void MntConfigWidget::applySettings()
 {
-  //debug("MntConfigWidget::applySettings");
+  debug("MntConfigWidget::applySettings");
  diskList.applySettings();
  config->setGroup("MntConfig");
  if (GUI) {
@@ -212,7 +212,7 @@ void MntConfigWidget::applySettings()
 **/
 void MntConfigWidget::loadSettings()
 {
-  //debug("MntConfigWidget::loadSettings");
+  debug("MntConfigWidget::loadSettings");
  if ((!initializing) && (GUI)) {
        config->setGroup("MntConfig");
        if (isTopLevel()) {
@@ -237,7 +237,7 @@ void MntConfigWidget::loadSettings()
 **/
 void MntConfigWidget::clicked(int index, int column)
 {
-  //debug("MntConfigWidget::clicked row %i column %i",index, column);
+  debug("MntConfigWidget::clicked row %i column %i",index, column);
   if ((index == -1) || (tabList->count()<(uint)index)) return;
   actRow=index;
   tabList->unmarkAll();
@@ -253,19 +253,21 @@ void MntConfigWidget::clicked(int index, int column)
   if (column==MNTCMDCOL) qleMnt->setFocus();
   if (column==UMNTCMDCOL) qleUmnt->setFocus();
   DiskEntry *disk = new DiskEntry();
+  debug("devicename: %s", tabList->text(index, DEVCOL).ascii());
+  
   disk->setDeviceName(tabList->text(index,DEVCOL));
   disk->setMountPoint(tabList->text(index,MNTPNTCOL));
   actDisk=diskList.at(diskList.find(disk));
   delete disk;
   QString title;
   title.sprintf("%s [%s] %s [%s]",tabHeaders.at(DEVCOL)
-                                 ,actDisk->deviceName().data()
+                                 ,actDisk->deviceName().latin1()
                                  ,tabHeaders.at(MNTPNTCOL)
-                                 ,actDisk->mountPoint().data());
+                                 ,actDisk->mountPoint().latin1());
   QString icon;
-         icon.sprintf("%s%s%s",actDisk->iconName().data()
-                            ,actDisk->deviceName().data()
-                            ,actDisk->mountPoint().data());
+         icon.sprintf("%s%s%s",actDisk->iconName().latin1()
+                            ,actDisk->deviceName().latin1()
+                            ,actDisk->mountPoint().latin1());
 
   boxActDev->setTitle(title);
   btnActIcon->setPixmap(*(tabList->dict()[icon.data()]));
@@ -303,9 +305,9 @@ void MntConfigWidget::selectIcon()
        icoName=icoName.left(icoName.findRev('_'));
        actDisk->setIconName(icoName);
   QString icon;
-       icon.sprintf("%s%s%s",actDisk->iconName().data()
-                            ,actDisk->deviceName().data()
-                            ,actDisk->mountPoint().data());
+       icon.sprintf("%s%s%s",actDisk->iconName().latin1()
+                            ,actDisk->deviceName().latin1()
+                            ,actDisk->mountPoint().latin1());
 
        pix=tabList->dict()[icon.data()];
        if (pix == 0) { // pix not already in cache
@@ -350,17 +352,17 @@ void MntConfigWidget::selectUmntFile()
   if (!cmd.isEmpty()) qleUmnt->setText(cmd);
 }
 
-void MntConfigWidget::iconChanged(const char * )
+void MntConfigWidget::iconChanged(const QString& )
 {
 }
 
-void MntConfigWidget::mntCmdChanged(const char * data)
+void MntConfigWidget::mntCmdChanged(const QString& data)
 {
   tabList->changeItemPart(data,actRow,MNTCMDCOL);
   actDisk->setMountCommand(data);
 }
 
-void MntConfigWidget::umntCmdChanged(const char * data)
+void MntConfigWidget::umntCmdChanged(const QString& data)
 {
   tabList->changeItemPart(data,actRow,UMNTCMDCOL);
   actDisk->setUmountCommand(data);
@@ -371,7 +373,7 @@ void MntConfigWidget::umntCmdChanged(const char * data)
 **/
 MntConfigWidget::~MntConfigWidget() 
 { 
-  //debug("DESTRUCT: MntConfigWidget::~MntConfigWidget");
+  debug("DESTRUCT: MntConfigWidget::~MntConfigWidget");
   if (GUI) {
     delete btnActIcon;
     delete qleIcon;
@@ -391,7 +393,7 @@ MntConfigWidget::~MntConfigWidget()
 **/
 void MntConfigWidget::closeEvent(QCloseEvent *)
 {
-  //debug("MntConfigWidget::closeEvent");
+  debug("MntConfigWidget::closeEvent");
   //applySettings(); 
   // kapp->quit();
 };

@@ -64,7 +64,7 @@ KDFConfigWidget::KDFConfigWidget (QWidget * parent, const char *name
                       , bool init)
     : KConfigWidget (parent, name)
 {
-  //debug("Construct: KDFConfigWidget::KDFConfigWidget");
+  debug("Construct: KDFConfigWidget::KDFConfigWidget");
 
 
   tabWidths.resize(PIX_COLUMN+1);
@@ -120,7 +120,7 @@ KDFConfigWidget::KDFConfigWidget (QWidget * parent, const char *name
       CHECK_PTR(cbPopupIfFull);
  
       QString pcn=parent->className();
-      //debug("parent: [%s]",pcn.data());
+      debug("parent: [%s]",pcn.latin1());
       if ( pcn == "KDFTopLevel" ) {
          //it is used from KTopLevelWidget "kdf" --> provides a help-btn
          isTopLevel=TRUE;  
@@ -173,7 +173,7 @@ KDFConfigWidget::KDFConfigWidget (QWidget * parent, const char *name
 **/
 KDFConfigWidget::~KDFConfigWidget() 
 { 
-  //debug("DESTRUCT: KDFConfigWidget::~KDFConfigWidget");
+  debug("DESTRUCT: KDFConfigWidget::~KDFConfigWidget");
   if (GUI) {
    delete freqLabel;
    delete fileMgrLabel;
@@ -200,7 +200,7 @@ void KDFConfigWidget::closeEvent(QCloseEvent *)
 **/
 void KDFConfigWidget::applySettings()
 {
-  //debug("KDFConfigWidget::applySettings");
+  debug("KDFConfigWidget::applySettings");
  config->setGroup("KDFConfig");
  if (GUI) {
     config->writeEntry("Width",width() );
@@ -223,7 +223,7 @@ void KDFConfigWidget::applySettings()
 **/
 void KDFConfigWidget::loadSettings()
 {
-  //debug("KDFConfigWidget::loadSettings");
+  debug("KDFConfigWidget::loadSettings");
  config->setGroup("KDFConfig");
 
  if (GUI) {
@@ -254,7 +254,7 @@ void KDFConfigWidget::loadSettings()
 **/
 void KDFConfigWidget::defaultsBtnClicked()
 {
-  //debug("KDFConfigWidget::defaultsBtnClicked");
+  debug("KDFConfigWidget::defaultsBtnClicked");
   freqScroll->setValue(DEFAULT_FREQ);
   fileMgrEdit->setText(DEFAULT_FILEMGR_COMMAND);
   for (int i=0;i<=PIX_COLUMN;i++) {
@@ -269,7 +269,7 @@ void KDFConfigWidget::defaultsBtnClicked()
 **/
 void KDFConfigWidget::toggleColumnVisibility(int column)
 {
-  //debug("KDFConfigWidget::toggleColumnVisibility: %d",column);
+  debug("KDFConfigWidget::toggleColumnVisibility: %d",column);
 
   if(confTabList->text(0,column) == i18n(INVISIBLE) ) {
     confTabList->changeItemPart(i18n(VISIBLE),0,column); 
@@ -286,7 +286,7 @@ void KDFConfigWidget::toggleColumnVisibility(int column)
 **/
 void KDFConfigWidget::resizeEvent(QResizeEvent *)
 {
-  //debug("KDFConfigWidget::resizeEvent  %dx%d",width(),height());
+  debug("KDFConfigWidget::resizeEvent  %dx%d",width(),height());
   
   //set widths to default-values
   for (int i=0;i<=PIX_COLUMN;i++)

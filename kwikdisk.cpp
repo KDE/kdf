@@ -52,7 +52,7 @@ MyToolTip::MyToolTip(QWidget *parent, QToolTipGroup * group)
 
 void MyToolTip::setPossibleTip(const QRect &the_rect,const char *the_text)
 {
-  //debug("setPossibleTip");
+  debug("setPossibleTip");
   rect=the_rect;
   text=the_text;
   setTipping(TRUE);
@@ -78,7 +78,7 @@ MyPopupMenu::MyPopupMenu(QWidget *parent, const char *name)
 
 void MyPopupMenu::mouseMoveEvent(QMouseEvent *e)
 {
-  //debug("mouse moved...");
+  debug("mouse moved...");
 
 
 #warning commented out because QTableView::findRow() is no
@@ -88,7 +88,7 @@ void MyPopupMenu::mouseMoveEvent(QMouseEvent *e)
   int row = findRow( e->pos().y() );		// ask table for row
   int col = findCol( e->pos().x() );		// ask table for column
   if ((row != -1) && (col != -1) && (row!=toolTipRow)) {
-    //debug("mouse moved... we are now in row %i  col %i",row,col);
+    debug("mouse moved... we are now in row %i  col %i",row,col);
       toolTipRow=row;
       int cellPos=0;
       for (int j=0;j<row;j++) cellPos += cellHeight(j);
@@ -140,12 +140,12 @@ DockWidget::DockWidget(QWidget *parent, const char *name)
 **/
 void DockWidget::applySettings()
 {
-  //debug("DockWidget::applySettings");
+  debug("DockWidget::applySettings");
 }
 
 void DockWidget::confApplySettings()
 {
-  //debug("DockWidget::confApplySettings");
+  debug("DockWidget::confApplySettings");
   this->applySettings();
   mntconf->applySettings();
   kdfconf->applySettings();
@@ -157,7 +157,7 @@ void DockWidget::confApplySettings()
 **/
 void DockWidget::loadSettings()
 {
-  //debug("DockWidget::loadSettings");
+  debug("DockWidget::loadSettings");
  config->setGroup("KDFConfig");
  updateFreq=config->readNumEntry("UpdateFrequency",DEFAULT_FREQ);
  fileMgr=config->readEntry("FileManagerCommand",DEFAULT_FILEMGR_COMMAND);
@@ -171,7 +171,7 @@ void DockWidget::loadSettings()
 
 void DockWidget::confLoadSettings()
 {
-  //debug("DockWidget::confLoadSettings");
+  debug("DockWidget::confLoadSettings");
  mntconf->loadSettings();
  kdfconf->loadSettings(); 
 }
@@ -182,14 +182,14 @@ void DockWidget::confLoadSettings()
 **/
 void DockWidget::criticallyFull(DiskEntry *disk )
 {
-  //debug("DockWidget::criticallyFull");
+  debug("DockWidget::criticallyFull");
   if (popupIfFull) {
     QString s;
     s.sprintf("Device [%s] on [%s] is getting critically full!",
-             disk->deviceName().data(),
-             disk->mountPoint().data());
+             disk->deviceName().latin1(),
+             disk->mountPoint().latin1());
        KMsgBox::message(this,i18n("KwikDisk"),
-              i18n(s.data())
+              i18n(s.latin1())
                ,KMsgBox::EXCLAMATION);
   }
 }
@@ -200,7 +200,7 @@ void DockWidget::criticallyFull(DiskEntry *disk )
 **/
 void DockWidget::setUpdateFreq(int freq)
 {
-  //debug("DockWidget::setUpdateFreq");
+  debug("DockWidget::setUpdateFreq");
   killTimers(); //kills !all! running timers
   updateFreq=freq;
 
@@ -215,7 +215,7 @@ void DockWidget::setUpdateFreq(int freq)
 **/
 void DockWidget::timerEvent(QTimerEvent *) 
 { 
-  //debug("DockWidget::timerEvent");
+  debug("DockWidget::timerEvent");
   updateDF();
 };
 
@@ -249,7 +249,7 @@ void DockWidget::updateDF()
 
 void DockWidget::toggleMount( )
 {
-  //debug("DockWidget::toggleMount");
+  debug("DockWidget::toggleMount");
   DiskEntry *disk;
   
     if (!readingDF) {
@@ -279,7 +279,7 @@ void DockWidget::toggleMount( )
 }
 void DockWidget::updateDFDone()
 { 
-  //debug("DockWidget::updateDFDone() %p",clickMenu);
+  debug("DockWidget::updateDFDone() %p",clickMenu);
   // pops up the menu
 
   if (clickMenu!=0) delete clickMenu;
@@ -294,14 +294,14 @@ void DockWidget::updateDFDone()
   int id;
   for (disk=diskList.first();disk!=0;disk=diskList.next()) {
     toolTipText = new QString;
-    toolTipText->sprintf("(%s) %s on %s",disk->fsType().data()
-                                        ,disk->deviceName().data()
-                                        ,disk->mountPoint().data());
+    toolTipText->sprintf("(%s) %s on %s",disk->fsType().latin1()
+                                        ,disk->deviceName().latin1()
+                                        ,disk->mountPoint().latin1());
     if (disk->mounted())  toolTipText->prepend("UNMOUNT");
     else toolTipText->prepend("MOUNT");
-    entryName=disk->mountPoint().data();
+    entryName=disk->mountPoint().latin1();
     if (disk->mounted()) entryName+=QString("   [")
-                                  +disk->prettyKBAvail().data()
+                                  +disk->prettyKBAvail().latin1()
                                   +QString("]");
 
     id=clickMenu->insertItem("",disk, SLOT(toggleMount()));
@@ -338,7 +338,7 @@ void DockWidget::updateDFDone()
     connect(disk, SIGNAL(sysCallError(DiskEntry *, int) ),
             this, SLOT(sysCallError(DiskEntry *, int)) );
 
-    clickMenu->setToolTip(id,toolTipText->data());
+    clickMenu->setToolTip(id,toolTipText->latin1());
   } // every device found
   readingDF=FALSE;
 

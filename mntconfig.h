@@ -65,9 +65,9 @@ private slots:
   void selectIcon();
   void selectMntFile();
   void selectUmntFile();
-  void iconChanged(const char *);
-  void mntCmdChanged(const char *);
-  void umntCmdChanged(const char *);
+  void iconChanged(const QString&);
+  void mntCmdChanged(const QString&);
+  void umntCmdChanged(const QString&);
 
 protected:
   void resizeEvent( QResizeEvent * );       
