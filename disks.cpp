@@ -222,7 +222,7 @@ int DiskEntry::sysCall(QString command)
   sysProc->clearArguments();
   (*sysProc) << (const char *)command;
     if (!sysProc->start( KProcess::Block, KProcess::AllOutput ))
-     fatal(i18n("could not execute [%s]"),(const char *)command);
+     fatal(i18n("could not execute [%1]").arg(command).local8Bit().data());
 
   debug("DiskEntry::sysCall sysProc->normaleExit=%d", sysProc->normalExit());
   if (sysProc->exitStatus()!=0) emit sysCallError(this, sysProc->exitStatus());
