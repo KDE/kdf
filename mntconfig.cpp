@@ -273,8 +273,7 @@ void MntConfigWidget::selectIcon(QString iconName)
 	disk->setIconName(iconName);
 	mIconLineEdit->setText(iconName);
 	KIconLoader &loader = *KGlobal::iconLoader();
-	item->setPixmap( ICONCOL, loader.loadIcon( iconName, 
-	  KIconLoader::Small, 0, false ) );
+	item->setPixmap( ICONCOL, loader.loadIcon( iconName, KIcon::Small));
       }
       break;
     }
