@@ -38,6 +38,8 @@
 #include <qpaintdevice.h>
 #include <qstring.h>
 
+#undef Unsorted
+
 #include <kapp.h>
 #include <kdialog.h>
 #include <kfiledialog.h>
