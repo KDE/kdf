@@ -410,7 +410,7 @@ void DockWidget::quit() {
 
 /***************************************************************/
 KwikDiskTopLevel::KwikDiskTopLevel(QWidget *, const char *name)
-      : KTopLevelWidget(name) 
+      : KTMainWindow(name) 
 {
     dockIcon=new DockWidget (this,"docked_icon");
     KIconLoader *loader = KGlobal::iconLoader();

@@ -122,7 +122,7 @@ private:
 
 
 /***************************************************************/
-class KwikDiskTopLevel : public KTopLevelWidget
+class KwikDiskTopLevel : public KTMainWindow
 { Q_OBJECT
 
 public:

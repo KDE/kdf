@@ -33,7 +33,7 @@
 
 /***************************************************************/
 KDFTopLevel::KDFTopLevel(QWidget *, const char *name)
-      : KTopLevelWidget(name) 
+      : KTMainWindow(name) 
 {
    KMenuBar *menu = new KMenuBar(this);
    kdf = new KDFWidget(this,"kdf",FALSE); CHECK_PTR(kdf);
@@ -67,7 +67,7 @@ int main(int argc, char **argv)
   //SessionManagement
     if (app.isRestored()) {
       int n = 1;
-      while (KTopLevelWidget::canBeRestored(n)) {
+      while (KTMainWindow::canBeRestored(n)) {
         KDFTopLevel *ktl = new KDFTopLevel();
         CHECK_PTR(ktl);
         ktl->setCaption("KDiskFree");

@@ -29,7 +29,7 @@
 #include "kdfwidget.h"
 
 /***************************************************************/
-class KDFTopLevel : public KTopLevelWidget
+class KDFTopLevel : public KTMainWindow
 {
  Q_OBJECT
 

@@ -116,7 +116,7 @@ KDFWidget::KDFWidget (QWidget * parent, const char *name
       QString pcn=parent->className();
       debug("parent: [%s]",pcn.latin1());
       if ( pcn == "KDFTopLevel" ) {
-         //it is used from KTopLevelWidget "kdf"
+         //it is used from KTMainWindow "kdf"
          isTopLevel=TRUE;  
       } else 
          isTopLevel=FALSE;

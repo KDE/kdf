@@ -125,7 +125,7 @@ KDFConfigWidget::KDFConfigWidget (QWidget * parent, const char *name
       QString pcn=parent->className();
       debug("parent: [%s]",pcn.latin1());
       if ( pcn == "KDFTopLevel" ) {
-         //it is used from KTopLevelWidget "kdf" --> provides a help-btn
+         //it is used from KTMainWindow "kdf" --> provides a help-btn
          isTopLevel=TRUE;  
       } else 
          isTopLevel=FALSE;
