@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=KwikDisk
-Name[af]=kwikdisk
+Name[af]=Kwikdisk
 Name[da]=Kwikdisk
 Name[eo]=Diskokroĉilo
 Name[et]=Ketaste ühendamine
@@ -16,6 +16,7 @@ Exec=kwikdisk
 Icon=kwikdisk
 Type=Application
 GenericName=Mount/Umount Utility
+GenericName[af]=Mount/Ontkoppel Program
 GenericName[ar]=برنامج Mount/Umount
 GenericName[bs]=Alat za montiranje/demontiranje
 GenericName[cs]=Pomůcka pro připojení/odpojení disků

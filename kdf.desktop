@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=KDiskFree
-Name[af]=kdiskfree
+Name[af]=Kdiskfree
 Name[bg]=СвободноПространствоНаДиска
 Name[eo]=Diskuzo
 Name[lv]=KDiskāBrīvs
@@ -20,7 +20,7 @@ Exec=kdf
 Icon=kdf
 Type=Application
 GenericName=View Disk Usage
-GenericName[af]=besigtig disket gebruik
+GenericName[af]=Besigtig Disket Gebruik
 GenericName[ar]= عرض ةستخدام القرص
 GenericName[bg]=Показва конзолните съобщения
 GenericName[bs]=Pregled iskorištenosti diska
