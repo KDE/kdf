@@ -39,6 +39,7 @@
 #include <qstring.h>
 #include <qtimer.h>
 #include <qlayout.h>
+#include <qfile.h>
 #include <qpainter.h>
 
 #include <kdebug.h>
@@ -541,7 +542,7 @@ void KDFWidget::popupMenu( QListViewItem *item, const QPoint &p )
       {
 	cmd += " " + disk->mountPoint() +" &";
       }
-      system( cmd.latin1() );
+      system( QFile::encodeName(cmd) );
     }
   }
 

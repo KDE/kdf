@@ -32,6 +32,7 @@
 #include <qpixmap.h>
 #include <qpen.h>
 #include <qpainter.h>
+#include <qfile.h>
 
 #include <kdebug.h>
 #include <kapp.h>
@@ -336,7 +337,7 @@ void DockWidget::toggleMount( void )
       {
 	cmd += " " + disk->mountPoint() +" &";
       }
-      system( cmd.latin1() );
+      system( QFile::encodeName(cmd) );
     }
   }
   mDirty = true;
