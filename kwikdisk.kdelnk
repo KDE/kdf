@@ -6,5 +6,6 @@ Icon=kwikdisk.xpm
 Type=Application
 DocPath=kcontrol/kwikdisk/index.html
 Comment=Docks and allows easy mounts/umounts from the panel
+Comment[de]=Dockt in den Panel und ermoeglicht schnelles Ein/Aushaengen von Laufwerken
 Terminal=0
 MiniIcon=kwikdisk.xpm

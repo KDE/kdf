@@ -1,11 +1,16 @@
 # KDE Config File 
 [KDE Desktop Entry]
 Name=Block Devices
+Name[de]=Blockgeräte
+Name[fi]=Blokkilaitteet
+Name[pt_BR]=Dispositivos de Bloco
 Exec=kcmdf kdf
 Init=kcmdf -init
 Icon=kcmdf.xpm
 Type=Application
 DocPath=kcontrol/kcmdf/index.html
 Comment=Shows the disk usage of the mounted devices
+Comment[de]=Zeigt die Plattenausnutzung von gemounteten Geräten
+Comment[pt_BR]=Mostra a utilização do disco nos dispositivos montados
 Terminal=0
 MiniIcon=kcmdf.xpm
