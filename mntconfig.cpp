@@ -347,7 +347,7 @@ void MntConfigWidget::selectUmntFile()
   if (!cmd.isEmpty()) qleUmnt->setText(cmd);
 }
 
-void MntConfigWidget::iconChanged(const char * data)
+void MntConfigWidget::iconChanged(const char * )
 {
 }
 

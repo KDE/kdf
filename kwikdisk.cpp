@@ -58,7 +58,7 @@ void MyToolTip::setPossibleTip(const QRect &the_rect,const char *the_text)
   setTipping(TRUE);
 };
 
-void MyToolTip::maybeTip(const QPoint &p)
+void MyToolTip::maybeTip(const QPoint &)
 {
   if ((!tipping) || (text==0) )return;
   //   debug("maybeTip in %i:%i [%s]  for: %ix%i+%i+%i",p.x(),p.y()
@@ -225,7 +225,7 @@ void DockWidget::startKDF()
   system("kdf &");
 };
 
-void DockWidget::mousePressEvent(QMouseEvent *e)
+void DockWidget::mousePressEvent(QMouseEvent *)
 { 
   updateDF();
 };

@@ -31,7 +31,7 @@
 #include "kdf.h"
 
 /***************************************************************/
-KDFTopLevel::KDFTopLevel(QWidget *, const char *name=0)
+KDFTopLevel::KDFTopLevel(QWidget *, const char *name)
       : KTopLevelWidget(name) 
 {
    KMenuBar *menu = new KMenuBar(this);
