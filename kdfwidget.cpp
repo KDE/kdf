@@ -45,7 +45,7 @@
 #include <kglobal.h>
 #include <kiconloader.h>
 #include <kmessagebox.h>
-#include <kpopmenu.h>
+#include <kpopupmenu.h>
 
 #include "listview.h"
 #include "kdfwidget.h"
