@@ -62,8 +62,8 @@ public:
   MyPopupMenu(QWidget *parent=0, const char *name=0);
   ~MyPopupMenu() { delete toolTip; };
   void setToolTip(int id, const char *text);
-  int cellHeight(int id) { return QPopupMenu::cellHeight(id); };
-  int totalWidth() { return QPopupMenu::totalWidth(); };
+  int cellHeight(int id) { return QPopupMenu::itemHeight(id); };
+  int totalWidth() { return QPopupMenu::width(); };
 private slots:
 
 protected:

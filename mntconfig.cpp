@@ -34,7 +34,7 @@
 #include <qbitmap.h>
 #include <qpaintd.h>
 
-#include <kapp.h> 
+#include <klocale.h> 
 #include <kmsgbox.h> 
 #include <kiconloader.h>
 #include <kiconloaderdialog.h>
@@ -64,15 +64,15 @@ MntConfigWidget::MntConfigWidget (QWidget * parent, const char *name
   } else
     GUI = TRUE;
   tabWidths.resize(NRCOLS);
-  tabHeaders.append(klocale->translate("Icon") );
+  tabHeaders.append( i18n("Icon") );
   tabWidths[0]=32;
-  tabHeaders.append(klocale->translate("Device") );
+  tabHeaders.append( i18n("Device") );
   tabWidths[1]=80;
-  tabHeaders.append(klocale->translate("MountPoint") );
+  tabHeaders.append( i18n("MountPoint") );
   tabWidths[2]=90;
-  tabHeaders.append(klocale->translate("MountCommand") );
+  tabHeaders.append( i18n("MountCommand") );
   tabWidths[3]=120;
-  tabHeaders.append(klocale->translate("UmountCommand") );
+  tabHeaders.append( i18n("UmountCommand") );
   tabWidths[4]=120;
   actRow=-1;
   actDisk=0;
@@ -113,8 +113,8 @@ MntConfigWidget::MntConfigWidget (QWidget * parent, const char *name
        connect(qleMnt,SIGNAL(textChanged(const char *))
                ,this,SLOT(mntCmdChanged(const char *)));
        qleMnt->setEnabled(FALSE);
-       btnMntFile=new QPushButton(klocale->translate("get &MountCommand")
-                  ,boxActDev); CHECK_PTR(btnMntFile);
+       btnMntFile=new QPushButton( i18n("get &MountCommand"), boxActDev);
+       CHECK_PTR(btnMntFile);
        connect(btnMntFile,SIGNAL(clicked()),this,SLOT(selectMntFile()));
        btnMntFile->setEnabled(FALSE);
 
@@ -123,8 +123,8 @@ MntConfigWidget::MntConfigWidget (QWidget * parent, const char *name
        connect(qleUmnt,SIGNAL(textChanged(const char *))
                ,this,SLOT(umntCmdChanged(const char *)));
        qleUmnt->setEnabled(FALSE);
-       btnUmntFile=new QPushButton(klocale->translate("get &UmountCommand")
-                  ,boxActDev); CHECK_PTR(btnUmntFile);
+       btnUmntFile=new QPushButton(i18n("get &UmountCommand"), boxActDev);
+       CHECK_PTR(btnUmntFile);
        connect(btnUmntFile,SIGNAL(clicked()),this,SLOT(selectUmntFile()));
        btnUmntFile->setEnabled(FALSE);
 
@@ -279,12 +279,12 @@ void MntConfigWidget::selectIcon()
   // KIconLoader *loader = kapp->getIconLoader();
   KIconLoaderDialog *kild=new KIconLoaderDialog(loader,this);
   CHECK_PTR(kild);
-  QStrList dirs;
+  QStringList dirs;
 
   dirs.append(kapp->kde_icondir() + "/mini");
   dirs.append(KApplication::localkdedir()+"/share/icons/mini");
 
-  kild->setDir(&dirs);
+  kild->setDir(dirs);
   QString icoName;
   QPixmap *pix=new QPixmap(kild->selectIcon(icoName,"*"));
   delete pix;
@@ -295,8 +295,8 @@ void MntConfigWidget::selectIcon()
                         != "_mount.xpm") &&
           (icoName.right(icoName.length()-icoName.findRev('_'))
                         != "_unmount.xpm") ) )
-       KMsgBox::message(this,klocale->translate("KDiskFree"),
-              klocale->translate("This filename is not valid.\nIt has to be ending in \n\"_mount.xpm\" or \"_unmount.xpm\".")
+       KMsgBox::message(this, i18n("KDiskFree"),
+              i18n("This filename is not valid.\nIt has to be ending in \n\"_mount.xpm\" or \"_unmount.xpm\".")
                ,KMsgBox::EXCLAMATION);
      else {
        icoName=icoName.left(icoName.findRev('_'));

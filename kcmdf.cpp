@@ -20,6 +20,8 @@
   */
 
 
+#include <stdio.h>
+
 #include "kcmdf.h"
 #include "kcmdf.moc"
 

@@ -240,7 +240,7 @@ int DiskList::readDF()
   dfProc->clearArguments();
   (*dfProc) << DF_COMMAND << DF_ARGS;
   if (!dfProc->start( KProcess::NotifyOnExit, KProcess::AllOutput ))
-     fatal(klocale->translate("could not execute [%s]"),DF_COMMAND);
+     fatal(i18n("could not execute [%s]"),DF_COMMAND);
   return 1;
 }
 

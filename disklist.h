@@ -38,7 +38,8 @@
 #include <qarray.h>
 #include <qdict.h>
  
-#include <kapp.h>
+#include <kconfig.h>
+#include <klocale.h>
 #include <kslider.h>
 #include <kcontrol.h>
 #include <ktablistbox.h>
@@ -68,13 +69,8 @@
 #define SEPARATOR "|"
 
 /***************************************************************************/
-#if defined(DEFAULT_TEMPLATECLASS)
-typedef QListT<DiskEntry>		DisksBase;
-typedef QListIteratorT<DiskEntry>	DisksIterator;
-#else
-typedef Q_DECLARE(QListM,KDFEntry)	DisksBase;
-typedef Q_DECLARE(QListIteratorM,KDFEntry) DisksIterator;
-#endif
+typedef QList<DiskEntry>		DisksBase;
+typedef QListIterator<DiskEntry>	DisksIterator;
 
 /***************************************************************************/
 class Disks : public DisksBase
@@ -83,7 +79,7 @@ class Disks : public DisksBase
   Disks(bool deepCopies=TRUE) { dc = deepCopies;};
   ~Disks() { clear(); };
 private: 
-  int compareItems( GCI s1, GCI s2 ) {
+  int compareItems( DiskEntry* s1, DiskEntry* s2 ) {
 	int ret;
 	ret = strcmp (static_cast<DiskEntry*>(s1)->deviceName(),
 		      static_cast<DiskEntry*>(s2)->deviceName() );

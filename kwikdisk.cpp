@@ -41,7 +41,7 @@
 /***************************************************************/
 /***************************************************************/
 /***************************************************************/
-MyToolTip::MyToolTip(QWidget *parent, QToolTipGroup * group= 0 ) 
+MyToolTip::MyToolTip(QWidget *parent, QToolTipGroup * group) 
       : QToolTip(parent,group)
 {
   tipping=FALSE;
@@ -66,7 +66,7 @@ void MyToolTip::maybeTip(const QPoint &p)
 /***************************************************************/
 /***************************************************************/
 /***************************************************************/
-MyPopupMenu::MyPopupMenu(QWidget *parent=0, const char *name=0)
+MyPopupMenu::MyPopupMenu(QWidget *parent, const char *name)
   : QPopupMenu(parent,name)
 {
   toolTip=new MyToolTip(this);
@@ -77,6 +77,11 @@ void MyPopupMenu::mouseMoveEvent(QMouseEvent *e)
 {
   //debug("mouse moved...");
 
+
+#warning commented out because QTableView::findRow() is no
+#warning longer part of QPopupMenu(). I hope its obsolete :-/ (Dirk)
+
+#if 0
   int row = findRow( e->pos().y() );		// ask table for row
   int col = findCol( e->pos().x() );		// ask table for column
   if ((row != -1) && (col != -1) && (row!=toolTipRow)) {
@@ -88,6 +93,7 @@ void MyPopupMenu::mouseMoveEvent(QMouseEvent *e)
                              ,totalWidth(),cellHeight(row)+2)
                              ,toolTips[idAt(row)]);
     };
+#endif
 
   QPopupMenu::mouseMoveEvent(e);  //SuperCall
 }
@@ -108,7 +114,7 @@ void MyPopupMenu::setToolTip(int id, const char *text)
 /***************************************************************/
 /***************************************************************/
 /***************************************************************/
-DockWidget::DockWidget(QWidget *parent, const char *name=0)
+DockWidget::DockWidget(QWidget *parent, const char *name)
   : QLabel(parent,name)
 {
   connect(&diskList,SIGNAL(readDFDone()),this,SLOT(updateDFDone()) );
@@ -398,7 +404,7 @@ void DockWidget::invokeHTMLHelp() {
 };
 
 /***************************************************************/
-KwikDiskTopLevel::KwikDiskTopLevel(QWidget *, const char *name=0)
+KwikDiskTopLevel::KwikDiskTopLevel(QWidget *, const char *name)
       : KTopLevelWidget(name) 
 {
     dockIcon=new DockWidget (this,"docked_icon");

@@ -37,7 +37,7 @@
 #include <qscrbar.h>
 #include <qarray.h>
  
-#include <kapp.h>
+#include <kconfig.h>
 #include <kslider.h>
 #include <kcontrol.h>
 #include <ktablistbox.h>

@@ -39,7 +39,8 @@
 #include <qarray.h>
 #include <qtabdialog.h>
  
-#include <kapp.h>
+#include <klocale.h>
+#include <kconfig.h>
 #include <kslider.h>
 #include <kcontrol.h>
 #include <ktablistbox.h>

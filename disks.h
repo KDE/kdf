@@ -30,9 +30,11 @@
 #include <qlabel.h>
 #include <qpushbt.h>
 #include <qprogbar.h>
+#include <qfile.h>
 
 #include <kprogress.h>
 #include <kprocess.h>
+#include <klocale.h>
 
 class DiskEntry : public QObject
 {
