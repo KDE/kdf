@@ -39,6 +39,7 @@
 #include <kglobalsettings.h>
 #include <krun.h>
 
+#include <kstdguiitem.h>
 #include <stdlib.h>
 
 #include "kwikdisk.h"
@@ -409,7 +410,7 @@ void DockWidget::updateDFDone( void )
 
   mPopupMenu->insertItem(
     BarIcon( "help" ),
-    i18n("&Help"), this, SLOT(invokeHelp()),0);
+    KStdGuiItem::help().text(), this, SLOT(invokeHelp()),0);
 
   mPopupMenu->insertSeparator();
 
