@@ -55,8 +55,8 @@
 #define SEPARATOR "|"
 
 /***************************************************************************/
-typedef QList<DiskEntry>		DisksBase;
-typedef QListIterator<DiskEntry>	DisksIterator;
+typedef QPtrList<DiskEntry>		DisksBase;
+typedef QPtrListIterator<DiskEntry>	DisksIterator;
 
 /***************************************************************************/
 class Disks : public DisksBase

@@ -25,7 +25,7 @@
 #ifndef __KDFWIDGET_H__
 #define __KDFWIDGET_H__
 
-#include <qarray.h>
+#include <qmemarray.h>
 #include <qglobal.h>
 #include <qstring.h>
 #include <qlistview.h>
@@ -139,7 +139,7 @@ class KDFWidget : public QWidget
 
   private:
     bool readingDF;
-    QArray<CTabEntry*> mTabProp;
+    QMemArray<CTabEntry*> mTabProp;
     CListView     *mList;
     COptionDialog *mOptionDialog;
     KPopupMenu    *mPopup;

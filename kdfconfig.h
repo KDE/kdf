@@ -25,7 +25,7 @@
 #ifndef __KDFCONFIG_H__
 #define __KDFCONFIG_H__
 
-#include <qarray.h>
+#include <qmemarray.h>
 #include <qstring.h>
 
 #include <stdoption.h>
@@ -74,7 +74,7 @@ class KDFConfigWidget : public QWidget
     void closeEvent( QCloseEvent * );
 
   private:
-    QArray<CTabName*> mTabName;
+    QMemArray<CTabName*> mTabName;
     CListView  *mList;
     QScrollBar *mScroll;
     QLCDNumber *mLCD;
