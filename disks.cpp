@@ -101,13 +101,9 @@ int DiskEntry::mount()
       }
 	else  // root mounts with all params/options
       {
-#ifdef Q_OS_FREEBSD
       // FreeBSD's mount(8) is picky: -o _must_ go before
       // the device and mountpoint.
       cmdS=QString::fromLatin1("mount -t%t -o%o %d %m");
-#else
-      cmdS="mount -t%t %d %m -o %o";
-#endif
       }
 
   cmdS.replace(QRegExp("%d"),this->deviceName());
