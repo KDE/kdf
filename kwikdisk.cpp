@@ -431,8 +431,16 @@ void DockWidget::showPopupMenu( void )
 
   QRect g = KWin::info(winId()).geometry;
   QSize s = mPopupMenu->sizeHint();
-  int scnum = QApplication::desktop()->screenNumber(this);
-  QRect desk = QApplication::desktop()->screenGeometry(scnum);
+  KConfig gc("kdeglobals", false, false);
+  gc.setGroup("Windows");
+  QRect desk;
+  if (gc.readBoolEntry("XineramaEnabled", true) &&
+        gc.readBoolEntry("XineramaPlacementEnabled", true)) {
+    int scnum = QApplication::desktop()->screenNumber(this);
+    desk = QApplication::desktop()->screenGeometry(scnum);
+  } else {
+    desk = QApplication::desktop()->geometry();
+  }
 
   if( g.x() > desk.center().x() &&
       g.y() + s.height() > desk.bottom() )
