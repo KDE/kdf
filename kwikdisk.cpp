@@ -430,9 +430,11 @@ void DockWidget::showPopupMenu( void )
 
   QRect g = KWin::info(winId()).geometry;
   QSize s = mPopupMenu->sizeHint();
+  int scnum = QApplication::desktop()->screenNumber(this);
+  QRect desk = QApplication::desktop()->screenGeometry(scnum);
 
-  if( g.x() > QApplication::desktop()->width()/2 &&
-      g.y() + s.height() > QApplication::desktop()->height() )
+  if( g.x() > desk.center().x() &&
+      g.y() + s.height() > desk.bottom() )
   {
     mPopupMenu->popup(QPoint( g.x(), g.y() - s.height()));
   }
