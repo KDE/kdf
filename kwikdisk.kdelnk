@@ -6,6 +6,5 @@ Icon=kwikdisk.xpm
 Type=Application
 DocPath=kcontrol/kwikdisk/index.html
 Comment=Docks and allows easy mounts/umounts from the panel
-Comment[de]=dockt sich ein und erlaubt schnelles mounten/umounten
 Terminal=0
 MiniIcon=kwikdisk.xpm
