@@ -41,7 +41,7 @@ class DiskEntry : public QObject
   Q_OBJECT
 public:
   DiskEntry(QObject *parent=0, const char *name=0);
-  DiskEntry(QString deviceName, QObject *parent=0, const char *name=0);
+  DiskEntry(const QString & deviceName, QObject *parent=0, const char *name=0);
   ~DiskEntry();
   QString lastSysError() {return sysStringErrOut; };
   QString deviceName() const { return device; };
@@ -99,13 +99,13 @@ public slots:
   int mount();
   int umount();
   int remount();
-  void setMountCommand(QString mnt);
-  void setUmountCommand(QString umnt);
-  void setDeviceName(QString deviceName);
-  void setMountPoint(QString mountPoint);
-  void setIconName(QString iconName);
-  void setMountOptions(QString mountOptions);
-  void setFsType(QString fsType);
+  void setMountCommand(const QString & mnt);
+  void setUmountCommand(const QString & umnt);
+  void setDeviceName(const QString & deviceName);
+  void setMountPoint(const QString & mountPoint);
+  void setIconName(const QString & iconName);
+  void setMountOptions(const QString & mountOptions);
+  void setFsType(const QString & fsType);
   void setMounted(bool nowMounted);
   void setKBSize(int kb_size);
   void setKBUsed(int kb_used);
@@ -117,7 +117,7 @@ private slots:
 
 private:
   void init();
-  int sysCall(QString command);
+  int sysCall(const QString & command);
   QString prettyPrint(int kBValue) const;
 
   KShellProcess     *sysProc;
@@ -139,8 +139,5 @@ private:
   bool        isMounted,
               iconSetByUser;
 };
-
-
-
 
 #endif

@@ -37,15 +37,8 @@
 #include "kcmdf.h"
 #include "kcmodule.h"
 
-static const char *description = 
-	I18N_NOOP("KDE Control Module for kdf.");
-
-static const char *version = "v0.0.1";
-
-
-
 KDiskFreeWidget::KDiskFreeWidget( QWidget *parent, const char *name )
-  :KCModule( parent, name )
+ : KCModule( parent, name )
 {
   setButtons(Help|Default|Cancel|Apply|Ok);
 
@@ -147,14 +140,11 @@ int KDiskFreeWidget::pageNumber( void )
 
 extern "C"
 {
-
   KCModule* create_kdf( QWidget *parent, const char * /*name*/ )
   {
-    KGlobal::locale()->insertCatalogue("kcminfo");
+    KGlobal::locale()->insertCatalogue("kdf");
     return new KDiskFreeWidget( parent );
   }
-
 }
-
 
 #include "kcmdf.moc"

@@ -67,7 +67,7 @@ class MyPopupMenu : public QPopupMenu
     MyPopupMenu(QWidget *parent=0, const char *name=0);
     ~MyPopupMenu( void );
 
-    void setToolTip(int id, const QString *text );
+    void setToolTip(int id, const QString & text );
     QRect itemRectangle( int id );
     int activeIndex( void );
 

@@ -125,11 +125,11 @@ QRect MyPopupMenu::itemRectangle( int id )
 }
 
 
-void MyPopupMenu::setToolTip( int id, const QString *text )
+void MyPopupMenu::setToolTip( int id, const QString & text )
 {
-  if( text != 0 )
+  if( !text.isNull() )
   {
-    mToolTipStrings.replace( id, text );
+    mToolTipStrings.replace( id, new QString(text) );
   }
 }
 
@@ -331,10 +331,9 @@ void DockWidget::updateDFDone( void )
 
   for( DiskEntry *disk = mDiskList.first(); disk!=0; disk = mDiskList.next()) 
   {
-    QString *toolTipText = new QString( i18n("%1 (%2) %3 on %4").
-      arg( disk->mounted() ? i18n("Unmount") : i18n("Mount")).
-      arg(disk->fsType()).arg(disk->deviceName()).arg(disk->mountPoint()) );
-    if( toolTipText == 0 ) { return; }
+    QString toolTipText = i18n("%1 (%2) %3 on %4")
+      .arg( disk->mounted() ? i18n("Unmount") : i18n("Mount"))
+      .arg(disk->fsType()).arg(disk->deviceName()).arg(disk->mountPoint());
 
     QString entryName = disk->mountPoint();
     if( disk->mounted() )
@@ -371,7 +370,7 @@ void DockWidget::updateDFDone( void )
 	qp.end();
       }
       mPopupMenu->disconnectItem(id,disk,SLOT(toggleMount()));
-      *toolTipText = i18n("Sorry, you must be root to mount this disk");
+      toolTipText = i18n("Sorry, you must be root to mount this disk");
     }
 
     mPopupMenu->changeItem(*pix,entryName,id);    

@@ -68,7 +68,7 @@ class MntConfigWidget : public QWidget
   private slots:
     void readDFDone( void );
     void clicked( QListViewItem *item );
-    void selectIcon( QString iconName );
+    void selectIcon( const QString & iconName );
     void selectMntFile( void );
     void selectUmntFile( void );
     void iconChanged( const QString & );

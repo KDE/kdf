@@ -246,9 +246,9 @@ void MntConfigWidget::clicked( QListViewItem *item )
   
 
 
-void MntConfigWidget::selectIcon(QString iconName)
+void MntConfigWidget::selectIcon(const QString & iconName)
 {
-  if( iconName.findRev('_') == QString::null || 
+  if( iconName.findRev('_') == 0 || 
       (iconName.right(iconName.length()-iconName.findRev('_'))!="_mount.png" &&
       iconName.right(iconName.length()-iconName.findRev('_'))!="_unmount.png"))
   {

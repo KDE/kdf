@@ -26,6 +26,8 @@
 #include <kapp.h>
 #include <kstddirs.h>
 #include <kglobal.h>
+#include <kdebug.h>
+
 #include "disks.h"
 #include "disks.moc"
 
@@ -70,17 +72,17 @@ DiskEntry::DiskEntry(QObject *parent, const char *name)
   init();
 }
 
-DiskEntry::DiskEntry(QString deviceName, QObject *parent, const char *name)
+DiskEntry::DiskEntry(const QString & deviceName, QObject *parent, const char *name)
  : QObject (parent, name)
 {
   init();
-  debug("devname: %s", deviceName.latin1());
+  kdDebug() << "devname: " << deviceName << endl;
   
   setDeviceName(deviceName);
 }
 DiskEntry::~DiskEntry()
 {
-  debug("DESTRUCT: DiskList"); 
+  kdDebug() << "DESTRUCT: DiskList" << endl;
   disconnect(this);
   delete sysProc;
 };
@@ -95,7 +97,7 @@ int DiskEntry::toggleMount()
 
 int DiskEntry::mount()
 { 
-  debug("mounting");
+  kdDebug() << "mounting" << endl;
   QString cmdS=mntcmd;
   if (cmdS.isEmpty()) // generate default mount cmd
     if (getuid()!=0 ) // user mountable
@@ -108,16 +110,16 @@ int DiskEntry::mount()
   cmdS.replace(QRegExp("%t"),this->fsType());
   cmdS.replace(QRegExp("%o"),this->mountOptions());
 
-  debug("mount-cmd: [%s]",(const char *)cmdS);
+  kdDebug() << "mount-cmd: [" << cmdS << "]" << endl;
   int e=sysCall(cmdS);
   if (!e) setMounted(TRUE);
-  debug("mount-cmd: e=%d", e);
+  kdDebug() << "mount-cmd: e=" << e << endl;
   return e;
 };
 
 int DiskEntry::umount()
 {
-  debug("umounting");
+  kdDebug() << "umounting" << endl;
   QString cmdS=umntcmd;
   if (cmdS.isEmpty()) // generate default umount cmd
       cmdS="umount %d";
@@ -125,10 +127,10 @@ int DiskEntry::umount()
   cmdS.replace(QRegExp("%d"),this->deviceName());
   cmdS.replace(QRegExp("%m"),this->mountPoint());
 
-  debug("umount-cmd: [%s]",(const char *)cmdS);
+  kdDebug() << "umount-cmd: [" << cmdS << "]" << endl;
   int e=sysCall(cmdS);
   if (!e) setMounted(FALSE);
-  debug("umount-cmd: e=%d", e);
+  kdDebug() << "umount-cmd: e=" << e << endl;
  return e;
 };
 
@@ -153,17 +155,17 @@ int DiskEntry::remount()
    else return e;
   }
 };
-void DiskEntry::setMountCommand(QString mnt) 
+void DiskEntry::setMountCommand(const QString & mnt) 
 {
   mntcmd=mnt;
 };
 
-void DiskEntry::setUmountCommand(QString umnt) 
+void DiskEntry::setUmountCommand(const QString & umnt) 
 {
   umntcmd=umnt;
 };
 
-void DiskEntry::setIconName(QString iconName) 
+void DiskEntry::setIconName(const QString & iconName) 
 {
   iconSetByUser=TRUE;
   icoName=iconName;
@@ -213,21 +215,21 @@ QString DiskEntry::guessIconName()
 /***************************************************************************
   * starts a command on the underlying system via /bin/sh
 **/
-int DiskEntry::sysCall(QString command)
+int DiskEntry::sysCall(const QString & command)
 {
-  debug("DiskEntry::sysCall");
+  kdDebug() << "DiskEntry::sysCall" << endl;
   if (readingSysStdErrOut || sysProc->isRunning() )  return -1;
 
   sysStringErrOut=i18n("Called: %1\n\n").arg(command); // put the called command on ErrOut
   sysProc->clearArguments();
-  (*sysProc) << (const char *)command;
+  (*sysProc) << command;
     if (!sysProc->start( KProcess::Block, KProcess::AllOutput ))
-     fatal(i18n("could not execute [%1]").arg(command).local8Bit().data());
+     qFatal(i18n("could not execute [%1]").arg(command).local8Bit().data());
 
-  debug("DiskEntry::sysCall sysProc->normaleExit=%d", sysProc->normalExit());
+  kdDebug() << "DiskEntry::sysCall sysProc->normaleExit=" << sysProc->normalExit() << endl;
   if (sysProc->exitStatus()!=0) emit sysCallError(this, sysProc->exitStatus());
 
-  debug("DiskEntry::sysCall sysProc->exitStatus=%d", sysProc->exitStatus() );
+  kdDebug() << "DiskEntry::sysCall sysProc->exitStatus=" << sysProc->exitStatus() << endl;
   return !sysProc->exitStatus();  
 };
 
@@ -237,34 +239,36 @@ int DiskEntry::sysCall(QString command)
 **/
 void DiskEntry::receivedSysStdErrOut(KProcess *, char *data, int len)
 {
-  debug("DiskEntry::receivedSysStdErrOut");
-  QString tmp = QString(data) + QString("\0");  // adds a zero-byte
-  tmp.truncate(len);
+  kdDebug() << "DiskEntry::receivedSysStdErrOut" << endl;
+  QString tmp = QString::fromLocal8Bit(data, len);
   sysStringErrOut.append(tmp);
 };
 
 QString DiskEntry::prettyPrint(int kBValue) const
 {
   QString weight;
-  float val=(float)kBValue; // size in KiloByte
+  float val = (float)kBValue; // size in KiloByte
 
-  //always go up to MegaByte
-  val=val/1024;
-  weight="MB";
+  // always go up to MegaByte
+  val = val / 1024;
+  weight = "MB";
 
-  if (val>999.0) {  //GigaByte
-    val=val/1024;
-    weight="GB";
-  }//if
+  if (val > 999.0)
+  {
+    // GigaByte
+    val = val / 1024;
+    weight = "GB";
+  }
 
   QString ret;
   if (val>100.0)  // e.g. 504MB
-    ret.sprintf("%3.0f%s",val,(const char *)weight);
-  else
-    if (val>10.0) // e.g. 54.7MB
-      ret.sprintf("%3.1f%s",val,(const char *)weight);
-    else // e.g. 1.44KB
-      ret.sprintf("%3.2f%s",val,(const char *)weight);
+    ret = KGlobal::locale()->formatNumber(val, 0);
+  else if (val>10.0) // e.g. 54.7MB
+    ret = KGlobal::locale()->formatNumber(val, 1);
+  else // e.g. 1.44KB
+    ret = KGlobal::locale()->formatNumber(val, 2);
+
+  ret += weight;
   return ret;
 }
 
@@ -277,25 +281,25 @@ float DiskEntry::percentFull() const
    }
 }
 
-void DiskEntry::setDeviceName(QString deviceName)
+void DiskEntry::setDeviceName(const QString & deviceName)
 {
  device=deviceName; 
  emit deviceNameChanged();
 };
 
-void DiskEntry::setMountPoint(QString mountPoint)
+void DiskEntry::setMountPoint(const QString & mountPoint)
 {
   mountedOn=mountPoint;
  emit mountPointChanged();
 };
 
-void DiskEntry::setMountOptions(QString mountOptions)
+void DiskEntry::setMountOptions(const QString & mountOptions)
 {
  options=mountOptions;
  emit mountOptionsChanged();
 };
 
-void DiskEntry::setFsType(QString fsType)
+void DiskEntry::setFsType(const QString & fsType)
 {
   type=fsType;
   emit fsTypeChanged();
@@ -309,18 +313,17 @@ void DiskEntry::setMounted(bool nowMounted)
   
 void DiskEntry::setKBSize(int kb_size)
 {
-  debug("DiskEntry::setKBSize(%d)",kb_size);
+  kdDebug() << "DiskEntry::setKBSize(" << kb_size << ")" << endl;
   size=kb_size;
   emit kBSizeChanged();
 };
 
 void DiskEntry::setKBUsed(int kb_used)
 {
-  debug("DiskEntry::setKBUsed(%d)",kb_used);
+  kdDebug() << "DiskEntry::setKBUsed(" << kb_used << ")" << endl;
   used=kb_used;
   if ( size < (used+avail) ) {  //adjust kBAvail
-     warning("device %s: kBAvail(%d)+*kBUsed(%d) exceeds kBSize(%d)"
-           ,(const char *)device,avail,used,size);
+     kdWarning() << "device " << device << ": kBAvail(" << avail << ")+*kBUsed(" << used << ") exceeds kBSize(" << size << ")" << endl;
      setKBAvail(size-used); 
   }
   emit kBUsedChanged();
@@ -328,11 +331,10 @@ void DiskEntry::setKBUsed(int kb_used)
 
 void DiskEntry::setKBAvail(int kb_avail)
 {
-  debug("DiskEntry::setKBAvail(%d)",kb_avail);
+  kdDebug() << "DiskEntry::setKBAvail(" << kb_avail << ")" << endl;
   avail=kb_avail;
   if ( size < (used+avail) ) {  //adjust kBUsed
-     warning("device %s: *kBAvail(%d)+kBUsed(%d) exceeds kBSize(%d)"
-           ,(const char *)device,avail,used,size);
+     kdWarning() << "device " << device << ": *kBAvail(" << avail << ")+kBUsed(" << used << ") exceeds kBSize(" << size << ")" << endl;
      setKBUsed(size-avail); 
   }
   emit kBAvailChanged();

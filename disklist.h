@@ -66,14 +66,13 @@ class Disks : public DisksBase
 private: 
   int compareItems( DiskEntry* s1, DiskEntry* s2 ) 
   {
-    int ret = strcmp( s1->deviceName(), s2->deviceName() );
+    int ret = s1->deviceName().compare(s2->deviceName());
     if( ret == 0 )
     {
-      ret = strcmp( s1->mountPoint(), s2->mountPoint() );
+      ret = s1->mountPoint().compare(s2->mountPoint());
     }
 
-    printf("%s vs %s (%d)\n", s1->deviceName().latin1(),
-	   s2->deviceName().latin1(), ret );
+    // kdDebug() << s1->deviceName() << " vs " << s2->deviceName() << " (" << ret << ")" << endl;
     return( ret );
   }
 
