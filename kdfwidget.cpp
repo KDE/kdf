@@ -1,8 +1,6 @@
 /*
  * kdfwidget.cpp
  *
- * $Id$
- *
  * Copyright (c) 1998-2001 Michael Kropfberger <michael.kropfberger@gmx.net>
  *
  * Requires the Qt widget libraries, available at no cost at

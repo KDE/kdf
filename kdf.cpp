@@ -1,6 +1,4 @@
 /*
- * $Id$
- *
  * kdf.cpp - KDiskFree
  *
  * written 1998-2001 by Michael Kropfberger <michael.kropfberger@gmx.net>
