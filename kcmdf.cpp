@@ -55,8 +55,7 @@ extern "C"
 {
   KCModule* create_kdf( QWidget *parent, const char * /*name*/ )
   {
-    KGlobal::locale()->insertCatalogue("kdf");
-    return new KDiskFreeWidget( parent );
+    return new KDiskFreeWidget( parent , "kdf" );
   }
 }
 
