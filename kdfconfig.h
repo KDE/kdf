@@ -25,25 +25,19 @@
 #ifndef __KDFCONFIG_H__
 #define __KDFCONFIG_H__
 
-
-#include <qlcdnum.h> 
-#include <qlabel.h> 
-#include <qbttngrp.h>
-#include <qpushbt.h>
-#include <qradiobt.h>
-#include <qcheckbox.h>
-#include <qlist.h>
-#include <qlined.h>
-#include <qlayout.h>
-#include <qscrbar.h>
 #include <qarray.h>
-#include <qtabdialog.h>
- 
+
 #include <klocale.h>
 #include <kconfig.h>
-#include <kslider.h>
 #include <kcontrol.h>
-#include <ktablistbox.h>
+
+class QLabel;
+class QScrollBar;
+class QLCDNumber;
+class QLineEdit;
+class QCheckBox;
+
+class KTabListBox;
 
 /**************************************************************/
 

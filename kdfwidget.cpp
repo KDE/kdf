@@ -31,6 +31,9 @@
 #include <qtstream.h>
 #include <qstring.h>
 #include <qlabel.h>
+#include <qlcdnumber.h>
+#include <qlineedit.h>
+#include <qcheckbox.h>
 #include <qlayout.h>
 #include <qpixmap.h>
 #include <qbitmap.h>
@@ -39,6 +42,8 @@
 #include <kapp.h> 
 #include <kglobal.h>
 #include <kiconloader.h>
+#include <ktablistbox.h>
+
 #include "kdfwidget.h"
 
 #define BLANK ' '

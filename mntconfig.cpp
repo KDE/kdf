@@ -26,10 +26,12 @@
 #include <qstring.h>
 #include <qmsgbox.h> 
 #include <qfile.h>
+#include <qgroupbox.h>
 #include <qtstream.h>
 #include <qstring.h>
 #include <qlabel.h>
 #include <qlayout.h>
+#include <qlineedit.h>
 #include <qpixmap.h>
 #include <qbitmap.h>
 #include <qpaintd.h>
@@ -40,6 +42,7 @@
 #include <kiconloader.h>
 #include <kiconloaderdialog.h>
 #include <kfiledialog.h>
+#include <ktablistbox.h>
 
 #include "mntconfig.h"
 

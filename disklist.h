@@ -25,24 +25,9 @@
 #ifndef __DISKLIST_H__
 #define __DISKLIST_H__
 
-
-#include <qlcdnum.h> 
-#include <qlabel.h> 
-#include <qbttngrp.h>
-#include <qpushbt.h>
-#include <qradiobt.h>
-#include <qlist.h>
-#include <qlined.h>
-#include <qlayout.h>
-#include <qscrbar.h>
-#include <qarray.h>
-#include <qdict.h>
- 
 #include <kconfig.h>
 #include <klocale.h>
-#include <kslider.h>
 #include <kcontrol.h>
-#include <ktablistbox.h>
 
 // defines the os-type
 #include <qglobal.h>

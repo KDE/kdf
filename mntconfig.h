@@ -25,26 +25,20 @@
 #ifndef __MNTCONFIG_H__
 #define __MNTCONFIG_H__
 
-
-#include <qlcdnum.h> 
-#include <qlabel.h> 
-#include <qbttngrp.h>
-#include <qpushbt.h>
-#include <qradiobt.h>
-#include <qlist.h>
-#include <qlined.h>
-#include <qlayout.h>
-#include <qscrbar.h>
-#include <qarray.h>
- 
 #include <kconfig.h>
-#include <kslider.h>
 #include <kcontrol.h>
-#include <ktablistbox.h>
 #include <kiconloader.h>
 
 #include "disks.h"
 #include "disklist.h"
+
+class QGroupBox;
+class QPushButton;
+class QRadioButton;
+class QLineEdit;
+
+class KTabListBox;
+
 
 /**************************************************************/
 

@@ -25,30 +25,19 @@
 #ifndef __KDFWIDGET_H__
 #define __KDFWIDGET_H__
 
-
-#include <qlcdnum.h> 
-#include <qlabel.h> 
-#include <qbttngrp.h>
-#include <qpushbt.h>
-#include <qradiobt.h>
-#include <qlist.h>
-#include <qlined.h>
-#include <qlayout.h>
-#include <qscrbar.h>
-#include <qarray.h>
-#include <qtabdialog.h>
- 
-#include <kslider.h>
-#include <kcontrol.h>
-#include <ktablistbox.h>
-
-// defines the os-type
+#include <qstring.h>
 #include <qglobal.h>
+
+#include <kcontrol.h>
 
 #include "disks.h"
 #include "disklist.h"
 #include "mntconfig.h"
 #include "kdfconfig.h"
+
+class QTabDialog;
+
+class KTabListBox;
 
 /**************************************************************/
 

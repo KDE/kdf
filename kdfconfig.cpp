@@ -26,7 +26,6 @@
 #include <math.h>
 
 #include <qstring.h>
-#include <qmsgbox.h> 
 #include <qfile.h>
 #include <qtstream.h>
 #include <qstring.h>
@@ -34,9 +33,14 @@
 #include <qlayout.h>
 #include <qpixmap.h>
 #include <qpaintd.h>
+#include <qlineedit.h>
+#include <qlcdnumber.h>
+#include <qcheckbox.h>
+#include <qscrollbar.h>
 
 #include <kglobal.h>
 #include <kiconloader.h>
+#include <ktablistbox.h>
 #include "kdfconfig.h"
 
 #define BLANK ' '
