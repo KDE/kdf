@@ -499,7 +499,7 @@ int main(int argc, char **argv)
   KwikDiskTopLevel *ktl = new KwikDiskTopLevel();
   CHECK_PTR(ktl);
   app.setMainWidget(ktl);
-  KWin::setDockWindowFor(ktl->winId(), 0);
+  KWin::setSystemTrayWindowFor(ktl->winId(), 0);
   ktl->show();
 
   return app.exec();
