@@ -66,7 +66,7 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, const char *name, bool init)
   mTabName[6] = new CTabName( "Full%", i18n("Full %") );
   mTabName[7] = new CTabName( "UsageBar", i18n("Usage") );
 
-  GUI = init ? FALSE : TRUE;
+  GUI = !init;
   if(GUI)
   {
     QString text;

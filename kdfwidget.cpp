@@ -122,7 +122,7 @@ KDFWidget::KDFWidget( QWidget *parent, const char *name, bool init )
   mTabProp[6] = new CTabEntry( "Full%", i18n("Full %"), true, 70);
   mTabProp[7] = new CTabEntry( "UsageBar", i18n("Usage"), true, 100);
 
-  GUI = init == true ? FALSE : TRUE;
+  GUI = !init;
   if( GUI )
   {
     QVBoxLayout *topLayout = new QVBoxLayout( this, 0, 0 );
