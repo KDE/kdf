@@ -114,15 +114,15 @@ void DiskList::applySettings()
   for (disk=disks->first();disk!=0;disk=disks->next()) {
    key.sprintf("Mount%s%s%s%s",SEPARATOR,disk->deviceName().latin1()
                               ,SEPARATOR,disk->mountPoint().latin1());
-   config->writeEntry(key,disk->mountCommand());
+   config->writePathEntry(key,disk->mountCommand());
 
    key.sprintf("Umount%s%s%s%s",SEPARATOR,disk->deviceName().latin1()
                               ,SEPARATOR,disk->mountPoint().latin1());
-   config->writeEntry(key,disk->umountCommand());
+   config->writePathEntry(key,disk->umountCommand());
 
    key.sprintf("Icon%s%s%s%s",SEPARATOR,disk->deviceName().latin1()
                               ,SEPARATOR,disk->mountPoint().latin1());
-   config->writeEntry(key,disk->realIconName());
+   config->writePathEntry(key,disk->realIconName());
  }
  config->sync();
  config->setGroup(oldgroup);
@@ -140,15 +140,15 @@ void DiskList::loadSettings()
   for (disk=disks->first();disk!=0;disk=disks->next()) {
     key.sprintf("Mount%s%s%s%s",SEPARATOR,disk->deviceName().latin1()
 		,SEPARATOR,disk->mountPoint().latin1());
-    disk->setMountCommand(config->readEntry(key,""));
+    disk->setMountCommand(config->readPathEntry(key));
 
     key.sprintf("Umount%s%s%s%s",SEPARATOR,disk->deviceName().latin1()
 		,SEPARATOR,disk->mountPoint().latin1());
-    disk->setUmountCommand(config->readEntry(key,""));
+    disk->setUmountCommand(config->readPathEntry(key));
 
     key.sprintf("Icon%s%s%s%s",SEPARATOR,disk->deviceName().latin1()
 		,SEPARATOR,disk->mountPoint().latin1());
-    QString icon=config->readEntry(key,"");
+    QString icon=config->readPathEntry(key);
     if (!icon.isEmpty()) disk->setIconName(icon);
  }
 }

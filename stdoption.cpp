@@ -21,7 +21,7 @@ void CStdOption::updateConfiguration( void )
 {
   KConfig &config = *kapp->config();
   config.setGroup("KDFConfig");
-  mFileManager = config.readEntry(
+  mFileManager = config.readPathEntry(
     "FileManagerCommand", mDefaultFileManager );
   mUpdateFrequency = config.readNumEntry( 
     "UpdateFrequency", mDefaultUpdateFrequency );
@@ -37,7 +37,7 @@ void CStdOption::writeConfiguration( void )
   KConfig &config = *kapp->config();
   config.setGroup("KDFConfig");
   config.writeEntry( "UpdateFrequency", mUpdateFrequency );
-  config.writeEntry( "FileManagerCommand", mFileManager );
+  config.writePathEntry( "FileManagerCommand", mFileManager );
   config.writeEntry( "PopupIfFull", mPopupIfFull );
   config.writeEntry( "OpenFileMgrOnMount", mOpenFileManagerOnMount );
   config.sync();
@@ -48,7 +48,7 @@ void CStdOption::writeDefaultFileManager( void )
 {
   KConfig &config = *kapp->config();
   config.setGroup("KDFConfig");
-  config.writeEntry( "FileManagerCommand", mDefaultFileManager );
+  config.writePathEntry( "FileManagerCommand", mDefaultFileManager );
   config.sync();
 }
 
