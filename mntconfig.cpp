@@ -46,12 +46,13 @@
 static bool GUI;
 #endif
 
+
 MntConfigWidget::MntConfigWidget(QWidget *parent, const char *name, bool init)
   : QWidget(parent, name)
 {
   mInitializing = false;
 
-  GUI = init ? false : true;
+  GUI = !init;
   if (GUI)
   {
     //tabList fillup waits until disklist.readDF() is done...
@@ -100,7 +101,7 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, const char *name, bool init)
     mIconButton->setIconType(KIcon::Small, KIcon::Device);
     Q_CHECK_PTR(mIconButton);
     mIconButton->setFixedWidth( mIconButton->sizeHint().height() );
-    connect(mIconButton,SIGNAL(iconChanged(QString)),this,SLOT(selectIcon(QString)));
+    connect(mIconButton,SIGNAL(iconChanged(QString)),this,SLOT(iconChangedButton(QString)));
     gl->addWidget( mIconButton, 2, 1 );
 
     //Mount
@@ -135,6 +136,7 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, const char *name, bool init)
   if(init)
   {
     applySettings();
+    mDiskLookup.resize(0);
   }
 
   mGroupBox->setEnabled( false );
@@ -150,13 +152,16 @@ void MntConfigWidget::readDFDone( void )
 {
   mInitializing = false;
   mList->clear();
+  mDiskLookup.resize(mDiskList.count());
 
+  int i=0;
   QListViewItem *item = 0;
-  for( DiskEntry *disk=mDiskList.first(); disk!=0; disk=mDiskList.next() )
+  for( DiskEntry *disk=mDiskList.first(); disk!=0; disk=mDiskList.next(),++i )
   {
      item = new QListViewItem( mList, item, QString::null, disk->deviceName(),
       disk->mountPoint(), disk->mountCommand(), disk->umountCommand() );
-    item->setPixmap( ICONCOL, SmallIcon( disk->iconName() ) );
+     item->setPixmap( ICONCOL, SmallIcon( disk->iconName() ) );
+     mDiskLookup[i] = item;
   }
 
   loadSettings();
@@ -217,57 +222,57 @@ void MntConfigWidget::clicked( QListViewItem *item )
     mIconButton->setPixmap( *pix );
   }
 
-  int i=0;
-  for( QListViewItem *it=mList->firstChild(); it!=0; it=it->nextSibling(),i++ )
-  {
-    if( it == item )
+  for(unsigned i=0 ; i < mDiskList.count() ; ++i) 
     {
-      DiskEntry *disk = mDiskList.at(i);
-      if( disk != 0 )
-      {
-	mIconLineEdit->setText( disk->iconName() );
-      }
-      break;
+      if (mDiskLookup[i] == item) 
+	{
+	  DiskEntry *disk = mDiskList.at(i);
+	  if( disk != 0 )
+	    {
+	      mIconLineEdit->setText( disk->iconName() );
+	    }
+	  break;
+	}
     }
-  }
   mMountLineEdit->setText( item->text(MNTCMDCOL) );
   mUmountLineEdit->setText( item->text(UMNTCMDCOL) );
 }
 
 
-
-void MntConfigWidget::selectIcon(QString iconName)
+void MntConfigWidget::iconChangedButton(QString iconName)
+{
+  iconChanged(iconName);
+}
+void MntConfigWidget::iconChanged(const QString &iconName)
 {
   if( iconName.findRev('_') == 0 ||
       (iconName.right(iconName.length()-iconName.findRev('_'))!="_mount" &&
       iconName.right(iconName.length()-iconName.findRev('_'))!="_unmount"))
-  {
-    QString msg = i18n(""
-      "This filename is not valid: %1\n"
-      "It must end with "
-      "\"_mount\" or \"_unmount\".").arg(iconName);
-    KMessageBox::sorry( this, msg );
-    return;
-  }
-
-
-  int i=0;
-  QListViewItem *item = mList->selectedItem();
-  for( QListViewItem *it=mList->firstChild(); it!=0; it=it->nextSibling(),i++ )
-  {
-    if( it == item )
     {
-      DiskEntry *disk = mDiskList.at(i);
-      if( disk != 0 )
-      {
-	disk->setIconName(iconName);
-	mIconLineEdit->setText(iconName);
-	KIconLoader &loader = *KGlobal::iconLoader();
-	item->setPixmap( ICONCOL, loader.loadIcon( iconName, KIcon::Small));
-      }
-      break;
+      QString msg = i18n(""
+			 "This filename is not valid: %1\n"
+			 "It must end with "
+			 "\"_mount\" or \"_unmount\".").arg(iconName);
+      KMessageBox::sorry( this, msg );
+      return;
     }
-  }
+
+  QListViewItem *item = mList->selectedItem();
+  for(unsigned i=0 ; i < mDiskList.count() ; ++i) 
+    {
+      if (mDiskLookup[i] == item) 
+	{
+	  DiskEntry *disk = mDiskList.at(i);
+	  if( disk != 0 )
+	    {
+	      disk->setIconName(iconName);
+	      mIconLineEdit->setText(iconName);
+	      KIconLoader &loader = *KGlobal::iconLoader();
+	      item->setPixmap( ICONCOL, loader.loadIcon( iconName, KIcon::Small));
+	    }
+	  break;
+	}
+    }
 }
 
 
@@ -303,28 +308,41 @@ void MntConfigWidget::selectUmntFile()
   mUmountLineEdit->setText( url.path() );
 }
 
-void MntConfigWidget::iconChanged(const QString &iconName )
-{
-  selectIcon(iconName);
-}
-
 void MntConfigWidget::mntCmdChanged( const QString &data )
 {
   QListViewItem *item = mList->selectedItem();
-  if( item != 0 )
-  {
-    item->setText( MNTCMDCOL, data );
-  }
+  for(unsigned  i=0 ; i < mDiskList.count() ; ++i) 
+    {
+      if (mDiskLookup[i] == item)
+	{
+	  DiskEntry *disk = mDiskList.at(i);
+	  if( disk != 0 )
+	    {
+	      disk->setMountCommand(data);
+	      item->setText( MNTCMDCOL, data );
+	    }
+	  break;
+	}
+    }
 }
 
 
 void MntConfigWidget::umntCmdChanged( const QString &data )
 {
   QListViewItem *item = mList->selectedItem();
-  if( item != 0 )
-  {
-    item->setText( UMNTCMDCOL, data );
-  }
+  for(unsigned i=0 ; i < mDiskList.count() ; ++i) 
+    {
+    if (mDiskLookup[i] == item) 
+      {
+	DiskEntry *disk = mDiskList.at(i);
+	if( disk != 0 )
+	  {
+	    disk->setUmountCommand(data);
+	    item->setText( UMNTCMDCOL, data );
+	  }
+	break;
+      }
+    }
 }
 
 

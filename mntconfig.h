@@ -68,9 +68,9 @@ class MntConfigWidget : public QWidget
   private slots:
     void readDFDone( void );
     void clicked( QListViewItem *item );
-    void selectIcon( QString iconName );
     void selectMntFile( void );
     void selectUmntFile( void );
+    void iconChangedButton(QString);
     void iconChanged( const QString & );
     void mntCmdChanged( const QString & );
     void umntCmdChanged( const QString & );
@@ -89,6 +89,7 @@ class MntConfigWidget : public QWidget
     KIconButton *mIconButton;
     DiskList    mDiskList;
     bool        mInitializing;
+    QMemArray<QListViewItem*> mDiskLookup;
 };
 
 
