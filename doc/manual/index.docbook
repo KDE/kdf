@@ -132,9 +132,9 @@ column sorts the devices according to that variable. A second
 <mousebutton>left</mousebutton> click sorts in the opposite order.</para>
 
 <para>Clicking on a row pops up a menu. If that device is not currently mounted,
-the <guimenuitem>Mount device</guimenuitem> option is available. If the device
+the <guimenuitem>Mount Device</guimenuitem> option is available. If the device
 is mounted, it can be unmounted by choosing <guimenuitem>Unmount
-device</guimenuitem>. Selecting <guimenuitem>Open Filemanager</guimenuitem>
+Device</guimenuitem>. Selecting <guimenuitem>Open Filemanager</guimenuitem>
 opens a new window with a graphical view of the files on that device.</para>
 
 </sect1>
@@ -199,18 +199,18 @@ status</action></para></listitem>
 and <guilabel>Mount Commands</guilabel></para>
 <variablelist>
 <varlistentry>
-<term>General Settings</term>
-<listitem><para>Click on the word <guilabel>visible</guilabel> or
-<guilabel>hidden</guilabel> to turn display of an data field on or off.</para>
-<para>Change <guilabel>Update frequency</guilabel> by moving the
-slider. The value in the box on the left is the interval (in seconds)
-between updates of the &kdf; display to reflect the current status.</para>
-<para>The FileManager setting controls the command executed when the
-<guimenuitem>Open filemanager</guimenuitem> pop-up menu item is
-selected.</para>
-<para>There are also two checkboxes. One controls if a filemanager window will
-be automatically opened when a device is mounted. The other causes an alert
-window to pop up if a disk gets critically full.</para>
+<term>General Settings</term> <listitem><para>Click on the word
+<guilabel>visible</guilabel> or <guilabel>hidden</guilabel> to turn
+display of an data field on or off.</para> <para>Change the update
+frequency by moving the slider. The value in the box on the left is
+the interval (in seconds) between updates of the &kdf; display to
+reflect the current status.</para> <para>The FileManager setting
+controls the command executed when the <guimenuitem>Open
+Filemanager</guimenuitem> pop-up menu item is selected.</para>
+<para>There are also two checkboxes. One controls if a filemanager
+window will be automatically opened when a device is mounted. The
+other causes an alert window to pop up if a disk gets critically
+full.</para>
 </listitem>
 </varlistentry>
 <varlistentry>
