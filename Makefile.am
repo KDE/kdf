@@ -29,8 +29,14 @@ disks.h kdf.h disklist.h kwikdisk.h listview.h optiondialog.h stdoption.h
 
 METASOURCES = AUTO
 
-desktopdir = $(kde_appsdir)/System
+desktopdir = $(kde_appsdir)/System/More
 desktop_DATA = kdf.desktop kwikdisk.desktop
+
+install-data-local:
+	$(mkinstalldirs) $(kde_appsdir)/System
+	$(INSTALL_DATA) $(srcdir)/uninstall.desktop $(kde_appsdir)/System/kdf.desktop
+	$(INSTALL_DATA) $(srcdir)/uninstall.desktop $(kde_appsdir)/System/kwikdisk.desktop
+
 
 kcmdesktopdir = $(kde_appsdir)/Settings/Information
 kcmdesktop_DATA = kcmdf.desktop
