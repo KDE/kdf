@@ -110,7 +110,7 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, const char *name, bool init)
     mIconButton->setIconType(KIcon::Small, KIcon::Device);
     CHECK_PTR(mIconButton);
     mIconButton->setFixedWidth( mIconButton->sizeHint().height() );
-    connect(mIconButton,SIGNAL(clicked()),this,SLOT(selectIcon()));
+    connect(mIconButton,SIGNAL(iconChanged(QString)),this,SLOT(selectIcon(QString)));
     gl->addWidget( mIconButton, 2, 1 );
 
     //Mount
@@ -246,16 +246,16 @@ void MntConfigWidget::clicked( QListViewItem *item )
   
 
 
-void MntConfigWidget::selectIcon(const QString & iconName)
+void MntConfigWidget::selectIcon(QString iconName)
 {
   if( iconName.findRev('_') == 0 || 
-      (iconName.right(iconName.length()-iconName.findRev('_'))!="_mount.png" &&
-      iconName.right(iconName.length()-iconName.findRev('_'))!="_unmount.png"))
+      (iconName.right(iconName.length()-iconName.findRev('_'))!="_mount" &&
+      iconName.right(iconName.length()-iconName.findRev('_'))!="_unmount"))
   {
     QString msg = i18n(""
       "This filename is not valid: %1\n"
       "It has to be ending in\n"
-      "\"_mount.png\" or \"_unmount.png\".").arg(iconName);       
+      "\"_mount\" or \"_unmount\".").arg(iconName);       
     KMessageBox::sorry( this, msg );
     return;
   }
@@ -313,8 +313,9 @@ void MntConfigWidget::selectUmntFile()
   mUmountLineEdit->setText( url.path() );
 }
 
-void MntConfigWidget::iconChanged(const QString& )
+void MntConfigWidget::iconChanged(const QString &iconName )
 {
+  selectIcon(iconName);
 }
 
 void MntConfigWidget::mntCmdChanged( const QString &data )

@@ -167,6 +167,11 @@ void DiskEntry::setIconName(const QString & iconName)
 {
   iconSetByUser=TRUE;
   icoName=iconName;
+  if (icoName.right(6) == "_mount")
+     icoName.truncate(icoName.length()-6);
+  else if (icoName.right(8) == "_unmount")
+     icoName.truncate(icoName.length()-8);
+  
   emit iconNameChanged();
 };
 
@@ -174,7 +179,7 @@ QString DiskEntry::iconName()
 {
   QString iconName=icoName;
   if (iconSetByUser) {
-    mounted() ? iconName+="_mount.png" : iconName+="_unmount.png";
+    mounted() ? iconName+="_mount" : iconName+="_unmount";
    return iconName;
   } else
    return guessIconName();

@@ -115,13 +115,6 @@ void KDiskFreeWidget::defaults( void )
   }
 }
 
-
-void KDiskFreeWidget::hideEvent( QHideEvent * )
-{
-  kapp->quit();
-}
-
-
 int KDiskFreeWidget::pageNumber( void )
 {
   QWidget *w = mTab->currentPage();

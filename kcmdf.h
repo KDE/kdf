@@ -40,9 +40,6 @@ class KDiskFreeWidget : public KCModule
     virtual void save( void );
     virtual void defaults( void );
 
-  protected:
-    virtual void hideEvent( QHideEvent * );
-
   private:
     int pageNumber( void );
 
