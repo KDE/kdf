@@ -12,4 +12,3 @@ Comment[de]=zeigt die Festplattenbelegung an
 Comment[fi]=näyttää levytilan käytön liitetyillä laitteilla
 Terminal=0
 MiniIcon=kdf.xpm
-SwallowTitle=KDiskFree

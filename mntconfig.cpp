@@ -280,13 +280,9 @@ void MntConfigWidget::selectIcon()
   KIconLoaderDialog *kild=new KIconLoaderDialog(loader,this);
   CHECK_PTR(kild);
   QStrList dirs;
-  QString dir=kapp->kde_icondir();
-  //  dirs.append(dir.data());
-  dir+="/mini";
-  dirs.append(dir.data());
-  dir=getenv("HOME");
-  dir+="/.kde/share/icons/mini";
-  dirs.append(dir.data());
+
+  dirs.append(kapp->kde_icondir() + "/mini");
+  dirs.append(KApplication::localkdedir()+"/share/icons/mini");
 
   kild->setDir(&dirs);
   QString icoName;
