@@ -153,6 +153,34 @@ void DiskList::loadSettings()
  }
 }
 
+
+static QString expandEscapes(const QString& s) {
+QString rc;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '\\') {
+            i++;
+            switch(s[i]) {
+            case '\\':  // slash \\   
+               rc += '\\';
+               break;
+            case '0': // octal 0nn
+               rc += static_cast<char>(s.mid(i,3).toInt(0, 8));
+               i += 2;
+               break;
+            default:
+               // give up and not process anything else because I'm too lazy
+               // to implement other escapes
+               rc += '\\';
+               rc += s[i];
+               break;
+            }
+        } else {
+            rc += s[i];
+        }
+    }
+return rc;
+}
+
 /***************************************************************************
   * tries to figure out the possibly mounted fs
 **/
@@ -176,14 +204,14 @@ QFile f(FSTAB);
 	//	kdDebug() << "GOT: [" << s << "]" << endl;
 	disk = new DiskEntry();// Q_CHECK_PTR(disk);
         disk->setMounted(FALSE);
-        disk->setDeviceName(s.left(s.find(BLANK)) );
+        disk->setDeviceName(expandEscapes(s.left(s.find(BLANK))));
             s=s.remove(0,s.find(BLANK)+1 );
 	    //  kdDebug() << "    deviceName:    [" << disk->deviceName() << "]" << endl;
 #ifdef _OS_SOLARIS_
             //device to fsck
             s=s.remove(0,s.find(BLANK)+1 );
 #endif
-         disk->setMountPoint(s.left(s.find(BLANK)) );
+         disk->setMountPoint(expandEscapes(s.left(s.find(BLANK))));
             s=s.remove(0,s.find(BLANK)+1 );
 	    //kdDebug() << "    MountPoint:    [" << disk->mountPoint() << "]" << endl;
 	    //kdDebug() << "    Icon:          [" << disk->iconName() << "]" << endl;
