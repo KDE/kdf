@@ -425,17 +425,17 @@ void DockWidget::updateDFDone( void )
     i18n("&Start KDiskFree"), this, SLOT(startKDF()),0);
 
   mPopupMenu->insertItem(
-    BarIcon( "configure" ),
+    SmallIcon( "configure" ),
     i18n("&Configure KwikDisk..."), this, SLOT(settingsBtnClicked()),0);
 
   mPopupMenu->insertItem(
-    BarIcon( "help" ),
+    SmallIcon( "help" ),
     KStdGuiItem::help().text(), this, SLOT(invokeHelp()),0);
 
   mPopupMenu->insertSeparator();
 
   mPopupMenu->insertItem(
-    BarIcon( "exit" ),
+    SmallIcon( "exit" ),
     KStdGuiItem::quit().text(), this, SLOT(quit()) );
 
   mPopupMenu->move(-1000,-1000);
