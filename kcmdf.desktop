@@ -1,7 +1,7 @@
 [Desktop Entry]
 X-KDE-ModuleType=Library
-X-KDE-LibraryName=kcm_kdf
-X-KDE-FactoryName=sound
+X-KDE-LibraryName=kdf
+X-KDE-FactoryName=kdf
 X-KDE-LocalUser=false
 Exec=kcmshell Information/kcmkdf
 Icon=kcmdf

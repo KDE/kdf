@@ -144,4 +144,17 @@ int KDiskFreeWidget::pageNumber( void )
   return(-1);
 }
 
+
+extern "C"
+{
+
+  KCModule* create_kdf( QWidget *parent, const char * /*name*/ )
+  {
+    KGlobal::locale()->insertCatalogue("kcminfo");
+    return new KDiskFreeWidget( parent );
+  }
+
+}
+
+
 #include "kcmdf.moc"

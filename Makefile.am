@@ -34,7 +34,7 @@ optiondialog.moc
 desktopdir = $(kde_appsdir)/System
 desktop_DATA = kdf.desktop kwikdisk.desktop
 
-kcmdesktopdir = $(kde_appsdir)/System/Information
+kcmdesktopdir = $(kde_appsdir)/Settings/Information
 kcmdesktop_DATA = kcmdf.desktop
 
 messages:
