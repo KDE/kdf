@@ -156,11 +156,11 @@ void DiskList::loadSettings()
 
 static QString expandEscapes(const QString& s) {
 QString rc;
-    for (int i = 0; i < s.length(); i++) {
+    for (unsigned int i = 0; i < s.length(); i++) {
         if (s[i] == '\\') {
             i++;
             switch(s[i]) {
-            case '\\':  // slash \\   
+            case '\\':  // backslash '\'
                rc += '\\';
                break;
             case '0': // octal 0nn
