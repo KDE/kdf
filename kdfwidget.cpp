@@ -99,7 +99,7 @@ KDFWidget::KDFWidget (QWidget * parent, const char *name
   if (GUI)
     {  // inits go here
       //      this->setMinimumSize(323,100);
-      KIconLoader *loader = kapp->getIconLoader();
+      KIconLoader *loader = KGlobal::iconLoader();
       
       //CONFIGURATION WINDOW
       tabconf=new QTabDialog(); CHECK_PTR(tabconf);
@@ -130,7 +130,7 @@ KDFWidget::KDFWidget (QWidget * parent, const char *name
                          ,tabWidths[PIX_COLUMN]
                          ,KTabListBox::PixmapColumn);
       QPixmap *pix;
-      pix = new QPixmap(loader->loadMiniIcon("mini-clock.xpm"));
+      pix = new QPixmap(loader->loadApplicationMiniIcon("mini-clock.xpm"));
       tabList->dict().replace("WAIT",pix );
 
       tabList->setSeparator(BLANK);
