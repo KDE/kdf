@@ -7,7 +7,6 @@ Name[lv]=KDiskāBrīvs
 Name[sv]=Kdiskfree
 Name[xx]=xx
 Exec=kdf
-Init=kdf -init
 Icon=kdf
 Type=Application
 Comment=View Disk Usage
