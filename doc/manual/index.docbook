@@ -36,13 +36,13 @@
 </authorgroup>
 
 <copyright>
-<year>2000</year>
+<year>2000-2002</year>
 <holder>Jonathan Singer</holder>
 </copyright>
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2001-07-06</date>
+<date>2001-10-06</date>
 <releaseinfo>0.00.50</releaseinfo>
 
 <abstract><para>&kdf; displays available file devices, along with
@@ -121,11 +121,10 @@ can be listed by entering <userinput><command>kdf</command>
 graph.</para></listitem>
 </itemizedlist>
 
-<para>In the picture above, four devices are shown: two ext2-formatted
+<para>In the picture above, three devices are shown: two ext2-formatted
 hard drive partitions, one mounted at the filesystem root (<filename
 class="directory">/</filename>) and one at <filename
-class="directory">/old</filename>, a mounted iso9660 &CD-ROM; and an
-unmounted floppy drive.</para>
+class="directory">/home</filename>, and a mounted &CD-ROM;.</para>
 
 <para><mousebutton>Left</mousebutton> clicking on the header of a
 particular column sorts the devices according to that variable. A
@@ -174,13 +173,13 @@ status</action></para></listitem>
 </sect2>
 
 <sect2>
-<title>The <guimenu>Options</guimenu> menu and dialog</title>
+<title>The <guimenu>Settings</guimenu> menu and dialog</title>
 
 <variablelist>
 <varlistentry>
 <term>
 <menuchoice>
-<guimenu>Options</guimenu>
+<guimenu>Settings</guimenu>
 <guimenuitem>Configure KDiskFree</guimenuitem>
 </menuchoice>
 </term>
