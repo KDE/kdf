@@ -247,21 +247,15 @@ void MntConfigWidget::clicked( QListViewItem *item )
 
 void MntConfigWidget::selectIcon( void )
 {
-  KIconLoaderDialog *dialog = new KIconLoaderDialog(this);
-  if( dialog == 0 )
-  {
-    return;
-  }
+  KIconLoaderDialog dialog(this);
 
-  QStringList dirs;
+  //QStringList dirs;
   //dirs.append("mini");
   //dirs.append(KApplication::localkdedir()+"/share/icons/mini");
   //dirs.append("/opt/kde2/share/icons/small/locolor/devices/");
   //dialog->changeDirs(dirs);
   
-  QString iconName;
-  dialog->selectIcon(iconName,KIconLoader::Default);
-  delete dialog;
+  QString iconName = dialog.selectIcon(KIconLoader::Small,KIconLoader::Default);
 
   if( iconName == QString::null )
   {
