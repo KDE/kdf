@@ -29,6 +29,7 @@
 
 #include <qbitmap.h>
 #include <qpainter.h>
+#include <qcursor.h>
 
 #include <kapplication.h>
 #include <kmessagebox.h>
@@ -416,7 +417,7 @@ void DockWidget::updateDFDone( void )
   mPopupMenu->move(-1000,-1000);
   showPopupMenu();
 
-  setCursor(ArrowCursor);
+  QWidget::setCursor(ArrowCursor);
 }
 
 
