@@ -306,7 +306,7 @@ void MntConfigWidget::selectUmntFile()
     
   if( !url.isLocalFile() )
   {
-    KMessageBox::sorry( 0L, i18n( "Only local files are supported yet." ) );
+    KMessageBox::sorry( 0L, i18n( "Only local files are currently supported." ) );
     return;
   }
   
