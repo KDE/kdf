@@ -41,11 +41,7 @@ class KDiskFreeWidget : public KCModule
     virtual void defaults( void );
 
   private:
-    int pageNumber( void );
-
-  private:
-    QTabWidget *mTab;
-    QFrame *mPage[3];
+    QFrame *mPage;
     KDFWidget *mKdf;
     KDFConfigWidget *mMcw;
     MntConfigWidget *mKcw;

@@ -40,35 +40,16 @@
 KDiskFreeWidget::KDiskFreeWidget( QWidget *parent, const char *name )
  : KCModule( parent, name )
 {
-  setButtons(Help|Default|Cancel|Apply|Ok);
+  setButtons(Help|Ok);
 
   QVBoxLayout *topLayout = new QVBoxLayout( this );
-  mTab = new QTabWidget( this );
-  if( mTab == 0 ) { return; }
-  topLayout->addWidget( mTab, 10 );
 
-  mPage[0] = new QFrame( mTab, "page" );
-  CHECK_PTR( mPage[0] );
-  mTab->addTab( mPage[0], i18n("&KDiskFree") );
-  QVBoxLayout *vbox = new QVBoxLayout( mPage[0], KDialog::spacingHint() );
-  mKdf = new KDFWidget( mPage[0], "kdf", false );
+  mPage = new QFrame( this, "page" );
+  topLayout->addWidget( mPage, 10 );
+  QVBoxLayout *vbox = new QVBoxLayout( mPage, KDialog::spacingHint() );
+  mKdf = new KDFWidget( mPage, "kdf", false );
   vbox->addWidget( mKdf, 10 );
-
-  mPage[1] = new QFrame( mTab, "page" );
-  CHECK_PTR( mPage[1] );
-  mTab->addTab( mPage[1], i18n("&General Settings") );
-  vbox = new QVBoxLayout( mPage[1], KDialog::spacingHint() );
-  mMcw = new KDFConfigWidget( mPage[1], "kcw", false );
-  vbox->addWidget( mMcw, 10 );
-
-  mPage[2] = new QFrame( mTab, "page" );
-  CHECK_PTR( mPage[2] );
-  mTab->addTab( mPage[2], i18n("&Mount Commands") );
-  vbox = new QVBoxLayout( mPage[2], KDialog::spacingHint() );
-  mKcw = new MntConfigWidget( mPage[2], "mcw", false );
-  vbox->addWidget( mKcw, 10 );
 }
-
 
 void KDiskFreeWidget::load( void )
 {
@@ -82,54 +63,14 @@ void KDiskFreeWidget::load( void )
 
 void KDiskFreeWidget::save( void )
 {
-  int pn = pageNumber();
-  if( pn == 0 )
-  {
-    mKdf->applySettings();
-  }
-  else if( pn == 1 )
-  {
-    mMcw->applySettings();
-  }
-  else if( pn == 2 )
-  {
-    mKcw->applySettings();
-  }
+  mKdf->applySettings();
 }
 
 
 void KDiskFreeWidget::defaults( void )
 {
-  int pn = pageNumber();
-  if( pn == 0 )
-  {
-    mKdf->loadSettings();
-  }
-  else if( pn == 1 )
-  {
-    mMcw->loadSettings();
-  }
-  else if( pn == 2 )
-  {
-    mKcw->loadSettings();
-  }
+  mKdf->loadSettings();
 }
-
-int KDiskFreeWidget::pageNumber( void )
-{
-  QWidget *w = mTab->currentPage();
-  if( w == 0 ) { return(-1); }
-
-  for( int i=0; i<3; i++ )
-  { 
-    if( w == mPage[i] )
-    {
-      return(i);
-    }
-  }
-  return(-1);
-}
-
 
 extern "C"
 {
