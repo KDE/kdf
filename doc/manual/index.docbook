@@ -1,184 +1,329 @@
-<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook V3.1-Based Variant V1.0//EN" [
- <!ENTITY kdf "<application>kdf</application>">
+<!DOCTYPE book PUBLIC  "-//KDE//DTD DocBook V3.1-Based Variant V1.0//EN" [
+  <!ENTITY kdf "<application>Kdf</application>">
+  <!ENTITY kappname "&kdf;" -- this only *seems* redundant -->
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % ents PUBLIC "-//KDE//ENTITIES Application-Variable Entities V1.0//EN">
+  %ents;
 ]>
 
 <book lang="en">
+
 <bookinfo>
-<title>KDiskFree - KwikDisk - Help</title>
+<title>The KDiskFree Handbook</title>
+
 <authorgroup>
+<author>
+<firstname>Jonathon</firstname>
+<surname>Singer</surname>
+<affiliation>
+<address><email>jsinger@leeta.net</email></address>
+</affiliation>
+</author>
+
 <author>
 <firstname>Michael</firstname>
 <surname>Kropfberger</surname>
-<affiliation>
-<address><email>michael.kropfberger@gmx.net</email></address>
-</affiliation>
+<affiliation><address><email>michael.kropfberger@gmx.net</email></address></affiliation>
 </author>
+
+<othercredit>
+<firstname>Lauri</firstname>
+<surname>Watts</surname>
+<contrib>Reviewer</contrib>
+</othercredit>
+
 </authorgroup>
-<date>17/03/1999</date>
-<releaseinfo>1.00.00</releaseinfo>
+
+
+<copyright>
+<year>2000</year>
+<holder>Jonathan Singer</holder>
+</copyright>
+
+<legalnotice>&FDLNotice;</legalnotice>
+
+<date>15/06/2000</date>
+<releaseinfo>0.00.10</releaseinfo>
+
 <abstract>
-<para>This handbook describes &kdf; version 1.0</para>
+<para>&kdf; displays available file devices, along with information about
+them.</para>
+
 </abstract>
+
 <keywordset>
 <keyword>KDE</keyword>
-<keyword>disk free</keyword>
 <keyword>kdf</keyword>
-<keyword>df</keyword>
+<keyword>kdeutils</keyword>
+<keyword>disks</keyword>
+<keyword>devices</keyword>
 <keyword>mount</keyword>
-<keyword>mounted</keyword>
-<keyword>disk</keyword>
-<keyword>disk space</keyword>
-<keyword>free disk space</keyword>
-<keyword>unmounted</keyword>
 <keyword>unmount</keyword>
 </keywordset>
+
 </bookinfo>
 
-<chapter id="kwikdisk">
-<title>KwikDisk</title>
 
-<para>KwikDisk docks itself into the Panel and when you click on it, it shows you all mountpoints, icons and the free disk space (if the device is mounted).  When you select a mountpoint it tries to mount this as described in section <link linkend="UMountCommands">(U)Mount Commands</link>.  You may also start a <link linkend="KdiskFree">KDiskFree</link> from the menu there.</para>
+<chapter id="introduction">
+<title>Introduction</title>
+
+<para>&kdf; displays the available file devices (hard drive partitions, floppy
+and CD drives, <abbrev>etc.</abbrev>) along with information on their capacity,
+free space, type and mount point. It also allows you to mount and unmount drives
+and open file manager.</para>
+
+<para>&kdf; is similar to the <application>KControl</application> DiskFree
+module (<application>kcmdf</application>), but takes up less screen space. It is
+useful if you want to keep a DiskFree window available at all times.</para>
+
 </chapter>
 
-<chapter id="kdiskfree">
-<title>KdiskFree</title>
+<chapter id="installation">
+<title>Installation</title>
 
-<para>KDiskFree provides you a graphical overview on your block devices (disks, partitions, floppy-drive...) and their usage.  It reads the file /etc/fstab to get information about possibly mounted devices and then periodically calls the df-command to look at actually mounted devices.  Unmounted devices are shown in lightgray.</para>
+<sect1 id="getting-and-installing-kdf">
+<title>How to obtain and install &kdf;</title>
 
-<para>You may invoke KDiskFree ("kcmdf") from your KControlCenter under Information/Block Devices or directly by typing "kdf".  "kdf" is more light-weighted in the screen-size used, so if you want to always have a KDiskFree open (as I do) try "kdf" instead of "kcmdf".</para>
+<para>&kdf; is part of the KDE project
+<ulink url="http://www.kde.org">http://www.kde.org</ulink>, and should be
+compiled and installed as indicated in the package's main directory.  New
+versions of &kdf; can be found in the kdeutils package on
+<ulink url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink>, the
+main ftp site of the KDE project. </para>
 
-<para>KDiskFree was written 1998 by <ulink url="mailto:michael.kropfberger@gmx.net">Michael Kropfberger</ulink> and underlies the terms of GPL.</para>
+<para>To build kdf:</para>
+<screen width="40">
+<prompt>%</prompt> <command>./configure</command>
+<prompt>%</prompt> <command>make</command>
+<prompt>%</prompt> <command>su</command>
+<prompt>%</prompt> <command>make install</command>
+</screen>
 
-<sect1 id="overview">
-<title>Overview</title>
+</sect1>
 
-<para>There are following columns which are shown in <link linkend="KdiskFree">KDiskfree</link>:
+</chapter>
+
+<chapter id="using-kdf">
+<title>Using &kdf;</title>
+
+<sect1 id="starting-kdf">
+<title>Starting &kdf;</title>
+<para>Type <command>kdf</command> at a command prompt or select
+<guimenuitem>Disk Free</guimenuitem> from the <guisubmenu>System
+group</guisubmenu> in the <guimenu>KDE start menu</guimenu>. The standard Qt and
+KDE command options are available, and can be listed by entering <command>kdf
+<option>--help</option></command> at the command prompt.</para>
+
+</sect1>
+
+<sect1 id="main-window">
+<title>The Main window</title>
+
+<para>The main &kdf; window displays the available file devices.</para>
+
+<para>Normally, the following pieces of information are included:</para>
+
+<itemizedlist>
+<listitem><para>an icon depicting the type of storage</para></listitem>
+<listitem><para>file format</para></listitem>
+<listitem><para>total size</para></listitem>
+<listitem><para>mount point</para></listitem>
+<listitem><para>free disk space</para></listitem>
+<listitem><para>the percentage of space used as a number and as a
+graph.</para></listitem>
+</itemizedlist>
+
+<para><mousebutton>Left</mousebutton> clicking on the header of a particular
+column sorts the devices according to that variable. A second
+<mousebutton>left</mousebutton> click sorts in the opposite order.</para>
+
+<para><mousebutton>Right</mousebutton> clicking on a row pops up a menu. If that
+device is not currently mounted, the "<guimenuitem>Mount device</guimenuitem>"
+option is available. If the device is mounted, it can be unmounted by choosing
+"<guimenuitem>Unmount device</guimenuitem>". Selecting "<guimenuitem>Open
+filemanager</guimenuitem>" opens a new window with a graphical view of the files
+on that device.</para>
+
+</sect1>
+
+<sect1 id="the-menus">
+<title>The &kdf; menubar</title>
+
+<sect2>
+<title>The File Menu</title>
+
 <variablelist>
 <varlistentry>
-<term>Icon</term>
-<listitem>
-<para>shows icon for the actual device/mountpoint combination</para>
+<term>
+<menuchoice>
+<guimenu>File</guimenu>
+<guimenuitem>Update</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Immediately updates the display to reflect the current
+status</action></para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>
+<menuchoice>
+<shortcut>
+<keycombo><keycap>Ctrl</keycap><keycap>Q</keycap></keycombo>
+</shortcut>
+<guimenu>File</guimenu>
+<guimenuitem>Quit</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Closes &kdf;</action></para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+<sect2>
+<title>The <guimenu>Options</guimenu> menu and dialog</title>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice>
+<guimenu>Options</guimenu>
+<guimenuitem>Configure KDiskFree</guimenuitem>
+</menuchoice>
+</term>
+<listitem><para><action>Opens a configuration dialog.</action></para>
+<para>This dialog has two tabbed windows, <guilabel>General Settings</guilabel>
+and <guilabel>Mount Commands</guilabel></para>
+<variablelist>
+<varlistentry>
+<term>General Settings</term>
+<listitem><para>Click on the word "<guilabel>visible</guilabel>" or
+"<guilabel>hidden</guilabel>" to turn display of an data field on or off.</para>
+<para>Change "<guilabel>Update frequency</guilabel>" by moving the slider. The
+value in the box on the left is the interval (in seconds) between updates of the
+&kdf; display to reflect the current status.</para>
+<para>The FileManager setting controls the command executed when the
+"<guimenuitem>Open filemanager</guimenuitem>" pop-up menu item is
+selected.</para>
+<para>There are also two checkboxes. One controls if a filemanager window will
+be automatically opened when a device is mounted. The other causes an alert
+window to pop up if a disk gets critically full.</para>
 </listitem>
 </varlistentry>
 <varlistentry>
-<term>Device</term>
-<listitem>
-<para>shows the filename of the listed device</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>Type</term>
-<listitem>
-<para>shows the filesystem-type of the listed device (e.g. ext2, msdos, vfat, minix...)</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>Size</term>
-<listitem>
-<para>shows the maximum size of the device</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>MountPoint</term>
-<listitem>
-<para>shows you, where the device is mounted to</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>Free</term>
-<listitem>
-<para>shows you, how many Bytes (rounded to Gigabytes, Megabytes, Kilobytes for convenience) are really available</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>Full &percnt;</term>
-<listitem>
-<para>indicates the percentage of fullness; if this exceeds 95&percnt;, the whole device entry is printed out in <emphasis remap="bf"><emphasis remap="it">red</emphasis></emphasis> and a warning message pops up on the active desktop.</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>UsageBar</term>
-<listitem>
-<para>shows you the space-usage in a graphical way (<emphasis remap="bf"><emphasis remap="it">blue</emphasis></emphasis> = full, <emphasis remap="bf"><emphasis remap="it">white</emphasis></emphasis>= available)</para>
+<term><guilabel>Mount Commands</guilabel></term>
+<listitem><para>Allows the user to specify the <command>mount</command> and
+<command>unmount</command> commands for a given device, as well as the icon used
+to represent it. More information on these commands can be found on the man page
+for mount (type <command>man <option>mount</option></command> at the command
+prompt).</para>
 </listitem>
 </varlistentry>
 </variablelist>
-</para>
-</sect1>
-
-<sect1 id="features">
-<title>Features</title>
-
-<para>There are also many usable features included:
-<itemizedlist>
-<listitem>
-<para>left-, double-, mid- or right-click on the devicename of the device of your interest to mount/unmount it immediately. This invokes the given mountscript for the device/mountpoint or calls the default "mount" command (see <link linkend="UMountCommands">(U)Mount Commands</link>).</para>
 </listitem>
-<listitem>
-<para>left-, double-, mid- or right-click on the MountPoint of the device of your interest to open a FileManager (e.g. kfm) with the mountpoint as starting directory</para>
+</varlistentry>
+</variablelist>
+</sect2>
+
+<sect2>
+<title>The <guimenu>Help</guimenu> menu</title>
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice>
+<shortcut><keycap>F1</keycap></shortcut>
+<guimenu>Help</guimenu>
+<guimenuitem>Contents</guimenuitem>
+</menuchoice>
+</term>
+<listitem><para><action>Opens this document</action></para>
 </listitem>
-<listitem>
-<para>you may also disable some of the columns you don't want to see (look at <link linkend="GeneralSettings">General Settings</link> for further information)</para>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<shortcut>
+<keycombo><keycap>Shift</keycap><keycap>F1</keycap></keycombo></shortcut>
+<guimenu>Help</guimenu>
+<guimenuitem>What's this?</guimenuitem>
+</menuchoice>
+</term>
+<listitem><para>Select this and click on items to learn more about
+them</para>
 </listitem>
-<listitem>
-<para>click on the Headers of the TabList to sort the devices accordingly</para>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenu>Help</guimenu>
+<guimenuitem>Report Bug</guimenuitem>
+</menuchoice>
+</term>
+<listitem><para>A convenient dialog for reporting bugs in
+&kdf;</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenu>Help</guimenu>
+<guimenuitem>About &kdf;</guimenuitem>
+</menuchoice>
+</term>
+<listitem><para><action>Provides information about
+&kdf;</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenu>Help</guimenu>
+<guimenuitem>About KDE</guimenuitem>
+</menuchoice>
+</term>
+<listitem><para><action>Provides information about the KDE
+project.</action></para>
 </listitem>
-</itemizedlist>
-</para>
-</sect1>
+</varlistentry>
+</variablelist>
+</sect2>
 
-<sect1 id="generalsettings">
-<title>General Settings</title>
-
-<para>If you click on the <emphasis remap="it">Settings</emphasis>-Button you enroll a more-featured settings-window.  Primarily you may want to change the update-frequency of KDiskFree.  Just use the scrollBar to select the appropriate frequency.  If you want to DISABLE the auto-update-feature, you only have to select 0 as your update-frequency.  To force an update, just press the Apply-Button.</para>
-
-<para>There you can enable/disable the shown columns of your device-Overview.  If you don't want to see the Filesystem-Type (which maybe is not of <emphasis remap="it">that</emphasis> interest to you, because it doesn't change every five seconds) you may just click on the <emphasis remap="it">Type</emphasis>-Header in your settings-window, so the checked-icon under <emphasis remap="it">Type </emphasis>changes to a crossed-out-icon. To enable it, just press the <emphasis remap="it">Type</emphasis>-Header again and the crossed-out-icon becomes a checked-icon.  For convenience, you may also double-, mid- or right-click on the icons to get the same effect.</para>
-
-<para>There is also a LineEdit to enter the preferred FileManager used when you click on the mountpoint of a device.  The <emphasis remap="it">&percnt;m</emphasis> will be substituted with the actual mountpoint.</para>
-
-<para>To reset all to the default values, just click on the <emphasis remap="it">Defaults</emphasis>-Button</para>
-</sect1>
-
-<sect1 id="umountcommands">
-<title>(U)Mount Commands</title>
-
-<para>In this Tab you can edit mount commands for every device/mountpoint pair.  This is eg. useful for zip-drives which need a root-called <literal remap="tt">insmod ppa</literal> before mounting is possible. You could write a little script like this to do that:
-<programlisting>#!/bin/bash
-kdesu -c insmod ppa
-mount /zip</programlisting>
-
-and store it in <literal remap="tt">/usr/local/bin/mount&lowbar;zip</literal>.  Now you can use this script when you click on the device <literal remap="tt">/zip</literal>.  Possible parameters are:
-<informaltable>
-<tgroup cols="2" align="left">
-<tbody>
-<row><entry>&percnt;d</entry><entry>Device Name</entry></row>
-<row><entry>&percnt;m</entry><entry>Mount Point</entry></row>
-<row><entry>&percnt;t</entry><entry>Filesystem Type</entry></row>
-<row><entry>&percnt;o</entry><entry>Mount Options</entry></row></tbody>
-</tgroup>
-</informaltable>
-
-If no mount command is given, a default <literal remap="tt">"mount &percnt;d"</literal> is used instead.  If you are root the default command is <literal remap="tt">"mount -t&percnt;t &percnt;d &percnt;m -o &percnt;o"</literal>.</para>
-</sect1>
-
-<sect1 id="icons">
-<title>Icons</title>
-
-<para>If the user doesn't set a specific Icon in <link linkend="UMountCommands">(U)Mount Commands</link> settings dialog, a special magic is tried.  So a device /dev/fd0 or mountpoint /floppy gets a floppy icon assigned.  Also NFS mounts are recognized and a special icon is shown.  Every device/mountpoint can be mounted (green button in the buttom right) and if it is only (u)mountable by root, the icon gets a red frame around it.  If the user gives his own icon, there are a few important things to keep in mind: all filenames for icons have to look like this: <literal remap="tt">myicon&lowbar;mount.xpm</literal> and <literal remap="tt">myicon&lowbar;unmount.xpm</literal> because only <literal remap="tt">myicon</literal> is stored and the rest is appended.  The files should be in the mini-icon directory (this is <literal remap="tt">$KDEDIR/share/icons/mini</literal> or <literal remap="tt">$HOME/.kde/share/icons/mini</literal>).</para>
-</sect1>
-
-<sect1 id="comments">
-<title>Comments ...</title>
-
-<para>Comments to Michael Kropfberger <ulink url="mailto:michael.kropfberger@gmx.net">michael.kropfberger@gmx.net</ulink>.
-Last changed: 17. March 1999</para>
 </sect1>
 </chapter>
+
+<!-- 
+<chapter id="faq">
+<title>Questions and Answers</title>
+
+<para></para>
+
+-->
+
+<chapter id="credits">
+<title>Credits and License</title>
+
+<para>
+&kdf;
+</para>
+<para>
+Program copyright 1998-200 Michael Kropfbergerr <email>mkropfbe@edu.uni-klu.ac.at</email>
+</para>
+
+
+<para>
+Documentation copyright 2000 Jonathon Singer <email>jsinger@leeta.net</email>
+</para>
+
+&license-links;
+</chapter>
+
+<![ %addindex; [ &kdedocindex; ]]>
 </book>
+
 <!--
 Local Variables:
-mode: sgml
-sgml-omittag: nil
-sgml-shorttag: t
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
 End:
 -->
+ 
