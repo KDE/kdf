@@ -1,17 +1,17 @@
 <--A-->
 <META HTTP-EQUIV="content-type" CONTENT="text/html; charset=iso-8859-1">
-<META NAME="keywords" CONTENT="KDE, KDF, disk free space">
-<META NAME="description" CONTENT="The KDF Handbook">
+<META NAME="keywords" CONTENT="KDE, disk free, kdf, df, mount, mounted, disk, disk space, free disk space, unmounted, unmount">
+<META NAME="description" CONTENT="Kdf help">
 <--B-->
 <BODY BGCOLOR="#ffffff" LINK="#aa0000" TEXT="#000000" > 
 <FONT FACE="Helvetica">
-<A HREF="http://www.kde.org/"><IMG SRC="logotp3.gif" BORDER="0" ALT="The K Desktop Environment"></A>
+<A HREF="http://www.kde.org/"> SRC="logotp3.gif" BORDER="0" ALT="The K Desktop Environment"></A>
 <HR WIDTH="100%" SIZE=2 ALIGN="CENTER" NOSHADE>
 
 <--C-->
 <CENTER>
 <HR WIDTH="100%" SIZE=3 ALIGN=CENTER NOSHADE>
-</CENTER>    
+</CENTER>      
 </FONT>
 
 <--BarTags1-->
@@ -19,3 +19,4 @@
 
 <--BarTags2-->
 </P>
+
