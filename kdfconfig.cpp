@@ -141,9 +141,9 @@ KDFConfigWidget::KDFConfigWidget (QWidget * parent, const char *name
       confTabList->setSeparator(BLANK);
       confTabList->dict().setAutoDelete(TRUE);
       QPixmap *pix;
-      pix = new QPixmap(loader->loadApplicationMiniIcon("tick.xpm"));
+      pix = new QPixmap(loader->loadApplicationIcon("tick", KIconLoader::Small));
       confTabList->dict().replace(VISIBLE,pix );
-      pix = new QPixmap(loader->loadApplicationMiniIcon("delete.xpm"));
+      pix = new QPixmap(loader->loadApplicationIcon("delete", KIconLoader::Small));
       confTabList->dict().replace(INVISIBLE,pix );
       confTabList->show();
     

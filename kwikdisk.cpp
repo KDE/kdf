@@ -305,7 +305,7 @@ void DockWidget::updateDFDone()
     id=clickMenu->insertItem("",disk, SLOT(toggleMount()));
     //    id=clickMenu->insertItem("",this, SLOT(toggleMount()));
 
-    pix = new QPixmap(loader->loadApplicationMiniIcon(disk->iconName()));
+    pix = new QPixmap(loader->loadApplicationIcon(disk->iconName(), KIconLoader::Small));
  
     if ((getuid()!=0) && ( -1==disk->mountOptions().find("user",0,FALSE) )) {
       //clickMenu->setItemEnabled(id,FALSE);  MntConfigWidget   *mntconf;
@@ -341,17 +341,17 @@ void DockWidget::updateDFDone()
   readingDF=FALSE;
 
   clickMenu->insertSeparator();
-  id=clickMenu->insertItem(loader->loadApplicationMiniIcon("kdf.xpm")
+  id=clickMenu->insertItem(loader->loadApplicationIcon("kdf", KIconLoader::Small)
                          ,i18n("&Start KDiskFree")
                          ,this, SLOT(startKDF()),0);
-  id=clickMenu->insertItem(loader->loadApplicationMiniIcon("kfloppy.xpm")
+  id=clickMenu->insertItem(loader->loadApplicationIcon("kfloppy", KIconLoader::Small)
                          ,i18n("&Configure KwikDisk")
                          ,this, SLOT(settingsBtnClicked()),0);
-  id=clickMenu->insertItem(loader->loadApplicationMiniIcon("kdehelp.xpm")
+  id=clickMenu->insertItem(loader->loadApplicationIcon("kdehelp", KIconLoader::Small)
                          ,i18n("&Help")
                          ,this, SLOT(invokeHTMLHelp()),0);
   clickMenu->insertSeparator();
-  id=clickMenu->insertItem(loader->loadApplicationMiniIcon("delete.xpm")
+  id=clickMenu->insertItem(loader->loadApplicationIcon("delete", KIconLoader::Small)
                          ,i18n("&Quit KwikDisk")
                          ,this, SLOT(quit()),0);
 
@@ -414,7 +414,7 @@ KwikDiskTopLevel::KwikDiskTopLevel(QWidget *, const char *name)
 {
     dockIcon=new DockWidget (this,"docked_icon");
     KIconLoader *loader = KGlobal::iconLoader();
-    dockIcon->setPixmap(QPixmap(loader->loadApplicationMiniIcon("kdf.xpm")));
+    dockIcon->setPixmap(QPixmap(loader->loadApplicationIcon("kdf", KIconLoader::Small)));
     setView(dockIcon);
     this->resize(24,24);
 };

@@ -137,7 +137,7 @@ KDFWidget::KDFWidget (QWidget * parent, const char *name
                          ,tabWidths[PIX_COLUMN]
                          ,KTabListBox::PixmapColumn);
       QPixmap *pix;
-      pix = new QPixmap(loader->loadApplicationMiniIcon("mini-clock.xpm"));
+      pix = new QPixmap(loader->loadApplicationIcon("mini-clock", KIconLoader::Small));
       tabList->dict().replace("WAIT",pix );
 
       tabList->setSeparator(BLANK);
@@ -367,7 +367,7 @@ void KDFWidget::updateDFDone()
        tabList->appendItem((const char *)s);
        pix=tabList->dict()[icon.latin1()];
        if (pix == 0) { // pix not already in cache
-          pix = new QPixmap(loader->loadApplicationMiniIcon(disk->iconName()));
+          pix = new QPixmap(loader->loadApplicationIcon(disk->iconName(), KIconLoader::Small));
           if ( -1==disk->mountOptions().find("user",0,FALSE) ) {
              // special root icon, normal user can´t mount
             QPainter *qp;
