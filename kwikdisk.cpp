@@ -27,6 +27,8 @@
 #include <qbitmap.h>
 
 #include <kapp.h>
+#include <kglobal.h>
+#include <kstddirs.h>
 #include <kwm.h>
 #include <kiconloader.h>
 #include <kmsgbox.h>
@@ -286,7 +288,7 @@ void DockWidget::updateDFDone()
   DiskEntry* disk;
   QString *toolTipText;
   QString entryName;
-  KIconLoader *loader = kapp->getIconLoader();
+  KIconLoader *loader = KGlobal::iconLoader();
   QPixmap *pix;
 
   int id;
@@ -305,7 +307,7 @@ void DockWidget::updateDFDone()
     id=clickMenu->insertItem("",disk, SLOT(toggleMount()));
     //    id=clickMenu->insertItem("",this, SLOT(toggleMount()));
 
-    pix = new QPixmap(loader->loadMiniIcon(disk->iconName()));
+    pix = new QPixmap(loader->loadApplicationMiniIcon(disk->iconName()));
  
     if ((getuid()!=0) && ( -1==disk->mountOptions().find("user",0,FALSE) )) {
       //clickMenu->setItemEnabled(id,FALSE);  MntConfigWidget   *mntconf;
@@ -341,17 +343,17 @@ void DockWidget::updateDFDone()
   readingDF=FALSE;
 
   clickMenu->insertSeparator();
-  id=clickMenu->insertItem(loader->loadMiniIcon("kdf.xpm")
+  id=clickMenu->insertItem(loader->loadApplicationMiniIcon("kdf.xpm")
                          ,i18n("&Start KDiskFree")
                          ,this, SLOT(startKDF()),0);
-  id=clickMenu->insertItem(loader->loadMiniIcon("kfloppy.xpm")
+  id=clickMenu->insertItem(loader->loadApplicationMiniIcon("kfloppy.xpm")
                          ,i18n("&Configure KwikDisk")
                          ,this, SLOT(settingsBtnClicked()),0);
-  id=clickMenu->insertItem(loader->loadMiniIcon("kdehelp.xpm")
+  id=clickMenu->insertItem(loader->loadApplicationMiniIcon("kdehelp.xpm")
                          ,i18n("&Help")
                          ,this, SLOT(invokeHTMLHelp()),0);
   clickMenu->insertSeparator();
-  id=clickMenu->insertItem(loader->loadMiniIcon("delete.xpm")
+  id=clickMenu->insertItem(loader->loadApplicationMiniIcon("delete.xpm")
                          ,i18n("&Quit KwikDisk")
                          ,this, SLOT(quit()),0);
 
@@ -413,8 +415,8 @@ KwikDiskTopLevel::KwikDiskTopLevel(QWidget *, const char *name)
       : KTopLevelWidget(name) 
 {
     dockIcon=new DockWidget (this,"docked_icon");
-    KIconLoader *loader = kapp->getIconLoader();
-    dockIcon->setPixmap(QPixmap(loader->loadMiniIcon("kdf.xpm")));
+    KIconLoader *loader = KGlobal::iconLoader();
+    dockIcon->setPixmap(QPixmap(loader->loadApplicationMiniIcon("kdf.xpm")));
     setView(dockIcon);
     this->resize(24,24);
 };

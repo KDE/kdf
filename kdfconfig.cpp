@@ -35,7 +35,7 @@
 #include <qpixmap.h>
 #include <qpaintd.h>
 
-#include <kapp.h> 
+#include <kglobal.h>
 #include <kmsgbox.h> 
 #include <kiconloader.h>
 #include "kdfconfig.h"
@@ -91,7 +91,7 @@ KDFConfigWidget::KDFConfigWidget (QWidget * parent, const char *name
   if (GUI)
     {  // inits go here
       this->setMinimumSize(325,200);
-      KIconLoader *loader = kapp->getIconLoader();
+      KIconLoader *loader = KGlobal::iconLoader();
 
       freqLabel = new QLabel( i18n("update frequency (seconds)")
                               ,this); CHECK_PTR(freqLabel);
@@ -136,9 +136,9 @@ KDFConfigWidget::KDFConfigWidget (QWidget * parent, const char *name
       confTabList->setSeparator(BLANK);
       confTabList->dict().setAutoDelete(TRUE);
       QPixmap *pix;
-      pix = new QPixmap(loader->loadMiniIcon("tick.xpm"));
+      pix = new QPixmap(loader->loadApplicationMiniIcon("tick.xpm"));
       confTabList->dict().replace(VISIBLE,pix );
-      pix = new QPixmap(loader->loadMiniIcon("delete.xpm"));
+      pix = new QPixmap(loader->loadApplicationMiniIcon("delete.xpm"));
       confTabList->dict().replace(INVISIBLE,pix );
       confTabList->show();
     

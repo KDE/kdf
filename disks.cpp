@@ -24,6 +24,8 @@
 #include <qregexp.h>
 
 #include <kapp.h>
+#include <kstddirs.h>
+#include <kglobal.h>
 #include "disks.h"
 #include "disks.moc"
 
@@ -194,10 +196,7 @@ QString DiskEntry::guessIconName()
 //      iconName.prepend("root_"); // special root icon, normal user can´t mount
 
     //debug("file is [%s]",iconName.data());
-    if ( (!QFile::exists(QString(kapp->kde_icondir()
-                              +QString("/mini/")+iconName).data())) 
-        && (!QFile::exists(QString(kapp->kde_icondir()
-                              +QString("/")+iconName).data())) )
+    if ( (!QFile::exists(locate("icon", iconName))))
     {
       warning("file [%s] doesn't exist (not even mini)!",iconName.data());
       iconName="unknown.xpm";

@@ -37,6 +37,7 @@
 #include <qpaintd.h>
 
 #include <kapp.h> 
+#include <kglobal.h>
 #include <kmsgbox.h> 
 #include <kiconloader.h>
 #include "kdfwidget.h"
@@ -331,7 +332,7 @@ void KDFWidget::updateDFDone()
   tabList->clear();
   DiskEntry *disk;
   QString s,percS,sizeS, icon, fullbar;
-  KIconLoader *loader = kapp->getIconLoader();
+  KIconLoader *loader = KGlobal::iconLoader();
   QPixmap *pix;
   for (disk=diskList.first();disk!=0;disk=diskList.next()) {
        if ( disk->kBSize() > 0 ) {
@@ -360,7 +361,7 @@ void KDFWidget::updateDFDone()
        tabList->appendItem((const char *)s);
        pix=tabList->dict()[icon.data()];
        if (pix == 0) { // pix not already in cache
-          pix = new QPixmap(loader->loadMiniIcon(disk->iconName()));
+          pix = new QPixmap(loader->loadApplicationMiniIcon(disk->iconName()));
           if ( -1==disk->mountOptions().find("user",0,FALSE) ) {
              // special root icon, normal user can´t mount
             QPainter *qp;

@@ -34,6 +34,8 @@
 #include <qbitmap.h>
 #include <qpaintd.h>
 
+#include <kapp.h>
+#include <kglobal.h>
 #include <klocale.h> 
 #include <kmsgbox.h> 
 #include <kiconloader.h>
@@ -82,7 +84,7 @@ MntConfigWidget::MntConfigWidget (QWidget * parent, const char *name
        diskList.readDF();
        //tabList fillup waits until disklist.readDF() is done...
        initializing=TRUE;
-       loader = kapp->getIconLoader(); CHECK_PTR(loader);
+       loader = KGlobal::iconLoader(); CHECK_PTR(loader);
        connect(&diskList,SIGNAL(readDFDone()),this,SLOT(readDFDone()));
        tabList=new KTabListBox(this,"tabList",NRCOLS,0); CHECK_PTR(tabList);
        tabList->setSeparator('\t');
@@ -141,7 +143,6 @@ void MntConfigWidget::readDFDone() {
   tabList->clear();
        //fill up the tabListBox
        DiskEntry *disk;
-       //      KIconLoader *loader = kapp->getIconLoader();
        QPixmap *pix;
        QString s,icon;
        for (disk=diskList.first();disk!=0;disk=diskList.next()) {
@@ -156,7 +157,7 @@ void MntConfigWidget::readDFDone() {
          tabList->appendItem((const char *)s);
        pix=tabList->dict()[icon.data()];
        if (pix == 0) { // pix not already in cache
-          pix = new QPixmap(loader->loadMiniIcon(disk->iconName()));
+          pix = new QPixmap(loader->loadApplicationMiniIcon(disk->iconName()));
           if ( -1==disk->mountOptions().find("user",0,FALSE) ) {
              // special root icon, normal user can´t mount
             QPainter *qp;
@@ -264,7 +265,6 @@ void MntConfigWidget::clicked(int index, int column)
                             ,actDisk->mountPoint().data());
 
   boxActDev->setTitle(title.data());
-  //   KIconLoader *loader = kapp->getIconLoader();
   btnActIcon->setPixmap(*(tabList->dict()[icon.data()]));
   qleIcon->setText(actDisk->iconName().left(actDisk->iconName().findRev('_')) );
   qleMnt->setText(actDisk->mountCommand().data());
@@ -275,15 +275,14 @@ void MntConfigWidget::clicked(int index, int column)
 
 void MntConfigWidget::selectIcon()
 {
-  // KIconLoader *loader = kapp->getIconLoader();
   KIconLoaderDialog *kild=new KIconLoaderDialog(loader,this);
   CHECK_PTR(kild);
   QStringList dirs;
 
-  dirs.append(kapp->kde_icondir() + "/mini");
-  dirs.append(KApplication::localkdedir()+"/share/icons/mini");
+  //dirs.append(mini");
+  //dirs.append(KApplication::localkdedir()+"/share/icons/mini");
 
-  kild->setDir(dirs);
+  kild->changeDirs(dirs);
   QString icoName;
   QPixmap *pix=new QPixmap(kild->selectIcon(icoName,"*"));
   delete pix;
@@ -307,7 +306,7 @@ void MntConfigWidget::selectIcon()
 
        pix=tabList->dict()[icon.data()];
        if (pix == 0) { // pix not already in cache
-          pix = new QPixmap(loader->loadMiniIcon(actDisk->iconName()));
+          pix = new QPixmap(loader->loadApplicationMiniIcon(actDisk->iconName()));
           if ( -1==actDisk->mountOptions().find("user",0,FALSE) ) {
              // special root icon, normal user can´t mount
             QPainter *qp;
