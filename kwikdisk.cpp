@@ -449,7 +449,7 @@ void DockWidget::settingsBtnClicked( void )
 
 void DockWidget::invokeHelp( void ) 
 {
-  kapp->invokeHelp("", "kcontrol/kdf );
+  kapp->invokeHelp("", "kcontrol/kdf" );
 }
 
 
