@@ -40,10 +40,10 @@
 #include <klocale.h>
 #include <kcmdlineargs.h>
 
-static const char *description = 
+static const char description[] =
 	I18N_NOOP("A test application.");
 
-static const char *version = "v0.0.1";
+static const char version[] = "v0.0.1";
 
 main(int argc, char ** argv)
 {
