@@ -9,10 +9,19 @@
 #include <kconfig.h>
 #include <kdebug.h>
 #include <kapp.h>
+#include <klocale.h>
+#include <kcmdlineargs.h>
+
+static const char *description = 
+	I18N_NOOP("A test application.");
+
+static const char *version = "v0.0.1";
 
 main(int argc, char ** argv)
 {
- KApplication app(argc, argv, "test");
+ KCmdLineArgs::init(argc, argv, "test", description, version);
+ 
+ KApplication app;
  KConfig * cfg = kapp->config();
 
  QDict<char> dict;

@@ -28,11 +28,20 @@
 
 #include <kapp.h>
 #include <kdialog.h>
+#include <kcmdlineargs.h>
+#include <klocale.h>
 
 #include <qframe.h>
 #include <qlayout.h>
 
 #include "kcmdf.h"
+
+
+static const char *description = 
+	I18N_NOOP("KDE Control Module for kdf.");
+
+static const char *version = "v0.0.1";
+
 
 
 KDiskFreeWidget::KDiskFreeWidget( QWidget *parent, const char *name )
@@ -138,7 +147,9 @@ int KDiskFreeWidget::pageNumber( void )
 
 int main(int argc, char **argv)
 {
-  KApplication app(argc, argv, "kdf");
+  KCmdLineArgs::init(argc, argv, "kdf", description, version); 
+
+  KApplication app;
 
   KDiskFreeWidget *kdf = new KDiskFreeWidget(0);
   KCDialog *dialog = new KCDialog( kdf );

@@ -25,8 +25,15 @@
 #include <kconfig.h>
 #include <klocale.h>
 #include <kstdaccel.h>
+#include <kcmdlineargs.h>
 
 #include "kdf.h"
+
+static const char *description = 
+	I18N_NOOP("KDE free disk space utility");
+
+static const char *version = "v0.0.1";
+
 
 /***************************************************************/
 KDFTopLevel::KDFTopLevel(QWidget *, const char *name)
@@ -74,7 +81,9 @@ bool KDFTopLevel::queryExit( void )
 /***************************************************************/
 int main(int argc, char **argv)
 {
-  KApplication app(argc, argv, "kdf");
+  KCmdLineArgs::init(argc, argv, "kdf", description, version);
+
+  KApplication app;
 
   if( app.isRestored() ) //SessionManagement
   {

@@ -39,9 +39,17 @@
 #include <kstdaccel.h>
 #include <kstddirs.h>
 #include <kwm.h>
+#include <kcmdlineargs.h>
+#include <klocale.h>
 
 #include "kwikdisk.h"
 #include "optiondialog.h"
+
+static const char *description = 
+	I18N_NOOP("KDE Free disk space utility (another one?)");
+
+static const char *version = "v0.0.1";
+
 
 /***************************************************************/
 /***************************************************************/
@@ -484,7 +492,10 @@ bool KwikDiskTopLevel::queryExit( void )
 
 int main(int argc, char **argv)
 {
-  KApplication app(argc, argv, "kdf" );
+  // WABA: Two applications with the same name???
+  KCmdLineArgs::init(argc, argv, "kdf", description, version);
+
+  KApplication app;
   
   KwikDiskTopLevel *ktl = new KwikDiskTopLevel();
   CHECK_PTR(ktl);

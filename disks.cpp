@@ -29,6 +29,8 @@
 #include "disks.h"
 #include "disks.moc"
 
+#warning WABA: Icon loading is broken!
+
 /****************************************************/
 /********************* DiskEntry ********************/
 /****************************************************/
@@ -174,7 +176,7 @@ QString DiskEntry::iconName()
 {
   QString iconName=icoName;
   if (iconSetByUser) {
-    mounted() ? iconName+="_mount.xpm" : iconName+="_unmount.xpm";
+    mounted() ? iconName+="_mount.png" : iconName+="_unmount.png";
    return iconName;
   } else
    return guessIconName();
@@ -195,7 +197,7 @@ QString DiskEntry::guessIconName()
     else if (-1!=mountPoint().find("zip",0,FALSE)) iconName="zip";
     else if (-1!=fsType().find("nfs",0,FALSE)) iconName="nfs";
     else iconName="harddrive";
-    mounted() ? iconName+="_mount.xpm" : iconName+="_unmount.xpm";
+    mounted() ? iconName+="_mount.png" : iconName+="_unmount.png";
 //    if ( -1==mountOptions().find("user",0,FALSE) )
 //      iconName.prepend("root_"); // special root icon, normal user can´t mount
 
@@ -203,7 +205,7 @@ QString DiskEntry::guessIconName()
     if ( (!QFile::exists(locate("icon", iconName))))
     {
       warning("file [%s] doesn't exist (not even mini)!",iconName.latin1());
-      iconName="unknown.xpm";
+      iconName="unknown.png";
     }
     
     //debug("device %s is %s",deviceName().latin1(),iconName.latin1());

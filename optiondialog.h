@@ -30,7 +30,7 @@ class COptionDialog : public KDialogBase
   Q_OBJECT
 
   public:
-    COptionDialog( QWidget *parent=0, char *name=0, bool modal=true );
+    COptionDialog( QWidget *parent=0, const char *name=0, bool modal=true );
     ~COptionDialog( void );
 
   protected slots:
