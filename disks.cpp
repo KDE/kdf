@@ -126,7 +126,8 @@ int DiskEntry::umount()
   int e=sysCall(cmdS);
   if (!e) setMounted(FALSE);
   kdDebug() << "umount-cmd: e=" << e << endl;
- return e;
+
+  return e;
 };
 
 int DiskEntry::remount()

@@ -27,7 +27,7 @@
 
 #include <math.h>
 #include <stdlib.h>
-
+#include <kdebug.h>
 #include <kapplication.h>
 
 #include "disklist.h"
@@ -329,6 +329,20 @@ void DiskList::dfDone()
   emit readDFDone();
 }
 
+
+void DiskList::deleteAllMountedAt(const QString &mountpoint)
+{
+
+    for ( DiskEntry *item  = disks->first(); item;  )
+    {
+        if (item->mountPoint() == mountpoint ) {
+            kdDebug() << "delete " << item->deviceName() << endl;
+            disks->remove(item);
+            item = disks->current();
+        } else
+            item = disks->next();
+    }
+}
 
 /***************************************************************************
   * updates or creates a new DiskEntry in the KDFList and TabListBox

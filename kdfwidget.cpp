@@ -119,6 +119,7 @@ KDFWidget::KDFWidget( QWidget *parent, const char *name, bool init )
   mTabProp[3] = new CTabEntry( "Size", i18n("Size"), true, 72);
   mTabProp[4] = new CTabEntry( "MountPoint", i18n("Mount Point"), true, 90 );
   mTabProp[5] = new CTabEntry( "Free", i18n("Free"), true, 55);
+  // xgettext:no-c-format
   mTabProp[6] = new CTabEntry( "Full%", i18n("Full %"), true, 70);
   mTabProp[7] = new CTabEntry( "UsageBar", i18n("Usage"), true, 100);
 
@@ -513,6 +514,9 @@ void KDFWidget::popupMenu( QListViewItem *item, const QPoint &p )
 	{
 	  openFileManager = true;
 	}
+
+      delete item;
+      mDiskList.deleteAllMountedAt(disk->mountPoint());
   }
   else if( position == 2 )
   {

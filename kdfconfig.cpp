@@ -63,6 +63,7 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, const char *name, bool init)
   mTabName[3] = new CTabName( "Size", i18n("Size") );
   mTabName[4] = new CTabName( "MountPoint", i18n("Mount Point") );
   mTabName[5] = new CTabName( "Free", i18n("Free") );
+  // xgettext:no-c-format
   mTabName[6] = new CTabName( "Full%", i18n("Full %") );
   mTabName[7] = new CTabName( "UsageBar", i18n("Usage") );
 
