@@ -312,7 +312,7 @@ void KwikDisk::startKDF()
 
 void KwikDisk::invokeHelp()
 {
-   kapp->invokeHelp("", "kcontrol/kdf");
+   kapp->invokeHelp("", "kdf");
 }
 
 /*****************************************************************************/
