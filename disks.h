@@ -82,7 +82,7 @@ public:
   float percentFull() const;
 
 signals:
-  void sysCallError(DiskEntry *disk, int errno);
+  void sysCallError(DiskEntry *disk, int err_no);
   void deviceNameChanged();
   void mountPointChanged();
   void mountOptionsChanged();

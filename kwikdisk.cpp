@@ -138,13 +138,11 @@ void MyPopupMenu::setToolTip( int id, const QString & text )
 
 void MyPopupMenu::aboutToHide()
 {
-  kdDebug() << "aboutToHide: " << endl;
   disconnect(this,SIGNAL(highlighted(int)),this,SLOT(registerActiveItem(int)));
 }
 
 void MyPopupMenu::aboutToShow()
 {
-  kdDebug() << "aboutToShow: " << endl;
   connect(this,SIGNAL(highlighted(int)),this,SLOT(registerActiveItem(int)));
 }
 
@@ -152,7 +150,6 @@ void MyPopupMenu::registerActiveItem( int id )
 {
   mCurrentIndex = indexOf(id);
 
-  kdDebug() << "activeItemIndex: " << mCurrentIndex << endl;
   if( id != -1 && id != mCurrentId )
   {
     QRect r = itemRectangle(id);
@@ -287,9 +284,9 @@ void DockWidget::mousePressEvent( QMouseEvent * )
 }
 
 
-void DockWidget::sysCallError( DiskEntry *disk, int errno )
+void DockWidget::sysCallError( DiskEntry *disk, int err_no )
 { 
-  if( errno != 0 )
+  if( err_no != 0 )
   {
     KMessageBox::sorry( this, disk->lastSysError() );
   }
