@@ -27,10 +27,7 @@ disks.h kdf.h disklist.h kwikdisk.h listview.h optiondialog.h stdoption.h
 
 METASOURCES = AUTO
 
-xdg_apps_DATA = kdf.desktop kwikdisk.desktop
-
-kcmdesktopdir = $(kde_appsdir)/Settings/Information
-kcmdesktop_DATA = kcmdf.desktop
+xdg_apps_DATA = kdf.desktop kwikdisk.desktop kcmdf.desktop
 
 messages:
 	$(XGETTEXT) *.cpp -o $(podir)/kdf.pot
