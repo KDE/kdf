@@ -26,7 +26,6 @@
 #include <math.h>
 
 #include <qstring.h>
-#include <qmessagebox.h> 
 #include <qfile.h>
 #include <qtextstream.h>
 #include <qstring.h>
