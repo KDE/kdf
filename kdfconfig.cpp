@@ -27,12 +27,12 @@
 
 #include <qstring.h>
 #include <qfile.h>
-#include <qtstream.h>
+#include <qtextstream.h>
 #include <qstring.h>
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qpixmap.h>
-#include <qpaintd.h>
+#include <qpaintdevice.h>
 #include <qlineedit.h>
 #include <qlcdnumber.h>
 #include <qcheckbox.h>

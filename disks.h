@@ -28,8 +28,8 @@
 #include <qobject.h>
 #include <qstring.h>
 #include <qlabel.h>
-#include <qpushbt.h>
-#include <qprogbar.h>
+#include <qpushbutton.h>
+#include <qprogressbar.h>
 #include <qfile.h>
 
 #include <kprogress.h>

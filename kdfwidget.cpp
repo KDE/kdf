@@ -26,9 +26,9 @@
 #include <math.h>
 
 #include <qstring.h>
-#include <qmsgbox.h> 
+#include <qmessagebox.h> 
 #include <qfile.h>
-#include <qtstream.h>
+#include <qtextstream.h>
 #include <qstring.h>
 #include <qlabel.h>
 #include <qlcdnumber.h>
@@ -37,7 +37,7 @@
 #include <qlayout.h>
 #include <qpixmap.h>
 #include <qbitmap.h>
-#include <qpaintd.h>
+#include <qpaintdevice.h>
 
 #include <kapp.h> 
 #include <kglobal.h>
