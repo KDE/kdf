@@ -337,7 +337,7 @@ void DockWidget::updateDFDone( void )
     int id = mPopupMenu->insertItem("",this, SLOT(toggleMount()) );
 
     QPixmap *pix = new QPixmap(
-      loader.loadApplicationIcon(disk->iconName(), KIconLoader::Small));
+      loader.loadIcon(disk->iconName(), KIconLoader::Small));
  
     if( getuid() !=0 && disk->mountOptions().find("user",0, false) == -1 ) 
     {
@@ -372,23 +372,23 @@ void DockWidget::updateDFDone( void )
   mPopupMenu->insertSeparator();
 
   mPopupMenu->insertItem(
-    loader.loadIcon( "kdf" ),
-    //loader.loadApplicationIcon("kdf", KIconLoader::Small),
+    BarIcon( "kdf" ),
+    //loader.loadIcon("kdf", KIconLoader::Small),
     i18n("&Start KDiskFree"), this, SLOT(startKDF()),0);
 
   mPopupMenu->insertItem(
-    loader.loadIcon( "kfloppy" ),
-    //loader.loadApplicationIcon("kfloppy", KIconLoader::Small),
+    BarIcon( "kfloppy" ),
+    //loader.loadIcon("kfloppy", KIconLoader::Small),
     i18n("&Customize"), this, SLOT(settingsBtnClicked()),0);
 
   mPopupMenu->insertItem(
-    loader.loadIcon( "help" ),
+    BarIcon( "help" ),
     i18n("&Help"), this, SLOT(invokeHTMLHelp()),0);
 
   mPopupMenu->insertSeparator();
 
   mPopupMenu->insertItem(
-    loader.loadIcon( "exit" ),
+    BarIcon( "exit" ),
     i18n("&Quit"), this, SLOT(quit()) );
 
   mPopupMenu->move(-1000,-1000);
@@ -460,7 +460,7 @@ KwikDiskTopLevel::KwikDiskTopLevel(QWidget *, const char *name)
   mDockIcon = new DockWidget(this,"docked_icon");
   connect( mDockIcon, SIGNAL(quitProgram()), this, SLOT(close()) );
   KIconLoader &loader = *KGlobal::iconLoader();
-  mDockIcon->setPixmap(loader.loadApplicationIcon("kdf", KIconLoader::Small) );
+  mDockIcon->setPixmap(loader.loadIcon("kdf", KIconLoader::Small) );
   setView( mDockIcon );
   resize(24,24);
 }

@@ -159,12 +159,11 @@ void MntConfigWidget::readDFDone( void )
   mList->clear();
 
   QListViewItem *item = 0;
-  KIconLoader &loader = *KGlobal::iconLoader();
   for( DiskEntry *disk=mDiskList.first(); disk!=0; disk=mDiskList.next() ) 
   {
     item = new QListViewItem( mList, item, QString::null, disk->deviceName(), 
       disk->mountPoint(), disk->mountCommand(), disk->umountCommand() );
-    item->setPixmap( ICONCOL, loader.loadIcon( disk->iconName(), false ) );
+    item->setPixmap( ICONCOL, BarIcon( disk->iconName() ) );
   }
 
   loadSettings();
@@ -292,7 +291,7 @@ void MntConfigWidget::selectIcon( void )
 	disk->setIconName(iconName);
 	mIconLineEdit->setText(iconName);
 	KIconLoader &loader = *KGlobal::iconLoader();
-	item->setPixmap( ICONCOL, loader.loadApplicationIcon( iconName, 
+	item->setPixmap( ICONCOL, loader.loadIcon( iconName, 
 	  KIconLoader::Small, 0, false ) );
       }
       break;

@@ -75,7 +75,7 @@ const QPixmap &CListView::icon( const QString &iconName, bool drawBorder )
     KIconLoader &loader = *KGlobal::iconLoader();
     
     pix = new QPixmap( 
-      loader.loadApplicationIcon( iconName, KIconLoader::Small, 0, false ) );
+      loader.loadIcon( iconName, KIconLoader::Small, 0, false ) );
     if( drawBorder == true )
     {
       QBitmap *bm = new QBitmap(*(pix->mask()));
