@@ -30,7 +30,7 @@
 #include <qpopupmenu.h>
 #include <qtooltip.h>
 
-#include <ktmainwindow.h>
+#include <kmainwindow.h>
 
 #include "disklist.h"
 #include "kdfconfig.h"
@@ -128,7 +128,7 @@ class DockWidget : public QLabel
 
 
 /***************************************************************/
-class KwikDiskTopLevel : public KTMainWindow
+class KwikDiskTopLevel : public KMainWindow
 { 
   Q_OBJECT
 

@@ -462,14 +462,14 @@ void DockWidget::quit( void )
 
 /***************************************************************/
 KwikDiskTopLevel::KwikDiskTopLevel(QWidget *, const char *name)
-  : KTMainWindow(name) 
+  : KMainWindow(0, name) 
 {
   setPlainCaption("kwikdisk");
 
   mDockIcon = new DockWidget(this,"docked_icon");
   connect( mDockIcon, SIGNAL(quitProgram()), this, SLOT(close()) );
   mDockIcon->setPixmap(SmallIcon("kdf"));
-  setView( mDockIcon );
+  setCentralWidget( mDockIcon );
   resize(24,24);
 }
 

@@ -22,13 +22,13 @@
 #ifndef __KDF_H__
 #define __KDF_H__
 
-#include <ktmainwindow.h>
+#include <kmainwindow.h>
 #include <kmenubar.h>
 
 #include "kdfwidget.h"
 
 /***************************************************************/
-class KDFTopLevel : public KTMainWindow
+class KDFTopLevel : public KMainWindow
 {
  Q_OBJECT
 

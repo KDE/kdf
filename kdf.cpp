@@ -38,7 +38,7 @@ static const char *version = "v0.0.1";
 
 /***************************************************************/
 KDFTopLevel::KDFTopLevel(QWidget *, const char *name)
-  : KTMainWindow(name) 
+  : KMainWindow(0, name) 
 {
   kdf = new KDFWidget(this,"kdf",FALSE); CHECK_PTR(kdf);
 
@@ -60,8 +60,8 @@ KDFTopLevel::KDFTopLevel(QWidget *, const char *name)
   menuBar()->insertSeparator();
   menuBar()->insertItem( i18n("&Help"), help );
 
-  setView(kdf);
-  resize(kdf->width(),kdf->height()+menuBar()->height());
+  setCentralWidget(kdf);
+  kdf->setFixedSize(kdf->sizeHint());
 }
 
 
@@ -88,7 +88,7 @@ int main(int argc, char **argv)
 
   if( app.isRestored() ) //SessionManagement
   {
-    for( int n=1; KTMainWindow::canBeRestored(n); n++ ) 
+    for( int n=1; KDFTopLevel::canBeRestored(n); n++ ) 
     {
       KDFTopLevel *ktl = new KDFTopLevel();
       CHECK_PTR(ktl);
