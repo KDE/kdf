@@ -217,10 +217,9 @@ void DiskList::receivedDFStdErrOut(KProcess *, char *data, int len )
    * df: /home_tu1/ijzerman/floppy: Stale NFS file handle
    * but this shouldn't cause a real problem
    */
+   
 
-  QString tmp = QString(data) + QString("\0");  // adds a zero-byte
-  tmp.truncate(len);
-
+  QString tmp = QString::fromLatin1(data, len);
   dfStringErrOut.append(tmp);
 }
 
