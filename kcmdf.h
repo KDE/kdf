@@ -38,6 +38,8 @@ class KDiskFreeWidget : public KCModule
     KDiskFreeWidget( QWidget *parent=0, const char *name=0 );
     ~KDiskFreeWidget();
 
+    QString quickHelp() const;
+
   private:
     QFrame *mPage;
     KDFWidget *mKdf;
