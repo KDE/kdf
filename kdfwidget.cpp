@@ -484,7 +484,7 @@ void KDFWidget::popupMenu( QListViewItem *item, const QPoint &p )
   mPopup->insertItem( i18n("Mount Device"), 0 );
   mPopup->insertItem( i18n("Unmount Device"), 1 );
   mPopup->insertSeparator();
-  mPopup->insertItem( i18n("Open Filemanager"), 2 );
+  mPopup->insertItem( i18n("Open File Manager"), 2 );
   mPopup->setItemEnabled( 0, disk->mounted() ? false : true );
   mPopup->setItemEnabled( 1, disk->mounted() );
   mPopup->setItemEnabled( 2, disk->mounted() );
