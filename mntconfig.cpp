@@ -45,7 +45,7 @@
 #include <kfiledialog.h>
 #include <kglobal.h>
 #include <kiconloader.h>
-#include <kiconloaderdialog.h>
+#include <kicondialog.h>
 #include <klocale.h> 
 #include <kmessagebox.h>
 
@@ -247,7 +247,7 @@ void MntConfigWidget::clicked( QListViewItem *item )
 
 void MntConfigWidget::selectIcon( void )
 {
-  KIconLoaderDialog dialog(this);
+  KIconDialog dialog(this);
 
   //QStringList dirs;
   //dirs.append("mini");
@@ -255,7 +255,7 @@ void MntConfigWidget::selectIcon( void )
   //dirs.append("/opt/kde2/share/icons/small/locolor/devices/");
   //dialog->changeDirs(dirs);
   
-  QString iconName = dialog.selectIcon(KIconLoader::Small,KIconLoader::Default);
+  QString iconName = dialog.selectIcon();
 
   if( iconName == QString::null )
   {
