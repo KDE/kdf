@@ -35,7 +35,7 @@
 #include <qlayout.h>
 
 #include "kcmdf.h"
-
+#include "kcmodule.h"
 
 static const char *description = 
 	I18N_NOOP("KDE Control Module for kdf.");
@@ -144,21 +144,4 @@ int KDiskFreeWidget::pageNumber( void )
   return(-1);
 }
 
-
-int main(int argc, char **argv)
-{
-  KCmdLineArgs::init(argc, argv, "kdf", description, version); 
-
-  KApplication app;
-
-  KDiskFreeWidget *kdf = new KDiskFreeWidget(0);
-  KCDialog *dialog = new KCDialog( kdf );
-  dialog->show();
-
-  return app.exec();
-}
-
-
-
 #include "kcmdf.moc"
-

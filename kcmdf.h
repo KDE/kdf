@@ -30,7 +30,6 @@
 #include <kcmodule.h>
 #include <qtabwidget.h>
 
-
 class KDiskFreeWidget : public KCModule
 {
   Q_OBJECT
@@ -54,8 +53,5 @@ class KDiskFreeWidget : public KCModule
     KDFConfigWidget *mMcw;
     MntConfigWidget *mKcw;
 };
-
-
-
 
 #endif

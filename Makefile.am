@@ -1,75 +1,41 @@
-
-# this 10 paths are KDE specific. Use them:
-# kde_htmldir       Where your docs should go to. (contains lang subdirs)
-# kde_appsdir       Where your application file (.kdelnk) should go to. 
-# kde_icondir       Where your icon should go to.
-# kde_minidir       Where your mini icon should go to.
-# kde_datadir       Where you install application data. (Use a subdir)
-# kde_locale        Where translation files should go to.(contains lang subdirs)
-# kde_cgidir        Where cgi-bin executables should go to.
-# kde_confdir       Where config files should go to.
-# kde_mimedir       Where mimetypes should go to.
-# kde_toolbardir    Where general toolbar icons should go to.
-# kde_wallpaperdir  Where general wallpapers should go to.
-
-# just set the variable
-kdf_APPSDIR = $(kde_appsdir)/System
-kwikdisk_APPSDIR = $(kde_appsdir)/System
-kcmdf_APPSDIR = $(kde_appsdir)/Settings/Information
-# set the include path for X, qt and KDE
-INCLUDES= $(all_includes)
-# claim, which subdirectories you want to install
 SUBDIRS = pics
 
-bin_PROGRAMS = 	kcmdf kdf kwikdisk
+INCLUDES= $(all_includes)
 
-# Which sources should be compiled
-kdf_SOURCES	= kdf.cpp kdfwidget.cpp kdfconfig.cpp mntconfig.cpp \
-disklist.cpp disks.cpp listview.cpp optiondialog.cpp stdoption.cpp
-kcmdf_SOURCES	= kcmdf.cpp kdfwidget.cpp kdfconfig.cpp mntconfig.cpp \
-disklist.cpp disks.cpp listview.cpp optiondialog.cpp stdoption.cpp
-kwikdisk_SOURCES	= kwikdisk.cpp kdfconfig.cpp mntconfig.cpp \
+bin_PROGRAMS = kdf kwikdisk
+
+kdf_SOURCES = kdf.cpp kdfwidget.cpp kdfconfig.cpp mntconfig.cpp \
 disklist.cpp disks.cpp listview.cpp optiondialog.cpp stdoption.cpp
 
-# the library search path
 kdf_LDFLAGS = $(all_libraries) $(KDE_RPATH)
-kcmdf_LDFLAGS = $(all_libraries) $(KDE_RPATH)
+kdf_LDADD = $(LIB_KFILE)
+
+kwikdisk_SOURCES = kwikdisk.cpp kdfconfig.cpp mntconfig.cpp \
+disklist.cpp disks.cpp listview.cpp optiondialog.cpp stdoption.cpp
+
 kwikdisk_LDFLAGS = $(all_libraries) $(KDE_RPATH)
+kwikdisk_LDADD = $(LIB_KFILE)
 
-# the libraries to link against. Be aware of the order. First the libraries,
-# that depend on the following ones.
-kdf_LDADD   = $(LIB_KFILE)
-kcmdf_LDADD   = $(LIB_KFILE)
-kwikdisk_LDADD   = $(LIB_KFILE)
+lib_LTLIBRARIES = libkcm_kdf.la
 
-# this option you can leave out. Just, if you use "make dist", you need it
-noinst_HEADERS = kdfwidget.h  kcmdf.h kdfconfig.h  mntconfig.h \
-disks.h kdf.h  disklist.h kwikdisk.h listview.h optiondialog.h stdoption.h
+libkcm_kdf_la_SOURCES = kcmdf.cpp kdfwidget.cpp kdfconfig.cpp mntconfig.cpp \
+disklist.cpp disks.cpp listview.cpp optiondialog.cpp stdoption.cpp
 
-# just to make sure, automake makes them 
-METASOURCES =	kcmdf.moc kdf.moc kdfwidget.moc kdfconfig.moc  \
+libkcm_kdf_la_LDFLAGS = $(all_libraries) -module -avoid-version -no-undefined
+libkcm_kdf_la_LIBADD = $(LIB_KFILE)
+
+noinst_HEADERS = kdfwidget.h kcmdf.h kdfconfig.h mntconfig.h \
+disks.h kdf.h disklist.h kwikdisk.h listview.h optiondialog.h stdoption.h
+
+METASOURCES = kcmdf.moc kdf.moc kdfwidget.moc kdfconfig.moc  \
 mntconfig.moc disks.moc disklist.moc kwikdisk.moc listview.moc \
 optiondialog.moc
 
+desktopdir = $(kde_appsdir)/System
+desktop_DATA = kdf.desktop kwikdisk.desktop
+
+kcmdesktopdir = $(kde_appsdir)/System/Information
+kcmdesktop_DATA = kcmdf.desktop
+
 messages:
-	$(XGETTEXT) $(kdf_SOURCES) $(kcmdf_SOURCES) $(kwikdisk_SOURCES) -o $(podir)/kdf.pot
-
-# just install datas here. Use install-exec-data for scripts and etc.
-# the binary itself is already installed from automake
-# use mkinstalldirs, not "install -d"
-# don't install a list of file. Just one file per install.
-# if you have more of them, create a subdirectory with an extra Makefile 
-install-data-local: 
-	$(mkinstalldirs) $(kdf_APPSDIR)
-	$(mkinstalldirs) $(kcmdf_APPSDIR)
-	$(mkinstalldirs) $(kwikdisk_APPSDIR)
-	$(INSTALL_DATA) $(srcdir)/kdf.desktop $(kdf_APPSDIR)
-	$(INSTALL_DATA) $(srcdir)/kcmdf.desktop $(kcmdf_APPSDIR)
-	$(INSTALL_DATA) $(srcdir)/kwikdisk.desktop $(kwikdisk_APPSDIR)
-
-# remove ALL you have installed in install-data-local or install-exec-local
-uninstall-local:
-	-rm -f $(kdf_APPSDIR)/kdf.desktop
-	-rm -f $(kcmdf_APPSDIR)/kcmdf.desktop
-	-rm -f $(kwikdisk_APPSDIR)/kwikdisk.desktop
-
+	$(XGETTEXT) *.cpp -o $(podir)/kdf.pot
