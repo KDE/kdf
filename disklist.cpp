@@ -24,7 +24,7 @@
  */
 
 #include <math.h>
-
+#include <stdlib.h>
 
 #include <kapplication.h>
 
@@ -228,6 +228,8 @@ void DiskList::receivedDFStdErrOut(KProcess *, char *data, int len )
 int DiskList::readDF()
 {
   if (readingDFStdErrOut || dfProc->isRunning()) return -1;
+  setenv("LANG", "en_US", 1);
+  setenv("LC_ALL", "en_US", 1);
   dfStringErrOut=""; // yet no data received
   dfProc->clearArguments();
   (*dfProc) << DF_COMMAND << DF_ARGS;
@@ -248,7 +250,7 @@ void DiskList::dfDone()
 
   QTextStream t (dfStringErrOut, IO_ReadOnly);
   QString s=t.readLine();
-  if ( (s.isEmpty()) ) // || ( s.left(10) != "Filesystem" ) )
+  if ( ( s.isEmpty() ) || ( s.left(10) != "Filesystem" ) )
     qFatal("Error running df command... got [%s]",s.latin1());
   while ( !t.atEnd() ) {
     QString u,v;
