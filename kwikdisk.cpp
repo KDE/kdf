@@ -402,7 +402,7 @@ void DockWidget::updateDFDone( void )
 
   mPopupMenu->insertItem(
     BarIcon( "configure" ),
-    i18n("&Customize"), this, SLOT(settingsBtnClicked()),0);
+    i18n("&Customize..."), this, SLOT(settingsBtnClicked()),0);
 
   mPopupMenu->insertItem(
     BarIcon( "help" ),

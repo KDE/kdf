@@ -117,7 +117,7 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, const char *name, bool init)
     gl->addWidget( label, 0, 1 );
 
 
-    label = new QLabel( i18n("File Manager (e.g. konsole -e mc %m):") ,this);
+    label = new QLabel( i18n("File manager (e.g. konsole -e mc %m):") ,this);
     Q_CHECK_PTR(label);
     topLayout->addWidget( label );
 
@@ -125,7 +125,7 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, const char *name, bool init)
     Q_CHECK_PTR(mFileManagerEdit);
     topLayout->addWidget( mFileManagerEdit );
 
-    text = i18n("Open File Manager automatically on mount");
+    text = i18n("Open file manager automatically on mount");
     mOpenMountCheck = new QCheckBox(text, this );
     Q_CHECK_PTR(mOpenMountCheck);
     topLayout->addWidget( mOpenMountCheck );
