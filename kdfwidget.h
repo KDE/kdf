@@ -121,7 +121,6 @@ class KDFWidget : public QWidget
     COptionDialog *mOptionDialog;
     KPopupMenu    *mPopup;
     QTimer        *mTimer;
-    int           mBarColumn;
     DiskList   mDiskList;
     bool       mIsTopLevel;
     CStdOption mStd;

@@ -76,13 +76,11 @@ DiskEntry::DiskEntry(const QString & deviceName, QObject *parent, const char *na
  : QObject (parent, name)
 {
   init();
-  kdDebug() << "devname: " << deviceName << endl;
 
   setDeviceName(deviceName);
 }
 DiskEntry::~DiskEntry()
 {
-  kdDebug() << "DESTRUCT: DiskList" << endl;
   disconnect(this);
   delete sysProc;
 };
@@ -97,7 +95,6 @@ int DiskEntry::toggleMount()
 
 int DiskEntry::mount()
 {
-  kdDebug() << "mounting" << endl;
   QString cmdS=mntcmd;
   if (cmdS.isEmpty()) // generate default mount cmd
     if (getuid()!=0 ) // user mountable
@@ -221,7 +218,6 @@ QString DiskEntry::guessIconName()
 **/
 int DiskEntry::sysCall(const QString & command)
 {
-  kdDebug() << "DiskEntry::sysCall" << endl;
   if (readingSysStdErrOut || sysProc->isRunning() )  return -1;
 
   sysStringErrOut=i18n("Called: %1\n\n").arg(command); // put the called command on ErrOut
@@ -230,10 +226,8 @@ int DiskEntry::sysCall(const QString & command)
     if (!sysProc->start( KProcess::Block, KProcess::AllOutput ))
      qFatal(i18n("could not execute [%1]").arg(command).local8Bit().data());
 
-  kdDebug() << "DiskEntry::sysCall sysProc->normaleExit=" << sysProc->normalExit() << endl;
   if (sysProc->exitStatus()!=0) emit sysCallError(this, sysProc->exitStatus());
 
-  kdDebug() << "DiskEntry::sysCall sysProc->exitStatus=" << sysProc->exitStatus() << endl;
   return (sysProc->exitStatus());
 };
 
@@ -244,7 +238,6 @@ int DiskEntry::sysCall(const QString & command)
 void DiskEntry::receivedSysStdErrOut(KProcess *, char *data, int len)
 {
   QString tmp = QString::fromLocal8Bit(data, len);
-  kdDebug() << "DiskEntry::receivedSysStdErrOut: " << tmp << endl;
   sysStringErrOut.append(tmp);
 };
 
@@ -317,14 +310,12 @@ void DiskEntry::setMounted(bool nowMounted)
 
 void DiskEntry::setKBSize(int kb_size)
 {
-  kdDebug() << "DiskEntry::setKBSize(" << kb_size << ")" << endl;
   size=kb_size;
   emit kBSizeChanged();
 };
 
 void DiskEntry::setKBUsed(int kb_used)
 {
-  kdDebug() << "DiskEntry::setKBUsed(" << kb_used << ")" << endl;
   used=kb_used;
   if ( size < (used+avail) ) {  //adjust kBAvail
      kdWarning() << "device " << device << ": kBAvail(" << avail << ")+*kBUsed(" << used << ") exceeds kBSize(" << size << ")" << endl;
@@ -335,7 +326,6 @@ void DiskEntry::setKBUsed(int kb_used)
 
 void DiskEntry::setKBAvail(int kb_avail)
 {
-  kdDebug() << "DiskEntry::setKBAvail(" << kb_avail << ")" << endl;
   avail=kb_avail;
   if ( size < (used+avail) ) {  //adjust kBUsed
      kdWarning() << "device " << device << ": *kBAvail(" << avail << ")+kBUsed(" << used << ") exceeds kBSize(" << size << ")" << endl;

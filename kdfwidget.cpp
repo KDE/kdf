@@ -3,7 +3,7 @@
  *
  * $Id$
  *
- * Copyright (c) 1998-2000 Michael Kropfberger <michael.kropfberger@gmx.net>
+ * Copyright (c) 1998-2001 Michael Kropfberger <michael.kropfberger@gmx.net>
  *
  * Requires the Qt widget libraries, available at no cost at
  * http://www.troll.no/
@@ -72,7 +72,7 @@ KDFWidget::KDFWidget( QWidget *parent, const char *name, bool init )
 
   mTabProp.resize(8);
   mTabProp[0] = new CTabEntry( "Icon", i18n("Icon"), true, 32);
-  mTabProp[1] = new CTabEntry( "Device", i18n("Device"), false, 80);
+  mTabProp[1] = new CTabEntry( "Device", i18n("Device"), true, 80);
   mTabProp[2] = new CTabEntry( "Type", i18n("Type"), true, 50);
   mTabProp[3] = new CTabEntry( "Size", i18n("Size"), true, 72);
   mTabProp[4] = new CTabEntry( "MountPoint", i18n("Mount point"), true, 90 );
@@ -123,9 +123,9 @@ void KDFWidget::makeColumns( void )
 
   //
   // 1999-11-29 Espen Sand
-  // This smells like a bad hack but I need to to remove the headers
+  // This smells like a bad hack but I need to remove the headers
   // first. If I don't, the list look like shit afterwards. The iterator
-  // is just used to pervent an endless loop. With my Qt (1999-11-10 ?)
+  // is just used to prevent an endless loop. With my Qt (1999-11-10 ?)
   // I only need as many iterations as there are header items but who knows
   // what a new Qt can do!
   //
@@ -141,22 +141,9 @@ void KDFWidget::makeColumns( void )
   {
     CTabEntry &e = *mTabProp[i];
     if( e.mVisible == true )
-    {
       mList->addColumn( e.mName, e.mWidth );
-    }
-  }
-
-  if( mTabProp[BAR_COLUMN]->mVisible == true )
-  {
-    mBarColumn = -1;
-    for( i=0; i<mTabProp.size(); i++ )
-    {
-      if( mTabProp[i]->mVisible ) { mBarColumn += 1; }
-    }
-  }
-  else
-  {
-    mBarColumn = -1;
+    else
+      mList->addColumn( e.mName, 0 ); // zero width makes it invisible
   }
 
 }
@@ -164,7 +151,7 @@ void KDFWidget::makeColumns( void )
 
 
 
-
+/******************************************************************/
 void KDFWidget::closeEvent(QCloseEvent *)
 {
   applySettings(); 
@@ -179,6 +166,9 @@ void KDFWidget::settingsChanged( void )
 }
 
 
+/***************************************************************************
+  * writes the KConfig
+**/
 void KDFWidget::applySettings( void )
 {
   KConfig &config = *kapp->config();
@@ -191,12 +181,12 @@ void KDFWidget::applySettings( void )
   }
   if( GUI ) 
   {
-    for( uint i=0,j=0; i<mTabProp.size(); i++ )
+    for( uint i=0; i<mTabProp.size(); i++ )
     {
       CTabEntry &e = *mTabProp[i];
       if( e.mVisible == true )
       {
-	e.mWidth = mList->columnWidth(j++);
+	e.mWidth = mList->columnWidth(i);
       }
       config.writeEntry( e.mRes, e.mWidth );
     }
@@ -229,6 +219,8 @@ void KDFWidget::loadSettings( void )
       CTabEntry &e = *mTabProp[i];
       e.mWidth = config.readNumEntry( e.mRes, e.mWidth );
     }
+    if (mTabProp[usageCol]->mWidth > 16) 
+      mTabProp[usageCol]->mWidth -= 16;
 
     config.setGroup("KDFConfig");
     for( uint i=0; i<mTabProp.size(); i++ )
@@ -330,27 +322,19 @@ void KDFWidget::updateDFDone( void ){
 
     int k=0;
     item = new QListViewItem( mList, item );
-    if( mTabProp[0]->mVisible == true )
-    {
-      bool root = disk->mountOptions().find("user",0,false)==-1 ? true : false;
-      //QPixmap pix = mList->icon( disk->iconName(), root );
-      item->setPixmap( k++, mList->icon( disk->iconName(), root ) );
-    }
-    if( mTabProp[1]->mVisible == true )
-      item->setText( k++, disk->deviceName() );
-    if( mTabProp[2]->mVisible == true )
-      item->setText( k++, disk->fsType() );
-    if( mTabProp[3]->mVisible == true )
-      item->setText( k++, size );
-    if( mTabProp[4]->mVisible == true )
-      item->setText( k++, disk->mountPoint() );
-    if( mTabProp[5]->mVisible == true )
-      item->setText( k++, disk->prettyKBAvail() );
-    if( mTabProp[6]->mVisible == true )
-      item->setText( k++, percent );
+    bool root = disk->mountOptions().find("user",0,false)==-1 ? true : false;
+    item->setPixmap( k++, mList->icon( disk->iconName(), root ) );
+    item->setText( k++, disk->deviceName() );
+    item->setText( k++, disk->fsType() );
+    item->setText( k++, size );
+    item->setText( k++, disk->mountPoint() );
+    item->setText( k++, disk->prettyKBAvail() );
+    item->setText( k++, percent );
   }
   readingDF = false;
   updateDiskBarPixmaps();
+
+
 }
 
 /***************************************************************************
@@ -358,7 +342,6 @@ void KDFWidget::updateDFDone( void ){
 **/
 void KDFWidget::resizeEvent( QResizeEvent * )
 {
-   kdDebug() << "resize: " << width() << "x" << height() << endl;
    updateDiskBarPixmaps();
 }
 
@@ -378,6 +361,9 @@ void KDFWidget::criticallyFull( DiskEntry *disk )
 }
 
 
+/**************************************************************************
+  * find correct disk related to list item
+**/
 DiskEntry *KDFWidget::selectedDisk( QListViewItem *item )
 {
   if( item == 0 )
@@ -389,21 +375,9 @@ DiskEntry *KDFWidget::selectedDisk( QListViewItem *item )
     return(0);
   }
 
-  /*
-  int i=0;
-  for(QListViewItem *it=mList->firstChild(); it!=0;it=it->nextSibling(),i++ )
-  {
-    if( it == item )
-    {
-      return( mDiskList.at(i) );
-    }
-  }
-  */
   DiskEntry disk(item->text(deviceCol));
   disk.setMountPoint(item->text(mntCol));
 
-  //
-  // 1999-27-11 Espen Sand:
   // I can't get find() to work. The Disks::compareItems(..) is
   // never called.
   //
@@ -426,7 +400,6 @@ DiskEntry *KDFWidget::selectedDisk( QListViewItem *item )
   }
 
 
-  kdDebug() << "selectedDisk: " << pos << endl;
   return mDiskList.at(pos);
   //  return(0);
 }
@@ -492,7 +465,6 @@ void KDFWidget::popupMenu( QListViewItem *item, const QPoint &p )
 	{
 	  KMessageBox::error( this, disk->lastSysError() );
 	}
-      //else if( mStd.openFileManager() == false || disk->mounted() == true )
       else if ( ( mStd.openFileManager() == true)
 		&& (position == 0) ) //only on mount
 	{
@@ -537,25 +509,18 @@ void KDFWidget::popupMenu( QListViewItem *item, const QPoint &p )
 **/
 void KDFWidget::updateDiskBarPixmaps( void )
 {
-  int visible=-1;
+  if (mTabProp[usageCol]->mVisible != true)
+    return;
+
+
   int size=0, w=0;
 
-  if( mBarColumn == -1 )
-  {
-    return;
-  }
-
    for(uint i=0; i<mTabProp.size()-1; i++ )
-    {
-      CTabEntry &e = *mTabProp[i];
-      if (e.mVisible) {
-	visible++;
-	size += mList->columnWidth(visible);
-      }
-    }
+     size += mList->columnWidth(i);
    w=mList->width() - size - 4;
-   if (w<0) w=0;
-   mList->setColumnWidth(visible + 1, w );
+   if (w<0)
+     w=0;
+   mList->setColumnWidth(usageCol, w );
 
   int h = mList->fontMetrics().lineSpacing()-2;
   if( h <= 0 )
@@ -566,12 +531,36 @@ void KDFWidget::updateDiskBarPixmaps( void )
   int i=0;
   for(QListViewItem *it=mList->firstChild(); it!=0;it=it->nextSibling(),i++ )
   {
-    DiskEntry *disk = mDiskList.at(i);
+    // I can't get find() to work. The Disks::compareItems(..) is
+    // never called.
+    //
+    //int pos=mDiskList->find(disk);
+    
+    DiskEntry dummy(it->text(deviceCol));
+    dummy.setMountPoint(it->text(mntCol));
+    int pos = -1;
+    for( u_int i=0; i<mDiskList.count(); i++ )
+      {
+	DiskEntry *item = mDiskList.at(i);
+	int res = dummy.deviceName().compare( item->deviceName() );
+	if( res == 0 )
+	  {
+	    res = dummy.mountPoint().compare( item->mountPoint() );
+	  }
+	if( res == 0 )
+	  {
+	    pos = i;
+	    break;
+	  }
+      }
+
+
+     DiskEntry *disk = mDiskList.at(pos);
     if( disk == 0 ) { continue; }
 
     if( disk->mounted() == true && disk->percentFull() != -1 )
     {
-      int w = mList->columnWidth(mBarColumn)-2;
+      int w = mList->columnWidth(usageCol)-2;
       if( w <= 0 ) { continue; } 
   
       QPixmap *pix = new QPixmap( w, h );
@@ -591,7 +580,7 @@ void KDFWidget::updateDiskBarPixmaps( void )
       p.setPen(white);
       p.drawRect(1,1,(int)(((float)pix->width()-2)*(disk->percentFull()/100)),
 		 pix->height()-2);
-      it->setPixmap ( mBarColumn, *pix );
+      it->setPixmap ( usageCol, *pix );
       p.end();
       delete pix; 
     }

@@ -107,7 +107,6 @@ DiskList::~DiskList()
 **/
 void DiskList::applySettings()
 {
-  kdDebug() << "DiskList::applySettings" << endl;
   QString oldgroup=config->group();
   config->setGroup("DiskList");
   QString key;
@@ -135,7 +134,6 @@ void DiskList::applySettings()
 **/
 void DiskList::loadSettings()
 {
-  kdDebug() << "DiskList::loadSettings" << endl;
   config->setGroup("DiskList");
   QString key;
   DiskEntry *disk;
@@ -161,7 +159,6 @@ void DiskList::loadSettings()
 int DiskList::readFSTAB()
 {
   if (readingDFStdErrOut || dfProc->isRunning()) return -1;
-  kdDebug() << "DiskList::readFSTAB" << endl;
 
 QFile f(FSTAB);
   if ( f.open(IO_ReadOnly) ) {
@@ -176,26 +173,26 @@ QFile f(FSTAB);
       s=s.simplifyWhiteSpace();
       if ( (!s.isEmpty() ) && (s.find(DELIMITER)!=0) ) {
                // not empty or commented out by '#'
-	kdDebug() << "GOT: [" << s << "]" << endl;
+	//	kdDebug() << "GOT: [" << s << "]" << endl;
 	disk = new DiskEntry();// CHECK_PTR(disk);
         disk->setMounted(FALSE);
         disk->setDeviceName(s.left(s.find(BLANK)) );
             s=s.remove(0,s.find(BLANK)+1 );
-	    kdDebug() << "    deviceName:    [" << disk->deviceName() << "]" << endl;
+	    //  kdDebug() << "    deviceName:    [" << disk->deviceName() << "]" << endl;
 #ifdef _OS_SOLARIS_
             //device to fsck
             s=s.remove(0,s.find(BLANK)+1 );
 #endif
          disk->setMountPoint(s.left(s.find(BLANK)) );
             s=s.remove(0,s.find(BLANK)+1 );
-	    kdDebug() << "    MountPoint:    [" << disk->mountPoint() << "]" << endl;
-	    kdDebug() << "    Icon:          [" << disk->iconName() << "]" << endl;
+	    //kdDebug() << "    MountPoint:    [" << disk->mountPoint() << "]" << endl;
+	    //kdDebug() << "    Icon:          [" << disk->iconName() << "]" << endl;
          disk->setFsType(s.left(s.find(BLANK)) );
             s=s.remove(0,s.find(BLANK)+1 );
-	    kdDebug() << "    FS-Type:       [" << disk->fsType() << "]" << endl;
+	    //kdDebug() << "    FS-Type:       [" << disk->fsType() << "]" << endl;
          disk->setMountOptions(s.left(s.find(BLANK)) );
             s=s.remove(0,s.find(BLANK)+1 );
-	    kdDebug() << "    Mount-Options: [" << disk->mountOptions() << "]" << endl;
+	    //kdDebug() << "    Mount-Options: [" << disk->mountOptions() << "]" << endl;
          if ( (disk->deviceName() != "none")
 	      && (disk->fsType() != "swap")
 	      && (disk->mountPoint() != "/dev/swap")
@@ -212,7 +209,7 @@ QFile f(FSTAB);
 
   loadSettings(); //to get the mountCommands
 
-  kdDebug() << "DiskList::readFSTAB DONE" << endl;
+  //  kdDebug() << "DiskList::readFSTAB DONE" << endl;
   return 1;
 }
 
@@ -222,7 +219,6 @@ QFile f(FSTAB);
 **/
 void DiskList::receivedDFStdErrOut(KProcess *, char *data, int len )
 {
-  kdDebug() << "DiskList::receivedDFStdErrOut" << endl;
 
   /* ATTENTION: StdERR no longer connected to this...
    * Do we really need StdErr?? on HP-UX there was eg. a line
@@ -242,7 +238,6 @@ void DiskList::receivedDFStdErrOut(KProcess *, char *data, int len )
 int DiskList::readDF()
 {
   if (readingDFStdErrOut || dfProc->isRunning()) return -1;
-  kdDebug() << "DiskList::readDF" << endl;
   dfStringErrOut=""; // yet no data received
   dfProc->clearArguments();
   (*dfProc) << DF_COMMAND << DF_ARGS;
@@ -257,7 +252,6 @@ int DiskList::readDF()
 **/
 void DiskList::dfDone()
 {
-  kdDebug() << "DiskList::dfDone" << endl;
   readingDFStdErrOut=TRUE;
   for ( DiskEntry *disk=disks->first(); disk != 0; disk=disks->next() )
     disk->setMounted(FALSE);  // set all devs unmounted
@@ -279,45 +273,45 @@ void DiskList::dfDone()
             v=t.readLine();
             s=s.append(v.latin1() );
             s=s.simplifyWhiteSpace();
-            kdDebug() << "SPECIAL GOT: [" << s << "]" << endl;
+	    //kdDebug() << "SPECIAL GOT: [" << s << "]" << endl;
 	 }//if silly linefeed
 
-      kdDebug() << "EFFECTIVELY GOT " << s.length() << " chars: [" << s << "]" << endl;
+      //kdDebug() << "EFFECTIVELY GOT " << s.length() << " chars: [" << s << "]" << endl;
 
       disk->setDeviceName(s.left(s.find(BLANK)) );
       s=s.remove(0,s.find(BLANK)+1 );
-      kdDebug() << "    DeviceName:    [" << disk->deviceName() << "]" << endl;
+      //kdDebug() << "    DeviceName:    [" << disk->deviceName() << "]" << endl;
 
       if (NO_FS_TYPE) {
-	kdDebug() << "THERE IS NO FS_TYPE_FIELD!" << endl;
+	//kdDebug() << "THERE IS NO FS_TYPE_FIELD!" << endl;
          disk->setFsType("?");
       } else {
          disk->setFsType(s.left(s.find(BLANK)) );
          s=s.remove(0,s.find(BLANK)+1 );
       };
-      kdDebug() << "    FS-Type:       [" << disk->fsType() << "]" << endl;
-      kdDebug() << "    Icon:          [" << disk->iconName() << "]" << endl;
+      //kdDebug() << "    FS-Type:       [" << disk->fsType() << "]" << endl;
+      //kdDebug() << "    Icon:          [" << disk->iconName() << "]" << endl;
 
       u=s.left(s.find(BLANK));
       disk->setKBSize(u.toInt() );
       s=s.remove(0,s.find(BLANK)+1 );
-      kdDebug() << "    Size:       [" << disk->kBSize() << "]" << endl;
+      //kdDebug() << "    Size:       [" << disk->kBSize() << "]" << endl;
 
       u=s.left(s.find(BLANK));
       disk->setKBUsed(u.toInt() );
       s=s.remove(0,s.find(BLANK)+1 );
-      kdDebug() << "    Used:       [" << disk->kBUsed() << "]" << endl;
+      //kdDebug() << "    Used:       [" << disk->kBUsed() << "]" << endl;
 
       u=s.left(s.find(BLANK));
       disk->setKBAvail(u.toInt() );
       s=s.remove(0,s.find(BLANK)+1 );
-      kdDebug() << "    Avail:       [" << disk->kBAvail() << "]" << endl;
+      //kdDebug() << "    Avail:       [" << disk->kBAvail() << "]" << endl;
 
 
       s=s.remove(0,s.find(BLANK)+1 );  // delete the capacity 94%
       disk->setMountPoint(s.left(s.find(BLANK)) );
       s=s.remove(0,s.find(BLANK)+1 );
-      kdDebug() << "    MountPoint:       [" << disk->mountPoint() << "]" << endl;
+      //kdDebug() << "    MountPoint:       [" << disk->mountPoint() << "]" << endl;
 
       if ( (disk->kBSize() > 0)
 	   && (disk->deviceName() != "none")
@@ -376,7 +370,6 @@ void DiskList::replaceDeviceEntry(DiskEntry *disk)
     // no matching entry found for mounted disk
     if ((disk->fsType() == "?") || (disk->fsType() == "cachefs")) {
       //search for fitting cachefs-entry in static /etc/vfstab-data
-      kdDebug() << "search for [" << disk->deviceName() << "]" << endl;
       DiskEntry* olddisk = disks->first();
       QString odiskName;
       while (olddisk != 0) {
@@ -389,7 +382,6 @@ void DiskList::replaceDeviceEntry(DiskEntry *disk)
         while ((ci =odiskName.find('/',ci)) > 0) {
            odiskName.replace(ci,1,"_");
         }//while
-        kdDebug() << "     check against [" << olddisk->deviceName() << "]" << endl;
         // check if there is something that is exactly the tail
 	// eg. [srv:/tmp3] is exact tail of [/cache/.cfs_mnt_points/srv:_tmp3]
         if ( ( (p=disk->deviceName().findRev(odiskName
@@ -399,8 +391,6 @@ void DiskList::replaceDeviceEntry(DiskEntry *disk)
 	          == disk->deviceName().length()) )
         {
              pos = disks->at(); //store the actual position
-	     kdDebug() << "   FOUND [" << olddisk->deviceName()
-		       << "] at pos " << p << " at ListPos " << pos << endl;
              disk->setDeviceName(olddisk->deviceName());
              olddisk=0;
 	} else
@@ -418,7 +408,6 @@ void DiskList::replaceDeviceEntry(DiskEntry *disk)
 #endif
 
   if (pos != -1) {  // replace
-    kdDebug() << "dev " << disk->deviceName() << " is replaced" << endl;
       DiskEntry * olddisk = disks->at(pos);
       if ( (-1!=olddisk->mountOptions().find("user")) &&
            (-1==disk->mountOptions().find("user")) ) {
