@@ -51,10 +51,7 @@ KDFTopLevel::KDFTopLevel(QWidget *, const char *name)
   option->insertItem( i18n("&Configure %1...").arg(kapp->caption()),
 		      kdf, SLOT(settingsBtnClicked()) );
 
-  QPopupMenu *help = helpMenu(i18n(""
-    "KDiskFree\n\n(C) 1998-2001\n"
-    "Michael Kropfberger (michael.kropfberger@gmx.net)") );
-
+  QPopupMenu * help = helpMenu();
   menuBar()->insertItem( i18n("&File"), file );
   menuBar()->insertItem( i18n("&Options"), option );
   menuBar()->insertSeparator();
