@@ -27,9 +27,7 @@ libkcm_kdf_la_LIBADD = $(LIB_KFILE)
 noinst_HEADERS = kdfwidget.h kcmdf.h kdfconfig.h mntconfig.h \
 disks.h kdf.h disklist.h kwikdisk.h listview.h optiondialog.h stdoption.h
 
-METASOURCES = kcmdf.moc kdf.moc kdfwidget.moc kdfconfig.moc  \
-mntconfig.moc disks.moc disklist.moc kwikdisk.moc listview.moc \
-optiondialog.moc
+METASOURCES = AUTO
 
 desktopdir = $(kde_appsdir)/System
 desktop_DATA = kdf.desktop kwikdisk.desktop
