@@ -77,7 +77,7 @@ DiskEntry::DiskEntry(const QString & deviceName, QObject *parent, const char *na
 {
   init();
   kdDebug() << "devname: " << deviceName << endl;
-  
+
   setDeviceName(deviceName);
 }
 DiskEntry::~DiskEntry()
@@ -88,7 +88,7 @@ DiskEntry::~DiskEntry()
 };
 
 int DiskEntry::toggleMount()
-{ 
+{
   if (!mounted())
       return mount();
   else
@@ -96,7 +96,7 @@ int DiskEntry::toggleMount()
 };
 
 int DiskEntry::mount()
-{ 
+{
   kdDebug() << "mounting" << endl;
   QString cmdS=mntcmd;
   if (cmdS.isEmpty()) // generate default mount cmd
@@ -136,8 +136,6 @@ int DiskEntry::umount()
 
 int DiskEntry::remount()
 {
-  QString cmdS;
-
   if (mntcmd.isEmpty() && umntcmd.isEmpty() // default mount/umount commands
       && (getuid()==0)) // you are root
     {
@@ -150,29 +148,29 @@ int DiskEntry::remount()
     options=oldOpt;
     return e;
    } else {
-    if (int e=this->umount()) 
+    if (int e=this->umount())
       return this->mount();
    else return e;
   }
 };
-void DiskEntry::setMountCommand(const QString & mnt) 
+void DiskEntry::setMountCommand(const QString & mnt)
 {
   mntcmd=mnt;
 };
 
-void DiskEntry::setUmountCommand(const QString & umnt) 
+void DiskEntry::setUmountCommand(const QString & umnt)
 {
   umntcmd=umnt;
 };
 
-void DiskEntry::setIconName(const QString & iconName) 
+void DiskEntry::setIconName(const QString & iconName)
 {
   iconSetByUser=TRUE;
   icoName=iconName;
   emit iconNameChanged();
 };
 
-QString DiskEntry::iconName() 
+QString DiskEntry::iconName()
 {
   QString iconName=icoName;
   if (iconSetByUser) {
@@ -206,7 +204,7 @@ QString DiskEntry::guessIconName()
 //      iconName.prepend("root_"); // special root icon, normal user can´t mount
 
     //debug("device %s is %s",deviceName().latin1(),iconName.latin1());
-    
+
     //emit iconNameChanged();
   return iconName;
 };
@@ -230,7 +228,7 @@ int DiskEntry::sysCall(const QString & command)
   if (sysProc->exitStatus()!=0) emit sysCallError(this, sysProc->exitStatus());
 
   kdDebug() << "DiskEntry::sysCall sysProc->exitStatus=" << sysProc->exitStatus() << endl;
-  return !sysProc->exitStatus();  
+  return !sysProc->exitStatus();
 };
 
 
@@ -283,7 +281,7 @@ float DiskEntry::percentFull() const
 
 void DiskEntry::setDeviceName(const QString & deviceName)
 {
- device=deviceName; 
+ device=deviceName;
  emit deviceNameChanged();
 };
 
@@ -305,12 +303,12 @@ void DiskEntry::setFsType(const QString & fsType)
   emit fsTypeChanged();
 };
 
-void DiskEntry::setMounted(bool nowMounted) 
-{ 
+void DiskEntry::setMounted(bool nowMounted)
+{
   isMounted=nowMounted;
   emit mountedChanged();
 };
-  
+
 void DiskEntry::setKBSize(int kb_size)
 {
   kdDebug() << "DiskEntry::setKBSize(" << kb_size << ")" << endl;
@@ -324,7 +322,7 @@ void DiskEntry::setKBUsed(int kb_used)
   used=kb_used;
   if ( size < (used+avail) ) {  //adjust kBAvail
      kdWarning() << "device " << device << ": kBAvail(" << avail << ")+*kBUsed(" << used << ") exceeds kBSize(" << size << ")" << endl;
-     setKBAvail(size-used); 
+     setKBAvail(size-used);
   }
   emit kBUsedChanged();
 };
@@ -335,7 +333,7 @@ void DiskEntry::setKBAvail(int kb_avail)
   avail=kb_avail;
   if ( size < (used+avail) ) {  //adjust kBUsed
      kdWarning() << "device " << device << ": *kBAvail(" << avail << ")+kBUsed(" << used << ") exceeds kBSize(" << size << ")" << endl;
-     setKBUsed(size-avail); 
+     setKBUsed(size-avail);
   }
   emit kBAvailChanged();
 };

@@ -22,7 +22,7 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
- 
+
 #include <math.h>
 
 #include <qstring.h>
@@ -35,7 +35,7 @@
 #include <qpaintdevice.h>
 
 #include <kdebug.h>
-#include <kapp.h> 
+#include <kapp.h>
 #include <kiconloader.h>
 
 #include "disklist.h"
@@ -47,9 +47,9 @@
 /***************************************************************************
   * constructor
 **/
-DiskList::DiskList(QObject *parent, const char *name) 
+DiskList::DiskList(QObject *parent, const char *name)
     : QObject(parent,name)
-{ 
+{
   /*
 #ifdef _OS_LINUX_
   kdDebug() << "_OS_LINUX_" << endl;
@@ -73,7 +73,7 @@ DiskList::DiskList(QObject *parent, const char *name)
 
 if (NO_FS_TYPE)
   kdDebug() << "df gives no FS_TYPE" << endl;
-   
+
    disks = new Disks;
    disks->setAutoDelete(TRUE);
 
@@ -88,7 +88,6 @@ if (NO_FS_TYPE)
 
        readingDFStdErrOut=FALSE;
        config = kapp->config();
-       QString s="xclient1:/zip|/zip";
        loadSettings();
        //readFSTAB();
        //readDF();
@@ -117,7 +116,7 @@ void DiskList::applySettings()
    key.sprintf("Mount%s%s%s%s",SEPARATOR,disk->deviceName().latin1()
                               ,SEPARATOR,disk->mountPoint().latin1());
    config->writeEntry(key,disk->mountCommand());
-   
+
    key.sprintf("Umount%s%s%s%s",SEPARATOR,disk->deviceName().latin1()
                               ,SEPARATOR,disk->mountPoint().latin1());
    config->writeEntry(key,disk->umountCommand());
@@ -144,11 +143,11 @@ void DiskList::loadSettings()
     key.sprintf("Mount%s%s%s%s",SEPARATOR,disk->deviceName().latin1()
 		,SEPARATOR,disk->mountPoint().latin1());
     disk->setMountCommand(config->readEntry(key,""));
-    
+
     key.sprintf("Umount%s%s%s%s",SEPARATOR,disk->deviceName().latin1()
 		,SEPARATOR,disk->mountPoint().latin1());
     disk->setUmountCommand(config->readEntry(key,""));
-    
+
     key.sprintf("Icon%s%s%s%s",SEPARATOR,disk->deviceName().latin1()
 		,SEPARATOR,disk->mountPoint().latin1());
     QString icon=config->readEntry(key,"");
@@ -178,7 +177,7 @@ QFile f(FSTAB);
       if ( (!s.isEmpty() ) && (s.find(DELIMITER)!=0) ) {
                // not empty or commented out by '#'
 	kdDebug() << "GOT: [" << s << "]" << endl;
-	disk = new DiskEntry();// CHECK_PTR(disk);	
+	disk = new DiskEntry();// CHECK_PTR(disk);
         disk->setMounted(FALSE);
         disk->setDeviceName(s.left(s.find(BLANK)) );
             s=s.remove(0,s.find(BLANK)+1 );
@@ -186,7 +185,7 @@ QFile f(FSTAB);
 #ifdef _OS_SOLARIS_
             //device to fsck
             s=s.remove(0,s.find(BLANK)+1 );
-#endif        
+#endif
          disk->setMountPoint(s.left(s.find(BLANK)) );
             s=s.remove(0,s.find(BLANK)+1 );
 	    kdDebug() << "    MountPoint:    [" << disk->mountPoint() << "]" << endl;
@@ -197,10 +196,10 @@ QFile f(FSTAB);
          disk->setMountOptions(s.left(s.find(BLANK)) );
             s=s.remove(0,s.find(BLANK)+1 );
 	    kdDebug() << "    Mount-Options: [" << disk->mountOptions() << "]" << endl;
-         if ( (disk->deviceName() != "none") && (disk->fsType() != "swap") 
+         if ( (disk->deviceName() != "none") && (disk->fsType() != "swap")
                              && (disk->mountPoint() != "/dev/swap")
                              && (disk->mountPoint() != "/proc") )
-	   replaceDeviceEntry(disk); 
+	   replaceDeviceEntry(disk);
          else
            delete disk;
 
@@ -223,15 +222,15 @@ void DiskList::receivedDFStdErrOut(KProcess *, char *data, int len )
 {
   kdDebug() << "DiskList::receivedDFStdErrOut" << endl;
 
-  /* ATTENTION: StdERR no longer connected to this... 
+  /* ATTENTION: StdERR no longer connected to this...
    * Do we really need StdErr?? on HP-UX there was eg. a line
    * df: /home_tu1/ijzerman/floppy: Stale NFS file handle
    * but this shouldn't cause a real problem
    */
-  
+
   QString tmp = QString(data) + QString("\0");  // adds a zero-byte
   tmp.truncate(len);
-  
+
   dfStringErrOut.append(tmp);
 }
 
@@ -239,8 +238,8 @@ void DiskList::receivedDFStdErrOut(KProcess *, char *data, int len )
   * reads the df-commands results
 **/
 int DiskList::readDF()
-{ 
-  if (readingDFStdErrOut || dfProc->isRunning()) return -1; 
+{
+  if (readingDFStdErrOut || dfProc->isRunning()) return -1;
   kdDebug() << "DiskList::readDF" << endl;
   dfStringErrOut=""; // yet no data received
   dfProc->clearArguments();
@@ -263,7 +262,7 @@ void DiskList::dfDone()
 
   QTextStream t (dfStringErrOut, IO_ReadOnly);
   QString s=t.readLine();
-  if ( (s.isEmpty()) || ( s.left(10) != "Filesystem" ) ) 
+  if ( (s.isEmpty()) || ( s.left(10) != "Filesystem" ) )
     qFatal("Error running df command... got [%s]",s.latin1());
   while ( !t.atEnd() ) {
     QString u,v;
@@ -272,7 +271,7 @@ void DiskList::dfDone()
     s=s.simplifyWhiteSpace();
     if ( !s.isEmpty() ) {
       disk = new DiskEntry(); CHECK_PTR(disk);
-      
+
       if (s.find(BLANK)<0)      // devicename was too long, rest in next line
 	if ( !t.eof() ) {       // just appends the next line
             v=t.readLine();
@@ -282,7 +281,7 @@ void DiskList::dfDone()
 	 }//if silly linefeed
 
       kdDebug() << "EFFECTIVELY GOT " << s.length() << " chars: [" << s << "]" << endl;
-	 
+
       disk->setDeviceName(s.left(s.find(BLANK)) );
       s=s.remove(0,s.find(BLANK)+1 );
       kdDebug() << "    DeviceName:    [" << disk->deviceName() << "]" << endl;
@@ -306,18 +305,18 @@ void DiskList::dfDone()
       disk->setKBUsed(u.toInt() );
       s=s.remove(0,s.find(BLANK)+1 );
       kdDebug() << "    Used:       [" << disk->kBUsed() << "]" << endl;
-    
+
       u=s.left(s.find(BLANK));
       disk->setKBAvail(u.toInt() );
       s=s.remove(0,s.find(BLANK)+1 );
       kdDebug() << "    Avail:       [" << disk->kBAvail() << "]" << endl;
-    
+
 
       s=s.remove(0,s.find(BLANK)+1 );  // delete the capacity 94%
       disk->setMountPoint(s.left(s.find(BLANK)) );
       s=s.remove(0,s.find(BLANK)+1 );
       kdDebug() << "    MountPoint:       [" << disk->mountPoint() << "]" << endl;
-  
+
       if (disk->kBSize() > 0) {
         disk->setMounted(TRUE);    // its now mounted (df lists only mounted)
         replaceDeviceEntry(disk);
@@ -338,15 +337,15 @@ void DiskList::dfDone()
   * updates or creates a new DiskEntry in the KDFList and TabListBox
 **/
 void DiskList::replaceDeviceEntry(DiskEntry *disk)
-{ 
+{
   //
-  // The 'disks' may already already contain the 'disk'. If it do 
+  // The 'disks' may already already contain the 'disk'. If it do
   // we will replace some data. Otherwise 'disk' will be added to the list
   //
 
   //
   // 1999-27-11 Espen Sand:
-  // I can't get find() to work. The Disks::compareItems(..) is 
+  // I can't get find() to work. The Disks::compareItems(..) is
   // never called.
   //
   //int pos=disks->find(disk);
@@ -389,28 +388,28 @@ void DiskList::replaceDeviceEntry(DiskEntry *disk)
 	// eg. [srv:/tmp3] is exact tail of [/cache/.cfs_mnt_points/srv:_tmp3]
         if ( ( (p=disk->deviceName().findRev(odiskName
 	            ,disk->deviceName().length()) )
-                != -1) 
+                != -1)
 	      && (p + odiskName.length()
-	          == disk->deviceName().length()) ) 
+	          == disk->deviceName().length()) )
         {
              pos = disks->at(); //store the actual position
 	     kdDebug() << "   FOUND [" << olddisk->deviceName()
 		       << "] at pos " << p << " at ListPos " << pos << endl;
              disk->setDeviceName(olddisk->deviceName());
              olddisk=0;
-	} else 
-          olddisk=disks->next();       
+	} else
+          olddisk=disks->next();
       }// while
     }// if fsType == "?" or "cachefs"
-  
+
 
 #ifdef NO_FS_TYPE
   if (pos != -1) {
      DiskEntry * olddisk = disks->at(pos);
      if (olddisk)
-        disk->setFsType(olddisk->fsType());     
+        disk->setFsType(olddisk->fsType());
   }
-#endif  
+#endif
 
   if (pos != -1) {  // replace
     kdDebug() << "dev " << disk->deviceName() << " is replaced" << endl;
@@ -425,7 +424,7 @@ void DiskList::replaceDeviceEntry(DiskEntry *disk)
        }
       disk->setMountCommand(olddisk->mountCommand());
       disk->setUmountCommand(olddisk->umountCommand());
-   
+
       //FStab after an older DF ... needed for critFull
       //so the DF-KBUsed survive a FStab lookup...
       //but also an unmounted disk may then have a kbused set...
@@ -434,8 +433,8 @@ void DiskList::replaceDeviceEntry(DiskEntry *disk)
          disk->setKBUsed(olddisk->kBUsed());
          disk->setKBAvail(olddisk->kBAvail());
       }
-          if ( (olddisk->percentFull() != -1) && 
-               (olddisk->percentFull() <  FULL_PERCENT) && 
+          if ( (olddisk->percentFull() != -1) &&
+               (olddisk->percentFull() <  FULL_PERCENT) &&
                   (disk->percentFull() >= FULL_PERCENT) ) {
 	    kdDebug() << "Device " << disk->deviceName()
 		      << " is critFull! " << olddisk->percentFull()
@@ -446,7 +445,7 @@ void DiskList::replaceDeviceEntry(DiskEntry *disk)
       disks->insert(pos,disk);
   } else {
     disks->append(disk);
-  }//if 
+  }//if
 
 }
 
