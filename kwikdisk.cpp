@@ -28,6 +28,7 @@
 
 #include <kapp.h>
 #include <kglobal.h>
+#include <kconfig.h>
 #include <kstddirs.h>
 #include <kwm.h>
 #include <kiconloader.h>

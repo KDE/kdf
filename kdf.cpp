@@ -25,6 +25,7 @@
 
 #include <kapp.h>
 #include <klocale.h>
+#include <kconfig.h>
 #include <kwm.h>
 #include <kiconloader.h>
 
