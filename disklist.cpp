@@ -344,8 +344,7 @@ void DiskList::dfDone()
 
 
       s=s.remove(0,s.find(BLANK)+1 );  // delete the capacity 94%
-      disk->setMountPoint(s.left(s.find(BLANK)) );
-      s=s.remove(0,s.find(BLANK)+1 );
+      disk->setMountPoint(s);
       //kdDebug() << "    MountPoint:       [" << disk->mountPoint() << "]" << endl;
 
       if ( (disk->kBSize() > 0)
