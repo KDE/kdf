@@ -1,1 +1,5 @@
+export KDEDIR=/opt/kde2
+export QTDIR=/usr/lib/qt2
+echo KDEDIR=$KDEDIR
+echo QTDIR=$QTDIR
 xemacs kwikdisk.cpp kwikdisk.h disks.cpp disks.h disklist.cpp disklist.h kcmdf.cpp kcmdf.h kdf.cpp kdf.h kdfwidget.cpp kdfwidget.h mntconfig.cpp mntconfig.h kdfconfig.cpp kdfconfig.h &

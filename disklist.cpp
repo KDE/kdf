@@ -190,6 +190,7 @@ QFile f(FSTAB);
          disk->setMountPoint(s.left(s.find(BLANK)) );
             s=s.remove(0,s.find(BLANK)+1 );
 	    debug("    MountPoint:    [%s]",(const char*)disk->mountPoint() );
+	    debug("    Icon:          [%s]",(const char*)disk->iconName() );
          disk->setFsType(s.left(s.find(BLANK)) );
             s=s.remove(0,s.find(BLANK)+1 );
 	    debug("    FS-Type:       [%s]",(const char*)disk->fsType() );
@@ -294,6 +295,7 @@ void DiskList::dfDone()
          s=s.remove(0,s.find(BLANK)+1 );
       };
       debug("    FS-Type:       [%s]",(const char*)disk->fsType() );
+      debug("    Icon:          [%s]",(const char*)disk->iconName() );
 
       u=s.left(s.find(BLANK));
       disk->setKBSize(u.toInt() );
@@ -350,7 +352,7 @@ void DiskList::replaceDeviceEntry(DiskEntry *disk)
   //int pos=disks->find(disk);
 
   int pos = -1;
-  for( int i=0; i<disks->count(); i++ )
+  for( u_int i=0; i<disks->count(); i++ )
   {
     DiskEntry *item = disks->at(i);
     int res = strcmp( disk->deviceName(), item->deviceName() );

@@ -325,7 +325,9 @@ void DockWidget::updateDFDone( void )
   mReadingDF = false;
   mDirty     = false;
 
+  KGlobal::dirs()->addResourceType("dev_pics","share/icons/small/locolor/devices");
   KIconLoader &loader = *KGlobal::iconLoader();
+  //  loader.setIconType("dev_pics");
  
   if (mPopupMenu!=0) delete mPopupMenu;
   mPopupMenu = new MyPopupMenu; CHECK_PTR(mPopupMenu);
@@ -345,7 +347,7 @@ void DockWidget::updateDFDone( void )
     int id = mPopupMenu->insertItem("",this, SLOT(toggleMount()) );
 
     QPixmap *pix = new QPixmap(
-      loader.loadIcon(disk->iconName(), KIconLoader::Small));
+      loader.loadIcon(disk->iconName(), KIconLoader::Small, 0, false));
  
     if( getuid() !=0 && disk->mountOptions().find("user",0, false) == -1 ) 
     {
@@ -376,7 +378,8 @@ void DockWidget::updateDFDone( void )
       *toolTipText = i18n("Sorry, you must be root to mount this disk");
     }
 
-    mPopupMenu->changeItem(*pix,entryName,id);    
+     mPopupMenu->changeItem(*pix,entryName,id);    
+     //    mPopupMenu->changeItem(BarIcon(disk->iconName()),entryName,id);    
     connect(disk, SIGNAL(sysCallError(DiskEntry *, int) ),
             this, SLOT(sysCallError(DiskEntry *, int)) );
     mPopupMenu->setToolTip(id, toolTipText );

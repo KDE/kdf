@@ -29,8 +29,6 @@
 #include "disks.h"
 #include "disks.moc"
 
-#warning WABA: Icon loading is broken!
-
 /****************************************************/
 /********************* DiskEntry ********************/
 /****************************************************/
@@ -185,18 +183,23 @@ QString DiskEntry::iconName()
 QString DiskEntry::guessIconName()
 {
   QString iconName;
+    iconName="";
     // try to be intelligent
-    if (-1!=mountPoint().find("cdrom",0,FALSE)) iconName="cdrom";
-    else if (-1!=deviceName().find("cdrom",0,FALSE)) iconName="cdrom";
+    if (-1!=mountPoint().find("cdrom",0,FALSE)) iconName+="cdrom";
+    else if (-1!=deviceName().find("cdrom",0,FALSE)) iconName+="cdrom";
+    else if (-1!=mountPoint().find("writer",0,FALSE)) iconName+="cdwriter";
+    else if (-1!=deviceName().find("writer",0,FALSE)) iconName+="cdwriter";
+    else if (-1!=mountPoint().find("mo",0,FALSE)) iconName+="mo";
+    else if (-1!=deviceName().find("mo",0,FALSE)) iconName+="mo";
     else if (-1!=deviceName().find("fd",0,FALSE)) {
-            if (-1!=deviceName().find("360",0,FALSE)) iconName="5floppy";
-            if (-1!=deviceName().find("1200",0,FALSE)) iconName="5floppy";
-            else iconName="3floppy";
+            if (-1!=deviceName().find("360",0,FALSE)) iconName+="5floppy";
+            if (-1!=deviceName().find("1200",0,FALSE)) iconName+="5floppy";
+            else iconName+="3floppy";
 	 }
-    else if (-1!=mountPoint().find("floppy",0,FALSE)) iconName="3floppy";
-    else if (-1!=mountPoint().find("zip",0,FALSE)) iconName="zip";
-    else if (-1!=fsType().find("nfs",0,FALSE)) iconName="nfs";
-    else iconName="harddrive";
+    else if (-1!=mountPoint().find("floppy",0,FALSE)) iconName+="3floppy";
+    else if (-1!=mountPoint().find("zip",0,FALSE)) iconName+="zip";
+    else if (-1!=fsType().find("nfs",0,FALSE)) iconName+="nfs";
+    else iconName+="hdd";
     mounted() ? iconName+="_mount.png" : iconName+="_unmount.png";
 //    if ( -1==mountOptions().find("user",0,FALSE) )
 //      iconName.prepend("root_"); // special root icon, normal user can´t mount
@@ -204,7 +207,7 @@ QString DiskEntry::guessIconName()
     //debug("file is [%s]",iconName.latin1());
     if ( (!QFile::exists(locate("icon", iconName))))
     {
-      warning("file [%s] doesn't exist (not even mini)!",iconName.latin1());
+      warning("file [%s] doesn't exist!",iconName.latin1());
       iconName="unknown.png";
     }
     
