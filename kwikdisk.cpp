@@ -37,7 +37,7 @@
 #include <kmessagebox.h>
 #include <kstdaccel.h>
 #include <kstddirs.h>
-#include <kwm.h>
+#include <kwin.h>
 #include <kcmdlineargs.h>
 #include <klocale.h>
 
@@ -413,7 +413,7 @@ void DockWidget::showPopupMenu( void )
     return;
   }
   
-  QRect g = KWM::geometry( winId() );
+  QRect g = KWin::info(winId()).geometry;
   QSize s = mPopupMenu->sizeHint();
 
   if( g.x() > QApplication::desktop()->width()/2 &&
@@ -499,7 +499,7 @@ int main(int argc, char **argv)
   KwikDiskTopLevel *ktl = new KwikDiskTopLevel();
   CHECK_PTR(ktl);
   app.setMainWidget(ktl);
-  KWM::setDockWindow(ktl->winId());
+  KWin::setDockWindowFor(ktl->winId(), 0);
   ktl->show();
 
   return app.exec();

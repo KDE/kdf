@@ -22,7 +22,6 @@
 #ifndef __KDF_H__
 #define __KDF_H__
 
-#include <kwm.h>
 #include <ktmainwindow.h>
 #include <kmenubar.h>
 
