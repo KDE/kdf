@@ -27,7 +27,6 @@
 #include <kaboutdata.h>
 #include <kstdaction.h>
 #include <kaction.h>
-#include <kkeydialog.h>
 
 #include "kdf.h"
 #include <kpopupmenu.h>
@@ -48,7 +47,8 @@ KDFTopLevel::KDFTopLevel(QWidget *, const char *name)
 
   KStdAction::quit(this, SLOT(close()), actionCollection());
   KStdAction::preferences(kdf, SLOT(settingsBtnClicked()), actionCollection());
-  KStdAction::keyBindings( this, SLOT( slotConfigureKeys() ), actionCollection() );
+  KStdAction::keyBindings(guiFactory(), SLOT(configureShortcuts()), 
+actionCollection());
   setCentralWidget(kdf);
   //  kdf->setMinimumSize(kdf->sizeHint());
   kdf->resize(kdf->sizeHint());
@@ -60,12 +60,6 @@ bool KDFTopLevel::queryExit( void )
 {
   kdf->applySettings();
   return( true );
-}
-
-
-void KDFTopLevel::slotConfigureKeys()
-{
-  KKeyDialog::configure( actionCollection(), this );
 }
 
 

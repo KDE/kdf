@@ -38,7 +38,6 @@ class KDFTopLevel : public KMainWindow
 
   protected slots:
     virtual bool queryExit( void );
-    void slotConfigureKeys();
   protected:
     KDFWidget* kdf;
 };
