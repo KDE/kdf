@@ -1,11 +1,23 @@
 # KDE Config File 
 [KDE Desktop Entry]
 Name=KwikDisk
+Name[eo]=Diskokroæilo
+Name[sv]=Snabbdisk
 Exec=kwikdisk
-Icon=kwikdisk.xpm
+Icon=kwikdisk
 Type=Application
 DocPath=kcontrol/kwikdisk/index.html
 Comment=Docks and allows easy mounts/umounts from the panel
-Comment[de]=Dockt in den Panel und ermoeglicht schnelles Ein/Aushaengen von Laufwerken
+Comment[ca]=Encasta al plafó i permet muntar/desmuntar fàcilment
+Comment[eo]=Rapida kaj facila kroæado kaj malkroæado de diskoj
+Comment[fi]=Mahdollistaa helpot liittämiset ja irroittamiset paneelista
+Comment[hr]=Pristaje u ploèi i dozvoljava lagano montiranje/demontiranje diskova
+Comment[hu]=Bedokkol a panelba, és egyszerû fel/lemountolást tesz lehetõvé
+Comment[ja]=¥Ñ¥Í¥ë¤«¤é´ÊÃ±¤Ëmounts/umounts¤¬¤Ç¤­¤Þ¤¹
+Comment[mi]=Bedokkol a panelba, és egyszerû fel/lemountolást tesz lehetõvé
+Comment[no_NY]=Dokkar og tillet enkel (de)montering frå panelet
+Comment[pt_BR]=Embute e permite montagens/desmontagens fáceis a partir do Painel
+Comment[sr]=Lepi se i dozvoljava lako montiranje/odmontiranje diskova
+Comment[sv]=Dockar och tillåter enkel montering/avmontering från panelen
 Terminal=0
-MiniIcon=kwikdisk.xpm
+MiniIcon=kwikdisk
