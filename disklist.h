@@ -106,8 +106,9 @@ public:
    DiskEntry* next() {return disks->next();}
    uint count() { return disks->count(); }
 
-    void deleteAllMountedAt(const QString &mountpoint);
-
+   void deleteAllMountedAt(const QString &mountpoint);
+   void setUpdatesDisabled(bool disable);
+   
 signals:
    void readDFDone();
    void criticallyFull(DiskEntry *disk);
@@ -128,7 +129,8 @@ private:
   QString           dfStringErrOut;
   bool              readingDFStdErrOut;
   KConfig           *config;
-
+  bool              updatesDisabled;
+  
 };
 /***************************************************************************/
 

@@ -62,6 +62,7 @@ DiskList::DiskList(QObject *parent, const char *name)
   kdDebug() << "_OS_UNIX_" << endl;
 #endif
   */
+ updatesDisabled = false;
 
 if (NO_FS_TYPE)
   kdDebug() << "df gives no FS_TYPE" << endl;
@@ -93,6 +94,13 @@ DiskList::~DiskList()
 {
 };
 
+/**
+Updated need to be disabled sometimes to avoid pulling the DiskEntry out from the popupmenu handler
+*/
+void DiskList::setUpdatesDisabled(bool disable)
+{
+    updatesDisabled = disable;
+}
 
 /***************************************************************************
   * saves the KConfig for special mount/umount scripts
@@ -248,6 +256,9 @@ int DiskList::readDF()
 **/
 void DiskList::dfDone()
 {
+  if (updatesDisabled)
+      return; //Don't touch the data for now..
+	  
   readingDFStdErrOut=TRUE;
   for ( DiskEntry *disk=disks->first(); disk != 0; disk=disks->next() )
     disk->setMounted(FALSE);  // set all devs unmounted

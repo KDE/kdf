@@ -343,6 +343,8 @@ void KDFWidget::updateDF( void )
   * gets the signal when the diskList is complete and up to date
 **/
 void KDFWidget::updateDFDone( void ){
+  if (mPopup) //The popup menu is ont he screen... Don't touch the list view...
+       return;
 
   mList->clear();
 
@@ -471,16 +473,21 @@ void KDFWidget::rightButtonClicked( QListViewItem *item, const QPoint &p, int )
 **/
 void KDFWidget::popupMenu( QListViewItem *item, const QPoint &p )
 {
+  if (mPopup) //The user may even be able to popup another menu while this open is active...
+       return;
+
+  //
+  // The list update will be disabled as long as this menu is
+  // visible. Reason: The 'disk' may no longer be valid.
+  //
+
+  mDiskList.setUpdatesDisabled(true);  
   DiskEntry *disk = selectedDisk( item );
   if( disk == 0 )
   {
     return;
   }
 
-  //
-  // The list update will be disabled as long as this menu is
-  // visible. Reason: The 'disk' may no longer be valid.
-  //
   mPopup = new KPopupMenu( disk->mountPoint(), 0 );
   mPopup->insertItem( i18n("Mount Device"), 0 );
   mPopup->insertItem( i18n("Unmount Device"), 1 );
@@ -488,14 +495,16 @@ void KDFWidget::popupMenu( QListViewItem *item, const QPoint &p )
   mPopup->insertItem( i18n("Open File Manager"), 2 );
   mPopup->setItemEnabled( 0, disk->mounted() ? false : true );
   mPopup->setItemEnabled( 1, disk->mounted() );
-  mPopup->setItemEnabled( 2, disk->mounted() );
-  int position = mPopup->exec( p );
-  delete mPopup; mPopup = 0;
+  mPopup->setItemEnabled( 2, disk->mounted() );  
+  int position = mPopup->exec( p );  
+  
 
 
   bool openFileManager = false;
   if( position == -1 )
   {
+    mDiskList.setUpdatesDisabled(false);
+    delete mPopup; mPopup = 0;
     return;
   }
   else if( position == 0 || position == 1 )
@@ -541,11 +550,16 @@ void KDFWidget::popupMenu( QListViewItem *item, const QPoint &p )
       system( QFile::encodeName(cmd) );
     }
   }
+  
+  //Update only here as showing of error message triggers event loop.
+  mDiskList.setUpdatesDisabled(false);
+  delete mPopup; mPopup = 0;
 
   if( position != 2 ) // No need to update when just opening the fm.
   {
     updateDF();
   }
+  
 }
 
 
