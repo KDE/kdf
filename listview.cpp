@@ -72,8 +72,6 @@ const QPixmap &CListView::icon( const QString &iconName, bool drawBorder )
   QPixmap *pix = mPixDict[ iconName ];
   if( pix == 0 )
   {
-    KIconLoader &loader = *KGlobal::iconLoader();
-    
     pix = new QPixmap( SmallIcon( iconName ) );
 
     if( drawBorder == true )
