@@ -136,7 +136,7 @@ order.</para>
 currently mounted, the <guimenuitem>Mount Device</guimenuitem> option
 is available. If the device is mounted, it can be unmounted by
 choosing <guimenuitem>Unmount Device</guimenuitem>. Selecting
-<guimenuitem>Open Filemanager</guimenuitem> opens a new window with a
+<guimenuitem>Open in File Manager</guimenuitem> opens a new window with a
 graphical view of the files on that device.</para>
 
 </sect1>
