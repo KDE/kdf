@@ -183,7 +183,7 @@ QString DiskEntry::iconName()
 QString DiskEntry::guessIconName()
 {
   QString iconName;
-    iconName="";
+     iconName="devices/";
     // try to be intelligent
     if (-1!=mountPoint().find("cdrom",0,FALSE)) iconName+="cdrom";
     else if (-1!=deviceName().find("cdrom",0,FALSE)) iconName+="cdrom";
@@ -200,17 +200,10 @@ QString DiskEntry::guessIconName()
     else if (-1!=mountPoint().find("zip",0,FALSE)) iconName+="zip";
     else if (-1!=fsType().find("nfs",0,FALSE)) iconName+="nfs";
     else iconName+="hdd";
-    mounted() ? iconName+="_mount.png" : iconName+="_unmount.png";
+    mounted() ? iconName+="_mount" : iconName+="_unmount";
 //    if ( -1==mountOptions().find("user",0,FALSE) )
 //      iconName.prepend("root_"); // special root icon, normal user can´t mount
 
-    //debug("file is [%s]",iconName.latin1());
-    if ( (!QFile::exists(locate("icon", iconName))))
-    {
-      warning("file [%s] doesn't exist!",iconName.latin1());
-      iconName="unknown.png";
-    }
-    
     //debug("device %s is %s",deviceName().latin1(),iconName.latin1());
     
     //emit iconNameChanged();

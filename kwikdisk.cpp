@@ -325,10 +325,6 @@ void DockWidget::updateDFDone( void )
   mReadingDF = false;
   mDirty     = false;
 
-  KGlobal::dirs()->addResourceType("dev_pics","share/icons/small/locolor/devices");
-  KIconLoader &loader = *KGlobal::iconLoader();
-  //  loader.setIconType("dev_pics");
- 
   if (mPopupMenu!=0) delete mPopupMenu;
   mPopupMenu = new MyPopupMenu; CHECK_PTR(mPopupMenu);
 
@@ -347,7 +343,8 @@ void DockWidget::updateDFDone( void )
     int id = mPopupMenu->insertItem("",this, SLOT(toggleMount()) );
 
     QPixmap *pix = new QPixmap(
-      loader.loadIcon(disk->iconName(), KIconLoader::Small, 0, false));
+      KGlobal::iconLoader()->loadIcon(disk->iconName(), KIconLoader::Small, 0 ,false)
+        );
  
     if( getuid() !=0 && disk->mountOptions().find("user",0, false) == -1 ) 
     {
@@ -378,8 +375,8 @@ void DockWidget::updateDFDone( void )
       *toolTipText = i18n("Sorry, you must be root to mount this disk");
     }
 
-     mPopupMenu->changeItem(*pix,entryName,id);    
-     //    mPopupMenu->changeItem(BarIcon(disk->iconName()),entryName,id);    
+    mPopupMenu->changeItem(*pix,entryName,id);    
+    // mPopupMenu->changeItem(DevIcon(disk->iconName()),entryName,id);    
     connect(disk, SIGNAL(sysCallError(DiskEntry *, int) ),
             this, SLOT(sysCallError(DiskEntry *, int)) );
     mPopupMenu->setToolTip(id, toolTipText );
@@ -388,13 +385,11 @@ void DockWidget::updateDFDone( void )
   mPopupMenu->insertSeparator();
 
   mPopupMenu->insertItem(
-    BarIcon( "kdf" ),
-    //loader.loadIcon("kdf", KIconLoader::Small),
+    AppIcon( "kdf" ),
     i18n("&Start KDiskFree"), this, SLOT(startKDF()),0);
 
   mPopupMenu->insertItem(
-    BarIcon( "kfloppy" ),
-    //loader.loadIcon("kfloppy", KIconLoader::Small),
+    BarIcon( "options" ),
     i18n("&Customize"), this, SLOT(settingsBtnClicked()),0);
 
   mPopupMenu->insertItem(
@@ -475,8 +470,7 @@ KwikDiskTopLevel::KwikDiskTopLevel(QWidget *, const char *name)
 
   mDockIcon = new DockWidget(this,"docked_icon");
   connect( mDockIcon, SIGNAL(quitProgram()), this, SLOT(close()) );
-  KIconLoader &loader = *KGlobal::iconLoader();
-  mDockIcon->setPixmap(loader.loadIcon("kdf", KIconLoader::Small) );
+  mDockIcon->setPixmap(KGlobal::iconLoader()->loadIcon("kdf", KIconLoader::Small) );
   setView( mDockIcon );
   resize(24,24);
 }
