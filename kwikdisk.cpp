@@ -519,7 +519,7 @@ int main(int argc, char **argv)
   ktl->show();
 
   return app.exec();
-};
+}
 
 
 #include "kwikdisk.moc"

@@ -348,7 +348,7 @@ void MntConfigWidget::umntCmdChanged( const QString &data )
 
 void MntConfigWidget::closeEvent(QCloseEvent *)
 {
-};
+}
 
 
 #include "mntconfig.moc"
