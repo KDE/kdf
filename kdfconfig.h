@@ -28,7 +28,7 @@
 #include <qmemarray.h>
 #include <qstring.h>
 
-#include <stdoption.h>
+#include "stdoption.h"
 
 class QCheckBox;
 class QLabel;
