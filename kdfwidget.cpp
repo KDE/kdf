@@ -389,6 +389,7 @@ DiskEntry *KDFWidget::selectedDisk( QListViewItem *item )
     return(0);
   }
 
+  /*
   int i=0;
   for(QListViewItem *it=mList->firstChild(); it!=0;it=it->nextSibling(),i++ )
   {
@@ -397,8 +398,37 @@ DiskEntry *KDFWidget::selectedDisk( QListViewItem *item )
       return( mDiskList.at(i) );
     }
   }
+  */
+  DiskEntry disk(item->text(deviceCol));
+  disk.setMountPoint(item->text(mntCol));
 
-  return(0);
+  //
+  // 1999-27-11 Espen Sand:
+  // I can't get find() to work. The Disks::compareItems(..) is
+  // never called.
+  //
+  //int pos=mDiskList->find(disk);
+
+  int pos = -1;
+  for( u_int i=0; i<mDiskList.count(); i++ )
+  {
+    DiskEntry *item = mDiskList.at(i);
+    int res = disk.deviceName().compare( item->deviceName() );
+    if( res == 0 )
+    {
+      res = disk.mountPoint().compare( item->mountPoint() );
+    }
+    if( res == 0 )
+    {
+      pos = i;
+      break;
+    }
+  }
+
+
+  kdDebug() << "selectedDisk: " << pos << endl;
+  return mDiskList.at(pos);
+  //  return(0);
 }
 
 void KDFWidget::rightButtonPressed( QListViewItem *item, const QPoint &p, int )

@@ -25,6 +25,7 @@
 #ifndef __DISKLIST_H__
 #define __DISKLIST_H__
 
+#include <kdebug.h>
 #include <kconfig.h>
 #include <klocale.h>
 //#include <kcontrol.h>
@@ -64,15 +65,15 @@ class Disks : public DisksBase
   Disks(bool deepCopies=TRUE) { dc = deepCopies;};
   ~Disks() { clear(); };
 private: 
-  int compareItems( DiskEntry* s1, DiskEntry* s2 ) 
+  int compareItems( DiskEntry s1, DiskEntry s2 ) 
   {
-    int ret = s1->deviceName().compare(s2->deviceName());
+    int ret = s1.deviceName().compare(s2.deviceName());
     if( ret == 0 )
     {
-      ret = s1->mountPoint().compare(s2->mountPoint());
+      ret = s1.mountPoint().compare(s2.mountPoint());
     }
 
-    // kdDebug() << s1->deviceName() << " vs " << s2->deviceName() << " (" << ret << ")" << endl;
+    kdDebug() << "compareDISKS " << s1.deviceName() << " vs " << s2.deviceName() << " (" << ret << ")" << endl;
     return( ret );
   }
 
@@ -103,6 +104,7 @@ public:
    DiskEntry*  at(uint index) {return disks->at(index);};
    DiskEntry* first() {return disks->first();};
    DiskEntry* next() {return disks->next();};
+   uint count() { return disks->count(); };
 
 signals:
    void readDFDone();
