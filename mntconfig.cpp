@@ -99,7 +99,7 @@ MntConfigWidget::MntConfigWidget (QWidget * parent, const char *name
        QString title;
        title.sprintf("%s [%s] %s [%s]",tabHeaders.at(1),"NONE"
                                       ,tabHeaders.at(2),"NONE");
-       boxActDev->setTitle(title.data());
+       boxActDev->setTitle(title);
  
        btnActIcon=new QPushButton(boxActDev); CHECK_PTR(btnActIcon);
        btnActIcon->setEnabled(FALSE);
@@ -264,11 +264,11 @@ void MntConfigWidget::clicked(int index, int column)
                             ,actDisk->deviceName().data()
                             ,actDisk->mountPoint().data());
 
-  boxActDev->setTitle(title.data());
+  boxActDev->setTitle(title);
   btnActIcon->setPixmap(*(tabList->dict()[icon.data()]));
   qleIcon->setText(actDisk->iconName().left(actDisk->iconName().findRev('_')) );
-  qleMnt->setText(actDisk->mountCommand().data());
-  qleUmnt->setText(actDisk->umountCommand().data());
+  qleMnt->setText(actDisk->mountCommand());
+  qleUmnt->setText(actDisk->umountCommand());
 
 }
 
@@ -327,7 +327,7 @@ void MntConfigWidget::selectIcon()
          tabList->dict().replace(icon.data(),pix );
        }
      btnActIcon->setPixmap(*pix);
-     qleIcon->setText(icoName.data());
+     qleIcon->setText(icoName);
      tabList->changeItemPart(icon.data(),actRow,ICONCOL);
      //     tabList->repaint();
      }
@@ -338,13 +338,13 @@ void MntConfigWidget::selectIcon()
 void MntConfigWidget::selectMntFile()
 {
   QString cmd=KFileDialog::getOpenFileName("","*",this);
-  if (!cmd.isEmpty()) qleMnt->setText(cmd.data());
+  if (!cmd.isEmpty()) qleMnt->setText(cmd);
 }
 
 void MntConfigWidget::selectUmntFile()
 {
   QString cmd=KFileDialog::getOpenFileName("","*",this);
-  if (!cmd.isEmpty()) qleUmnt->setText(cmd.data());
+  if (!cmd.isEmpty()) qleUmnt->setText(cmd);
 }
 
 void MntConfigWidget::iconChanged(const char * data)
