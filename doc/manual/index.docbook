@@ -69,7 +69,7 @@ and &CD; drives, <abbrev>etc.</abbrev>) along with information on their capacity
 free space, type and mount point. It also allows you to mount and unmount drives
 and view them in a file manager.</para>
 
-<para>&kdf; is similar to the &kcontrol DiskFree module
+<para>&kdf; is similar to the &kcontrol; DiskFree module
 (<application>kcmdf</application>), but takes up less screen space. It is useful
 if you want to keep a DiskFree window available at all times.</para>
 
