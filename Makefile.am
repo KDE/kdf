@@ -13,8 +13,8 @@
 # kde_wallpaperdir  Where general wallpapers should go to.
 
 # just set the variable
-kdf_APPSDIR = $(kde_appsdir)/Programs/System
-kwikdisk_APPSDIR = $(kde_appsdir)/Programs/System
+kdf_APPSDIR = $(kde_appsdir)/System
+kwikdisk_APPSDIR = $(kde_appsdir)/System
 kcmdf_APPSDIR = $(kde_appsdir)/Settings/Information
 # set the include path for X, qt and KDE
 INCLUDES= $(all_includes)
