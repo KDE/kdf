@@ -61,6 +61,7 @@ KwikDisk::KwikDisk()
    , m_readingDF(FALSE)
    , m_dirty(TRUE)
    , m_menuVisible(FALSE)
+   , m_inside(FALSE)
    , m_optionDialog(0)
 {
    kdDebug() << k_funcinfo << endl;
@@ -72,8 +73,29 @@ KwikDisk::KwikDisk()
    connect( &m_diskList, SIGNAL(criticallyFull(DiskEntry*)),
             this, SLOT(criticallyFull(DiskEntry*)) );
 
+   connect( contextMenu(), SIGNAL(aboutToHide()), this, SLOT(aboutToHide()) );
+
    loadSettings();
    updateDF();
+}
+
+void KwikDisk::aboutToHide()
+{
+   kdDebug() << k_funcinfo << endl;
+   if( !m_inside )
+      m_menuVisible = FALSE;
+}
+
+void KwikDisk::enterEvent(QEvent *)
+{
+   kdDebug() << k_funcinfo << endl;
+   m_inside = TRUE;
+}
+
+void KwikDisk::leaveEvent(QEvent *)
+{
+   kdDebug() << k_funcinfo << endl;
+   m_inside = FALSE;
 }
 
 void KwikDisk::mousePressEvent(QMouseEvent *me)
@@ -86,8 +108,8 @@ void KwikDisk::mousePressEvent(QMouseEvent *me)
    if( m_menuVisible )
    {
       contextMenu()->hide();
-      me->ignore();
       m_menuVisible = FALSE;
+      me->ignore();
       return;
    }
 

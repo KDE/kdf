@@ -53,10 +53,13 @@ class KwikDisk : public KSystemTray
       void changeSettings();
       void startKDF();
       void invokeHelp();
+      void aboutToHide();
 
    private:
       void mousePressEvent(QMouseEvent *);
       void timerEvent(QTimerEvent *);
+      void enterEvent(QEvent *);
+      void leaveEvent(QEvent *);
 
       void setUpdateFrequency(int frequency);
 
@@ -68,6 +71,7 @@ class KwikDisk : public KSystemTray
       bool           m_readingDF;
       bool           m_dirty;
       bool           m_menuVisible;
+      bool           m_inside;
       COptionDialog *m_optionDialog;
 };
 
