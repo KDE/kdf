@@ -239,34 +239,6 @@ void DiskEntry::receivedSysStdErrOut(KProcess *, char *data, int len)
   sysStringErrOut.append(tmp);
 };
 
-QString DiskEntry::prettyPrint(int kBValue) const
-{
-  QString weight;
-  float val = (float)kBValue; // size in KiloByte
-
-  // always go up to MegaByte
-  val = val / 1024;
-  weight = "MB";
-
-  if (val > 999.0)
-  {
-    // GigaByte
-    val = val / 1024;
-    weight = "GB";
-  }
-
-  QString ret;
-  if (val>100.0)  // e.g. 504MB
-    ret = KGlobal::locale()->formatNumber(val, 0);
-  else if (val>10.0) // e.g. 54.7MB
-    ret = KGlobal::locale()->formatNumber(val, 1);
-  else // e.g. 1.44KB
-    ret = KGlobal::locale()->formatNumber(val, 2);
-
-  ret += weight;
-  return ret;
-}
-
 float DiskEntry::percentFull() const
 {
    if (size != 0) {

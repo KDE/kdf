@@ -32,6 +32,7 @@
 #include <qprogressbar.h>
 #include <qfile.h>
 
+#include <kio/global.h>
 #include <kprogress.h>
 #include <kprocess.h>
 #include <klocale.h>
@@ -74,11 +75,11 @@ public:
   int kBSize() const { return size; };
   QString iconName();
   QString realIconName() { return icoName; };
-  QString prettyKBSize() const { return prettyPrint(size); };
+  QString prettyKBSize() const { return KIO::convertSizeFromKB(size); };
   int kBUsed() const { return used; };
-  QString prettyKBUsed() const { return prettyPrint(used); };
+  QString prettyKBUsed() const { return KIO::convertSizeFromKB(used); };
   int kBAvail() const  { return avail; };
-  QString prettyKBAvail() const { return prettyPrint(avail); };
+  QString prettyKBAvail() const { return KIO::convertSizeFromKB(avail); };
   float percentFull() const;
 
 signals:
@@ -135,7 +136,7 @@ private:
   int         size,
               used,
               avail;       // ATTENTION: used+avail != size (clustersize!)
-  
+
   bool        isMounted,
               iconSetByUser;
 };
