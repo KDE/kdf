@@ -1,19 +1,24 @@
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook V3.1-Based Variant V1.0//EN" [
  <!ENTITY kdf "<application>kdf</application>">
 ]>
+
 <book lang="en">
 <bookinfo>
 <title>KDiskFree - KwikDisk - Help</title>
 <authorgroup>
 <author>
-<surname>Michael Kropfberger </surname>
+<firstname>Michael</firstname>
+<surname>Kropfberger</surname>
 <affiliation>
-<address><email><ulink url="mailto:michael.kropfberger@gmx.net">michael.kropfberger@gmx.net</ulink></email></address>
+<address><email>michael.kropfberger@gmx.net</email></address>
 </affiliation>
 </author>
 </authorgroup>
-<date>Last changed: 17. March 1999</date>
-<releaseinfo><!-- information about this particular version --></releaseinfo>
+<date>17/03/1999</date>
+<releaseinfo>1.00.00</releaseinfo>
+<abstract>
+<para>This handbook describes &kdf; version 1.0</para>
+</abstract>
 <keywordset>
 <keyword>KDE</keyword>
 <keyword>disk free</keyword>
