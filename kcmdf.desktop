@@ -1,7 +1,7 @@
-# KDE Config File 
-[KDE Desktop Entry]
+[Desktop Entry]
 Name=Block Devices
 Name[ca]=Dispositius de bloc
+Name[de]=Blockgeräte
 Name[eo]=Blokaparatoj
 Name[fi]=Blokkilaitteet
 Name[hr]=Blokovski ureðaji
@@ -19,6 +19,7 @@ Type=Application
 DocPath=kcontrol/kcmdf/index.html
 Comment=Shows the disk usage of the mounted devices
 Comment[ca]=Mostra l'ús de disc dels dispositius muntats
+Comment[de]=Zeigt die Plattenausnutzung von gemounteten Geräten
 Comment[eo]=Montras la kapacitojn de la kroæitaj aparatoj
 Comment[fi]=Näyttää levynkäytön liitetyillä laitteilla
 Comment[hr]=Prikazuje iskori¹tenost diskova

@@ -13,8 +13,8 @@
 # kde_wallpaperdir  Where general wallpapers should go to.
 
 # just set the variable
-kdf_APPSDIR = $(kde_appsdir)/System
-kwikdisk_APPSDIR = $(kde_appsdir)/System
+kdf_APPSDIR = $(kde_appsdir)/Programs/System
+kwikdisk_APPSDIR = $(kde_appsdir)/Programs/System
 kcmdf_APPSDIR = $(kde_appsdir)/Settings/Information
 # set the include path for X, qt and KDE
 INCLUDES= $(all_includes)
@@ -59,12 +59,12 @@ install-data-local:
 	$(mkinstalldirs) $(kcmdf_APPSDIR)
 	$(mkinstalldirs) $(kwikdisk_APPSDIR)
 	$(INSTALL_DATA) $(srcdir)/kdf.desktop $(kdf_APPSDIR)
-	$(INSTALL_DATA) $(srcdir)/kcmdf.kdelnk $(kcmdf_APPSDIR)
-	$(INSTALL_DATA) $(srcdir)/kwikdisk.kdelnk $(kwikdisk_APPSDIR)
+	$(INSTALL_DATA) $(srcdir)/kcmdf.desktop $(kcmdf_APPSDIR)
+	$(INSTALL_DATA) $(srcdir)/kwikdisk.desktop $(kwikdisk_APPSDIR)
 
 # remove ALL you have installed in install-data-local or install-exec-local
 uninstall-local:
 	-rm -f $(kdf_APPSDIR)/kdf.desktop
-	-rm -f $(kcmdf_APPSDIR)/kcmdf.kdelnk
-	-rm -f $(kwikdisk_APPSDIR)/kwikdisk.kdelnk
+	-rm -f $(kcmdf_APPSDIR)/kcmdf.desktop
+	-rm -f $(kwikdisk_APPSDIR)/kwikdisk.desktop
 
