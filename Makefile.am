@@ -31,9 +31,9 @@ desktopdir = $(kde_appsdir)/System/More
 desktop_DATA = kdf.desktop kwikdisk.desktop
 
 install-data-local:
-	$(mkinstalldirs) $(kde_appsdir)/System
-	$(INSTALL_DATA) $(srcdir)/uninstall.desktop $(kde_appsdir)/System/kdf.desktop
-	$(INSTALL_DATA) $(srcdir)/uninstall.desktop $(kde_appsdir)/System/kwikdisk.desktop
+	$(mkinstalldirs) $(DESTDIR)$(kde_appsdir)/System
+	$(INSTALL_DATA) $(srcdir)/uninstall.desktop $(DESTDIR)$(kde_appsdir)/System/kdf.desktop
+	$(INSTALL_DATA) $(srcdir)/uninstall.desktop $(DESTDIR)$(kde_appsdir)/System/kwikdisk.desktop
 
 
 kcmdesktopdir = $(kde_appsdir)/Settings/Information
