@@ -37,6 +37,7 @@
 #include <kcmdlineargs.h>
 #include <kprocess.h>
 #include <kglobalsettings.h>
+#include <krun.h>
 
 #include <stdlib.h>
 
@@ -263,7 +264,7 @@ void DockWidget::timerEvent(QTimerEvent *)
 
 void DockWidget::startKDF( void )
 {
-  system("kdf &");
+  KRun::runCommand("kdf");
 }
 
 
