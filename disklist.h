@@ -27,7 +27,7 @@
 
 #include <kconfig.h>
 #include <klocale.h>
-#include <kcontrol.h>
+//#include <kcontrol.h>
 
 // defines the os-type
 #include <qglobal.h>

@@ -25,11 +25,11 @@ bin_PROGRAMS = 	kcmdf kdf kwikdisk
 
 # Which sources should be compiled
 kdf_SOURCES	= kdf.cpp kdfwidget.cpp kdfconfig.cpp mntconfig.cpp \
-disklist.cpp disks.cpp listview.cpp optiondialog.cpp
+disklist.cpp disks.cpp listview.cpp optiondialog.cpp stdoption.cpp
 kcmdf_SOURCES	= kcmdf.cpp kdfwidget.cpp kdfconfig.cpp mntconfig.cpp \
-disklist.cpp disks.cpp listview.cpp optiondialog.cpp
+disklist.cpp disks.cpp listview.cpp optiondialog.cpp stdoption.cpp
 kwikdisk_SOURCES	= kwikdisk.cpp kdfconfig.cpp mntconfig.cpp \
-disklist.cpp disks.cpp listview.cpp optiondialog.cpp
+disklist.cpp disks.cpp listview.cpp optiondialog.cpp stdoption.cpp
 
 # the library search path
 kdf_LDFLAGS = $(all_libraries) $(KDE_RPATH)
@@ -44,7 +44,7 @@ kwikdisk_LDADD   = $(LIB_KFILE)
 
 # this option you can leave out. Just, if you use "make dist", you need it
 noinst_HEADERS = kdfwidget.h  kcmdf.h kdfconfig.h  mntconfig.h \
-disks.h kdf.h  disklist.h kwikdisk.h listview.h optiondialog.h
+disks.h kdf.h  disklist.h kwikdisk.h listview.h optiondialog.h stdoption.h
 
 # just to make sure, automake makes them 
 METASOURCES =	kcmdf.moc kdf.moc kdfwidget.moc kdfconfig.moc  \

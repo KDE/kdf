@@ -174,7 +174,7 @@ QString DiskEntry::iconName()
 {
   QString iconName=icoName;
   if (iconSetByUser) {
-   mounted() ? iconName+="_mount.xpm" : iconName+="_unmount.xpm";
+    mounted() ? iconName+="_mount.xpm" : iconName+="_unmount.xpm";
    return iconName;
   } else
    return guessIconName();
@@ -306,9 +306,6 @@ void DiskEntry::setFsType(QString fsType)
 
 void DiskEntry::setMounted(bool nowMounted) 
 { 
-  printf("SET MOUNTED: %d\n", nowMounted );
-
-
   isMounted=nowMounted;
   emit mountedChanged();
 };

@@ -19,94 +19,135 @@
    
   */
 
+//
+// 1999-12-05 Espen Sand 
+// Modified to use KCModule instead of the old and obsolete 
+// KControlApplication
+//
 
-#include <stdio.h>
+
+#include <kapp.h>
+#include <kdialog.h>
+
+#include <qframe.h>
+#include <qlayout.h>
 
 #include "kcmdf.h"
 
-#define KDFTITLE i18n("&KDiskFree")
-#define KCWTITLE i18n("&GeneralSettings")
-#define MCWTITLE i18n("(U)&MountCommands")
 
-KDiskFree::KDiskFree(int &argc, char **argv, const char *name)
-  : KControlApplication(argc, argv, name)
+KDiskFreeWidget::KDiskFreeWidget( QWidget *parent, const char *name )
+  :KCModule( parent, name )
 {
-  kdf = 0;
-  mcw = 0;
-  kcw = 0;
+  setButtons(Help|Default|Cancel|Apply|Ok);
 
-  if (runGUI())
+  QVBoxLayout *topLayout = new QVBoxLayout( this );
+  mTab = new QTabWidget( this );
+  if( mTab == 0 ) { return; }
+  topLayout->addWidget( mTab, 10 );
+
+  mPage[0] = new QFrame( mTab, "page" );
+  CHECK_PTR( mPage[0] );
+  mTab->addTab( mPage[0], i18n("&KDiskFree") );
+  QVBoxLayout *vbox = new QVBoxLayout( mPage[0], KDialog::spacingHint() );
+  mKdf = new KDFWidget( mPage[0], "kdf", false );
+  vbox->addWidget( mKdf, 10 );
+
+  mPage[1] = new QFrame( mTab, "page" );
+  CHECK_PTR( mPage[1] );
+  mTab->addTab( mPage[1], i18n("&General Settings") );
+  vbox = new QVBoxLayout( mPage[1], KDialog::spacingHint() );
+  mMcw = new KDFConfigWidget( mPage[1], "kcw", false );
+  vbox->addWidget( mMcw, 10 );
+
+  mPage[2] = new QFrame( mTab, "page" );
+  CHECK_PTR( mPage[2] );
+  mTab->addTab( mPage[2], i18n("&Mount Commands") );
+  vbox = new QVBoxLayout( mPage[2], KDialog::spacingHint() );
+  mKcw = new MntConfigWidget( mPage[2], "mcw", false );
+  vbox->addWidget( mKcw, 10 );
+}
+
+
+void KDiskFreeWidget::load( void )
+{
+  //
+  // 1999-12-05 Espen Sand
+  // I don't use this one because 1) The widgets will do a 
+  // loadSettings() on startup and 2) Reset button is not used.
+  //
+}
+
+
+void KDiskFreeWidget::save( void )
+{
+  int pn = pageNumber();
+  if( pn == 0 )
+  {
+    mKdf->applySettings();
+  }
+  else if( pn == 1 )
+  {
+    mMcw->applySettings();
+  }
+  else if( pn == 2 )
+  {
+    mKcw->applySettings();
+  }
+}
+
+
+void KDiskFreeWidget::defaults( void )
+{
+  int pn = pageNumber();
+  if( pn == 0 )
+  {
+    mKdf->loadSettings();
+  }
+  else if( pn == 1 )
+  {
+    mMcw->loadSettings();
+  }
+  else if( pn == 2 )
+  {
+    mKcw->loadSettings();
+  }
+}
+
+
+void KDiskFreeWidget::hideEvent( QHideEvent * )
+{
+  kapp->quit();
+}
+
+
+int KDiskFreeWidget::pageNumber( void )
+{
+  QWidget *w = mTab->currentPage();
+  if( w == 0 ) { return(-1); }
+
+  for( int i=0; i<3; i++ )
+  { 
+    if( w == mPage[i] )
     {
-      if (!pages || pages->contains("kdf"))
-	addPage(kdf = new KDFWidget(dialog, "kdf", FALSE), 
-	     KDFTITLE, "index.html");
-      if (!pages || pages->contains("kcw"))
-	addPage(kcw = new KDFConfigWidget(dialog, "kcw", FALSE), 
-	     KCWTITLE, "index.html");
-      if (!pages || pages->contains("mcw"))
-	addPage(mcw = new MntConfigWidget(dialog, "mcw", FALSE), 
-	     MCWTITLE, "index.html");
-
-      //dialog->setApplyButton(0);
-      //dialog->setCancelButton(0);
-      if (kdf) {
-	connect(this->getDialog(),SIGNAL(selected(const char *)),
-	    this,SLOT(selected(const char *)) );
-        dialog->show();
-      } else {
-          fprintf(stderr, i18n("usage: kcmdf [-init|kdf]\n"));
-	  justInit = TRUE;
-      }
+      return(i);
     }
-}
-
-void KDiskFree::init()
-{
-  KDFWidget *kdfconfig = new KDFWidget(0, 0, TRUE);
-  delete kdfconfig;
-  MntConfigWidget *mcwconfig = new MntConfigWidget(0, 0, TRUE);
-  delete mcwconfig;
-  KDFConfigWidget *kcwconfig = new KDFConfigWidget(0, 0, TRUE);
-  delete kcwconfig;
-}
-
-void KDiskFree::apply()
-{  
-  if ((kdf) && (selectedTab==KDFTITLE))
-      kdf->applySettings();      
-  if ((mcw) && (selectedTab==MCWTITLE))
-      mcw->applySettings();      
-  if ((kcw) && (selectedTab==KCWTITLE))
-      kcw->applySettings();      
-  if (kdf) kdf->loadSettings(); // get new changes
-}
-
-void KDiskFree::defaultValues()
-{  
-  if ((kdf) && (selectedTab==KDFTITLE))
-      kdf->loadSettings();      
-  if ((mcw) && (selectedTab==MCWTITLE))
-      mcw->loadSettings();      
-  if ((kcw) && (selectedTab==KCWTITLE))
-      kcw->loadSettings();      
-}
-
-void KDiskFree::selected(const char * tab) {
-  selectedTab=tab;
+  }
+  return(-1);
 }
 
 
 int main(int argc, char **argv)
 {
-  KDiskFree app(argc, argv,"kdf");
-  app.setTitle(i18n("KDiskFree"));
-  if (app.runGUI()) {
-     return app.exec();
-  } else {
-      app.init();
-      return 0;
-  }
+  KApplication app(argc, argv, "kdf");
+
+  KDiskFreeWidget *kdf = new KDiskFreeWidget(0);
+  KCDialog *dialog = new KCDialog( kdf );
+  dialog->show();
+
+  return app.exec();
 }
+
+
 
 #include "kcmdf.moc"
 

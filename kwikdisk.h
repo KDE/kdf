@@ -22,115 +22,125 @@
 #ifndef __KDF_H__
 #define __KDF_H__
 
-#include <qtooltip.h>
-#include <qintdict.h>
-#include <qtabdialog.h>
+// A Qt define in qmenudata.h
+#define INCLUDE_MENUITEM_DEF 1
 
-#include <kwm.h>
+#include <qintdict.h>
+#include <qlabel.h>
+#include <qpopupmenu.h>
+#include <qtooltip.h>
+
 #include <ktmainwindow.h>
 
-#include "mntconfig.h"
-#include "kdfconfig.h"
 #include "disklist.h"
+#include "kdfconfig.h"
+#include "mntconfig.h"
+#include "stdoption.h"
 
+class COptionDialog;
 
 /***************************************************************/
 class MyToolTip : public QToolTip
 {
+  public:
+    MyToolTip( QWidget *parent, QToolTipGroup *group=0 );
+    virtual ~MyToolTip( void );
 
-public:
-  MyToolTip(QWidget *parent, QToolTipGroup * group= 0 );
-  //  ~MyToolTip() { delete text; };
-  void setPossibleTip(const QRect &rect,const char *text);
-  void setTipping(bool is_tipping) {tipping=is_tipping; };
+    void setPossibleTip( const QRect &rect, const QString &text );
+    void setTipping( bool enableTipping );
 
-protected:
-  void maybeTip(const QPoint &p); 
+  protected:
+    void maybeTip( const QPoint &p ); 
 
-private:
-  QRect rect;
-  const char *text;
-  bool  tipping;
+  private:
+    QRect   mRect;
+    QString mText;
+    bool    mEnableTipping;
 };
 
 /***************************************************************/
 class MyPopupMenu : public QPopupMenu
-{ Q_OBJECT
+{ 
+  Q_OBJECT
 
-public:
-  MyPopupMenu(QWidget *parent=0, const char *name=0);
-  ~MyPopupMenu() { delete toolTip; };
-  void setToolTip(int id, const char *text);
-  int cellHeight(int id) { return QPopupMenu::itemHeight(id); };
-  int totalWidth() { return QPopupMenu::width(); };
-private slots:
+  public:
+    MyPopupMenu(QWidget *parent=0, const char *name=0);
+    ~MyPopupMenu( void );
 
-protected:
-   void mouseMoveEvent(QMouseEvent *);
+    void setToolTip(int id, const QString *text );
+    QRect itemRectangle( int id );
+    int activeIndex( void );
 
-private:
-   int              toolTipRow;
-   MyToolTip        *toolTip;
-   QIntDict<char>   toolTips;
+  private slots:
+    void registerActiveItem( int id );
+
+  private:
+    int mCurrentId;
+    int mCurrentIndex;
+    MyToolTip *mToolTip;
+    QIntDict<QString> mToolTipStrings;
 };
+
 
 /***************************************************************/
 class DockWidget : public QLabel
-{ Q_OBJECT
+{ 
+  Q_OBJECT
 
-public:
-  DockWidget(QWidget *parent=0, const char *name=0);
-  ~DockWidget() { delete clickMenu; };
+  public:
+    DockWidget(QWidget *parent=0, const char *name=0);
+    ~DockWidget( void );
 
-public slots:
-  void loadSettings();
-  void applySettings();
+  public slots:
+    void loadSettings();
 
-private slots:
-   void confLoadSettings();
-   void confApplySettings();
-   void criticallyFull(DiskEntry *disk);
-   void toggleMount();
-   void settingsBtnClicked();
-   void invokeHTMLHelp();
-   void quit();
-   void startKDF();
-   void updateDF();
-   void updateDFDone();
-   void setUpdateFreq(int freq);
-   void sysCallError(DiskEntry *disk, int errno);
+  private slots:
+    void criticallyFull(DiskEntry *disk);
+    void toggleMount( void );
+    void settingsBtnClicked( void );
+    void invokeHTMLHelp( void );
+    void quit( void );
+    void startKDF( void );
+    void updateDF( void );
+    void updateDFDone( void );
+    void setUpdateFrequency( int frequency );
+    void sysCallError(DiskEntry *disk, int errno);
 
-protected:
-  void mousePressEvent(QMouseEvent *);
-  void  timerEvent( QTimerEvent * );
+  protected:
+    void mousePressEvent(QMouseEvent *);
+    void  timerEvent( QTimerEvent * );
 
-private:
-    KConfig           *config;
-    MyPopupMenu      *clickMenu;
-    DiskList         diskList;
-    bool              readingDF;
+  private:
+    DiskEntry *selectedDisk( void );
+    void showPopupMenu( void );
 
-    QTabDialog       *tabconf;
-    KDFConfigWidget  *kdfconf;
-    MntConfigWidget  *mntconf;
+  signals:
+    void quitProgram( void );
 
-   QString          fileMgr;
-   int               updateFreq;
-   bool             popupIfFull;
-   bool             openFileMgrOnMount;
+  private:
+    MyPopupMenu   *mPopupMenu;
+    COptionDialog *mOptionDialog;
+    bool mReadingDF;
+    bool mDirty;         
+    DiskList mDiskList;
+    CStdOption mStd;
 };
 
 
 /***************************************************************/
 class KwikDiskTopLevel : public KTMainWindow
-{ Q_OBJECT
+{ 
+  Q_OBJECT
 
-public:
-  KwikDiskTopLevel(QWidget *parent=0, const char *name=0);
-  ~KwikDiskTopLevel() { delete dockIcon; };
+  public:
+    KwikDiskTopLevel(QWidget *parent=0, const char *name=0);
+    ~KwikDiskTopLevel( void );
 
-private:
-  DockWidget   *dockIcon;
+  protected slots:
+    virtual bool queryExit( void );
+
+  private:
+    DockWidget   *mDockIcon;
 };
 /***************************************************************/
 

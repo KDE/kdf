@@ -23,32 +23,38 @@
 #ifndef __KCMDF_H__
 #define __KCMDF_H__
 
-
 #include "kdfwidget.h"
 #include "kdfconfig.h"
 #include "mntconfig.h"
 
-class KDiskFree : public KControlApplication
-{ Q_OBJECT
-public:
+#include <kcmodule.h>
+#include <qtabwidget.h>
 
-  KDiskFree(int &argc, char **arg, const char *name);
 
-  virtual void init();
-  virtual void apply();
-  virtual void defaultValues();
+class KDiskFreeWidget : public KCModule
+{
+  Q_OBJECT
+  
+  public:
+    KDiskFreeWidget( QWidget *parent=0, const char *name=0 );
+    virtual void load( void );
+    virtual void save( void );
+    virtual void defaults( void );
 
- private slots:
-  void selected(const char *);
-   
-private:
+  protected:
+    virtual void hideEvent( QHideEvent * );
 
-  KDFWidget *kdf;
-  KDFConfigWidget *kcw;
-  MntConfigWidget *mcw;
+  private:
+    int pageNumber( void );
 
-  QString selectedTab;
+  private:
+    QTabWidget *mTab;
+    QFrame *mPage[3];
+    KDFWidget *mKdf;
+    KDFConfigWidget *mMcw;
+    MntConfigWidget *mKcw;
 };
+
 
 
 

@@ -41,6 +41,7 @@
 #include <qscrollbar.h>
 #include <qstring.h>
 
+#include <kapp.h>
 #include <kconfig.h>
 #include <kdialog.h>
 #include <kglobal.h>
@@ -49,9 +50,6 @@
 #include "listview.h"
 #include "kdfconfig.h"
 
-#define DEFAULT_FREQ 60
-#define DEFAULT_FILEMGR_COMMAND "kfmclient openURL %m"
-
 #ifndef GUI_DEFINED
 static bool GUI;
 #define GUI_DEFINED
@@ -59,7 +57,7 @@ static bool GUI;
 
 
 KDFConfigWidget::KDFConfigWidget(QWidget *parent, const char *name, bool init)
-  : KConfigWidget (parent, name)
+  : QWidget( parent, name)
 {
 
   mTabName.resize(8);
@@ -106,7 +104,6 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, const char *name, bool init)
     mScroll->setOrientation( QScrollBar::Horizontal );
     mScroll->setSteps(1,20);
     mScroll->setRange(0, 180 ); 
-    mScroll->setValue(DEFAULT_FREQ);
     gl->addWidget( mScroll, 1, 1 );  
 
     mLCD = new QLCDNumber( this ); 
@@ -116,7 +113,8 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, const char *name, bool init)
     connect(mScroll,SIGNAL(valueChanged(int)),mLCD,SLOT(display(int)));
     gl->addMultiCellWidget( mLCD, 0, 1, 0, 0 );
 
-    QLabel *label = new QLabel( i18n("Update frequency (seconds)"), this ); 
+    text = i18n("Update frequency [seconds]. The value 0 disables update" );
+    QLabel *label = new QLabel( text, this ); 
     CHECK_PTR(label);
     gl->addWidget( label, 0, 1 );  
 
@@ -129,7 +127,7 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, const char *name, bool init)
     CHECK_PTR(mFileManagerEdit);
     topLayout->addWidget( mFileManagerEdit );
 
-    text = i18n("Open the above filemanager on mount");
+    text = i18n("Open filemanager automatically on mount");
     mOpenMountCheck = new QCheckBox(text, this ); 
     CHECK_PTR(mOpenMountCheck);
     topLayout->addWidget( mOpenMountCheck );
@@ -138,9 +136,6 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, const char *name, bool init)
     mPopupFullCheck = new QCheckBox( text, this ); 
     CHECK_PTR(mPopupFullCheck);
     topLayout->addWidget( mPopupFullCheck );
-
-    text = parent->className();
-    isTopLevel = text == "KDFTopLevel" ? TRUE : FALSE;
   }
 
   loadSettings();
@@ -153,15 +148,14 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, const char *name, bool init)
 
 KDFConfigWidget::~KDFConfigWidget() 
 { 
-}; 
+} 
 
 
 void KDFConfigWidget::closeEvent(QCloseEvent *)
 {
-  debug("KDFConfigWidget::closeEvent");
   applySettings(); 
   kapp->quit();
-};
+}
 
 
 void KDFConfigWidget::applySettings( void )
@@ -171,12 +165,14 @@ void KDFConfigWidget::applySettings( void )
 
   if( GUI ) 
   {
-    config.writeEntry( "Width", width() );
-    config.writeEntry( "Height", height() );
-    config.writeEntry( "UpdateFrequency", mScroll->value() );
-    config.writeEntry( "FileManagerCommand", mFileManagerEdit->text() );
-    config.writeEntry( "PopupIfFull", mPopupFullCheck->isChecked() );
-    config.writeEntry( "OpenFileMgrOnMount", mOpenMountCheck->isChecked() );
+    //config.writeEntry( "Width", width() );
+    //config.writeEntry( "Height", height() );
+
+    mStd.setFileManager( mFileManagerEdit->text() );
+    mStd.setUpdateFrequency( mScroll->value() );
+    mStd.setPopupIfFull( mPopupFullCheck->isChecked() );
+    mStd.setOpenFileManager( mOpenMountCheck->isChecked() );
+    mStd.writeConfiguration();
 
     QListViewItem *item = mList->firstChild();
     if( item != 0 )
@@ -190,7 +186,7 @@ void KDFConfigWidget::applySettings( void )
   } 
   else 
   {
-    config.writeEntry( "FileManagerCommand", DEFAULT_FILEMGR_COMMAND );
+    mStd.writeDefaultFileManager();
   }
   config.sync();
 }
@@ -201,21 +197,14 @@ void KDFConfigWidget::loadSettings( void )
   KConfig &config = *kapp->config();
   config.setGroup("KDFConfig");
 
-  if (GUI) 
+  if( GUI ) 
   {
-    if( isTopLevel ) 
-    {
-      //int appWidth=config->readNumEntry("Width",width());
-      //int appHeight=config->readNumEntry("Height",height());
-      //resize(appWidth,appHeight);
-    }
-    mScroll->setValue(config.readNumEntry("UpdateFrequency",DEFAULT_FREQ));
-    mPopupFullCheck->setChecked(config.readBoolEntry("PopupIfFull",TRUE));
-    mOpenMountCheck->setChecked(config.readBoolEntry("OpenFileMgrOnMount",
-						     FALSE));
-    mLCD->display(mScroll->value());
-    mFileManagerEdit->setText( config.readEntry( "FileManagerCommand",
-						 DEFAULT_FILEMGR_COMMAND));
+    mStd.updateConfiguration();
+    mScroll->setValue( mStd.updateFrequency() );
+    mLCD->display( mStd.updateFrequency() );
+    mPopupFullCheck->setChecked( mStd.popupIfFull() );
+    mOpenMountCheck->setChecked( mStd.openFileManager() );
+    mFileManagerEdit->setText( mStd.fileManager() );
 
     QListViewItem *item = mList->firstChild();
     if( item != 0 )
@@ -232,10 +221,12 @@ void KDFConfigWidget::loadSettings( void )
 
 void KDFConfigWidget::defaultsBtnClicked( void )
 {
-  mScroll->setValue( DEFAULT_FREQ );
-  mFileManagerEdit->setText( DEFAULT_FILEMGR_COMMAND );
-  mPopupFullCheck->setChecked( true );
-  mOpenMountCheck->setChecked( false );
+  mStd.setDefault();
+  mScroll->setValue( mStd.updateFrequency() );
+  mLCD->display( mStd.updateFrequency() );
+  mPopupFullCheck->setChecked( mStd.popupIfFull() );
+  mOpenMountCheck->setChecked( mStd.openFileManager() );
+  mFileManagerEdit->setText( mStd.fileManager() );
 
   QListViewItem *item = mList->firstChild();
   if( item != 0 )
@@ -258,9 +249,3 @@ void KDFConfigWidget::toggleListText( QListViewItem *item, const QPoint &,
 
 
 #include "kdfconfig.moc"
-
-
-
-
-
-

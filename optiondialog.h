@@ -34,7 +34,7 @@ class COptionDialog : public KDialogBase
     ~COptionDialog( void );
 
   protected slots:
-    virtual void slotOK( void );
+    virtual void slotOk( void );
     virtual void slotApply( void );
 
   signals:

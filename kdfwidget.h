@@ -29,15 +29,16 @@
 #include <qglobal.h>
 #include <qstring.h>
 
-
 #include "disks.h"
 #include "disklist.h"
 #include "mntconfig.h"
 #include "kdfconfig.h"
+#include "stdoption.h"
 
 class CListView;
 class COptionDialog;
 class QListViewItem;
+class QTimer;
 class KPopupMenu;
 
 /**************************************************************/
@@ -65,12 +66,7 @@ class CTabEntry
 };
 
 
-
-
-
-
-
-class KDFWidget : public KConfigWidget
+class KDFWidget : public QWidget
 {
   Q_OBJECT
 
@@ -92,6 +88,7 @@ class KDFWidget : public KConfigWidget
     ~KDFWidget( void );
 
   public slots:
+    void settingsChanged( void );
     void loadSettings( void );
     void applySettings( void );
     void updateDF( void );
@@ -103,36 +100,31 @@ class KDFWidget : public KConfigWidget
     void rightButtonPressed( QListViewItem *item, const QPoint &p, int );
     void rightButtonClicked( QListViewItem *item, const QPoint &p, int );
     void popupMenu( QListViewItem *item, const QPoint &p );
-    void setUpdateFreq( int freq );
+    void setUpdateFrequency( int frequency );
+    void columnSizeChanged( int column, int, int newSize );
+    void updatePixmaps( void );
     void invokeHTMLHelp( void );
 
   protected:
-    void paintEvent( QPaintEvent * );
     void timerEvent( QTimerEvent * );
     void closeEvent( QCloseEvent * );
 
   private:
     void makeColumns( void );
-    void updatePixmaps( void );
     DiskEntry *selectedDisk( QListViewItem *item=0 );
 
   private:
-    bool        readingDF;
-
+    bool readingDF;
     QArray<CTabEntry*> mTabProp;
-
     CListView     *mList;
     COptionDialog *mOptionDialog;
     KPopupMenu    *mPopup;
+    QTimer        *mTimer;
+    int           mBarColumn;
 
     DiskList    diskList;
-    int         updateFreq;
-    QString     fileMgr;
-
-    bool mIsTopLevel;
-    bool mPopupIfFull;
-    bool openFileMgrOnMount;
- 
+    bool       mIsTopLevel;
+    CStdOption mStd;
 };
 
 

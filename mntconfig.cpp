@@ -55,7 +55,7 @@ static bool GUI;
 #endif
 
 MntConfigWidget::MntConfigWidget(QWidget *parent, const char *name, bool init)
-  : KConfigWidget(parent, name)
+  : QWidget(parent, name)
 {
   mInitializing = false;
 
@@ -65,7 +65,6 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, const char *name, bool init)
     //tabList fillup waits until disklist.readDF() is done...
     mDiskList.readFSTAB();
     mDiskList.readDF();
-    //mDiskList.readFSTAB();
     mInitializing = true;
     connect( &mDiskList,SIGNAL(readDFDone()),this,SLOT(readDFDone()));
 

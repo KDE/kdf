@@ -47,7 +47,7 @@ COptionDialog::~COptionDialog( void )
 }
 
 
-void COptionDialog::slotOK( void )
+void COptionDialog::slotOk( void )
 {
   slotApply();
   accept();

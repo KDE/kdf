@@ -25,8 +25,8 @@
 #ifndef __MNTCONFIG_H__
 #define __MNTCONFIG_H__
 
+#include <kcmodule.h>
 #include <kconfig.h>
-#include <kcontrol.h>
 #include <kiconloader.h>
 
 #include "disks.h"
@@ -42,7 +42,7 @@ class QListViewItem;
 
 /**************************************************************/
 
-class MntConfigWidget : public KConfigWidget
+class MntConfigWidget : public QWidget
 {
   Q_OBJECT
 

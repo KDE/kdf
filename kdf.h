@@ -33,12 +33,15 @@ class KDFTopLevel : public KTMainWindow
 {
  Q_OBJECT
 
-public:
-  KDFTopLevel(QWidget *parent=0, const char *name=0);
-  ~KDFTopLevel() { };
+  public:
+    KDFTopLevel(QWidget *parent=0, const char *name=0);
+    ~KDFTopLevel() { };
 
-protected:
-  KDFWidget* kdf;
+  protected slots:
+    virtual bool queryExit( void );
+
+  protected:
+    KDFWidget* kdf;
 };
 
 #endif

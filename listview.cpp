@@ -73,7 +73,9 @@ const QPixmap &CListView::icon( const QString &iconName, bool drawBorder )
   if( pix == 0 )
   {
     KIconLoader &loader = *KGlobal::iconLoader();
-    pix = new QPixmap( loader.loadIcon( iconName, false ) );
+    
+    pix = new QPixmap( 
+      loader.loadApplicationIcon( iconName, KIconLoader::Small, 0, false ) );
     if( drawBorder == true )
     {
       QBitmap *bm = new QBitmap(*(pix->mask()));
@@ -81,13 +83,13 @@ const QPixmap &CListView::icon( const QString &iconName, bool drawBorder )
       {
 	QPainter qp(bm);
 	qp.setPen(QPen(white,1));
-	qp.drawRect(0,0,bm->width(),bm->height()-2);
+	qp.drawRect(0,0,bm->width(),bm->height());
 	qp.end();
 	pix->setMask(*bm);
       }
       QPainter qp(pix); 
       qp.setPen(QPen(red,1));
-      qp.drawRect(0,0,pix->width(),pix->height()-2);
+      qp.drawRect(0,0,pix->width(),pix->height());
       qp.end();
     }
     mPixDict.replace( iconName, pix );

@@ -27,7 +27,8 @@
 
 #include <qarray.h>
 #include <qstring.h>
-#include <kcontrol.h>
+
+#include <stdoption.h>
 
 class QCheckBox;
 class QLabel;
@@ -38,8 +39,10 @@ class QScrollBar;
 
 class CListView;
 
-class KDFConfigWidget : public KConfigWidget
+class KDFConfigWidget : public QWidget
 {
+  Q_OBJECT
+
   class CTabName
   {
     public:
@@ -54,8 +57,6 @@ class KDFConfigWidget : public KConfigWidget
       QString mRes;
       QString mName;
   };
-
-  Q_OBJECT
 
   public:
     KDFConfigWidget( QWidget *parent=0, const char *name=0, bool init=false);
@@ -80,8 +81,7 @@ class KDFConfigWidget : public KConfigWidget
     QLineEdit  *mFileManagerEdit;
     QCheckBox  *mOpenMountCheck;
     QCheckBox  *mPopupFullCheck;
-    bool       isTopLevel;
- 
+    CStdOption mStd; 
 };
 
 
