@@ -42,48 +42,27 @@
 DiskList::DiskList(QObject *parent, const char *name)
     : QObject(parent,name)
 {
-  /*
-#ifdef _OS_LINUX_
-  kdDebug() << "_OS_LINUX_" << endl;
-#endif
-#ifdef _OS_FREEBSD_
-  kdDebug() << "_OS_FREEBSD_" << endl;
-#endif
-#ifdef _OS_SUN_
-  kdDebug() << "_OS_SUN_" << endl;
-#endif
-#ifdef _OS_SOLARIS_
-  kdDebug() << "_OS_SOLARIS_" << endl;
-#endif
-#ifdef _OS_HPUX_
-  kdDebug() << "_OS_HPUX_" << endl;
-#endif
-#ifdef _OS_UNIX_
-  kdDebug() << "_OS_UNIX_" << endl;
-#endif
-  */
- updatesDisabled = false;
+   kdDebug() << k_funcinfo << endl;
 
-if (NO_FS_TYPE)
-  kdDebug() << "df gives no FS_TYPE" << endl;
+   updatesDisabled = false;
+
+   if (NO_FS_TYPE) {
+      kdDebug() << "df gives no FS_TYPE" << endl;
+   }
 
    disks = new Disks;
    disks->setAutoDelete(TRUE);
 
    // BackgroundProcesses ****************************************
-      dfProc = new KProcess(); Q_CHECK_PTR(dfProc);
-       connect( dfProc, SIGNAL(receivedStdout(KProcess *, char *, int) ),
-           this, SLOT (receivedDFStdErrOut(KProcess *, char *, int)) );
-       //connect( dfProc, SIGNAL(receivedStderr(KProcess *, char *, int) ),
-       //  this, SLOT (receivedDFStdErrOut(KProcess *, char *, int)) );
-       connect(dfProc,SIGNAL(processExited(KProcess *) ),
-              this, SLOT(dfDone() ) );
+   dfProc = new KProcess(); Q_CHECK_PTR(dfProc);
+   connect( dfProc, SIGNAL(receivedStdout(KProcess *, char *, int) ),
+      this, SLOT (receivedDFStdErrOut(KProcess *, char *, int)) );
+   connect(dfProc,SIGNAL(processExited(KProcess *) ),
+      this, SLOT(dfDone() ) );
 
-       readingDFStdErrOut=FALSE;
-       config = kapp->config();
-       loadSettings();
-       //readFSTAB();
-       //readDF();
+   readingDFStdErrOut=FALSE;
+   config = kapp->config();
+   loadSettings();
 }
 
 
@@ -92,6 +71,7 @@ if (NO_FS_TYPE)
 **/
 DiskList::~DiskList()
 {
+   kdDebug() << k_funcinfo << endl;
 }
 
 /**
@@ -107,6 +87,8 @@ void DiskList::setUpdatesDisabled(bool disable)
 **/
 void DiskList::applySettings()
 {
+  kdDebug() << k_funcinfo << endl;
+
   QString oldgroup=config->group();
   config->setGroup("DiskList");
   QString key;
@@ -134,6 +116,8 @@ void DiskList::applySettings()
 **/
 void DiskList::loadSettings()
 {
+  kdDebug() << k_funcinfo << endl;
+
   config->setGroup("DiskList");
   QString key;
   DiskEntry *disk;
@@ -186,6 +170,8 @@ return rc;
 **/
 int DiskList::readFSTAB()
 {
+  kdDebug() << k_funcinfo << endl;
+
   if (readingDFStdErrOut || dfProc->isRunning()) return -1;
 
 QFile f(FSTAB);
@@ -247,6 +233,8 @@ QFile f(FSTAB);
 **/
 void DiskList::receivedDFStdErrOut(KProcess *, char *data, int len )
 {
+  kdDebug() << k_funcinfo << endl;
+
 
   /* ATTENTION: StdERR no longer connected to this...
    * Do we really need StdErr?? on HP-UX there was eg. a line
@@ -264,6 +252,8 @@ void DiskList::receivedDFStdErrOut(KProcess *, char *data, int len )
 **/
 int DiskList::readDF()
 {
+  kdDebug() << k_funcinfo << endl;
+
   if (readingDFStdErrOut || dfProc->isRunning()) return -1;
   setenv("LANG", "en_US", 1);
   setenv("LC_ALL", "en_US", 1);
@@ -284,6 +274,8 @@ int DiskList::readDF()
 **/
 void DiskList::dfDone()
 {
+  kdDebug() << k_funcinfo << endl;
+
   if (updatesDisabled)
       return; //Don't touch the data for now..
 	  
@@ -369,6 +361,8 @@ void DiskList::dfDone()
 
 void DiskList::deleteAllMountedAt(const QString &mountpoint)
 {
+  kdDebug() << k_funcinfo << endl;
+
 
     for ( DiskEntry *item  = disks->first(); item;  )
     {
@@ -386,6 +380,8 @@ void DiskList::deleteAllMountedAt(const QString &mountpoint)
 **/
 void DiskList::replaceDeviceEntry(DiskEntry *disk)
 {
+  kdDebug() << k_funcinfo << endl;
+
   //
   // The 'disks' may already already contain the 'disk'. If it do
   // we will replace some data. Otherwise 'disk' will be added to the list

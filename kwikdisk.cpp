@@ -1,7 +1,7 @@
 /*
   kwikdisk.cpp - KDiskFree
 
-  written 1999 by Michael Kropfberger <michael.kropfberger@gmx.net>
+  Copyright (C) 1999 by Michael Kropfberger <michael.kropfberger@gmx.net>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -178,6 +178,8 @@ DockWidget::DockWidget(QWidget *parent, const char *name)
   : QLabel(parent,name), mPopupMenu(0), mOptionDialog(0), mReadingDF(false),
     mDirty(true)
 {
+  kdDebug() << k_funcinfo << endl;
+
   connect( &mDiskList, SIGNAL(readDFDone()), this, SLOT(updateDFDone()) );
   connect( &mDiskList , SIGNAL(criticallyFull(DiskEntry*)),
            this, SLOT(criticallyFull(DiskEntry*)) );
@@ -187,6 +189,8 @@ DockWidget::DockWidget(QWidget *parent, const char *name)
 
 DockWidget::~DockWidget( void )
 {
+  kdDebug() << k_funcinfo << endl;
+
   delete mPopupMenu;
 }
 
@@ -197,6 +201,8 @@ DockWidget::~DockWidget( void )
 **/
 void DockWidget::loadSettings( void )
 {
+  kdDebug() << k_funcinfo << endl;
+
   mStd.updateConfiguration();
   setUpdateFrequency( mStd.updateFrequency() );
 }
@@ -207,6 +213,8 @@ void DockWidget::loadSettings( void )
 **/
 void DockWidget::criticallyFull( DiskEntry *disk )
 {
+  kdDebug() << k_funcinfo << endl;
+
   if( mStd.popupIfFull() == true )
   {
     QString msg = i18n("Device [%1] on [%2] is getting critically full!").
@@ -219,6 +227,8 @@ void DockWidget::criticallyFull( DiskEntry *disk )
 
 DiskEntry *DockWidget::selectedDisk( void )
 {
+  kdDebug() << k_funcinfo << endl;
+
   if( mPopupMenu == 0 || mPopupMenu->activeIndex() == -1 )
   {
     return( 0 );
@@ -239,6 +249,8 @@ DiskEntry *DockWidget::selectedDisk( void )
 **/
 void DockWidget::setUpdateFrequency(int frequency )
 {
+  kdDebug() << k_funcinfo << endl;
+
   //
   // Kill current timer and restart it if the frequency is
   // larger than zero.
@@ -263,6 +275,8 @@ void DockWidget::timerEvent(QTimerEvent *)
 
 void DockWidget::startKDF( void )
 {
+  kdDebug() << k_funcinfo << endl;
+
   KRun::runCommand("kdf");
 }
 
@@ -282,6 +296,8 @@ void DockWidget::mousePressEvent( QMouseEvent * )
 
 void DockWidget::sysCallError( DiskEntry *disk, int err_no )
 {
+  kdDebug() << k_funcinfo << endl;
+
   if( err_no != 0 )
   {
     KMessageBox::sorry( this, disk->lastSysError() );
@@ -294,6 +310,8 @@ void DockWidget::sysCallError( DiskEntry *disk, int err_no )
 **/
 void DockWidget::updateDF( void )
 {
+  kdDebug() << k_funcinfo << endl;
+
   mReadingDF = true;
   mDiskList.readFSTAB();
   mDiskList.readDF();
@@ -302,6 +320,8 @@ void DockWidget::updateDF( void )
 
 void DockWidget::toggleMount( void )
 {
+  kdDebug() << k_funcinfo << endl;
+
   kdDebug() << "toggleMount" << endl;
 
   DiskEntry *disk = selectedDisk();
@@ -339,6 +359,8 @@ void DockWidget::toggleMount( void )
 
 void DockWidget::updateDFDone( void )
 {
+  kdDebug() << k_funcinfo << endl;
+
   mReadingDF = false;
   mDirty     = false;
 
@@ -481,6 +503,8 @@ void DockWidget::quit( void )
 KwikDiskTopLevel::KwikDiskTopLevel(QWidget *, const char *name)
   : KMainWindow(0, name)
 {
+  kdDebug() << k_funcinfo << endl;
+
   setPlainCaption("kwikdisk");
 
   mDockIcon = new DockWidget(this,"docked_icon");
@@ -493,6 +517,8 @@ KwikDiskTopLevel::KwikDiskTopLevel(QWidget *, const char *name)
 
 KwikDiskTopLevel::~KwikDiskTopLevel( void )
 {
+  kdDebug() << k_funcinfo << endl;
+
   delete mDockIcon;
 }
 
