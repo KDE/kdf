@@ -57,7 +57,7 @@ QString KDiskFreeWidget::quickHelp() const
 
 extern "C"
 {
-  KCModule* create_kdf( QWidget *parent, const char * /*name*/ )
+  KDE_EXPORT KCModule* create_kdf( QWidget *parent, const char * /*name*/ )
   {
     return new KDiskFreeWidget( parent , "kdf" );
   }
