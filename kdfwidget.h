@@ -100,7 +100,9 @@ class KDFWidget : public KConfigWidget
   
   private slots:
     void criticallyFull( DiskEntry *disk );
-    void popupMenu( QListViewItem *item, const QPoint &, int column );
+    void rightButtonPressed( QListViewItem *item, const QPoint &p, int );
+    void rightButtonClicked( QListViewItem *item, const QPoint &p, int );
+    void popupMenu( QListViewItem *item, const QPoint &p );
     void setUpdateFreq( int freq );
     void invokeHTMLHelp( void );
 

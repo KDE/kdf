@@ -37,6 +37,7 @@
 #include <qpaintdevice.h>
 
 #include <kapp.h> 
+#include <kcmenumngr.h>
 #include <kcontrol.h>
 #include <kglobal.h>
 #include <kiconloader.h>
@@ -92,8 +93,19 @@ KDFWidget::KDFWidget( QWidget *parent, const char *name, bool init )
     mList->setFrameStyle( QFrame::WinPanel + QFrame::Sunken );
     mList->setShowSortIndicator(true);
     connect( mList, 
+      SIGNAL( rightButtonPressed( QListViewItem *, const QPoint &, int )),
+      this, SLOT( rightButtonPressed( QListViewItem *, const QPoint &, int )));
+    connect( mList, 
+      SIGNAL( rightButtonClicked( QListViewItem *, const QPoint &, int )),
+      this, SLOT( rightButtonClicked( QListViewItem *, const QPoint &, int )));
+
+
+    /*
+    connect( mList, 
       SIGNAL( rightButtonClicked( QListViewItem *, const QPoint &, int )),
       this, SLOT( popupMenu( QListViewItem *, const QPoint &, int )));
+    */
+
     makeColumns();
 
     mIsTopLevel = QString(parent->className()) == "KDFTopLevel" ? true : false;
@@ -367,12 +379,29 @@ DiskEntry *KDFWidget::selectedDisk( QListViewItem *item )
 
   return(0);
 }
-  
+
+void KDFWidget::rightButtonPressed( QListViewItem *item, const QPoint &p, int )
+{
+  if( KContextMenuManager::showOnButtonPress() == true )
+  {
+    popupMenu( item, p );
+  }
+}
+
+
+void KDFWidget::rightButtonClicked( QListViewItem *item, const QPoint &p, int )
+{
+  if( KContextMenuManager::showOnButtonPress() == false )
+  {
+    popupMenu( item, p );
+  }
+}
+
 
 /**************************************************************************
   * pops up and asks for mount/umount right-clicked device
 **/
-void KDFWidget::popupMenu( QListViewItem *item, const QPoint &p, int )
+void KDFWidget::popupMenu( QListViewItem *item, const QPoint &p )
 {
   DiskEntry *disk = selectedDisk( item );
   if( disk == 0 )
