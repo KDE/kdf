@@ -77,8 +77,8 @@ class CListViewItem : public QListViewItem
   public:
     CListViewItem ( CListView * parent, QListViewItem * after );
  
-    virtual QString key ( int column, bool ascending) const;
-
+    virtual int compare ( QListViewItem* i, int col, bool) const;
+    	
     void    setKeys ( int kb_size, int kb_avail, float percent_full ) ;
 
   private:

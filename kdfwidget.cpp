@@ -67,30 +67,26 @@ CListViewItem::CListViewItem( CListView * parent, QListViewItem * after )
 //    2. a sufficient number of leading blanks
 // This ensures that the lexical string comparison gives numerical order.
 
-QString CListViewItem::key ( int column, bool ) const
+int CListViewItem::compare ( QListViewItem *i, int column, bool ) const
 {
   QString tmp;
 
+  CListViewItem *c = static_cast<CListViewItem*>(i);
+
   switch (column) {
   case KDFWidget::sizeCol:
-    tmp.sprintf("%10d",size);
-    break;
+    return (size==c->size) ? 0 : (size<c->size) ? -1 : 1;
 
   case KDFWidget::freeCol:
-    tmp.sprintf("%10d",avail);
-    break;
+    return (avail==c->avail) ? 0 : (avail<c->avail) ? -1 : 1;
 
   case KDFWidget::fullCol:
   case KDFWidget::usageCol:
-    tmp.sprintf("%7.2f",full);
-    break;
+    return (full==c->full) ? 0 : (full<c->full) ? -1 : 1;
 
   default:
-    tmp = text(column);
-    break;
+    return key(column,true).compare(i->key(column,true));
   }
-
-  return tmp;
 }
 
 void CListViewItem::setKeys (int kb_size, int kb_avail, float percent_full)
