@@ -1,6 +1,5 @@
 [Desktop Entry]
 Name=KwikDisk
-Name[af]=KWIKDISK
 Name[da]=Kwikdisk
 Name[eo]=Diskokroĉilo
 Name[et]=Ketaste ühendamine
@@ -9,11 +8,11 @@ Name[hu]=KwikDisk lemezkezelő
 Name[is]=Diskatól
 Name[ja]=マウントツール
 Name[sv]=Snabbdisk
+Name[xh]=KwikDiski
 Exec=kwikdisk
 Icon=kwikdisk
 Type=Application
 Comment=Docks and allows easy mounts/umounts from the panel
-Comment[af]=MEER VAS EN LAAT TOE MAKLIKE KOPPEL/uKOPPEL VAN DIE PANEEL
 Comment[az]=Panele hopdurulan, asandca bağlama/ayırma əməliyyatı edilməsini edər
 Comment[bg]=Позволява лесно монтиране и демонтиране на файловите системи от панела
 Comment[br]=Ensoc'h ha aesa marc'haÃ±/divarc'haÃ± adalek ar banell
@@ -56,6 +55,7 @@ Comment[ta]=ÀÄ¸ò¾¢Ä¢ÕóÐ ±Ç¢¾¡¸ ²üÈõ/­Èì¸õ «ÛÁ¾¢ì
 Comment[tr]=Panele gömülür, kolayca bağlama/çözme işlemi yapılmasını sağlar
 Comment[uk]=Швартується у панелі та дозволяє легко монтувати та розмонтовувати пристрої
 Comment[vi]=Cắt(dock) và cho phép bạn dềEdàng moutn/umount từ panel này 
+Comment[xh]=Yenza umkhambi kwaye ivumela unyuko olulula/unyuko luka u ukusuka kwiqela labantu benjongo ethile
 Comment[zh_CN.GB2312]=嵌入在面板上, 方便挂接拆卸文件系统
 Comment[zh_TW.Big5]=嵌入並允許經由控制板簡單地掛載/卸載
 Terminal=0
