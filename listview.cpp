@@ -95,6 +95,8 @@ const QPixmap &CListView::icon( const QString &iconName, bool drawBorder )
 	qp.setPen(QPen(red,1));
 	qp.drawRect(0,0,pix->width(),pix->height());
 	qp.end();
+        delete bm;
+
       }
     }
     mPixDict.replace( iconName, pix );
