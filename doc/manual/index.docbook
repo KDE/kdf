@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
-<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
-  <!ENTITY kappname "&kdf;">
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kdiskfree;">
   <!ENTITY package "kdeutils">
   <!ENTITY % English "INCLUDE" > <!-- change language only here -->
   <!ENTITY % addindex "IGNORE">
@@ -9,7 +9,7 @@
 <book lang="&language;">
 
 <bookinfo>
-<title>The &kdf; Handbook</title>
+<title>The &kdiskfree; Handbook</title>
 
 <authorgroup>
 <author>
@@ -45,7 +45,7 @@
 <date>2001-10-06</date>
 <releaseinfo>0.00.50</releaseinfo>
 
-<abstract><para>&kdf; displays available file devices, along with
+<abstract><para>&kdiskfree; displays available file devices, along with
 information about them.</para>
 
 </abstract>
@@ -65,23 +65,23 @@ information about them.</para>
 <chapter id="introduction">
 <title>Introduction</title>
 
-<para>&kdf; displays the available file devices (hard drive
+<para>&kdiskfree; displays the available file devices (hard drive
 partitions, floppy and &CD; drives, &etc;) along with information on
 their capacity, free space, type and mount point. It also allows you
 to mount and unmount drives and view them in a file manager.</para>
 
-<para>&kdf; is similar to the &kcontrol; DiskFree module <!--
+<para>&kdiskfree; is similar to the &kcontrol; DiskFree module <!--
 (<application>kcmdf</application>) -->, but takes up less screen
-space. It is useful if you want to keep a &kdf; window available at
+space. It is useful if you want to keep a &kdiskfree; window available at
 all times.</para>
 
 </chapter>
 
 <chapter id="using-kdf">
-<title>Using &kdf;</title>
+<title>Using &kdiskfree;</title>
 
 <sect1 id="starting-kdf">
-<title>Starting &kdf;</title> 
+<title>Starting &kdiskfree;</title> 
 
 <para>Type <userinput><command>kdf</command></userinput> at a command
 prompt or select <guimenuitem>Disk Free</guimenuitem> from the
@@ -95,17 +95,17 @@ can be listed by entering <userinput><command>kdf</command>
 <sect1 id="main-window">
 <title>The Main window</title>
 
-<para>The main &kdf; window displays the available file devices.</para>
+<para>The main &kdiskfree; window displays the available file devices.</para>
 
 <para>Normally, the following pieces of information are included:</para>
 <screenshot>
-<screeninfo>&kdf; Screen</screeninfo>
+<screeninfo>&kdiskfree; Screen</screeninfo>
         <mediaobject>
           <imageobject>
             <imagedata fileref="kdf.png" format="PNG"/>
           </imageobject>
           <textobject>
-            <phrase>&kdf; Screen</phrase>
+            <phrase>&kdiskfree; Screen</phrase>
           </textobject>
         </mediaobject>
 </screenshot>
@@ -141,7 +141,7 @@ graphical view of the files on that device.</para>
 </sect1>
 
 <sect1 id="the-menus">
-<title>The &kdf; menubar</title>
+<title>The &kdiskfree; menubar</title>
 
 <sect2>
 <title>The <guimenu>File</guimenu> Menu</title>
@@ -166,7 +166,7 @@ status</action></para></listitem>
 <guimenu>File</guimenu>
 <guimenuitem>Quit</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Closes</action> &kdf;</para></listitem>
+<listitem><para><action>Closes</action> &kdiskfree;</para></listitem>
 </varlistentry>
 </variablelist>
 
@@ -185,13 +185,13 @@ status</action></para></listitem>
 </term>
 <listitem><para><action>Opens a configuration dialog.</action></para>
 <screenshot>
-<screeninfo>Configure &kdf; Screen</screeninfo>
+<screeninfo>Configure &kdiskfree; Screen</screeninfo>
         <mediaobject>
           <imageobject>
             <imagedata fileref="kdf_config.png" format="PNG"/>
           </imageobject>
           <textobject>
-            <phrase>Configure &kdf; Screen</phrase>
+            <phrase>Configure &kdiskfree; Screen</phrase>
           </textobject>
         </mediaobject>
 </screenshot>
@@ -204,7 +204,7 @@ and <guilabel>Mount Commands</guilabel></para>
 <guilabel>visible</guilabel> or <guilabel>hidden</guilabel> to turn
 display of an data field on or off.</para> <para>Change the update
 frequency by moving the slider. The value in the box on the left is
-the interval (in seconds) between updates of the &kdf; display to
+the interval (in seconds) between updates of the &kdiskfree; display to
 reflect the current status.</para> <para>The FileManager setting
 controls the command executed when the <guimenuitem>Open
 Filemanager</guimenuitem> pop-up menu item is selected.</para>
@@ -241,7 +241,7 @@ command prompt).</para></listitem>
 <chapter id="credits">
 <title>Credits and License</title>
 
-<para>&kdf;</para>
+<para>&kdiskfree;</para>
 
 <para>Program copyright 1998-2000 Michael Kropfberger
 <email>mkropfbe@edu.uni-klu.ac.at</email></para>
@@ -258,7 +258,7 @@ command prompt).</para></listitem>
 <title>Installation</title>
 
 <sect1 id="getting-and-installing-kdf">
-<title>How to obtain and install &kdf;</title>
+<title>How to obtain and install &kdiskfree;</title>
 
 &install.intro.documentation;
 &install.compile.documentation;
