@@ -26,7 +26,6 @@
 #include <qintdict.h>
 #include <qtabdialog.h>
 
-#include <kapp.h>
 #include <kwm.h>
 #include <ktopwidget.h>
 
@@ -94,7 +93,7 @@ private slots:
    void toggleMount();
    void settingsBtnClicked();
    void invokeHTMLHelp();
-   void quit() { kapp->quit(); };
+   void quit();
    void startKDF();
    void updateDF();
    void updateDFDone();

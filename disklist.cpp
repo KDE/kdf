@@ -1,6 +1,8 @@
 /*
  * disklist.cpp
  *
+ * $Id$
+ *
  * Copyright (c) 1999 Michael Kropfberger <michael.kropfberger@gmx.net>
  *
  * Requires the Qt widget libraries, available at no cost at
@@ -38,8 +40,6 @@
 #include <kiconloader.h>
 
 #include "disklist.h"
-#include "disklist.moc"
-
 
 #define BLANK ' '
 #define DELIMITER '#'
@@ -419,4 +419,6 @@ void DiskList::replaceDeviceEntry(DiskEntry *disk)
   }//if 
 
 }
+
+#include "disklist.moc"
 

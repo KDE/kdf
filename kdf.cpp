@@ -1,32 +1,34 @@
 /*
-  kdf.cpp - KDiskFree
+ * $Id$
+ *
+ * kdf.cpp - KDiskFree
+ *
+ * written 1998-1999 by Michael Kropfberger <michael.kropfberger@gmx.net>
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ *  
+ */
 
-  written 1998-1999 by Michael Kropfberger <michael.kropfberger@gmx.net>
-  
-  This program is free software; you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
-  the Free Software Foundation; either version 2 of the License, or
-  (at your option) any later version.
-  
-  This program is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  GNU General Public License for more details.
-  
-  You should have received a copy of the GNU General Public License
-  along with this program; if not, write to the Free Software
-  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
-   
-  */
-
+#include <qlabel.h>
 
 #include <kapp.h>
+#include <klocale.h>
 #include <kwm.h>
 #include <kiconloader.h>
-#include <qlabel.h>
-#include "kdf.h"
-#include "kdf.moc"
 
+#include "kdf.h"
 
 /***************************************************************/
 KDFTopLevel::KDFTopLevel(QWidget *, const char *name=0)
@@ -37,17 +39,17 @@ KDFTopLevel::KDFTopLevel(QWidget *, const char *name=0)
    kdf->loadSettings();
 
    QPopupMenu *file = new QPopupMenu; CHECK_PTR(file);
-   file->insertItem( klocale->translate( "&Update" )
+   file->insertItem( i18n( "&Update" )
                         , kdf, SLOT(updateDF()) );
-   file->insertItem( klocale->translate( "&Settings" )
+   file->insertItem( i18n( "&Settings" )
                         , kdf, SLOT(settingsBtnClicked()) );
    file->insertSeparator();
-   file->insertItem( klocale->translate( "&Quit" ), kapp, SLOT(quit()) );
-   menu->insertItem( klocale->translate( "&File" ), file );
+   file->insertItem( i18n( "&Quit" ), kapp, SLOT(quit()) );
+   menu->insertItem( i18n( "&File" ), file );
 
-   QPopupMenu *help = kapp->getHelpMenu(TRUE,klocale->translate(
+   QPopupMenu *help = kapp->getHelpMenu(TRUE, i18n(
         "KDiskFree\n\n (C) 1998,1999 by Michael Kropfberger (michael.kropfberger@gmx.net)") );
-   menu->insertItem( klocale->translate( "&Help" ), help );  
+   menu->insertItem( i18n( "&Help" ), help );  
 
    menu->show();
    setMenu(menu);
@@ -60,7 +62,7 @@ KDFTopLevel::KDFTopLevel(QWidget *, const char *name=0)
 /***************************************************************/
 int main(int argc, char **argv)
 {
-  KApplication app(argc, argv,"kdf");
+  KApplication app(argc, argv, "kdf");
   //SessionManagement
     if (app.isRestored()) {
       int n = 1;
@@ -82,3 +84,5 @@ int main(int argc, char **argv)
 
   return app.exec();
 };
+
+#include "kdf.moc"

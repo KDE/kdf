@@ -23,11 +23,10 @@
 #include <stdio.h>
 
 #include "kcmdf.h"
-#include "kcmdf.moc"
 
-#define KDFTITLE klocale->translate("&KDiskFree")
-#define KCWTITLE klocale->translate("&GeneralSettings")
-#define MCWTITLE klocale->translate("(U)&MountCommands")
+#define KDFTITLE i18n("&KDiskFree")
+#define KCWTITLE i18n("&GeneralSettings")
+#define MCWTITLE i18n("(U)&MountCommands")
 
 KDiskFree::KDiskFree(int &argc, char **argv, const char *name)
   : KControlApplication(argc, argv, name)
@@ -55,7 +54,7 @@ KDiskFree::KDiskFree(int &argc, char **argv, const char *name)
 	    this,SLOT(selected(const char *)) );
         dialog->show();
       } else {
-          fprintf(stderr, klocale->translate("usage: kcmdf [-init|kdf]\n"));
+          fprintf(stderr, i18n("usage: kcmdf [-init|kdf]\n"));
 	  justInit = TRUE;
       }
     }
@@ -100,13 +99,14 @@ void KDiskFree::selected(const char * tab) {
 int main(int argc, char **argv)
 {
   KDiskFree app(argc, argv,"kdf");
-  app.setTitle(klocale->translate("KDiskFree"));
-  if (app.runGUI())
+  app.setTitle(i18n("KDiskFree"));
+  if (app.runGUI()) {
      return app.exec();
-  else
-    {
+  } else {
       app.init();
       return 0;
-    }
+  }
 }
+
+#include "kcmdf.moc"
 

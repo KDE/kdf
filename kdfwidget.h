@@ -75,8 +75,7 @@ private slots:
          { toggleColumnVisibility(column); }; //overloaded
    void popupMenu(int row,int column);
    void setUpdateFreq(int freq);
-   void invokeHTMLHelp() { kapp->invokeHTMLHelp("kcontrol/kdf/index.html",""); };
-
+   void invokeHTMLHelp();
 
 protected:
   void paintEvent( QPaintEvent * );       

@@ -39,9 +39,8 @@
 #include <kiconloader.h>
 #include <kiconloaderdialog.h>
 #include <kfiledialog.h>
-#include "mntconfig.h"
-#include "mntconfig.moc"
 
+#include "mntconfig.h"
 
 static bool GUI;
 #define NRCOLS 5
@@ -425,4 +424,6 @@ void MntConfigWidget::resizeEvent(QResizeEvent *)
                           ,qleUmnt->width(),qleUmnt->height());
 
 }
+
+#include "mntconfig.moc"
 

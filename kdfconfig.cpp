@@ -1,6 +1,8 @@
 /*
  * kdfconfig.cpp
  *
+ * $Id$
+ *
  * Copyright (c) 1999 Michael Kropfberger <michael.kropfberger@gmx.net>
  *
  * Requires the Qt widget libraries, available at no cost at
@@ -37,16 +39,14 @@
 #include <kmsgbox.h> 
 #include <kiconloader.h>
 #include "kdfconfig.h"
-#include "kdfconfig.moc"
-
 
 #define BLANK ' '
 #define DELIMITER '#'
 #define BORDER 5
 #define PIX_COLUMN 7
 #define FULL_PERCENT 95.0
-#define VISIBLE klocale->translate("visible")
-#define INVISIBLE klocale->translate("invisible")
+#define VISIBLE i18n("visible")
+#define INVISIBLE i18n("invisible")
 
 #define DEFAULT_FREQ 60
 #define DEFAULT_FILEMGR_COMMAND "kfmclient openURL %m"
@@ -66,21 +66,21 @@ KDFConfigWidget::KDFConfigWidget (QWidget * parent, const char *name
 
 
   tabWidths.resize(PIX_COLUMN+1);
-  tabHeaders.append(klocale->translate("Icon") );
+  tabHeaders.append(i18n("Icon") );
   tabWidths[0]=32;
-  tabHeaders.append(klocale->translate("Device") );
+  tabHeaders.append(i18n("Device") );
   tabWidths[1]=80;
-  tabHeaders.append(klocale->translate("Type") );
+  tabHeaders.append(i18n("Type") );
   tabWidths[2]=50;
-  tabHeaders.append(klocale->translate("Size") );
+  tabHeaders.append(i18n("Size") );
   tabWidths[3]=72;
-  tabHeaders.append(klocale->translate("MountPoint") );
+  tabHeaders.append(i18n("MountPoint") );
   tabWidths[4]=90;
-  tabHeaders.append(klocale->translate("Free") );
+  tabHeaders.append(i18n("Free") );
   tabWidths[5]=55;
-  tabHeaders.append(klocale->translate("Full%") );
+  tabHeaders.append(i18n("Full%") );
   tabWidths[6]=70;
-  tabHeaders.append(klocale->translate("UsageBar") );
+  tabHeaders.append(i18n("UsageBar") );
   tabWidths[7]=100;
 
   if (init) {
@@ -93,9 +93,9 @@ KDFConfigWidget::KDFConfigWidget (QWidget * parent, const char *name
       this->setMinimumSize(325,200);
       KIconLoader *loader = kapp->getIconLoader();
 
-      freqLabel = new QLabel( klocale->translate("update frequency (seconds)")
+      freqLabel = new QLabel( i18n("update frequency (seconds)")
                               ,this); CHECK_PTR(freqLabel);
-      fileMgrLabel = new QLabel( klocale->translate("FileManager (e.g. kvt -e mc %m)")
+      fileMgrLabel = new QLabel( i18n("FileManager (e.g. kvt -e mc %m)")
                               ,this); CHECK_PTR(fileMgrLabel);
       freqScroll = new QScrollBar( this ); CHECK_PTR(freqScroll); 
       freqScroll->setOrientation( QScrollBar::Horizontal );
@@ -111,10 +111,10 @@ KDFConfigWidget::KDFConfigWidget (QWidget * parent, const char *name
               freqLCD, SLOT(display(int)) );
       fileMgrEdit = new QLineEdit( this ); CHECK_PTR(fileMgrEdit);
       
-      cbOpenFileMgrOnMount = new QCheckBox(klocale->translate("Open the above filemanager on mount"),this); 
+      cbOpenFileMgrOnMount = new QCheckBox(i18n("Open the above filemanager on mount"),this); 
       CHECK_PTR(cbOpenFileMgrOnMount);
 
-      cbPopupIfFull = new QCheckBox(klocale->translate("Pop up a window when a disk gets critically full"),this); 
+      cbPopupIfFull = new QCheckBox(i18n("Pop up a window when a disk gets critically full"),this); 
       CHECK_PTR(cbPopupIfFull);
  
       QString pcn=parent->className();
@@ -144,7 +144,7 @@ KDFConfigWidget::KDFConfigWidget (QWidget * parent, const char *name
     
       QString s;
       for (int i=0;i<=PIX_COLUMN;i++)
-         s = s + klocale->translate(VISIBLE) + " ";
+         s = s + i18n(VISIBLE) + " ";
       confTabList->appendItem((const char *)s);
       connect(confTabList,SIGNAL(headerClicked(int))
              ,this,SLOT(toggleColumnVisibility(int)) );
@@ -239,9 +239,9 @@ void KDFConfigWidget::loadSettings()
     for (int i=0;i<=PIX_COLUMN;i++) {
       int j=config->readNumEntry(tabHeaders.at(i),tabWidths[i]);
       if (j != 0)
-        confTabList->changeItemPart(klocale->translate(VISIBLE),0,i); 
+        confTabList->changeItemPart(i18n(VISIBLE),0,i); 
       else
-        confTabList->changeItemPart(klocale->translate(INVISIBLE),0,i); 
+        confTabList->changeItemPart(i18n(INVISIBLE),0,i); 
    
     }//for
  }//if GUI
@@ -256,7 +256,7 @@ void KDFConfigWidget::defaultsBtnClicked()
   freqScroll->setValue(DEFAULT_FREQ);
   fileMgrEdit->setText(DEFAULT_FILEMGR_COMMAND);
   for (int i=0;i<=PIX_COLUMN;i++) {
-       confTabList->changeItemPart(klocale->translate(VISIBLE),0,i); 
+       confTabList->changeItemPart(i18n(VISIBLE),0,i); 
   }//for
   this->update();
 }
@@ -269,10 +269,10 @@ void KDFConfigWidget::toggleColumnVisibility(int column)
 {
   //debug("KDFConfigWidget::toggleColumnVisibility: %d",column);
 
-  if(confTabList->text(0,column) == klocale->translate(INVISIBLE) ) {
-    confTabList->changeItemPart(klocale->translate(VISIBLE),0,column); 
+  if(confTabList->text(0,column) == i18n(INVISIBLE) ) {
+    confTabList->changeItemPart(i18n(VISIBLE),0,column); 
   } else {
-    confTabList->changeItemPart(klocale->translate(INVISIBLE),0,column); 
+    confTabList->changeItemPart(i18n(INVISIBLE),0,column); 
   }
   //confTabList->unmarkAll();
   this->update();
@@ -334,3 +334,4 @@ void KDFConfigWidget::resizeEvent(QResizeEvent *)
   // repaint();
 }
 
+#include "kdfconfig.moc"

@@ -1,6 +1,8 @@
 /*
  * kdfwidget.cpp
  *
+ * $Id$
+ *
  * Copyright (c) 1998 Michael Kropfberger <michael.kropfberger@gmx.net>
  *
  * Requires the Qt widget libraries, available at no cost at
@@ -38,16 +40,14 @@
 #include <kmsgbox.h> 
 #include <kiconloader.h>
 #include "kdfwidget.h"
-#include "kdfwidget.moc"
-
 
 #define BLANK ' '
 #define DELIMITER '#'
 #define BORDER 5
 #define PIX_COLUMN 7
 #define FULL_PERCENT 95.0
-#define VISIBLE klocale->translate("visible")
-#define INVISIBLE klocale->translate("invisible")
+#define VISIBLE i18n("visible")
+#define INVISIBLE i18n("invisible")
 
 #define DEFAULT_FREQ 60
 #define DEFAULT_FILEMGR_COMMAND "kfmclient openURL %m"
@@ -74,21 +74,21 @@ KDFWidget::KDFWidget (QWidget * parent, const char *name
            this, SLOT (criticallyFull(DiskEntry*)) );
 
   tabWidths.resize(PIX_COLUMN+1);
-  tabHeaders.append(klocale->translate("Icon") );
+  tabHeaders.append(i18n("Icon") );
   tabWidths[0]=32;
-  tabHeaders.append(klocale->translate("Device") );
+  tabHeaders.append(i18n("Device") );
   tabWidths[1]=80;
-  tabHeaders.append(klocale->translate("Type") );
+  tabHeaders.append(i18n("Type") );
   tabWidths[2]=50;
-  tabHeaders.append(klocale->translate("Size") );
+  tabHeaders.append(i18n("Size") );
   tabWidths[3]=72;
-  tabHeaders.append(klocale->translate("MountPoint") );
+  tabHeaders.append(i18n("MountPoint") );
   tabWidths[4]=90;
-  tabHeaders.append(klocale->translate("Free") );
+  tabHeaders.append(i18n("Free") );
   tabWidths[5]=55;
-  tabHeaders.append(klocale->translate("Full%") );
+  tabHeaders.append(i18n("Full%") );
   tabWidths[6]=70;
-  tabHeaders.append(klocale->translate("UsageBar") );
+  tabHeaders.append(i18n("UsageBar") );
   tabWidths[7]=100;
 
   if (init) {
@@ -265,19 +265,19 @@ void KDFWidget::settingsBtnClicked()
 
     //CONFIGURATION WINDOW
       tabconf=new QTabDialog(); CHECK_PTR(tabconf);
-      tabconf->setCaption(klocale->translate("KDiskFree/KwikDisk Configuration"));
+      tabconf->setCaption(i18n("KDiskFree/KwikDisk Configuration"));
 
       mntconf=new MntConfigWidget(tabconf,"mntconf");CHECK_PTR(mntconf);
       kdfconf=new KDFConfigWidget(tabconf,"kdfconf");CHECK_PTR(kdfconf);
       kdfconf->setMinimumSize(460,200);
-      tabconf->setApplyButton(klocale->translate("&Apply"));
+      tabconf->setApplyButton(i18n("&Apply"));
       connect(tabconf,SIGNAL(applyButtonPressed()),
             this,SLOT(confApplySettings()));
-      tabconf->setCancelButton(klocale->translate("&Cancel"));
+      tabconf->setCancelButton(i18n("&Cancel"));
       connect(tabconf,SIGNAL(cancelButtonPressed()),
             this,SLOT(confLoadSettings()));
-      tabconf->addTab(kdfconf,klocale->translate("&General Settings"));
-      tabconf->addTab(mntconf,klocale->translate("(U)&MountCommands"));
+      tabconf->addTab(kdfconf,i18n("&General Settings"));
+      tabconf->addTab(mntconf,i18n("(U)&MountCommands"));
       tabconf->setMinimumSize(460,200);
    
      tabconf->show();
@@ -338,8 +338,8 @@ void KDFWidget::updateDFDone()
          percS.sprintf("%2.1f%%",disk->percentFull() );
          sizeS=disk->prettyKBSize();
        } else {
-         sizeS=klocale->translate("UNKNOWN");    
-         percS=klocale->translate("UNKNOWN");    
+         sizeS=i18n("UNKNOWN");    
+         percS=i18n("UNKNOWN");    
        }
        icon.sprintf("%s%s%s",disk->iconName().data()
                             ,disk->deviceName().data()
@@ -398,8 +398,8 @@ void KDFWidget::criticallyFull(DiskEntry *disk )
     s.sprintf("Device [%s] on [%s] is getting critically full!",
              disk->deviceName().data(),
              disk->mountPoint().data());
-       KMsgBox::message(this,klocale->translate("KDiskFree"),
-              klocale->translate(s.data())
+       KMsgBox::message(this,i18n("KDiskFree"),
+              i18n(s.data())
                ,KMsgBox::EXCLAMATION);
   }
 }
@@ -452,15 +452,15 @@ void KDFWidget::popupMenu(int row,int column)
                                 //entry found
              tabList->markItem(ipos);
              tabList->changeItemColor(yellow,ipos);
-             tabList->changeItemPart(klocale->translate("WAIT"),ipos,0);
-             tabList->changeItemPart(klocale->translate("MOUNTING!"),ipos,3);
-             tabList->changeItemPart(klocale->translate("MOUNTING!"),ipos,5);
+             tabList->changeItemPart(i18n("WAIT"),ipos,0);
+             tabList->changeItemPart(i18n("MOUNTING!"),ipos,3);
+             tabList->changeItemPart(i18n("MOUNTING!"),ipos,5);
          }//if
          ipos++;
       }//while        
   
       if (!disk->toggleMount())
-         KMsgBox::message(this,klocale->translate("KDiskFree"),
+         KMsgBox::message(this,i18n("KDiskFree"),
               disk->lastSysError(),KMsgBox::STOP);
       else 
         if ((openFileMgrOnMount) && (!disk->mounted())) popupMenu(row,4); 
@@ -601,4 +601,11 @@ void KDFWidget::resizeEvent(QResizeEvent *)
   repaint();
   applySettings();
 }
+
+void KDFWidget::invokeHTMLHelp()
+{
+ kapp->invokeHTMLHelp("kcontrol/kdf/index.html","");
+}
+
+#include "kdfwidget.moc"
 

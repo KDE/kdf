@@ -22,7 +22,6 @@
 #ifndef __KDF_H__
 #define __KDF_H__
 
-#include <kapp.h>
 #include <kwm.h>
 #include <ktopwidget.h>
 #include <kmenubar.h>
@@ -31,13 +30,14 @@
 
 /***************************************************************/
 class KDFTopLevel : public KTopLevelWidget
-{ Q_OBJECT
+{
+ Q_OBJECT
 
 public:
   KDFTopLevel(QWidget *parent=0, const char *name=0);
   ~KDFTopLevel() { };
 
-private:
+protected:
   KDFWidget* kdf;
 };
 

@@ -1,6 +1,8 @@
 /*
   kwikdisk.cpp - KDiskFree
 
+  $Id$
+
   written 1999 by Michael Kropfberger <michael.kropfberger@gmx.net>
   
   This program is free software; you can redistribute it and/or modify
@@ -30,7 +32,6 @@
 #include <kmsgbox.h>
 
 #include "kwikdisk.h"
-#include "kwikdisk.moc"
 
 
 #define DEFAULT_FREQ 60
@@ -185,8 +186,8 @@ void DockWidget::criticallyFull(DiskEntry *disk )
     s.sprintf("Device [%s] on [%s] is getting critically full!",
              disk->deviceName().data(),
              disk->mountPoint().data());
-       KMsgBox::message(this,klocale->translate("KwikDisk"),
-              klocale->translate(s.data())
+       KMsgBox::message(this,i18n("KwikDisk"),
+              i18n(s.data())
                ,KMsgBox::EXCLAMATION);
   }
 }
@@ -230,7 +231,7 @@ void DockWidget::mousePressEvent(QMouseEvent *e)
 void DockWidget::sysCallError(DiskEntry *disk, int errno)
 { 
   if (errno!=0)
-     KMsgBox::message(this,klocale->translate("KwikDisk"),
+     KMsgBox::message(this,i18n("KwikDisk"),
               disk->lastSysError(),KMsgBox::STOP);
 };
 
@@ -251,7 +252,7 @@ void DockWidget::toggleMount( )
   
     if (!readingDF) {
       if (!disk->toggleMount())
-         KMsgBox::message(this,klocale->translate("KDiskFree"),
+         KMsgBox::message(this,i18n("KDiskFree"),
               disk->lastSysError(),KMsgBox::STOP);
       else 
         if ((openFileMgrOnMount) && (!disk->mounted())) {
@@ -328,7 +329,7 @@ void DockWidget::updateDFDone()
 	 
 
        clickMenu->disconnectItem(id,disk,SLOT(toggleMount()));
-       *toolTipText=klocale->translate("sorry, not root...");
+       *toolTipText=i18n("sorry, not root...");
     };
     clickMenu->changeItem(*pix,entryName,id);
     
@@ -341,17 +342,17 @@ void DockWidget::updateDFDone()
 
   clickMenu->insertSeparator();
   id=clickMenu->insertItem(loader->loadMiniIcon("kdf.xpm")
-                         ,klocale->translate("&Start KDiskFree")
+                         ,i18n("&Start KDiskFree")
                          ,this, SLOT(startKDF()),0);
   id=clickMenu->insertItem(loader->loadMiniIcon("kfloppy.xpm")
-                         ,klocale->translate("&Configure KwikDisk")
+                         ,i18n("&Configure KwikDisk")
                          ,this, SLOT(settingsBtnClicked()),0);
   id=clickMenu->insertItem(loader->loadMiniIcon("kdehelp.xpm")
-                         ,klocale->translate("&Help")
+                         ,i18n("&Help")
                          ,this, SLOT(invokeHTMLHelp()),0);
   clickMenu->insertSeparator();
   id=clickMenu->insertItem(loader->loadMiniIcon("delete.xpm")
-                         ,klocale->translate("&Quit KwikDisk")
+                         ,i18n("&Quit KwikDisk")
                          ,this, SLOT(quit()),0);
 
   clickMenu->move(-1000,-1000); 
@@ -380,19 +381,19 @@ void DockWidget::settingsBtnClicked()
 
     //CONFIGURATION WINDOW
       tabconf=new QTabDialog(); CHECK_PTR(tabconf);
-      tabconf->setCaption(klocale->translate("KDiskFree/KwikDisk Configuration"));
+      tabconf->setCaption(i18n("KDiskFree/KwikDisk Configuration"));
 
       mntconf=new MntConfigWidget(tabconf,"mntconf");CHECK_PTR(mntconf);
       kdfconf=new KDFConfigWidget(tabconf,"kdfconf");CHECK_PTR(kdfconf);
       kdfconf->setMinimumSize(460,200);
-      tabconf->setApplyButton(klocale->translate("&Apply"));
+      tabconf->setApplyButton(i18n("&Apply"));
       connect(tabconf,SIGNAL(applyButtonPressed()),
             this,SLOT(confApplySettings()));
-      tabconf->setCancelButton(klocale->translate("&Cancel"));
+      tabconf->setCancelButton(i18n("&Cancel"));
       connect(tabconf,SIGNAL(cancelButtonPressed()),
             this,SLOT(confLoadSettings()));
-      tabconf->addTab(kdfconf,klocale->translate("&General Settings"));
-      tabconf->addTab(mntconf,klocale->translate("(U)&MountCommands"));
+      tabconf->addTab(kdfconf,i18n("&General Settings"));
+      tabconf->addTab(mntconf,i18n("(U)&MountCommands"));
       tabconf->setMinimumSize(460,200);
   
      tabconf->show();
@@ -400,8 +401,12 @@ void DockWidget::settingsBtnClicked()
 
 
 void DockWidget::invokeHTMLHelp() {
-  kapp->invokeHTMLHelp("kcontrol/kdf/index.html","");
+     kapp->invokeHTMLHelp("kcontrol/kdf/index.html","");
 };
+
+void DockWidget::quit() {
+     kapp->quit();
+}
 
 /***************************************************************/
 KwikDiskTopLevel::KwikDiskTopLevel(QWidget *, const char *name)
@@ -429,3 +434,6 @@ int main(int argc, char **argv)
 
   return app.exec();
 };
+
+#include "kwikdisk.moc"
+
