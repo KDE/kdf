@@ -1,6 +1,6 @@
 [Desktop Entry]
 X-KDE-ModuleType=Library
-X-KDE-LibraryName=kdf
+X-KDE-Library=kdf
 X-KDE-FactoryName=kdf
 X-KDE-LocalUser=false
 Exec=kcmshell Information/kcmkdf
@@ -20,6 +20,7 @@ Name[gl]=Dispositivos de Bloques
 Name[he]=Block ינקתה
 Name[hr]=Blokovski uređaji
 Name[hu]=Blokkeszközök
+Name[is]=Blokkatæki
 Name[it]=Dispositivi "blocco"
 Name[ja]=ブロックデバイス
 Name[mk]=Блоковни уреди
@@ -55,6 +56,7 @@ Comment[gl]=Amosa o uso do disco dos dispositivos montados
 Comment[he]=םירבוחמה םינקתהה לש ןוסחאה חפנב שומישה תא גיצמ
 Comment[hr]=Prikazuje iskorištenost diskova
 Comment[hu]=Megmutatja a csatlakoztatott (mountolt) eszközöket
+Comment[is]=kcmdf:  Sýnir nýtingu diskanna sem eru tengd skráarkerfinu
 Comment[it]=Mostra l'utilizzo del disco dei dispositivi montati
 Comment[ja]=マウントされているデバイスのディスク使用状況の表示
 Comment[mk]=Ја покажува пополнетоста на монтираните уреди
