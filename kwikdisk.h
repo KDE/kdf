@@ -1,150 +1,73 @@
 /*
-  kwikdisk.h - KDiskFree
+  kwikdisk.cpp - KDiskFree
 
   Copyright (C) 1999 by Michael Kropfberger <michael.kropfberger@gmx.net>
-  
+
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation; either version 2 of the License, or
   (at your option) any later version.
-  
+
   This program is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
-  
+
   You should have received a copy of the GNU General Public License
   along with this program; if not, write to the Free Software
   Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
-   
+
   */
 
-#ifndef __KDF_H__
-#define __KDF_H__
+// With changes by Espen Sand and Stanislav Karchebny.
 
-// A Qt define in qmenudata.h
-#define INCLUDE_MENUITEM_DEF 1
+#ifndef _KWIKDISK_H_
+#define _KWIKDISK_H_
 
-#include <qintdict.h>
-#include <qlabel.h>
-#include <qpopupmenu.h>
-#include <qtooltip.h>
-
-#include <kmainwindow.h>
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 
 #include "disklist.h"
-#include "kdfconfig.h"
-#include "mntconfig.h"
 #include "stdoption.h"
+#include "optiondialog.h"
 
-class COptionDialog;
+#include <kmainwindow.h>
+#include <ksystemtray.h>
 
-/***************************************************************/
-class MyToolTip : public QToolTip
+/**
+* @short Application Main Window (however in Tray)
+* @version 0.2
+*/
+class KwikDisk : public KSystemTray
 {
-  public:
-    MyToolTip( QWidget *parent, QToolTipGroup *group=0 );
-    virtual ~MyToolTip( void );
+   Q_OBJECT
+   public:
+      KwikDisk();
 
-    void setPossibleTip( const QRect &rect, const QString &text );
-    void setTipping( bool enableTipping );
+   private slots:
+      void updateDFDone();
+      void criticallyFull(DiskEntry*);
+      void toggleMount(int);
+      void loadSettings();
+      void changeSettings();
+      void startKDF();
+      void invokeHelp();
 
-  protected:
-    void maybeTip( const QPoint &p ); 
+   private:
+      void mousePressEvent(QMouseEvent *);
+      void timerEvent(QTimerEvent *);
 
-  private:
-    QRect   mRect;
-    QString mText;
-    bool    mEnableTipping;
+      void setUpdateFrequency(int frequency);
+
+      void updateDF();
+
+   private:
+      DiskList       m_diskList;
+      CStdOption     m_options;
+      bool           m_readingDF;
+      bool           m_dirty;
+      COptionDialog *m_optionDialog;
 };
 
-/***************************************************************/
-class MyPopupMenu : public QPopupMenu
-{ 
-  Q_OBJECT
-
-  public:
-    MyPopupMenu(QWidget *parent=0, const char *name=0);
-    ~MyPopupMenu( void );
-
-    void setToolTip(int id, const QString & text );
-    QRect itemRectangle( int id );
-    int activeIndex( void );
-
-  private slots:
-    void registerActiveItem( int id );
-    void aboutToHide();
-    void aboutToShow();
-
-  private:
-    int mCurrentId;
-    int mCurrentIndex;
-    MyToolTip *mToolTip;
-    QIntDict<QString> mToolTipStrings;
-};
-
-
-/***************************************************************/
-class DockWidget : public QLabel
-{ 
-  Q_OBJECT
-
-  public:
-    DockWidget(QWidget *parent=0, const char *name=0);
-    ~DockWidget( void );
-
-  public slots:
-    void loadSettings();
-
-  private slots:
-    void criticallyFull(DiskEntry *disk);
-    void toggleMount( void );
-    void settingsBtnClicked( void );
-    void invokeHelp( void );
-    void quit( void );
-    void startKDF( void );
-    void updateDF( void );
-    void updateDFDone( void );
-    void setUpdateFrequency( int frequency );
-    void sysCallError(DiskEntry *disk, int err_no);
-
-  protected:
-    void mousePressEvent(QMouseEvent *);
-    void  timerEvent( QTimerEvent * );
-
-  private:
-    DiskEntry *selectedDisk( void );
-    void showPopupMenu( void );
-
-  signals:
-    void quitProgram( void );
-
-  private:
-    MyPopupMenu   *mPopupMenu;
-    COptionDialog *mOptionDialog;
-    bool mReadingDF;
-    bool mDirty;         
-    DiskList mDiskList;
-    CStdOption mStd;
-};
-
-
-/***************************************************************/
-class KwikDiskTopLevel : public KMainWindow
-{ 
-  Q_OBJECT
-
-  public:
-    KwikDiskTopLevel(QWidget *parent=0, const char *name=0);
-    ~KwikDiskTopLevel( void );
-
-  protected slots:
-    virtual bool queryExit( void );
-
-  private:
-    DockWidget   *mDockIcon;
-};
-/***************************************************************/
-
-
-#endif
+#endif // _KWIKDISK_H_

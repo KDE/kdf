@@ -23,537 +23,290 @@
 // 1999-12-03 Espen Sand
 // Cleanups, improvements and fixes for KDE-2
 //
-
-
-#include <qbitmap.h>
-#include <qpainter.h>
-#include <qcursor.h>
-
-#include <kapplication.h>
-#include <kmessagebox.h>
-#include <kwin.h>
-#include <kcmdlineargs.h>
-#include <kprocess.h>
-#include <kglobalsettings.h>
-#include <krun.h>
-
-#include <kstdguiitem.h>
-#include <stdlib.h>
-
-#include <netwm.h>
-#include <fixx11h.h>
+// 2004-07-15 Stanislav Karchebny
+// Rewrite for KDE 3
+//
 
 #include "kwikdisk.h"
-#include "optiondialog.h"
 
+#include <stdlib.h>
+
+#include <qpen.h>
+#include <qbitmap.h>
+#include <qpainter.h>
+
+#include <kmainwindow.h>
+#include <klocale.h>
+#include <kapplication.h>
+#include <kaboutdata.h>
+#include <kcmdlineargs.h>
+#include <kmessagebox.h>
+#include <kpopupmenu.h>
+#include <krun.h>
 
 static const char description[] =
-	I18N_NOOP("KDE Free disk space utility");
+   I18N_NOOP("KDE Free disk space utility");
 
-static const char programName[] = I18N_NOOP("KwikDisk");
+static const char version[] = "0.2";
 
-static const char version[] = "v0.0.1";
-
-
-/***************************************************************/
-/***************************************************************/
-/***************************************************************/
-MyToolTip::MyToolTip( QWidget *parent, QToolTipGroup *group )
-  : QToolTip(parent,group)
+static KCmdLineOptions options[] =
 {
-  mEnableTipping = false;
+   KCmdLineLastOption
+};
+
+/*****************************************************************************/
+
+KwikDisk::KwikDisk()
+   : KSystemTray()
+   , m_readingDF(FALSE)
+   , m_dirty(TRUE)
+   , m_optionDialog(0)
+{
+   kdDebug() << k_funcinfo << endl;
+
+   setPixmap(KSystemTray::loadIcon("kdf"));
+   show();
+
+   connect( &m_diskList, SIGNAL(readDFDone()), this, SLOT(updateDFDone()) );
+   connect( &m_diskList, SIGNAL(criticallyFull(DiskEntry*)),
+            this, SLOT(criticallyFull(DiskEntry*)) );
+
+   loadSettings();
+   updateDF();
 }
 
-MyToolTip::~MyToolTip( void )
+void KwikDisk::mousePressEvent(QMouseEvent *me)
 {
+   kdDebug() << k_funcinfo << endl;
+
+   if( m_dirty )
+      updateDF();
+
+   contextMenuAboutToShow(contextMenu());
+   contextMenu()->popup( me->globalPos() );
 }
 
-
-void MyToolTip::setTipping( bool enableTipping )
+void KwikDisk::loadSettings()
 {
-  mEnableTipping = enableTipping;
+   kdDebug() << k_funcinfo << endl;
+
+   m_options.updateConfiguration();
+   setUpdateFrequency( m_options.updateFrequency() );
 }
 
-
-void MyToolTip::setPossibleTip( const QRect &rect, const QString &text )
+void KwikDisk::setUpdateFrequency(int frequency)
 {
-  mRect = rect;
-  mText = text;
-  setTipping(true);
+   kdDebug() << k_funcinfo << endl;
+
+   //
+   // Kill current timer and restart it if the frequency is
+   // larger than zero.
+   //
+   killTimers();
+   if( frequency > 0 )
+   {
+      startTimer(frequency * 1000);
+   }
 }
 
-
-void MyToolTip::maybeTip(const QPoint &)
-{
-  if( mEnableTipping == true && mText.isNull() == false )
-  {
-    tip( mRect, mText );
-  }
-}
-
-/***************************************************************/
-/***************************************************************/
-/***************************************************************/
-MyPopupMenu::MyPopupMenu(QWidget *parent, const char *name)
-  : QPopupMenu(parent,name), mCurrentId(-1), mCurrentIndex(-1)
-{
-  mToolTip = new MyToolTip(this);
-  mToolTipStrings.setAutoDelete(true);
-  connect(this,SIGNAL(aboutToHide()),this,SLOT(aboutToHide()));
-  connect(this,SIGNAL(aboutToShow()),this,SLOT(aboutToShow()));
-}
-
-
-MyPopupMenu::~MyPopupMenu( void )
-{
-  delete mToolTip;
-}
-
-
-QRect MyPopupMenu::itemRectangle( int id )
-{
-  int x = contentsRect().x();
-  int y = contentsRect().y();
-  int w = contentsRect().width();
-
-  for( QMenuItemListIt it( *mitems ); it.current() != 0; ++it )
-  {
-    if( it.current()->id() == id )
-    {
-      return( QRect( x, y, w, itemHeight(it.current())) );
-    }
-    y += itemHeight(it.current());
-  }
-
-  return( QRect(0,0,0,0) );
-}
-
-
-void MyPopupMenu::setToolTip( int id, const QString & text )
-{
-  if( !text.isNull() )
-  {
-    mToolTipStrings.replace( id, new QString(text) );
-  }
-}
-
-
-void MyPopupMenu::aboutToHide()
-{
-  disconnect(this,SIGNAL(highlighted(int)),this,SLOT(registerActiveItem(int)));
-}
-
-void MyPopupMenu::aboutToShow()
-{
-  connect(this,SIGNAL(highlighted(int)),this,SLOT(registerActiveItem(int)));
-}
-
-void MyPopupMenu::registerActiveItem( int id )
-{
-  mCurrentIndex = indexOf(id);
-
-  if( id != -1 && id != mCurrentId )
-  {
-    QRect r = itemRectangle(id);
-    if( r.height() > 0 )
-    {
-      QString *str = mToolTipStrings[id];
-      if( str != 0 )
-      {
-	mToolTip->setPossibleTip( r, *str );
-	mCurrentId = id;
-      }
-    }
-  }
-}
-
-
-int MyPopupMenu::activeIndex( void )
-{
-  return( mCurrentIndex );
-}
-
-
-
-
-
-/***************************************************************/
-/***************************************************************/
-/***************************************************************/
-DockWidget::DockWidget(QWidget *parent, const char *name)
-  : QLabel(parent,name), mPopupMenu(0), mOptionDialog(0), mReadingDF(false),
-    mDirty(true)
-{
-  kdDebug() << k_funcinfo << endl;
-
-  connect( &mDiskList, SIGNAL(readDFDone()), this, SLOT(updateDFDone()) );
-  connect( &mDiskList , SIGNAL(criticallyFull(DiskEntry*)),
-           this, SLOT(criticallyFull(DiskEntry*)) );
-  loadSettings();
-}
-
-
-DockWidget::~DockWidget( void )
-{
-  kdDebug() << k_funcinfo << endl;
-
-  delete mPopupMenu;
-}
-
-
-
-/***************************************************************************
-  * reads the KConfig
-**/
-void DockWidget::loadSettings( void )
-{
-  kdDebug() << k_funcinfo << endl;
-
-  mStd.updateConfiguration();
-  setUpdateFrequency( mStd.updateFrequency() );
-}
-
-
-/**************************************************************************
-  * connected with diskList
-**/
-void DockWidget::criticallyFull( DiskEntry *disk )
-{
-  kdDebug() << k_funcinfo << endl;
-
-  if( mStd.popupIfFull() == true )
-  {
-    QString msg = i18n("Device [%1] on [%2] is getting critically full!").
-      arg(disk->deviceName()).arg(disk->mountPoint());
-    KMessageBox::sorry( this, msg, i18n("Warning"));
-  }
-}
-
-
-
-DiskEntry *DockWidget::selectedDisk( void )
-{
-  kdDebug() << k_funcinfo << endl;
-
-  if( mPopupMenu == 0 || mPopupMenu->activeIndex() == -1 )
-  {
-    return( 0 );
-  }
-
-  kdDebug() << "selectedDisk: "
-	    << mDiskList.at(mPopupMenu->activeIndex())->mountPoint()
-	    << "==> index: "
-	    << mPopupMenu->activeIndex() << endl;
-
-  return( mDiskList.at(mPopupMenu->activeIndex()) );
-}
-
-
-
-/***************************************************************************
-  * resets the timer for automatic df-refreshes
-**/
-void DockWidget::setUpdateFrequency(int frequency )
-{
-  kdDebug() << k_funcinfo << endl;
-
-  //
-  // Kill current timer and restart it if the frequency is
-  // larger than zero.
-  //
-  killTimers();
-  if( frequency > 0 )
-  {
-    startTimer( frequency * 1000 );
-  }
-}
-
-/***************************************************************************
+/**
  * Mark the list as dirty thus forcing a reload the next time the
  * popup menu is about to become visible. Note: A current visible popup
- * will not be update now.
- **/
-void DockWidget::timerEvent(QTimerEvent *)
+ * will not be updated now.
+ */
+void KwikDisk::timerEvent(QTimerEvent *)
 {
-  mDirty = true;
+   kdDebug() << k_funcinfo << endl;
+   m_dirty = TRUE;
 }
 
-
-void DockWidget::startKDF( void )
+void KwikDisk::updateDF()
 {
-  kdDebug() << k_funcinfo << endl;
+   kdDebug() << k_funcinfo << endl;
 
-  KRun::runCommand("kdf");
+   m_readingDF = true;
+   m_diskList.readFSTAB();
+   m_diskList.readDF();
 }
 
-
-void DockWidget::mousePressEvent( QMouseEvent * )
+void KwikDisk::updateDFDone()
 {
-  if( mPopupMenu != 0 && mDirty == false )
-  {
-    showPopupMenu();
-  }
-  else
-  {
-    updateDF();
-  }
-}
+   kdDebug() << k_funcinfo << endl;
 
+   m_readingDF = false;
+   m_dirty     = false;
 
-void DockWidget::sysCallError( DiskEntry *disk, int err_no )
-{
-  kdDebug() << k_funcinfo << endl;
+   contextMenu()->clear();
+   contextMenu()->insertTitle(KSystemTray::loadIcon("kdf"), i18n("KwikDisk"));
 
-  if( err_no != 0 )
-  {
-    KMessageBox::sorry( this, disk->lastSysError() );
-  }
-}
+   int itemNo = 0;
+   for( DiskEntry *disk = m_diskList.first(); disk != 0; disk = m_diskList.next() )
+   {
+      // FIXME: tool tips are unused atm
+      QString toolTipText = i18n("%1 (%2) %3 on %4")
+         .arg( disk->mounted() ? i18n("Unmount") : i18n("Mount"))
+         .arg(disk->fsType()).arg(disk->deviceName()).arg(disk->mountPoint());
 
-
-/***************************************************************************
-  * checks fstab & df
-**/
-void DockWidget::updateDF( void )
-{
-  kdDebug() << k_funcinfo << endl;
-
-  mReadingDF = true;
-  mDiskList.readFSTAB();
-  mDiskList.readDF();
-}
-
-
-void DockWidget::toggleMount( void )
-{
-  kdDebug() << k_funcinfo << endl;
-
-  kdDebug() << "toggleMount" << endl;
-
-  DiskEntry *disk = selectedDisk();
-  if( disk == 0 )
-  {
-    return;
-  }
-
-  int val = disk->toggleMount();
-  if( val != 0 )
-  {
-    KMessageBox::error( this, disk->lastSysError() );
-  }
-  else if( (mStd.openFileManager() == true) && (disk->mounted() == true ))
-  {
-    kdDebug() << "opening filemanager" << endl;
-    if( mStd.fileManager().isEmpty() == false )
-    {
-      QString cmd = mStd.fileManager();
-      int pos = cmd.find("%m");
-      if( pos > 0 )
+      QString entryName = disk->mountPoint();
+      if( disk->mounted() )
       {
-	cmd = cmd.replace( pos, 2, KProcess::quote(disk->mountPoint()) ) + " &";
+         entryName += QString("\t\t\t[%1]").arg(disk->prettyKBAvail());
       }
-      else
+      int id = contextMenu()->insertItem("", this, SLOT(toggleMount(int)) );
+      contextMenu()->setItemParameter(id, itemNo);
+      itemNo++;
+
+      QPixmap *pix = new QPixmap(KSystemTray::loadIcon(disk->iconName()));
+
+      if( getuid() !=0 && disk->mountOptions().find("user",0, false) == -1 )
       {
-	cmd += " " + KProcess::quote(disk->mountPoint()) +" &";
+         //
+         // Special root icon, normal user cant mount.
+         //
+         // 2000-01-23 Espen Sand
+         // Careful here: If the mask has not been defined we can
+         // not use QPixmap::mask() because it returns 0 => segfault
+         //
+         if( pix->mask() != 0 )
+         {
+            QBitmap *bm = new QBitmap(*(pix->mask()));
+            if( bm != 0 )
+            {
+               QPainter qp( bm );
+               qp.setPen(QPen(white,1));
+               qp.drawRect(0,0,bm->width(),bm->height());
+               qp.end();
+               pix->setMask(*bm);
+            }
+            QPainter qp( pix );
+            qp.setPen(QPen(red,1));
+            qp.drawRect(0,0,pix->width(),pix->height());
+            qp.end();
+         }
+         contextMenu()->disconnectItem(id,disk,SLOT(toggleMount()));
+         toolTipText = i18n("You must login as root to mount this disk");
       }
-      system( QFile::encodeName(cmd) );
-    }
-  }
-  mDirty = true;
+
+      contextMenu()->changeItem(*pix,entryName,id);
+   }
+
+   contextMenu()->insertSeparator();
+
+   contextMenu()->insertItem(
+      KSystemTray::loadIcon("kdf"),
+      i18n("&Start KDiskFree"), this, SLOT(startKDF()),0);
+
+   contextMenu()->insertItem(
+      KSystemTray::loadIcon("configure"),
+      i18n("&Configure KwikDisk..."), this, SLOT(changeSettings()),0);
+
+   contextMenu()->insertItem(
+      KSystemTray::loadIcon("help"),
+      KStdGuiItem::help().text(), this, SLOT(invokeHelp()),0);
+
+   contextMenu()->insertSeparator();
+
+   contextMenu()->insertItem(
+      KSystemTray::loadIcon("exit"),
+      KStdGuiItem::quit().text(), this, SIGNAL(quitSelected()) );
 }
 
-
-void DockWidget::updateDFDone( void )
+void KwikDisk::toggleMount(int item)
 {
-  kdDebug() << k_funcinfo << endl;
+   kdDebug() << k_funcinfo << endl;
 
-  mReadingDF = false;
-  mDirty     = false;
+   DiskEntry *disk = m_diskList.at(item);
+   if( disk == 0 )
+   {
+      return;
+   }
 
-  if (mPopupMenu!=0) delete mPopupMenu;
-  mPopupMenu = new MyPopupMenu; Q_CHECK_PTR(mPopupMenu);
-
-  for( DiskEntry *disk = mDiskList.first(); disk!=0; disk = mDiskList.next())
-  {
-    QString toolTipText = i18n("%1 (%2) %3 on %4")
-      .arg( disk->mounted() ? i18n("Unmount") : i18n("Mount"))
-      .arg(disk->fsType()).arg(disk->deviceName()).arg(disk->mountPoint());
-
-    QString entryName = disk->mountPoint();
-    if( disk->mounted() )
-    {
-      entryName += QString("   [%1]").arg(disk->prettyKBAvail());
-    }
-    int id = mPopupMenu->insertItem("",this, SLOT(toggleMount()) );
-
-    QPixmap *pix = new QPixmap(SmallIcon(disk->iconName()));
-
-    if( getuid() !=0 && disk->mountOptions().find("user",0, false) == -1 )
-    {
-      //
-      // Special root icon, normal user cant mount.
-      //
-      // 2000-01-23 Espen Sand
-      // Careful here: If the mask has not been defined we can
-      // not use QPixmap::mask() because it returns 0 => segfault
-      //
-      if( pix->mask() != 0 )
+   int val = disk->toggleMount();
+   if( val != 0 )
+   {
+      KMessageBox::error(this, disk->lastSysError());
+   }
+   else if( (m_options.openFileManager() == true) && (disk->mounted() == true ) )
+   {
+      kdDebug() << "opening filemanager" << endl;
+      if( m_options.fileManager().isEmpty() == false )
       {
-	QBitmap *bm = new QBitmap(*(pix->mask()));
-	if( bm != 0 )
-	{
-	  QPainter qp( bm );
-	  qp.setPen(QPen(white,1));
-	  qp.drawRect(0,0,bm->width(),bm->height());
-	  qp.end();
-	  pix->setMask(*bm);
-	}
-	QPainter qp( pix );
-	qp.setPen(QPen(red,1));
-	qp.drawRect(0,0,pix->width(),pix->height());
-	qp.end();
+         QString cmd = m_options.fileManager();
+         int pos = cmd.find("%m");
+         if( pos > 0 )
+         {
+            cmd = cmd.replace( pos, 2, KProcess::quote(disk->mountPoint()) ) + " &";
+         }
+         else
+         {
+            cmd += " " + KProcess::quote(disk->mountPoint()) +" &";
+         }
+         system( QFile::encodeName(cmd) );
       }
-      mPopupMenu->disconnectItem(id,disk,SLOT(toggleMount()));
-      toolTipText = i18n("You must login as root to mount this disk");
-    }
-
-    mPopupMenu->changeItem(*pix,entryName,id);
-    // mPopupMenu->changeItem(DevIcon(disk->iconName()),entryName,id);
-    //    connect(disk, SIGNAL(sysCallError(DiskEntry *, int) ),
-    //      this, SLOT(sysCallError(DiskEntry *, int)) );
-    mPopupMenu->setToolTip(id, toolTipText );
-  }
-
-  mPopupMenu->insertSeparator();
-
-  mPopupMenu->insertItem(
-    SmallIcon( "kdf" ),
-    i18n("&Start KDiskFree"), this, SLOT(startKDF()),0);
-
-  mPopupMenu->insertItem(
-    SmallIcon( "configure" ),
-    i18n("&Configure KwikDisk..."), this, SLOT(settingsBtnClicked()),0);
-
-  mPopupMenu->insertItem(
-    SmallIcon( "help" ),
-    KStdGuiItem::help().text(), this, SLOT(invokeHelp()),0);
-
-  mPopupMenu->insertSeparator();
-
-  mPopupMenu->insertItem(
-    SmallIcon( "exit" ),
-    KStdGuiItem::quit().text(), this, SLOT(quit()) );
-
-  mPopupMenu->move(-1000,-1000);
-  showPopupMenu();
-
-  QWidget::setCursor(ArrowCursor);
+   }
+   m_dirty = TRUE;
 }
 
-
-void DockWidget::showPopupMenu( void )
+void KwikDisk::criticallyFull(DiskEntry *disk)
 {
-  if( mPopupMenu == 0 )
-  {
-    return;
-  }
+   kdDebug() << k_funcinfo << endl;
 
-  QRect g = KWin::windowInfo(winId(), NET::WMGeometry).geometry();
-  QSize s = mPopupMenu->sizeHint();
-  QRect desk = KGlobalSettings::desktopGeometry(this);
-
-  if( g.x() > desk.center().x() &&
-      g.y() + s.height() > desk.bottom() )
-  {
-    mPopupMenu->popup(QPoint( g.x(), g.y() - s.height()));
-  }
-  else
-  {
-    mPopupMenu->popup(QPoint( g.x() + g.width(), g.y() + g.height()));
-  }
+   if( m_options.popupIfFull() == true )
+   {
+      QString msg = i18n("Device [%1] on [%2] is getting critically full!")
+                    .arg(disk->deviceName()).arg(disk->mountPoint());
+      KMessageBox::sorry( this, msg, i18n("Warning"));
+   }
 }
 
-
-
-
-
-/***************************************************************************
-  * pops up the SettingsBox if the settingsBtn is clicked
-**/
-void DockWidget::settingsBtnClicked( void )
+void KwikDisk::changeSettings()
 {
-  if( mOptionDialog == 0 )
-  {
-    mOptionDialog = new COptionDialog( this, "options", false );
-    if( mOptionDialog == 0 ) { return; }
-    connect( mOptionDialog, SIGNAL(valueChanged()),
-	     this, SLOT(loadSettings()) );
-  }
-  mOptionDialog->show();
+   if( m_optionDialog == 0 )
+   {
+      m_optionDialog = new COptionDialog(this, "options", FALSE);
+      if( !m_optionDialog ) return;
+      connect(m_optionDialog, SIGNAL(valueChanged()),
+                        this, SLOT(loadSettings()));
+   }
+   m_optionDialog->show();
 }
 
-
-void DockWidget::invokeHelp( void )
+void KwikDisk::startKDF()
 {
-  kapp->invokeHelp("", "kcontrol/kdf" );
+   kdDebug() << k_funcinfo << endl;
+
+   KRun::runCommand("kdf");
 }
 
-
-void DockWidget::quit( void )
+void KwikDisk::invokeHelp()
 {
-  emit quitProgram();
+   kapp->invokeHelp("", "kcontrol/kdf");
 }
 
-
-/***************************************************************/
-KwikDiskTopLevel::KwikDiskTopLevel(QWidget *, const char *name)
-  : KMainWindow(0, name)
-{
-  kdDebug() << k_funcinfo << endl;
-
-  setPlainCaption("kwikdisk");
-
-  mDockIcon = new DockWidget(this,"docked_icon");
-  connect( mDockIcon, SIGNAL(quitProgram()), this, SLOT(close()) );
-  mDockIcon->setPixmap(SmallIcon("kdf"));
-  setCentralWidget( mDockIcon );
-  resize(24,24);
-}
-
-
-KwikDiskTopLevel::~KwikDiskTopLevel( void )
-{
-  kdDebug() << k_funcinfo << endl;
-
-  delete mDockIcon;
-}
-
-
-bool KwikDiskTopLevel::queryExit( void )
-{
-  return( true );
-}
-
-
-
-
-/***************************************************************/
+/*****************************************************************************/
 
 int main(int argc, char **argv)
 {
-  KCmdLineArgs::init(argc, argv, "kwikdisk", programName, description, version);
+   KAboutData about("kwikdisk", I18N_NOOP("KwikDisk"), version, description,
+                  KAboutData::License_GPL, "(C) 2004 Stanislav Karchebny",
+                  0, 0, "Stanislav.Karchebny@kdemail.net");
+   about.addAuthor( "Michael Kropfberger", I18N_NOOP("Original author"),
+                    "michael.kropfberger@gmx.net" );
+   about.addAuthor( "Espen Sand", I18N_NOOP("KDE 2 changes"), "" );
+   about.addAuthor( "Stanislav Karchebny", I18N_NOOP("KDE 3 changes"),
+                    "Stanislav.Karchebny@kdemail.net" );
+   KCmdLineArgs::init(argc, argv, &about);
+   KCmdLineArgs::addCmdLineOptions( options );
+   KApplication app;
+   KwikDisk *mainWin = 0;
 
-  KApplication app;
+   mainWin = new KwikDisk;
+   QObject::connect(mainWin, SIGNAL(quitSelected()), &app, SLOT(quit()));
 
-  KwikDiskTopLevel *ktl = new KwikDiskTopLevel();
-  Q_CHECK_PTR(ktl);
-  app.setMainWidget(ktl);
-  KWin::setSystemTrayWindowFor(ktl->winId(), 0);
-  ktl->show();
-
-  return app.exec();
+   // mainWin has WDestructiveClose flag by default, so it will delete itself.
+   return app.exec();
 }
 
+/*****************************************************************************/
 
 #include "kwikdisk.moc"
-
