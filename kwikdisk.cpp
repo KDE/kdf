@@ -384,7 +384,7 @@ void DockWidget::updateDFDone( void )
 	qp.end();
       }
       mPopupMenu->disconnectItem(id,disk,SLOT(toggleMount()));
-      toolTipText = i18n("Sorry, you must be root to mount this disk");
+      toolTipText = i18n("You must login as root to mount this disk");
     }
 
     mPopupMenu->changeItem(*pix,entryName,id);
