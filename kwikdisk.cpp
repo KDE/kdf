@@ -41,6 +41,8 @@
 #include <kcmdlineargs.h>
 #include <klocale.h>
 
+#include <stdlib.h>
+
 #include "kwikdisk.h"
 #include "optiondialog.h"
 
