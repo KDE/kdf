@@ -1,0 +1,179 @@
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook V3.1-Based Variant V1.0//EN" [
+ <!ENTITY kdf "<application>kdf</application>">
+]>
+<book lang="en">
+<bookinfo>
+<title>KDiskFree - KwikDisk - Help</title>
+<authorgroup>
+<author>
+<surname>Michael Kropfberger </surname>
+<affiliation>
+<address><email><ulink url="mailto:michael.kropfberger@gmx.net">michael.kropfberger@gmx.net</ulink></email></address>
+</affiliation>
+</author>
+</authorgroup>
+<date>Last changed: 17. March 1999</date>
+<releaseinfo><!-- information about this particular version --></releaseinfo>
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>disk free</keyword>
+<keyword>kdf</keyword>
+<keyword>df</keyword>
+<keyword>mount</keyword>
+<keyword>mounted</keyword>
+<keyword>disk</keyword>
+<keyword>disk space</keyword>
+<keyword>free disk space</keyword>
+<keyword>unmounted</keyword>
+<keyword>unmount</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="kwikdisk">
+<title>KwikDisk</title>
+
+<para>KwikDisk docks itself into the Panel and when you click on it, it shows you all mountpoints, icons and the free disk space (if the device is mounted).  When you select a mountpoint it tries to mount this as described in section <link linkend="UMountCommands">(U)Mount Commands</link>.  You may also start a <link linkend="KdiskFree">KDiskFree</link> from the menu there.</para>
+</chapter>
+
+<chapter id="kdiskfree">
+<title>KdiskFree</title>
+
+<para>KDiskFree provides you a graphical overview on your block devices (disks, partitions, floppy-drive...) and their usage.  It reads the file /etc/fstab to get information about possibly mounted devices and then periodically calls the df-command to look at actually mounted devices.  Unmounted devices are shown in lightgray.</para>
+
+<para>You may invoke KDiskFree ("kcmdf") from your KControlCenter under Information/Block Devices or directly by typing "kdf".  "kdf" is more light-weighted in the screen-size used, so if you want to always have a KDiskFree open (as I do) try "kdf" instead of "kcmdf".</para>
+
+<para>KDiskFree was written 1998 by <ulink url="mailto:michael.kropfberger@gmx.net">Michael Kropfberger</ulink> and underlies the terms of GPL.</para>
+
+<sect1 id="overview">
+<title>Overview</title>
+
+<para>There are following columns which are shown in <link linkend="KdiskFree">KDiskfree</link>:
+<variablelist>
+<varlistentry>
+<term>Icon</term>
+<listitem>
+<para>shows icon for the actual device/mountpoint combination</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Device</term>
+<listitem>
+<para>shows the filename of the listed device</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Type</term>
+<listitem>
+<para>shows the filesystem-type of the listed device (e.g. ext2, msdos, vfat, minix...)</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Size</term>
+<listitem>
+<para>shows the maximum size of the device</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>MountPoint</term>
+<listitem>
+<para>shows you, where the device is mounted to</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Free</term>
+<listitem>
+<para>shows you, how many Bytes (rounded to Gigabytes, Megabytes, Kilobytes for convenience) are really available</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Full &percnt;</term>
+<listitem>
+<para>indicates the percentage of fullness; if this exceeds 95&percnt;, the whole device entry is printed out in <emphasis remap="bf"><emphasis remap="it">red</emphasis></emphasis> and a warning message pops up on the active desktop.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>UsageBar</term>
+<listitem>
+<para>shows you the space-usage in a graphical way (<emphasis remap="bf"><emphasis remap="it">blue</emphasis></emphasis> = full, <emphasis remap="bf"><emphasis remap="it">white</emphasis></emphasis>= available)</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</para>
+</sect1>
+
+<sect1 id="features">
+<title>Features</title>
+
+<para>There are also many usable features included:
+<itemizedlist>
+<listitem>
+<para>left-, double-, mid- or right-click on the devicename of the device of your interest to mount/unmount it immediately. This invokes the given mountscript for the device/mountpoint or calls the default "mount" command (see <link linkend="UMountCommands">(U)Mount Commands</link>).</para>
+</listitem>
+<listitem>
+<para>left-, double-, mid- or right-click on the MountPoint of the device of your interest to open a FileManager (e.g. kfm) with the mountpoint as starting directory</para>
+</listitem>
+<listitem>
+<para>you may also disable some of the columns you don't want to see (look at <link linkend="GeneralSettings">General Settings</link> for further information)</para>
+</listitem>
+<listitem>
+<para>click on the Headers of the TabList to sort the devices accordingly</para>
+</listitem>
+</itemizedlist>
+</para>
+</sect1>
+
+<sect1 id="generalsettings">
+<title>General Settings</title>
+
+<para>If you click on the <emphasis remap="it">Settings</emphasis>-Button you enroll a more-featured settings-window.  Primarily you may want to change the update-frequency of KDiskFree.  Just use the scrollBar to select the appropriate frequency.  If you want to DISABLE the auto-update-feature, you only have to select 0 as your update-frequency.  To force an update, just press the Apply-Button.</para>
+
+<para>There you can enable/disable the shown columns of your device-Overview.  If you don't want to see the Filesystem-Type (which maybe is not of <emphasis remap="it">that</emphasis> interest to you, because it doesn't change every five seconds) you may just click on the <emphasis remap="it">Type</emphasis>-Header in your settings-window, so the checked-icon under <emphasis remap="it">Type </emphasis>changes to a crossed-out-icon. To enable it, just press the <emphasis remap="it">Type</emphasis>-Header again and the crossed-out-icon becomes a checked-icon.  For convenience, you may also double-, mid- or right-click on the icons to get the same effect.</para>
+
+<para>There is also a LineEdit to enter the preferred FileManager used when you click on the mountpoint of a device.  The <emphasis remap="it">&percnt;m</emphasis> will be substituted with the actual mountpoint.</para>
+
+<para>To reset all to the default values, just click on the <emphasis remap="it">Defaults</emphasis>-Button</para>
+</sect1>
+
+<sect1 id="umountcommands">
+<title>(U)Mount Commands</title>
+
+<para>In this Tab you can edit mount commands for every device/mountpoint pair.  This is eg. useful for zip-drives which need a root-called <literal remap="tt">insmod ppa</literal> before mounting is possible. You could write a little script like this to do that:
+<programlisting>#!/bin/bash
+kdesu -c insmod ppa
+mount /zip</programlisting>
+
+and store it in <literal remap="tt">/usr/local/bin/mount&lowbar;zip</literal>.  Now you can use this script when you click on the device <literal remap="tt">/zip</literal>.  Possible parameters are:
+<informaltable>
+<tgroup cols="2" align="left">
+<tbody>
+<row><entry>&percnt;d</entry><entry>Device Name</entry></row>
+<row><entry>&percnt;m</entry><entry>Mount Point</entry></row>
+<row><entry>&percnt;t</entry><entry>Filesystem Type</entry></row>
+<row><entry>&percnt;o</entry><entry>Mount Options</entry></row></tbody>
+</tgroup>
+</informaltable>
+
+If no mount command is given, a default <literal remap="tt">"mount &percnt;d"</literal> is used instead.  If you are root the default command is <literal remap="tt">"mount -t&percnt;t &percnt;d &percnt;m -o &percnt;o"</literal>.</para>
+</sect1>
+
+<sect1 id="icons">
+<title>Icons</title>
+
+<para>If the user doesn't set a specific Icon in <link linkend="UMountCommands">(U)Mount Commands</link> settings dialog, a special magic is tried.  So a device /dev/fd0 or mountpoint /floppy gets a floppy icon assigned.  Also NFS mounts are recognized and a special icon is shown.  Every device/mountpoint can be mounted (green button in the buttom right) and if it is only (u)mountable by root, the icon gets a red frame around it.  If the user gives his own icon, there are a few important things to keep in mind: all filenames for icons have to look like this: <literal remap="tt">myicon&lowbar;mount.xpm</literal> and <literal remap="tt">myicon&lowbar;unmount.xpm</literal> because only <literal remap="tt">myicon</literal> is stored and the rest is appended.  The files should be in the mini-icon directory (this is <literal remap="tt">$KDEDIR/share/icons/mini</literal> or <literal remap="tt">$HOME/.kde/share/icons/mini</literal>).</para>
+</sect1>
+
+<sect1 id="comments">
+<title>Comments ...</title>
+
+<para>Comments to Michael Kropfberger <ulink url="mailto:michael.kropfberger@gmx.net">michael.kropfberger@gmx.net</ulink>.
+Last changed: 17. March 1999</para>
+</sect1>
+</chapter>
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
