@@ -318,7 +318,7 @@ void KDFWidget::updateDFDone( void )
     QString size, percent;
     if( disk->kBSize() > 0 ) 
     {
-      percent.sprintf("%2.1f%%",disk->percentFull() );
+      percent = KGlobal::locale()->formatNumber(disk->percentFull(), 1) + '%';
       size = disk->prettyKBSize();
     }
     else
