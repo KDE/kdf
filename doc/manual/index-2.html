@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+ <META NAME="GENERATOR" CONTENT="SGML-Tools 1.0.7">
+ <TITLE>KDiskFree - KwikDisk - Help: KdiskFree</TITLE>
+ <LINK HREF="index-1.html" REL=previous>
+ <LINK HREF="index.html#toc2" REL=contents>
+</HEAD>
+<BODY>
+Next
+<A HREF="index-1.html">Previous</A>
+<A HREF="index.html#toc2">Contents</A>
+<HR>
+<H2><A NAME="KdiskFree"></A> <A NAME="s2">2. KdiskFree</A></H2>
+
+<P>KDiskFree provides you a graphical overview on your block devices (disks, partitions, floppy-drive...) and their usage.  It reads the file /etc/fstab to get information about possibly mounted devices and then periodically calls the df-command to look at actually mounted devices.  Unmounted devices are shown in lightgray.
+<P>You may invoke KDiskFree ("kcmdf") from your KControlCenter under Information/Block Devices or directly by typing "kdf".  "kdf" is more light-weighted in the screen-size used, so if you want to always have a KDiskFree open (as I do) try "kdf" instead of "kcmdf".
+<P>KDiskFree was written 1998 by 
+<A HREF="mailto:michael.kropfberger@gmx.net">Michael Kropfberger</A> and underlies the terms of GPL.
+<H2><A NAME="ss2.1">2.1 Overview</A>
+</H2>
+
+<P>There are following columns which are shown in 
+<A HREF="#KdiskFree">KDiskfree</A>:
+<DL>
+<DT><B>Icon</B><DD><P>shows icon for the actual device/mountpoint combination
+<DT><B>Device</B><DD><P>shows the filename of the listed device
+<DT><B>Type</B><DD><P>shows the filesystem-type of the listed device (e.g. ext2, msdos, vfat, minix...)
+<DT><B>Size</B><DD><P>shows the maximum size of the device
+<DT><B>MountPoint</B><DD><P>shows you, where the device is mounted to
+<DT><B>Free</B><DD><P>shows you, how many Bytes (rounded to Gigabytes, Megabytes, Kilobytes for convenience) are really available
+<DT><B>Full %</B><DD><P>indicates the percentage of fullness; if this exceeds 95%, the whole device entry is printed out in <B><I>red</I></B> and a warning message pops up on the active desktop.
+<DT><B>UsageBar</B><DD><P>shows you the space-usage in a graphical way (<B><I>blue</I></B> = full, <B><I>white</I></B>= available)
+</DL>
+<H2><A NAME="ss2.2">2.2 Features</A>
+</H2>
+
+<P>There are also many usable features included:
+<UL>
+<LI>left-, double-, mid- or right-click on the devicename of the device of your interest to mount/unmount it immediately. This invokes the given mountscript for the device/mountpoint or calls the default "mount" command (see 
+<A HREF="#(U)Mount Commands">(U)Mount Commands</A>).</LI>
+<LI>left-, double-, mid- or right-click on the MountPoint of the device of your interest to open a FileManager (e.g. kfm) with the mountpoint as starting directory</LI>
+<LI>you may also disable some of the columns you don't want to see (look at 
+<A HREF="#General Settings">General Settings</A> for further information)</LI>
+<LI>click on the Headers of the TabList to sort the devices accordingly</LI>
+</UL>
+<H2><A NAME="General Settings"></A> <A NAME="ss2.3">2.3 General Settings</A>
+</H2>
+
+<P>If you click on the <I>Settings</I>-Button you enroll a more-featured settings-window.  Primarily you may want to change the update-frequency of KDiskFree.  Just use the scrollBar to select the appropriate frequency.  If you want to DISABLE the auto-update-feature, you only have to select 0 as your update-frequency.  To force an update, just press the Apply-Button.
+<P>There you can enable/disable the shown columns of your device-Overview.  If you don't want to see the Filesystem-Type (which maybe is not of <I>that</I> interest to you, because it doesn't change every five seconds) you may just click on the <I>Type</I>-Header in your settings-window, so the checked-icon under <I>Type </I>changes to a crossed-out-icon. To enable it, just press the <I>Type</I>-Header again and the crossed-out-icon becomes a checked-icon.  For convenience, you may also double-, mid- or right-click on the icons to get the same effect.
+<P>There is also a LineEdit to enter the preferred FileManager used when you click on the mountpoint of a device.  The <I>%m</I> will be substituted with the actual mountpoint.
+<P>To reset all to the default values, just click on the <I>Defaults</I>-Button
+<H2><A NAME="(U)Mount Commands"></A> <A NAME="ss2.4">2.4 (U)Mount Commands</A>
+</H2>
+
+<P>In this Tab you can edit mount commands for every device/mountpoint pair.  This is eg. useful for zip-drives which need a root-called <CODE>insmod ppa</CODE> before mounting is possible. You could write a little script like this to do that:
+<HR>
+<PRE>
+#!/bin/bash
+kdesu -c insmod ppa
+mount /zip
+</PRE>
+<HR>
+
+and store it in <CODE>/usr/local/bin/mount_zip</CODE>.  Now you can use this script when you click on the device <CODE>/zip</CODE>.  Possible parameters are:
+<CENTER><TABLE BORDER><TR><TD>
+<BR>
+%d</TD><TD>Device Name</TD></TR><TR><TD>
+%m</TD><TD>Mount Point</TD></TR><TR><TD>
+%t</TD><TD>Filesystem Type</TD></TR><TR><TD>
+%o</TD><TD>Mount Options
+
+</TD></TR></TABLE></CENTER>
+
+If no mount command is given, a default <CODE>"mount %d"</CODE> is used instead.  If you are root the default command is <CODE>"mount -t%t %d %m -o %o"</CODE>.
+<H2><A NAME="ss2.5">2.5 Icons</A>
+</H2>
+
+<P>If the user doesn't set a specific Icon in 
+<A HREF="#(U)Mount Commands">(U)Mount Commands</A> settings dialog, a special magic is tried.  So a device /dev/fd0 or mountpoint /floppy gets a floppy icon assigned.  Also NFS mounts are recognized and a special icon is shown.  Every device/mountpoint can be mounted (green button in the buttom right) and if it is only (u)mountable by root, the icon gets a red frame around it.  If the user gives his own icon, there are a few important things to keep in mind: all filenames for icons have to look like this: <CODE>myicon_mount.xpm</CODE> and <CODE>myicon_unmount.xpm</CODE> because only <CODE>myicon</CODE> is stored and the rest is appended.  The files should be in the mini-icon directory (this is <CODE>$KDEDIR/share/icons/mini</CODE> or <CODE>$HOME/.kde/share/icons/mini</CODE>).
+<H2><A NAME="ss2.6">2.6 Comments ...</A>
+</H2>
+
+<P>Comments to Michael Kropfberger 
+<A HREF="mailto:michael.kropfberger@gmx.net">michael.kropfberger@gmx.net</A>.<BR>
+Last changed: 17. March 1999
+<HR>
+Next
+<A HREF="index-1.html">Previous</A>
+<A HREF="index.html#toc2">Contents</A>
+</BODY>
+</HTML>
