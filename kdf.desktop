@@ -20,6 +20,7 @@ Exec=kdf
 Icon=kdf
 Type=Application
 GenericName=View Disk Usage
+GenericName[af]=besigtig disket gebruik
 GenericName[ar]= عرض ةستخدام القرص
 GenericName[bg]=Показва конзолните съобщения
 GenericName[bs]=Pregled iskorištenosti diska
