@@ -27,6 +27,7 @@
 #include <kaboutdata.h>
 #include <kstdaction.h>
 #include <kaction.h>
+#include <kkeydialog.h>
 
 #include "kdf.h"
 #include <kpopupmenu.h>
@@ -41,25 +42,17 @@ static const char *version = "v0.5";
 KDFTopLevel::KDFTopLevel(QWidget *, const char *name)
   : KMainWindow(0, name)
 {
-  kdf = new KDFWidget(this,"kdf",FALSE); Q_CHECK_PTR(kdf);
+  kdf = new KDFWidget(this,"kdf",FALSE);
+  Q_CHECK_PTR(kdf);
+  (void) new KAction( i18n( "&Update" ), 0, kdf, SLOT( updateDF() ), actionCollection(), "updatedf" );
 
-  QPopupMenu *file = new QPopupMenu; Q_CHECK_PTR(file);
-  file->insertItem( i18n( "&Update" ), kdf, SLOT(updateDF()) );
-  file->insertSeparator();
-  KStdAction::quit(this, SLOT(close()), actionCollection())->plug(file);
-
-  QPopupMenu *option = new QPopupMenu; Q_CHECK_PTR(option);
-  KStdAction::preferences(kdf, SLOT(settingsBtnClicked()), actionCollection())->plug(option);
-
-  QPopupMenu * help = helpMenu();
-  menuBar()->insertItem( i18n("&File"), file );
-  menuBar()->insertItem( i18n("&Settings"), option );
-  menuBar()->insertSeparator();
-  menuBar()->insertItem( i18n("&Help"), help );
-
+  KStdAction::quit(this, SLOT(close()), actionCollection());
+  KStdAction::preferences(kdf, SLOT(settingsBtnClicked()), actionCollection());
+  KStdAction::keyBindings( this, SLOT( slotConfigureKeys() ), actionCollection() );
   setCentralWidget(kdf);
   //  kdf->setMinimumSize(kdf->sizeHint());
   kdf->resize(kdf->sizeHint());
+  createGUI();
 }
 
 
@@ -70,7 +63,10 @@ bool KDFTopLevel::queryExit( void )
 }
 
 
-
+void KDFTopLevel::slotConfigureKeys()
+{
+  KKeyDialog::configure( actionCollection(), this );
+}
 
 
 /***************************************************************/

@@ -29,5 +29,9 @@ METASOURCES = AUTO
 
 xdg_apps_DATA = kdf.desktop kwikdisk.desktop kcmdf.desktop
 
+rc_DATA = kdfui.rc
+
+rcdir = $(kde_datadir)/kdf
+
 messages:
 	$(XGETTEXT) *.cpp -o $(podir)/kdf.pot
