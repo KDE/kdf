@@ -183,7 +183,6 @@ QString DiskEntry::iconName()
 QString DiskEntry::guessIconName()
 {
   QString iconName;
-     iconName="devices/";
     // try to be intelligent
     if (-1!=mountPoint().find("cdrom",0,FALSE)) iconName+="cdrom";
     else if (-1!=deviceName().find("cdrom",0,FALSE)) iconName+="cdrom";

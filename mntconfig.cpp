@@ -106,7 +106,8 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, const char *name, bool init)
 	     this,SLOT(iconChanged(const QString&)));
     gl->addWidget( mIconLineEdit, 2, 0 );
 
-    mIconButton = new QPushButton(mGroupBox); 
+    mIconButton = new KIconButton(mGroupBox); 
+    mIconButton->setIconType(KIcon::Small, KIcon::Device);
     CHECK_PTR(mIconButton);
     mIconButton->setFixedWidth( mIconButton->sizeHint().height() );
     connect(mIconButton,SIGNAL(clicked()),this,SLOT(selectIcon()));
@@ -245,23 +246,8 @@ void MntConfigWidget::clicked( QListViewItem *item )
   
 
 
-void MntConfigWidget::selectIcon( void )
+void MntConfigWidget::selectIcon(QString iconName)
 {
-  KIconDialog dialog(this);
-
-  //QStringList dirs;
-  //dirs.append("mini");
-  //dirs.append(KApplication::localkdedir()+"/share/icons/mini");
-  //dirs.append("/opt/kde2/share/icons/small/locolor/devices/");
-  //dialog->changeDirs(dirs);
-  
-  QString iconName = dialog.selectIcon();
-
-  if( iconName == QString::null )
-  {
-    return;
-  }
-
   if( iconName.findRev('_') == QString::null || 
       (iconName.right(iconName.length()-iconName.findRev('_'))!="_mount.png" &&
       iconName.right(iconName.length()-iconName.findRev('_'))!="_unmount.png"))

@@ -36,6 +36,7 @@ class QGroupBox;
 class QPushButton;
 class QRadioButton;
 class QLineEdit;
+class KIconButton;
 
 class CListView;
 class QListViewItem;
@@ -67,7 +68,7 @@ class MntConfigWidget : public QWidget
   private slots:
     void readDFDone( void );
     void clicked( QListViewItem *item );
-    void selectIcon( void );
+    void selectIcon( QString iconName );
     void selectMntFile( void );
     void selectUmntFile( void );
     void iconChanged( const QString & );
@@ -80,12 +81,12 @@ class MntConfigWidget : public QWidget
   private:
     CListView   *mList;
     QGroupBox   *mGroupBox;
-    QPushButton *mIconButton;
     QLineEdit   *mIconLineEdit;
     QLineEdit   *mMountLineEdit;
     QLineEdit   *mUmountLineEdit;
     QPushButton *mMountButton;
     QPushButton *mUmountButton;
+    KIconButton *mIconButton;
     DiskList    mDiskList;
     bool        mInitializing;
 };
