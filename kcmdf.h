@@ -41,7 +41,6 @@ class KDiskFreeWidget : public KCModule
     QString quickHelp() const;
 
   private:
-    QFrame *mPage;
     KDFWidget *mKdf;
     KDFConfigWidget *mMcw;
     MntConfigWidget *mKcw;

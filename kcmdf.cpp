@@ -37,13 +37,10 @@ KDiskFreeWidget::KDiskFreeWidget( QWidget *parent, const char *name )
 {
   setButtons(Help);
 
-  QVBoxLayout *topLayout = new QVBoxLayout( this );
+  QVBoxLayout *topLayout = new QVBoxLayout( this, 0, KDialog::spacingHint() );
 
-  mPage = new QFrame( this, "page" );
-  topLayout->addWidget( mPage, 10 );
-  QVBoxLayout *vbox = new QVBoxLayout( mPage, KDialog::spacingHint() );
-  mKdf = new KDFWidget( mPage, "kdf", false );
-  vbox->addWidget( mKdf, 10 );
+  mKdf = new KDFWidget( this, "kdf", false );
+  topLayout->addWidget( mKdf );
 }
 
 KDiskFreeWidget::~KDiskFreeWidget()
