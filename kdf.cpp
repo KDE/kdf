@@ -52,7 +52,7 @@ actionCollection());
   setCentralWidget(kdf);
   //  kdf->setMinimumSize(kdf->sizeHint());
   kdf->resize(kdf->sizeHint());
-  createGUI();
+  setupGUI(KMainWindow::Keys | StatusBar | Save | Create);
 }
 
 

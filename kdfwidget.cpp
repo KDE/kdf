@@ -218,11 +218,6 @@ void KDFWidget::applySettings( void )
   KConfig &config = *kapp->config();
 
   config.setGroup("KDiskFree");
-  if( mIsTopLevel == true )
-  {
-    config.writeEntry( "Width", width() );
-    config.writeEntry( "Height", height() );
-  }
   if( GUI )
   {
     for( uint i=0; i<mTabProp.size(); i++ )
@@ -251,13 +246,6 @@ void KDFWidget::loadSettings( void )
   {
     KConfig &config = *kapp->config();
     config.setGroup("KDiskFree");
-    if( mIsTopLevel == true )  // only "kdf" can be resized
-    {
-      int w  = config.readNumEntry("Width",width());
-      int h = config.readNumEntry("Height",height());
-      resize( w, h );
-    }
-
     for( uint i=0; i<mTabProp.size(); i++ )
     {
       CTabEntry &e = *mTabProp[i];
