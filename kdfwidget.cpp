@@ -38,6 +38,7 @@
 #include <qpaintdevice.h>
 #include <qstring.h> 
 #include <qtimer.h>
+#include <qlayout.h>
 
 #include <kapp.h> 
 #include <kcmenumngr.h>
