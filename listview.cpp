@@ -32,7 +32,7 @@
 
 #include "listview.h"
 
-template QDict<QPixmap>;
+template class QDict<QPixmap>;
 
 CListView::CListView( QWidget *parent, const char *name, int visibleItem )
   :KListView( parent, name ),  mVisibleItem(QMAX( 1, visibleItem ))
