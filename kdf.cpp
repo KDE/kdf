@@ -40,14 +40,14 @@ static const char *version = "v0.5";
 KDFTopLevel::KDFTopLevel(QWidget *, const char *name)
   : KMainWindow(0, name)
 {
-  kdf = new KDFWidget(this,"kdf",FALSE); CHECK_PTR(kdf);
+  kdf = new KDFWidget(this,"kdf",FALSE); Q_CHECK_PTR(kdf);
 
-  QPopupMenu *file = new QPopupMenu; CHECK_PTR(file);
+  QPopupMenu *file = new QPopupMenu; Q_CHECK_PTR(file);
   file->insertItem( i18n( "&Update" ), kdf, SLOT(updateDF()) );
   file->insertSeparator();
   file->insertItem( i18n( "&Quit" ), this, SLOT(close()), KStdAccel::key(KStdAccel::Quit) );
 
-  QPopupMenu *option = new QPopupMenu; CHECK_PTR(option);
+  QPopupMenu *option = new QPopupMenu; Q_CHECK_PTR(option);
   option->insertItem( i18n("&Configure %1...").arg(kapp->caption()),
 		      kdf, SLOT(settingsBtnClicked()) );
 
@@ -89,7 +89,7 @@ int main(int argc, char **argv)
     for( int n=1; KDFTopLevel::canBeRestored(n); n++ )
     {
       KDFTopLevel *ktl = new KDFTopLevel();
-      CHECK_PTR(ktl);
+      Q_CHECK_PTR(ktl);
       app.setMainWidget(ktl);
       ktl->restore(n);
     }
@@ -97,7 +97,7 @@ int main(int argc, char **argv)
   else
   {
     KDFTopLevel *ktl = new KDFTopLevel();
-    CHECK_PTR(ktl);
+    Q_CHECK_PTR(ktl);
     ktl->show();
   }
 

@@ -46,7 +46,7 @@
 #include <kglobal.h>
 #include <kiconloader.h>
 #include <kicondialog.h>
-#include <klocale.h> 
+#include <klocale.h>
 #include <kmessagebox.h>
 
 #include "listview.h"
@@ -91,36 +91,36 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, const char *name, bool init)
       arg(i18n("None")).
       arg(mList->header()->label(MNTPNTCOL)).
       arg(i18n("None"));
-    mGroupBox = new QGroupBox( text, this ); 
-    CHECK_PTR(mGroupBox);
+    mGroupBox = new QGroupBox( text, this );
+    Q_CHECK_PTR(mGroupBox);
     topLayout->addWidget(mGroupBox);
 
     QGridLayout *gl = new QGridLayout(mGroupBox, 3, 4, KDialog::spacingHint());
     if( gl == 0 ) { return; }
     gl->addRowSpacing( 0, fontMetrics().lineSpacing() );
 
-    mIconLineEdit = new QLineEdit(mGroupBox); 
-    CHECK_PTR(mIconLineEdit);
+    mIconLineEdit = new QLineEdit(mGroupBox);
+    Q_CHECK_PTR(mIconLineEdit);
     mIconLineEdit->setMinimumWidth( fontMetrics().maxWidth()*10 );
     connect( mIconLineEdit, SIGNAL(textChanged(const QString&)),
 	     this,SLOT(iconChanged(const QString&)));
     gl->addWidget( mIconLineEdit, 2, 0 );
 
-    mIconButton = new KIconButton(mGroupBox); 
+    mIconButton = new KIconButton(mGroupBox);
     mIconButton->setIconType(KIcon::Small, KIcon::Device);
-    CHECK_PTR(mIconButton);
+    Q_CHECK_PTR(mIconButton);
     mIconButton->setFixedWidth( mIconButton->sizeHint().height() );
     connect(mIconButton,SIGNAL(iconChanged(QString)),this,SLOT(selectIcon(QString)));
     gl->addWidget( mIconButton, 2, 1 );
 
     //Mount
     mMountButton = new QPushButton( i18n("Get mount command"), mGroupBox );
-    CHECK_PTR(mMountButton);
+    Q_CHECK_PTR(mMountButton);
     connect(mMountButton,SIGNAL(clicked()),this,SLOT(selectMntFile()));
     gl->addWidget( mMountButton, 1, 2 );
 
-    mMountLineEdit = new QLineEdit(mGroupBox); 
-    CHECK_PTR(mMountLineEdit);
+    mMountLineEdit = new QLineEdit(mGroupBox);
+    Q_CHECK_PTR(mMountLineEdit);
     mMountLineEdit->setMinimumWidth( fontMetrics().maxWidth()*10 );
     connect(mMountLineEdit,SIGNAL(textChanged(const QString&)),
 	    this,SLOT(mntCmdChanged(const QString&)));
@@ -128,21 +128,21 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, const char *name, bool init)
 
     //Umount
     mUmountButton = new QPushButton(i18n("Get unmount command"), mGroupBox );
-    CHECK_PTR( mUmountButton );
+    Q_CHECK_PTR( mUmountButton );
     connect(mUmountButton,SIGNAL(clicked()),this,SLOT(selectUmntFile()));
     gl->addWidget( mUmountButton, 2, 2 );
 
-    mUmountLineEdit=new QLineEdit(mGroupBox); 
-    CHECK_PTR(mUmountLineEdit);
+    mUmountLineEdit=new QLineEdit(mGroupBox);
+    Q_CHECK_PTR(mUmountLineEdit);
     mUmountLineEdit->setMinimumWidth( fontMetrics().maxWidth()*10 );
     connect(mUmountLineEdit,SIGNAL(textChanged(const QString&)),
 	    this,SLOT(umntCmdChanged(const QString&)));
     gl->addWidget( mUmountLineEdit, 2, 3 );
-  
+
   }
 
   loadSettings();
-  if(init) 
+  if(init)
   {
     applySettings();
   }
@@ -151,20 +151,20 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, const char *name, bool init)
 }
 
 
-MntConfigWidget::~MntConfigWidget( void ) 
-{ 
+MntConfigWidget::~MntConfigWidget( void )
+{
 }
 
 
-void MntConfigWidget::readDFDone( void ) 
+void MntConfigWidget::readDFDone( void )
 {
   mInitializing = false;
   mList->clear();
 
   QListViewItem *item = 0;
-  for( DiskEntry *disk=mDiskList.first(); disk!=0; disk=mDiskList.next() ) 
+  for( DiskEntry *disk=mDiskList.first(); disk!=0; disk=mDiskList.next() )
   {
-     item = new QListViewItem( mList, item, QString::null, disk->deviceName(), 
+     item = new QListViewItem( mList, item, QString::null, disk->deviceName(),
       disk->mountPoint(), disk->mountCommand(), disk->umountCommand() );
     item->setPixmap( ICONCOL, SmallIcon( disk->iconName() ) );
   }
@@ -180,7 +180,7 @@ void MntConfigWidget::applySettings( void )
 
   KConfig &config = *kapp->config();
   config.setGroup("MntConfig");
-  if(GUI ) 
+  if(GUI )
   {
    config.writeEntry("Width", width() );
    config.writeEntry("Height", height() );
@@ -195,13 +195,13 @@ void MntConfigWidget::loadSettings( void )
   if( mInitializing == false && GUI )
   {
     config.setGroup("MntConfig");
-    if( isTopLevel() ) 
+    if( isTopLevel() )
     {
       int w = config.readNumEntry("Width",this->width() );
       int h = config.readNumEntry("Height",this->height() );
       resize(w,h);
     }
-    
+
     QListViewItem *item = mList->selectedItem();
     if( item != 0 )
     {
@@ -243,19 +243,19 @@ void MntConfigWidget::clicked( QListViewItem *item )
   mMountLineEdit->setText( item->text(MNTCMDCOL) );
   mUmountLineEdit->setText( item->text(UMNTCMDCOL) );
 }
-  
+
 
 
 void MntConfigWidget::selectIcon(QString iconName)
 {
-  if( iconName.findRev('_') == 0 || 
+  if( iconName.findRev('_') == 0 ||
       (iconName.right(iconName.length()-iconName.findRev('_'))!="_mount" &&
       iconName.right(iconName.length()-iconName.findRev('_'))!="_unmount"))
   {
     QString msg = i18n(""
       "This filename is not valid: %1\n"
       "It has to be ending in\n"
-      "\"_mount\" or \"_unmount\".").arg(iconName);       
+      "\"_mount\" or \"_unmount\".").arg(iconName);
     KMessageBox::sorry( this, msg );
     return;
   }
@@ -284,7 +284,7 @@ void MntConfigWidget::selectIcon(QString iconName)
 void MntConfigWidget::selectMntFile()
 {
   KURL url = KFileDialog::getOpenURL( "","*", this );
-  
+
   if( url.isEmpty() )
     return;
 
@@ -293,23 +293,23 @@ void MntConfigWidget::selectMntFile()
     KMessageBox::sorry( 0L, i18n( "Only local files supported." ) );
     return;
   }
-  
+
   mMountLineEdit->setText( url.path() );
 }
 
 void MntConfigWidget::selectUmntFile()
 {
   KURL url = KFileDialog::getOpenURL( "", "*", this );
-  
+
   if( url.isEmpty() )
     return;
-    
+
   if( !url.isLocalFile() )
   {
     KMessageBox::sorry( 0L, i18n( "Only local files are currently supported." ) );
     return;
   }
-  
+
   mUmountLineEdit->setText( url.path() );
 }
 

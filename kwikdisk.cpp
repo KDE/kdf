@@ -4,21 +4,21 @@
   $Id$
 
   written 1999 by Michael Kropfberger <michael.kropfberger@gmx.net>
-  
+
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation; either version 2 of the License, or
   (at your option) any later version.
-  
+
   This program is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
-  
+
   You should have received a copy of the GNU General Public License
   along with this program; if not, write to the Free Software
   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
-   
+
   */
 
 //
@@ -30,6 +30,8 @@
 #include <qlabel.h>
 #include <qbitmap.h>
 #include <qpixmap.h>
+#include <qpen.h>
+#include <qpainter.h>
 
 #include <kdebug.h>
 #include <kapp.h>
@@ -47,7 +49,7 @@
 #include "kwikdisk.h"
 #include "optiondialog.h"
 
-static const char *description = 
+static const char *description =
 	I18N_NOOP("KDE Free disk space utility (another one?)");
 
 static const char *version = "v0.0.1";
@@ -56,7 +58,7 @@ static const char *version = "v0.0.1";
 /***************************************************************/
 /***************************************************************/
 /***************************************************************/
-MyToolTip::MyToolTip( QWidget *parent, QToolTipGroup *group ) 
+MyToolTip::MyToolTip( QWidget *parent, QToolTipGroup *group )
   : QToolTip(parent,group)
 {
   mEnableTipping = false;
@@ -67,7 +69,7 @@ MyToolTip::~MyToolTip( void )
 }
 
 
-void MyToolTip::setTipping( bool enableTipping ) 
+void MyToolTip::setTipping( bool enableTipping )
 {
   mEnableTipping = enableTipping;
 }
@@ -102,9 +104,9 @@ MyPopupMenu::MyPopupMenu(QWidget *parent, const char *name)
 }
 
 
-MyPopupMenu::~MyPopupMenu( void ) 
-{ 
-  delete mToolTip; 
+MyPopupMenu::~MyPopupMenu( void )
+{
+  delete mToolTip;
 }
 
 
@@ -189,9 +191,9 @@ DockWidget::DockWidget(QWidget *parent, const char *name)
 }
 
 
-DockWidget::~DockWidget( void ) 
-{ 
-  delete mPopupMenu; 
+DockWidget::~DockWidget( void )
+{
+  delete mPopupMenu;
 }
 
 
@@ -205,7 +207,7 @@ void DockWidget::loadSettings( void )
   setUpdateFrequency( mStd.updateFrequency() );
 }
 
- 
+
 /**************************************************************************
   * connected with diskList
 **/
@@ -227,8 +229,8 @@ DiskEntry *DockWidget::selectedDisk( void )
   {
     return( 0 );
   }
- 
-  kdDebug() << "selectedDisk: " 
+
+  kdDebug() << "selectedDisk: "
 	    << mDiskList.at(mPopupMenu->activeIndex())->mountPoint()
 	    << "==> index: "
 	    << mPopupMenu->activeIndex() << endl;
@@ -255,24 +257,24 @@ void DockWidget::setUpdateFrequency(int frequency )
 }
 
 /***************************************************************************
- * Mark the list as dirty thus forcing a reload the next time the 
+ * Mark the list as dirty thus forcing a reload the next time the
  * popup menu is about to become visible. Note: A current visible popup
  * will not be update now.
  **/
-void DockWidget::timerEvent(QTimerEvent *) 
-{ 
+void DockWidget::timerEvent(QTimerEvent *)
+{
   mDirty = true;
 }
 
 
-void DockWidget::startKDF( void ) 
+void DockWidget::startKDF( void )
 {
   system("kdf &");
 }
 
 
 void DockWidget::mousePressEvent( QMouseEvent * )
-{ 
+{
   if( mPopupMenu != 0 && mDirty == false )
   {
     showPopupMenu();
@@ -285,7 +287,7 @@ void DockWidget::mousePressEvent( QMouseEvent * )
 
 
 void DockWidget::sysCallError( DiskEntry *disk, int err_no )
-{ 
+{
   if( err_no != 0 )
   {
     KMessageBox::sorry( this, disk->lastSysError() );
@@ -294,13 +296,13 @@ void DockWidget::sysCallError( DiskEntry *disk, int err_no )
 
 
 /***************************************************************************
-  * checks fstab & df 
+  * checks fstab & df
 **/
 void DockWidget::updateDF( void )
 {
   mReadingDF = true;
   mDiskList.readFSTAB();
-  mDiskList.readDF(); 
+  mDiskList.readDF();
 }
 
 
@@ -322,7 +324,7 @@ void DockWidget::toggleMount( void )
   else if( (mStd.openFileManager() == true) && (disk->mounted() == true ))
   {
     kdDebug() << "opening filemanager" << endl;
-    if( mStd.fileManager().isEmpty() == false ) 
+    if( mStd.fileManager().isEmpty() == false )
     {
       QString cmd = mStd.fileManager();
       int pos = cmd.find("%m");
@@ -342,14 +344,14 @@ void DockWidget::toggleMount( void )
 
 
 void DockWidget::updateDFDone( void )
-{ 
+{
   mReadingDF = false;
   mDirty     = false;
 
   if (mPopupMenu!=0) delete mPopupMenu;
-  mPopupMenu = new MyPopupMenu; CHECK_PTR(mPopupMenu);
+  mPopupMenu = new MyPopupMenu; Q_CHECK_PTR(mPopupMenu);
 
-  for( DiskEntry *disk = mDiskList.first(); disk!=0; disk = mDiskList.next()) 
+  for( DiskEntry *disk = mDiskList.first(); disk!=0; disk = mDiskList.next())
   {
     QString toolTipText = i18n("%1 (%2) %3 on %4")
       .arg( disk->mounted() ? i18n("Unmount") : i18n("Mount"))
@@ -363,8 +365,8 @@ void DockWidget::updateDFDone( void )
     int id = mPopupMenu->insertItem("",this, SLOT(toggleMount()) );
 
     QPixmap *pix = new QPixmap(SmallIcon(disk->iconName()));
- 
-    if( getuid() !=0 && disk->mountOptions().find("user",0, false) == -1 ) 
+
+    if( getuid() !=0 && disk->mountOptions().find("user",0, false) == -1 )
     {
       //
       // Special root icon, normal user can´t mount.
@@ -376,8 +378,8 @@ void DockWidget::updateDFDone( void )
       if( pix->mask() != 0 )
       {
 	QBitmap *bm = new QBitmap(*(pix->mask()));
-	if( bm != 0 ) 
-	{ 
+	if( bm != 0 )
+	{
 	  QPainter qp( bm );
 	  qp.setPen(QPen(white,1));
 	  qp.drawRect(0,0,bm->width(),bm->height());
@@ -393,8 +395,8 @@ void DockWidget::updateDFDone( void )
       toolTipText = i18n("Sorry, you must be root to mount this disk");
     }
 
-    mPopupMenu->changeItem(*pix,entryName,id);    
-    // mPopupMenu->changeItem(DevIcon(disk->iconName()),entryName,id);    
+    mPopupMenu->changeItem(*pix,entryName,id);
+    // mPopupMenu->changeItem(DevIcon(disk->iconName()),entryName,id);
     //    connect(disk, SIGNAL(sysCallError(DiskEntry *, int) ),
     //      this, SLOT(sysCallError(DiskEntry *, int)) );
     mPopupMenu->setToolTip(id, toolTipText );
@@ -433,7 +435,7 @@ void DockWidget::showPopupMenu( void )
   {
     return;
   }
-  
+
   QRect g = KWin::info(winId()).geometry;
   QSize s = mPopupMenu->sizeHint();
 
@@ -441,10 +443,10 @@ void DockWidget::showPopupMenu( void )
       g.y() + s.height() > QApplication::desktop()->height() )
   {
     mPopupMenu->popup(QPoint( g.x(), g.y() - s.height()));
-  } 
+  }
   else
   {
-    mPopupMenu->popup(QPoint( g.x() + g.width(), g.y() + g.height())); 
+    mPopupMenu->popup(QPoint( g.x() + g.width(), g.y() + g.height()));
   }
 }
 
@@ -461,20 +463,20 @@ void DockWidget::settingsBtnClicked( void )
   {
     mOptionDialog = new COptionDialog( this, "options", false );
     if( mOptionDialog == 0 ) { return; }
-    connect( mOptionDialog, SIGNAL(valueChanged()), 
+    connect( mOptionDialog, SIGNAL(valueChanged()),
 	     this, SLOT(loadSettings()) );
   }
   mOptionDialog->show();
 }
 
 
-void DockWidget::invokeHelp( void ) 
+void DockWidget::invokeHelp( void )
 {
   kapp->invokeHelp("", "kcontrol/kdf" );
 }
 
 
-void DockWidget::quit( void ) 
+void DockWidget::quit( void )
 {
   emit quitProgram();
 }
@@ -482,7 +484,7 @@ void DockWidget::quit( void )
 
 /***************************************************************/
 KwikDiskTopLevel::KwikDiskTopLevel(QWidget *, const char *name)
-  : KMainWindow(0, name) 
+  : KMainWindow(0, name)
 {
   setPlainCaption("kwikdisk");
 
@@ -494,9 +496,9 @@ KwikDiskTopLevel::KwikDiskTopLevel(QWidget *, const char *name)
 }
 
 
-KwikDiskTopLevel::~KwikDiskTopLevel( void ) 
-{ 
-  delete mDockIcon; 
+KwikDiskTopLevel::~KwikDiskTopLevel( void )
+{
+  delete mDockIcon;
 }
 
 
@@ -515,9 +517,9 @@ int main(int argc, char **argv)
   KCmdLineArgs::init(argc, argv, "kdf", description, version);
 
   KApplication app;
-  
+
   KwikDiskTopLevel *ktl = new KwikDiskTopLevel();
-  CHECK_PTR(ktl);
+  Q_CHECK_PTR(ktl);
   app.setMainWidget(ktl);
   KWin::setSystemTrayWindowFor(ktl->winId(), 0);
   ktl->show();

@@ -18,7 +18,7 @@
  */
 
 //
-// 1999-11-28 Espen Sand 
+// 1999-11-28 Espen Sand
 // The purpose of this class is:
 // 1) Easily set minimum number of visible items and to adjust the sizeHint()
 // 2) Provide a pixmap collection
@@ -26,6 +26,8 @@
 
 #include <qbitmap.h>
 #include <qheader.h>
+#include <qpainter.h>
+#include <qpen.h>
 
 #include <kapp.h>
 #include <kglobal.h>
@@ -49,7 +51,7 @@ void CListView::setVisibleItem( int visibleItem, bool updateSize )
   if( updateSize == true )
   {
     QSize s = sizeHint();
-    setMinimumSize( s.width() + verticalScrollBar()->sizeHint().width() + 
+    setMinimumSize( s.width() + verticalScrollBar()->sizeHint().width() +
 		    lineWidth() * 2, s.height() );
   }
 }
@@ -57,10 +59,10 @@ void CListView::setVisibleItem( int visibleItem, bool updateSize )
 QSize CListView::sizeHint( void ) const
 {
   QSize s = QListView::sizeHint();
-  
+
   int h = fontMetrics().height() + 2*itemMargin();
   if( h % 2 > 0 ) { h++; }
-  
+
   s.setHeight( h*mVisibleItem + lineWidth()*2 + header()->sizeHint().height());
   return( s );
 }
@@ -84,7 +86,7 @@ const QPixmap &CListView::icon( const QString &iconName, bool drawBorder )
       if( pix->mask() != 0 )
       {
 	QBitmap *bm = new QBitmap(*(pix->mask()));
-	if( bm != 0 ) 
+	if( bm != 0 )
 	{
 	  QPainter qp(bm);
 	  qp.setPen(QPen(white,1));
@@ -93,7 +95,7 @@ const QPixmap &CListView::icon( const QString &iconName, bool drawBorder )
 	  pix->setMask(*bm);
 	}
 
-	QPainter qp(pix); 
+	QPainter qp(pix);
 	qp.setPen(QPen(red,1));
 	qp.drawRect(0,0,pix->width(),pix->height());
 	qp.end();

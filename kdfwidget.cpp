@@ -22,7 +22,7 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
- 
+
 //
 // 1999-11-29 Espen Sand
 // Converted to QLayout and QListView + cleanups
@@ -36,12 +36,13 @@
 #include <qheader.h>
 #include <qpixmap.h>
 #include <qpaintdevice.h>
-#include <qstring.h> 
+#include <qstring.h>
 #include <qtimer.h>
 #include <qlayout.h>
+#include <qpainter.h>
 
 #include <kdebug.h>
-#include <kapp.h> 
+#include <kapp.h>
 #include <kcmenumngr.h>
 #include <kglobal.h>
 #include <kiconloader.h>
@@ -69,7 +70,7 @@ CListViewItem::CListViewItem( CListView * parent, QListViewItem * after )
 
 // 2001-03-10 Walter F.J. Mueller <W.F.J.Mueller@gsi.de>
 // This method returns for all numeric columns the converted number.
-// The conversion is done with 
+// The conversion is done with
 //    1. fixed position of the colon
 //    2. a sufficient number of leading blanks
 // This ensures that the lexical string comparison gives numerical order.
@@ -138,10 +139,10 @@ KDFWidget::KDFWidget( QWidget *parent, const char *name, bool init )
     mList->setAllColumnsShowFocus( true );
     mList->setFrameStyle( QFrame::WinPanel + QFrame::Sunken );
     mList->setShowSortIndicator(true);
-    connect( mList, 
+    connect( mList,
       SIGNAL( pressed( QListViewItem *, const QPoint &, int )),
       this, SLOT( rightButtonPressed( QListViewItem *, const QPoint &, int )));
-    connect( mList, 
+    connect( mList,
       SIGNAL( clicked( QListViewItem *, const QPoint &, int )),
       this, SLOT( rightButtonClicked( QListViewItem *, const QPoint &, int )));
     connect( mList->header(), SIGNAL(sizeChange(int, int, int)),
@@ -159,9 +160,9 @@ KDFWidget::KDFWidget( QWidget *parent, const char *name, bool init )
 }
 
 
-KDFWidget::~KDFWidget() 
+KDFWidget::~KDFWidget()
 {
-} 
+}
 
 
 
@@ -202,7 +203,7 @@ void KDFWidget::makeColumns( void )
 /******************************************************************/
 void KDFWidget::closeEvent(QCloseEvent *)
 {
-  applySettings(); 
+  applySettings();
   kapp->quit();
 };
 
@@ -222,12 +223,12 @@ void KDFWidget::applySettings( void )
   KConfig &config = *kapp->config();
 
   config.setGroup("KDiskFree");
-  if( mIsTopLevel == true ) 
+  if( mIsTopLevel == true )
   {
     config.writeEntry( "Width", width() );
     config.writeEntry( "Height", height() );
   }
-  if( GUI ) 
+  if( GUI )
   {
     for( uint i=0; i<mTabProp.size(); i++ )
     {
@@ -251,7 +252,7 @@ void KDFWidget::loadSettings( void )
 {
   mStd.updateConfiguration();
 
-  if(GUI) 
+  if(GUI)
   {
     KConfig &config = *kapp->config();
     config.setGroup("KDiskFree");
@@ -267,7 +268,7 @@ void KDFWidget::loadSettings( void )
       CTabEntry &e = *mTabProp[i];
       e.mWidth = config.readNumEntry( e.mRes, e.mWidth );
     }
-    if (mTabProp[usageCol]->mWidth > 16) 
+    if (mTabProp[usageCol]->mWidth > 16)
       mTabProp[usageCol]->mWidth -= 16;
 
     config.setGroup("KDFConfig");
@@ -289,13 +290,13 @@ void KDFWidget::loadSettings( void )
 **/
 void KDFWidget::settingsBtnClicked( void )
 {
-  if( mIsTopLevel == true ) 
+  if( mIsTopLevel == true )
   {
     if( mOptionDialog == 0 )
     {
       mOptionDialog = new COptionDialog( this, "options", false );
       if( mOptionDialog == 0 ) { return; }
-      connect( mOptionDialog, SIGNAL(valueChanged()), 
+      connect( mOptionDialog, SIGNAL(valueChanged()),
 	       this, SLOT(settingsChanged()) );
     }
     mOptionDialog->show();
@@ -322,14 +323,14 @@ void KDFWidget::setUpdateFrequency( int frequency )
 /***************************************************************************
   * Update (reread) all disk-dependencies
 **/
-void KDFWidget::timerEvent(QTimerEvent *) 
+void KDFWidget::timerEvent(QTimerEvent *)
 {
   updateDF();
 }
 
 
 /***************************************************************************
-  * checks fstab & df 
+  * checks fstab & df
 **/
 void KDFWidget::updateDF( void )
 {
@@ -340,7 +341,7 @@ void KDFWidget::updateDF( void )
   {
     readingDF = TRUE;
     mDiskList.readFSTAB();
-    mDiskList.readDF(); 
+    mDiskList.readDF();
   }
 }
 
@@ -353,11 +354,11 @@ void KDFWidget::updateDFDone( void ){
 
   int i=0;
   CListViewItem *item = 0;
-  for( DiskEntry *disk=mDiskList.first(); disk!=0; disk=mDiskList.next() ) 
+  for( DiskEntry *disk=mDiskList.first(); disk!=0; disk=mDiskList.next() )
   {
     i++;
     QString size, percent;
-    if( disk->kBSize() > 0 ) 
+    if( disk->kBSize() > 0 )
     {
       percent = KGlobal::locale()->formatNumber(disk->percentFull(), 1) + '%';
       size = disk->prettyKBSize();
@@ -395,7 +396,7 @@ void KDFWidget::resizeEvent( QResizeEvent * )
 }
 
 
- 
+
 /**************************************************************************
   * connected with diskList
 **/
@@ -483,8 +484,8 @@ void KDFWidget::popupMenu( QListViewItem *item, const QPoint &p )
   }
 
   //
-  // The list update will be disabled as long as this menu is 
-  // visible. Reason: The 'disk' may no longer be valid. 
+  // The list update will be disabled as long as this menu is
+  // visible. Reason: The 'disk' may no longer be valid.
   //
   mPopup = new KPopupMenu( disk->mountPoint(), 0 );
   mPopup->insertItem( i18n("Mount device"), 0 );
@@ -508,7 +509,7 @@ void KDFWidget::popupMenu( QListViewItem *item, const QPoint &p )
       item->setText( sizeCol, i18n("MOUNTING") );
       item->setText( freeCol, i18n("MOUNTING") );
       item->setPixmap( 0, mList->icon( "mini-clock", false ) );
-      
+
       int val = disk->toggleMount();
       if( val != 0 /*== false*/ )
 	{
@@ -528,7 +529,7 @@ void KDFWidget::popupMenu( QListViewItem *item, const QPoint &p )
   if( openFileManager == true )
   {
     kdDebug() << "opening filemanager" << endl;
-    if(  mStd.fileManager().isEmpty() == false ) 
+    if(  mStd.fileManager().isEmpty() == false )
     {
       QString cmd = mStd.fileManager();
       int pos = cmd.find("%m");
@@ -546,7 +547,7 @@ void KDFWidget::popupMenu( QListViewItem *item, const QPoint &p )
 
   if( position != 2 ) // No need to update when just opening the fm.
   {
-    updateDF(); 
+    updateDF();
   }
 }
 
@@ -584,7 +585,7 @@ void KDFWidget::updateDiskBarPixmaps( void )
     // never called.
     //
     //int pos=mDiskList->find(disk);
-    
+
     DiskEntry dummy(it->text(deviceCol));
     dummy.setMountPoint(it->text(mntCol));
     int pos = -1;
@@ -610,8 +611,8 @@ void KDFWidget::updateDiskBarPixmaps( void )
     if( disk->mounted() == true && disk->percentFull() != -1 )
     {
       int w = mList->columnWidth(usageCol)-2;
-      if( w <= 0 ) { continue; } 
-  
+      if( w <= 0 ) { continue; }
+
       QPixmap *pix = new QPixmap( w, h );
       if( pix == 0 ) { continue; }
 
@@ -631,7 +632,7 @@ void KDFWidget::updateDiskBarPixmaps( void )
 		 pix->height()-2);
       it->setPixmap ( usageCol, *pix );
       p.end();
-      delete pix; 
+      delete pix;
     }
   }
 }

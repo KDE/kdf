@@ -78,7 +78,7 @@ if (NO_FS_TYPE)
    disks->setAutoDelete(TRUE);
 
    // BackgroundProcesses ****************************************
-      dfProc = new KProcess(); CHECK_PTR(dfProc);
+      dfProc = new KProcess(); Q_CHECK_PTR(dfProc);
        connect( dfProc, SIGNAL(receivedStdout(KProcess *, char *, int) ),
            this, SLOT (receivedDFStdErrOut(KProcess *, char *, int)) );
        //connect( dfProc, SIGNAL(receivedStderr(KProcess *, char *, int) ),
@@ -174,7 +174,7 @@ QFile f(FSTAB);
       if ( (!s.isEmpty() ) && (s.find(DELIMITER)!=0) ) {
                // not empty or commented out by '#'
 	//	kdDebug() << "GOT: [" << s << "]" << endl;
-	disk = new DiskEntry();// CHECK_PTR(disk);
+	disk = new DiskEntry();// Q_CHECK_PTR(disk);
         disk->setMounted(FALSE);
         disk->setDeviceName(s.left(s.find(BLANK)) );
             s=s.remove(0,s.find(BLANK)+1 );
@@ -266,7 +266,7 @@ void DiskList::dfDone()
     s=t.readLine();
     s=s.simplifyWhiteSpace();
     if ( !s.isEmpty() ) {
-      disk = new DiskEntry(); CHECK_PTR(disk);
+      disk = new DiskEntry(); Q_CHECK_PTR(disk);
 
       if (s.find(BLANK)<0)      // devicename was too long, rest in next line
 	if ( !t.eof() ) {       // just appends the next line

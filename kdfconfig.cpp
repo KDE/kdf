@@ -89,7 +89,7 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, const char *name, bool init)
 	     this, SLOT(toggleListText(QListViewItem *,const QPoint &,int)));
     topLayout->addWidget( mList );
 
-    QListViewItem *mListItem = new QListViewItem( mList );  
+    QListViewItem *mListItem = new QListViewItem( mList );
     for( uint i=mList->header()->count(); i>0; i-- )
     {
      mListItem->setText(i-1, i18n("visible") );
@@ -99,44 +99,44 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, const char *name, bool init)
 
     QGridLayout *gl = new QGridLayout( 2, 2 );
     topLayout->addLayout( gl );
-    gl->setColStretch( 1, 10 );  
+    gl->setColStretch( 1, 10 );
 
-    mScroll = new QScrollBar( this ); 
-    CHECK_PTR(mScroll); 
+    mScroll = new QScrollBar( this );
+    Q_CHECK_PTR(mScroll);
     mScroll->setOrientation( QScrollBar::Horizontal );
     mScroll->setSteps(1,20);
-    mScroll->setRange(0, 180 ); 
-    gl->addWidget( mScroll, 1, 1 );  
+    mScroll->setRange(0, 180 );
+    gl->addWidget( mScroll, 1, 1 );
 
-    mLCD = new QLCDNumber( this ); 
-    CHECK_PTR(mLCD);
+    mLCD = new QLCDNumber( this );
+    Q_CHECK_PTR(mLCD);
     mLCD->setNumDigits( 3 );
     mLCD->setSegmentStyle(QLCDNumber::Filled);
     connect(mScroll,SIGNAL(valueChanged(int)),mLCD,SLOT(display(int)));
     gl->addMultiCellWidget( mLCD, 0, 1, 0, 0 );
 
     text = i18n("Update frequency [seconds]. The value 0 disables update" );
-    QLabel *label = new QLabel( text, this ); 
-    CHECK_PTR(label);
-    gl->addWidget( label, 0, 1 );  
+    QLabel *label = new QLabel( text, this );
+    Q_CHECK_PTR(label);
+    gl->addWidget( label, 0, 1 );
 
 
     label = new QLabel( i18n("FileManager (e.g. konsole -e mc %m)") ,this);
-    CHECK_PTR(label);
+    Q_CHECK_PTR(label);
     topLayout->addWidget( label );
 
-    mFileManagerEdit = new QLineEdit( this ); 
-    CHECK_PTR(mFileManagerEdit);
+    mFileManagerEdit = new QLineEdit( this );
+    Q_CHECK_PTR(mFileManagerEdit);
     topLayout->addWidget( mFileManagerEdit );
 
     text = i18n("Open filemanager automatically on mount");
-    mOpenMountCheck = new QCheckBox(text, this ); 
-    CHECK_PTR(mOpenMountCheck);
+    mOpenMountCheck = new QCheckBox(text, this );
+    Q_CHECK_PTR(mOpenMountCheck);
     topLayout->addWidget( mOpenMountCheck );
 
     text = i18n("Pop up a window when a disk gets critically full");
-    mPopupFullCheck = new QCheckBox( text, this ); 
-    CHECK_PTR(mPopupFullCheck);
+    mPopupFullCheck = new QCheckBox( text, this );
+    Q_CHECK_PTR(mPopupFullCheck);
     topLayout->addWidget( mPopupFullCheck );
   }
 
@@ -148,14 +148,14 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, const char *name, bool init)
 }
 
 
-KDFConfigWidget::~KDFConfigWidget() 
-{ 
-} 
+KDFConfigWidget::~KDFConfigWidget()
+{
+}
 
 
 void KDFConfigWidget::closeEvent(QCloseEvent *)
 {
-  applySettings(); 
+  applySettings();
   kapp->quit();
 }
 
@@ -165,7 +165,7 @@ void KDFConfigWidget::applySettings( void )
   KConfig &config = *kapp->config();
   config.setGroup("KDFConfig");
 
-  if( GUI ) 
+  if( GUI )
   {
     //config.writeEntry( "Width", width() );
     //config.writeEntry( "Height", height() );
@@ -181,12 +181,12 @@ void KDFConfigWidget::applySettings( void )
     {
       for( int i=mList->header()->count(); i>0; i-- )
       {
-	bool state = item->text(i-1) == i18n("visible") ? true : false;	
+	bool state = item->text(i-1) == i18n("visible") ? true : false;
 	config.writeEntry( mTabName[i-1]->mRes, state );
       }
     }
-  } 
-  else 
+  }
+  else
   {
     mStd.writeDefaultFileManager();
   }
@@ -199,7 +199,7 @@ void KDFConfigWidget::loadSettings( void )
   KConfig &config = *kapp->config();
   config.setGroup("KDFConfig");
 
-  if( GUI ) 
+  if( GUI )
   {
     mStd.updateConfiguration();
     mScroll->setValue( mStd.updateFrequency() );
@@ -215,7 +215,7 @@ void KDFConfigWidget::loadSettings( void )
       {
 	int j = config.readNumEntry( mTabName[i-1]->mRes, 1 );
 	item->setText( i-1, j==0 ? i18n("hidden") : i18n("visible") );
-     	item->setPixmap( i-1, j==0 ? UserIcon ( "delete" ) 
+     	item->setPixmap( i-1, j==0 ? UserIcon ( "delete" )
                                    : UserIcon ( "tick" ) );
       }
     }
@@ -251,7 +251,7 @@ void KDFConfigWidget::toggleListText( QListViewItem *item, const QPoint &,
   if (!item) return;
   QString text = item->text( column );
   item->setText(column, text==i18n("visible")?i18n("hidden"):i18n("visible"));
-  item->setPixmap( column, text==i18n("visible") ?  UserIcon ( "delete" ) 
+  item->setPixmap( column, text==i18n("visible") ?  UserIcon ( "delete" )
                                    : UserIcon ( "tick" ) );
 }
 

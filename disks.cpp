@@ -56,7 +56,7 @@ void DiskEntry::init()
 
  // BackgroundProcesses ****************************************
 
- sysProc = new KShellProcess(); CHECK_PTR(sysProc);
+ sysProc = new KShellProcess(); Q_CHECK_PTR(sysProc);
  connect( sysProc, SIGNAL(receivedStdout(KProcess *, char *, int) ),
         this, SLOT (receivedSysStdErrOut(KProcess *, char *, int)) );
  connect( sysProc, SIGNAL(receivedStderr(KProcess *, char *, int) ),
@@ -169,7 +169,7 @@ void DiskEntry::setIconName(const QString & iconName)
      icoName.truncate(icoName.length()-6);
   else if (icoName.right(8) == "_unmount")
      icoName.truncate(icoName.length()-8);
-  
+
   emit iconNameChanged();
 };
 
