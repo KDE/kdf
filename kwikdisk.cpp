@@ -1,8 +1,6 @@
 /*
   kwikdisk.cpp - KDiskFree
 
-  $Id$
-
   written 1999 by Michael Kropfberger <michael.kropfberger@gmx.net>
 
   This program is free software; you can redistribute it and/or modify
@@ -416,7 +414,7 @@ void DockWidget::updateDFDone( void )
 
   mPopupMenu->insertItem(
     BarIcon( "exit" ),
-    i18n("&Quit"), this, SLOT(quit()) );
+    KStdGuiItem::quit().text(), this, SLOT(quit()) );
 
   mPopupMenu->move(-1000,-1000);
   showPopupMenu();
