@@ -401,7 +401,7 @@ void DockWidget::updateDFDone( void )
     i18n("&Start KDiskFree"), this, SLOT(startKDF()),0);
 
   mPopupMenu->insertItem(
-    BarIcon( "options" ),
+    BarIcon( "configure" ),
     i18n("&Customize"), this, SLOT(settingsBtnClicked()),0);
 
   mPopupMenu->insertItem(
