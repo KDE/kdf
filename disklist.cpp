@@ -24,6 +24,7 @@
  */
 
 #include <math.h>
+#include <stdlib.h>
 
 #include <qstring.h>
 #include <qfile.h>
@@ -238,6 +239,8 @@ void DiskList::receivedDFStdErrOut(KProcess *, char *data, int len )
 int DiskList::readDF()
 {
   if (readingDFStdErrOut || dfProc->isRunning()) return -1;
+  setenv("LANG", "en_US", 1);
+  setenv("LC_ALL", "en_US", 1);
   dfStringErrOut=""; // yet no data received
   dfProc->clearArguments();
   (*dfProc) << DF_COMMAND << DF_ARGS;
