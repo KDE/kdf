@@ -129,12 +129,11 @@ floppy drive.</para>
 column sorts the devices according to that variable. A second
 <mousebutton>left</mousebutton> click sorts in the opposite order.</para>
 
-<para><mousebutton>Right</mousebutton> clicking on a row pops up a menu. If that
-device is not currently mounted, the <guimenuitem>Mount device</guimenuitem>
-option is available. If the device is mounted, it can be unmounted by choosing
-<guimenuitem>Unmount device</guimenuitem>. Selecting <guimenuitem>Open
-filemanager</guimenuitem> opens a new window with a graphical view of the files
-on that device.</para>
+<para>Clicking on a row pops up a menu. If that device is not currently mounted,
+the <guimenuitem>Mount device</guimenuitem> option is available. If the device
+is mounted, it can be unmounted by choosing <guimenuitem>Unmount
+device</guimenuitem>. Selecting <guimenuitem>Open filemanager</guimenuitem>
+opens a new window with a graphical view of the files on that device.</para>
 
 </sect1>
 
