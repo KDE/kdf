@@ -36,6 +36,7 @@ class COptionDialog : public KDialogBase
   protected slots:
     virtual void slotOk( void );
     virtual void slotApply( void );
+    void slotChanged();
 
   signals:
     void valueChanged( void );
@@ -43,6 +44,7 @@ class COptionDialog : public KDialogBase
   private:
     KDFConfigWidget *mConf;
     MntConfigWidget *mMnt;
+    bool dataChanged;
 };
 
 #endif

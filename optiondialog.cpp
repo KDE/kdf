@@ -33,11 +33,15 @@ COptionDialog::COptionDialog( QWidget *parent, const char *name, bool modal )
   QVBoxLayout *l1 = new QVBoxLayout( f1 );  
   mConf = new KDFConfigWidget( f1, "kdfconf" );
   l1->addWidget(mConf);
+  connect( mConf, SIGNAL( configChanged() ), this, SLOT( slotChanged() ) );
 
   QFrame *f2 = addPage( i18n("Mount Commands") );
-  QVBoxLayout *l2 = new QVBoxLayout( f2 ); 
+  QVBoxLayout *l2 = new QVBoxLayout( f2 );
   mMnt = new MntConfigWidget( f2, "mntconf");
   l2->addWidget(mMnt);
+  connect( mMnt, SIGNAL( configChanged() ), this, SLOT( slotChanged() ) );
+  enableButton( Apply, false );
+  dataChanged = false;
 }
 
 
@@ -48,7 +52,8 @@ COptionDialog::~COptionDialog( void )
 
 void COptionDialog::slotOk( void )
 {
-  slotApply();
+  if( dataChanged )
+    slotApply();
   accept();
 }
 
@@ -58,14 +63,15 @@ void COptionDialog::slotApply( void )
   mConf->applySettings();
   mMnt->applySettings();
   emit valueChanged();
+  enableButton( Apply, false );
+  dataChanged = false;
 }
 
-
-
-
-
-
-
+void COptionDialog::slotChanged()
+{
+  enableButton( Apply, true );
+  dataChanged = true;
+}
 
 #include "optiondialog.moc"
 

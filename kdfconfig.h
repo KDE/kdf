@@ -67,6 +67,9 @@ class KDFConfigWidget : public QWidget
     void applySettings( void );
     void defaultsBtnClicked( void );
 
+  protected slots:
+    void slotChanged();
+
   private slots:
     void toggleListText( QListViewItem *item, const QPoint &, int column );
 
@@ -81,7 +84,10 @@ class KDFConfigWidget : public QWidget
     QLineEdit  *mFileManagerEdit;
     QCheckBox  *mOpenMountCheck;
     QCheckBox  *mPopupFullCheck;
-    CStdOption mStd; 
+    CStdOption mStd;
+
+  signals:
+    void configChanged();
 };
 
 

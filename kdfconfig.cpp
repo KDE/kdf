@@ -83,6 +83,8 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, const char *name, bool init)
     }
     connect( mList, SIGNAL(clicked(QListViewItem *, const QPoint &, int)),
 	     this, SLOT(toggleListText(QListViewItem *,const QPoint &,int)));
+    connect( mList, SIGNAL(clicked(QListViewItem *, const QPoint &, int)),
+	     this, SLOT(slotChanged()));
     topLayout->addWidget( mList );
 
     QListViewItem *mListItem = new QListViewItem( mList );
@@ -103,6 +105,7 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, const char *name, bool init)
     mScroll->setSteps(1,20);
     mScroll->setRange(0, 180 );
     gl->addWidget( mScroll, 1, 1 );
+    connect(mScroll,SIGNAL(valueChanged(int)),this,SLOT(slotChanged()));
 
     mLCD = new QLCDNumber( this );
     Q_CHECK_PTR(mLCD);
@@ -124,16 +127,19 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, const char *name, bool init)
     mFileManagerEdit = new QLineEdit( this );
     Q_CHECK_PTR(mFileManagerEdit);
     topLayout->addWidget( mFileManagerEdit );
+    connect(mFileManagerEdit,SIGNAL(textChanged (const QString &)),this,SLOT(slotChanged()));
 
     text = i18n("Open file manager automatically on mount");
     mOpenMountCheck = new QCheckBox(text, this );
     Q_CHECK_PTR(mOpenMountCheck);
     topLayout->addWidget( mOpenMountCheck );
+    connect(mOpenMountCheck,SIGNAL(toggled(bool)),this,SLOT(slotChanged()));
 
     text = i18n("Pop up a window when a disk gets critically full");
     mPopupFullCheck = new QCheckBox( text, this );
     Q_CHECK_PTR(mPopupFullCheck);
     topLayout->addWidget( mPopupFullCheck );
+    connect(mPopupFullCheck,SIGNAL(toggled(bool)),this,SLOT(slotChanged()));
   }
 
   loadSettings();
@@ -251,6 +257,9 @@ void KDFConfigWidget::toggleListText( QListViewItem *item, const QPoint &,
                                    : UserIcon ( "tick" ) );
 }
 
-
+void KDFConfigWidget::slotChanged()
+{
+  emit configChanged();
+}
 
 #include "kdfconfig.moc"

@@ -95,6 +95,8 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, const char *name, bool init)
     mIconLineEdit->setMinimumWidth( fontMetrics().maxWidth()*10 );
     connect( mIconLineEdit, SIGNAL(textChanged(const QString&)),
 	     this,SLOT(iconChanged(const QString&)));
+    connect( mIconLineEdit, SIGNAL(textChanged(const QString&)),
+	     this,SLOT(slotChanged()));
     gl->addWidget( mIconLineEdit, 2, 0 );
 
     mIconButton = new KIconButton(mGroupBox);
@@ -115,6 +117,8 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, const char *name, bool init)
     mMountLineEdit->setMinimumWidth( fontMetrics().maxWidth()*10 );
     connect(mMountLineEdit,SIGNAL(textChanged(const QString&)),
 	    this,SLOT(mntCmdChanged(const QString&)));
+    connect( mMountLineEdit, SIGNAL(textChanged(const QString&)),
+	     this,SLOT(slotChanged()));
     gl->addWidget( mMountLineEdit, 1, 3 );
 
     //Umount
@@ -128,6 +132,8 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, const char *name, bool init)
     mUmountLineEdit->setMinimumWidth( fontMetrics().maxWidth()*10 );
     connect(mUmountLineEdit,SIGNAL(textChanged(const QString&)),
 	    this,SLOT(umntCmdChanged(const QString&)));
+    connect( mUmountLineEdit, SIGNAL(textChanged(const QString&)),
+	     this,SLOT(slotChanged()));
     gl->addWidget( mUmountLineEdit, 2, 3 );
 
   }
@@ -350,5 +356,9 @@ void MntConfigWidget::closeEvent(QCloseEvent *)
 {
 };
 
+void MntConfigWidget::slotChanged()
+{
+  emit configChanged();
+}
 
 #include "mntconfig.moc"

@@ -64,7 +64,10 @@ class MntConfigWidget : public QWidget
   public slots:
     void loadSettings( void );
     void applySettings( void );
-  
+
+  protected slots:
+    void slotChanged();
+
   private slots:
     void readDFDone( void );
     void clicked( QListViewItem *item );
@@ -90,6 +93,9 @@ class MntConfigWidget : public QWidget
     DiskList    mDiskList;
     bool        mInitializing;
     QMemArray<QListViewItem*> mDiskLookup;
+
+  signals:
+    void configChanged();
 };
 
 
