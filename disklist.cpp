@@ -380,7 +380,7 @@ void DiskList::deleteAllMountedAt(const QString &mountpoint)
 **/
 void DiskList::replaceDeviceEntry(DiskEntry *disk)
 {
-  //kdDebug() << k_funcinfo << disk->deviceRealName() << " " << disk->mountPoint() << endl;
+  //kdDebug() << k_funcinfo << disk->deviceRealName() << " " << disk->realMountPoint() << endl;
 
   //
   // The 'disks' may already already contain the 'disk'. If it do
@@ -395,6 +395,7 @@ void DiskList::replaceDeviceEntry(DiskEntry *disk)
   //int pos=disks->find(disk);
 
   QString deviceRealName = disk->deviceRealName();
+  QString realMountPoint = disk->realMountPoint();
 
   int pos = -1;
   for( u_int i=0; i<disks->count(); i++ )
@@ -403,7 +404,7 @@ void DiskList::replaceDeviceEntry(DiskEntry *disk)
     int res = deviceRealName.compare( item->deviceRealName() );
     if( res == 0 )
     {
-      res = disk->mountPoint().compare( item->mountPoint() );
+      res = realMountPoint.compare( item->realMountPoint() );
     }
     if( res == 0 )
     {

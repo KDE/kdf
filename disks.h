@@ -50,6 +50,8 @@ public:
   QString deviceRealName() const;
   QString mountPoint() const { return mountedOn; }
   QString mountOptions() const { return options; }
+  // The real device (in case deviceName() is a symlink)
+  QString realMountPoint() const;
   /**
    * sets the used mountCommand for the actual DiskEntry.
    * @param mntcmd   is a string containing the executable file and

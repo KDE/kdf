@@ -283,6 +283,12 @@ void DiskEntry::setMountPoint(const QString & mountPoint)
  emit mountPointChanged();
 }
 
+QString DiskEntry::realMountPoint() const
+{
+ QDir dir( mountedOn );
+ return dir.canonicalPath();
+}
+
 void DiskEntry::setMountOptions(const QString & mountOptions)
 {
  options=mountOptions;
