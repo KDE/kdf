@@ -116,7 +116,7 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, const char *name, bool init)
     gl->addWidget( label, 0, 1 );
 
 
-    label = new QLabel( i18n("FileManager (e.g. konsole -e mc %m)") ,this);
+    label = new QLabel( i18n("Filemanager (e.g. konsole -e mc %m):") ,this);
     Q_CHECK_PTR(label);
     topLayout->addWidget( label );
 
