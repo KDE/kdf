@@ -13,37 +13,26 @@
 
 <authorgroup>
 <author>
-<firstname>Jonathan</firstname>
-<surname>Singer</surname>
-<affiliation>
-<address><email>jsinger@leeta.net</email></address>
-</affiliation>
+&Jonathan.Singer; &Jonathan.Singer.mail;
 </author>
 
 <author>
-<firstname>Michael</firstname>
-<surname>Kropfberger</surname>
-<affiliation><address><email>michael.kropfberger@gmx.net</email></address></affiliation>
+&Michael.Kropfberger; &Michael.Kropfberger.mail;
 </author>
 
-<othercredit role="reviewer">
-<firstname>Lauri</firstname>
-<surname>Watts</surname>
-<contrib>Reviewer</contrib>
-</othercredit>
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 
 </authorgroup>
 
 <copyright>
 <year>2000-2002</year>
-<holder>Jonathan Singer</holder>
+<holder>&Jonathan.Singer;</holder>
 </copyright>
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2001-10-06</date>
-<releaseinfo>0.00.50</releaseinfo>
+<date>2003-09-16</date>
+<releaseinfo>0.</releaseinfo>
 
 <abstract><para>&kdiskfree; displays available file devices, along with
 information about them.</para>
@@ -70,7 +59,7 @@ partitions, floppy and &CD; drives, &etc;) along with information on
 their capacity, free space, type and mount point. It also allows you
 to mount and unmount drives and view them in a file manager.</para>
 
-<para>&kdiskfree; is similar to the &kcontrol; DiskFree module <!--
+<para>&kdiskfree; is similar to the &kcontrol; Disk-Free module <!--
 (<application>kcmdf</application>) -->, but takes up less screen
 space. It is useful if you want to keep a &kdiskfree; window available at
 all times.</para>
@@ -141,7 +130,7 @@ graphical view of the files on that device.</para>
 </sect1>
 
 <sect1 id="the-menus">
-<title>The &kdiskfree; menubar</title>
+<title>The &kdiskfree; menu bar</title>
 
 <sect2>
 <title>The <guimenu>File</guimenu> Menu</title>
@@ -205,10 +194,10 @@ and <guilabel>Mount Commands</guilabel></para>
 display of an data field on or off.</para> <para>Change the update
 frequency by moving the slider. The value in the box on the left is
 the interval (in seconds) between updates of the &kdiskfree; display to
-reflect the current status.</para> <para>The FileManager setting
+reflect the current status.</para> <para>The File Manager setting
 controls the command executed when the <guimenuitem>Open
 Filemanager</guimenuitem> pop-up menu item is selected.</para>
-<para>There are also two checkboxes. One controls if a filemanager
+<para>There are also two check boxes. One controls if a file manager
 window will be automatically opened when a device is mounted. The
 other causes an alert window to pop up if a disk gets critically
 full.</para>
@@ -243,29 +232,14 @@ command prompt).</para></listitem>
 
 <para>&kdiskfree;</para>
 
-<para>Program copyright 1998-2000 Michael Kropfberger
-<email>mkropfbe@edu.uni-klu.ac.at</email></para>
+<para>Program Copyright &copy; 1998-2000 &Michael.Kropfberger; &Michael.Kropfberger.mail;</para>
 
-<para>Documentation copyright 2000 Jonathan Singer
-<email>jsinger@leeta.net</email></para>
+<para>Documentation Copyright &copy; 2000 &Jonathan.Singer; &Jonathan.Singer.mail;</para>
 
 &underFDL;
 &underGPL;
 
 </chapter>
-
-<appendix id="installation">
-<title>Installation</title>
-
-<sect1 id="getting-and-installing-kdf">
-<title>How to obtain and install &kdiskfree;</title>
-
-&install.intro.documentation;
-&install.compile.documentation;
-
-</sect1>
-
-</appendix>
 
 &documentation.index; 
 </book>
