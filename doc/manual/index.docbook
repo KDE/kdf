@@ -43,8 +43,8 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2001-02-15</date>
-<releaseinfo>0.00.10</releaseinfo>
+<date>2001-07-06</date>
+<releaseinfo>0.00.50</releaseinfo>
 
 <abstract><para>&kdf; displays available file devices, along with information about
 them.</para>
@@ -113,7 +113,7 @@ command prompt.</para>
 <itemizedlist>
 <listitem><para>an icon depicting the type of storage</para></listitem>
 <listitem><para>device name</para></listitem>
-<listitem><para>filesystem format</para></listitem>
+<listitem><para>filesystem type</para></listitem>
 <listitem><para>total size</para></listitem>
 <listitem><para>mount point</para></listitem>
 <listitem><para>free disk space</para></listitem>
