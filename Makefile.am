@@ -58,13 +58,13 @@ install-data-local:
 	$(mkinstalldirs) $(kdf_APPSDIR)
 	$(mkinstalldirs) $(kcmdf_APPSDIR)
 	$(mkinstalldirs) $(kwikdisk_APPSDIR)
-	$(INSTALL_DATA) $(srcdir)/kdf.kdelnk $(kdf_APPSDIR)
+	$(INSTALL_DATA) $(srcdir)/kdf.desktop $(kdf_APPSDIR)
 	$(INSTALL_DATA) $(srcdir)/kcmdf.kdelnk $(kcmdf_APPSDIR)
 	$(INSTALL_DATA) $(srcdir)/kwikdisk.kdelnk $(kwikdisk_APPSDIR)
 
 # remove ALL you have installed in install-data-local or install-exec-local
 uninstall-local:
-	-rm -f $(kdf_APPSDIR)/kdf.kdelnk
+	-rm -f $(kdf_APPSDIR)/kdf.desktop
 	-rm -f $(kcmdf_APPSDIR)/kcmdf.kdelnk
 	-rm -f $(kwikdisk_APPSDIR)/kwikdisk.kdelnk
 
