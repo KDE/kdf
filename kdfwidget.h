@@ -28,6 +28,7 @@
 #include <qarray.h>
 #include <qglobal.h>
 #include <qstring.h>
+#include <qlistview.h>
 
 #include "disks.h"
 #include "disklist.h"
@@ -37,12 +38,10 @@
 
 class CListView;
 class COptionDialog;
-class QListViewItem;
 class QTimer;
 class KPopupMenu;
 
 /**************************************************************/
-
 
 class CTabEntry
 {
@@ -65,6 +64,30 @@ class CTabEntry
     uint mWidth;
 };
 
+/**************************************************************/
+//
+// 2001-03-10 Walter F.J. Mueller <W.F.J.Mueller@gsi.de>
+// The purpose of this class is:
+// 1) overload the key() method to provide sorting keys so that the
+//    columns with a numeric value are sorted by numerical value.
+//
+
+class CListViewItem : public QListViewItem
+{
+  public:
+    CListViewItem ( CListView * parent, QListViewItem * after );
+ 
+    virtual QString key ( int column, bool ascending) const;
+
+    void    setKeys ( int kb_size, int kb_avail, float percent_full ) ;
+
+  private:
+    int     size;
+    int     avail;
+    float   full;
+};
+
+/**************************************************************/
 
 class KDFWidget : public QWidget
 {

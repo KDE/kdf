@@ -61,6 +61,54 @@ static bool GUI;
 #define GUI_DEFINED
 #endif
 
+/**************************************************************/
+
+CListViewItem::CListViewItem( CListView * parent, QListViewItem * after )
+  :QListViewItem( parent, after )
+{}
+
+// 2001-03-10 Walter F.J. Mueller <W.F.J.Mueller@gsi.de>
+// This method returns for all numeric columns the converted number.
+// The conversion is done with 
+//    1. fixed position of the colon
+//    2. a sufficient number of leading blanks
+// This ensures that the lexical string comparison gives numerical order.
+
+QString CListViewItem::key ( int column, bool ) const
+{
+  QString tmp;
+
+  switch (column) {
+  case KDFWidget::sizeCol:
+    tmp.sprintf("%10d",size);
+    break;
+
+  case KDFWidget::freeCol:
+    tmp.sprintf("%10d",avail);
+    break;
+
+  case KDFWidget::fullCol:
+  case KDFWidget::usageCol:
+    tmp.sprintf("%7.2f",full);
+    break;
+
+  default:
+    tmp = text(column);
+    break;
+  }
+
+  return tmp;
+}
+
+void CListViewItem::setKeys (int kb_size, int kb_avail, float percent_full)
+{
+  size  = kb_size;
+  avail = kb_avail;
+  full  = (percent_full >= 0.) ? percent_full : 0.;
+  return;
+}
+
+/**************************************************************/
 
 KDFWidget::KDFWidget( QWidget *parent, const char *name, bool init )
   : QWidget(parent, name), mOptionDialog(0), mPopup(0), mTimer(0)
@@ -304,7 +352,7 @@ void KDFWidget::updateDFDone( void ){
   mList->clear();
 
   int i=0;
-  QListViewItem *item = 0;
+  CListViewItem *item = 0;
   for( DiskEntry *disk=mDiskList.first(); disk!=0; disk=mDiskList.next() ) 
   {
     i++;
@@ -321,7 +369,7 @@ void KDFWidget::updateDFDone( void ){
     }
 
     int k=0;
-    item = new QListViewItem( mList, item );
+    item = new CListViewItem( mList, item );
     bool root = disk->mountOptions().find("user",0,false)==-1 ? true : false;
     item->setPixmap( k++, mList->icon( disk->iconName(), root ) );
     item->setText( k++, disk->deviceName() );
@@ -330,11 +378,12 @@ void KDFWidget::updateDFDone( void ){
     item->setText( k++, disk->mountPoint() );
     item->setText( k++, disk->prettyKBAvail() );
     item->setText( k++, percent );
+    item->setKeys( disk->kBSize(), disk->kBAvail(), disk->percentFull());
   }
   readingDF = false;
   updateDiskBarPixmaps();
 
-
+  mList->sort();
 }
 
 /***************************************************************************
