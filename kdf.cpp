@@ -44,7 +44,7 @@ KDFTopLevel::KDFTopLevel(QWidget *, const char *name)
   QPopupMenu *file = new QPopupMenu; Q_CHECK_PTR(file);
   file->insertItem( i18n( "&Update" ), kdf, SLOT(updateDF()) );
   file->insertSeparator();
-  file->insertItem( i18n( "&Quit" ), this, SLOT(close()), KStdAccel::key(KStdAccel::Quit) );
+  file->insertItem( i18n( "&Quit" ), this, SLOT(close()), KStdAccel::shortcut(KStdAccel::Quit) );
 
   QPopupMenu *option = new QPopupMenu; Q_CHECK_PTR(option);
   option->insertItem( i18n("&Configure %1...").arg(kapp->caption()),
