@@ -34,7 +34,6 @@
 #include <kapp.h>
 #include <kconfig.h>
 #include <kglobal.h>
-#include <kiconloader.h>
 #include <kmessagebox.h>
 #include <kstdaccel.h>
 #include <kstddirs.h>
