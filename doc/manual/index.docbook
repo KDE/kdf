@@ -267,7 +267,7 @@ them</para>
 <term>
 <menuchoice>
 <guimenu>Help</guimenu>
-<guimenuitem>About &kdf;</guimenuitem>
+<guimenuitem>About kdf</guimenuitem>
 </menuchoice>
 </term>
 <listitem><para><action>Provides information about
@@ -326,4 +326,3 @@ sgml-minimize-attributes: nil
 sgml-general-insert-case: lower
 End:
 -->
- 
