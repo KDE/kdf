@@ -63,9 +63,9 @@ static bool GUI;
 KDFWidget::KDFWidget( QWidget *parent, const char *name, bool init )
   : QWidget(parent, name), mOptionDialog(0), mPopup(0), mTimer(0)
 {
-  connect(&diskList , SIGNAL(readDFDone() ),
+  connect(&mDiskList , SIGNAL(readDFDone() ),
            this, SLOT (updateDFDone()) );
-  connect(&diskList , SIGNAL(criticallyFull(DiskEntry*)),
+  connect(&mDiskList , SIGNAL(criticallyFull(DiskEntry*)),
            this, SLOT (criticallyFull(DiskEntry*)) );
 
   mTabProp.resize(8);
@@ -297,10 +297,10 @@ void KDFWidget::updateDF( void )
   if( mPopup == 0 )
   {
     readingDF = TRUE;
-    diskList.readFSTAB();
-    diskList.readDF(); 
+    mDiskList.readFSTAB();
+    mDiskList.readDF(); 
   }
-};
+}
 
 /***************************************************************************
   * gets the signal when the diskList is complete and up to date
@@ -311,7 +311,7 @@ void KDFWidget::updateDFDone( void )
 
   int i=0;
   QListViewItem *item = 0;
-  for( DiskEntry *disk=diskList.first(); disk!=0; disk=diskList.next() ) 
+  for( DiskEntry *disk=mDiskList.first(); disk!=0; disk=mDiskList.next() ) 
   {
     i++;
     QString size, percent;
@@ -331,6 +331,7 @@ void KDFWidget::updateDFDone( void )
     if( mTabProp[0]->mVisible == true )
     {
       bool root = disk->mountOptions().find("user",0,false)==-1 ? true : false;
+      //QPixmap pix = mList->icon( disk->iconName(), root );
       item->setPixmap( k++, mList->icon( disk->iconName(), root ) );
     }
     if( mTabProp[1]->mVisible == true )
@@ -347,8 +348,8 @@ void KDFWidget::updateDFDone( void )
       item->setText( k++, percent );
   }
   readingDF = false;
-  updatePixmaps();
-};
+  updateDiskBarPixmaps();
+}
 
 
 
@@ -383,7 +384,7 @@ DiskEntry *KDFWidget::selectedDisk( QListViewItem *item )
   {
     if( it == item )
     {
-      return( diskList.at(i) );
+      return( mDiskList.at(i) );
     }
   }
 
@@ -491,7 +492,7 @@ void KDFWidget::popupMenu( QListViewItem *item, const QPoint &p )
 /**************************************************************************
   * recalculates and repaints the pixBars
 **/
-void KDFWidget::updatePixmaps( void )
+void KDFWidget::updateDiskBarPixmaps( void )
 {
   if( mBarColumn == -1 )
   {
@@ -507,7 +508,7 @@ void KDFWidget::updatePixmaps( void )
   int i=0;
   for(QListViewItem *it=mList->firstChild(); it!=0;it=it->nextSibling(),i++ )
   {
-    DiskEntry *disk = diskList.at(i);
+    DiskEntry *disk = mDiskList.at(i);
     if( disk == 0 ) { continue; }
 
     if( disk->mounted() == true && disk->percentFull() != -1 )
@@ -544,7 +545,7 @@ void KDFWidget::columnSizeChanged( int column, int, int newSize )
   if( mTimer == 0 )
   {
     mTimer = new QTimer( this );
-    connect( mTimer, SIGNAL(timeout()), this, SLOT(updatePixmaps()) );
+    connect( mTimer, SIGNAL(timeout()), this, SLOT(updateDiskBarPixmaps()) );
   }
   else if( mTimer->isActive() == true )
   {

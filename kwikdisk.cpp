@@ -350,23 +350,28 @@ void DockWidget::updateDFDone( void )
     if( getuid() !=0 && disk->mountOptions().find("user",0, false) == -1 ) 
     {
       //
-      // special root icon, normal user can´t mount. If
-      // a mask exists, draw a rect on the mask first
+      // Special root icon, normal user can´t mount.
       //
-      QBitmap *bm = new QBitmap(*(pix->mask()));
-      if( bm != 0 ) 
-      { 
-	QPainter qp( bm );
-	qp.setPen(QPen(white,1));
-	qp.drawRect(0,0,bm->width(),bm->height());
+      // 2000-01-23 Espen Sand
+      // Careful here: If the mask has not been defined we can
+      // not use QPixmap::mask() because it returns 0 => segfault
+      //
+      if( pix->mask() != 0 )
+      {
+	QBitmap *bm = new QBitmap(*(pix->mask()));
+	if( bm != 0 ) 
+	{ 
+	  QPainter qp( bm );
+	  qp.setPen(QPen(white,1));
+	  qp.drawRect(0,0,bm->width(),bm->height());
+	  qp.end();
+	  pix->setMask(*bm);
+	}
+	QPainter qp( pix );
+	qp.setPen(QPen(red,1));
+	qp.drawRect(0,0,pix->width(),pix->height());
 	qp.end();
-	pix->setMask(*bm);
       }
-      QPainter qp( pix );
-      qp.setPen(QPen(red,1));
-      qp.drawRect(0,0,pix->width(),pix->height());
-      qp.end();
-
       mPopupMenu->disconnectItem(id,disk,SLOT(toggleMount()));
       *toolTipText = i18n("Sorry, you must be root to mount this disk");
     }

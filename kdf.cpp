@@ -50,7 +50,8 @@ KDFTopLevel::KDFTopLevel(QWidget *, const char *name)
   file->insertItem( i18n( "&Quit" ), this, SLOT(close()), keys->quit() );
 
   QPopupMenu *option = new QPopupMenu; CHECK_PTR(option);
-  option->insertItem( i18n( "&Customize" ), kdf, SLOT(settingsBtnClicked()) );
+  option->insertItem( i18n("&Configure %1...").arg(kapp->caption()),
+		      kdf, SLOT(settingsBtnClicked()) );
 
   QPopupMenu *help = helpMenu(i18n(""
     "KDiskFree\n\n(C) 1998,1999\n"

@@ -21,10 +21,11 @@
 #define _LISTVIEW_H_
 
 #include <qdict.h>
-#include <qlistview.h>
 #include <qpixmap.h>
 
-class CListView : public QListView
+#include <klistview.h>
+
+class CListView : public KListView
 {
   Q_OBJECT
 

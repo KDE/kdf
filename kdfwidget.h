@@ -102,7 +102,7 @@ class KDFWidget : public QWidget
     void popupMenu( QListViewItem *item, const QPoint &p );
     void setUpdateFrequency( int frequency );
     void columnSizeChanged( int column, int, int newSize );
-    void updatePixmaps( void );
+    void updateDiskBarPixmaps( void );
     void invokeHTMLHelp( void );
 
   protected:
@@ -121,8 +121,7 @@ class KDFWidget : public QWidget
     KPopupMenu    *mPopup;
     QTimer        *mTimer;
     int           mBarColumn;
-
-    DiskList    diskList;
+    DiskList   mDiskList;
     bool       mIsTopLevel;
     CStdOption mStd;
 };

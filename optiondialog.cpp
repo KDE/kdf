@@ -25,7 +25,7 @@
 #include "optiondialog.h"
 
 COptionDialog::COptionDialog( QWidget *parent, const char *name, bool modal )
-  :KDialogBase( Tabbed, i18n("Customize"), Help|Apply|Ok|Cancel, Ok,
+  :KDialogBase( Tabbed, i18n("Configure"), Help|Apply|Ok|Cancel, Ok,
 	        parent, name, modal )
 {
   setHelp( "kcontrol/kdf/index.html", QString::null );

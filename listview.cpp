@@ -37,7 +37,7 @@
 template QDict<QPixmap>;
 
 CListView::CListView( QWidget *parent, const char *name, int visibleItem )
-  :QListView( parent, name ),  mVisibleItem(QMAX( 1, visibleItem ))
+  :KListView( parent, name ),  mVisibleItem(QMAX( 1, visibleItem ))
 {
   setVisibleItem(visibleItem);
   mPixDict.setAutoDelete(true);
@@ -76,21 +76,31 @@ const QPixmap &CListView::icon( const QString &iconName, bool drawBorder )
     
     pix = new QPixmap( 
       loader.loadIcon( iconName, KIconLoader::Small, 0, false ) );
+
     if( drawBorder == true )
     {
-      QBitmap *bm = new QBitmap(*(pix->mask()));
-      if( bm != 0 ) 
+      //
+      // 2000-01-23 Espen Sand
+      // Careful here: If the mask has not been defined we can
+      // not use QPixmap::mask() because it returns 0 => segfault
+      //
+      if( pix->mask() != 0 )
       {
-	QPainter qp(bm);
-	qp.setPen(QPen(white,1));
-	qp.drawRect(0,0,bm->width(),bm->height());
+	QBitmap *bm = new QBitmap(*(pix->mask()));
+	if( bm != 0 ) 
+	{
+	  QPainter qp(bm);
+	  qp.setPen(QPen(white,1));
+	  qp.drawRect(0,0,bm->width(),bm->height());
+	  qp.end();
+	  pix->setMask(*bm);
+	}
+
+	QPainter qp(pix); 
+	qp.setPen(QPen(red,1));
+	qp.drawRect(0,0,pix->width(),pix->height());
 	qp.end();
-	pix->setMask(*bm);
       }
-      QPainter qp(pix); 
-      qp.setPen(QPen(red,1));
-      qp.drawRect(0,0,pix->width(),pix->height());
-      qp.end();
     }
     mPixDict.replace( iconName, pix );
   }
