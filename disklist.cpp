@@ -248,7 +248,7 @@ void DiskList::dfDone()
 
   QTextStream t (dfStringErrOut, IO_ReadOnly);
   QString s=t.readLine();
-  if ( (s.isEmpty()) || ( s.left(10) != "Filesystem" ) )
+  if ( (s.isEmpty()) ) // || ( s.left(10) != "Filesystem" ) )
     qFatal("Error running df command... got [%s]",s.latin1());
   while ( !t.atEnd() ) {
     QString u,v;
