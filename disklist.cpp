@@ -28,7 +28,6 @@
 #include <qstring.h>
 #include <qfile.h>
 #include <qtextstream.h>
-#include <qstring.h>
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qpixmap.h>
