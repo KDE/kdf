@@ -1,0 +1,11 @@
+# KDE Config File 
+[KDE Desktop Entry]
+Name=KwikDisk
+Exec=kwikdisk
+Icon=kwikdisk.xpm
+Type=Application
+DocPath=kcontrol/kwikdisk/index.html
+Comment=docks and allows easy mounts/umounts from the panel
+Comment[de]=dockt sich ein und erlaubt schnelles mounten/umounten
+Terminal=0
+MiniIcon=kwikdisk.xpm

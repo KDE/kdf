@@ -1,0 +1,125 @@
+What about using builtin symbols defined by the compiler (gcc)
+itself. For example on Alpha I have :
+
+lappa{bussat}(74) echo 'main(){printf("hello world\n";}' |gcc -E -v -
+Reading specs from /usr/local/lib/gcc-lib/alpha-dec-osf4.0/2.7.2.3/specs
+gcc version 2.7.2.3
+ /usr/local/lib/gcc-lib/alpha-dec-osf4.0/2.7.2.3/cpp -lang-c -v -undef
+-D__GNUC__=2 -D__GNUC_MINOR__=7 -Dunix -D__osf__ -D__alpha -D__alpha__
+-D_LONGLONG -DSYSTYPE_BSD -D_SYSTYPE_BSD -D__unix__ -D__osf__ -D__alpha
+-D__alpha__ -D_LONGLONG -D__SYSTYPE_BSD__ -D_SYSTYPE_BSD -D__unix
+-D__SYSTYPE_BSD -Asystem(unix) -Asystem(xpg4) -Acpu(alpha)
+-Amachine(alpha) -D__LANGUAGE_C__ -D__LANGUAGE_C -DLANGUAGE_C -
+GNU CPP version 2.7.2.3
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/local/include
+ /usr/local/alpha-dec-osf4.0/include
+ /usr/local/lib/gcc-lib/alpha-dec-osf4.0/2.7.2.3/include
+ /usr/include
+End of search list.
+# 1 ""
+main(){printf("hello world\n";}
+
+On HP, this becomes :
+bussat [21] echo 'main(){printf("hello world\n";}' |gcc -E -v -
+Reading specs from
+/opt/gcc/lib/gcc-lib/hppa1.1-hp-hpux10.10/2.7.2.2/specs
+gcc version 2.7.2.2
+ /opt/gcc/lib/gcc-lib/hppa1.1-hp-hpux10.10/2.7.2.2/cpp -lang-c -v -undef
+-D__GNUC__=2 -D__GNUC_MINOR__=7 -Dhppa -Dhp9000s800 -D__hp9000s800
+-Dhp9k8 -DPWB -Dhpux -Dunix -D_HPUX_SOURCE -D__hppa__ -D__hp9000s800__
+-D__hp9000s800 -D__hp9k8__ -D__PWB__ -D__hpux__ -D__unix__
+-D_HPUX_SOURCE -D__hppa -D__hp9000s800 -D__hp9k8 -D__PWB -D__hpux
+-D__unix -Asystem(unix) -Asystem(hpux) -Acpu(hppa) -Amachine(hppa)
+-D__hp9000s700 -D_PA_RISC1_1 -
+GNU CPP version 2.7.2.2 (hppa)
+#include "..." search starts here:
+#include <...> search starts here:
+ /opt/gcc/include
+ /opt/gcc/hppa1.1-hp-hpux10.10/include
+ /opt/gcc/lib/gcc-lib/hppa1.1-hp-hpux10.10/2.7.2.2/include
+ /usr/include
+End of search list.
+# 1 ""
+main(){printf("hello world
+";}
+
+On Sun Solaris2.5 I found
+lappsun8{bussat}[1]: echo 'main(){printf("hello world\n";}' |gcc -E -v -
+Reading specs from
+/opt/FSFgcc/lib/gcc-lib/sparc-sun-solaris2.5/2.7.2/specs
+gcc version 2.7.2
+ /opt/FSFgcc/lib/gcc-lib/sparc-sun-solaris2.5/2.7.2/cpp -lang-c -v
+-undef -D__GNUC__=2 -D__GNUC_MINOR__=7 -Dsun -Dsparc -Dunix -D__svr4__
+-D__SVR4 -D__GCC_NEW_VARARGS__ -D__sun__ -D__sparc__ -D__unix__
+-D__svr4__ -D__SVR4 -D__GCC_NEW_VARARGS__ -D__sun -D__sparc -D__unix
+-Asystem(unix) -Asystem(svr4) -Acpu(sparc) -Amachine(sparc) -
+GNU CPP version 2.7.2 (sparc)
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/local/include
+ /opt/FSFgcc/sparc-sun-solaris2.5/include
+ /opt/FSFgcc/lib/gcc-lib/sparc-sun-solaris2.5/2.7.2/include
+ /usr/include
+End of search list.
+# 1 ""
+main(){printf("hello world
+";}
+
+Finally, on Sun with SunOS4.1 the results are :
+lappsun1{bussat}[1]:  echo 'main(){printf("hello world\n";}' |gcc -E -v
+-
+Reading specs from
+/usr/local/lib/gcc-lib/sparc-sun-sunos4.1.3_U1/2.6.0/specs
+gcc version 2.6.0
+ /usr/local/lib/gcc-lib/sparc-sun-sunos4.1.3_U1/2.6.0/cpp -lang-c -v
+-undef -D__GNUC__=2 -D__GNUC_MINOR__=6 -Dsparc -Dsun -Dunix
+-D__GCC_NEW_VARARGS__ -D__sparc__ -D__sun__ -D__unix__
+-D__GCC_NEW_VARARGS__ -D__sparc -D__sun -D__unix -Asystem(unix)
+-Asystem(bsd) -Acpu(sparc) -Amachine(sparc) -
+GNU CPP version 2.6.0 (sparc)
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/local/include
+ /usr/local/sparc-sun-sunos4.1.3_U1/include
+ /usr/local/lib/gcc-lib/sparc-sun-sunos4.1.3_U1/2.6.0/include
+ /usr/include
+End of search list.
+# 1 ""
+main(){printf("hello world
+";}
+
+on a Linux box there is:
+mike@kermit:/home/mike > echo 'main(){printf("hello world\n";}' |gcc -E -v -
+Reading specs from /usr/lib/gcc-lib/i486-linux/2.7.2.1/specs
+gcc version 2.7.2.1
+ /usr/lib/gcc-lib/i486-linux/2.7.2.1/cpp -lang-c -v -undef -D__GNUC__=2 
+-D__GNUC_MINOR__=7 -D__ELF__ -Dunix -Di386 -Dlinux -D__ELF__ -D__unix__
+-D__i386__ -D__linux__ -D__unix -D__i386 -D__linux -Asystem(unix)
+-Asystem(posix) -Acpu(i386) -Amachine(i386) -D__i486__ - GNU CPP version
+2.7.2.1 (i386 Linux/ELF) #include "..." search starts here: #include <...>
+search starts here:  /usr/local/include
+ /usr/i486-linux/include
+ /usr/lib/gcc-lib/i486-linux/2.7.2.1/include
+ /usr/include
+End of search list.
+# 1 ""
+main(){printf("hello world\n";}                     
+
+on digital UNIX V3.2D-1 there is
+mkropfbe@edusrv(1)$  echo 'main(){printf("hello world\n";}' |gcc -E -v -
+Reading specs from /usr/local/lib/gcc-lib/alpha-dec-osf3.2/2.7.2/specs
+gcc version 2.7.2
+ /usr/local/lib/gcc-lib/alpha-dec-osf3.2/2.7.2/cpp -lang-c -v -undef 
+-D__GNUC__=2 -D__GNUC_MINOR__=7 -Dunix -D__osf__ -D__alpha -D__alpha__
+-D_LONGLONG -DSYSTYPE_BSD -D_SYSTYPE_BSD -D__unix__ -D__osf__ -D__alpha
+-D__alpha__ -D_LONGLONG -D__SYSTYPE_BSD__ -D_SYSTYPE_BSD -D__unix
+-D__SYSTYPE_BSD -Asystem(unix) -Asystem(xpg4) -Acpu(alpha) -Amachine(alpha)
+-D__LANGUAGE_C__ -D__LANGUAGE_C -DLANGUAGE_C - GNU CPP version 2.7.2 #include
+"..." search starts here: #include <...> search starts here: 
+/usr/local/include  /usr/local/alpha-dec-osf3.2/include 
+/usr/local/lib/gcc-lib/alpha-dec-osf3.2/2.7.2/include  /usr/include
+End of search list.
+# 1 ""
+main(){printf("hello world\n";}             

@@ -1,0 +1,196 @@
+/cern                  (lapphp0.in2p3.fr:/lapphp0_3/cern) :  3660497 total allocated Kb
+                                                    974788 free allocated Kb
+                                                   2685709 used allocated Kb
+                                                        73 % allocation used
+/outils/produits/frame (lapphp0.in2p3.fr:/lapphp0_3/produits/frame) :  3660497 total allocated Kb
+                                                    974788 free allocated Kb
+                                                   2685709 used allocated Kb
+                                                        73 % allocation used
+/outils/produits/rogue (lapphp0.in2p3.fr:/lapphp0_3/produits/rogue) :  3660497 total allocated Kb
+                                                    974788 free allocated Kb
+                                                   2685709 used allocated Kb
+                                                        73 % allocation used
+/lapphp1_6             (lapphp0.in2p3.fr:/lapphp1_6) :  3660497 total allocated Kb
+                                                    592074 free allocated Kb
+                                                   3068423 used allocated Kb
+                                                        83 % allocation used
+/lapphp8/mupad         (lapphp8.in2p3.fr:/lapphp8/mupad) :   542070 total allocated Kb
+                                                    406688 free allocated Kb
+                                                    135382 used allocated Kb
+                                                        24 % allocation used
+/COMMUN                (lappa0:/COMMUN        ) :        0 total allocated Kb
+                                                         0 free allocated Kb
+                                                         0 used allocated Kb
+                                                        81 % allocation used
+/nfs/virgoa1_2         (lappa0:/virgoa1_2     ) :  3404816 total allocated Kb
+                                                    377849 free allocated Kb
+                                                   3026967 used allocated Kb
+                                                        88 % allocation used
+/USERS/AMS             (/dev/users_services/rio) :   448780 total allocated Kb
+                                                    113719 free allocated Kb
+                                                    335061 used allocated Kb
+                                                        74 % allocation used
+/USERS/elec            (/dev/export/lvol3     ) :   907383 total allocated Kb
+                                                    368658 free allocated Kb
+                                                    538725 used allocated Kb
+                                                        59 % allocation used
+/backup/increm2        (/dev/backup/lvol4     ) :  3412076 total allocated Kb
+                                                   2766506 free allocated Kb
+                                                    645570 used allocated Kb
+                                                        18 % allocation used
+/backup/increm3        (/dev/backup/lvol1     ) :  2281950 total allocated Kb
+                                                    905272 free allocated Kb
+                                                   1376678 used allocated Kb
+                                                        60 % allocation used
+/backup/incremental    (/dev/backup/lvol2     ) :  3651131 total allocated Kb
+                                                   2439642 free allocated Kb
+                                                   1211489 used allocated Kb
+                                                        33 % allocation used
+/cdrom                 (/dev/dsk/c1t2d0       ) :  2457600 total allocated Kb
+                                                         0 free allocated Kb
+                                                   2457600 used allocated Kb
+                                                       100 % allocation used
+/export/cetia          (/dev/users_services/lvol9) :   453682 total allocated Kb
+                                                    197055 free allocated Kb
+                                                    256627 used allocated Kb
+                                                        56 % allocation used
+/export/fic            (/dev/outils/lvol4     ) :   453682 total allocated Kb
+                                                    406794 free allocated Kb
+                                                     46888 used allocated Kb
+                                                        10 % allocation used
+/export/hp             (/dev/export/lvol5     ) :   899578 total allocated Kb
+                                                    177834 free allocated Kb
+                                                    721744 used allocated Kb
+                                                        80 % allocation used
+/export/solaris        (/dev/export/lvol4     ) :   544374 total allocated Kb
+                                                    235591 free allocated Kb
+                                                    308783 used allocated Kb
+                                                        56 % allocation used
+/export/sun            (/dev/export/lvol1     ) :   907383 total allocated Kb
+                                                    382203 free allocated Kb
+                                                    525180 used allocated Kb
+                                                        57 % allocation used
+/export/tektro         (/dev/export/lvol2     ) :   362977 total allocated Kb
+                                                     19379 free allocated Kb
+                                                    343598 used allocated Kb
+                                                        94 % allocation used
+/export/www            (/dev/users_services/lvol8) :   544374 total allocated Kb
+                                                    330339 free allocated Kb
+                                                    214035 used allocated Kb
+                                                        39 % allocation used
+/home                  (/dev/vg00/lvol4       ) :    17874 total allocated Kb
+                                                     17864 free allocated Kb
+                                                        10 used allocated Kb
+                                                         0 % allocation used
+/outils/adm            (/dev/outils/lvol3     ) :   453682 total allocated Kb
+                                                    190194 free allocated Kb
+                                                    263488 used allocated Kb
+                                                        58 % allocation used
+/outils/mail           (/dev/outils/lvol6     ) :   272055 total allocated Kb
+                                                    228067 free allocated Kb
+                                                     43988 used allocated Kb
+                                                        16 % allocation used
+/outils/newlp          (/dev/vg00/newlp       ) :    89702 total allocated Kb
+                                                     88381 free allocated Kb
+                                                      1321 used allocated Kb
+                                                         1 % allocation used
+/outils/produits       (/dev/outils/lvol1     ) :  1626030 total allocated Kb
+                                                    199727 free allocated Kb
+                                                   1426303 used allocated Kb
+                                                        87 % allocation used
+/outils/securite       (/dev/vg00/securite    ) :   157900 total allocated Kb
+                                                    149785 free allocated Kb
+                                                      8115 used allocated Kb
+                                                         5 % allocation used
+/outils/swap           (/dev/outils/lvol5     ) :   453682 total allocated Kb
+                                                    309750 free allocated Kb
+                                                    143932 used allocated Kb
+                                                        31 % allocation used
+/outils/tmp            (/dev/outils/lvol2     ) :   453682 total allocated Kb
+                                                    208958 free allocated Kb
+                                                    244724 used allocated Kb
+                                                        53 % allocation used
+/tmp                   (/dev/vg00/lvol6       ) :    20711 total allocated Kb
+                                                     10970 free allocated Kb
+                                                      9741 used allocated Kb
+                                                        47 % allocation used
+/users/admin           (/dev/users_services/lvol5) :   272055 total allocated Kb
+                                                    172064 free allocated Kb
+                                                     99991 used allocated Kb
+                                                        36 % allocation used
+/users/aleph           (/dev/users_manip/lvol9) :   362977 total allocated Kb
+                                                      2268 free allocated Kb
+                                                    360709 used allocated Kb
+                                                        99 % allocation used
+/users/atlas           (/dev/users_manip/lvol8) :   362977 total allocated Kb
+                                                    132918 free allocated Kb
+                                                    230059 used allocated Kb
+                                                        63 % allocation used
+/users/autres          (/dev/users_manip/lvol6) :   362977 total allocated Kb
+                                                     25468 free allocated Kb
+                                                    337509 used allocated Kb
+                                                        92 % allocation used
+/users/backup          (/dev/backup/lvol3     ) :  2292963 total allocated Kb
+                                                         0 free allocated Kb
+                                                   2292963 used allocated Kb
+                                                       100 % allocation used
+/users/calcul          (/dev/users_services/lvol4) :  1814958 total allocated Kb
+                                                    337030 free allocated Kb
+                                                   1477928 used allocated Kb
+                                                        81 % allocation used
+/users/chooz           (/dev/users_manip/lvol10) :   362977 total allocated Kb
+                                                     74394 free allocated Kb
+                                                    288583 used allocated Kb
+                                                        79 % allocation used
+/users/cms             (/dev/users_manip/lvol3) :   718628 total allocated Kb
+                                                    204338 free allocated Kb
+                                                    514290 used allocated Kb
+                                                        71 % allocation used
+/users/ftp             (/dev/users_services/lvol3) :   181364 total allocated Kb
+                                                     50187 free allocated Kb
+                                                    131177 used allocated Kb
+                                                        72 % allocation used
+/users/l3              (/dev/users_manip/lvol2) :   181364 total allocated Kb
+                                                    180945 free allocated Kb
+                                                       419 used allocated Kb
+                                                         0 % allocation used
+/users/mecanique       (/dev/users_services/lvol7) :   362977 total allocated Kb
+                                                    312518 free allocated Kb
+                                                     50459 used allocated Kb
+                                                        13 % allocation used
+/users/na50            (/dev/users_manip/lvol1) :   272055 total allocated Kb
+                                                     14768 free allocated Kb
+                                                    257287 used allocated Kb
+                                                        94 % allocation used
+/users/nomad           (/dev/users_manip/lvol4) :   362977 total allocated Kb
+                                                      9579 free allocated Kb
+                                                    353398 used allocated Kb
+                                                        97 % allocation used
+/users/ovw             (/dev/users_services/OVW) :   540513 total allocated Kb
+                                                    527154 free allocated Kb
+                                                     13359 used allocated Kb
+                                                         2 % allocation used
+/users/swap            (/dev/users_services/lvol1) :   544374 total allocated Kb
+                                                    544365 free allocated Kb
+                                                         9 used allocated Kb
+                                                         0 % allocation used
+/users/theorie         (/dev/users_manip/lvol5) :   362977 total allocated Kb
+                                                    298189 free allocated Kb
+                                                     64788 used allocated Kb
+                                                        17 % allocation used
+/users/virgo           (/dev/users_manip/lvol7) :   362977 total allocated Kb
+                                                      8406 free allocated Kb
+                                                    354571 used allocated Kb
+                                                        97 % allocation used
+/usr                   (/dev/vg00/lvol7       ) :   269241 total allocated Kb
+                                                     12933 free allocated Kb
+                                                    256308 used allocated Kb
+                                                        95 % allocation used
+/var                   (/dev/vg00/lvol8       ) :    62212 total allocated Kb
+                                                     28427 free allocated Kb
+                                                     33785 used allocated Kb
+                                                        54 % allocation used
+/                      (/dev/vg00/lvol1       ) :    53817 total allocated Kb
+                                                     16544 free allocated Kb
+                                                     37273 used allocated Kb
+                                                        69 % allocation used
