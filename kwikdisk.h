@@ -27,7 +27,7 @@
 #include <qtabdialog.h>
 
 #include <kwm.h>
-#include <ktopwidget.h>
+#include <ktmainwindow.h>
 
 #include "mntconfig.h"
 #include "kdfconfig.h"

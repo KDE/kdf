@@ -23,7 +23,7 @@
 #define __KDF_H__
 
 #include <kwm.h>
-#include <ktopwidget.h>
+#include <ktmainwindow.h>
 #include <kmenubar.h>
 
 #include "kdfwidget.h"
