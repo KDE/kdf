@@ -129,10 +129,10 @@ KDFWidget::KDFWidget( QWidget *parent, const char *name, bool init )
     mList->setFrameStyle( QFrame::WinPanel + QFrame::Sunken );
     mList->setShowSortIndicator(true);
     connect( mList,
-      SIGNAL( pressed( QListViewItem *, const QPoint &, int )),
+      SIGNAL( rightButtonPressed( QListViewItem *, const QPoint &, int )),
       this, SLOT( rightButtonPressed( QListViewItem *, const QPoint &, int )));
     connect( mList,
-      SIGNAL( clicked( QListViewItem *, const QPoint &, int )),
+      SIGNAL( rightButtonClicked( QListViewItem *, const QPoint &, int )),
       this, SLOT( rightButtonClicked( QListViewItem *, const QPoint &, int )));
     connect( mList->header(), SIGNAL(sizeChange(int, int, int)),
       this, SLOT(columnSizeChanged(int, int, int)) );
