@@ -135,7 +135,7 @@ MntConfigWidget::MntConfigWidget (QWidget * parent, const char *name
        btnUmntFile->setEnabled(FALSE);
 
    }//if GUI
- config = kapp->getConfig();
+ config = kapp->config();
  loadSettings();
  if (init) applySettings();
 } // Constructor
@@ -300,7 +300,7 @@ void MntConfigWidget::selectIcon()
                         != "_mount.xpm") &&
           (icoName.right(icoName.length()-icoName.findRev('_'))
                         != "_unmount.xpm") ) )
-       QMessageBox::warning(this, kapp->getCaption(),
+       QMessageBox::warning(this, kapp->caption(),
 			    i18n("This filename is not valid.\n"
 				 "It has to be ending in \n\"_mount.xpm\" or \"_unmount.xpm\"."), i18n("OK"));
     else {

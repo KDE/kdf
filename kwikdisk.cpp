@@ -132,7 +132,7 @@ DockWidget::DockWidget(QWidget *parent, const char *name)
   mntconf=new MntConfigWidget(tabconf,"mntconf");CHECK_PTR(mntconf);
   kdfconf=new KDFConfigWidget(tabconf,"kdfconf");CHECK_PTR(kdfconf);
 
-   config = kapp->getConfig();
+   config = kapp->config();
    loadSettings();
 };
 
@@ -188,7 +188,7 @@ void DockWidget::criticallyFull(DiskEntry *disk )
     QString s = i18n("Device [%1] on [%2] is getting critically full!").
       arg(disk->deviceName()).arg(disk->mountPoint());
     
-    QMessageBox::warning(this,kapp->getCaption(), s, i18n("OK"));
+    QMessageBox::warning(this,kapp->caption(), s, i18n("OK"));
   }
 }
 
@@ -231,7 +231,7 @@ void DockWidget::mousePressEvent(QMouseEvent *)
 void DockWidget::sysCallError(DiskEntry *disk, int errno)
 { 
   if (errno!=0)
-    QMessageBox::warning(this,kapp->getCaption(),
+    QMessageBox::warning(this,kapp->caption(),
 			 disk->lastSysError(),i18n("OK"));
 };
 
@@ -252,7 +252,7 @@ void DockWidget::toggleMount( )
   
     if (!readingDF) {
       if (!disk->toggleMount())
-        QMessageBox::warning(this,kapp->getCaption(),
+        QMessageBox::warning(this,kapp->caption(),
               disk->lastSysError(),i18n("OK"));
       else 
         if ((openFileMgrOnMount) && (!disk->mounted())) {

@@ -164,7 +164,7 @@ KDFConfigWidget::KDFConfigWidget (QWidget * parent, const char *name
  
    }//if GUI
 
-   config = kapp->getConfig();
+   config = kapp->config();
    loadSettings();
    if (init)
      applySettings();

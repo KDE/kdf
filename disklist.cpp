@@ -87,7 +87,7 @@ if (NO_FS_TYPE)
               this, SLOT(dfDone() ) );
 
        readingDFStdErrOut=FALSE;
-       config = kapp->getConfig();
+       config = kapp->config();
        QString s="xclient1:/zip|/zip";
        loadSettings();
        //readFSTAB();

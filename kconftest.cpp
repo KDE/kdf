@@ -13,7 +13,7 @@
 main(int argc, char ** argv)
 {
  KApplication app(argc, argv, "test");
- KConfig * cfg = kapp->getConfig();
+ KConfig * cfg = kapp->config();
 
  QDict<char> dict;
 

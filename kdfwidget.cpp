@@ -152,7 +152,7 @@ KDFWidget::KDFWidget (QWidget * parent, const char *name
       tabList->dict().setAutoDelete(TRUE);
    }//if GUI
 
-   config = kapp->getConfig();
+   config = kapp->config();
    loadSettings();
    if (init)
      applySettings();
@@ -403,7 +403,7 @@ void KDFWidget::criticallyFull(DiskEntry *disk )
   if (popupIfFull) {
     QString s = i18n("Device [%1] on [%1] is getting critically full!").
       arg(disk->deviceName()).arg(disk->mountPoint());
-    QMessageBox::warning(this,kapp->getCaption(), s, i18n("OK"));
+    QMessageBox::warning(this,kapp->caption(), s, i18n("OK"));
   }
 }
 
@@ -463,7 +463,7 @@ void KDFWidget::popupMenu(int row,int column)
       }//while        
   
       if (!disk->toggleMount())
-         QMessageBox::warning(this, kapp->getCaption(),
+         QMessageBox::warning(this, kapp->caption(),
 			      disk->lastSysError(), i18n("OK"));
       else 
         if ((openFileMgrOnMount) && (!disk->mounted())) popupMenu(row,4); 
