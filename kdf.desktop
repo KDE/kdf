@@ -1,0 +1,14 @@
+[Desktop Entry]
+Name=Disk Free
+Name[de]=Kdf: Freier Plattenplatz
+Name[pt_BR]=Disco Livre
+Exec=kdf kdf
+Init=kdf -init
+Icon=kdf.xpm
+Type=Application
+DocPath=kcontrol/kdf/index.html
+Comment=Shows the disk usage of the mounted devices
+Comment[de]=Zeigt die Plattenausnutzung von gemounteten Geräten
+Comment[pt_BR]=Mostra a utilização do disco nos dispositivos montados
+Terminal=0
+MiniIcon=kdf.xpm
