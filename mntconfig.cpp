@@ -104,7 +104,7 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, const char *name, bool init)
     gl->addWidget( mIconButton, 2, 1 );
 
     //Mount
-    mMountButton = new QPushButton( i18n("Get mount command"), mGroupBox );
+    mMountButton = new QPushButton( i18n("Get Mount Command"), mGroupBox );
     Q_CHECK_PTR(mMountButton);
     connect(mMountButton,SIGNAL(clicked()),this,SLOT(selectMntFile()));
     gl->addWidget( mMountButton, 1, 2 );
@@ -117,7 +117,7 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, const char *name, bool init)
     gl->addWidget( mMountLineEdit, 1, 3 );
 
     //Umount
-    mUmountButton = new QPushButton(i18n("Get unmount command"), mGroupBox );
+    mUmountButton = new QPushButton(i18n("Get Unmount Command"), mGroupBox );
     Q_CHECK_PTR( mUmountButton );
     connect(mUmountButton,SIGNAL(clicked()),this,SLOT(selectUmntFile()));
     gl->addWidget( mUmountButton, 2, 2 );

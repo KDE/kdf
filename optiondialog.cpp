@@ -34,7 +34,7 @@ COptionDialog::COptionDialog( QWidget *parent, const char *name, bool modal )
   mConf = new KDFConfigWidget( f1, "kdfconf" );
   l1->addWidget(mConf);
 
-  QFrame *f2 = addPage( i18n("Mount commands") );
+  QFrame *f2 = addPage( i18n("Mount Commands") );
   QVBoxLayout *l2 = new QVBoxLayout( f2 ); 
   mMnt = new MntConfigWidget( f2, "mntconf");
   l2->addWidget(mMnt);

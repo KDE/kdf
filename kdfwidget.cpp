@@ -481,10 +481,10 @@ void KDFWidget::popupMenu( QListViewItem *item, const QPoint &p )
   // visible. Reason: The 'disk' may no longer be valid.
   //
   mPopup = new KPopupMenu( disk->mountPoint(), 0 );
-  mPopup->insertItem( i18n("Mount device"), 0 );
-  mPopup->insertItem( i18n("Unmount device"), 1 );
+  mPopup->insertItem( i18n("Mount Device"), 0 );
+  mPopup->insertItem( i18n("Unmount Device"), 1 );
   mPopup->insertSeparator();
-  mPopup->insertItem( i18n("Open filemanager"), 2 );
+  mPopup->insertItem( i18n("Open Filemanager"), 2 );
   mPopup->setItemEnabled( 0, disk->mounted() ? false : true );
   mPopup->setItemEnabled( 1, disk->mounted() );
   mPopup->setItemEnabled( 2, disk->mounted() );
