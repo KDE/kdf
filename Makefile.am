@@ -51,9 +51,8 @@ METASOURCES =	kcmdf.moc kdf.moc kdfwidget.moc kdfconfig.moc  \
 mntconfig.moc disks.moc disklist.moc kwikdisk.moc listview.moc \
 optiondialog.moc
 
-# make messages.po. Move this one to $(podir)/ and "make merge" in po
 messages:
-	$(XGETTEXT) -C -ktranslate -kI18N_NOOP -ki18n $(kdf_SOURCES) $(kcmdf_SOURCES) $(kwikdisk_SOURCES) && mv messages.po $(podir)/kdf.pot
+	$(XGETTEXT) $(kdf_SOURCES) $(kcmdf_SOURCES) $(kwikdisk_SOURCES) -o $(podir)/kdf.pot
 
 # just install datas here. Use install-exec-data for scripts and etc.
 # the binary itself is already installed from automake
