@@ -36,6 +36,7 @@
 #include <kwin.h>
 #include <kcmdlineargs.h>
 #include <kprocess.h>
+#include <kglobalsettings.h>
 
 #include <stdlib.h>
 
@@ -431,17 +432,7 @@ void DockWidget::showPopupMenu( void )
 
   QRect g = KWin::info(winId()).geometry;
   QSize s = mPopupMenu->sizeHint();
-  KConfig gc("kdeglobals", false, false);
-  gc.setGroup("Windows");
-  QRect desk;
-  if (QApplication::desktop()->isVirtualDesktop() &&
-      gc.readBoolEntry("XineramaEnabled", true) &&
-      gc.readBoolEntry("XineramaPlacementEnabled", true)) {
-    int scnum = QApplication::desktop()->screenNumber(this);
-    desk = QApplication::desktop()->screenGeometry(scnum);
-  } else {
-    desk = QApplication::desktop()->geometry();
-  }
+  QRect desk = KGlobalSettings::desktopGeometry(this);
 
   if( g.x() > desk.center().x() &&
       g.y() + s.height() > desk.bottom() )
