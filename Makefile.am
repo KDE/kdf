@@ -16,13 +16,13 @@ disklist.cpp disks.cpp listview.cpp optiondialog.cpp stdoption.cpp
 kwikdisk_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 kwikdisk_LDADD = $(LIB_KFILE)
 
-lib_LTLIBRARIES = libkcm_kdf.la
+kde_module_LTLIBRARIES = kcm_kdf.la
 
-libkcm_kdf_la_SOURCES = kcmdf.cpp kdfwidget.cpp kdfconfig.cpp mntconfig.cpp \
-disklist.cpp disks.cpp listview.cpp optiondialog.cpp stdoption.cpp
+kcm_kdf_la_SOURCES = kcmdf.cpp kdfwidget.cpp kdfconfig.cpp mntconfig.cpp \
+	disklist.cpp disks.cpp listview.cpp optiondialog.cpp stdoption.cpp
 
-libkcm_kdf_la_LDFLAGS = $(all_libraries) -module -avoid-version -no-undefined
-libkcm_kdf_la_LIBADD = $(LIB_KFILE)
+kcm_kdf_la_LDFLAGS = $(all_libraries) -module -avoid-version -no-undefined
+kcm_kdf_la_LIBADD = $(LIB_KFILE)
 
 noinst_HEADERS = kdfwidget.h kcmdf.h kdfconfig.h mntconfig.h \
 disks.h kdf.h disklist.h kwikdisk.h listview.h optiondialog.h stdoption.h
