@@ -50,6 +50,8 @@
 static const char description[] =
 	I18N_NOOP("KDE Free disk space utility (another one?)");
 
+static const char programName[] = I18N_NOOP("KwikDisk");
+
 static const char version[] = "v0.0.1";
 
 
@@ -539,7 +541,7 @@ bool KwikDiskTopLevel::queryExit( void )
 
 int main(int argc, char **argv)
 {
-  KCmdLineArgs::init(argc, argv, "kdf", description, version);
+  KCmdLineArgs::init(argc, argv, "kwikdisk", programName, description, version);
 
   KApplication app;
 
