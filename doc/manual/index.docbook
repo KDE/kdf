@@ -1,9 +1,9 @@
-<!DOCTYPE book PUBLIC  "-//KDE//DTD DocBook V3.1-Based Variant V1.0//EN" [
+<?xml version="1.0" ?><!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
   <!ENTITY kappname "&kdf;">
-  <!ENTITY % English "INCLUDE" -- change language only here -->
+  <!ENTITY % English "INCLUDE" > <!-- change language only here -->
   <!ENTITY % addindex "IGNORE">
-  <!ENTITY % ents PUBLIC "-//KDE//ENTITIES Documentation V1.0//EN">
-  %ents;
+  
+  
 ]>
 
 <book lang="&language;">
@@ -100,7 +100,7 @@ command prompt.</para>
 <screeninfo>&kdf; Screen</screeninfo>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="kdf.png" format="PNG">
+            <imagedata fileref="kdf.png" format="PNG"/>
           </imageobject>
           <textobject>
             <phrase>&kdf; Screen</phrase>
@@ -185,7 +185,7 @@ status</action></para></listitem>
 <screeninfo>Configure &kdf; Screen</screeninfo>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="kdf_config.png" format="PNG">
+            <imagedata fileref="kdf_config.png" format="PNG"/>
           </imageobject>
           <textobject>
             <phrase>Configure &kdf; Screen</phrase>
@@ -337,7 +337,7 @@ main ftp site of the KDE project. </para>
 
 
 
-<![ %addindex; [ &documentation.index; ]]>
+&documentation.index; 
 </book>
 
 <!--
@@ -346,3 +346,4 @@ sgml-minimize-attributes: nil
 sgml-general-insert-case: lower
 End:
 -->
+
