@@ -248,6 +248,7 @@ void KDFConfigWidget::defaultsBtnClicked( void )
 void KDFConfigWidget::toggleListText( QListViewItem *item, const QPoint &,
 				      int column )
 {
+  if (!item) return;
   QString text = item->text( column );
   item->setText(column, text==i18n("visible")?i18n("hidden"):i18n("visible"));
   item->setPixmap( column, text==i18n("visible") ?  BarIcon ( "delete" ) 
