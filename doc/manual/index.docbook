@@ -65,14 +65,14 @@ information about them.</para>
 <chapter id="introduction">
 <title>Introduction</title>
 
-<para>&kdf; displays the available file devices (hard drive partitions,
-floppy and &CD; drives, <abbrev>etc.</abbrev>) along with information on
-their capacity, free space, type and mount point. It also allows you to
-mount and unmount drives and view them in a file manager.</para>
+<para>&kdf; displays the available file devices (hard drive
+partitions, floppy and &CD; drives, &etc;) along with information on
+their capacity, free space, type and mount point. It also allows you
+to mount and unmount drives and view them in a file manager.</para>
 
 <para>&kdf; is similar to the &kcontrol; DiskFree module <!--
 (<application>kcmdf</application>) -->, but takes up less screen
-space. It is useful if you want to keep a DiskFree window available at
+space. It is useful if you want to keep a &kdf; window available at
 all times.</para>
 
 </chapter>
@@ -85,9 +85,9 @@ all times.</para>
 
 <para>Type <userinput><command>kdf</command></userinput> at a command
 prompt or select <guimenuitem>Disk Free</guimenuitem> from the
-<guisubmenu>System group</guisubmenu> in the <guimenu>KDE start
-menu</guimenu>. The standard &Qt; and &kde; command options are available,
-and can be listed by entering <userinput><command>kdf</command>
+<guisubmenu>System</guisubmenu> group in the <guimenu>K</guimenu>
+menu. The standard &Qt; and &kde; command options are available, and
+can be listed by entering <userinput><command>kdf</command>
 <option>--help</option></userinput> at the command prompt.</para>
 
 </sect1>
@@ -127,15 +127,17 @@ class="directory">/</filename>) and one at <filename
 class="directory">/old</filename>, a mounted iso9660 &CD-ROM; and an
 unmounted floppy drive.</para>
 
-<para><mousebutton>Left</mousebutton> clicking on the header of a particular
-column sorts the devices according to that variable. A second
-<mousebutton>left</mousebutton> click sorts in the opposite order.</para>
+<para><mousebutton>Left</mousebutton> clicking on the header of a
+particular column sorts the devices according to that variable. A
+second <mousebutton>left</mousebutton> click sorts in the opposite
+order.</para>
 
-<para>Clicking on a row pops up a menu. If that device is not currently mounted,
-the <guimenuitem>Mount Device</guimenuitem> option is available. If the device
-is mounted, it can be unmounted by choosing <guimenuitem>Unmount
-Device</guimenuitem>. Selecting <guimenuitem>Open Filemanager</guimenuitem>
-opens a new window with a graphical view of the files on that device.</para>
+<para>Clicking on a row pops up a menu. If that device is not
+currently mounted, the <guimenuitem>Mount Device</guimenuitem> option
+is available. If the device is mounted, it can be unmounted by
+choosing <guimenuitem>Unmount Device</guimenuitem>. Selecting
+<guimenuitem>Open Filemanager</guimenuitem> opens a new window with a
+graphical view of the files on that device.</para>
 
 </sect1>
 
