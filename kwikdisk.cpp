@@ -60,6 +60,7 @@ KwikDisk::KwikDisk()
    : KSystemTray()
    , m_readingDF(FALSE)
    , m_dirty(TRUE)
+   , m_menuVisible(FALSE)
    , m_optionDialog(0)
 {
    kdDebug() << k_funcinfo << endl;
@@ -82,8 +83,17 @@ void KwikDisk::mousePressEvent(QMouseEvent *me)
    if( m_dirty )
       updateDF();
 
+   if( m_menuVisible )
+   {
+      contextMenu()->hide();
+      me->ignore();
+      m_menuVisible = FALSE;
+      return;
+   }
+
    contextMenuAboutToShow(contextMenu());
    contextMenu()->popup( me->globalPos() );
+   m_menuVisible = TRUE;
 }
 
 void KwikDisk::loadSettings()
@@ -133,8 +143,8 @@ void KwikDisk::updateDFDone()
 {
    kdDebug() << k_funcinfo << endl;
 
-   m_readingDF = false;
-   m_dirty     = false;
+   m_readingDF = FALSE;
+   m_dirty     = FALSE;
 
    contextMenu()->clear();
    contextMenu()->insertTitle(KSystemTray::loadIcon("kdf"), i18n("KwikDisk"));

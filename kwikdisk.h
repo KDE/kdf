@@ -67,6 +67,7 @@ class KwikDisk : public KSystemTray
       CStdOption     m_options;
       bool           m_readingDF;
       bool           m_dirty;
+      bool           m_menuVisible;
       COptionDialog *m_optionDialog;
 };
 
