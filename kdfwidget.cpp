@@ -117,7 +117,7 @@ KDFWidget::KDFWidget( QWidget *parent, const char *name, bool init )
   mTabProp[1] = new CTabEntry( "Device", i18n("Device"), true, 80);
   mTabProp[2] = new CTabEntry( "Type", i18n("Type"), true, 50);
   mTabProp[3] = new CTabEntry( "Size", i18n("Size"), true, 72);
-  mTabProp[4] = new CTabEntry( "MountPoint", i18n("Mount point"), true, 90 );
+  mTabProp[4] = new CTabEntry( "MountPoint", i18n("Mount Point"), true, 90 );
   mTabProp[5] = new CTabEntry( "Free", i18n("Free"), true, 55);
   mTabProp[6] = new CTabEntry( "Full%", i18n("Full %"), true, 70);
   mTabProp[7] = new CTabEntry( "UsageBar", i18n("Usage"), true, 100);

@@ -67,9 +67,9 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, const char *name, bool init)
     mList->setAllColumnsShowFocus( true );
     mList->addColumn( i18n("Icon") );
     mList->addColumn( i18n("Device") );
-    mList->addColumn( i18n("Mount point") );
-    mList->addColumn( i18n("Mount command") );
-    mList->addColumn( i18n("Unmount command") );
+    mList->addColumn( i18n("Mount Point") );
+    mList->addColumn( i18n("Mount Command") );
+    mList->addColumn( i18n("Unmount Command") );
     mList->setFrameStyle( QFrame::WinPanel + QFrame::Sunken );
     connect( mList, SIGNAL(selectionChanged(QListViewItem *)),
 	     this, SLOT(clicked(QListViewItem *)));

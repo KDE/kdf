@@ -25,6 +25,8 @@
 #include <kstdaccel.h>
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
+#include <kstdaction.h>
+#include <kaction.h>
 
 #include "kdf.h"
 #include <kpopupmenu.h>
@@ -44,15 +46,14 @@ KDFTopLevel::KDFTopLevel(QWidget *, const char *name)
   QPopupMenu *file = new QPopupMenu; Q_CHECK_PTR(file);
   file->insertItem( i18n( "&Update" ), kdf, SLOT(updateDF()) );
   file->insertSeparator();
-  file->insertItem( i18n( "&Quit" ), this, SLOT(close()), KStdAccel::shortcut(KStdAccel::Quit) );
+  KStdAction::quit(this, SLOT(close()), actionCollection())->plug(file);
 
   QPopupMenu *option = new QPopupMenu; Q_CHECK_PTR(option);
-  option->insertItem( i18n("&Configure %1...").arg(kapp->caption()),
-		      kdf, SLOT(settingsBtnClicked()) );
+  KStdAction::preferences(kdf, SLOT(settingsBtnClicked()), actionCollection())->plug(option);
 
   QPopupMenu * help = helpMenu();
   menuBar()->insertItem( i18n("&File"), file );
-  menuBar()->insertItem( i18n("&Options"), option );
+  menuBar()->insertItem( i18n("&Settings"), option );
   menuBar()->insertSeparator();
   menuBar()->insertItem( i18n("&Help"), help );
 
