@@ -92,6 +92,7 @@ if (NO_FS_TYPE)
 **/
 DiskList::~DiskList()
 {
+		delete dfProc;
 }
 
 /**
