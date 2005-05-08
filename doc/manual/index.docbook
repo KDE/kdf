@@ -110,10 +110,9 @@ can be listed by entering <userinput><command>kdf</command>
 graph.</para></listitem>
 </itemizedlist>
 
-<para>In the picture above, three devices are shown: two ext2-formatted
-hard drive partitions, one mounted at the filesystem root (<filename
-class="directory">/</filename>) and one at <filename
-class="directory">/home</filename>, and a mounted &CD-ROM;.</para>
+<para>In the picture above, four devices are shown: one reiserfs-formatted
+hard drive partition mounted at the filesystem root (<filename
+class="directory">/</filename>), two &CD-ROM;'s, and a floppy drive.</para>
 
 <para><mousebutton>Left</mousebutton> clicking on the header of a
 particular column sorts the devices according to that variable. A
@@ -167,9 +166,19 @@ status</action></para></listitem>
 <variablelist>
 <varlistentry>
 <term>
+<menuchoice><guimenu>Settings</guimenu>
+<guimenuitem>Configure Shortcuts...</guimenuitem></menuchoice>
+</term>
+<listitem>
+<para>The standard &kde; dialog for setting shortcuts.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
 <menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Configure KDiskFree</guimenuitem>
+<guimenuitem>Configure KDiskFree...</guimenuitem>
 </menuchoice>
 </term>
 <listitem><para><action>Opens a configuration dialog.</action></para>
