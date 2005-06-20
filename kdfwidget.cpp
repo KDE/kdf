@@ -30,11 +30,18 @@
 
 #include <stdlib.h>
 
-#include <qheader.h>
+#include <q3header.h>
 #include <qtimer.h>
 #include <qlayout.h>
 #include <qpainter.h>
-
+//Added by qt3to4:
+#include <QPixmap>
+#include <QTimerEvent>
+#include <QVBoxLayout>
+#include <Q3Frame>
+#include <QResizeEvent>
+#include <QCloseEvent>
+#include <QAbstractEventDispatcher>
 #include <kapplication.h>
 #include <kcmenumngr.h>
 #include <kmessagebox.h>
@@ -56,11 +63,11 @@ static bool GUI;
 
 /**************************************************************/
 
-CListViewItem::CListViewItem( CListView * parent, QListViewItem * after )
-  :QListViewItem( parent, after )
+CListViewItem::CListViewItem( CListView * parent, Q3ListViewItem * after )
+  :Q3ListViewItem( parent, after )
 {}
 
-int CListViewItem::compare ( QListViewItem *i, int column, bool ) const
+int CListViewItem::compare ( Q3ListViewItem *i, int column, bool ) const
 {
   QString tmp;
 
@@ -119,14 +126,14 @@ KDFWidget::KDFWidget( QWidget *parent, const char *name, bool init )
     topLayout->addWidget( mList );
 
     mList->setAllColumnsShowFocus( true );
-    mList->setFrameStyle( QFrame::WinPanel + QFrame::Sunken );
+    mList->setFrameStyle( Q3Frame::WinPanel + Q3Frame::Sunken );
     mList->setShowSortIndicator(true);
     connect( mList,
-      SIGNAL( rightButtonPressed( QListViewItem *, const QPoint &, int )),
-      this, SLOT( rightButtonPressed( QListViewItem *, const QPoint &, int )));
+      SIGNAL( rightButtonPressed( Q3ListViewItem *, const QPoint &, int )),
+      this, SLOT( rightButtonPressed( Q3ListViewItem *, const QPoint &, int )));
     connect( mList,
-      SIGNAL( rightButtonClicked( QListViewItem *, const QPoint &, int )),
-      this, SLOT( rightButtonClicked( QListViewItem *, const QPoint &, int )));
+      SIGNAL( rightButtonClicked( Q3ListViewItem *, const QPoint &, int )),
+      this, SLOT( rightButtonClicked( Q3ListViewItem *, const QPoint &, int )));
     connect( mList->header(), SIGNAL(sizeChange(int, int, int)),
       this, SLOT(columnSizeChanged(int, int, int)) );
     makeColumns();
@@ -283,8 +290,8 @@ void KDFWidget::setUpdateFrequency( int frequency )
   // Kill current timer and restart it if the frequency is
   // larger than zero.
   //
-  killTimers();
-  if( frequency > 0 )
+	QAbstractEventDispatcher::instance()->unregisterTimers(this);
+   if( frequency > 0 )
   {
     startTimer( frequency * 1000 );
   }
@@ -386,7 +393,7 @@ void KDFWidget::criticallyFull( DiskEntry *disk )
 /**************************************************************************
   * find correct disk related to list item
 **/
-DiskEntry *KDFWidget::selectedDisk( QListViewItem *item )
+DiskEntry *KDFWidget::selectedDisk( Q3ListViewItem *item )
 {
   if( item == 0 )
   {
@@ -426,7 +433,7 @@ DiskEntry *KDFWidget::selectedDisk( QListViewItem *item )
   //  return(0);
 }
 
-void KDFWidget::rightButtonPressed( QListViewItem *item, const QPoint &p, int )
+void KDFWidget::rightButtonPressed( Q3ListViewItem *item, const QPoint &p, int )
 {
   if( KContextMenuManager::showOnButtonPress() == true )
   {
@@ -435,7 +442,7 @@ void KDFWidget::rightButtonPressed( QListViewItem *item, const QPoint &p, int )
 }
 
 
-void KDFWidget::rightButtonClicked( QListViewItem *item, const QPoint &p, int )
+void KDFWidget::rightButtonClicked( Q3ListViewItem *item, const QPoint &p, int )
 {
   if( KContextMenuManager::showOnButtonPress() == false )
   {
@@ -447,7 +454,7 @@ void KDFWidget::rightButtonClicked( QListViewItem *item, const QPoint &p, int )
 /**************************************************************************
   * pops up and asks for mount/umount right-clicked device
 **/
-void KDFWidget::popupMenu( QListViewItem *item, const QPoint &p )
+void KDFWidget::popupMenu( Q3ListViewItem *item, const QPoint &p )
 {
   if (mPopup) //The user may even be able to popup another menu while this open is active...
        return;
@@ -567,7 +574,7 @@ void KDFWidget::updateDiskBarPixmaps( void )
   }
 
   int i=0;
-  for(QListViewItem *it=mList->firstChild(); it!=0;it=it->nextSibling(),i++ )
+  for(Q3ListViewItem *it=mList->firstChild(); it!=0;it=it->nextSibling(),i++ )
   {
     // I can't get find() to work. The Disks::compareItems(..) is
     // never called.
@@ -604,18 +611,18 @@ void KDFWidget::updateDiskBarPixmaps( void )
       QPixmap *pix = new QPixmap( w, h );
       if( pix == 0 ) { continue; }
 
-      pix->fill(white);
+      pix->fill(Qt::white);
       QPainter p(pix);
-      p.setPen(black);
+      p.setPen(Qt::black);
       p.drawRect(0,0,w,h);
       QColor c;
       if ( (disk->iconName().find("cdrom") != -1)
 	   || (disk->iconName().find("writer") != -1) )
-	c = gray;
+	c = Qt::gray;
       else
-	c = disk->percentFull() > FULL_PERCENT ? red : darkGreen;
+	c = disk->percentFull() > FULL_PERCENT ? Qt::red : Qt::darkGreen;
       p.setBrush(c );
-      p.setPen(white);
+      p.setPen(Qt::white);
       p.drawRect(1,1,(int)(((float)pix->width()-2)*(disk->percentFull()/100)),
 		 pix->height()-2);
       it->setPixmap ( usageCol, *pix );

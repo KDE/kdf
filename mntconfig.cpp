@@ -27,10 +27,16 @@
 // Converted to QLayout and QListView + cleanups
 //
 
-#include <qgroupbox.h>
-#include <qheader.h>
+#include <q3groupbox.h>
+#include <q3header.h>
 #include <qlayout.h>
 #include <qlineedit.h>
+//Added by qt3to4:
+#include <QPixmap>
+#include <QVBoxLayout>
+#include <Q3Frame>
+#include <QGridLayout>
+#include <QCloseEvent>
 
 #undef Unsorted
 
@@ -71,9 +77,9 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, const char *name, bool init)
     mList->addColumn( i18n("Mount Point") );
     mList->addColumn( i18n("Mount Command") );
     mList->addColumn( i18n("Unmount Command") );
-    mList->setFrameStyle( QFrame::WinPanel + QFrame::Sunken );
-    connect( mList, SIGNAL(selectionChanged(QListViewItem *)),
-	     this, SLOT(clicked(QListViewItem *)));
+    mList->setFrameStyle( Q3Frame::WinPanel + Q3Frame::Sunken );
+    connect( mList, SIGNAL(selectionChanged(Q3ListViewItem *)),
+	     this, SLOT(clicked(Q3ListViewItem *)));
 
     topLayout->addWidget( mList );
 
@@ -82,7 +88,7 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, const char *name, bool init)
       arg(i18n("None")).
       arg(mList->header()->label(MNTPNTCOL)).
       arg(i18n("None"));
-    mGroupBox = new QGroupBox( text, this );
+    mGroupBox = new Q3GroupBox( text, this );
     Q_CHECK_PTR(mGroupBox);
     topLayout->addWidget(mGroupBox);
 
@@ -161,10 +167,10 @@ void MntConfigWidget::readDFDone( void )
   mDiskLookup.resize(mDiskList.count());
 
   int i=0;
-  QListViewItem *item = 0;
+  Q3ListViewItem *item = 0;
   for( DiskEntry *disk=mDiskList.first(); disk!=0; disk=mDiskList.next(),++i )
   {
-     item = new QListViewItem( mList, item, QString::null, disk->deviceName(),
+     item = new Q3ListViewItem( mList, item, QString::null, disk->deviceName(),
       disk->mountPoint(), disk->mountCommand(), disk->umountCommand() );
      item->setPixmap( ICONCOL, SmallIcon( disk->iconName() ) );
      mDiskLookup[i] = item;
@@ -203,7 +209,7 @@ void MntConfigWidget::loadSettings( void )
       resize(w,h);
     }
 
-    QListViewItem *item = mList->selectedItem();
+    Q3ListViewItem *item = mList->selectedItem();
     if( item != 0 )
     {
       clicked( item );
@@ -212,7 +218,7 @@ void MntConfigWidget::loadSettings( void )
 }
 
 
-void MntConfigWidget::clicked( QListViewItem *item )
+void MntConfigWidget::clicked( Q3ListViewItem *item )
 {
   mGroupBox->setEnabled( true );
   mGroupBox->setTitle( QString("%1: %2  %3: %4").
@@ -263,7 +269,7 @@ void MntConfigWidget::iconChanged(const QString &iconName)
       return;
     }
 
-  QListViewItem *item = mList->selectedItem();
+  Q3ListViewItem *item = mList->selectedItem();
   for(unsigned i=0 ; i < mDiskList.count() ; ++i) 
     {
       if (mDiskLookup[i] == item) 
@@ -316,7 +322,7 @@ void MntConfigWidget::selectUmntFile()
 
 void MntConfigWidget::mntCmdChanged( const QString &data )
 {
-  QListViewItem *item = mList->selectedItem();
+  Q3ListViewItem *item = mList->selectedItem();
   for(unsigned  i=0 ; i < mDiskList.count() ; ++i) 
     {
       if (mDiskLookup[i] == item)
@@ -335,7 +341,7 @@ void MntConfigWidget::mntCmdChanged( const QString &data )
 
 void MntConfigWidget::umntCmdChanged( const QString &data )
 {
-  QListViewItem *item = mList->selectedItem();
+  Q3ListViewItem *item = mList->selectedItem();
   for(unsigned i=0 ; i < mDiskList.count() ; ++i) 
     {
     if (mDiskLookup[i] == item) 

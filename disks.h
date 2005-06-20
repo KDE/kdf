@@ -29,7 +29,7 @@
 #include <qstring.h>
 #include <qlabel.h>
 #include <qpushbutton.h>
-#include <qprogressbar.h>
+#include <q3progressbar.h>
 #include <qfile.h>
 
 #include <kio/global.h>

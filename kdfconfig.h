@@ -25,8 +25,11 @@
 #ifndef __KDFCONFIG_H__
 #define __KDFCONFIG_H__
 
-#include <qmemarray.h>
+#include <q3memarray.h>
 #include <qstring.h>
+//Added by qt3to4:
+#include <QLabel>
+#include <QCloseEvent>
 
 #include "stdoption.h"
 
@@ -34,7 +37,7 @@ class QCheckBox;
 class QLabel;
 class QLCDNumber;
 class QLineEdit;
-class QListViewItem;
+class Q3ListViewItem;
 class QScrollBar;
 
 class CListView;
@@ -71,13 +74,13 @@ class KDFConfigWidget : public QWidget
     void slotChanged();
 
   private slots:
-    void toggleListText( QListViewItem *item, const QPoint &, int column );
+    void toggleListText( Q3ListViewItem *item, const QPoint &, int column );
 
   protected:
     void closeEvent( QCloseEvent * );
 
   private:
-    QMemArray<CTabName*> mTabName;
+    Q3MemArray<CTabName*> mTabName;
     CListView  *mList;
     QScrollBar *mScroll;
     QLCDNumber *mLCD;

@@ -33,7 +33,7 @@
 
 #include <iostream>
 #include <qstring.h>
-#include <qdict.h>
+#include <q3dict.h>
 #include <kconfig.h>
 #include <kdebug.h>
 #include <kapplication.h>
@@ -52,13 +52,13 @@ main(int argc, char ** argv)
  KApplication app;
  KConfig * cfg = kapp->config();
 
- QDict<char> dict;
+ Q3Dict<char> dict;
 
  dict.insert("Blah", "Arse");
  dict.insert("Blah", "Smack");
  dict.insert("Blah", "Monkey");
 
- QDictIterator<char> it(dict);
+ Q3DictIterator<char> it(dict);
 
  QString key = "TestConfigItem";
 

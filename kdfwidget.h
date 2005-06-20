@@ -25,10 +25,14 @@
 #ifndef __KDFWIDGET_H__
 #define __KDFWIDGET_H__
 
-#include <qmemarray.h>
+#include <q3memarray.h>
 #include <qglobal.h>
 #include <qstring.h>
-#include <qlistview.h>
+#include <q3listview.h>
+//Added by qt3to4:
+#include <QTimerEvent>
+#include <QResizeEvent>
+#include <QCloseEvent>
 
 #include "disks.h"
 #include "disklist.h"
@@ -72,12 +76,12 @@ class CTabEntry
 //    columns with a numeric value are sorted by numerical value.
 //
 
-class CListViewItem : public QListViewItem
+class CListViewItem : public Q3ListViewItem
 {
   public:
-    CListViewItem ( CListView * parent, QListViewItem * after );
+    CListViewItem ( CListView * parent, Q3ListViewItem * after );
  
-    virtual int compare ( QListViewItem* i, int col, bool) const;
+    virtual int compare ( Q3ListViewItem* i, int col, bool) const;
     	
     void    setKeys ( int kb_size, int kb_avail, float percent_full ) ;
 
@@ -120,9 +124,9 @@ class KDFWidget : public QWidget
   
   private slots:
     void criticallyFull( DiskEntry *disk );
-    void rightButtonPressed( QListViewItem *item, const QPoint &p, int );
-    void rightButtonClicked( QListViewItem *item, const QPoint &p, int );
-    void popupMenu( QListViewItem *item, const QPoint &p );
+    void rightButtonPressed( Q3ListViewItem *item, const QPoint &p, int );
+    void rightButtonClicked( Q3ListViewItem *item, const QPoint &p, int );
+    void popupMenu( Q3ListViewItem *item, const QPoint &p );
     void setUpdateFrequency( int frequency );
     void columnSizeChanged( int column, int, int newSize );
     void updateDiskBarPixmaps( void );
@@ -135,11 +139,11 @@ class KDFWidget : public QWidget
 
   private:
     void makeColumns( void );
-    DiskEntry *selectedDisk( QListViewItem *item=0 );
+    DiskEntry *selectedDisk( Q3ListViewItem *item=0 );
 
   private:
     bool readingDF;
-    QMemArray<CTabEntry*> mTabProp;
+    Q3MemArray<CTabEntry*> mTabProp;
     CListView     *mList;
     COptionDialog *mOptionDialog;
     KPopupMenu    *mPopup;

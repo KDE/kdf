@@ -25,14 +25,16 @@
 //
 
 #include <qbitmap.h>
-#include <qheader.h>
+#include <q3header.h>
 #include <qpainter.h>
+//Added by qt3to4:
+#include <QPixmap>
 
 #include <kiconloader.h>
 
 #include "listview.h"
 
-template class QDict<QPixmap>;
+template class Q3Dict<QPixmap>;
 
 CListView::CListView( QWidget *parent, const char *name, int visibleItem )
   :KListView( parent, name ),  mVisibleItem(QMAX( 1, visibleItem ))
@@ -54,7 +56,7 @@ void CListView::setVisibleItem( int visibleItem, bool updateSize )
 
 QSize CListView::sizeHint( void ) const
 {
-  QSize s = QListView::sizeHint();
+  QSize s = Q3ListView::sizeHint();
 
   int h = fontMetrics().height() + 2*itemMargin();
   if( h % 2 > 0 ) { h++; }
@@ -79,20 +81,20 @@ const QPixmap &CListView::icon( const QString &iconName, bool drawBorder )
       // Careful here: If the mask has not been defined we can
       // not use QPixmap::mask() because it returns 0 => segfault
       //
-      if( pix->mask() != 0 )
+      if( !pix->mask().isNull() )
       {
-	QBitmap *bm = new QBitmap(*(pix->mask()));
+	QBitmap *bm = new QBitmap((pix->mask()));
 	if( bm != 0 )
 	{
 	  QPainter qp(bm);
-	  qp.setPen(QPen(white,1));
+	  qp.setPen(QPen(Qt::white,1));
 	  qp.drawRect(0,0,bm->width(),bm->height());
 	  qp.end();
 	  pix->setMask(*bm);
 	}
 
 	QPainter qp(pix);
-	qp.setPen(QPen(red,1));
+	qp.setPen(QPen(Qt::red,1));
 	qp.drawRect(0,0,pix->width(),pix->height());
 	qp.end();
         delete bm;
