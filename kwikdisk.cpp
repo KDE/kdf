@@ -224,7 +224,7 @@ void KwikDisk::updateDFDone()
          toolTipText = i18n("You must login as root to mount this disk");
       }
 
-      contextMenu()->changeItem(*pix,entryName,id);
+      contextMenu()->changeItem(id,*pix,entryName);
    }
 
    contextMenu()->insertSeparator();
