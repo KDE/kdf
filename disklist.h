@@ -32,6 +32,8 @@
 
 // defines the os-type
 #include <qglobal.h>
+//Added by qt3to4:
+#include <Q3PtrList>
 
 #include "disks.h"
 
@@ -55,8 +57,8 @@
 #define SEPARATOR "|"
 
 /***************************************************************************/
-typedef QPtrList<DiskEntry>		DisksBase;
-typedef QPtrListIterator<DiskEntry>	DisksIterator;
+typedef Q3PtrList<DiskEntry>		DisksBase;
+typedef Q3PtrListIterator<DiskEntry>	DisksIterator;
 
 /***************************************************************************/
 class Disks : public DisksBase

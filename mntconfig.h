@@ -31,15 +31,18 @@
 
 #include "disks.h"
 #include "disklist.h"
+//Added by qt3to4:
+#include <QCloseEvent>
+#include <Q3MemArray>
 
-class QGroupBox;
+class Q3GroupBox;
 class QPushButton;
 class QRadioButton;
 class QLineEdit;
 class KIconButton;
 
 class CListView;
-class QListViewItem;
+class Q3ListViewItem;
 
 /**************************************************************/
 
@@ -70,7 +73,7 @@ class MntConfigWidget : public QWidget
 
   private slots:
     void readDFDone( void );
-    void clicked( QListViewItem *item );
+    void clicked( Q3ListViewItem *item );
     void selectMntFile( void );
     void selectUmntFile( void );
     void iconChangedButton(QString);
@@ -83,7 +86,7 @@ class MntConfigWidget : public QWidget
 
   private:
     CListView   *mList;
-    QGroupBox   *mGroupBox;
+    Q3GroupBox   *mGroupBox;
     QLineEdit   *mIconLineEdit;
     QLineEdit   *mMountLineEdit;
     QLineEdit   *mUmountLineEdit;
@@ -92,7 +95,7 @@ class MntConfigWidget : public QWidget
     KIconButton *mIconButton;
     DiskList    mDiskList;
     bool        mInitializing;
-    QMemArray<QListViewItem*> mDiskLookup;
+    Q3MemArray<Q3ListViewItem*> mDiskLookup;
 
   signals:
     void configChanged();

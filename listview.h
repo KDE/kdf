@@ -20,7 +20,7 @@
 #ifndef _LISTVIEW_H_
 #define _LISTVIEW_H_
 
-#include <qdict.h>
+#include <q3dict.h>
 #include <qpixmap.h>
 
 #include <klistview.h>
@@ -38,7 +38,7 @@ class CListView : public KListView
 
   private:
     int mVisibleItem;
-    QDict<QPixmap> mPixDict;
+    Q3Dict<QPixmap> mPixDict;
 };
 
 

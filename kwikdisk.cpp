@@ -34,7 +34,12 @@
 #include <qpen.h>
 #include <qbitmap.h>
 #include <qpainter.h>
-
+//Added by qt3to4:
+#include <QMouseEvent>
+#include <QPixmap>
+#include <QTimerEvent>
+#include <QEvent>
+#include <QAbstractEventDispatcher>
 #include <kmainwindow.h>
 #include <klocale.h>
 #include <kapplication.h>
@@ -134,7 +139,7 @@ void KwikDisk::setUpdateFrequency(int frequency)
    // Kill current timer and restart it if the frequency is
    // larger than zero.
    //
-   killTimers();
+   QAbstractEventDispatcher::instance()->unregisterTimers(this);
    if( frequency > 0 )
    {
       startTimer(frequency * 1000);
@@ -199,19 +204,19 @@ void KwikDisk::updateDFDone()
          // Careful here: If the mask has not been defined we can
          // not use QPixmap::mask() because it returns 0 => segfault
          //
-         if( pix->mask() != 0 )
+         if( !pix->mask().isNull() )
          {
-            QBitmap *bm = new QBitmap(*(pix->mask()));
+            QBitmap *bm = new QBitmap((pix->mask()));
             if( bm != 0 )
             {
                QPainter qp( bm );
-               qp.setPen(QPen(white,1));
+               qp.setPen(QPen(Qt::white,1));
                qp.drawRect(0,0,bm->width(),bm->height());
                qp.end();
                pix->setMask(*bm);
             }
             QPainter qp( pix );
-            qp.setPen(QPen(red,1));
+            qp.setPen(QPen(Qt::red,1));
             qp.drawRect(0,0,pix->width(),pix->height());
             qp.end();
          }
@@ -219,7 +224,7 @@ void KwikDisk::updateDFDone()
          toolTipText = i18n("You must login as root to mount this disk");
       }
 
-      contextMenu()->changeItem(*pix,entryName,id);
+      contextMenu()->changeItem(id,*pix,entryName);
    }
 
    contextMenu()->insertSeparator();

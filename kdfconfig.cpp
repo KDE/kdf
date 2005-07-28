@@ -29,11 +29,16 @@
 
 
 #include <qcheckbox.h>
-#include <qheader.h>
+#include <q3header.h>
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qlcdnumber.h>
 #include <qlineedit.h>
+//Added by qt3to4:
+#include <QVBoxLayout>
+#include <Q3Frame>
+#include <QGridLayout>
+#include <QCloseEvent>
 
 #include <kapplication.h>
 #include <kconfig.h>
@@ -73,19 +78,19 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, const char *name, bool init)
 
     mList = new CListView( this, "list", 1 );
     mList->setAllColumnsShowFocus(true);
-    mList->setFrameStyle( QFrame::WinPanel + QFrame::Sunken );
+    mList->setFrameStyle( Q3Frame::WinPanel + Q3Frame::Sunken );
     mList->header()->setMovingEnabled(false);
     for( uint i=0; i < mTabName.size(); i++ )
     {
       mList->addColumn( mTabName[i]->mName );
     }
-    connect( mList, SIGNAL(clicked(QListViewItem *, const QPoint &, int)),
-	     this, SLOT(toggleListText(QListViewItem *,const QPoint &,int)));
-    connect( mList, SIGNAL(clicked(QListViewItem *, const QPoint &, int)),
+    connect( mList, SIGNAL(clicked(Q3ListViewItem *, const QPoint &, int)),
+	     this, SLOT(toggleListText(Q3ListViewItem *,const QPoint &,int)));
+    connect( mList, SIGNAL(clicked(Q3ListViewItem *, const QPoint &, int)),
 	     this, SLOT(slotChanged()));
     topLayout->addWidget( mList );
 
-    QListViewItem *mListItem = new QListViewItem( mList );
+    Q3ListViewItem *mListItem = new Q3ListViewItem( mList );
     for( uint i=mList->header()->count(); i>0; i-- )
     {
      mListItem->setText(i-1, i18n("visible") );
@@ -99,7 +104,7 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, const char *name, bool init)
 
     mScroll = new QScrollBar( this );
     Q_CHECK_PTR(mScroll);
-    mScroll->setOrientation( QScrollBar::Horizontal );
+    mScroll->setOrientation( Qt::Horizontal );
     mScroll->setSteps(1,20);
     mScroll->setRange(0, 180 );
     gl->addWidget( mScroll, 1, 1 );
@@ -176,7 +181,7 @@ void KDFConfigWidget::applySettings( void )
     mStd.setOpenFileManager( mOpenMountCheck->isChecked() );
     mStd.writeConfiguration();
 
-    QListViewItem *item = mList->firstChild();
+    Q3ListViewItem *item = mList->firstChild();
     if( item != 0 )
     {
       for( int i=mList->header()->count(); i>0; i-- )
@@ -208,7 +213,7 @@ void KDFConfigWidget::loadSettings( void )
     mOpenMountCheck->setChecked( mStd.openFileManager() );
     mFileManagerEdit->setText( mStd.fileManager() );
 
-    QListViewItem *item = mList->firstChild();
+    Q3ListViewItem *item = mList->firstChild();
     if( item != 0 )
     {
       for( int i=mList->header()->count(); i>0; i-- )
@@ -232,7 +237,7 @@ void KDFConfigWidget::defaultsBtnClicked( void )
   mOpenMountCheck->setChecked( mStd.openFileManager() );
   mFileManagerEdit->setText( mStd.fileManager() );
 
-  QListViewItem *item = mList->firstChild();
+  Q3ListViewItem *item = mList->firstChild();
   if( item != 0 )
   {
     for( int i=mList->header()->count(); i>0; i-- )
@@ -245,7 +250,7 @@ void KDFConfigWidget::defaultsBtnClicked( void )
 }
 
 
-void KDFConfigWidget::toggleListText( QListViewItem *item, const QPoint &,
+void KDFConfigWidget::toggleListText( Q3ListViewItem *item, const QPoint &,
 				      int column )
 {
   if (!item) return;

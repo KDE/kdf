@@ -34,6 +34,10 @@
 
 #include <kmainwindow.h>
 #include <ksystemtray.h>
+//Added by qt3to4:
+#include <QMouseEvent>
+#include <QTimerEvent>
+#include <QEvent>
 
 /**
 * @short Application Main Window (however in Tray)

@@ -29,6 +29,8 @@
 #include <kapplication.h>
 
 #include "disklist.h"
+//Added by qt3to4:
+#include <QTextStream>
 
 #define BLANK ' '
 #define DELIMITER '#'
@@ -138,24 +140,24 @@ void DiskList::loadSettings()
 
 static QString expandEscapes(const QString& s) {
 QString rc;
-    for (unsigned int i = 0; i < s.length(); i++) {
+    for (int i = 0; i < s.length(); i++) {
         if (s[i] == '\\') {
             i++;
-            switch(s[i]) {
-            case '\\':  // backslash '\'
-               rc += '\\';
-               break;
-            case '0': // octal 0nn
-               rc += static_cast<char>(s.mid(i,3).toInt(0, 8));
-               i += 2;
-               break;
-            default:
+			QChar str=s.at(i);
+			if( str == '\\')
+					rc += '\\';
+			else if( str == '0')
+			{
+					rc += static_cast<char>(s.mid(i,3).toInt(0, 8));
+					i += 2;
+			}
+			else
+			{
                // give up and not process anything else because I'm too lazy
                // to implement other escapes
                rc += '\\';
-               rc += s[i];
-               break;
-            }
+               rc += s[i];					
+			}
         } else {
             rc += s[i];
         }
@@ -173,14 +175,14 @@ int DiskList::readFSTAB()
   if (readingDFStdErrOut || dfProc->isRunning()) return -1;
 
 QFile f(FSTAB);
-  if ( f.open(IO_ReadOnly) ) {
+  if ( f.open(QIODevice::ReadOnly) ) {
     QTextStream t (&f);
     QString s;
     DiskEntry *disk;
 
     //disks->clear(); // ############
 
-    while (! t.eof()) {
+    while (! t.atEnd()) {
       s=t.readLine();
       s=s.simplifyWhiteSpace();
       if ( (!s.isEmpty() ) && (s.find(DELIMITER)!=0) ) {
@@ -283,7 +285,7 @@ void DiskList::dfDone()
   for ( DiskEntry *disk=disks->first(); disk != 0; disk=disks->next() )
     disk->setMounted(FALSE);  // set all devs unmounted
 
-  QTextStream t (dfStringErrOut, IO_ReadOnly);
+  QTextStream t (&dfStringErrOut, QIODevice::ReadOnly);
   QString s=t.readLine();
   if ( ( s.isEmpty() ) || ( s.left(10) != "Filesystem" ) )
     qFatal("Error running df command... got [%s]",s.latin1());
@@ -296,7 +298,7 @@ void DiskList::dfDone()
       disk = new DiskEntry(); Q_CHECK_PTR(disk);
 
       if (s.find(BLANK)<0)      // devicename was too long, rest in next line
-	if ( !t.eof() ) {       // just appends the next line
+	if ( !t.atEnd() ) {       // just appends the next line
             v=t.readLine();
             s=s.append(v.latin1() );
             s=s.simplifyWhiteSpace();
