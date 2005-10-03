@@ -45,8 +45,9 @@
 #include <kapplication.h>
 #include <kcmenumngr.h>
 #include <kmessagebox.h>
-#include <kpopupmenu.h>
+#include <kmenu.h>
 #include <kprocess.h>
+#include <ktoolinvocation.h>
 
 #include "listview.h"
 #include "kdfwidget.h"
@@ -471,8 +472,8 @@ void KDFWidget::popupMenu( Q3ListViewItem *item, const QPoint &p )
     return;
   }
 
-  mPopup = new KPopupMenu( 0 );
-  mPopup->insertTitle( disk->mountPoint() );
+  mPopup = new KMenu( 0 );
+  mPopup->addTitle( disk->mountPoint() );
   mPopup->insertItem( i18n("Mount Device"), 0 );
   mPopup->insertItem( i18n("Unmount Device"), 1 );
   mPopup->insertSeparator();
@@ -652,7 +653,7 @@ void KDFWidget::columnSizeChanged( int, int, int )
 
 void KDFWidget::invokeHelp()
 {
-  kapp->invokeHelp("", "kcontrol/kdf");
+  KToolInvocation::invokeHelp("", "kcontrol/kdf");
 }
 
 #include "kdfwidget.moc"

@@ -46,8 +46,9 @@
 #include <kaboutdata.h>
 #include <kcmdlineargs.h>
 #include <kmessagebox.h>
-#include <kpopupmenu.h>
+#include <kmenu.h>
 #include <krun.h>
+#include <ktoolinvocation.h>
 
 static const char description[] =
    I18N_NOOP("KDE Free disk space utility");
@@ -317,14 +318,14 @@ void KwikDisk::startKDF()
 
 void KwikDisk::invokeHelp()
 {
-   kapp->invokeHelp("", "kdf");
+   KToolInvocation::invokeHelp("", "kdf");
 }
 
 /*****************************************************************************/
 
 int main(int argc, char **argv)
 {
-   KLocale::setMainCatalogue( "kdf" );
+   KLocale::setMainCatalog( "kdf" );
 
    KAboutData about("kwikdisk", I18N_NOOP("KwikDisk"), version, description,
                   KAboutData::License_GPL, "(C) 2004 Stanislav Karchebny",

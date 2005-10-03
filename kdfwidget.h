@@ -43,7 +43,7 @@
 class CListView;
 class COptionDialog;
 class QTimer;
-class KPopupMenu;
+class KMenu;
 
 /**************************************************************/
 
@@ -146,7 +146,7 @@ class KDFWidget : public QWidget
     Q3MemArray<CTabEntry*> mTabProp;
     CListView     *mList;
     COptionDialog *mOptionDialog;
-    KPopupMenu    *mPopup;
+    KMenu    *mPopup;
     QTimer        *mTimer;
     DiskList   mDiskList;
     bool       mIsTopLevel;

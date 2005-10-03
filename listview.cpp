@@ -37,8 +37,9 @@
 template class Q3Dict<QPixmap>;
 
 CListView::CListView( QWidget *parent, const char *name, int visibleItem )
-  :KListView( parent, name ),  mVisibleItem(QMAX( 1, visibleItem ))
+  :KListView( parent ),  mVisibleItem(QMAX( 1, visibleItem ))
 {
+  setObjectName(name);
   setVisibleItem(visibleItem);
   mPixDict.setAutoDelete(true);
 }

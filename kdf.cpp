@@ -27,7 +27,7 @@
 #include <kaction.h>
 
 #include "kdf.h"
-#include <kpopupmenu.h>
+#include <kmenu.h>
 
 static const char description[] =
 	I18N_NOOP("KDE free disk space utility");
