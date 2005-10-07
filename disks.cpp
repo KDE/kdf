@@ -265,7 +265,7 @@ void DiskEntry::setDeviceName(const QString & deviceName)
 QString DiskEntry::deviceRealName() const
 {
  QFileInfo inf( device );
- QDir dir( inf.dirPath( true ) );
+ QDir dir( inf.absolutePath() );
  QString relPath = inf.fileName();
  if ( inf.isSymLink() ) {
   QString link = inf.readLink();
