@@ -37,7 +37,7 @@
 template class Q3Dict<QPixmap>;
 
 CListView::CListView( QWidget *parent, const char *name, int visibleItem )
-  :KListView( parent ),  mVisibleItem(QMAX( 1, visibleItem ))
+  :KListView( parent ),  mVisibleItem(qMax( 1, visibleItem ))
 {
   setObjectName(name);
   setVisibleItem(visibleItem);
@@ -46,7 +46,7 @@ CListView::CListView( QWidget *parent, const char *name, int visibleItem )
 
 void CListView::setVisibleItem( int visibleItem, bool updateSize )
 {
-  mVisibleItem = QMAX( 1, visibleItem );
+  mVisibleItem = qMax( 1, visibleItem );
   if( updateSize == true )
   {
     QSize s = sizeHint();
