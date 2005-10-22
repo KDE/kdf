@@ -79,11 +79,11 @@ public:
   int kBSize() const { return size; };
   QString iconName();
   QString realIconName() { return icoName; };
-  QString prettyKBSize() const { return KIO::convertSizeFromKB(size); };
+  QString prettyKBSize() const { return KIO::convertSizeFromKiB(size); };
   int kBUsed() const { return used; };
-  QString prettyKBUsed() const { return KIO::convertSizeFromKB(used); };
+  QString prettyKBUsed() const { return KIO::convertSizeFromKiB(used); };
   int kBAvail() const  { return avail; };
-  QString prettyKBAvail() const { return KIO::convertSizeFromKB(avail); };
+  QString prettyKBAvail() const { return KIO::convertSizeFromKiB(avail); };
   float percentFull() const;
 
 signals:
