@@ -474,25 +474,25 @@ void KDFWidget::popupMenu( Q3ListViewItem *item, const QPoint &p )
 
   mPopup = new KMenu( 0 );
   mPopup->addTitle( disk->mountPoint() );
-  mPopup->insertItem( i18n("Mount Device"), 0 );
-  mPopup->insertItem( i18n("Unmount Device"), 1 );
+  QAction *mountPointAction = mPopup->addAction( i18n("Mount Device") );
+  QAction *umountPointAction = mPopup->addAction( i18n("Unmount Device") );
   mPopup->insertSeparator();
-  mPopup->insertItem( i18n("Open in File Manager"), 2 );
-  mPopup->setItemEnabled( 0, disk->mounted() ? false : true );
-  mPopup->setItemEnabled( 1, disk->mounted() );
-  mPopup->setItemEnabled( 2, disk->mounted() );  
-  int position = mPopup->exec( p );  
+  QAction *openFileManagerAction = mPopup->addAction( i18n("Open in File Manager") );
+  mountPointAction->setEnabled( disk->mounted() ? false : true );
+  umountPointAction->setEnabled(disk->mounted());
+  openFileManagerAction->setEnabled(disk->mounted() );
+  QAction *position = mPopup->exec( p );  
   
 
 
   bool openFileManager = false;
-  if( position == -1 )
+  if( !position )
   {
     mDiskList.setUpdatesDisabled(false);
     delete mPopup; mPopup = 0;
     return;
   }
-  else if( position == 0 || position == 1 )
+  else if( position == mountPointAction || position == umountPointAction )
   {
       item->setText( sizeCol, i18n("MOUNTING") );
       item->setText( freeCol, i18n("MOUNTING") );
@@ -504,7 +504,7 @@ void KDFWidget::popupMenu( Q3ListViewItem *item, const QPoint &p )
 	  KMessageBox::error( this, disk->lastSysError() );
 	}
       else if ( ( mStd.openFileManager() == true)
-		&& (position == 0) ) //only on mount
+		&& (position == mountPointAction) ) //only on mount
 	{
 	  openFileManager = true;
 	}
@@ -512,7 +512,7 @@ void KDFWidget::popupMenu( Q3ListViewItem *item, const QPoint &p )
       delete item;
       mDiskList.deleteAllMountedAt(disk->mountPoint());
   }
-  else if( position == 2 )
+  else if( position == openFileManagerAction )
   {
     openFileManager = true;
   }
@@ -540,7 +540,7 @@ void KDFWidget::popupMenu( Q3ListViewItem *item, const QPoint &p )
   mDiskList.setUpdatesDisabled(false);
   delete mPopup; mPopup = 0;
 
-  if( position != 2 ) // No need to update when just opening the fm.
+  if( position != openFileManagerAction ) // No need to update when just opening the fm.
   {
     updateDF();
   }

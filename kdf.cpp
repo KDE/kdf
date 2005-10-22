@@ -25,7 +25,7 @@
 #include <kaboutdata.h>
 #include <kstdaction.h>
 #include <kaction.h>
-
+#include <kxmlguifactory.h>
 #include "kdf.h"
 #include <kmenu.h>
 

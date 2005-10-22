@@ -175,7 +175,7 @@ void KwikDisk::updateDFDone()
    m_dirty     = FALSE;
 
    contextMenu()->clear();
-   contextMenu()->insertTitle(KSystemTray::loadIcon("kdf"), i18n("KwikDisk"));
+   contextMenu()->addTitle(KSystemTray::loadIcon("kdf"), i18n("KwikDisk"));
 
    int itemNo = 0;
    for( DiskEntry *disk = m_diskList.first(); disk != 0; disk = m_diskList.next() )
