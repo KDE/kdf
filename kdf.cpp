@@ -72,7 +72,7 @@ int main(int argc, char **argv)
 
   KApplication app;
 
-  if( app.isRestored() ) //SessionManagement
+  if( app.isSessionRestored() ) //SessionManagement
   {
     for( int n=1; KDFTopLevel::canBeRestored(n); n++ )
     {
