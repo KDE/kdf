@@ -31,6 +31,7 @@
 #include "disklist.h"
 //Added by qt3to4:
 #include <QTextStream>
+#include <kglobal.h>
 
 #define BLANK ' '
 #define DELIMITER '#'
@@ -61,7 +62,7 @@ DiskList::DiskList(QObject *parent, const char *name)
       this, SLOT(dfDone() ) );
 
    readingDFStdErrOut=FALSE;
-   config = kapp->config();
+   config = KGlobal::config();
    loadSettings();
 }
 
@@ -184,7 +185,7 @@ QFile f(FSTAB);
 
     while (! t.atEnd()) {
       s=t.readLine();
-      s=s.simplifyWhiteSpace();
+      s=s.simplified();
       if ( (!s.isEmpty() ) && (s.find(DELIMITER)!=0) ) {
                // not empty or commented out by '#'
 	//	kdDebug() << "GOT: [" << s << "]" << endl;
@@ -293,7 +294,7 @@ void DiskList::dfDone()
     QString u,v;
     DiskEntry *disk;
     s=t.readLine();
-    s=s.simplifyWhiteSpace();
+    s=s.simplified();
     if ( !s.isEmpty() ) {
       disk = new DiskEntry(); Q_CHECK_PTR(disk);
 
@@ -301,7 +302,7 @@ void DiskList::dfDone()
 	if ( !t.atEnd() ) {       // just appends the next line
             v=t.readLine();
             s=s.append(v.latin1() );
-            s=s.simplifyWhiteSpace();
+            s=s.simplified();
 	    //kdDebug() << "SPECIAL GOT: [" << s << "]" << endl;
 	 }//if silly linefeed
 

@@ -39,6 +39,7 @@
 #include <kapplication.h>
 #include <klocale.h>
 #include <kcmdlineargs.h>
+#include <kglobal.h>
 
 static const char description[] =
 	I18N_NOOP("A test application");
@@ -50,7 +51,7 @@ main(int argc, char ** argv)
  KCmdLineArgs::init(argc, argv, "test", description, version);
  
  KApplication app;
- KConfig * cfg = kapp->config();
+ KConfig * cfg = KGlobal::config();
 
  Q3Dict<char> dict;
 

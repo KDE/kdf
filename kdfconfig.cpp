@@ -45,6 +45,7 @@
 #include <kdialog.h>
 #include <klocale.h>
 #include <kiconloader.h>
+#include <kglobal.h>
 
 #include "listview.h"
 #include "kdfconfig.h"
@@ -167,7 +168,7 @@ void KDFConfigWidget::closeEvent(QCloseEvent *)
 
 void KDFConfigWidget::applySettings( void )
 {
-  KConfig &config = *kapp->config();
+  KConfig &config = *KGlobal::config();
   config.setGroup("KDFConfig");
 
   if( GUI )
@@ -201,7 +202,7 @@ void KDFConfigWidget::applySettings( void )
 
 void KDFConfigWidget::loadSettings( void )
 {
-  KConfig &config = *kapp->config();
+  KConfig &config = *KGlobal::config();
   config.setGroup("KDFConfig");
 
   if( GUI )

@@ -28,6 +28,7 @@
 
 #include <kapplication.h>
 #include <kconfig.h>
+#include <kglobal.h>
 
 #include "stdoption.h"
 
@@ -47,7 +48,7 @@ CStdOption::~CStdOption( void )
 
 void CStdOption::updateConfiguration( void )
 {
-  KConfig &config = *kapp->config();
+  KConfig &config = *KGlobal::config();
   config.setGroup("KDFConfig");
   mFileManager = config.readPathEntry(
     "FileManagerCommand", mDefaultFileManager );
@@ -62,7 +63,7 @@ void CStdOption::updateConfiguration( void )
 
 void CStdOption::writeConfiguration( void )
 {
-  KConfig &config = *kapp->config();
+  KConfig &config = *KGlobal::config();
   config.setGroup("KDFConfig");
   config.writeEntry( "UpdateFrequency", mUpdateFrequency );
   config.writePathEntry( "FileManagerCommand", mFileManager );
@@ -74,7 +75,7 @@ void CStdOption::writeConfiguration( void )
 
 void CStdOption::writeDefaultFileManager( void )
 {
-  KConfig &config = *kapp->config();
+  KConfig &config = *KGlobal::config();
   config.setGroup("KDFConfig");
   config.writePathEntry( "FileManagerCommand", mDefaultFileManager );
   config.sync();

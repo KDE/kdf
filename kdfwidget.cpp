@@ -48,6 +48,7 @@
 #include <kmenu.h>
 #include <kprocess.h>
 #include <ktoolinvocation.h>
+#include <kglobal.h>
 
 #include "listview.h"
 #include "kdfwidget.h"
@@ -210,7 +211,7 @@ void KDFWidget::settingsChanged( void )
 **/
 void KDFWidget::applySettings( void )
 {
-  KConfig &config = *kapp->config();
+  KConfig &config = *KGlobal::config();
 
   config.setGroup("KDiskFree");
   if( GUI )
@@ -239,7 +240,7 @@ void KDFWidget::loadSettings( void )
 
   if(GUI)
   {
-    KConfig &config = *kapp->config();
+    KConfig &config = *KGlobal::config();
     config.setGroup("KDiskFree");
     for( uint i=0; i<mTabProp.size(); i++ )
     {

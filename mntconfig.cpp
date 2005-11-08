@@ -44,6 +44,7 @@
 #include <kfiledialog.h>
 #include <kicondialog.h>
 #include <kmessagebox.h>
+#include <kglobal.h>
 
 #include "listview.h"
 #include "mntconfig.h"
@@ -185,7 +186,7 @@ void MntConfigWidget::applySettings( void )
 {
   mDiskList.applySettings();
 
-  KConfig &config = *kapp->config();
+  KConfig &config = *KGlobal::config();
   config.setGroup("MntConfig");
   if(GUI )
   {
@@ -198,7 +199,7 @@ void MntConfigWidget::applySettings( void )
 
 void MntConfigWidget::loadSettings( void )
 {
-  KConfig &config = *kapp->config();
+  KConfig &config = *KGlobal::config();
   if( mInitializing == false && GUI )
   {
     config.setGroup("MntConfig");
