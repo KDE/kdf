@@ -210,7 +210,7 @@ QString DiskEntry::guessIconName()
     else iconName+="hdd";
     mounted() ? iconName+="_mount" : iconName+="_unmount";
 //    if ( -1==mountOptions().find("user",0,FALSE) )
-//      iconName.prepend("root_"); // special root icon, normal user can´t mount
+//      iconName.prepend("root_"); // special root icon, normal user can't mount
 
     //debug("device %s is %s",deviceName().latin1(),iconName.latin1());
 
