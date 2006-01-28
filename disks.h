@@ -33,7 +33,7 @@
 #include <qfile.h>
 
 #include <kio/global.h>
-#include <kprogress.h>
+#include <kprogressbar.h>
 #include <kprocess.h>
 #include <klocale.h>
 
