@@ -52,11 +52,11 @@ void CStdOption::updateConfiguration( void )
   config.setGroup("KDFConfig");
   mFileManager = config.readPathEntry(
     "FileManagerCommand", mDefaultFileManager );
-  mUpdateFrequency = config.readNumEntry( 
+  mUpdateFrequency = config.readEntry( 
     "UpdateFrequency", mDefaultUpdateFrequency );
-  mPopupIfFull = config.readBoolEntry( 
+  mPopupIfFull = config.readEntry( 
     "PopupIfFull", true );
-  mOpenFileManagerOnMount = config.readBoolEntry( 
+  mOpenFileManagerOnMount = config.readEntry( 
     "OpenFileMgrOnMount", false );
 }
 

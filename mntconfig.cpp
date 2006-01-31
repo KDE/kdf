@@ -205,8 +205,8 @@ void MntConfigWidget::loadSettings( void )
     config.setGroup("MntConfig");
     if( isTopLevel() )
     {
-      int w = config.readNumEntry("Width",this->width() );
-      int h = config.readNumEntry("Height",this->height() );
+      int w = config.readEntry("Width",this->width() );
+      int h = config.readEntry("Height",this->height() );
       resize(w,h);
     }
 

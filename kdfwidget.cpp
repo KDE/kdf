@@ -245,7 +245,7 @@ void KDFWidget::loadSettings( void )
     for( uint i=0; i<mTabProp.size(); i++ )
     {
       CTabEntry &e = *mTabProp[i];
-      e.mWidth = config.readNumEntry( e.mRes, e.mWidth );
+      e.mWidth = config.readEntry( e.mRes, e.mWidth );
     }
     if (mTabProp[usageCol]->mWidth > 16)
       mTabProp[usageCol]->mWidth -= 16;
@@ -254,7 +254,7 @@ void KDFWidget::loadSettings( void )
     for( uint i=0; i<mTabProp.size(); i++ )
     {
       CTabEntry &e = *mTabProp[i];
-      e.mVisible = config.readBoolEntry( e.mRes, e.mVisible );
+      e.mVisible = config.readEntry( e.mRes, e.mVisible );
     }
 
     makeColumns();

@@ -219,7 +219,7 @@ void KDFConfigWidget::loadSettings( void )
     {
       for( int i=mList->header()->count(); i>0; i-- )
       {
-	int j = config.readNumEntry( mTabName[i-1]->mRes, 1 );
+	int j = config.readEntry( mTabName[i-1]->mRes, 1 );
 	item->setText( i-1, j==0 ? i18n("hidden") : i18n("visible") );
      	item->setPixmap( i-1, j==0 ? UserIcon ( "delete" )
                                    : UserIcon ( "tick" ) );
