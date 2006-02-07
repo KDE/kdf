@@ -112,16 +112,16 @@ int DiskEntry::mount()
   cmdS.replace(QString::fromLatin1("%t"),fsType());
   cmdS.replace(QString::fromLatin1("%o"),mountOptions());
 
-  kdDebug() << "mount-cmd: [" << cmdS << "]" << endl;
+  kDebug() << "mount-cmd: [" << cmdS << "]" << endl;
   int e=sysCall(cmdS);
   if (!e) setMounted(TRUE);
-  kdDebug() << "mount-cmd: e=" << e << endl;
+  kDebug() << "mount-cmd: e=" << e << endl;
   return e;
 }
 
 int DiskEntry::umount()
 {
-  kdDebug() << "umounting" << endl;
+  kDebug() << "umounting" << endl;
   QString cmdS=umntcmd;
   if (cmdS.isEmpty()) // generate default umount cmd
       cmdS="umount %d";
@@ -129,10 +129,10 @@ int DiskEntry::umount()
   cmdS.replace(QString::fromLatin1("%d"),deviceName());
   cmdS.replace(QString::fromLatin1("%m"),mountPoint());
 
-  kdDebug() << "umount-cmd: [" << cmdS << "]" << endl;
+  kDebug() << "umount-cmd: [" << cmdS << "]" << endl;
   int e=sysCall(cmdS);
   if (!e) setMounted(FALSE);
-  kdDebug() << "umount-cmd: e=" << e << endl;
+  kDebug() << "umount-cmd: e=" << e << endl;
 
   return e;
 }
@@ -230,7 +230,7 @@ int DiskEntry::sysCall(const QString & command)
   sysProc->clearArguments();
   (*sysProc) << command;
     if (!sysProc->start( KProcess::Block, KProcess::AllOutput ))
-     kdFatal() << i18n("could not execute %1").arg(command.local8Bit().data()) << endl;
+     kFatal() << i18n("could not execute %1").arg(command.local8Bit().data()) << endl;
 
   if (sysProc->exitStatus()!=0) emit sysCallError(this, sysProc->exitStatus());
 
@@ -316,7 +316,7 @@ void DiskEntry::setKBUsed(int kb_used)
 {
   used=kb_used;
   if ( size < (used+avail) ) {  //adjust kBAvail
-     kdWarning() << "device " << device << ": kBAvail(" << avail << ")+*kBUsed(" << used << ") exceeds kBSize(" << size << ")" << endl;
+     kWarning() << "device " << device << ": kBAvail(" << avail << ")+*kBUsed(" << used << ") exceeds kBSize(" << size << ")" << endl;
      setKBAvail(size-used);
   }
   emit kBUsedChanged();
@@ -326,7 +326,7 @@ void DiskEntry::setKBAvail(int kb_avail)
 {
   avail=kb_avail;
   if ( size < (used+avail) ) {  //adjust kBUsed
-     kdWarning() << "device " << device << ": *kBAvail(" << avail << ")+kBUsed(" << used << ") exceeds kBSize(" << size << ")" << endl;
+     kWarning() << "device " << device << ": *kBAvail(" << avail << ")+kBUsed(" << used << ") exceeds kBSize(" << size << ")" << endl;
      setKBUsed(size-avail);
   }
   emit kBAvailChanged();

@@ -70,7 +70,7 @@ KwikDisk::KwikDisk()
    , m_inside(FALSE)
    , m_optionDialog(0)
 {
-   kdDebug() << k_funcinfo << endl;
+   kDebug() << k_funcinfo << endl;
 
    setPixmap(KSystemTray::loadIcon("kdf"));
    show();
@@ -87,26 +87,26 @@ KwikDisk::KwikDisk()
 
 void KwikDisk::aboutToHide()
 {
-   kdDebug() << k_funcinfo << endl;
+   kDebug() << k_funcinfo << endl;
    if( !m_inside )
       m_menuVisible = FALSE;
 }
 
 void KwikDisk::enterEvent(QEvent *)
 {
-   kdDebug() << k_funcinfo << endl;
+   kDebug() << k_funcinfo << endl;
    m_inside = TRUE;
 }
 
 void KwikDisk::leaveEvent(QEvent *)
 {
-   kdDebug() << k_funcinfo << endl;
+   kDebug() << k_funcinfo << endl;
    m_inside = FALSE;
 }
 
 void KwikDisk::mousePressEvent(QMouseEvent *me)
 {
-   kdDebug() << k_funcinfo << endl;
+   kDebug() << k_funcinfo << endl;
 
    if( m_dirty )
       updateDF();
@@ -126,7 +126,7 @@ void KwikDisk::mousePressEvent(QMouseEvent *me)
 
 void KwikDisk::loadSettings()
 {
-   kdDebug() << k_funcinfo << endl;
+   kDebug() << k_funcinfo << endl;
 
    m_options.updateConfiguration();
    setUpdateFrequency( m_options.updateFrequency() );
@@ -134,7 +134,7 @@ void KwikDisk::loadSettings()
 
 void KwikDisk::setUpdateFrequency(int frequency)
 {
-   kdDebug() << k_funcinfo << endl;
+   kDebug() << k_funcinfo << endl;
 
    //
    // Kill current timer and restart it if the frequency is
@@ -154,13 +154,13 @@ void KwikDisk::setUpdateFrequency(int frequency)
  */
 void KwikDisk::timerEvent(QTimerEvent *)
 {
-   kdDebug() << k_funcinfo << endl;
+   kDebug() << k_funcinfo << endl;
    m_dirty = TRUE;
 }
 
 void KwikDisk::updateDF()
 {
-   kdDebug() << k_funcinfo << endl;
+   kDebug() << k_funcinfo << endl;
 
    m_readingDF = true;
    m_diskList.readFSTAB();
@@ -169,7 +169,7 @@ void KwikDisk::updateDF()
 
 void KwikDisk::updateDFDone()
 {
-   kdDebug() << k_funcinfo << endl;
+   kDebug() << k_funcinfo << endl;
 
    m_readingDF = FALSE;
    m_dirty     = FALSE;
@@ -251,7 +251,7 @@ void KwikDisk::updateDFDone()
 
 void KwikDisk::toggleMount(int item)
 {
-   kdDebug() << k_funcinfo << endl;
+   kDebug() << k_funcinfo << endl;
 
    DiskEntry *disk = m_diskList.at(item);
    if( disk == 0 )
@@ -266,7 +266,7 @@ void KwikDisk::toggleMount(int item)
    }
    else if( (m_options.openFileManager() == true) && (disk->mounted() == true ) )
    {
-      kdDebug() << "opening filemanager" << endl;
+      kDebug() << "opening filemanager" << endl;
       if( m_options.fileManager().isEmpty() == false )
       {
          QString cmd = m_options.fileManager();
@@ -287,7 +287,7 @@ void KwikDisk::toggleMount(int item)
 
 void KwikDisk::criticallyFull(DiskEntry *disk)
 {
-   kdDebug() << k_funcinfo << endl;
+   kDebug() << k_funcinfo << endl;
 
    if( m_options.popupIfFull() == true )
    {
@@ -311,7 +311,7 @@ void KwikDisk::changeSettings()
 
 void KwikDisk::startKDF()
 {
-   kdDebug() << k_funcinfo << endl;
+   kDebug() << k_funcinfo << endl;
 
    KRun::runCommand("kdf");
 }

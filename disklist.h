@@ -75,7 +75,7 @@ private:
       ret = s1.mountPoint().compare(s2.mountPoint());
     }
 
-    kdDebug() << "compareDISKS " << s1.deviceName() << " vs " << s2.deviceName() << " (" << ret << ")" << endl;
+    kDebug() << "compareDISKS " << s1.deviceName() << " vs " << s2.deviceName() << " (" << ret << ")" << endl;
     return( ret );
   }
 
