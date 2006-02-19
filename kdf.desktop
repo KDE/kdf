@@ -6,6 +6,7 @@ Exec=kdf -caption "%c"
 Icon=kdf
 Type=Application
 GenericName=View Disk Usage
+GenericName[fr]=Affiche l'utilisation de l'espace disque
 GenericName[x-test]=xxView Disk Usagexx
 Terminal=false
 DocPath=kdf/index.html

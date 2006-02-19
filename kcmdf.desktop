@@ -8,9 +8,11 @@ Exec=kcmshell kcmdf
 Icon=kcmdf
 Type=Application
 Name=Storage Devices
+Name[fr]=Périphériques de stockage
 Name[x-test]=xxStorage Devicesxx
 DocPath=kinfocenter/blockdevices/index.html
 Comment=Shows the disk usage of the mounted devices
+Comment[fr]=Affiche l'espace utilisé sur les périphériques montés
 Comment[x-test]=xxShows the disk usage of the mounted devicesxx
 
 Categories=Qt;KDE;X-KDE-information;
