@@ -6,27 +6,37 @@ include_directories( ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_D
 
 
 ########### next target ###############
+set(libkdf_common_SRCS 
+	kdfwidget.cpp 
+	kdfconfig.cpp 
+	mntconfig.cpp 
+	disklist.cpp
+	disks.cpp 
+	listview.cpp 
+	optiondialog.cpp 
+	stdoption.cpp )
 
-set(kdf_SRCS kdf.cpp )
+
+set(kdf_SRCS kdf.cpp ${libkdf_common_SRCS} )
 
 kde4_automoc(${kdf_SRCS})
 
 kde4_add_executable(kdf ${kdf_SRCS})
 
-target_link_libraries(kdf  ${QT_AND_KDECORE_LIBS} kdf_common )
+target_link_libraries(kdf  ${LIB_KDE3SUPPORT} )
 
 install_targets(/bin kdf )
 
 
 ########### next target ###############
 
-set(kwikdisk_SRCS kwikdisk.cpp )
+set(kwikdisk_SRCS kwikdisk.cpp ${libkdf_common_SRCS})
 
 kde4_automoc(${kwikdisk_SRCS})
 
 kde4_add_executable(kwikdisk ${kwikdisk_SRCS})
 
-target_link_libraries(kwikdisk  ${QT_AND_KDECORE_LIBS} kdf_common )
+target_link_libraries(kwikdisk  ${LIB_KDE3SUPPORT} )
 
 install_targets(/bin kwikdisk )
 
@@ -36,7 +46,7 @@ install_targets(/bin kwikdisk )
 
 ########### next target ###############
 
-set(kcm_kdf_PART_SRCS kcmdf.cpp )
+set(kcm_kdf_PART_SRCS kcmdf.cpp ${libkdf_common_SRCS})
 
 kde4_automoc(${kcm_kdf_PART_SRCS})
 
@@ -44,7 +54,7 @@ kde4_add_plugin(kcm_kdf ${kcm_kdf_PART_SRCS})
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_kdf )
 
-target_link_libraries(kcm_kdf  ${QT_AND_KDECORE_LIBS} kdf_common )
+target_link_libraries(kcm_kdf  ${LIB_KDE3SUPPORT} )
 
 install_targets(${LIB_INSTALL_DIR}/kde4 kcm_kdf )
 
