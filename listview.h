@@ -23,9 +23,9 @@
 #include <q3dict.h>
 #include <qpixmap.h>
 
-#include <klistview.h>
+#include <k3listview.h>
 
-class CListView : public KListView
+class CListView : public K3ListView
 {
   Q_OBJECT
 
