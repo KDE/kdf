@@ -23,7 +23,7 @@ kde4_automoc(${kdf_SRCS})
 
 kde4_add_executable(kdf ${kdf_SRCS})
 
-target_link_libraries(kdf  ${KDE4_KDE3SUPPORT_LIBRARIES} )
+target_link_libraries(kdf  ${KDE4_KDE3SUPPORT_LIBS} )
 
 install_targets(/bin kdf )
 
@@ -36,7 +36,7 @@ kde4_automoc(${kwikdisk_SRCS})
 
 kde4_add_executable(kwikdisk ${kwikdisk_SRCS})
 
-target_link_libraries(kwikdisk  ${KDE4_KDE3SUPPORT_LIBRARIES} )
+target_link_libraries(kwikdisk  ${KDE4_KDE3SUPPORT_LIBS} )
 
 install_targets(/bin kwikdisk )
 
@@ -54,7 +54,7 @@ kde4_add_plugin(kcm_kdf ${kcm_kdf_PART_SRCS})
 
 kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_kdf )
 
-target_link_libraries(kcm_kdf  ${KDE4_KDE3SUPPORT_LIBRARIES} )
+target_link_libraries(kcm_kdf  ${KDE4_KDE3SUPPORT_LIBS} )
 
 install_targets(${LIB_INSTALL_DIR}/kde4 kcm_kdf )
 
