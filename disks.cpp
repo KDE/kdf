@@ -226,11 +226,11 @@ int DiskEntry::sysCall(const QString & command)
 {
   if (readingSysStdErrOut || sysProc->isRunning() )  return -1;
 
-  sysStringErrOut=i18n("Called: %1\n\n").arg(command); // put the called command on ErrOut
+  sysStringErrOut=i18n("Called: %1\n\n", command); // put the called command on ErrOut
   sysProc->clearArguments();
   (*sysProc) << command;
     if (!sysProc->start( KProcess::Block, KProcess::AllOutput ))
-     kFatal() << i18n("could not execute %1").arg(command.local8Bit().data()) << endl;
+     kFatal() << i18n("could not execute %1", command.local8Bit().data()) << endl;
 
   if (sysProc->exitStatus()!=0) emit sysCallError(this, sysProc->exitStatus());
 

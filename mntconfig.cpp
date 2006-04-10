@@ -265,7 +265,7 @@ void MntConfigWidget::iconChanged(const QString &iconName)
       QString msg = i18n(""
 			 "This filename is not valid: %1\n"
 			 "It must end with "
-			 "\"_mount\" or \"_unmount\".").arg(iconName);
+			 "\"_mount\" or \"_unmount\".", iconName);
       KMessageBox::sorry( this, msg );
       return;
     }
