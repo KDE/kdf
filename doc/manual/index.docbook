@@ -59,7 +59,7 @@ partitions, floppy and &CD; drives, &etc;) along with information on
 their capacity, free space, type and mount point. It also allows you
 to mount and unmount drives and view them in a file manager.</para>
 
-<para>&kdiskfree; is similar to the &kcontrol; Disk-Free module <!--
+<para>&kdiskfree; is similar to the &kcontrolcenter; Disk-Free module <!--
 (<application>kcmdf</application>) -->, but takes up less screen
 space. It is useful if you want to keep a &kdiskfree; window available at
 all times.</para>
@@ -111,7 +111,7 @@ graph.</para></listitem>
 </itemizedlist>
 
 <para>In the picture above, four devices are shown: one reiserfs-formatted
-hard drive partition mounted at the filesystem root (<filename
+hard drive partition mounted at the file system root (<filename
 class="directory">/</filename>), two &CD-ROM;'s, and a floppy drive.</para>
 
 <para><mousebutton>Left</mousebutton> clicking on the header of a
@@ -205,7 +205,7 @@ frequency by moving the slider. The value in the box on the left is
 the interval (in seconds) between updates of the &kdiskfree; display to
 reflect the current status.</para> <para>The File Manager setting
 controls the command executed when the <guimenuitem>Open
-Filemanager</guimenuitem> pop-up menu item is selected.</para>
+Filemanager</guimenuitem> popup menu item is selected.</para>
 <para>There are also two check boxes. One controls if a file manager
 window will be automatically opened when a device is mounted. The
 other causes an alert window to pop up if a disk gets critically
@@ -245,6 +245,7 @@ command prompt).</para></listitem>
 
 <para>Documentation Copyright &copy; 2000 &Jonathan.Singer; &Jonathan.Singer.mail;</para>
 
+<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
 &underFDL;
 &underGPL;
 
