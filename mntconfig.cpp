@@ -95,7 +95,7 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, const char *name, bool init)
 
     QGridLayout *gl = new QGridLayout(mGroupBox, 3, 4, KDialog::spacingHint());
     if( gl == 0 ) { return; }
-    gl->addRowSpacing( 0, fontMetrics().lineSpacing() );
+    gl->addItem( new QSpacerItem( 0, fontMetrics().lineSpacing() ), 0, 0 );
 
     mIconLineEdit = new QLineEdit(mGroupBox);
     Q_CHECK_PTR(mIconLineEdit);
