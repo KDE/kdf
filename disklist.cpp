@@ -157,7 +157,7 @@ QString rc;
                // give up and not process anything else because I'm too lazy
                // to implement other escapes
                rc += '\\';
-               rc += s[i];					
+               rc += s[i];
 			}
         } else {
             rc += s[i];
@@ -186,27 +186,27 @@ QFile f(FSTAB);
     while (! t.atEnd()) {
       s=t.readLine();
       s=s.simplified();
-      if ( (!s.isEmpty() ) && (s.find(DELIMITER)!=0) ) {
+      if ( (!s.isEmpty() ) && (s.indexOf(DELIMITER)!=0) ) {
                // not empty or commented out by '#'
 	//	kDebug() << "GOT: [" << s << "]" << endl;
 	disk = new DiskEntry();// Q_CHECK_PTR(disk);
         disk->setMounted(FALSE);
-        disk->setDeviceName(expandEscapes(s.left(s.find(BLANK))));
-            s=s.remove(0,s.find(BLANK)+1 );
+        disk->setDeviceName(expandEscapes(s.left(s.indexOf(BLANK))));
+            s=s.remove(0,s.indexOf(BLANK)+1 );
 	    //  kDebug() << "    deviceName:    [" << disk->deviceName() << "]" << endl;
 #ifdef _OS_SOLARIS_
             //device to fsck
-            s=s.remove(0,s.find(BLANK)+1 );
+            s=s.remove(0,s.indexOf(BLANK)+1 );
 #endif
-         disk->setMountPoint(expandEscapes(s.left(s.find(BLANK))));
-            s=s.remove(0,s.find(BLANK)+1 );
+         disk->setMountPoint(expandEscapes(s.left(s.indexOf(BLANK))));
+            s=s.remove(0,s.indexOf(BLANK)+1 );
 	    //kDebug() << "    MountPoint:    [" << disk->mountPoint() << "]" << endl;
 	    //kDebug() << "    Icon:          [" << disk->iconName() << "]" << endl;
-         disk->setFsType(s.left(s.find(BLANK)) );
-            s=s.remove(0,s.find(BLANK)+1 );
+         disk->setFsType(s.left(s.indexOf(BLANK)) );
+            s=s.remove(0,s.indexOf(BLANK)+1 );
 	    //kDebug() << "    FS-Type:       [" << disk->fsType() << "]" << endl;
-         disk->setMountOptions(s.left(s.find(BLANK)) );
-            s=s.remove(0,s.find(BLANK)+1 );
+         disk->setMountOptions(s.left(s.indexOf(BLANK)) );
+            s=s.remove(0,s.indexOf(BLANK)+1 );
 	    //kDebug() << "    Mount-Options: [" << disk->mountOptions() << "]" << endl;
          if ( (disk->deviceName() != "none")
 	      && (disk->fsType() != "swap")
@@ -214,7 +214,7 @@ QFile f(FSTAB);
 	      && (disk->mountPoint() != "/dev/swap")
 	      && (disk->mountPoint() != "/dev/pts")
 	      && (disk->mountPoint() != "/dev/shm")
-	      && (disk->mountPoint().find("/proc") == -1 ) )
+	      && (!disk->mountPoint().contains("/proc") ) )
 	   replaceDeviceEntry(disk);
          else
            delete disk;
@@ -244,7 +244,7 @@ void DiskList::receivedDFStdErrOut(KProcess *, char *data, int len )
    * df: /home_tu1/ijzerman/floppy: Stale NFS file handle
    * but this shouldn't cause a real problem
    */
-   
+
 
   QString tmp = QString::fromLatin1(data, len);
   dfStringErrOut.append(tmp);
@@ -281,7 +281,7 @@ void DiskList::dfDone()
 
   if (updatesDisabled)
       return; //Don't touch the data for now..
-	  
+
   readingDFStdErrOut=TRUE;
   for ( DiskEntry *disk=disks->first(); disk != 0; disk=disks->next() )
     disk->setMounted(FALSE);  // set all devs unmounted
@@ -298,7 +298,7 @@ void DiskList::dfDone()
     if ( !s.isEmpty() ) {
       disk = new DiskEntry(); Q_CHECK_PTR(disk);
 
-      if (s.find(BLANK)<0)      // devicename was too long, rest in next line
+      if (!s.contains(BLANK))      // devicename was too long, rest in next line
 	if ( !t.atEnd() ) {       // just appends the next line
             v=t.readLine();
             s=s.append(v.latin1() );
@@ -308,37 +308,37 @@ void DiskList::dfDone()
 
       //kDebug() << "EFFECTIVELY GOT " << s.length() << " chars: [" << s << "]" << endl;
 
-      disk->setDeviceName(s.left(s.find(BLANK)) );
-      s=s.remove(0,s.find(BLANK)+1 );
+      disk->setDeviceName(s.left(s.indexOf(BLANK)) );
+      s=s.remove(0,s.indexOf(BLANK)+1 );
       //kDebug() << "    DeviceName:    [" << disk->deviceName() << "]" << endl;
 
       if (NO_FS_TYPE) {
 	//kDebug() << "THERE IS NO FS_TYPE_FIELD!" << endl;
          disk->setFsType("?");
       } else {
-         disk->setFsType(s.left(s.find(BLANK)) );
-         s=s.remove(0,s.find(BLANK)+1 );
+         disk->setFsType(s.left(s.indexOf(BLANK)) );
+         s=s.remove(0,s.indexOf(BLANK)+1 );
       };
       //kDebug() << "    FS-Type:       [" << disk->fsType() << "]" << endl;
       //kDebug() << "    Icon:          [" << disk->iconName() << "]" << endl;
 
-      u=s.left(s.find(BLANK));
+      u=s.left(s.indexOf(BLANK));
       disk->setKBSize(u.toInt() );
-      s=s.remove(0,s.find(BLANK)+1 );
+      s=s.remove(0,s.indexOf(BLANK)+1 );
       //kDebug() << "    Size:       [" << disk->kBSize() << "]" << endl;
 
-      u=s.left(s.find(BLANK));
+      u=s.left(s.indexOf(BLANK));
       disk->setKBUsed(u.toInt() );
-      s=s.remove(0,s.find(BLANK)+1 );
+      s=s.remove(0,s.indexOf(BLANK)+1 );
       //kDebug() << "    Used:       [" << disk->kBUsed() << "]" << endl;
 
-      u=s.left(s.find(BLANK));
+      u=s.left(s.indexOf(BLANK));
       disk->setKBAvail(u.toInt() );
-      s=s.remove(0,s.find(BLANK)+1 );
+      s=s.remove(0,s.indexOf(BLANK)+1 );
       //kDebug() << "    Avail:       [" << disk->kBAvail() << "]" << endl;
 
 
-      s=s.remove(0,s.find(BLANK)+1 );  // delete the capacity 94%
+      s=s.remove(0,s.indexOf(BLANK)+1 );  // delete the capacity 94%
       disk->setMountPoint(s);
       //kDebug() << "    MountPoint:       [" << disk->mountPoint() << "]" << endl;
 
@@ -349,7 +349,7 @@ void DiskList::dfDone()
 	   && (disk->mountPoint() != "/dev/swap")
 	   && (disk->mountPoint() != "/dev/pts")
 	   && (disk->mountPoint() != "/dev/shm")
-	   && (disk->mountPoint().find("/proc") == -1 ) ) {
+	   && (!disk->mountPoint().contains("/proc") ) ) {
         disk->setMounted(TRUE);    // its now mounted (df lists only mounted)
 	replaceDeviceEntry(disk);
       } else

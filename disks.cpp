@@ -193,23 +193,23 @@ QString DiskEntry::guessIconName()
 {
   QString iconName;
     // try to be intelligent
-    if (-1!=mountPoint().find("cdrom",0,FALSE)) iconName+="cdrom";
-    else if (-1!=deviceName().find("cdrom",0,FALSE)) iconName+="cdrom";
-    else if (-1!=mountPoint().find("writer",0,FALSE)) iconName+="cdwriter";
-    else if (-1!=deviceName().find("writer",0,FALSE)) iconName+="cdwriter";
-    else if (-1!=mountPoint().find("mo",0,FALSE)) iconName+="mo";
-    else if (-1!=deviceName().find("mo",0,FALSE)) iconName+="mo";
-    else if (-1!=deviceName().find("fd",0,FALSE)) {
-            if (-1!=deviceName().find("360",0,FALSE)) iconName+="5floppy";
-            if (-1!=deviceName().find("1200",0,FALSE)) iconName+="5floppy";
+    if (mountPoint().contains("cdrom",Qt::CaseInsensitive)) iconName+="cdrom";
+    else if (deviceName().contains("cdrom",Qt::CaseInsensitive)) iconName+="cdrom";
+    else if (mountPoint().contains("writer",Qt::CaseInsensitive)) iconName+="cdwriter";
+    else if (deviceName().contains("writer",Qt::CaseInsensitive)) iconName+="cdwriter";
+    else if (mountPoint().contains("mo",Qt::CaseInsensitive)) iconName+="mo";
+    else if (deviceName().contains("mo",Qt::CaseInsensitive)) iconName+="mo";
+    else if (deviceName().contains("fd",Qt::CaseInsensitive)) {
+            if (deviceName().contains("360",Qt::CaseInsensitive)) iconName+="5floppy";
+            if (deviceName().contains("1200",Qt::CaseInsensitive)) iconName+="5floppy";
             else iconName+="3floppy";
 	 }
-    else if (-1!=mountPoint().find("floppy",0,FALSE)) iconName+="3floppy";
-    else if (-1!=mountPoint().find("zip",0,FALSE)) iconName+="zip";
-    else if (-1!=fsType().find("nfs",0,FALSE)) iconName+="nfs";
+    else if (mountPoint().contains("floppy",Qt::CaseInsensitive)) iconName+="3floppy";
+    else if (mountPoint().contains("zip",Qt::CaseInsensitive)) iconName+="zip";
+    else if (fsType().contains("nfs",Qt::CaseInsensitive)) iconName+="nfs";
     else iconName+="hdd";
     mounted() ? iconName+="_mount" : iconName+="_unmount";
-//    if ( -1==mountOptions().find("user",0,FALSE) )
+//    if ( !mountOptions().contains("user",Qt::CaseInsensitive) )
 //      iconName.prepend("root_"); // special root icon, normal user can't mount
 
     //debug("device %s is %s",deviceName().latin1(),iconName.latin1());
