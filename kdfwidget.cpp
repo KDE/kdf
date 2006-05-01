@@ -43,7 +43,6 @@
 #include <QCloseEvent>
 #include <QAbstractEventDispatcher>
 #include <kapplication.h>
-#include <kcmenumngr.h>
 #include <kmessagebox.h>
 #include <kmenu.h>
 #include <kprocess.h>
@@ -133,9 +132,6 @@ KDFWidget::KDFWidget( QWidget *parent, const char *name, bool init )
     connect( mList,
       SIGNAL( rightButtonPressed( Q3ListViewItem *, const QPoint &, int )),
       this, SLOT( rightButtonPressed( Q3ListViewItem *, const QPoint &, int )));
-    connect( mList,
-      SIGNAL( rightButtonClicked( Q3ListViewItem *, const QPoint &, int )),
-      this, SLOT( rightButtonClicked( Q3ListViewItem *, const QPoint &, int )));
     connect( mList->header(), SIGNAL(sizeChange(int, int, int)),
       this, SLOT(columnSizeChanged(int, int, int)) );
     makeColumns();
@@ -437,21 +433,8 @@ DiskEntry *KDFWidget::selectedDisk( Q3ListViewItem *item )
 
 void KDFWidget::rightButtonPressed( Q3ListViewItem *item, const QPoint &p, int )
 {
-  if( KContextMenuManager::showOnButtonPress() == true )
-  {
-    popupMenu( item, p );
-  }
+  popupMenu( item, p );
 }
-
-
-void KDFWidget::rightButtonClicked( Q3ListViewItem *item, const QPoint &p, int )
-{
-  if( KContextMenuManager::showOnButtonPress() == false )
-  {
-    popupMenu( item, p );
-  }
-}
-
 
 /**************************************************************************
   * pops up and asks for mount/umount right-clicked device

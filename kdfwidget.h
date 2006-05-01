@@ -125,7 +125,6 @@ class KDFWidget : public QWidget
   private slots:
     void criticallyFull( DiskEntry *disk );
     void rightButtonPressed( Q3ListViewItem *item, const QPoint &p, int );
-    void rightButtonClicked( Q3ListViewItem *item, const QPoint &p, int );
     void popupMenu( Q3ListViewItem *item, const QPoint &p );
     void setUpdateFrequency( int frequency );
     void columnSizeChanged( int column, int, int newSize );
