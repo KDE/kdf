@@ -93,7 +93,8 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, const char *name, bool init)
     Q_CHECK_PTR(mGroupBox);
     topLayout->addWidget(mGroupBox);
 
-    QGridLayout *gl = new QGridLayout(mGroupBox, 3, 4, KDialog::spacingHint());
+    QGridLayout *gl = new QGridLayout( mGroupBox );
+    gl->setSpacing( KDialog::spacingHint() );
     if( gl == 0 ) { return; }
     gl->addItem( new QSpacerItem( 0, fontMetrics().lineSpacing() ), 0, 0 );
 
@@ -235,9 +236,9 @@ void MntConfigWidget::clicked( Q3ListViewItem *item )
     mIconButton->setPixmap( *pix );
   }
 
-  for(unsigned i=0 ; i < mDiskList.count() ; ++i) 
+  for(unsigned i=0 ; i < mDiskList.count() ; ++i)
     {
-      if (mDiskLookup[i] == item) 
+      if (mDiskLookup[i] == item)
 	{
 	  DiskEntry *disk = mDiskList.at(i);
 	  if( disk != 0 )
@@ -271,9 +272,9 @@ void MntConfigWidget::iconChanged(const QString &iconName)
     }
 
   Q3ListViewItem *item = mList->selectedItem();
-  for(unsigned i=0 ; i < mDiskList.count() ; ++i) 
+  for(unsigned i=0 ; i < mDiskList.count() ; ++i)
     {
-      if (mDiskLookup[i] == item) 
+      if (mDiskLookup[i] == item)
 	{
 	  DiskEntry *disk = mDiskList.at(i);
 	  if( disk != 0 )
@@ -324,7 +325,7 @@ void MntConfigWidget::selectUmntFile()
 void MntConfigWidget::mntCmdChanged( const QString &data )
 {
   Q3ListViewItem *item = mList->selectedItem();
-  for(unsigned  i=0 ; i < mDiskList.count() ; ++i) 
+  for(unsigned  i=0 ; i < mDiskList.count() ; ++i)
     {
       if (mDiskLookup[i] == item)
 	{
@@ -343,9 +344,9 @@ void MntConfigWidget::mntCmdChanged( const QString &data )
 void MntConfigWidget::umntCmdChanged( const QString &data )
 {
   Q3ListViewItem *item = mList->selectedItem();
-  for(unsigned i=0 ; i < mDiskList.count() ; ++i) 
+  for(unsigned i=0 ; i < mDiskList.count() ; ++i)
     {
-    if (mDiskLookup[i] == item) 
+    if (mDiskLookup[i] == item)
       {
 	DiskEntry *disk = mDiskList.at(i);
 	if( disk != 0 )

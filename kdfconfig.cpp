@@ -99,7 +99,7 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, const char *name, bool init)
     }
     mList->setSelected( mListItem, true );
 
-    QGridLayout *gl = new QGridLayout( 2, 2 );
+    QGridLayout *gl = new QGridLayout( );
     topLayout->addLayout( gl );
     gl->setColStretch( 1, 10 );
 
