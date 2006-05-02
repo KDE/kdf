@@ -429,13 +429,13 @@ void DiskList::replaceDeviceEntry(DiskEntry *disk)
 	// eg. /cache/cache/.cfs_mnt_points/srv:_home_jesus
 	//                                      ^    ^
         QString odiskName = olddisk->deviceName();
-        int ci=odiskName.find(':'); // goto host-column
-        while ((ci =odiskName.find('/',ci)) > 0) {
+        int ci=odiskName.indexOf(':'); // goto host-column
+        while ((ci =odiskName.indexOf('/',ci)) > 0) {
            odiskName.replace(ci,1,"_");
         }//while
         // check if there is something that is exactly the tail
 	// eg. [srv:/tmp3] is exact tail of [/cache/.cfs_mnt_points/srv:_tmp3]
-        if ( ( (p=disk->deviceName().findRev(odiskName
+        if ( ( (p=disk->deviceName().lastIndexOf(odiskName
 	            ,disk->deviceName().length()) )
                 != -1)
 	      && (p + odiskName.length()
@@ -460,8 +460,8 @@ void DiskList::replaceDeviceEntry(DiskEntry *disk)
 
   if (pos != -1) {  // replace
       DiskEntry * olddisk = disks->at(pos);
-      if ( (-1!=olddisk->mountOptions().find("user")) &&
-           (-1==disk->mountOptions().find("user")) ) {
+      if ( (olddisk->mountOptions().contains("user")) &&
+           ( disk->mountOptions().contains("user")) ) {
           // add "user" option to new diskEntry
           QString s=disk->mountOptions();
           if (s.length()>0) s.append(",");

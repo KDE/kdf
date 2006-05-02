@@ -348,7 +348,7 @@ void KDFWidget::updateDFDone( void ){
 
     int k=0;
     item = new CListViewItem( mList, item );
-    bool root = disk->mountOptions().find("user",0,false)==-1 ? true : false;
+    bool root = disk->mountOptions().contains("user", Qt::CaseInsensitive);
     item->setPixmap( k++, mList->icon( disk->iconName(), root ) );
     item->setText( k++, disk->deviceName() );
     item->setText( k++, disk->fsType() );
@@ -381,7 +381,7 @@ void KDFWidget::criticallyFull( DiskEntry *disk )
 {
   if( mStd.popupIfFull() == true )
   {
-    QString msg = i18n("Device [%1] on [%2] is getting critically full!", 
+    QString msg = i18n("Device [%1] on [%2] is getting critically full!",
       disk->deviceName(), disk->mountPoint());
     KMessageBox::sorry( this, msg, i18n("Warning"));
   }
@@ -449,7 +449,7 @@ void KDFWidget::popupMenu( Q3ListViewItem *item, const QPoint &p )
   // visible. Reason: The 'disk' may no longer be valid.
   //
 
-  mDiskList.setUpdatesDisabled(true);  
+  mDiskList.setUpdatesDisabled(true);
   DiskEntry *disk = selectedDisk( item );
   if( disk == 0 )
   {
@@ -465,8 +465,8 @@ void KDFWidget::popupMenu( Q3ListViewItem *item, const QPoint &p )
   mountPointAction->setEnabled( disk->mounted() ? false : true );
   umountPointAction->setEnabled(disk->mounted());
   openFileManagerAction->setEnabled(disk->mounted() );
-  QAction *position = mPopup->exec( p );  
-  
+  QAction *position = mPopup->exec( p );
+
 
 
   bool openFileManager = false;
@@ -507,7 +507,7 @@ void KDFWidget::popupMenu( Q3ListViewItem *item, const QPoint &p )
     if(  mStd.fileManager().isEmpty() == false )
     {
       QString cmd = mStd.fileManager();
-      int pos = cmd.find("%m");
+      int pos = cmd.indexOf("%m");
       if( pos > 0 )
       {
 	cmd = cmd.replace( pos, 2, KProcess::quote(disk->mountPoint()) ) + " &";
@@ -519,7 +519,7 @@ void KDFWidget::popupMenu( Q3ListViewItem *item, const QPoint &p )
       system( QFile::encodeName(cmd) );
     }
   }
-  
+
   //Update only here as showing of error message triggers event loop.
   mDiskList.setUpdatesDisabled(false);
   delete mPopup; mPopup = 0;
@@ -528,7 +528,7 @@ void KDFWidget::popupMenu( Q3ListViewItem *item, const QPoint &p )
   {
     updateDF();
   }
-  
+
 }
 
 
@@ -601,8 +601,8 @@ void KDFWidget::updateDiskBarPixmaps( void )
       p.setPen(Qt::black);
       p.drawRect(0,0,w,h);
       QColor c;
-      if ( (disk->iconName().find("cdrom") != -1)
-	   || (disk->iconName().find("writer") != -1) )
+      if ( (disk->iconName().contains("cdrom"))
+	   || (disk->iconName().contains("writer")) )
 	c = Qt::gray;
       else
 	c = disk->percentFull() > FULL_PERCENT ? Qt::red : Qt::darkGreen;

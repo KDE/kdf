@@ -259,9 +259,10 @@ void MntConfigWidget::iconChangedButton(QString iconName)
 }
 void MntConfigWidget::iconChanged(const QString &iconName)
 {
-  if( iconName.findRev('_') == 0 ||
-      (iconName.right(iconName.length()-iconName.findRev('_'))!="_mount" &&
-      iconName.right(iconName.length()-iconName.findRev('_'))!="_unmount"))
+    int pos = iconName.lastIndexOf('_');
+  if( pos == 0 ||
+      (iconName.mid(pos)!="_mount" &&
+       iconName.mid(pos)!="_unmount"))
     {
       QString msg = i18n(""
 			 "This filename is not valid: %1\n"

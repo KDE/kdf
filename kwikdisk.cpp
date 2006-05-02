@@ -196,7 +196,7 @@ void KwikDisk::updateDFDone()
 
       QPixmap *pix = new QPixmap(KSystemTray::loadIcon(disk->iconName()));
 
-      if( getuid() !=0 && disk->mountOptions().find("user",0, false) == -1 )
+      if( getuid() !=0 && !disk->mountOptions().contains("user",Qt::CaseInsensitive) == -1 )
       {
          //
          // Special root icon, normal user cant mount.
@@ -270,7 +270,7 @@ void KwikDisk::toggleMount(int item)
       if( m_options.fileManager().isEmpty() == false )
       {
          QString cmd = m_options.fileManager();
-         int pos = cmd.find("%m");
+         int pos = cmd.indexOf("%m");
          if( pos > 0 )
          {
             cmd = cmd.replace( pos, 2, KProcess::quote(disk->mountPoint()) ) + " &";
