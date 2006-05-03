@@ -75,7 +75,9 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, const char *name, bool init)
   if(GUI)
   {
     QString text;
-    QVBoxLayout *topLayout = new QVBoxLayout( this, 0, KDialog::spacingHint());
+    QVBoxLayout *topLayout = new QVBoxLayout( this );
+    topLayout->setSpacing( KDialog::spacingHint() );
+    topLayout->setMargin( 0 );
 
     mList = new CListView( this, "list", 1 );
     mList->setAllColumnsShowFocus(true);

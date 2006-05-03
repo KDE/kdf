@@ -122,7 +122,9 @@ KDFWidget::KDFWidget( QWidget *parent, const char *name, bool init )
   GUI = !init;
   if( GUI )
   {
-    QVBoxLayout *topLayout = new QVBoxLayout( this, 0, 0 );
+    QVBoxLayout *topLayout = new QVBoxLayout( this );
+    topLayout->setSpacing( 0 );
+    topLayout->setMargin( 0 );
     mList = new CListView( this, "list" );
     topLayout->addWidget( mList );
 

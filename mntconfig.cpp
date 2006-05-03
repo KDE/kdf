@@ -69,7 +69,9 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, const char *name, bool init)
     connect( &mDiskList,SIGNAL(readDFDone()),this,SLOT(readDFDone()));
 
     QString text;
-    QVBoxLayout *topLayout = new QVBoxLayout( this, 0, KDialog::spacingHint());
+    QVBoxLayout *topLayout = new QVBoxLayout( this );
+    topLayout->setSpacing( KDialog::spacingHint() );
+    topLayout->setMargin( 0 );
 
     mList = new CListView( this, "list", 8 );
     mList->setAllColumnsShowFocus( true );

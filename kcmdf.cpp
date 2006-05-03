@@ -40,7 +40,9 @@ KDiskFreeWidget::KDiskFreeWidget( KInstance *inst, QWidget *parent )
 {
   setButtons(Help);
 
-  QVBoxLayout *topLayout = new QVBoxLayout( this, 0, KDialog::spacingHint() );
+  QVBoxLayout *topLayout = new QVBoxLayout( this );
+  topLayout->setSpacing( KDialog::spacingHint() );
+  topLayout->setMargin( 0 );
 
   mKdf = new KDFWidget( this, "kdf", false );
   topLayout->addWidget( mKdf );
