@@ -41,7 +41,8 @@ KDFTopLevel::KDFTopLevel(QWidget *, const char *name)
 {
   kdf = new KDFWidget(this,"kdf",FALSE);
   Q_CHECK_PTR(kdf);
-  (void) new KAction( i18n( "&Update" ), 0, kdf, SLOT( updateDF() ), actionCollection(), "updatedf" );
+  KAction *action = new KAction( i18n( "&Update" ), actionCollection(), "updatedf" );
+  connect(action, SIGNAL(triggered(bool) ), kdf, SLOT( updateDF() ));
 
   KStdAction::quit(this, SLOT(close()), actionCollection());
   KStdAction::preferences(kdf, SLOT(settingsBtnClicked()), actionCollection());
