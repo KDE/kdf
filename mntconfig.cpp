@@ -29,8 +29,8 @@
 
 #include <q3groupbox.h>
 #include <q3header.h>
-#include <qlayout.h>
-#include <qlineedit.h>
+#include <QLayout>
+#include <QLineEdit>
 //Added by qt3to4:
 #include <QPixmap>
 #include <QVBoxLayout>

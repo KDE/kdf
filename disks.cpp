@@ -22,7 +22,7 @@
  */
 
 #include <qfileinfo.h>
-#include <qdir.h>
+#include <QDir>
 
 #include <kglobal.h>
 #include <kdebug.h>

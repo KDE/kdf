@@ -25,12 +25,12 @@
 #ifndef __DISKS_H__
 #define __DISKS_H__
 
-#include <qobject.h>
-#include <qstring.h>
-#include <qlabel.h>
-#include <qpushbutton.h>
+#include <QObject>
+#include <QString>
+#include <QLabel>
+#include <QPushButton>
 #include <q3progressbar.h>
-#include <qfile.h>
+#include <QFile>
 
 #include <kio/global.h>
 #include <kprogressbar.h>

@@ -31,8 +31,8 @@
 #include <stdlib.h>
 
 #include <q3header.h>
-#include <qtimer.h>
-#include <qlayout.h>
+#include <QTimer>
+#include <QLayout>
 #include <qpainter.h>
 //Added by qt3to4:
 #include <QPixmap>

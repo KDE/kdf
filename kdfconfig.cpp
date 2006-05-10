@@ -28,12 +28,12 @@
 //
 
 
-#include <qcheckbox.h>
+#include <QCheckBox>
 #include <q3header.h>
-#include <qlabel.h>
-#include <qlayout.h>
+#include <QLabel>
+#include <QLayout>
 #include <qlcdnumber.h>
-#include <qlineedit.h>
+#include <QLineEdit>
 //Added by qt3to4:
 #include <QVBoxLayout>
 #include <Q3Frame>
