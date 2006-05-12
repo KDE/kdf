@@ -1,4 +1,3 @@
-kde4_header()
 project(kdf)
 add_subdirectory( pics ) 
 
@@ -64,7 +63,6 @@ install_targets(${PLUGIN_INSTALL_DIR} kcm_kdf )
 install_files( ${XDG_APPS_DIR} FILES kdf.desktop kwikdisk.desktop kcmdf.desktop )
 install_files( ${DATA_INSTALL_DIR}/kdf FILES kdfui.rc )
 
-kde4_footer()
 
 
 
