@@ -97,7 +97,6 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, const char *name, bool init)
 
     QGridLayout *gl = new QGridLayout( mGroupBox );
     gl->setSpacing( KDialog::spacingHint() );
-    if( gl == 0 ) { return; }
     gl->addItem( new QSpacerItem( 0, fontMetrics().lineSpacing() ), 0, 0 );
 
     mIconLineEdit = new QLineEdit(mGroupBox);
