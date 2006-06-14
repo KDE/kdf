@@ -27,18 +27,24 @@
 #include "optiondialog.h"
 
 COptionDialog::COptionDialog( QWidget *parent, const char *name, bool modal )
-  :KDialogBase( Tabbed, i18n("Configure"), Help|Apply|Ok|Cancel, Ok,
-	        parent, name, modal )
+  :KPageDialog( parent )
 {
+    setCaption( i18n("Configure") );
+    setButtons( Help|Apply|Ok|Cancel );
+    setDefaultButton( Ok );
+    setFaceType( KPageDialog::Tabbed );
+    setModal( modal );
   setHelp( "kcontrol/kdf/index.html", QString::null );
 
-  QFrame *f1 = addPage( i18n("General Settings") );
-  QVBoxLayout *l1 = new QVBoxLayout( f1 );  
+  QFrame *f1 = new QFrame();
+  addPage( f1, i18n("General Settings") );
+  QVBoxLayout *l1 = new QVBoxLayout( f1 );
   mConf = new KDFConfigWidget( f1, "kdfconf" );
   l1->addWidget(mConf);
   connect( mConf, SIGNAL( configChanged() ), this, SLOT( slotChanged() ) );
 
-  QFrame *f2 = addPage( i18n("Mount Commands") );
+  QFrame *f2 = new QFrame();
+  addPage( f2, i18n("Mount Commands") );
   QVBoxLayout *l2 = new QVBoxLayout( f2 );
   mMnt = new MntConfigWidget( f2, "mntconf");
   l2->addWidget(mMnt);

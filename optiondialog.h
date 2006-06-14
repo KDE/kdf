@@ -20,12 +20,12 @@
 #ifndef _OPTION_DIALOG_H_
 #define _OPTION_DIALOG_H_
 
-#include <kdialogbase.h>
+#include <kpagedialog.h>
 
 class KDFConfigWidget;
 class MntConfigWidget;
 
-class COptionDialog : public KDialogBase
+class COptionDialog : public KPageDialog
 {
   Q_OBJECT
 
