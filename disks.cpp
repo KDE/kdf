@@ -46,10 +46,10 @@ void DiskEntry::init()
   size=0;
   used=0;
   avail=0;
-  isMounted=FALSE;
+  isMounted=false;
   mntcmd="";
   umntcmd="";
-  iconSetByUser=FALSE;
+  iconSetByUser=false;
   icoName="";
 
 
@@ -60,7 +60,7 @@ void DiskEntry::init()
         this, SLOT (receivedSysStdErrOut(KProcess *, char *, int)) );
  connect( sysProc, SIGNAL(receivedStderr(KProcess *, char *, int) ),
         this, SLOT (receivedSysStdErrOut(KProcess *, char *, int)) );
- readingSysStdErrOut=FALSE;
+ readingSysStdErrOut=false;
 
 
 }
@@ -114,7 +114,7 @@ int DiskEntry::mount()
 
   kDebug() << "mount-cmd: [" << cmdS << "]" << endl;
   int e=sysCall(cmdS);
-  if (!e) setMounted(TRUE);
+  if (!e) setMounted(true);
   kDebug() << "mount-cmd: e=" << e << endl;
   return e;
 }
@@ -131,7 +131,7 @@ int DiskEntry::umount()
 
   kDebug() << "umount-cmd: [" << cmdS << "]" << endl;
   int e=sysCall(cmdS);
-  if (!e) setMounted(FALSE);
+  if (!e) setMounted(false);
   kDebug() << "umount-cmd: e=" << e << endl;
 
   return e;
@@ -169,7 +169,7 @@ void DiskEntry::setUmountCommand(const QString & umnt)
 
 void DiskEntry::setIconName(const QString & iconName)
 {
-  iconSetByUser=TRUE;
+  iconSetByUser=true;
   icoName=iconName;
   if (icoName.right(6) == "_mount")
      icoName.truncate(icoName.length()-6);

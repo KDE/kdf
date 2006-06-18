@@ -316,7 +316,7 @@ void KDFWidget::updateDF( void )
   //
   if( mPopup == 0 )
   {
-    readingDF = TRUE;
+    readingDF = true;
     mDiskList.readFSTAB();
     mDiskList.readDF();
   }

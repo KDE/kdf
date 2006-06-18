@@ -52,7 +52,7 @@ DiskList::DiskList(QObject *parent, const char *name)
    }
 
    disks = new Disks;
-   disks->setAutoDelete(TRUE);
+   disks->setAutoDelete(true);
 
    // BackgroundProcesses ****************************************
    dfProc = new KProcess(); Q_CHECK_PTR(dfProc);
@@ -61,7 +61,7 @@ DiskList::DiskList(QObject *parent, const char *name)
    connect(dfProc,SIGNAL(processExited(KProcess *) ),
       this, SLOT(dfDone() ) );
 
-   readingDFStdErrOut=FALSE;
+   readingDFStdErrOut=false;
    config = KGlobal::config();
    loadSettings();
 }
@@ -190,7 +190,7 @@ QFile f(FSTAB);
                // not empty or commented out by '#'
 	//	kDebug() << "GOT: [" << s << "]" << endl;
 	disk = new DiskEntry();// Q_CHECK_PTR(disk);
-        disk->setMounted(FALSE);
+        disk->setMounted(false);
         disk->setDeviceName(expandEscapes(s.left(s.indexOf(BLANK))));
             s=s.remove(0,s.indexOf(BLANK)+1 );
 	    //  kDebug() << "    deviceName:    [" << disk->deviceName() << "]" << endl;
@@ -282,9 +282,9 @@ void DiskList::dfDone()
   if (updatesDisabled)
       return; //Don't touch the data for now..
 
-  readingDFStdErrOut=TRUE;
+  readingDFStdErrOut=true;
   for ( DiskEntry *disk=disks->first(); disk != 0; disk=disks->next() )
-    disk->setMounted(FALSE);  // set all devs unmounted
+    disk->setMounted(false);  // set all devs unmounted
 
   QTextStream t (&dfStringErrOut, QIODevice::ReadOnly);
   QString s=t.readLine();
@@ -350,7 +350,7 @@ void DiskList::dfDone()
 	   && (disk->mountPoint() != "/dev/pts")
 	   && (disk->mountPoint() != "/dev/shm")
 	   && (!disk->mountPoint().contains("/proc") ) ) {
-        disk->setMounted(TRUE);    // its now mounted (df lists only mounted)
+        disk->setMounted(true);    // its now mounted (df lists only mounted)
 	replaceDeviceEntry(disk);
       } else
 	delete disk;
@@ -358,7 +358,7 @@ void DiskList::dfDone()
     }//if not header
   }//while further lines available
 
-  readingDFStdErrOut=FALSE;
+  readingDFStdErrOut=false;
   loadSettings(); //to get the mountCommands
   emit readDFDone();
 }

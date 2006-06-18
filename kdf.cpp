@@ -39,7 +39,7 @@ static const char version[] = "v0.5";
 KDFTopLevel::KDFTopLevel(QWidget *, const char *name)
   : KMainWindow(0, name)
 {
-  kdf = new KDFWidget(this,"kdf",FALSE);
+  kdf = new KDFWidget(this,"kdf",false);
   Q_CHECK_PTR(kdf);
   KAction *action = new KAction( i18n( "&Update" ), actionCollection(), "updatedf" );
   connect(action, SIGNAL(triggered(bool) ), kdf, SLOT( updateDF() ));

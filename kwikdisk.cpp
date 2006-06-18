@@ -64,10 +64,10 @@ static KCmdLineOptions options[] =
 
 KwikDisk::KwikDisk()
    : KSystemTray()
-   , m_readingDF(FALSE)
-   , m_dirty(TRUE)
-   , m_menuVisible(FALSE)
-   , m_inside(FALSE)
+   , m_readingDF(false)
+   , m_dirty(true)
+   , m_menuVisible(false)
+   , m_inside(false)
    , m_optionDialog(0)
 {
    kDebug() << k_funcinfo << endl;
@@ -89,19 +89,19 @@ void KwikDisk::aboutToHide()
 {
    kDebug() << k_funcinfo << endl;
    if( !m_inside )
-      m_menuVisible = FALSE;
+      m_menuVisible = false;
 }
 
 void KwikDisk::enterEvent(QEvent *)
 {
    kDebug() << k_funcinfo << endl;
-   m_inside = TRUE;
+   m_inside = true;
 }
 
 void KwikDisk::leaveEvent(QEvent *)
 {
    kDebug() << k_funcinfo << endl;
-   m_inside = FALSE;
+   m_inside = false;
 }
 
 void KwikDisk::mousePressEvent(QMouseEvent *me)
@@ -114,14 +114,14 @@ void KwikDisk::mousePressEvent(QMouseEvent *me)
    if( m_menuVisible )
    {
       contextMenu()->hide();
-      m_menuVisible = FALSE;
+      m_menuVisible = false;
       me->ignore();
       return;
    }
 
    contextMenuAboutToShow(contextMenu());
    contextMenu()->popup( me->globalPos() );
-   m_menuVisible = TRUE;
+   m_menuVisible = true;
 }
 
 void KwikDisk::loadSettings()
@@ -155,7 +155,7 @@ void KwikDisk::setUpdateFrequency(int frequency)
 void KwikDisk::timerEvent(QTimerEvent *)
 {
    kDebug() << k_funcinfo << endl;
-   m_dirty = TRUE;
+   m_dirty = true;
 }
 
 void KwikDisk::updateDF()
@@ -171,8 +171,8 @@ void KwikDisk::updateDFDone()
 {
    kDebug() << k_funcinfo << endl;
 
-   m_readingDF = FALSE;
-   m_dirty     = FALSE;
+   m_readingDF = false;
+   m_dirty     = false;
 
    contextMenu()->clear();
    contextMenu()->addTitle(KSystemTray::loadIcon("kdf"), i18n("KwikDisk"));
@@ -282,7 +282,7 @@ void KwikDisk::toggleMount(int item)
          system( QFile::encodeName(cmd) );
       }
    }
-   m_dirty = TRUE;
+   m_dirty = true;
 }
 
 void KwikDisk::criticallyFull(DiskEntry *disk)
@@ -301,7 +301,7 @@ void KwikDisk::changeSettings()
 {
    if( m_optionDialog == 0 )
    {
-      m_optionDialog = new COptionDialog(this, "options", FALSE);
+      m_optionDialog = new COptionDialog(this, "options", false);
       if( !m_optionDialog ) return;
       connect(m_optionDialog, SIGNAL(valueChanged()),
                         this, SLOT(loadSettings()));
