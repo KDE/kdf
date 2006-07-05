@@ -294,7 +294,7 @@ void MntConfigWidget::iconChanged(const QString &iconName)
 
 void MntConfigWidget::selectMntFile()
 {
-  KUrl url = KFileDialog::getOpenURL( "","*", this );
+  KUrl url = KFileDialog::getOpenUrl( KUrl(),"*", this );
 
   if( url.isEmpty() )
     return;
@@ -310,7 +310,7 @@ void MntConfigWidget::selectMntFile()
 
 void MntConfigWidget::selectUmntFile()
 {
-  KUrl url = KFileDialog::getOpenURL( "", "*", this );
+  KUrl url = KFileDialog::getOpenUrl( KUrl(), "*", this );
 
   if( url.isEmpty() )
     return;
