@@ -24,7 +24,7 @@ kde4_add_executable(kdf ${kdf_SRCS})
 
 target_link_libraries(kdf  ${KDE4_KDE3SUPPORT_LIBS} )
 
-install_targets(/bin kdf )
+install(TARGETS kdf  DESTINATION ${BIN_INSTALL_DIR} )
 
 
 ########### next target ###############
@@ -37,7 +37,7 @@ kde4_add_executable(kwikdisk ${kwikdisk_SRCS})
 
 target_link_libraries(kwikdisk  ${KDE4_KDE3SUPPORT_LIBS} )
 
-install_targets(/bin kwikdisk )
+install(TARGETS kwikdisk  DESTINATION ${BIN_INSTALL_DIR} )
 
 
 ########### next target ###############
@@ -55,13 +55,13 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_kdf )
 
 target_link_libraries(kcm_kdf  ${KDE4_KDE3SUPPORT_LIBS} )
 
-install_targets(${PLUGIN_INSTALL_DIR} kcm_kdf )
+install(TARGETS kcm_kdf  DESTINATION ${PLUGIN_INSTALL_DIR})
 
 
 ########### install files ###############
 
-install_files( ${XDG_APPS_DIR} FILES kdf.desktop kwikdisk.desktop kcmdf.desktop )
-install_files( ${DATA_INSTALL_DIR}/kdf FILES kdfui.rc )
+install( FILES kdf.desktop kwikdisk.desktop kcmdf.desktop  DESTINATION ${XDG_APPS_DIR})
+install( FILES kdfui.rc  DESTINATION ${DATA_INSTALL_DIR}/kdf)
 
 
 

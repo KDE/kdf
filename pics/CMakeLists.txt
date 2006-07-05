@@ -4,7 +4,7 @@
 
 ########### install files ###############
 
-install_files( ${DATA_INSTALL_DIR}/kdf/pics FILES tick.png delete.png )
+install( FILES tick.png delete.png  DESTINATION ${DATA_INSTALL_DIR}/kdf/pics)
 
 kde4_install_icons( ${ICON_INSTALL_DIR}  hicolor )
 
