@@ -57,10 +57,9 @@ class KwikDisk : public KSystemTray
       void changeSettings();
       void startKDF();
       void invokeHelp();
-      void aboutToHide();
 
    private:
-      void mousePressEvent(QMouseEvent *);
+      void slotActivated(QSystemTrayIcon::ActivationReason reason);
       void timerEvent(QTimerEvent *);
       void enterEvent(QEvent *);
       void leaveEvent(QEvent *);
