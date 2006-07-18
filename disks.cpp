@@ -230,7 +230,7 @@ int DiskEntry::sysCall(const QString & command)
   sysProc->clearArguments();
   (*sysProc) << command;
     if (!sysProc->start( KProcess::Block, KProcess::AllOutput ))
-     kFatal() << i18n("could not execute %1", command.local8Bit().data()) << endl;
+     kFatal() << i18n("could not execute %1", command.toLocal8Bit().data()) << endl;
 
   if (sysProc->exitStatus()!=0) emit sysCallError(this, sysProc->exitStatus());
 

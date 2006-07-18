@@ -462,7 +462,7 @@ void KDFWidget::popupMenu( Q3ListViewItem *item, const QPoint &p )
   mPopup->addTitle( disk->mountPoint() );
   QAction *mountPointAction = mPopup->addAction( i18n("Mount Device") );
   QAction *umountPointAction = mPopup->addAction( i18n("Unmount Device") );
-  mPopup->insertSeparator();
+  mPopup->addSeparator();
   QAction *openFileManagerAction = mPopup->addAction( i18n("Open in File Manager") );
   mountPointAction->setEnabled( disk->mounted() ? false : true );
   umountPointAction->setEnabled(disk->mounted());
@@ -633,7 +633,9 @@ void KDFWidget::columnSizeChanged( int, int, int )
     mTimer->stop();
   }
 
-  mTimer->start( 10, true );
+  mTimer->setSingleShot(true);
+
+  mTimer->start( 10);
 }
 
 

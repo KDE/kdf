@@ -267,7 +267,7 @@ int DiskList::readDF()
   dfProc->clearArguments();
   (*dfProc) << "env" << "LC_ALL=POSIX" << DF_COMMAND << DF_ARGS;
   if (!dfProc->start( KProcess::NotifyOnExit, KProcess::AllOutput ))
-    qFatal(i18n("could not execute [%s]").local8Bit().data(), DF_COMMAND);
+    qFatal(i18n("could not execute [%s]").toLocal8Bit().data(), DF_COMMAND);
   return 1;
 }
 

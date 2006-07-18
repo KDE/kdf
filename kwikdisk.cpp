@@ -228,7 +228,7 @@ void KwikDisk::updateDFDone()
       contextMenu()->changeItem(id,*pix,entryName);
    }
 
-   contextMenu()->insertSeparator();
+   contextMenu()->addSeparator();
 
    contextMenu()->insertItem(
       KSystemTray::loadIcon("kdf"),
@@ -242,7 +242,7 @@ void KwikDisk::updateDFDone()
       KSystemTray::loadIcon("help"),
       KStdGuiItem::help().text(), this, SLOT(invokeHelp()),0);
 
-   contextMenu()->insertSeparator();
+   contextMenu()->addSeparator();
 
    contextMenu()->insertItem(
       KSystemTray::loadIcon("exit"),
