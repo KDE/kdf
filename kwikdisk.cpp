@@ -66,13 +66,12 @@ KwikDisk::KwikDisk()
    : KSystemTray()
    , m_readingDF(false)
    , m_dirty(true)
-   , m_menuVisible(false)
    , m_inside(false)
    , m_optionDialog(0)
 {
    kDebug() << k_funcinfo << endl;
 
-   setPixmap(KSystemTray::loadIcon("kdf"));
+   setIcon(KSystemTray::loadIcon("kdf"));
    show();
 
    connect( &m_diskList, SIGNAL(readDFDone()), this, SLOT(updateDFDone()) );
@@ -83,13 +82,8 @@ KwikDisk::KwikDisk()
 
    loadSettings();
    updateDF();
-}
-
-void KwikDisk::aboutToHide()
-{
-   kDebug() << k_funcinfo << endl;
-   if( !m_inside )
-      m_menuVisible = false;
+   connect( this, SIGNAL( activated(QSystemTrayIcon::ActivationReason reason)),
+            SLOT(slotActivated(QSystemTrayIcon::ActivationReason reason) ));
 }
 
 void KwikDisk::enterEvent(QEvent *)
@@ -104,24 +98,13 @@ void KwikDisk::leaveEvent(QEvent *)
    m_inside = false;
 }
 
-void KwikDisk::mousePressEvent(QMouseEvent *me)
+void KwikDisk::slotActivated(QSystemTrayIcon::ActivationReason reason)
 {
    kDebug() << k_funcinfo << endl;
 
    if( m_dirty )
       updateDF();
 
-   if( m_menuVisible )
-   {
-      contextMenu()->hide();
-      m_menuVisible = false;
-      me->ignore();
-      return;
-   }
-
-   contextMenuAboutToShow(contextMenu());
-   contextMenu()->popup( me->globalPos() );
-   m_menuVisible = true;
 }
 
 void KwikDisk::loadSettings()
@@ -175,7 +158,7 @@ void KwikDisk::updateDFDone()
    m_dirty     = false;
 
    contextMenu()->clear();
-   contextMenu()->addTitle(KSystemTray::loadIcon("kdf"), i18n("KwikDisk"));
+   contextMenu()->setTitle(i18n("KwikDisk"));
 
    int itemNo = 0;
    for( DiskEntry *disk = m_diskList.first(); disk != 0; disk = m_diskList.next() )
@@ -194,7 +177,7 @@ void KwikDisk::updateDFDone()
       contextMenu()->setItemParameter(id, itemNo);
       itemNo++;
 
-      QPixmap *pix = new QPixmap(KSystemTray::loadIcon(disk->iconName()));
+      QPixmap pix(KSystemTray::loadIcon(disk->iconName()).pixmap());
 
       if( getuid() !=0 && !disk->mountOptions().contains("user",Qt::CaseInsensitive) == -1 )
       {
@@ -205,27 +188,27 @@ void KwikDisk::updateDFDone()
          // Careful here: If the mask has not been defined we can
          // not use QPixmap::mask() because it returns 0 => segfault
          //
-         if( !pix->mask().isNull() )
+         if( !pix.mask().isNull() )
          {
-            QBitmap *bm = new QBitmap((pix->mask()));
+            QBitmap *bm = new QBitmap((pix.mask()));
             if( bm != 0 )
             {
                QPainter qp( bm );
                qp.setPen(QPen(Qt::white,1));
                qp.drawRect(0,0,bm->width(),bm->height());
                qp.end();
-               pix->setMask(*bm);
+               pix.setMask(*bm);
             }
-            QPainter qp( pix );
+            QPainter qp( &pix );
             qp.setPen(QPen(Qt::red,1));
-            qp.drawRect(0,0,pix->width(),pix->height());
+            qp.drawRect(0,0,pix.width(),pix.height());
             qp.end();
          }
          contextMenu()->disconnectItem(id,disk,SLOT(toggleMount()));
          toolTipText = i18n("You must login as root to mount this disk");
       }
 
-      contextMenu()->changeItem(id,*pix,entryName);
+      contextMenu()->changeItem(id,pix,entryName);
    }
 
    contextMenu()->addSeparator();
@@ -262,7 +245,7 @@ void KwikDisk::toggleMount(int item)
    int val = disk->toggleMount();
    if( val != 0 )
    {
-      KMessageBox::error(this, disk->lastSysError());
+      KMessageBox::error(0, disk->lastSysError());
    }
    else if( (m_options.openFileManager() == true) && (disk->mounted() == true ) )
    {
@@ -293,7 +276,7 @@ void KwikDisk::criticallyFull(DiskEntry *disk)
    {
       QString msg = i18n("Device [%1] on [%2] is critically full.",
                      disk->deviceName(), disk->mountPoint());
-      KMessageBox::sorry( this, msg, i18n("Warning"));
+      KMessageBox::sorry( 0, msg, i18n("Warning"));
    }
 }
 
@@ -301,7 +284,7 @@ void KwikDisk::changeSettings()
 {
    if( m_optionDialog == 0 )
    {
-      m_optionDialog = new COptionDialog(this, "options", false);
+      m_optionDialog = new COptionDialog(0, "options", false);
       if( !m_optionDialog ) return;
       connect(m_optionDialog, SIGNAL(valueChanged()),
                         this, SLOT(loadSettings()));
