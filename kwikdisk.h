@@ -33,7 +33,7 @@
 #include "optiondialog.h"
 
 #include <kmainwindow.h>
-#include <ksystemtray.h>
+#include <ksystemtrayicon.h>
 //Added by qt3to4:
 #include <QMouseEvent>
 #include <QTimerEvent>
@@ -43,7 +43,7 @@
 * @short Application Main Window (however in Tray)
 * @version 0.2
 */
-class KwikDisk : public KSystemTray
+class KwikDisk : public KSystemTrayIcon
 {
    Q_OBJECT
    public:

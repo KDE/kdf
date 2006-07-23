@@ -63,7 +63,7 @@ static KCmdLineOptions options[] =
 /*****************************************************************************/
 
 KwikDisk::KwikDisk()
-   : KSystemTray()
+   : KSystemTrayIcon()
    , m_readingDF(false)
    , m_dirty(true)
    , m_inside(false)
@@ -71,7 +71,7 @@ KwikDisk::KwikDisk()
 {
    kDebug() << k_funcinfo << endl;
 
-   setIcon(KSystemTray::loadIcon("kdf"));
+   setIcon(KSystemTrayIcon::loadIcon("kdf"));
    show();
 
    connect( &m_diskList, SIGNAL(readDFDone()), this, SLOT(updateDFDone()) );
@@ -177,7 +177,7 @@ void KwikDisk::updateDFDone()
       contextMenu()->setItemParameter(id, itemNo);
       itemNo++;
 
-      QPixmap pix(KSystemTray::loadIcon(disk->iconName()).pixmap());
+      QPixmap pix(KSystemTrayIcon::loadIcon(disk->iconName()).pixmap());
 
       if( getuid() !=0 && !disk->mountOptions().contains("user",Qt::CaseInsensitive) == -1 )
       {
@@ -214,21 +214,21 @@ void KwikDisk::updateDFDone()
    contextMenu()->addSeparator();
 
    contextMenu()->insertItem(
-      KSystemTray::loadIcon("kdf"),
+      KSystemTrayIcon::loadIcon("kdf"),
       i18n("&Start KDiskFree"), this, SLOT(startKDF()),0);
 
    contextMenu()->insertItem(
-      KSystemTray::loadIcon("configure"),
+      KSystemTrayIcon::loadIcon("configure"),
       i18n("&Configure KwikDisk..."), this, SLOT(changeSettings()),0);
 
    contextMenu()->insertItem(
-      KSystemTray::loadIcon("help"),
+      KSystemTrayIcon::loadIcon("help"),
       KStdGuiItem::help().text(), this, SLOT(invokeHelp()),0);
 
    contextMenu()->addSeparator();
 
    contextMenu()->insertItem(
-      KSystemTray::loadIcon("exit"),
+      KSystemTrayIcon::loadIcon("exit"),
       KStdGuiItem::quit().text(), this, SIGNAL(quitSelected()) );
 }
 
