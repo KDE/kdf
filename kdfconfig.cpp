@@ -56,8 +56,8 @@ static bool GUI;
 #endif
 
 
-KDFConfigWidget::KDFConfigWidget(QWidget *parent, const char *name, bool init)
-  : QWidget( parent, name)
+KDFConfigWidget::KDFConfigWidget(QWidget *parent, bool init)
+  : QWidget( parent)
 {
 
   mTabName.resize(8);

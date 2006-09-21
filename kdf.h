@@ -33,7 +33,7 @@ class KDFTopLevel : public KMainWindow
  Q_OBJECT
 
   public:
-    KDFTopLevel(QWidget *parent=0, const char *name=0);
+    KDFTopLevel(QWidget *parent=0);
     ~KDFTopLevel() { };
 
   protected slots:

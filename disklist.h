@@ -98,7 +98,7 @@ private:
 class DiskList : public QObject
 {  Q_OBJECT
 public:
-   DiskList( QObject *parent=0, const char *name=0 );
+   DiskList( QObject *parent=0 );
  ~DiskList();
    int readFSTAB();
    int readDF();

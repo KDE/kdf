@@ -40,8 +40,8 @@
 /***************************************************************************
   * constructor
 **/
-DiskList::DiskList(QObject *parent, const char *name)
-    : QObject(parent,name)
+DiskList::DiskList(QObject *parent)
+    : QObject(parent)
 {
    kDebug() << k_funcinfo << endl;
 
@@ -95,16 +95,13 @@ void DiskList::applySettings()
   QString key;
   DiskEntry *disk;
   for (disk=disks->first();disk!=0;disk=disks->next()) {
-   key.sprintf("Mount%s%s%s%s",SEPARATOR,disk->deviceName().latin1()
-                              ,SEPARATOR,disk->mountPoint().latin1());
+   key = QLatin1String("Mount") + SEPARATOR + disk->deviceName() + SEPARATOR + disk->mountPoint();
    config->writePathEntry(key,disk->mountCommand());
 
-   key.sprintf("Umount%s%s%s%s",SEPARATOR,disk->deviceName().latin1()
-                              ,SEPARATOR,disk->mountPoint().latin1());
+   key = QLatin1String("Umount") + SEPARATOR + disk->deviceName() + SEPARATOR + disk->mountPoint();
    config->writePathEntry(key,disk->umountCommand());
 
-   key.sprintf("Icon%s%s%s%s",SEPARATOR,disk->deviceName().latin1()
-                              ,SEPARATOR,disk->mountPoint().latin1());
+   key = QLatin1String("Icon") + SEPARATOR + disk->deviceName() + SEPARATOR + disk->mountPoint();
    config->writePathEntry(key,disk->realIconName());
  }
  config->sync();
@@ -123,16 +120,13 @@ void DiskList::loadSettings()
   QString key;
   DiskEntry *disk;
   for (disk=disks->first();disk!=0;disk=disks->next()) {
-    key.sprintf("Mount%s%s%s%s",SEPARATOR,disk->deviceName().latin1()
-		,SEPARATOR,disk->mountPoint().latin1());
+    key = QLatin1String("Mount") + SEPARATOR + disk->deviceName() + SEPARATOR + disk->mountPoint();
     disk->setMountCommand(config->readPathEntry(key));
 
-    key.sprintf("Umount%s%s%s%s",SEPARATOR,disk->deviceName().latin1()
-		,SEPARATOR,disk->mountPoint().latin1());
+    key = QLatin1String("Umount") + SEPARATOR + disk->deviceName() + SEPARATOR + disk->mountPoint();
     disk->setUmountCommand(config->readPathEntry(key));
 
-    key.sprintf("Icon%s%s%s%s",SEPARATOR,disk->deviceName().latin1()
-		,SEPARATOR,disk->mountPoint().latin1());
+    key = QLatin1String("Icon") + SEPARATOR + disk->deviceName() + SEPARATOR + disk->mountPoint();
     QString icon=config->readPathEntry(key);
     if (!icon.isEmpty()) disk->setIconName(icon);
  }
@@ -289,7 +283,7 @@ void DiskList::dfDone()
   QTextStream t (&dfStringErrOut, QIODevice::ReadOnly);
   QString s=t.readLine();
   if ( ( s.isEmpty() ) || ( s.left(10) != "Filesystem" ) )
-    qFatal("Error running df command... got [%s]",s.latin1());
+    qFatal("Error running df command... got [%s]",qPrintable(s));
   while ( !t.atEnd() ) {
     QString u,v;
     DiskEntry *disk;
@@ -301,7 +295,7 @@ void DiskList::dfDone()
       if (!s.contains(BLANK))      // devicename was too long, rest in next line
 	if ( !t.atEnd() ) {       // just appends the next line
             v=t.readLine();
-            s=s.append(v.latin1() );
+            s=s.append(v );
             s=s.simplified();
 	    //kDebug() << "SPECIAL GOT: [" << s << "]" << endl;
 	 }//if silly linefeed

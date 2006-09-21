@@ -100,8 +100,8 @@ void CListViewItem::setKeys (int kb_size, int kb_avail, float percent_full)
 
 /**************************************************************/
 
-KDFWidget::KDFWidget( QWidget *parent, const char *name, bool init )
-  : QWidget(parent, name), mOptionDialog(0), mPopup(0), mTimer(0)
+KDFWidget::KDFWidget( QWidget *parent, bool init )
+  : QWidget(parent), mOptionDialog(0), mPopup(0), mTimer(0)
 {
   connect(&mDiskList , SIGNAL(readDFDone() ),
            this, SLOT (updateDFDone()) );

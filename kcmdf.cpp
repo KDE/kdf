@@ -44,7 +44,7 @@ KDiskFreeWidget::KDiskFreeWidget( KInstance *inst, QWidget *parent )
   topLayout->setSpacing( KDialog::spacingHint() );
   topLayout->setMargin( 0 );
 
-  mKdf = new KDFWidget( this, "kdf", false );
+  mKdf = new KDFWidget( this, false );
   topLayout->addWidget( mKdf );
 }
 

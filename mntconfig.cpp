@@ -54,8 +54,8 @@ static bool GUI;
 #endif
 
 
-MntConfigWidget::MntConfigWidget(QWidget *parent, const char *name, bool init)
-  : QWidget(parent, name)
+MntConfigWidget::MntConfigWidget(QWidget *parent, bool init)
+  : QWidget(parent)
 {
   mInitializing = false;
 

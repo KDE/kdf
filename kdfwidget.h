@@ -111,8 +111,8 @@ class KDFWidget : public QWidget
     };
 
   public:
-    KDFWidget( QWidget *parent=0, const char *name=0, bool init=false);
-    ~KDFWidget( void );
+    KDFWidget( QWidget *parent=0, bool init=false);
+    ~KDFWidget( );
 
   public slots:
     void settingsChanged( void );
