@@ -36,7 +36,7 @@
 #include <QLineEdit>
 //Added by qt3to4:
 #include <QVBoxLayout>
-#include <Q3Frame>
+#include <QFrame>
 #include <QGridLayout>
 #include <QCloseEvent>
 
@@ -81,7 +81,7 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, bool init)
 
     mList = new CListView( this, "list", 1 );
     mList->setAllColumnsShowFocus(true);
-    mList->setFrameStyle( Q3Frame::WinPanel + Q3Frame::Sunken );
+    mList->setFrameStyle( QFrame::WinPanel + QFrame::Sunken );
     mList->header()->setMovingEnabled(false);
     for( uint i=0; i < mTabName.size(); i++ )
     {

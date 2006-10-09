@@ -34,7 +34,7 @@
 //Added by qt3to4:
 #include <QPixmap>
 #include <QVBoxLayout>
-#include <Q3Frame>
+#include <QFrame>
 #include <QGridLayout>
 #include <QCloseEvent>
 
@@ -80,7 +80,7 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, bool init)
     mList->addColumn( i18n("Mount Point") );
     mList->addColumn( i18n("Mount Command") );
     mList->addColumn( i18n("Unmount Command") );
-    mList->setFrameStyle( Q3Frame::WinPanel + Q3Frame::Sunken );
+    mList->setFrameStyle( QFrame::WinPanel + QFrame::Sunken );
     connect( mList, SIGNAL(selectionChanged(Q3ListViewItem *)),
 	     this, SLOT(clicked(Q3ListViewItem *)));
 

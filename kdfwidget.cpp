@@ -38,7 +38,7 @@
 #include <QPixmap>
 #include <QTimerEvent>
 #include <QVBoxLayout>
-#include <Q3Frame>
+#include <QFrame>
 #include <QResizeEvent>
 #include <QCloseEvent>
 #include <QAbstractEventDispatcher>
@@ -129,7 +129,7 @@ KDFWidget::KDFWidget( QWidget *parent, bool init )
     topLayout->addWidget( mList );
 
     mList->setAllColumnsShowFocus( true );
-    mList->setFrameStyle( Q3Frame::WinPanel + Q3Frame::Sunken );
+    mList->setFrameStyle( QFrame::WinPanel + QFrame::Sunken );
     mList->setShowSortIndicator(true);
     connect( mList,
       SIGNAL( rightButtonPressed( Q3ListViewItem *, const QPoint &, int )),
