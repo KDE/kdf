@@ -38,14 +38,14 @@ COptionDialog::COptionDialog( QWidget *parent, const char *name, bool modal )
   QFrame *f1 = new QFrame();
   addPage( f1, i18n("General Settings") );
   QVBoxLayout *l1 = new QVBoxLayout( f1 );
-  mConf = new KDFConfigWidget( f1, "kdfconf" );
+  mConf = new KDFConfigWidget( f1 );
   l1->addWidget(mConf);
   connect( mConf, SIGNAL( configChanged() ), this, SLOT( slotChanged() ) );
 
   QFrame *f2 = new QFrame();
   addPage( f2, i18n("Mount Commands") );
   QVBoxLayout *l2 = new QVBoxLayout( f2 );
-  mMnt = new MntConfigWidget( f2, "mntconf");
+  mMnt = new MntConfigWidget( f2 );
   l2->addWidget(mMnt);
   connect( mMnt, SIGNAL( configChanged() ), this, SLOT( slotChanged() ) );
   enableButton( Apply, false );

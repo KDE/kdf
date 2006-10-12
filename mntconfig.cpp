@@ -93,6 +93,7 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, bool init)
       arg(i18n("None"));
     mGroupBox = new Q3GroupBox( text, this );
     Q_CHECK_PTR(mGroupBox);
+    mGroupBox->setEnabled( false );
     topLayout->addWidget(mGroupBox);
 
     QGridLayout *gl = new QGridLayout( mGroupBox );
@@ -153,8 +154,6 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, bool init)
     applySettings();
     mDiskLookup.resize(0);
   }
-
-  mGroupBox->setEnabled( false );
 }
 
 
