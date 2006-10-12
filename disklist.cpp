@@ -467,7 +467,9 @@ void DiskList::replaceDeviceEntry(DiskEntry *disk)
 
       // Same device name, but maybe one is a symlink and the other is its target
       // Keep the shorter one then, /dev/hda1 looks better than /dev/ide/host0/bus0/target0/lun0/part1
-      if ( disk->deviceName().length() > olddisk->deviceName().length() )
+      // but redefine "shorter" to be the number of slashes in the path as a count on characters
+      // breaks legitimate symlinks created by udev
+      if ( disk->deviceName().count( '/' ) > olddisk->deviceName().count( '/' ) )
           disk->setDeviceName(olddisk->deviceName());
 
       //FStab after an older DF ... needed for critFull
