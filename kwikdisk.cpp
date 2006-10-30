@@ -82,8 +82,8 @@ KwikDisk::KwikDisk()
 
    loadSettings();
    updateDF();
-   connect( this, SIGNAL( activated(QSystemTrayIcon::ActivationReason reason)),
-            SLOT(slotActivated(QSystemTrayIcon::ActivationReason reason) ));
+   connect( this, SIGNAL( activated(QSystemTrayIcon::ActivationReason)),
+            SLOT(slotActivated(QSystemTrayIcon::ActivationReason) ));
 }
 
 void KwikDisk::enterEvent(QEvent *)
