@@ -51,7 +51,6 @@ kde4_automoc(${kcm_kdf_PART_SRCS})
 
 kde4_add_plugin(kcm_kdf ${kcm_kdf_PART_SRCS})
 
-kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_kdf )
 
 target_link_libraries(kcm_kdf  ${KDE4_KDE3SUPPORT_LIBS} )
 
