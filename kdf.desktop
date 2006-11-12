@@ -11,5 +11,5 @@ GenericName[x-test]=xxView Disk Usagexx
 Terminal=false
 DocPath=kdf/index.html
 X-KDE-StartupNotify=true
-X-DCOP-ServiceType=Multi
+X-DBUS-StartupType=Multi
 Categories=Qt;KDE;System;X-KDE-More;
