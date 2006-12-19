@@ -23,7 +23,7 @@
 #include <kstdaccel.h>
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
-#include <kstdaction.h>
+#include <kstandardaction.h>
 #include <kaction.h>
 #include <kxmlguifactory.h>
 #include "kdf.h"
@@ -44,9 +44,9 @@ KDFTopLevel::KDFTopLevel(QWidget *)
   KAction *action = new KAction( i18n( "&Update" ), actionCollection(), "updatedf" );
   connect(action, SIGNAL(triggered(bool) ), kdf, SLOT( updateDF() ));
 
-  KStdAction::quit(this, SLOT(close()), actionCollection());
-  KStdAction::preferences(kdf, SLOT(settingsBtnClicked()), actionCollection());
-  KStdAction::keyBindings(guiFactory(), SLOT(configureShortcuts()), 
+  KStandardAction::quit(this, SLOT(close()), actionCollection());
+  KStandardAction::preferences(kdf, SLOT(settingsBtnClicked()), actionCollection());
+  KStandardAction::keyBindings(guiFactory(), SLOT(configureShortcuts()), 
 actionCollection());
   setCentralWidget(kdf);
   //  kdf->setMinimumSize(kdf->sizeHint());
