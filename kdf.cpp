@@ -20,7 +20,7 @@
  */
 
 #include <kapplication.h>
-#include <kstdaccel.h>
+#include <kstandardshortcut.h>
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
 #include <kstandardaction.h>

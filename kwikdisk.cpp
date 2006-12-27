@@ -223,13 +223,13 @@ void KwikDisk::updateDFDone()
 
    contextMenu()->insertItem(
       KSystemTrayIcon::loadIcon("help"),
-      KStdGuiItem::help().text(), this, SLOT(invokeHelp()),0);
+      KStandardGuiItem::help().text(), this, SLOT(invokeHelp()),0);
 
    contextMenu()->addSeparator();
 
    contextMenu()->insertItem(
       KSystemTrayIcon::loadIcon("exit"),
-      KStdGuiItem::quit().text(), this, SIGNAL(quitSelected()) );
+      KStandardGuiItem::quit().text(), this, SIGNAL(quitSelected()) );
 }
 
 void KwikDisk::toggleMount(int item)
