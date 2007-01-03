@@ -282,7 +282,7 @@ void MntConfigWidget::iconChanged(const QString &iconName)
 	    {
 	      disk->setIconName(iconName);
 	      mIconLineEdit->setText(iconName);
-	      KIconLoader &loader = *KGlobal::iconLoader();
+	      KIconLoader &loader = *kapp->iconLoader();
 	      item->setPixmap( ICONCOL, loader.loadIcon( iconName, K3Icon::Small));
 	    }
 	  break;
