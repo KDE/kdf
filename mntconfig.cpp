@@ -40,7 +40,6 @@
 
 #undef Unsorted
 
-#include <kapplication.h>
 #include <kfiledialog.h>
 #include <kicondialog.h>
 #include <kmessagebox.h>
@@ -282,7 +281,7 @@ void MntConfigWidget::iconChanged(const QString &iconName)
 	    {
 	      disk->setIconName(iconName);
 	      mIconLineEdit->setText(iconName);
-	      KIconLoader &loader = *kapp->iconLoader();
+	      KIconLoader &loader = *KIconLoader::global();
 	      item->setPixmap( ICONCOL, loader.loadIcon( iconName, K3Icon::Small));
 	    }
 	  break;
