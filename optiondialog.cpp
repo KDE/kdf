@@ -50,6 +50,8 @@ COptionDialog::COptionDialog( QWidget *parent, const char *name, bool modal )
   connect( mMnt, SIGNAL( configChanged() ), this, SLOT( slotChanged() ) );
   enableButton( Apply, false );
   dataChanged = false;
+  connect(this,SIGNAL(okClicked()),this,SLOT(slotOk()));
+  connect(this,SIGNAL(applyClicked()),this,SLOT(slotApply()));
 }
 
 
