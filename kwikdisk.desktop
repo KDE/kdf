@@ -7,6 +7,7 @@ Icon=kwikdisk
 Type=Application
 DocPath=kdf/index.html
 GenericName=Removable Media Utility
+GenericName[el]=Εργαλείο αφαιρούμενων μέσων
 GenericName[fr]=Utilitaire de média éjectable
 GenericName[x-test]=xxRemovable Media Utilityxx
 Terminal=false
