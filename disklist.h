@@ -130,7 +130,7 @@ private:
   KProcess         *dfProc;
   QString           dfStringErrOut;
   bool              readingDFStdErrOut;
-  KConfig           *config;
+  KSharedConfigPtr  config;
   bool              updatesDisabled;
   
 };

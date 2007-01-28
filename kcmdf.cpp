@@ -31,11 +31,11 @@
 #include <QLayout>
 //Added by qt3to4:
 #include <QVBoxLayout>
-#include <kinstance.h>
+#include <kcomponentdata.h>
 
 #include "kcmdf.h"
 
-KDiskFreeWidget::KDiskFreeWidget( KInstance *inst, QWidget *parent )
+KDiskFreeWidget::KDiskFreeWidget( const KComponentData &inst, QWidget *parent )
  : KCModule( inst, parent )
 {
   setButtons(Help);
@@ -64,7 +64,7 @@ extern "C"
 {
   KDE_EXPORT KCModule* create_kdf( QWidget *parent, const char * /*name*/ )
   {
-  	 KInstance *inst = new KInstance("kdf");
+  	 KComponentData inst("kdf");
 	 return new KDiskFreeWidget( inst , parent );
   }
 }
