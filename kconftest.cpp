@@ -51,7 +51,7 @@ main(int argc, char ** argv)
  KCmdLineArgs::init(argc, argv, "test", description, version);
  
  KApplication app;
- KConfig * cfg = KGlobal::config();
+ KSharedConfig::Ptr cfg = KGlobal::config();
 
  Q3Dict<char> dict;
 
