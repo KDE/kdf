@@ -24,17 +24,12 @@
 #ifndef _KWIKDISK_H_
 #define _KWIKDISK_H_
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
-
 #include "disklist.h"
 #include "stdoption.h"
 #include "optiondialog.h"
 
 #include <kmainwindow.h>
 #include <ksystemtrayicon.h>
-//Added by qt3to4:
 #include <QMouseEvent>
 #include <QTimerEvent>
 #include <QEvent>
