@@ -238,8 +238,7 @@ void KDFWidget::loadSettings( void )
 
   if(GUI)
   {
-    KConfig &config = *KGlobal::config();
-    config.setGroup("KDiskFree");
+    KConfigGroup config(KGlobal::config(), "KDiskFree");
     for( uint i=0; i<mTabProp.size(); i++ )
     {
       CTabEntry &e = *mTabProp[i];

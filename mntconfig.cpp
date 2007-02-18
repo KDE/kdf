@@ -186,8 +186,7 @@ void MntConfigWidget::applySettings( void )
 {
   mDiskList.applySettings();
 
-  KConfig &config = *KGlobal::config();
-  config.setGroup("MntConfig");
+  KConfigGroup config(KGlobal::config(), "MntConfig");
   if(GUI )
   {
    config.writeEntry("Width", width() );

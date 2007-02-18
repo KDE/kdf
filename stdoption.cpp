@@ -48,8 +48,7 @@ CStdOption::~CStdOption( void )
 
 void CStdOption::updateConfiguration( void )
 {
-  KConfig &config = *KGlobal::config();
-  config.setGroup("KDFConfig");
+  KConfigGroup config(KGlobal::config(), "KDFConfig");
   mFileManager = config.readPathEntry(
     "FileManagerCommand", mDefaultFileManager );
   mUpdateFrequency = config.readEntry( 
@@ -63,8 +62,7 @@ void CStdOption::updateConfiguration( void )
 
 void CStdOption::writeConfiguration( void )
 {
-  KConfig &config = *KGlobal::config();
-  config.setGroup("KDFConfig");
+  KConfigGroup config(KGlobal::config(), "KDFConfig");
   config.writeEntry( "UpdateFrequency", mUpdateFrequency );
   config.writePathEntry( "FileManagerCommand", mFileManager );
   config.writeEntry( "PopupIfFull", mPopupIfFull );
@@ -75,8 +73,7 @@ void CStdOption::writeConfiguration( void )
 
 void CStdOption::writeDefaultFileManager( void )
 {
-  KConfig &config = *KGlobal::config();
-  config.setGroup("KDFConfig");
+  KConfigGroup config(KGlobal::config(), "KDFConfig");
   config.writePathEntry( "FileManagerCommand", mDefaultFileManager );
   config.sync();
 }

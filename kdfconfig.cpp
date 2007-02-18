@@ -170,8 +170,7 @@ void KDFConfigWidget::closeEvent(QCloseEvent *)
 
 void KDFConfigWidget::applySettings( void )
 {
-  KConfig &config = *KGlobal::config();
-  config.setGroup("KDFConfig");
+  KConfigGroup config(KGlobal::config(), "KDFConfig");
 
   if( GUI )
   {
@@ -204,8 +203,7 @@ void KDFConfigWidget::applySettings( void )
 
 void KDFConfigWidget::loadSettings( void )
 {
-  KConfig &config = *KGlobal::config();
-  config.setGroup("KDFConfig");
+  KConfigGroup config(KGlobal::config(), "KDFConfig");
 
   if( GUI )
   {
