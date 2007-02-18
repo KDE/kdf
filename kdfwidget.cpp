@@ -247,7 +247,7 @@ void KDFWidget::loadSettings( void )
     if (mTabProp[usageCol]->mWidth > 16)
       mTabProp[usageCol]->mWidth -= 16;
 
-    config.setGroup("KDFConfig");
+    config.changeGroup("KDFConfig");
     for( uint i=0; i<mTabProp.size(); i++ )
     {
       CTabEntry &e = *mTabProp[i];
