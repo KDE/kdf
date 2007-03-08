@@ -222,13 +222,13 @@ void KwikDisk::updateDFDone()
       i18n("&Configure KwikDisk..."), this, SLOT(changeSettings()),0);
 
    contextMenu()->insertItem(
-      KSystemTrayIcon::loadIcon("help"),
+      KSystemTrayIcon::loadIcon("help-contents"),
       KStandardGuiItem::help().text(), this, SLOT(invokeHelp()),0);
 
    contextMenu()->addSeparator();
 
    contextMenu()->insertItem(
-      KSystemTrayIcon::loadIcon("exit"),
+      KSystemTrayIcon::loadIcon("application-exit"),
       KStandardGuiItem::quit().text(), this, SIGNAL(quitSelected()) );
 }
 
