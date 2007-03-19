@@ -86,22 +86,20 @@ void DiskList::applySettings()
 {
   kDebug() << k_funcinfo << endl;
 
-  QString oldgroup=config->group();
-  config->setGroup("DiskList");
+  KConfigGroup group(config, "DiskList");
   QString key;
   DiskEntry *disk;
   for (disk=disks->first();disk!=0;disk=disks->next()) {
    key = QLatin1String("Mount") + SEPARATOR + disk->deviceName() + SEPARATOR + disk->mountPoint();
-   config->writePathEntry(key,disk->mountCommand());
+   group.writePathEntry(key,disk->mountCommand());
 
    key = QLatin1String("Umount") + SEPARATOR + disk->deviceName() + SEPARATOR + disk->mountPoint();
-   config->writePathEntry(key,disk->umountCommand());
+   group.writePathEntry(key,disk->umountCommand());
 
    key = QLatin1String("Icon") + SEPARATOR + disk->deviceName() + SEPARATOR + disk->mountPoint();
-   config->writePathEntry(key,disk->realIconName());
+   group.writePathEntry(key,disk->realIconName());
  }
- config->sync();
- config->setGroup(oldgroup);
+ group.sync();
 }
 
 
@@ -112,18 +110,18 @@ void DiskList::loadSettings()
 {
   kDebug() << k_funcinfo << endl;
 
-  config->setGroup("DiskList");
+  const KConfigGroup group(config, "DiskList");
   QString key;
   DiskEntry *disk;
   for (disk=disks->first();disk!=0;disk=disks->next()) {
     key = QLatin1String("Mount") + SEPARATOR + disk->deviceName() + SEPARATOR + disk->mountPoint();
-    disk->setMountCommand(config->readPathEntry(key));
+    disk->setMountCommand(group.readPathEntry(key));
 
     key = QLatin1String("Umount") + SEPARATOR + disk->deviceName() + SEPARATOR + disk->mountPoint();
-    disk->setUmountCommand(config->readPathEntry(key));
+    disk->setUmountCommand(group.readPathEntry(key));
 
     key = QLatin1String("Icon") + SEPARATOR + disk->deviceName() + SEPARATOR + disk->mountPoint();
-    QString icon=config->readPathEntry(key);
+    QString icon=group.readPathEntry(key);
     if (!icon.isEmpty()) disk->setIconName(icon);
  }
 }
