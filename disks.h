@@ -33,7 +33,7 @@
 #include <QFile>
 
 #include <kio/global.h>
-#include <kprocess.h>
+#include <k3process.h>
 #include <klocale.h>
 
 class DiskEntry : public QObject
@@ -117,14 +117,14 @@ public slots:
   QString guessIconName();
 
 private slots:
-   void receivedSysStdErrOut(KProcess *, char *data, int len);
+   void receivedSysStdErrOut(K3Process *, char *data, int len);
 
 private:
   void init();
   int sysCall(const QString & command);
   QString prettyPrint(int kBValue) const;
 
-  KShellProcess     *sysProc;
+  K3ShellProcess     *sysProc;
   QString           sysStringErrOut;
   bool              readingSysStdErrOut;
 

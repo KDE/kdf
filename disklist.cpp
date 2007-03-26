@@ -51,10 +51,10 @@ DiskList::DiskList(QObject *parent)
    disks->setAutoDelete(true);
 
    // BackgroundProcesses ****************************************
-   dfProc = new KProcess(); Q_CHECK_PTR(dfProc);
-   connect( dfProc, SIGNAL(receivedStdout(KProcess *, char *, int) ),
-      this, SLOT (receivedDFStdErrOut(KProcess *, char *, int)) );
-   connect(dfProc,SIGNAL(processExited(KProcess *) ),
+   dfProc = new K3Process(); Q_CHECK_PTR(dfProc);
+   connect( dfProc, SIGNAL(receivedStdout(K3Process *, char *, int) ),
+      this, SLOT (receivedDFStdErrOut(K3Process *, char *, int)) );
+   connect(dfProc,SIGNAL(processExited(K3Process *) ),
       this, SLOT(dfDone() ) );
 
    readingDFStdErrOut=false;
@@ -222,7 +222,7 @@ QFile f(FSTAB);
 /***************************************************************************
   * is called, when the df-command writes on StdOut or StdErr
 **/
-void DiskList::receivedDFStdErrOut(KProcess *, char *data, int len )
+void DiskList::receivedDFStdErrOut(K3Process *, char *data, int len )
 {
   kDebug() << k_funcinfo << endl;
 
@@ -254,7 +254,7 @@ int DiskList::readDF()
   dfStringErrOut=""; // yet no data received
   dfProc->clearArguments();
   (*dfProc) << "env" << "LC_ALL=POSIX" << DF_COMMAND << DF_ARGS;
-  if (!dfProc->start( KProcess::NotifyOnExit, KProcess::AllOutput ))
+  if (!dfProc->start( K3Process::NotifyOnExit, K3Process::AllOutput ))
     qFatal(i18n("could not execute [%s]").toLocal8Bit().data(), DF_COMMAND);
   return 1;
 }

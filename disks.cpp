@@ -55,11 +55,11 @@ void DiskEntry::init()
 
  // BackgroundProcesses ****************************************
 
- sysProc = new KShellProcess(); Q_CHECK_PTR(sysProc);
- connect( sysProc, SIGNAL(receivedStdout(KProcess *, char *, int) ),
-        this, SLOT (receivedSysStdErrOut(KProcess *, char *, int)) );
- connect( sysProc, SIGNAL(receivedStderr(KProcess *, char *, int) ),
-        this, SLOT (receivedSysStdErrOut(KProcess *, char *, int)) );
+ sysProc = new K3ShellProcess(); Q_CHECK_PTR(sysProc);
+ connect( sysProc, SIGNAL(receivedStdout(K3Process *, char *, int) ),
+        this, SLOT (receivedSysStdErrOut(K3Process *, char *, int)) );
+ connect( sysProc, SIGNAL(receivedStderr(K3Process *, char *, int) ),
+        this, SLOT (receivedSysStdErrOut(K3Process *, char *, int)) );
  readingSysStdErrOut=false;
 
 
@@ -229,7 +229,7 @@ int DiskEntry::sysCall(const QString & command)
   sysStringErrOut=i18n("Called: %1\n\n", command); // put the called command on ErrOut
   sysProc->clearArguments();
   (*sysProc) << command;
-    if (!sysProc->start( KProcess::Block, KProcess::AllOutput ))
+    if (!sysProc->start( K3Process::Block, K3Process::AllOutput ))
      kFatal() << i18n("could not execute %1", command.toLocal8Bit().data()) << endl;
 
   if (sysProc->exitStatus()!=0) emit sysCallError(this, sysProc->exitStatus());
@@ -241,7 +241,7 @@ int DiskEntry::sysCall(const QString & command)
 /***************************************************************************
   * is called, when the Sys-command writes on StdOut or StdErr
 **/
-void DiskEntry::receivedSysStdErrOut(KProcess *, char *data, int len)
+void DiskEntry::receivedSysStdErrOut(K3Process *, char *data, int len)
 {
   QString tmp = QString::fromLocal8Bit(data, len);
   sysStringErrOut.append(tmp);

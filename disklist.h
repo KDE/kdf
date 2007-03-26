@@ -120,14 +120,14 @@ public slots:
   void applySettings();
 
 private slots:
-   void receivedDFStdErrOut(KProcess *, char *data, int len);
+   void receivedDFStdErrOut(K3Process *, char *data, int len);
    void dfDone();
 
 private:
   void replaceDeviceEntry(DiskEntry *disk);
 
   Disks            *disks;
-  KProcess         *dfProc;
+  K3Process         *dfProc;
   QString           dfStringErrOut;
   bool              readingDFStdErrOut;
   KSharedConfigPtr  config;
