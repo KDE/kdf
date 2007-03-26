@@ -198,10 +198,9 @@ void MntConfigWidget::applySettings( void )
 
 void MntConfigWidget::loadSettings( void )
 {
-  KConfig &config = *KGlobal::config();
+  KConfigGroup config = KGlobal::config()->group("MntConfig");
   if( mInitializing == false && GUI )
   {
-    config.setGroup("MntConfig");
     if( isTopLevel() )
     {
       int w = config.readEntry("Width",this->width() );
