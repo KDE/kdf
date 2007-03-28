@@ -37,8 +37,9 @@
 /**
   * Constructor
 **/
-void DiskEntry::init()
+void DiskEntry::init(const char *name)
 {
+  setObjectName(name);
   device="";
   type="";
   mountedOn="";
@@ -66,15 +67,15 @@ void DiskEntry::init()
 }
 
 DiskEntry::DiskEntry(QObject *parent, const char *name)
- : QObject (parent, name)
+ : QObject (parent)
 {
-  init();
+  init(name);
 }
 
 DiskEntry::DiskEntry(const QString & deviceName, QObject *parent, const char *name)
- : QObject (parent, name)
+ : QObject (parent)
 {
-  init();
+  init(name);
 
   setDeviceName(deviceName);
 }

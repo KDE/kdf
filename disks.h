@@ -120,7 +120,7 @@ private slots:
    void receivedSysStdErrOut(K3Process *, char *data, int len);
 
 private:
-  void init();
+  void init(const char *name);
   int sysCall(const QString & command);
   QString prettyPrint(int kBValue) const;
 
