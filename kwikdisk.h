@@ -28,7 +28,7 @@
 #include "stdoption.h"
 #include "optiondialog.h"
 
-#include <kmainwindow.h>
+#include <kxmlguiwindow.h>
 #include <ksystemtrayicon.h>
 #include <QMouseEvent>
 #include <QTimerEvent>

@@ -40,7 +40,7 @@
 #include <QTimerEvent>
 #include <QEvent>
 #include <QAbstractEventDispatcher>
-#include <kmainwindow.h>
+#include <kxmlguiwindow.h>
 #include <klocale.h>
 #include <kapplication.h>
 #include <kaboutdata.h>

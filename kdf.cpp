@@ -38,7 +38,7 @@ static const char version[] = "v0.5";
 
 /***************************************************************/
 KDFTopLevel::KDFTopLevel(QWidget *)
-  : KMainWindow(0)
+  : KXmlGuiWindow(0)
 {
   kdf = new KDFWidget(this,false);
   Q_CHECK_PTR(kdf);
@@ -53,7 +53,7 @@ actionCollection());
   setCentralWidget(kdf);
   //  kdf->setMinimumSize(kdf->sizeHint());
   kdf->resize(kdf->sizeHint());
-  setupGUI(KMainWindow::Keys | StatusBar | Save | Create);
+  setupGUI(KXmlGuiWindow::Keys | StatusBar | Save | Create);
 }
 
 
