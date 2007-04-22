@@ -27,7 +27,7 @@
 
 #include <q3memarray.h>
 #include <qglobal.h>
-#include <QString>
+
 #include <q3listview.h>
 //Added by qt3to4:
 #include <QTimerEvent>

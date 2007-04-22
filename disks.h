@@ -26,7 +26,7 @@
 #define __DISKS_H__
 
 #include <QObject>
-#include <QString>
+
 #include <QLabel>
 #include <QPushButton>
 #include <q3progressbar.h>

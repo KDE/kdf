@@ -27,7 +27,7 @@
 #ifndef _STD_OPTION_H_
 #define _STD_OPTION_H_
 
-#include <QString>
+
 
 class CStdOption
 {

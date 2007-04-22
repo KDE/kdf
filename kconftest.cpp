@@ -32,7 +32,7 @@
 
 
 #include <iostream>
-#include <QString>
+
 #include <q3dict.h>
 #include <kconfig.h>
 #include <kdebug.h>
