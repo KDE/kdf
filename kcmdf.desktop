@@ -56,6 +56,7 @@ Name[tg]=Дастгоҳҳои Захиракунӣ
 Name[tr]=Depolama Aygıtları
 Name[uk]=Пристрої накопичення
 Name[uz]=Сақлаш ускуналари
+Name[wa]=Éndjins di wårdaedje
 Name[x-test]=xxStorage Devicesxx
 Name[xh]=Amacebo Okugcina
 Name[zh_TW]=儲存裝置
@@ -112,6 +113,7 @@ Comment[ta]= ஏற்றப்பட்ட சாதனங்களின் �
 Comment[tg]=Фазоҳои хомро дар дастгоҳи насбшуда нишон диҳед
 Comment[tr]=Bağlı aygıtların disk kullanımını gösterir
 Comment[uk]=Показує ступінь використання змонтованих пристроїв
+Comment[wa]=Mostere l' eployaedje des deurès plakes ki sont montêyes
 Comment[x-test]=xxShows the disk usage of the mounted devicesxx
 Comment[zh_TW]=顯示連接的設備的磁碟使用率
 
