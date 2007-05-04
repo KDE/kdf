@@ -62,7 +62,7 @@ public:
    *                 all this information is gained from the objects' data
    *                 if no mountCommand is set it defaults to "mount %d"
    **/
-  QString mountCommand() const { return mntcmd; };
+  QString mountCommand() const { return mntcmd; }
   /**
    * sets the used umountCommand for the actual DiskEntry.
    * @param mntcmd   is a string containing the executable file and
@@ -72,17 +72,17 @@ public:
    *                 all this information is gained from the objects' data
    *                 if no umountCommand is set it defaults to "umount %d"
    **/
-  QString umountCommand() const { return umntcmd; };
-  QString fsType() const { return type; };
-  bool mounted() const { return isMounted; };
-  int kBSize() const { return size; };
+  QString umountCommand() const { return umntcmd; }
+  QString fsType() const { return type; }
+  bool mounted() const { return isMounted; }
+  int kBSize() const { return size; }
   QString iconName();
-  QString realIconName() { return icoName; };
-  QString prettyKBSize() const { return KIO::convertSizeFromKiB(size); };
-  int kBUsed() const { return used; };
-  QString prettyKBUsed() const { return KIO::convertSizeFromKiB(used); };
-  int kBAvail() const  { return avail; };
-  QString prettyKBAvail() const { return KIO::convertSizeFromKiB(avail); };
+  QString realIconName() { return icoName; }
+  QString prettyKBSize() const { return KIO::convertSizeFromKiB(size); }
+  int kBUsed() const { return used; }
+  QString prettyKBUsed() const { return KIO::convertSizeFromKiB(used); }
+  int kBAvail() const  { return avail; }
+  QString prettyKBAvail() const { return KIO::convertSizeFromKiB(avail); }
   float percentFull() const;
 
 signals:
