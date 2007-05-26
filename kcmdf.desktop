@@ -1,12 +1,18 @@
 [Desktop Entry]
 Encoding=UTF-8
-X-KDE-ModuleType=Library
+
 X-KDE-Library=kdf
+X-KDE-ParentApp=kcontrol
+
 X-KDE-FactoryName=kdf
+
 X-KDE-LocalUser=false
 Exec=kcmshell kcmdf
 Icon=kcmdf
-Type=Application
+
+Type=Service
+ServiceTypes=KCModule
+
 Name=Storage Devices
 Name[af]=Stoorplek Toestelle
 Name[ar]=أجهزة تخزين
