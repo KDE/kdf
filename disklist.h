@@ -62,8 +62,8 @@ typedef QPtrListIterator<DiskEntry>	DisksIterator;
 class Disks : public DisksBase
 {
  public:
-  Disks(bool deepCopies=TRUE) { dc = deepCopies;};
-  ~Disks() { clear(); };
+  Disks(bool deepCopies=TRUE) { dc = deepCopies;}
+  ~Disks() { clear(); }
 private:
   int compareItems( DiskEntry s1, DiskEntry s2 )
   {

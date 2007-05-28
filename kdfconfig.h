@@ -50,7 +50,7 @@ class KDFConfigWidget : public QWidget
       {
         mRes     = res;
         mName    = name;
-      };
+      }
       CTabName( void ) { }
       ~CTabName( void ) { }
 

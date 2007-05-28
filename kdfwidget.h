@@ -53,7 +53,7 @@ class CTabEntry
       mName    = name;
       mVisible = visible;
       mWidth   = width;
-    };
+    }
     CTabEntry( void ) { }
     ~CTabEntry( void ) { }
 
