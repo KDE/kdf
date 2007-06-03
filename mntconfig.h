@@ -37,7 +37,6 @@
 
 class Q3GroupBox;
 class QPushButton;
-class QRadioButton;
 class QLineEdit;
 class KIconButton;
 
