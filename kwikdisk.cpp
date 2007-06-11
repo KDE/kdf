@@ -296,7 +296,7 @@ void KwikDisk::startKDF()
 {
    kDebug() << k_funcinfo << endl;
 
-   KRun::runCommand("kdf");
+   KRun::runCommand("kdf",NULL);
 }
 
 void KwikDisk::invokeHelp()
