@@ -49,6 +49,7 @@
 #include <kmenu.h>
 #include <krun.h>
 #include <ktoolinvocation.h>
+#include <kshell.h>
 
 static const char description[] =
    I18N_NOOP("KDE Free disk space utility");
@@ -256,11 +257,11 @@ void KwikDisk::toggleMount(int item)
          int pos = cmd.indexOf("%m");
          if( pos > 0 )
          {
-            cmd = cmd.replace( pos, 2, K3Process::quote(disk->mountPoint()) ) + " &";
+            cmd = cmd.replace( pos, 2, KShell::quoteArg(disk->mountPoint()) ) + " &";
          }
          else
          {
-            cmd += " " + K3Process::quote(disk->mountPoint()) +" &";
+            cmd += " " + KShell::quoteArg(disk->mountPoint()) +" &";
          }
          system( QFile::encodeName(cmd) );
       }

@@ -45,10 +45,9 @@
 #include <kapplication.h>
 #include <kmessagebox.h>
 #include <kmenu.h>
-#include <k3process.h>
 #include <ktoolinvocation.h>
 #include <kglobal.h>
-
+#include <kshell.h>
 #include "listview.h"
 #include "kdfwidget.h"
 #include "optiondialog.h"
@@ -511,11 +510,11 @@ void KDFWidget::popupMenu( Q3ListViewItem *item, const QPoint &p )
       int pos = cmd.indexOf("%m");
       if( pos > 0 )
       {
-	cmd = cmd.replace( pos, 2, K3Process::quote(disk->mountPoint()) ) + " &";
+	cmd = cmd.replace( pos, 2, KShell::quoteArg(disk->mountPoint()) ) + " &";
       }
       else
       {
-	cmd += " " + K3Process::quote(disk->mountPoint()) +" &";
+	cmd += " " + KShell::quoteArg(disk->mountPoint()) +" &";
       }
       system( QFile::encodeName(cmd) );
     }
