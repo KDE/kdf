@@ -75,3 +75,4 @@ GenericName[zh_TW]=可移動媒體公用程式
 GenericName[zu]=Umsebenzi Wonozindaba Ogudluzekayo
 Terminal=false
 Categories=Qt;KDE;System;X-KDE-More;
+OnlyShowIn=KDE;
