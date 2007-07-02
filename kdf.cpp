@@ -67,10 +67,10 @@ bool KDFTopLevel::queryExit( void )
 /***************************************************************/
 int main(int argc, char **argv)
 {
-  KAboutData aboutData( "kdf", I18N_NOOP("KDiskFree"),
-    version, description, KAboutData::License_GPL,
-    "(c) 1998-2001, Michael Kropfberger");
-  aboutData.addAuthor("Michael Kropfberger",0, "michael.kropfberger@gmx.net");
+  KAboutData aboutData( "kdf", 0, ki18n("KDiskFree"),
+    version, ki18n(description), KAboutData::License_GPL,
+    ki18n("(c) 1998-2001, Michael Kropfberger"));
+  aboutData.addAuthor(ki18n("Michael Kropfberger"),KLocalizedString(), "michael.kropfberger@gmx.net");
   KCmdLineArgs::init( argc, argv, &aboutData );
 
   KApplication app;

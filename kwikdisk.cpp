@@ -56,11 +56,6 @@ static const char description[] =
 
 static const char version[] = "0.2";
 
-static KCmdLineOptions options[] =
-{
-   KCmdLineLastOption
-};
-
 /*****************************************************************************/
 
 KwikDisk::KwikDisk()
@@ -311,15 +306,17 @@ int main(int argc, char **argv)
 {
    KLocale::setMainCatalog( "kdf" );
 
-   KAboutData about("kwikdisk", I18N_NOOP("KwikDisk"), version, description,
-                  KAboutData::License_GPL, "(C) 2004 Stanislav Karchebny",
-                  0, 0, "Stanislav.Karchebny@kdemail.net");
-   about.addAuthor( "Michael Kropfberger", I18N_NOOP("Original author"),
+   KAboutData about("kwikdisk", 0, ki18n("KwikDisk"), version, ki18n(description),
+                  KAboutData::License_GPL, ki18n("(C) 2004 Stanislav Karchebny"),
+                  KLocalizedString(), 0, "Stanislav.Karchebny@kdemail.net");
+   about.addAuthor( ki18n("Michael Kropfberger"), ki18n("Original author"),
                     "michael.kropfberger@gmx.net" );
-   about.addAuthor( "Espen Sand", I18N_NOOP("KDE 2 changes"), "" );
-   about.addAuthor( "Stanislav Karchebny", I18N_NOOP("KDE 3 changes"),
+   about.addAuthor( ki18n("Espen Sand"), ki18n("KDE 2 changes"));
+   about.addAuthor( ki18n("Stanislav Karchebny"), ki18n("KDE 3 changes"),
                     "Stanislav.Karchebny@kdemail.net" );
    KCmdLineArgs::init(argc, argv, &about);
+
+   KCmdLineOptions options;
    KCmdLineArgs::addCmdLineOptions( options );
    KApplication app;
    KwikDisk *mainWin = 0;
