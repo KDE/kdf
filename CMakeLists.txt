@@ -18,8 +18,6 @@ set(libkdf_common_SRCS
 
 set(kdf_SRCS kdf.cpp ${libkdf_common_SRCS} )
 
-kde4_automoc(${kdf_SRCS})
-
 kde4_add_executable(kdf ${kdf_SRCS})
 
 target_link_libraries(kdf  ${KDE4_KDE3SUPPORT_LIBS} )
@@ -31,8 +29,6 @@ install(TARGETS kdf  DESTINATION ${BIN_INSTALL_DIR} )
 
 set(kwikdisk_SRCS kwikdisk.cpp ${libkdf_common_SRCS})
 
-kde4_automoc(${kwikdisk_SRCS})
-
 kde4_add_executable(kwikdisk ${kwikdisk_SRCS})
 
 target_link_libraries(kwikdisk  ${KDE4_KDE3SUPPORT_LIBS} )
@@ -43,8 +39,6 @@ install(TARGETS kwikdisk  DESTINATION ${BIN_INSTALL_DIR} )
 ########### next target ###############
 
 set(kcm_kdf_PART_SRCS kcmdf.cpp ${libkdf_common_SRCS})
-
-kde4_automoc(${kcm_kdf_PART_SRCS})
 
 kde4_add_plugin(kcm_kdf ${kcm_kdf_PART_SRCS})
 
