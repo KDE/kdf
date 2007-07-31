@@ -28,6 +28,7 @@
 #include "disklist.h"
 #include <QTextStream>
 #include <kglobal.h>
+#include <kdefakes.h>
 
 #define BLANK ' '
 #define DELIMITER '#'
