@@ -113,16 +113,16 @@ int DiskEntry::mount()
   cmdS.replace(QString::fromLatin1("%t"),fsType());
   cmdS.replace(QString::fromLatin1("%o"),mountOptions());
 
-  kDebug() << "mount-cmd: [" << cmdS << "]" << endl;
+  kDebug() << "mount-cmd: [" << cmdS << "]" ;
   int e=sysCall(cmdS);
   if (!e) setMounted(true);
-  kDebug() << "mount-cmd: e=" << e << endl;
+  kDebug() << "mount-cmd: e=" << e ;
   return e;
 }
 
 int DiskEntry::umount()
 {
-  kDebug() << "umounting" << endl;
+  kDebug() << "umounting" ;
   QString cmdS=umntcmd;
   if (cmdS.isEmpty()) // generate default umount cmd
       cmdS="umount %d";
@@ -130,10 +130,10 @@ int DiskEntry::umount()
   cmdS.replace(QString::fromLatin1("%d"),deviceName());
   cmdS.replace(QString::fromLatin1("%m"),mountPoint());
 
-  kDebug() << "umount-cmd: [" << cmdS << "]" << endl;
+  kDebug() << "umount-cmd: [" << cmdS << "]" ;
   int e=sysCall(cmdS);
   if (!e) setMounted(false);
-  kDebug() << "umount-cmd: e=" << e << endl;
+  kDebug() << "umount-cmd: e=" << e ;
 
   return e;
 }
@@ -231,7 +231,7 @@ int DiskEntry::sysCall(const QString & command)
   sysProc->clearArguments();
   (*sysProc) << command;
     if (!sysProc->start( K3Process::Block, K3Process::AllOutput ))
-     kFatal() << i18n("could not execute %1", command.toLocal8Bit().data()) << endl;
+     kFatal() << i18n("could not execute %1", command.toLocal8Bit().data()) ;
 
   if (sysProc->exitStatus()!=0) emit sysCallError(this, sysProc->exitStatus());
 
@@ -317,7 +317,7 @@ void DiskEntry::setKBUsed(int kb_used)
 {
   used=kb_used;
   if ( size < (used+avail) ) {  //adjust kBAvail
-     kWarning() << "device " << device << ": kBAvail(" << avail << ")+*kBUsed(" << used << ") exceeds kBSize(" << size << ")" << endl;
+     kWarning() << "device " << device << ": kBAvail(" << avail << ")+*kBUsed(" << used << ") exceeds kBSize(" << size << ")" ;
      setKBAvail(size-used);
   }
   emit kBUsedChanged();
@@ -327,7 +327,7 @@ void DiskEntry::setKBAvail(int kb_avail)
 {
   avail=kb_avail;
   if ( size < (used+avail) ) {  //adjust kBUsed
-     kWarning() << "device " << device << ": *kBAvail(" << avail << ")+kBUsed(" << used << ") exceeds kBSize(" << size << ")" << endl;
+     kWarning() << "device " << device << ": *kBAvail(" << avail << ")+kBUsed(" << used << ") exceeds kBSize(" << size << ")" ;
      setKBUsed(size-avail);
   }
   emit kBAvailChanged();

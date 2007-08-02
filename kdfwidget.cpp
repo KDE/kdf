@@ -503,7 +503,7 @@ void KDFWidget::popupMenu( Q3ListViewItem *item, const QPoint &p )
 
   if( openFileManager == true )
   {
-    kDebug() << "opening filemanager" << endl;
+    kDebug() << "opening filemanager" ;
     if(  mStd.fileManager().isEmpty() == false )
     {
       QString cmd = mStd.fileManager();

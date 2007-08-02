@@ -40,12 +40,12 @@
 DiskList::DiskList(QObject *parent)
     : QObject(parent)
 {
-   kDebug() << k_funcinfo << endl;
+   kDebug() << k_funcinfo ;
 
    updatesDisabled = false;
 
    if (NO_FS_TYPE) {
-      kDebug() << "df gives no FS_TYPE" << endl;
+      kDebug() << "df gives no FS_TYPE" ;
    }
 
    disks = new Disks;
@@ -69,7 +69,7 @@ DiskList::DiskList(QObject *parent)
 **/
 DiskList::~DiskList()
 {
-   kDebug() << k_funcinfo << endl;
+   kDebug() << k_funcinfo ;
 }
 
 /**
@@ -85,7 +85,7 @@ void DiskList::setUpdatesDisabled(bool disable)
 **/
 void DiskList::applySettings()
 {
-  kDebug() << k_funcinfo << endl;
+  kDebug() << k_funcinfo ;
 
   KConfigGroup group(config, "DiskList");
   QString key;
@@ -109,7 +109,7 @@ void DiskList::applySettings()
 **/
 void DiskList::loadSettings()
 {
-  kDebug() << k_funcinfo << endl;
+  kDebug() << k_funcinfo ;
 
   const KConfigGroup group(config, "DiskList");
   QString key;
@@ -160,7 +160,7 @@ return rc;
 **/
 int DiskList::readFSTAB()
 {
-  kDebug() << k_funcinfo << endl;
+  kDebug() << k_funcinfo ;
 
   if (readingDFStdErrOut || dfProc->isRunning()) return -1;
 
@@ -177,26 +177,26 @@ QFile f(FSTAB);
       s=s.simplified();
       if ( (!s.isEmpty() ) && (s.indexOf(DELIMITER)!=0) ) {
                // not empty or commented out by '#'
-	//	kDebug() << "GOT: [" << s << "]" << endl;
+	//	kDebug() << "GOT: [" << s << "]" ;
 	disk = new DiskEntry();// Q_CHECK_PTR(disk);
         disk->setMounted(false);
         disk->setDeviceName(expandEscapes(s.left(s.indexOf(BLANK))));
             s=s.remove(0,s.indexOf(BLANK)+1 );
-	    //  kDebug() << "    deviceName:    [" << disk->deviceName() << "]" << endl;
+	    //  kDebug() << "    deviceName:    [" << disk->deviceName() << "]" ;
 #ifdef _OS_SOLARIS_
             //device to fsck
             s=s.remove(0,s.indexOf(BLANK)+1 );
 #endif
          disk->setMountPoint(expandEscapes(s.left(s.indexOf(BLANK))));
             s=s.remove(0,s.indexOf(BLANK)+1 );
-	    //kDebug() << "    MountPoint:    [" << disk->mountPoint() << "]" << endl;
-	    //kDebug() << "    Icon:          [" << disk->iconName() << "]" << endl;
+	    //kDebug() << "    MountPoint:    [" << disk->mountPoint() << "]" ;
+	    //kDebug() << "    Icon:          [" << disk->iconName() << "]" ;
          disk->setFsType(s.left(s.indexOf(BLANK)) );
             s=s.remove(0,s.indexOf(BLANK)+1 );
-	    //kDebug() << "    FS-Type:       [" << disk->fsType() << "]" << endl;
+	    //kDebug() << "    FS-Type:       [" << disk->fsType() << "]" ;
          disk->setMountOptions(s.left(s.indexOf(BLANK)) );
             s=s.remove(0,s.indexOf(BLANK)+1 );
-	    //kDebug() << "    Mount-Options: [" << disk->mountOptions() << "]" << endl;
+	    //kDebug() << "    Mount-Options: [" << disk->mountOptions() << "]" ;
          if ( (disk->deviceName() != "none")
 	      && (disk->fsType() != "swap")
 	      && (disk->fsType() != "sysfs")
@@ -215,7 +215,7 @@ QFile f(FSTAB);
 
   loadSettings(); //to get the mountCommands
 
-  //  kDebug() << "DiskList::readFSTAB DONE" << endl;
+  //  kDebug() << "DiskList::readFSTAB DONE" ;
   return 1;
 }
 
@@ -225,7 +225,7 @@ QFile f(FSTAB);
 **/
 void DiskList::receivedDFStdErrOut(K3Process *, char *data, int len )
 {
-  kDebug() << k_funcinfo << endl;
+  kDebug() << k_funcinfo ;
 
 
   /* ATTENTION: StdERR no longer connected to this...
@@ -244,7 +244,7 @@ void DiskList::receivedDFStdErrOut(K3Process *, char *data, int len )
 **/
 int DiskList::readDF()
 {
-  kDebug() << k_funcinfo << endl;
+  kDebug() << k_funcinfo ;
 
   if (readingDFStdErrOut || dfProc->isRunning()) return -1;
   setenv("LANG", "en_US", 1);
@@ -266,7 +266,7 @@ int DiskList::readDF()
 **/
 void DiskList::dfDone()
 {
-  kDebug() << k_funcinfo << endl;
+  kDebug() << k_funcinfo ;
 
   if (updatesDisabled)
       return; //Don't touch the data for now..
@@ -292,44 +292,44 @@ void DiskList::dfDone()
             v=t.readLine();
             s=s.append(v );
             s=s.simplified();
-	    //kDebug() << "SPECIAL GOT: [" << s << "]" << endl;
+	    //kDebug() << "SPECIAL GOT: [" << s << "]" ;
 	 }//if silly linefeed
 
-      //kDebug() << "EFFECTIVELY GOT " << s.length() << " chars: [" << s << "]" << endl;
+      //kDebug() << "EFFECTIVELY GOT " << s.length() << " chars: [" << s << "]" ;
 
       disk->setDeviceName(s.left(s.indexOf(BLANK)) );
       s=s.remove(0,s.indexOf(BLANK)+1 );
-      //kDebug() << "    DeviceName:    [" << disk->deviceName() << "]" << endl;
+      //kDebug() << "    DeviceName:    [" << disk->deviceName() << "]" ;
 
       if (NO_FS_TYPE) {
-	//kDebug() << "THERE IS NO FS_TYPE_FIELD!" << endl;
+	//kDebug() << "THERE IS NO FS_TYPE_FIELD!" ;
          disk->setFsType("?");
       } else {
          disk->setFsType(s.left(s.indexOf(BLANK)) );
          s=s.remove(0,s.indexOf(BLANK)+1 );
       };
-      //kDebug() << "    FS-Type:       [" << disk->fsType() << "]" << endl;
-      //kDebug() << "    Icon:          [" << disk->iconName() << "]" << endl;
+      //kDebug() << "    FS-Type:       [" << disk->fsType() << "]" ;
+      //kDebug() << "    Icon:          [" << disk->iconName() << "]" ;
 
       u=s.left(s.indexOf(BLANK));
       disk->setKBSize(u.toInt() );
       s=s.remove(0,s.indexOf(BLANK)+1 );
-      //kDebug() << "    Size:       [" << disk->kBSize() << "]" << endl;
+      //kDebug() << "    Size:       [" << disk->kBSize() << "]" ;
 
       u=s.left(s.indexOf(BLANK));
       disk->setKBUsed(u.toInt() );
       s=s.remove(0,s.indexOf(BLANK)+1 );
-      //kDebug() << "    Used:       [" << disk->kBUsed() << "]" << endl;
+      //kDebug() << "    Used:       [" << disk->kBUsed() << "]" ;
 
       u=s.left(s.indexOf(BLANK));
       disk->setKBAvail(u.toInt() );
       s=s.remove(0,s.indexOf(BLANK)+1 );
-      //kDebug() << "    Avail:       [" << disk->kBAvail() << "]" << endl;
+      //kDebug() << "    Avail:       [" << disk->kBAvail() << "]" ;
 
 
       s=s.remove(0,s.indexOf(BLANK)+1 );  // delete the capacity 94%
       disk->setMountPoint(s);
-      //kDebug() << "    MountPoint:       [" << disk->mountPoint() << "]" << endl;
+      //kDebug() << "    MountPoint:       [" << disk->mountPoint() << "]" ;
 
       if ( (disk->kBSize() > 0)
 	   && (disk->deviceName() != "none")
@@ -355,13 +355,13 @@ void DiskList::dfDone()
 
 void DiskList::deleteAllMountedAt(const QString &mountpoint)
 {
-  kDebug() << k_funcinfo << endl;
+  kDebug() << k_funcinfo ;
 
 
     for ( DiskEntry *item  = disks->first(); item;  )
     {
         if (item->mountPoint() == mountpoint ) {
-            kDebug() << "delete " << item->deviceName() << endl;
+            kDebug() << "delete " << item->deviceName() ;
             disks->remove(item);
             item = disks->current();
         } else
@@ -374,7 +374,7 @@ void DiskList::deleteAllMountedAt(const QString &mountpoint)
 **/
 void DiskList::replaceDeviceEntry(DiskEntry *disk)
 {
-  //kDebug() << k_funcinfo << disk->deviceRealName() << " " << disk->realMountPoint() << endl;
+  //kDebug() << k_funcinfo << disk->deviceRealName() << " " << disk->realMountPoint() ;
 
   //
   // The 'disks' may already already contain the 'disk'. If it do
