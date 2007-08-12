@@ -250,10 +250,11 @@ void MntConfigWidget::clicked( Q3ListViewItem *item )
 }
 
 
-void MntConfigWidget::iconChangedButton(QString iconName)
+void MntConfigWidget::iconChangedButton(const QString &iconName)
 {
   iconChanged(iconName);
 }
+
 void MntConfigWidget::iconChanged(const QString &iconName)
 {
     int pos = iconName.lastIndexOf('_');

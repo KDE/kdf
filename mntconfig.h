@@ -75,7 +75,7 @@ class MntConfigWidget : public QWidget
     void clicked( Q3ListViewItem *item );
     void selectMntFile( void );
     void selectUmntFile( void );
-    void iconChangedButton(QString);
+    void iconChangedButton( const QString & );
     void iconChanged( const QString & );
     void mntCmdChanged( const QString & );
     void umntCmdChanged( const QString & );
