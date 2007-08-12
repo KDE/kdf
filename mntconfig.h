@@ -60,7 +60,7 @@ class MntConfigWidget : public QWidget
     };
 
   public:
-    MntConfigWidget( QWidget *parent=0, bool init=false );
+    explicit MntConfigWidget( QWidget *parent=0, bool init=false );
     ~MntConfigWidget();
 
   public slots:

@@ -30,8 +30,8 @@ class CListView : public K3ListView
   Q_OBJECT
 
   public:
-    CListView( QWidget *parent=0, const char *name=0, int visibleItem=10 );
-    
+    explicit CListView( QWidget *parent=0, const char *name=0, int visibleItem=10 );
+
     void setVisibleItem( int visibleItem, bool updateSize=true );
     virtual QSize sizeHint( void ) const; 
     const QPixmap &icon( const QString &iconName, bool drawBorder );

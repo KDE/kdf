@@ -270,11 +270,11 @@ QString DiskEntry::deviceRealName() const
  QString relPath = inf.fileName();
  if ( inf.isSymLink() ) {
   QString link = inf.readLink();
-  if ( link.startsWith( "/" ) )
+  if ( link.startsWith( '/' ) )
     return link;
   relPath = link;
  }
- return dir.canonicalPath() + "/" + relPath;
+ return dir.canonicalPath() + '/' + relPath;
 }
 
 void DiskEntry::setMountPoint(const QString & mountPoint)

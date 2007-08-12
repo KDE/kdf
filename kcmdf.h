@@ -35,7 +35,7 @@ class KDiskFreeWidget : public KCModule
   Q_OBJECT
   
   public:
-    KDiskFreeWidget( const KComponentData &inst, QWidget *parent = 0  );
+    explicit KDiskFreeWidget( const KComponentData &inst, QWidget *parent = 0  );
     ~KDiskFreeWidget();
 
     QString quickHelp() const;

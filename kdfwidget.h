@@ -111,7 +111,7 @@ class KDFWidget : public QWidget
     };
 
   public:
-    KDFWidget( QWidget *parent=0, bool init=false);
+    explicit KDFWidget( QWidget *parent=0, bool init=false);
     ~KDFWidget( );
 
   public slots:

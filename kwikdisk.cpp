@@ -256,7 +256,7 @@ void KwikDisk::toggleMount(int item)
          }
          else
          {
-            cmd += " " + KShell::quoteArg(disk->mountPoint()) +" &";
+            cmd += ' ' + KShell::quoteArg(disk->mountPoint()) +" &";
          }
          system( QFile::encodeName(cmd) );
       }
