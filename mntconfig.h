@@ -37,7 +37,7 @@
 
 class Q3GroupBox;
 class QPushButton;
-class QLineEdit;
+class KLineEdit;
 class KIconButton;
 
 class CListView;
@@ -85,10 +85,10 @@ class MntConfigWidget : public QWidget
 
   private:
     CListView   *mList;
-    Q3GroupBox   *mGroupBox;
-    QLineEdit   *mIconLineEdit;
-    QLineEdit   *mMountLineEdit;
-    QLineEdit   *mUmountLineEdit;
+    Q3GroupBox  *mGroupBox;
+    KLineEdit   *mIconLineEdit;
+    KLineEdit   *mMountLineEdit;
+    KLineEdit   *mUmountLineEdit;
     QPushButton *mMountButton;
     QPushButton *mUmountButton;
     KIconButton *mIconButton;

@@ -36,7 +36,7 @@
 class QCheckBox;
 class QLabel;
 class QLCDNumber;
-class QLineEdit;
+class KLineEdit;
 class Q3ListViewItem;
 class QScrollBar;
 
@@ -84,7 +84,7 @@ class KDFConfigWidget : public QWidget
     CListView  *mList;
     QScrollBar *mScroll;
     QLCDNumber *mLCD;
-    QLineEdit  *mFileManagerEdit;
+    KLineEdit  *mFileManagerEdit;
     QCheckBox  *mOpenMountCheck;
     QCheckBox  *mPopupFullCheck;
     CStdOption mStd;

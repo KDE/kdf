@@ -33,7 +33,7 @@
 #include <QLabel>
 #include <QLayout>
 #include <qlcdnumber.h>
-#include <QLineEdit>
+#include <KLineEdit>
 //Added by qt3to4:
 #include <QVBoxLayout>
 #include <QFrame>
@@ -130,7 +130,7 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, bool init)
     Q_CHECK_PTR(label);
     topLayout->addWidget( label );
 
-    mFileManagerEdit = new QLineEdit( this );
+    mFileManagerEdit = new KLineEdit( this );
     Q_CHECK_PTR(mFileManagerEdit);
     topLayout->addWidget( mFileManagerEdit );
     connect(mFileManagerEdit,SIGNAL(textChanged (const QString &)),this,SLOT(slotChanged()));

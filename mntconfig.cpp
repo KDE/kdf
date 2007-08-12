@@ -30,7 +30,7 @@
 #include <q3groupbox.h>
 #include <q3header.h>
 #include <QLayout>
-#include <QLineEdit>
+#include <KLineEdit>
 //Added by qt3to4:
 #include <QPixmap>
 #include <QVBoxLayout>
@@ -99,7 +99,7 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, bool init)
     gl->setSpacing( KDialog::spacingHint() );
     gl->addItem( new QSpacerItem( 0, fontMetrics().lineSpacing() ), 0, 0 );
 
-    mIconLineEdit = new QLineEdit(mGroupBox);
+    mIconLineEdit = new KLineEdit(mGroupBox);
     Q_CHECK_PTR(mIconLineEdit);
     mIconLineEdit->setMinimumWidth( fontMetrics().maxWidth()*10 );
     connect( mIconLineEdit, SIGNAL(textChanged(const QString&)),
@@ -121,7 +121,7 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, bool init)
     connect(mMountButton,SIGNAL(clicked()),this,SLOT(selectMntFile()));
     gl->addWidget( mMountButton, 1, 2 );
 
-    mMountLineEdit = new QLineEdit(mGroupBox);
+    mMountLineEdit = new KLineEdit(mGroupBox);
     Q_CHECK_PTR(mMountLineEdit);
     mMountLineEdit->setMinimumWidth( fontMetrics().maxWidth()*10 );
     connect(mMountLineEdit,SIGNAL(textChanged(const QString&)),
@@ -136,7 +136,7 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, bool init)
     connect(mUmountButton,SIGNAL(clicked()),this,SLOT(selectUmntFile()));
     gl->addWidget( mUmountButton, 2, 2 );
 
-    mUmountLineEdit=new QLineEdit(mGroupBox);
+    mUmountLineEdit=new KLineEdit(mGroupBox);
     Q_CHECK_PTR(mUmountLineEdit);
     mUmountLineEdit->setMinimumWidth( fontMetrics().maxWidth()*10 );
     connect(mUmountLineEdit,SIGNAL(textChanged(const QString&)),
