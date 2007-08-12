@@ -28,12 +28,12 @@
 COptionDialog::COptionDialog( QWidget *parent, const char *name, bool modal )
   :KPageDialog( parent )
 {
-    setCaption( i18n("Configure") );
-    setButtons( Help|Apply|Ok|Cancel );
-    setDefaultButton( Ok );
-    setFaceType( KPageDialog::Tabbed );
-    setModal( modal );
-  setHelp( "kcontrol/kdf/index.html", QString::null );
+  setCaption( i18n("Configure") );
+  setButtons( Help|Apply|Ok|Cancel );
+  setDefaultButton( Ok );
+  setFaceType( KPageDialog::Tabbed );
+  setModal( modal );
+  setHelp( "kcontrol/kdf/index.html", QString() );
 
   QFrame *f1 = new QFrame();
   addPage( f1, i18n("General Settings") );

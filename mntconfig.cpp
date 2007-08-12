@@ -171,7 +171,7 @@ void MntConfigWidget::readDFDone( void )
   Q3ListViewItem *item = 0;
   for( DiskEntry *disk=mDiskList.first(); disk!=0; disk=mDiskList.next(),++i )
   {
-     item = new Q3ListViewItem( mList, item, QString::null, disk->deviceName(),
+     item = new Q3ListViewItem( mList, item, QString(), disk->deviceName(),
       disk->mountPoint(), disk->mountCommand(), disk->umountCommand() );
      item->setPixmap( ICONCOL, SmallIcon( disk->iconName() ) );
      mDiskLookup[i] = item;
