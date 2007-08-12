@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 
-X-KDE-Library=kdf
+X-KDE-Library=kcm_kdf
 X-KDE-ParentApp=kcontrol
 
 X-KDE-FactoryName=kdf
