@@ -27,6 +27,8 @@
 // Converted to QLayout and QListView + cleanups
 //
 
+#include "mntconfig.h"
+
 #include <q3groupbox.h>
 #include <q3header.h>
 #include <QLayout>
@@ -46,7 +48,6 @@
 #include <kglobal.h>
 
 #include "listview.h"
-#include "mntconfig.h"
 
 #ifndef KDE_USE_FINAL
 static bool GUI;

@@ -21,13 +21,14 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#include "disks.h"
+
 #include <qfileinfo.h>
 #include <QDir>
 
 #include <kglobal.h>
 #include <kdebug.h>
 
-#include "disks.h"
 #include "disks.moc"
 
 /****************************************************/

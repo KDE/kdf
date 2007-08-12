@@ -24,6 +24,7 @@
 // 2) Provide a pixmap collection
 //
 
+#include "listview.h"
 #include <qbitmap.h>
 #include <q3header.h>
 #include <qpainter.h>
@@ -31,8 +32,6 @@
 #include <QPixmap>
 
 #include <kiconloader.h>
-
-#include "listview.h"
 
 template class Q3Dict<QPixmap>;
 

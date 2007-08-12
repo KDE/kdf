@@ -17,13 +17,14 @@
  *
  */
 
+#include "optiondialog.h"
+
 #include <QLayout>
 //Added by qt3to4:
 #include <QVBoxLayout>
 
 #include "kdfconfig.h"
 #include "mntconfig.h"
-#include "optiondialog.h"
 
 COptionDialog::COptionDialog( QWidget *parent, const char *name, bool modal )
   :KPageDialog( parent )

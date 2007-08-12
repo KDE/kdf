@@ -27,6 +27,7 @@
 // Converted to QLayout and QListView + cleanups
 //
 
+#include "kdfconfig.h"
 
 #include <QCheckBox>
 #include <q3header.h>
@@ -48,7 +49,6 @@
 #include <kglobal.h>
 
 #include "listview.h"
-#include "kdfconfig.h"
 
 #ifndef GUI_DEFINED
 static bool GUI;

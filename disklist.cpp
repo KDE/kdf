@@ -21,11 +21,12 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#include "disklist.h"
+
 #include <math.h>
 #include <stdlib.h>
 #include <kdebug.h>
 
-#include "disklist.h"
 #include <QTextStream>
 #include <kglobal.h>
 #include <kdefakes.h>

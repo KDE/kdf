@@ -26,11 +26,11 @@
 */
 
 
+#include "stdoption.h"
+
 #include <kapplication.h>
 #include <kconfig.h>
 #include <kglobal.h>
-
-#include "stdoption.h"
 
 QString CStdOption::mDefaultFileManager = "kfmclient openURL %m";
 int CStdOption::mDefaultUpdateFrequency = 60;

@@ -19,6 +19,7 @@
  *
  */
 
+#include "kdf.h"
 #include <kapplication.h>
 #include <kstandardshortcut.h>
 #include <kcmdlineargs.h>
@@ -26,7 +27,6 @@
 #include <kstandardaction.h>
 #include <kaction.h>
 #include <kxmlguifactory.h>
-#include "kdf.h"
 #include <kmenu.h>
 #include <kactioncollection.h>
 

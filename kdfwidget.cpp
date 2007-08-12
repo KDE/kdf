@@ -28,6 +28,7 @@
 // Usage bars should work again.
 //
 
+#include "kdfwidget.h"
 #include <stdlib.h>
 
 #include <q3header.h>
@@ -49,7 +50,6 @@
 #include <kglobal.h>
 #include <kshell.h>
 #include "listview.h"
-#include "kdfwidget.h"
 #include "optiondialog.h"
 
 
