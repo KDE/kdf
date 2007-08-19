@@ -54,7 +54,7 @@ KDiskFreeWidget::~KDiskFreeWidget()
 
 QString KDiskFreeWidget::quickHelp() const
 {
-    return i18n("<h3>Hardware Information</h3><br> All the information modules return information"
+    return i18n("<h3>Hardware Information</h3><br /> All the information modules return information"
     " about a certain aspect of your computer hardware or your operating system."
     " Not all modules are available on all hardware architectures and/or operating systems.");
 }

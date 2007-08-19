@@ -62,7 +62,7 @@ class KDFConfigWidget : public QWidget
   };
 
   public:
-    KDFConfigWidget( QWidget *parent=0, bool init=false);
+    explicit KDFConfigWidget( QWidget *parent=0, bool init=false);
     ~KDFConfigWidget();
 
   public slots:
