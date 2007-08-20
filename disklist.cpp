@@ -41,7 +41,7 @@
 DiskList::DiskList(QObject *parent)
     : QObject(parent)
 {
-   kDebug() << k_funcinfo ;
+   kDebug() ;
 
    updatesDisabled = false;
 
@@ -70,7 +70,7 @@ DiskList::DiskList(QObject *parent)
 **/
 DiskList::~DiskList()
 {
-   kDebug() << k_funcinfo ;
+   kDebug() ;
 }
 
 /**
@@ -86,7 +86,7 @@ void DiskList::setUpdatesDisabled(bool disable)
 **/
 void DiskList::applySettings()
 {
-  kDebug() << k_funcinfo ;
+  kDebug() ;
 
   KConfigGroup group(config, "DiskList");
   QString key;
@@ -110,7 +110,7 @@ void DiskList::applySettings()
 **/
 void DiskList::loadSettings()
 {
-  kDebug() << k_funcinfo ;
+  kDebug() ;
 
   const KConfigGroup group(config, "DiskList");
   QString key;
@@ -161,7 +161,7 @@ return rc;
 **/
 int DiskList::readFSTAB()
 {
-  kDebug() << k_funcinfo ;
+  kDebug() ;
 
   if (readingDFStdErrOut || dfProc->isRunning()) return -1;
 
@@ -226,7 +226,7 @@ QFile f(FSTAB);
 **/
 void DiskList::receivedDFStdErrOut(K3Process *, char *data, int len )
 {
-  kDebug() << k_funcinfo ;
+  kDebug() ;
 
 
   /* ATTENTION: StdERR no longer connected to this...
@@ -245,7 +245,7 @@ void DiskList::receivedDFStdErrOut(K3Process *, char *data, int len )
 **/
 int DiskList::readDF()
 {
-  kDebug() << k_funcinfo ;
+  kDebug() ;
 
   if (readingDFStdErrOut || dfProc->isRunning()) return -1;
   setenv("LANG", "en_US", 1);
@@ -267,7 +267,7 @@ int DiskList::readDF()
 **/
 void DiskList::dfDone()
 {
-  kDebug() << k_funcinfo ;
+  kDebug() ;
 
   if (updatesDisabled)
       return; //Don't touch the data for now..
@@ -356,7 +356,7 @@ void DiskList::dfDone()
 
 void DiskList::deleteAllMountedAt(const QString &mountpoint)
 {
-  kDebug() << k_funcinfo ;
+  kDebug() ;
 
 
     for ( DiskEntry *item  = disks->first(); item;  )
@@ -375,7 +375,7 @@ void DiskList::deleteAllMountedAt(const QString &mountpoint)
 **/
 void DiskList::replaceDeviceEntry(DiskEntry *disk)
 {
-  //kDebug() << k_funcinfo << disk->deviceRealName() << " " << disk->realMountPoint() ;
+  //kDebug() << disk->deviceRealName() << " " << disk->realMountPoint() ;
 
   //
   // The 'disks' may already already contain the 'disk'. If it do

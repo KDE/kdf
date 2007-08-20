@@ -65,7 +65,7 @@ KwikDisk::KwikDisk()
    , m_inside(false)
    , m_optionDialog(0)
 {
-   kDebug() << k_funcinfo ;
+   kDebug() ;
 
    setIcon(KSystemTrayIcon::loadIcon("kdf"));
    show();
@@ -84,19 +84,19 @@ KwikDisk::KwikDisk()
 
 void KwikDisk::enterEvent(QEvent *)
 {
-   kDebug() << k_funcinfo ;
+   kDebug() ;
    m_inside = true;
 }
 
 void KwikDisk::leaveEvent(QEvent *)
 {
-   kDebug() << k_funcinfo ;
+   kDebug() ;
    m_inside = false;
 }
 
 void KwikDisk::slotActivated(QSystemTrayIcon::ActivationReason reason)
 {
-   kDebug() << k_funcinfo ;
+   kDebug() ;
 
    if( m_dirty )
       updateDF();
@@ -105,7 +105,7 @@ void KwikDisk::slotActivated(QSystemTrayIcon::ActivationReason reason)
 
 void KwikDisk::loadSettings()
 {
-   kDebug() << k_funcinfo ;
+   kDebug() ;
 
    m_options.updateConfiguration();
    setUpdateFrequency( m_options.updateFrequency() );
@@ -113,7 +113,7 @@ void KwikDisk::loadSettings()
 
 void KwikDisk::setUpdateFrequency(int frequency)
 {
-   kDebug() << k_funcinfo ;
+   kDebug() ;
 
    //
    // Kill current timer and restart it if the frequency is
@@ -133,13 +133,13 @@ void KwikDisk::setUpdateFrequency(int frequency)
  */
 void KwikDisk::timerEvent(QTimerEvent *)
 {
-   kDebug() << k_funcinfo ;
+   kDebug() ;
    m_dirty = true;
 }
 
 void KwikDisk::updateDF()
 {
-   kDebug() << k_funcinfo ;
+   kDebug() ;
 
    m_readingDF = true;
    m_diskList.readFSTAB();
@@ -148,7 +148,7 @@ void KwikDisk::updateDF()
 
 void KwikDisk::updateDFDone()
 {
-   kDebug() << k_funcinfo ;
+   kDebug() ;
 
    m_readingDF = false;
    m_dirty     = false;
@@ -230,7 +230,7 @@ void KwikDisk::updateDFDone()
 
 void KwikDisk::toggleMount(int item)
 {
-   kDebug() << k_funcinfo ;
+   kDebug() ;
 
    DiskEntry *disk = m_diskList.at(item);
    if( disk == 0 )
@@ -266,7 +266,7 @@ void KwikDisk::toggleMount(int item)
 
 void KwikDisk::criticallyFull(DiskEntry *disk)
 {
-   kDebug() << k_funcinfo ;
+   kDebug() ;
 
    if( m_options.popupIfFull() == true )
    {
@@ -290,7 +290,7 @@ void KwikDisk::changeSettings()
 
 void KwikDisk::startKDF()
 {
-   kDebug() << k_funcinfo ;
+   kDebug() ;
 
    KRun::runCommand("kdf",NULL);
 }
