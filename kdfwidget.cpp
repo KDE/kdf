@@ -208,9 +208,9 @@ void KDFWidget::settingsChanged( void )
 **/
 void KDFWidget::applySettings( void )
 {
-  KConfig &config = *KGlobal::config();
+  KConfig m_config;
+  KConfigGroup config( &m_config, "KDiskFree" );
 
-  config.setGroup("KDiskFree");
   if( GUI )
   {
     for( uint i=0; i<mTabProp.size(); i++ )
