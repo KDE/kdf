@@ -22,7 +22,7 @@
 */
 
 /*
-** Bug reports and questions can be sent to kde-devel@kde.org
+** Bug reports and questions can be sent to <kde-devel@kde.org>
 */
 
 /* compile with

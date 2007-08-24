@@ -22,8 +22,9 @@
 */
 
 /*
-** Bug reports and questions can be sent to kde-devel@kde.org
+** Bug reports and questions can be sent to <kde-devel@kde.org>
 */
+
 #ifndef _STD_OPTION_H_
 #define _STD_OPTION_H_
 

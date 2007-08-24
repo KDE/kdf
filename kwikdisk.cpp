@@ -161,7 +161,7 @@ void KwikDisk::updateDFDone()
    {
       // FIXME: tool tips are unused atm
       QString toolTipText = i18n("%1 (%2) %3 on %4",
-           disk->mounted() ? i18n("Unmount") : i18n("Mount"),
+           disk->mounted() ? i18nc("Unmount the storage device", "Unmount") : i18nc("Mount the storage device", "Mount"),
           disk->fsType(), disk->deviceName(), disk->mountPoint());
 
       QString entryName = disk->mountPoint();
@@ -272,7 +272,7 @@ void KwikDisk::criticallyFull(DiskEntry *disk)
    {
       QString msg = i18n("Device [%1] on [%2] is critically full.",
                      disk->deviceName(), disk->mountPoint());
-      KMessageBox::sorry( 0, msg, i18n("Warning"));
+      KMessageBox::sorry( 0, msg, i18nc("Device is getting critically full", "Warning"));
    }
 }
 

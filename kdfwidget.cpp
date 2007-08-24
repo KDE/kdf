@@ -107,15 +107,15 @@ KDFWidget::KDFWidget( QWidget *parent, bool init )
            this, SLOT (criticallyFull(DiskEntry*)) );
 
   mTabProp.resize(8);
-  mTabProp[0] = new CTabEntry( "Icon", i18n("Icon"), true, 32);
-  mTabProp[1] = new CTabEntry( "Device", i18n("Device"), true, 80);
-  mTabProp[2] = new CTabEntry( "Type", i18n("Type"), true, 50);
-  mTabProp[3] = new CTabEntry( "Size", i18n("Size"), true, 72);
-  mTabProp[4] = new CTabEntry( "MountPoint", i18n("Mount Point"), true, 90 );
-  mTabProp[5] = new CTabEntry( "Free", i18n("Free"), true, 55);
+  mTabProp[0] = new CTabEntry( "Icon", i18nc("Storage device icon", "Icon"), true, 32);
+  mTabProp[1] = new CTabEntry( "Device", i18nc("Device of the storage", "Device"), true, 80);
+  mTabProp[2] = new CTabEntry( "Type", i18nc("Filesystem on storage", "Type"), true, 50);
+  mTabProp[3] = new CTabEntry( "Size", i18nc("Total size of the storage", "Size"), true, 72);
+  mTabProp[4] = new CTabEntry( "MountPoint", i18nc("Mount point of storage", "Mount Point"), true, 90 );
+  mTabProp[5] = new CTabEntry( "Free", i18nc("Free space in storage", "Free"), true, 55);
   // xgettext:no-c-format
-  mTabProp[6] = new CTabEntry( "Full%", i18n("Full %"), true, 70);
-  mTabProp[7] = new CTabEntry( "UsageBar", i18n("Usage"), true, 100);
+  mTabProp[6] = new CTabEntry( "Full%", i18nc("Used storage space in %", "Full %"), true, 70);
+  mTabProp[7] = new CTabEntry( "UsageBar", i18nc("Usage graphical bar", "Usage"), true, 100);
 
   GUI = !init;
   if( GUI )
@@ -382,7 +382,7 @@ void KDFWidget::criticallyFull( DiskEntry *disk )
   {
     QString msg = i18n("Device [%1] on [%2] is critically full.",
       disk->deviceName(), disk->mountPoint());
-    KMessageBox::sorry( this, msg, i18n("Warning"));
+    KMessageBox::sorry( this, msg, i18nc("Warning device getting critically full", "Warning"));
   }
 }
 

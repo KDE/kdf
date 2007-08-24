@@ -86,9 +86,9 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, bool init)
 
     text = QString("%1: %2  %3: %4").
       arg(mList->header()->label(DEVCOL)).
-      arg(i18n("None")).
+      arg(i18nc("No device is selected", "None")).
       arg(mList->header()->label(MNTPNTCOL)).
-      arg(i18n("None"));
+      arg(i18nc("No mount point is selected", "None"));
     mGroupBox = new Q3GroupBox( text, this );
     Q_CHECK_PTR(mGroupBox);
     mGroupBox->setEnabled( false );

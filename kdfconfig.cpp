@@ -60,15 +60,15 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, bool init)
 {
 
   mTabName.resize(8);
-  mTabName[0] = new CTabName( "Icon", i18n("Icon") );
-  mTabName[1] = new CTabName( "Device", i18n("Device") );
-  mTabName[2] = new CTabName( "Type", i18n("Type") );
-  mTabName[3] = new CTabName( "Size", i18n("Size") );
-  mTabName[4] = new CTabName( "MountPoint", i18n("Mount Point") );
-  mTabName[5] = new CTabName( "Free", i18n("Free") );
+  mTabName[0] = new CTabName( "Icon", i18nc("Storage device icon", "Icon") );
+  mTabName[1] = new CTabName( "Device", i18nc("Device of the storage", "Device") );
+  mTabName[2] = new CTabName( "Type", i18nc("Filesystem on storage", "Type") );
+  mTabName[3] = new CTabName( "Size", i18nc("Total size of the storage", "Size") );
+  mTabName[4] = new CTabName( "MountPoint", i18nc("Mount point of the storage", "Mount Point") );
+  mTabName[5] = new CTabName( "Free", i18nc("Free space in storage", "Free") );
   // xgettext:no-c-format
-  mTabName[6] = new CTabName( "Full%", i18n("Full %") );
-  mTabName[7] = new CTabName( "UsageBar", i18n("Usage") );
+  mTabName[6] = new CTabName( "Full%", i18nc("Used storage space in %", "Full %") );
+  mTabName[7] = new CTabName( "UsageBar", i18nc("Usage graphical bar", "Usage") );
 
   GUI = !init;
   if(GUI)
@@ -95,7 +95,7 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, bool init)
     Q3ListViewItem *mListItem = new Q3ListViewItem( mList );
     for( uint i=mList->header()->count(); i>0; i-- )
     {
-     mListItem->setText(i-1, i18n("visible") );
+     mListItem->setText( i-1, i18nc("Visible items on device information columns (enable|disable)", "visible") );
      mListItem->setPixmap( i-1, UserIcon ( "tick" ) );
     }
     mList->setSelected( mListItem, true );
@@ -188,7 +188,7 @@ void KDFConfigWidget::applySettings( void )
     {
       for( int i=mList->header()->count(); i>0; i-- )
       {
-	bool state = item->text(i-1) == i18n("visible") ? true : false;
+	bool state = item->text(i-1) == i18nc("Visible items on device information columns (enable|disable)", "visible") ? true : false;
 	config.writeEntry( mTabName[i-1]->mRes, state );
       }
     }
@@ -220,7 +220,7 @@ void KDFConfigWidget::loadSettings( void )
       for( int i=mList->header()->count(); i>0; i-- )
       {
 	int j = config.readEntry( mTabName[i-1]->mRes, 1 );
-	item->setText( i-1, j==0 ? i18n("hidden") : i18n("visible") );
+	item->setText( i-1, j==0 ? i18nc("Are items on device information columns hidden?", "hidden") : i18nc("Are items on device information columns visible?", "visible") );
      	item->setPixmap( i-1, j==0 ? UserIcon ( "delete" )
                                    : UserIcon ( "tick" ) );
       }
@@ -243,7 +243,7 @@ void KDFConfigWidget::defaultsBtnClicked( void )
   {
     for( int i=mList->header()->count(); i>0; i-- )
     {
-        item->setText( i-1, i18n("visible") );
+        item->setText( i-1, i18nc("Item on the device information column is visible", "visible") );
      	item->setPixmap( i-1, UserIcon ( "tick" ) );
 
     }
@@ -256,8 +256,8 @@ void KDFConfigWidget::toggleListText( Q3ListViewItem *item, const QPoint &,
 {
   if (!item) return;
   QString text = item->text( column );
-  item->setText(column, text==i18n("visible")?i18n("hidden"):i18n("visible"));
-  item->setPixmap( column, text==i18n("visible") ?  UserIcon ( "delete" )
+  item->setText(column, text==i18nc("Device information item is visible", "visible")?i18nc("Device information item is hidden", "hidden"):i18nc("Device information item is visible", "visible"));
+  item->setPixmap( column, text==i18nc("Device information item is visible", "visible") ?  UserIcon ( "delete" )
                                    : UserIcon ( "tick" ) );
 }
 
