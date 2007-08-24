@@ -41,13 +41,4 @@ class CListView : public K3ListView
     Q3Dict<QPixmap> mPixDict;
 };
 
-
-
-
 #endif
-
-
-
-
-
-

@@ -24,7 +24,7 @@
 #ifndef __KDFWIDGET_H__
 #define __KDFWIDGET_H__
 
-#include <Qt3Support/Q3MemArray>
+#include <QtCore/QVector>
 #include <QtCore/qglobal.h>
 
 #include <Qt3Support/Q3ListView>
@@ -141,7 +141,7 @@ class KDFWidget : public QWidget
 
   private:
     bool readingDF;
-    Q3MemArray<CTabEntry*> mTabProp;
+    QVector<CTabEntry*> mTabProp;
     CListView     *mList;
     COptionDialog *mOptionDialog;
     KMenu    *mPopup;
@@ -150,6 +150,5 @@ class KDFWidget : public QWidget
     bool       mIsTopLevel;
     CStdOption mStd;
 };
-
 
 #endif

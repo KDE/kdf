@@ -21,7 +21,6 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-
 #ifndef __MNTCONFIG_H__
 #define __MNTCONFIG_H__
 
@@ -31,9 +30,8 @@
 
 #include "disks.h"
 #include "disklist.h"
-//Added by qt3to4:
 #include <QtGui/QCloseEvent>
-#include <Qt3Support/Q3MemArray>
+#include <QtCore/QVector>
 
 class Q3GroupBox;
 class QPushButton;
@@ -94,11 +92,10 @@ class MntConfigWidget : public QWidget
     KIconButton *mIconButton;
     DiskList    mDiskList;
     bool        mInitializing;
-    Q3MemArray<Q3ListViewItem*> mDiskLookup;
+    QVector<Q3ListViewItem*> mDiskLookup;
 
   signals:
     void configChanged();
 };
-
 
 #endif

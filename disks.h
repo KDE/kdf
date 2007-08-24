@@ -28,7 +28,7 @@
 
 #include <QtGui/QLabel>
 #include <QtGui/QPushButton>
-#include <Qt3Support/Q3ProgressBar>
+#include <QtGui/QProgressBar>
 #include <QtCore/QFile>
 
 #include <kio/global.h>

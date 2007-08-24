@@ -21,13 +21,10 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-
 #ifndef __KDFCONFIG_H__
 #define __KDFCONFIG_H__
 
-#include <Qt3Support/Q3MemArray>
-
-//Added by qt3to4:
+#include <QtCore/QVector>
 #include <QtGui/QLabel>
 #include <QtGui/QCloseEvent>
 
@@ -80,7 +77,7 @@ class KDFConfigWidget : public QWidget
     void closeEvent( QCloseEvent * );
 
   private:
-    Q3MemArray<CTabName*> mTabName;
+    QVector<CTabName*> mTabName;
     CListView  *mList;
     QScrollBar *mScroll;
     QLCDNumber *mLCD;
@@ -93,8 +90,4 @@ class KDFConfigWidget : public QWidget
     void configChanged();
 };
 
-
 #endif
-
-
-
