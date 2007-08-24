@@ -118,7 +118,7 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, bool init)
     mLCD->setNumDigits( 3 );
     mLCD->setSegmentStyle(QLCDNumber::Filled);
     connect(mScroll,SIGNAL(valueChanged(int)),mLCD,SLOT(display(int)));
-    gl->addWidget( mLCD, 0, 0, 1, 0 );
+    gl->addWidget( mLCD, 0, 0, 1, 1 );
 
     text = i18n("Update frequency [seconds]. The value 0 disables update" );
     QLabel *label = new QLabel( text, this );
