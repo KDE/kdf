@@ -21,7 +21,6 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-
 #ifndef __DISKLIST_H__
 #define __DISKLIST_H__
 
@@ -31,9 +30,9 @@
 //#include <kcontrol.h>
 
 // defines the os-type
-#include <qglobal.h>
+#include <QtCore/qglobal.h>
 //Added by qt3to4:
-#include <Q3PtrList>
+#include <Qt3Support/Q3PtrList>
 
 #include "disks.h"
 

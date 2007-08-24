@@ -27,7 +27,7 @@
 #include <stdlib.h>
 #include <kdebug.h>
 
-#include <QTextStream>
+#include <QtCore/QTextStream>
 #include <kglobal.h>
 #include <kdefakes.h>
 

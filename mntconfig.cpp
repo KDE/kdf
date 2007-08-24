@@ -21,7 +21,6 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-
 //
 // 1999-11-29 Espen Sand
 // Converted to QLayout and QListView + cleanups
@@ -29,16 +28,16 @@
 
 #include "mntconfig.h"
 
-#include <q3groupbox.h>
-#include <q3header.h>
-#include <QLayout>
+#include <Qt3Support/Q3GroupBox>
+#include <Qt3Support/Q3Header>
+#include <QtGui/QLayout>
 #include <KLineEdit>
 //Added by qt3to4:
-#include <QPixmap>
-#include <QVBoxLayout>
-#include <QFrame>
-#include <QGridLayout>
-#include <QCloseEvent>
+#include <QtGui/QPixmap>
+#include <QtGui/QVBoxLayout>
+#include <QtGui/QFrame>
+#include <QtGui/QGridLayout>
+#include <QtGui/QCloseEvent>
 
 #undef Unsorted
 
@@ -52,7 +51,6 @@
 #ifndef KDE_USE_FINAL
 static bool GUI;
 #endif
-
 
 MntConfigWidget::MntConfigWidget(QWidget *parent, bool init)
   : QWidget(parent)

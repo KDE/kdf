@@ -28,7 +28,7 @@
 #include "mntconfig.h"
 
 #include <kcmodule.h>
-#include <qtabwidget.h>
+#include <QtGui/QTabWidget>
 
 class KDiskFreeWidget : public KCModule
 {

@@ -31,18 +31,18 @@
 #include "kdfwidget.h"
 #include <stdlib.h>
 
-#include <q3header.h>
-#include <QTimer>
-#include <QLayout>
-#include <qpainter.h>
+#include <Qt3Support/Q3Header>
+#include <QtCore/QTimer>
+#include <QtGui/QLayout>
+#include <QtGui/QPainter>
 //Added by qt3to4:
-#include <QPixmap>
-#include <QTimerEvent>
-#include <QVBoxLayout>
-#include <QFrame>
-#include <QResizeEvent>
-#include <QCloseEvent>
-#include <QAbstractEventDispatcher>
+#include <QtGui/QPixmap>
+#include <QtCore/QTimerEvent>
+#include <QtGui/QVBoxLayout>
+#include <QtGui/QFrame>
+#include <QtGui/QResizeEvent>
+#include <QtGui/QCloseEvent>
+#include <QtCore/QAbstractEventDispatcher>
 #include <kapplication.h>
 #include <kmessagebox.h>
 #include <kmenu.h>
@@ -51,7 +51,6 @@
 #include <kshell.h>
 #include "listview.h"
 #include "optiondialog.h"
-
 
 #define BAR_COLUMN   7
 #define FULL_PERCENT 95.0
@@ -137,7 +136,7 @@ KDFWidget::KDFWidget( QWidget *parent, bool init )
       this, SLOT(columnSizeChanged(int, int, int)) );
     makeColumns();
 
-    mIsTopLevel = QString(parent->className()) == "KDFTopLevel" ? true : false;
+    mIsTopLevel = QString(parent->metaObject()->className()) == "KDFTopLevel" ? true : false;
   }
 
   loadSettings();

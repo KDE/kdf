@@ -32,8 +32,8 @@
 #include "disks.h"
 #include "disklist.h"
 //Added by qt3to4:
-#include <QCloseEvent>
-#include <Q3MemArray>
+#include <QtGui/QCloseEvent>
+#include <Qt3Support/Q3MemArray>
 
 class Q3GroupBox;
 class QPushButton;

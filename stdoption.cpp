@@ -25,7 +25,6 @@
 ** Bug reports and questions can be sent to kde-devel@kde.org
 */
 
-
 #include "stdoption.h"
 
 #include <kapplication.h>

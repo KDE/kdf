@@ -29,9 +29,9 @@
 
 #include <kdialog.h>
 
-#include <QLayout>
+#include <QtGui/QLayout>
 //Added by qt3to4:
-#include <QVBoxLayout>
+#include <QtGui/QVBoxLayout>
 #include <kcomponentdata.h>
 
 KDiskFreeWidget::KDiskFreeWidget( const KComponentData &inst, QWidget *parent )

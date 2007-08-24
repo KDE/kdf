@@ -21,16 +21,15 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-
 #ifndef __DISKS_H__
 #define __DISKS_H__
 
-#include <QObject>
+#include <QtCore/QObject>
 
-#include <QLabel>
-#include <QPushButton>
-#include <q3progressbar.h>
-#include <QFile>
+#include <QtGui/QLabel>
+#include <QtGui/QPushButton>
+#include <Qt3Support/Q3ProgressBar>
+#include <QtCore/QFile>
 
 #include <kio/global.h>
 #include <k3process.h>

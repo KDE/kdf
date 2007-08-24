@@ -20,8 +20,8 @@
 #ifndef _LISTVIEW_H_
 #define _LISTVIEW_H_
 
-#include <q3dict.h>
-#include <qpixmap.h>
+#include <Qt3Support/Q3Dict>
+#include <QtGui/QPixmap>
 
 #include <k3listview.h>
 

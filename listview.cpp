@@ -25,11 +25,11 @@
 //
 
 #include "listview.h"
-#include <qbitmap.h>
-#include <q3header.h>
-#include <qpainter.h>
+#include <QtGui/QBitmap>
+#include <Qt3Support/Q3Header>
+#include <QtGui/QPainter>
 //Added by qt3to4:
-#include <QPixmap>
+#include <QtGui/QPixmap>
 
 #include <kiconloader.h>
 

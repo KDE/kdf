@@ -23,8 +23,8 @@
 
 #include "disks.h"
 
-#include <qfileinfo.h>
-#include <QDir>
+#include <QtCore/QFileInfo>
+#include <QtCore/QDir>
 
 #include <kglobal.h>
 #include <kdebug.h>

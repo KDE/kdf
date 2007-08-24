@@ -19,9 +19,9 @@
 
 #include "optiondialog.h"
 
-#include <QLayout>
+#include <QtGui/QLayout>
 //Added by qt3to4:
-#include <QVBoxLayout>
+#include <QtGui/QVBoxLayout>
 
 #include "kdfconfig.h"
 #include "mntconfig.h"

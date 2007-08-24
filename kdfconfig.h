@@ -25,11 +25,11 @@
 #ifndef __KDFCONFIG_H__
 #define __KDFCONFIG_H__
 
-#include <q3memarray.h>
+#include <Qt3Support/Q3MemArray>
 
 //Added by qt3to4:
-#include <QLabel>
-#include <QCloseEvent>
+#include <QtGui/QLabel>
+#include <QtGui/QCloseEvent>
 
 #include "stdoption.h"
 

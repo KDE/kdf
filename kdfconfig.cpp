@@ -21,7 +21,6 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-
 //
 // 1999-11-29 Espen Sand
 // Converted to QLayout and QListView + cleanups
@@ -29,17 +28,17 @@
 
 #include "kdfconfig.h"
 
-#include <QCheckBox>
-#include <q3header.h>
-#include <QLabel>
-#include <QLayout>
-#include <qlcdnumber.h>
+#include <QtGui/QCheckBox>
+#include <Qt3Support/Q3Header>
+#include <QtGui/QLabel>
+#include <QtGui/QLayout>
+#include <QtGui/QLCDNumber>
 #include <KLineEdit>
 //Added by qt3to4:
-#include <QVBoxLayout>
-#include <QFrame>
-#include <QGridLayout>
-#include <QCloseEvent>
+#include <QtGui/QVBoxLayout>
+#include <QtGui/QFrame>
+#include <QtGui/QGridLayout>
+#include <QtGui/QCloseEvent>
 
 #include <kapplication.h>
 #include <kconfig.h>
@@ -103,12 +102,13 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, bool init)
 
     QGridLayout *gl = new QGridLayout( );
     topLayout->addLayout( gl );
-    gl->setColStretch( 1, 10 );
+    gl->setColumnStretch( 1, 10 );
 
     mScroll = new QScrollBar( this );
     Q_CHECK_PTR(mScroll);
     mScroll->setOrientation( Qt::Horizontal );
-    mScroll->setSteps(1,20);
+    mScroll->setSingleStep(1);
+    mScroll->setPageStep(20);
     mScroll->setRange(0, 180 );
     gl->addWidget( mScroll, 1, 1 );
     connect(mScroll,SIGNAL(valueChanged(int)),this,SLOT(slotChanged()));
@@ -118,7 +118,7 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, bool init)
     mLCD->setNumDigits( 3 );
     mLCD->setSegmentStyle(QLCDNumber::Filled);
     connect(mScroll,SIGNAL(valueChanged(int)),mLCD,SLOT(display(int)));
-    gl->addMultiCellWidget( mLCD, 0, 1, 0, 0 );
+    gl->addWidget( mLCD, 0, 0, 1, 0 );
 
     text = i18n("Update frequency [seconds]. The value 0 disables update" );
     QLabel *label = new QLabel( text, this );

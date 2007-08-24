@@ -31,15 +31,15 @@
 
 #include <stdlib.h>
 
-#include <qpen.h>
-#include <qbitmap.h>
-#include <qpainter.h>
+#include <QtGui/QPen>
+#include <QtGui/QBitmap>
+#include <QtGui/QPainter>
 //Added by qt3to4:
-#include <QMouseEvent>
-#include <QPixmap>
-#include <QTimerEvent>
-#include <QEvent>
-#include <QAbstractEventDispatcher>
+#include <QtGui/QMouseEvent>
+#include <QtGui/QPixmap>
+#include <QtGui/QTimerEvent>
+#include <QtGui/QEvent>
+#include <QtCore/QAbstractEventDispatcher>
 #include <kxmlguiwindow.h>
 #include <klocale.h>
 #include <kapplication.h>

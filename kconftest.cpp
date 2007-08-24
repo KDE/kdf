@@ -25,15 +25,13 @@
 ** Bug reports and questions can be sent to kde-devel@kde.org
 */
 
-
 /* compile with
 * gcc  -I$QTDIR/include -I$KDEDIR/include   -L/opt/kde/lib -L/usr/X11R6/lib -lkfm -lkdeui -lkdecore -lqt -lX11 -lXext -fno-rtti kconftest.cpp                
 */
 
-
 #include <iostream>
 
-#include <q3dict.h>
+#include <Qt3Support/Q3Dict>
 #include <kconfig.h>
 #include <kdebug.h>
 #include <kapplication.h>
