@@ -170,10 +170,10 @@ void KDFWidget::makeColumns( void )
     mList->header()->removeLabel( 0 );
     mList->header()->update();
   }
-  for( i=0; i<mTabProp.size(); mList->removeColumn(i++) );
+  for( int i=0; i<mTabProp.size(); mList->removeColumn(i++) );
   mList->clear();
 
-  for( i=0; i<mTabProp.size(); i++ )
+  for( int i=0; i<mTabProp.size(); i++ )
   {
     CTabEntry &e = *mTabProp[i];
     if( e.mVisible == true )
@@ -212,7 +212,7 @@ void KDFWidget::applySettings( void )
 
   if( GUI )
   {
-    for( uint i=0; i<mTabProp.size(); i++ )
+    for( int i=0; i<mTabProp.size(); i++ )
     {
       CTabEntry &e = *mTabProp[i];
       if( e.mVisible == true )
@@ -237,7 +237,7 @@ void KDFWidget::loadSettings( void )
   if(GUI)
   {
     KConfigGroup config(KGlobal::config(), "KDiskFree");
-    for( uint i=0; i<mTabProp.size(); i++ )
+    for( int i=0; i<mTabProp.size(); i++ )
     {
       CTabEntry &e = *mTabProp[i];
       e.mWidth = config.readEntry( e.mRes, e.mWidth );
@@ -246,7 +246,7 @@ void KDFWidget::loadSettings( void )
       mTabProp[usageCol]->mWidth -= 16;
 
     config.changeGroup("KDFConfig");
-    for( uint i=0; i<mTabProp.size(); i++ )
+    for( int i=0; i<mTabProp.size(); i++ )
     {
       CTabEntry &e = *mTabProp[i];
       e.mVisible = config.readEntry( e.mRes, e.mVisible );
@@ -544,7 +544,7 @@ void KDFWidget::updateDiskBarPixmaps( void )
 
   int size=0, w=0;
 
-   for(uint i=0; i<mTabProp.size()-1; i++ )
+   for( int i=0; i<mTabProp.size()-1; i++ )
      size += mList->columnWidth(i);
    w=mList->width() - size - 4;
    if (w<0)

@@ -82,7 +82,7 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, bool init)
     mList->setAllColumnsShowFocus(true);
     mList->setFrameStyle( QFrame::WinPanel + QFrame::Sunken );
     mList->header()->setMovingEnabled(false);
-    for( uint i=0; i < mTabName.size(); i++ )
+    for( int i=0; i < mTabName.size(); i++ )
     {
       mList->addColumn( mTabName[i]->mName );
     }
