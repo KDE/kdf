@@ -34,11 +34,8 @@
 #include <QtGui/QPen>
 #include <QtGui/QBitmap>
 #include <QtGui/QPainter>
-//Added by qt3to4:
 #include <QtGui/QMouseEvent>
 #include <QtGui/QPixmap>
-#include <QtGui/QTimerEvent>
-#include <QtGui/QEvent>
 #include <QtCore/QAbstractEventDispatcher>
 #include <kxmlguiwindow.h>
 #include <klocale.h>

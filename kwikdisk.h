@@ -30,9 +30,6 @@
 
 #include <kxmlguiwindow.h>
 #include <ksystemtrayicon.h>
-#include <QtGui/QMouseEvent>
-#include <QtGui/QTimerEvent>
-#include <QtGui/QEvent>
 
 /**
 * @short Application Main Window (however in Tray)
