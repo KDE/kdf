@@ -229,7 +229,7 @@ void MntConfigWidget::clicked( Q3ListViewItem *item )
   const QPixmap *pix = item->pixmap(ICONCOL);
   if( pix != 0 )
   {
-    mIconButton->setPixmap( *pix );
+    mIconButton->setIcon( *pix );
   }
 
   for(unsigned i=0 ; i < mDiskList.count() ; ++i)

@@ -81,7 +81,6 @@ int main(int argc, char **argv)
     {
       KDFTopLevel *ktl = new KDFTopLevel();
       Q_CHECK_PTR(ktl);
-      app.setMainWidget(ktl);
       ktl->restore(n);
     }
   }

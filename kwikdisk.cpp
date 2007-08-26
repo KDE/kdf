@@ -91,13 +91,12 @@ void KwikDisk::leaveEvent(QEvent *)
    m_inside = false;
 }
 
-void KwikDisk::slotActivated(QSystemTrayIcon::ActivationReason reason)
+void KwikDisk::slotActivated(QSystemTrayIcon::ActivationReason)
 {
    kDebug() ;
 
    if( m_dirty )
       updateDF();
-
 }
 
 void KwikDisk::loadSettings()
