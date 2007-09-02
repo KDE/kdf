@@ -31,7 +31,7 @@
 #include "kdfwidget.h"
 #include <stdlib.h>
 
-#include <Qt3Support/Q3Header>
+//#include <Qt3Support/Q3Header> // not needed anymore after removing workaround of old Qt below
 #include <QtCore/QTimer>
 #include <QtGui/QLayout>
 #include <QtGui/QPainter>
@@ -132,8 +132,8 @@ KDFWidget::KDFWidget( QWidget *parent, bool init )
     connect( mList,
       SIGNAL( rightButtonPressed( Q3ListViewItem *, const QPoint &, int )),
       this, SLOT( rightButtonPressed( Q3ListViewItem *, const QPoint &, int )));
-    connect( mList->header(), SIGNAL(sizeChange(int, int, int)),
-      this, SLOT(columnSizeChanged(int, int, int)) );
+//    connect( mList->header(), SIGNAL(sizeChange(int, int, int)), // no need to connect header
+//      this, SLOT(columnSizeChanged(int, int, int)) );            // as not going to be displayed
     makeColumns();
 
     mIsTopLevel = QString(parent->metaObject()->className()) == "KDFTopLevel" ? true : false;
@@ -165,13 +165,16 @@ void KDFWidget::makeColumns( void )
   // I only need as many iterations as there are header items but who knows
   // what a new Qt can do!
   //
-  for( i=1000; mList->header()->count() > 0 && i>0; i-- )
-  {
-    mList->header()->removeLabel( 0 );
-    mList->header()->update();
-  }
-  for( int i=0; i<mTabProp.size(); mList->removeColumn(i++) );
-  mList->clear();
+
+// there is no reason to first do headers, but then remove them before displaying
+
+//  for( i=1000; mList->header()->count() > 0 && i>0; i-- )
+//  {
+//    mList->header()->removeLabel( 0 );
+//    mList->header()->update();
+//  }
+//  for( int i=0; i<mTabProp.size(); mList->removeColumn(i++) );
+//  mList->clear();
 
   for( int i=0; i<mTabProp.size(); i++ )
   {
