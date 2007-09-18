@@ -70,6 +70,7 @@ GenericName[vi]=Xem đĩa trống
 GenericName[wa]=Vey l' eployaedje del deure plake
 GenericName[x-test]=xxView Disk Usagexx
 GenericName[xh]=Jonga Ukusebenziseka KweDiskic
+GenericName[zh_CN]=查看磁盘使用状况
 GenericName[zh_TW]=檢視磁碟使用情形
 Terminal=false
 DocPath=kdf/index.html

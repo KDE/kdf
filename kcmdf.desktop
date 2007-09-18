@@ -64,6 +64,7 @@ Name[uz]=Сақлаш ускуналари
 Name[wa]=Éndjins di wårdaedje
 Name[x-test]=xxStorage Devicesxx
 Name[xh]=Amacebo Okugcina
+Name[zh_CN]=存储设备
 Name[zh_TW]=儲存裝置
 DocPath=kinfocenter/blockdevices/index.html
 Comment=Shows the disk usage of the mounted devices
@@ -119,6 +120,7 @@ Comment[uk]=Показує ступінь використання змонто�
 Comment[vi]=Hiển thềEtrạng thái sử dụng đĩa của các thiết bềEđã được mount 
 Comment[wa]=Mostere l' eployaedje des deurès plakes ki sont montêyes
 Comment[x-test]=xxShows the disk usage of the mounted devicesxx
+Comment[zh_CN]=显示挂接设备的磁盘使用率
 Comment[zh_TW]=顯示連接的設備的磁碟使用率
 
 Categories=Qt;KDE;X-KDE-information;
