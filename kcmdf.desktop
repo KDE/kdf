@@ -15,6 +15,7 @@ ServiceTypes=KCModule
 
 Name=Storage Devices
 Name[af]=Stoorplek Toestelle
+Name[ar]=أجهزة تخزين
 Name[ca]=Dispositius d'emmagatzemament
 Name[cs]=Úložná zařízení
 Name[cy]=Dyfeisiau Storio
@@ -69,6 +70,7 @@ Name[zh_TW]=儲存裝置
 DocPath=kinfocenter/blockdevices/index.html
 Comment=Shows the disk usage of the mounted devices
 Comment[af]=Vertoon die disket gebruik van die gekoppelde toestelle
+Comment[ar]=يعرض المساحة المستخدمة من الأقراص المضمومة
 Comment[br]=Diskouez an egor implijet gant an trobarzhelloù marc'het
 Comment[ca]=Mostra l'ús de disc dels dispositius muntats
 Comment[cs]=Zobrazuje využití připojených diskových zařízení
