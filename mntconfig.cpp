@@ -108,7 +108,7 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, bool init)
     gl->addWidget( mIconLineEdit, 2, 0 );
 
     mIconButton = new KIconButton(mGroupBox);
-    mIconButton->setIconType(K3Icon::Small, K3Icon::Device);
+    mIconButton->setIconType(KIconLoader::Small, KIconLoader::Device);
     Q_CHECK_PTR(mIconButton);
     mIconButton->setFixedWidth( mIconButton->sizeHint().height() );
     connect(mIconButton,SIGNAL(iconChanged(QString)),this,SLOT(iconChangedButton(QString)));
@@ -280,7 +280,7 @@ void MntConfigWidget::iconChanged(const QString &iconName)
 	      disk->setIconName(iconName);
 	      mIconLineEdit->setText(iconName);
 	      KIconLoader &loader = *KIconLoader::global();
-	      item->setPixmap( ICONCOL, loader.loadIcon( iconName, K3Icon::Small));
+	      item->setPixmap( ICONCOL, loader.loadIcon( iconName, KIconLoader::Small));
 	    }
 	  break;
 	}
