@@ -29,6 +29,7 @@
 
 #include <QtCore/QTextStream>
 #include <kglobal.h>
+#include <kconfiggroup.h>
 #include <kdefakes.h>
 
 #define BLANK ' '

@@ -29,6 +29,7 @@
 
 #include <kapplication.h>
 #include <kconfig.h>
+#include <kconfiggroup.h>
 #include <kglobal.h>
 
 QString CStdOption::mDefaultFileManager = "kfmclient openURL %m";
