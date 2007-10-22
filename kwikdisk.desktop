@@ -2,7 +2,6 @@
 Encoding=UTF-8
 Name=KwikDisk
 Name[af]=Kwikdisk
-Name[eo]=Diskokroĉilo
 Name[et]=Ketaste ühendamine
 Name[fa]=Kwikدیسک
 Name[ja]=マウントツール
@@ -24,7 +23,7 @@ GenericName[cy]=Cyfleuster Cyfryngau Symudadwy
 GenericName[da]=Flytbart medieredskab
 GenericName[de]=Dienstprogramm für Wechselmedien
 GenericName[el]=Εργαλείο αφαιρούμενων μέσων
-GenericName[eo]=Ŝanĝebla disko ilo
+GenericName[eo]=Detirebla diskilo
 GenericName[es]=Herramienta de medios extraíbles
 GenericName[et]=Eemaldatavate andmekandjate utiliit
 GenericName[eu]=Euskarri Eramangarrien Erabilgarritasuna

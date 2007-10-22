@@ -2,7 +2,6 @@
 Encoding=UTF-8
 Name=KDiskFree
 Name[af]=Kdiskfree
-Name[eo]=Diskuzo
 Name[lv]=KDiskāBrīvs
 Name[ne]=केडीई डिस्क खाली
 Name[pa]=ਕੇ-ਡਿਸਕ ਥਾਂ
@@ -26,7 +25,7 @@ GenericName[cy]=Gweld Defnydd y Disg
 GenericName[da]=Se diskforbrug
 GenericName[de]=Festplattenbelegung etc. anzeigen
 GenericName[el]=Προβολή χρήσης του δίσκου
-GenericName[eo]=Montras la okupitan kaj liberan spacon sur la diskoj
+GenericName[eo]=Vidu la diskan uzon
 GenericName[es]=Muestra el uso del disco
 GenericName[et]=Kettakasutus
 GenericName[eu]=Erakutsi Diskoaren Erabilera
