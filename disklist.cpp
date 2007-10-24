@@ -118,13 +118,13 @@ void DiskList::loadSettings()
   DiskEntry *disk;
   for (disk=disks->first();disk!=0;disk=disks->next()) {
     key = QLatin1String("Mount") + SEPARATOR + disk->deviceName() + SEPARATOR + disk->mountPoint();
-    disk->setMountCommand(group.readPathEntry(key));
+    disk->setMountCommand(group.readPathEntry(key, QString()));
 
     key = QLatin1String("Umount") + SEPARATOR + disk->deviceName() + SEPARATOR + disk->mountPoint();
-    disk->setUmountCommand(group.readPathEntry(key));
+    disk->setUmountCommand(group.readPathEntry(key, QString()));
 
     key = QLatin1String("Icon") + SEPARATOR + disk->deviceName() + SEPARATOR + disk->mountPoint();
-    QString icon=group.readPathEntry(key);
+    QString icon=group.readPathEntry(key, QString());
     if (!icon.isEmpty()) disk->setIconName(icon);
  }
 }
