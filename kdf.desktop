@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=KDiskFree
 Name[af]=Kdiskfree
 Name[lv]=KDiskāBrīvs
@@ -73,7 +72,7 @@ GenericName[xh]=Jonga Ukusebenziseka KweDiskic
 GenericName[zh_CN]=查看磁盘使用状况
 GenericName[zh_TW]=檢視磁碟使用情形
 Terminal=false
-DocPath=kdf/index.html
+X-DocPath=kdf/index.html
 X-KDE-StartupNotify=true
 X-DBUS-StartupType=Multi
 Categories=Qt;KDE;System;X-KDE-More;

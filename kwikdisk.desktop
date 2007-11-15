@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=KwikDisk
 Name[af]=Kwikdisk
 Name[et]=Ketaste ühendamine
@@ -12,7 +11,7 @@ Name[x-test]=xxKwikDiskxx
 Exec=kwikdisk -caption "%c"
 Icon=kwikdisk
 Type=Application
-DocPath=kdf/index.html
+X-DocPath=kdf/index.html
 GenericName=Removable Media Utility
 GenericName[af]=Verwyderbare Media Program
 GenericName[ar]=أداة الوسائط القابلة للإزالة

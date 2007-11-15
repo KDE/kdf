@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 
 X-KDE-Library=kcm_kdf
 X-KDE-ParentApp=kcontrol
@@ -11,7 +10,7 @@ Exec=kcmshell4 kcmdf
 Icon=kcmdf
 
 Type=Service
-ServiceTypes=KCModule
+X-KDE-ServiceTypes=KCModule
 
 Name=Storage Devices
 Name[af]=Stoorplek Toestelle
@@ -68,7 +67,7 @@ Name[x-test]=xxStorage Devicesxx
 Name[xh]=Amacebo Okugcina
 Name[zh_CN]=存储设备
 Name[zh_TW]=儲存裝置
-DocPath=kinfocenter/blockdevices/index.html
+X-DocPath=kinfocenter/blockdevices/index.html
 Comment=Shows the disk usage of the mounted devices
 Comment[af]=Vertoon die disket gebruik van die gekoppelde toestelle
 Comment[ar]=يعرض المساحة المستخدمة من الأقراص المضمومة
