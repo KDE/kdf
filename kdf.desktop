@@ -1,7 +1,6 @@
 [Desktop Entry]
 Name=KDiskFree
 Name[af]=Kdiskfree
-Name[lv]=KDiskāBrīvs
 Name[ne]=केडीई डिस्क खाली
 Name[pa]=ਕੇ-ਡਿਸਕ ਥਾਂ
 Name[pl]=Wolna przestrzeń na dyskach
@@ -43,7 +42,7 @@ GenericName[kk]=Дискідегі орынды көрсету
 GenericName[km]=មើល​ការប្រើប្រាស់​ថាស
 GenericName[ko]=디스크 사용량 보기
 GenericName[lt]=Žiūrėti disko panaudojimą
-GenericName[lv]=Skatīt Diska Izmantošanu
+GenericName[lv]=Skatīt diska vietas izlietojumu
 GenericName[mk]=Видете ја искористеноста на дискот
 GenericName[ms]=Lihat Penggunaan Cakera
 GenericName[nb]=Vis diskplass
