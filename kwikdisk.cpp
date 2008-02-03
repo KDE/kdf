@@ -217,11 +217,6 @@ void KwikDisk::updateDFDone()
       KSystemTrayIcon::loadIcon("help-contents"),
       KStandardGuiItem::help().text(), this, SLOT(invokeHelp()),0);
 
-   contextMenu()->addSeparator();
-
-   contextMenu()->insertItem(
-      KSystemTrayIcon::loadIcon("application-exit"),
-      KStandardGuiItem::quit().text(), this, SIGNAL(quitSelected()) );
 }
 
 void KwikDisk::toggleMount(int item)
