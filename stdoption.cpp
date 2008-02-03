@@ -32,7 +32,7 @@
 #include <kconfiggroup.h>
 #include <kglobal.h>
 
-QString CStdOption::mDefaultFileManager = "kfmclient openURL %m";
+QString CStdOption::mDefaultFileManager = "dolphin %m";
 int CStdOption::mDefaultUpdateFrequency = 60;
 
 CStdOption::CStdOption( void )
@@ -51,11 +51,11 @@ void CStdOption::updateConfiguration( void )
   KConfigGroup config(KGlobal::config(), "KDFConfig");
   mFileManager = config.readPathEntry(
     "FileManagerCommand", mDefaultFileManager );
-  mUpdateFrequency = config.readEntry( 
+  mUpdateFrequency = config.readEntry(
     "UpdateFrequency", mDefaultUpdateFrequency );
-  mPopupIfFull = config.readEntry( 
+  mPopupIfFull = config.readEntry(
     "PopupIfFull", true );
-  mOpenFileManagerOnMount = config.readEntry( 
+  mOpenFileManagerOnMount = config.readEntry(
     "OpenFileMgrOnMount", false );
 }
 
@@ -68,7 +68,7 @@ void CStdOption::writeConfiguration( void )
   config.writeEntry( "PopupIfFull", mPopupIfFull );
   config.writeEntry( "OpenFileMgrOnMount", mOpenFileManagerOnMount );
   config.sync();
-}  
+}
 
 
 void CStdOption::writeDefaultFileManager( void )
@@ -94,7 +94,7 @@ int CStdOption::updateFrequency( void )
 
 bool CStdOption::popupIfFull( void )
 {
-  return( mPopupIfFull ); 
+  return( mPopupIfFull );
 }
 
 
