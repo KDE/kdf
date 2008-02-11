@@ -249,14 +249,16 @@ int DiskList::readDF()
   kDebug() ;
 
   if (readingDFStdErrOut || dfProc->isRunning()) return -1;
-  setenv("LANG", "en_US", 1);
-  setenv("LC_ALL", "en_US", 1);
-  setenv("LC_MESSAGES", "en_US", 1);
-  setenv("LC_TYPE", "en_US", 1);
-  setenv("LANGUAGE", "en_US", 1);
+  
   dfStringErrOut=""; // yet no data received
   dfProc->clearArguments();
-  (*dfProc) << "env" << "LC_ALL=POSIX" << DF_COMMAND << DF_ARGS;
+  dfProc->setEnvironment("LANG", "en_US");
+  dfProc->setEnvironment("LC_ALL", "en_US");
+  dfProc->setEnvironment("LC_MESSAGES", "en_US");
+  dfProc->setEnvironment("LC_TYPE", "en_US");
+  dfProc->setEnvironment("LANGUAGE", "en_US");
+  dfProc->setEnvironment("LC_ALL", "POSIX");
+  (*dfProc) << DF_COMMAND << DF_ARGS;
   if (!dfProc->start( K3Process::NotifyOnExit, K3Process::AllOutput ))
     qFatal(i18n("could not execute [%s]").toLocal8Bit().data(), DF_COMMAND);
   return 1;
