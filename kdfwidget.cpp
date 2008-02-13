@@ -31,18 +31,11 @@
 #include "kdfwidget.h"
 #include <stdlib.h>
 
-//#include <Qt3Support/Q3Header> // not needed anymore after removing workaround of old Qt below
 #include <QtCore/QTimer>
 #include <QtGui/QLayout>
 #include <QtGui/QPainter>
-//Added by qt3to4:
-#include <QtGui/QPixmap>
-#include <QtCore/QTimerEvent>
-#include <QtGui/QVBoxLayout>
-#include <QtGui/QFrame>
-#include <QtGui/QResizeEvent>
-#include <QtGui/QCloseEvent>
 #include <QtCore/QAbstractEventDispatcher>
+
 #include <kapplication.h>
 #include <kmessagebox.h>
 #include <kmenu.h>
@@ -271,7 +264,7 @@ void KDFWidget::settingsBtnClicked( void )
   {
     if( mOptionDialog == 0 )
     {
-      mOptionDialog = new COptionDialog( this, "options", false );
+      mOptionDialog = new COptionDialog( this );
       if( mOptionDialog == 0 ) { return; }
       connect( mOptionDialog, SIGNAL(valueChanged()),
 	       this, SLOT(settingsChanged()) );

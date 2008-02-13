@@ -19,36 +19,26 @@
 
 #include "optiondialog.h"
 
-#include <QtGui/QLayout>
-//Added by qt3to4:
-#include <QtGui/QVBoxLayout>
-
 #include "kdfconfig.h"
 #include "mntconfig.h"
 
-COptionDialog::COptionDialog( QWidget *parent, const char *name, bool modal )
+COptionDialog::COptionDialog( QWidget *parent )
   :KPageDialog( parent )
 {
   setCaption( i18n("Configure") );
   setButtons( Help|Apply|Ok|Cancel );
   setDefaultButton( Ok );
   setFaceType( KPageDialog::Tabbed );
-  setModal( modal );
   setHelp( "kcontrol/kdf/index.html", QString() );
 
-  QFrame *f1 = new QFrame();
-  addPage( f1, i18n("General Settings") );
-  QVBoxLayout *l1 = new QVBoxLayout( f1 );
-  mConf = new KDFConfigWidget( f1 );
-  l1->addWidget(mConf);
+  mConf = new KDFConfigWidget( this );
   connect( mConf, SIGNAL( configChanged() ), this, SLOT( slotChanged() ) );
+  addPage( mConf, i18n("General Settings") );
 
-  QFrame *f2 = new QFrame();
-  addPage( f2, i18n("Mount Commands") );
-  QVBoxLayout *l2 = new QVBoxLayout( f2 );
-  mMnt = new MntConfigWidget( f2 );
-  l2->addWidget(mMnt);
+  mMnt = new MntConfigWidget( this );
   connect( mMnt, SIGNAL( configChanged() ), this, SLOT( slotChanged() ) );
+  addPage( mMnt, i18n("Mount Commands") );
+
   enableButton( Apply, false );
   dataChanged = false;
   connect(this,SIGNAL(okClicked()),this,SLOT(slotOk()));

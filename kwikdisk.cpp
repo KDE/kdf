@@ -271,7 +271,7 @@ void KwikDisk::changeSettings()
 {
    if( m_optionDialog == 0 )
    {
-      m_optionDialog = new COptionDialog(0, "options", false);
+      m_optionDialog = new COptionDialog(0);
       if( !m_optionDialog ) return;
       connect(m_optionDialog, SIGNAL(valueChanged()),
                         this, SLOT(loadSettings()));

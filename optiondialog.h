@@ -17,8 +17,8 @@
  *
  */
 
-#ifndef _OPTION_DIALOG_H_
-#define _OPTION_DIALOG_H_
+#ifndef OPTIONDIALOG_H
+#define OPTIONDIALOG_H
 
 #include <kpagedialog.h>
 
@@ -30,7 +30,7 @@ class COptionDialog : public KPageDialog
   Q_OBJECT
 
   public:
-    explicit COptionDialog( QWidget *parent=0, const char *name=0, bool modal=true );
+    explicit COptionDialog( QWidget *parent=0 );
     ~COptionDialog( void );
 
   protected slots:

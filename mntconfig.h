@@ -33,7 +33,7 @@
 #include <QtGui/QCloseEvent>
 #include <QtCore/QVector>
 
-class Q3GroupBox;
+class QGroupBox;
 class QPushButton;
 class KLineEdit;
 class KIconButton;
@@ -83,7 +83,7 @@ class MntConfigWidget : public QWidget
 
   private:
     CListView   *mList;
-    Q3GroupBox  *mGroupBox;
+    QGroupBox  *mGroupBox;
     KLineEdit   *mIconLineEdit;
     KLineEdit   *mMountLineEdit;
     KLineEdit   *mUmountLineEdit;

@@ -21,17 +21,13 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef __KDFWIDGET_H__
-#define __KDFWIDGET_H__
+#ifndef KDFWIDGET_H
+#define KDFWIDGET_H
 
 #include <QtCore/QVector>
 #include <QtCore/qglobal.h>
 
 #include <Qt3Support/Q3ListView>
-//Added by qt3to4:
-#include <QtCore/QTimerEvent>
-#include <QtGui/QResizeEvent>
-#include <QtGui/QCloseEvent>
 
 #include "disks.h"
 #include "disklist.h"
