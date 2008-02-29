@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=KDiskFree
 Name[af]=Kdiskfree
+Name[hi]=के-डिस्क-फ्री
 Name[ne]=केडीई डिस्क खाली
 Name[pa]=ਕੇ-ਡਿਸਕ ਥਾਂ
 Name[pl]=Wolna przestrzeń na dyskach
@@ -33,6 +34,7 @@ GenericName[fr]=Affiche l'utilisation de l'espace disque
 GenericName[ga]=Taispeáin úsáid diosca
 GenericName[gl]=Visor do uso dos discos
 GenericName[he]=הצגת שיעור השימוש בדיסקים
+GenericName[hi]=डिस्क उपयोग देखें
 GenericName[hr]=Prikazuje iskorištenost diska
 GenericName[hu]=Lemezterület-kijelző
 GenericName[is]=Skoða nýtni á diskum
