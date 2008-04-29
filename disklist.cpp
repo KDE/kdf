@@ -260,7 +260,7 @@ int DiskList::readDF()
   dfProc->setEnvironment("LC_ALL", "POSIX");
   (*dfProc) << DF_COMMAND << DF_ARGS;
   if (!dfProc->start( K3Process::NotifyOnExit, K3Process::AllOutput ))
-    qFatal(i18n("could not execute [%s]").toLocal8Bit().data(), DF_COMMAND);
+    qFatal("%s", qPrintable(i18n("could not execute [%1]", QLatin1String(DF_COMMAND))));
   return 1;
 }
 
