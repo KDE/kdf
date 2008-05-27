@@ -23,7 +23,7 @@ kde4_add_executable(kdf ${kdf_SRCS})
 
 target_link_libraries(kdf  ${KDE4_KDE3SUPPORT_LIBS} )
 
-install(TARGETS kdf  DESTINATION ${BIN_INSTALL_DIR} )
+install(TARGETS kdf  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 
 ########### next target ###############
@@ -34,7 +34,7 @@ kde4_add_executable(kwikdisk ${kwikdisk_SRCS})
 
 target_link_libraries(kwikdisk  ${KDE4_KDE3SUPPORT_LIBS} )
 
-install(TARGETS kwikdisk  DESTINATION ${BIN_INSTALL_DIR} )
+install(TARGETS kwikdisk  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 
 ########### next target ###############
