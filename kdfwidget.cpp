@@ -169,6 +169,8 @@ void KDFWidget::makeColumns( void )
 //  for( int i=0; i<mTabProp.size(); mList->removeColumn(i++) );
 //  mList->clear();
 
+  int columns = mList->columns();
+  for (int i=0; i<columns; ++i) mList->removeColumn(0);
   for( int i=0; i<mTabProp.size(); i++ )
   {
     CTabEntry &e = *mTabProp[i];
