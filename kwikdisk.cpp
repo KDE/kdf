@@ -51,7 +51,7 @@
 static const char description[] =
    I18N_NOOP("KDE Free disk space utility");
 
-static const char version[] = "0.2";
+static const char version[] = "0.4";
 
 /*****************************************************************************/
 
@@ -299,7 +299,8 @@ int main(int argc, char **argv)
 
    KAboutData about("kwikdisk", 0, ki18n("KwikDisk"), version, ki18n(description),
                   KAboutData::License_GPL, ki18n("(C) 2004 Stanislav Karchebny"),
-                  KLocalizedString(), 0, "Stanislav.Karchebny@kdemail.net");
+                  KLocalizedString(),  "http://utils.kde.org/projects/kdf",
+                  "Stanislav.Karchebny@kdemail.net");
    about.addAuthor( ki18n("Michael Kropfberger"), ki18n("Original author"),
                     "michael.kropfberger@gmx.net" );
    about.addAuthor( ki18n("Espen Sand"), ki18n("KDE 2 changes"));
