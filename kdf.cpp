@@ -33,7 +33,7 @@
 static const char description[] =
 	I18N_NOOP("KDE free disk space utility");
 
-static const char version[] = "v0.5";
+static const char version[] = "v0.6";
 
 
 /***************************************************************/
@@ -69,7 +69,8 @@ int main(int argc, char **argv)
 {
   KAboutData aboutData( "kdf", 0, ki18n("KDiskFree"),
     version, ki18n(description), KAboutData::License_GPL,
-    ki18n("(c) 1998-2001, Michael Kropfberger"));
+    ki18n("(c) 1998-2001, Michael Kropfberger"), KLocalizedString(),
+    "http://utils.kde.org/projects/kdf");
   aboutData.addAuthor(ki18n("Michael Kropfberger"),KLocalizedString(), "michael.kropfberger@gmx.net");
   KCmdLineArgs::init( argc, argv, &aboutData );
 
