@@ -19,6 +19,8 @@ set(libkdf_common_SRCS
 
 set(kdf_SRCS kdf.cpp ${libkdf_common_SRCS} )
 
+kde4_add_app_icon(kdf_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-app*-kdf.png")
+
 kde4_add_executable(kdf ${kdf_SRCS})
 
 target_link_libraries(kdf  ${KDE4_KDE3SUPPORT_LIBS} )
@@ -29,6 +31,8 @@ install(TARGETS kdf  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 ########### next target ###############
 
 set(kwikdisk_SRCS kwikdisk.cpp ${libkdf_common_SRCS})
+
+kde4_add_app_icon(kwikdisk_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-app*-kwikdisk.png")
 
 kde4_add_executable(kwikdisk ${kwikdisk_SRCS})
 
