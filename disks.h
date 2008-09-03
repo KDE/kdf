@@ -32,8 +32,10 @@
 #include <QtCore/QFile>
 
 #include <kio/global.h>
-#include <k3process.h>
 #include <klocale.h>
+
+class K3Process;
+class K3ShellProcess;
 
 class DiskEntry : public QObject
 {

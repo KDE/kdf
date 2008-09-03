@@ -30,6 +30,7 @@
 #include "kwikdisk.h"
 
 #include <stdlib.h>
+#include <unistd.h>
 
 #include <QtGui/QPen>
 #include <QtGui/QBitmap>

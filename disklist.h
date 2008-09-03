@@ -59,6 +59,8 @@
 typedef Q3PtrList<DiskEntry>		DisksBase;
 typedef Q3PtrListIterator<DiskEntry>	DisksIterator;
 
+class KProcess;
+
 /***************************************************************************/
 class Disks : public DisksBase
 {
@@ -119,15 +121,13 @@ public slots:
   void applySettings();
 
 private slots:
-   void receivedDFStdErrOut(K3Process *, char *data, int len);
    void dfDone();
 
 private:
   void replaceDeviceEntry(DiskEntry *disk);
 
   Disks            *disks;
-  K3Process         *dfProc;
-  QString           dfStringErrOut;
+  KProcess         *dfProc;
   bool              readingDFStdErrOut;
   KSharedConfigPtr  config;
   bool              updatesDisabled;

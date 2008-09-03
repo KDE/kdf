@@ -31,6 +31,7 @@
 #include <kglobal.h>
 #include <kconfiggroup.h>
 #include <kdefakes.h>
+#include <kprocess.h>
 
 #define BLANK ' '
 #define DELIMITER '#'
@@ -40,7 +41,7 @@
   * constructor
 **/
 DiskList::DiskList(QObject *parent)
-    : QObject(parent)
+    : QObject(parent), dfProc(new KProcess(this))
 {
    kDebug() ;
 
@@ -54,10 +55,8 @@ DiskList::DiskList(QObject *parent)
    disks->setAutoDelete(true);
 
    // BackgroundProcesses ****************************************
-   dfProc = new K3Process(); Q_CHECK_PTR(dfProc);
-   connect( dfProc, SIGNAL(receivedStdout(K3Process *, char *, int) ),
-      this, SLOT (receivedDFStdErrOut(K3Process *, char *, int)) );
-   connect(dfProc,SIGNAL(processExited(K3Process *) ),
+   dfProc->setOutputChannelMode(KProcess::MergedChannels);
+   connect(dfProc,SIGNAL(finished(int, QProcess::ExitStatus) ),
       this, SLOT(dfDone() ) );
 
    readingDFStdErrOut=false;
@@ -164,7 +163,7 @@ int DiskList::readFSTAB()
 {
   kDebug() ;
 
-  if (readingDFStdErrOut || dfProc->isRunning()) return -1;
+  if (readingDFStdErrOut || (dfProc->state() != QProcess::NotRunning)) return -1;
 
 QFile f(FSTAB);
   if ( f.open(QIODevice::ReadOnly) ) {
@@ -223,43 +222,27 @@ QFile f(FSTAB);
 
 
 /***************************************************************************
-  * is called, when the df-command writes on StdOut or StdErr
-**/
-void DiskList::receivedDFStdErrOut(K3Process *, char *data, int len )
-{
-  kDebug() ;
-
-
-  /* ATTENTION: StdERR no longer connected to this...
-   * Do we really need StdErr?? on HP-UX there was eg. a line
-   * df: /home_tu1/ijzerman/floppy: Stale NFS file handle
-   * but this shouldn't cause a real problem
-   */
-
-
-  QString tmp = QString::fromLatin1(data, len);
-  dfStringErrOut.append(tmp);
-}
-
-/***************************************************************************
   * reads the df-commands results
 **/
 int DiskList::readDF()
 {
   kDebug() ;
 
-  if (readingDFStdErrOut || dfProc->isRunning()) return -1;
+  if (readingDFStdErrOut || (dfProc->state() != QProcess::NotRunning)) return -1;
   
-  dfStringErrOut=""; // yet no data received
-  dfProc->clearArguments();
-  dfProc->setEnvironment("LANG", "en_US");
-  dfProc->setEnvironment("LC_ALL", "en_US");
-  dfProc->setEnvironment("LC_MESSAGES", "en_US");
-  dfProc->setEnvironment("LC_TYPE", "en_US");
-  dfProc->setEnvironment("LANGUAGE", "en_US");
-  dfProc->setEnvironment("LC_ALL", "POSIX");
+  dfProc->clearProgram();
+
+  QStringList dfenv;
+  dfenv << "LANG=en_US";
+  dfenv << "LC_ALL=en_US";
+  dfenv << "LC_MESSAGES=en_US";
+  dfenv << "LC_TYPE=en_US";
+  dfenv << "LANGUAGE=en_US";
+  dfenv << "LC_ALL=POSIX";
+  dfProc->setEnvironment(dfenv);
   (*dfProc) << DF_COMMAND << DF_ARGS;
-  if (!dfProc->start( K3Process::NotifyOnExit, K3Process::AllOutput ))
+  dfProc->start();
+  if (!dfProc->waitForStarted(-1))
     qFatal("%s", qPrintable(i18n("could not execute [%1]", QLatin1String(DF_COMMAND))));
   return 1;
 }
@@ -279,6 +262,7 @@ void DiskList::dfDone()
   for ( DiskEntry *disk=disks->first(); disk != 0; disk=disks->next() )
     disk->setMounted(false);  // set all devs unmounted
 
+  QString dfStringErrOut = QString::fromLatin1(dfProc->readAllStandardOutput());
   QTextStream t (&dfStringErrOut, QIODevice::ReadOnly);
   QString s=t.readLine();
   if ( ( s.isEmpty() ) || ( s.left(10) != "Filesystem" ) )

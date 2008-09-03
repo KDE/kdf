@@ -28,6 +28,7 @@
 
 #include <kglobal.h>
 #include <kdebug.h>
+#include <k3process.h>
 
 #include "disks.moc"
 
