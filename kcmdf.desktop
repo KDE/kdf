@@ -68,7 +68,7 @@ Name[x-test]=xxStorage Devicesxx
 Name[xh]=Amacebo Okugcina
 Name[zh_CN]=存储设备
 Name[zh_TW]=儲存裝置
-X-DocPath=kinfocenter/blockdevices/index.html
+X-DocPath=kcontrol/blockdevices/index.html
 Comment=Shows the disk usage of the mounted devices
 Comment[af]=Vertoon die disket gebruik van die gekoppelde toestelle
 Comment[ar]=يعرض المساحة المستخدمة من الأقراص المضمومة
@@ -124,5 +124,3 @@ Comment[wa]=Mostere l' eployaedje des deurès plakes ki sont montêyes
 Comment[x-test]=xxShows the disk usage of the mounted devicesxx
 Comment[zh_CN]=显示挂接设备的磁盘使用率
 Comment[zh_TW]=顯示連接的設備的磁碟使用率
-
-Categories=Qt;KDE;X-KDE-information;

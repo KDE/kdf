@@ -1,0 +1,89 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN"
+"dtd/kdex.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % English "INCLUDE" > <!-- change language only here -->
+]>
+
+<article lang="&language;">
+<articleinfo>
+
+<authorgroup>
+<author>
+<firstname>Mike</firstname>
+<surname>McBride</surname>
+</author>
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
+</authorgroup>
+
+<date>2002-02-12</date>
+<releaseinfo>3.00.00</releaseinfo>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>KControl</keyword>
+<keyword>Block Devices</keyword>
+<keyword>Disk space</keyword>
+</keywordset>
+</articleinfo>
+
+<sect1>
+<title>Block Devices</title>
+
+<para>
+The module window displays the available file devices and some
+information about each device. It also allows you to control mount
+points, and mount/unmount devices.
+</para>
+
+<para>
+Normally, the following pieces of information are shown in this tab:
+</para>
+
+<itemizedlist>
+<listitem><para>an icon depicting the type of storage</para></listitem>
+<listitem><para>file format</para></listitem>
+<listitem><para>total size</para></listitem>
+<listitem><para>mount point</para></listitem>
+<listitem><para>free disk space</para></listitem>
+<listitem><para>the percentage of space used as a number and as a
+graph.</para></listitem>
+</itemizedlist>
+
+<para>
+<mousebutton>Left</mousebutton> clicking on the header of a particular
+column sorts the devices according to that variable. A second
+<mousebutton>left</mousebutton> click sorts in the opposite order.
+</para>
+
+<para>
+<mousebutton>Right</mousebutton> clicking on a row pops up a menu. If
+that device is not currently mounted, the <guimenuitem>Mount
+device</guimenuitem> option is available. If the device is mounted, it
+can be unmounted by choosing <guimenuitem>Unmount
+device</guimenuitem>. Selecting <guimenuitem>Open
+filemanager</guimenuitem> opens a new window with a graphical view of
+the files on that device.
+</para>
+
+<para>
+The appropriate mount and unmount commands, and how the file manager is
+opened from the context menu, can be configured from the &kdiskfree;
+application.
+</para>
+
+<sect2>
+<title>Section Author</title>
+
+<para>This section is modified from the <application>kdf</application>
+documentation which was authored by &Jonathan.Singer;
+&Jonathan.Singer.mail;</para>
+
+<para>Modified for KDE 2.0 by &Mike.McBride;
+&Mike.McBride.mail;</para>
+<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
+
+</sect2>
+</sect1>
+</article>
+
