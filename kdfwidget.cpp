@@ -601,7 +601,7 @@ void KDFWidget::updateDiskBarPixmaps( void )
       pix->fill(Qt::white);
       QPainter p(pix);
       p.setPen(Qt::black);
-      p.drawRect(0,0,w,h);
+      p.drawRect(0,0,w - 1,h - 1);
       QColor c;
       if ( (disk->iconName().contains("media-optical"))
 	   || (disk->iconName().contains("media-optical-recordable")) )
@@ -610,8 +610,8 @@ void KDFWidget::updateDiskBarPixmaps( void )
 	c = disk->percentFull() > FULL_PERCENT ? Qt::red : Qt::darkGreen;
       p.setBrush(c );
       p.setPen(Qt::white);
-      p.drawRect(1,1,(int)(((float)pix->width()-2)*(disk->percentFull()/100)),
-		 pix->height()-2);
+      p.drawRect(1,1,(int)(((float)pix->width()-3)*(disk->percentFull()/100)),
+		 pix->height()-3);
       it->setPixmap ( usageCol, *pix );
       p.end();
       delete pix;
