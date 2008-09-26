@@ -100,7 +100,7 @@ KDFWidget::KDFWidget( QWidget *parent, bool init )
            this, SLOT (criticallyFull(DiskEntry*)) );
 
   mTabProp.resize(8);
-  mTabProp[0] = new CTabEntry( "Icon", i18nc("Storage device icon", "Icon"), true, 32);
+  mTabProp[0] = new CTabEntry( "Icon", "", true, 32);
   mTabProp[1] = new CTabEntry( "Device", i18nc("Device of the storage", "Device"), true, 80);
   mTabProp[2] = new CTabEntry( "Type", i18nc("Filesystem on storage", "Type"), true, 50);
   mTabProp[3] = new CTabEntry( "Size", i18nc("Total size of the storage", "Size"), true, 72);
