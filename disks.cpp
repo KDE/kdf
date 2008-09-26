@@ -192,26 +192,27 @@ QString DiskEntry::iconName()
    return guessIconName();
 }
 
+//TODO: Need porting to solid
 QString DiskEntry::guessIconName()
 {
   QString iconName;
     // try to be intelligent
-    if (mountPoint().contains("cdrom",Qt::CaseInsensitive)) iconName+="cdrom";
-    else if (deviceName().contains("cdrom",Qt::CaseInsensitive)) iconName+="cdrom";
-    else if (mountPoint().contains("writer",Qt::CaseInsensitive)) iconName+="cdwriter";
-    else if (deviceName().contains("writer",Qt::CaseInsensitive)) iconName+="cdwriter";
-    else if (mountPoint().contains("mo",Qt::CaseInsensitive)) iconName+="mo";
-    else if (deviceName().contains("mo",Qt::CaseInsensitive)) iconName+="mo";
+    if (mountPoint().contains("cdrom",Qt::CaseInsensitive)) iconName+="media-optical";
+    else if (deviceName().contains("cdrom",Qt::CaseInsensitive)) iconName+="media-optical";
+    else if (mountPoint().contains("writer",Qt::CaseInsensitive)) iconName+="media-optical-recordable";
+    else if (deviceName().contains("writer",Qt::CaseInsensitive)) iconName+="media-optical-recordable";
+    else if (mountPoint().contains("mo",Qt::CaseInsensitive)) iconName+="mo"; //TODO
+    else if (deviceName().contains("mo",Qt::CaseInsensitive)) iconName+="mo"; //TODO
     else if (deviceName().contains("fd",Qt::CaseInsensitive)) {
-            if (deviceName().contains("360",Qt::CaseInsensitive)) iconName+="5floppy";
-            if (deviceName().contains("1200",Qt::CaseInsensitive)) iconName+="5floppy";
-            else iconName+="3floppy";
+            if (deviceName().contains("360",Qt::CaseInsensitive)) iconName+="5floppy"; //TODO
+            if (deviceName().contains("1200",Qt::CaseInsensitive)) iconName+="5floppy"; //TODO
+            else iconName+="media-floppy";
 	 }
-    else if (mountPoint().contains("floppy",Qt::CaseInsensitive)) iconName+="3floppy";
-    else if (mountPoint().contains("zip",Qt::CaseInsensitive)) iconName+="zip";
-    else if (fsType().contains("nfs",Qt::CaseInsensitive)) iconName+="nfs";
-    else iconName+="hdd";
-    mounted() ? iconName+="_mount" : iconName+="_unmount";
+    else if (mountPoint().contains("floppy",Qt::CaseInsensitive)) iconName+="media-floppy";
+    else if (mountPoint().contains("zip",Qt::CaseInsensitive)) iconName+="zip"; //TODO
+    else if (fsType().contains("nfs",Qt::CaseInsensitive)) iconName+="nfs"; //TODO
+    else iconName+="drive-harddisk";
+    ///mounted() ? iconName+="_mount" : iconName+="_unmount";
 //    if ( !mountOptions().contains("user",Qt::CaseInsensitive) )
 //      iconName.prepend("root_"); // special root icon, normal user can't mount
 
