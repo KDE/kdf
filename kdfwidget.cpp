@@ -603,8 +603,8 @@ void KDFWidget::updateDiskBarPixmaps( void )
       p.setPen(Qt::black);
       p.drawRect(0,0,w,h);
       QColor c;
-      if ( (disk->iconName().contains("cdrom"))
-	   || (disk->iconName().contains("writer")) )
+      if ( (disk->iconName().contains("media-optical"))
+	   || (disk->iconName().contains("media-optical-recordable")) )
 	c = Qt::gray;
       else
 	c = disk->percentFull() > FULL_PERCENT ? Qt::red : Qt::darkGreen;
