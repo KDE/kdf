@@ -16,8 +16,8 @@
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<date>2002-02-12</date>
-<releaseinfo>3.00.00</releaseinfo>
+<date>2008-09-04</date>
+<releaseinfo>&kde; 4.1.2</releaseinfo>
 
 <keywordset>
 <keyword>KDE</keyword>
@@ -42,7 +42,8 @@ Normally, the following pieces of information are shown in this tab:
 
 <itemizedlist>
 <listitem><para>an icon depicting the type of storage</para></listitem>
-<listitem><para>file format</para></listitem>
+<listitem><para>device name</para></listitem>
+<listitem><para>file system type</para></listitem>
 <listitem><para>total size</para></listitem>
 <listitem><para>mount point</para></listitem>
 <listitem><para>free disk space</para></listitem>
@@ -59,10 +60,10 @@ column sorts the devices according to that variable. A second
 <para>
 <mousebutton>Right</mousebutton> clicking on a row pops up a menu. If
 that device is not currently mounted, the <guimenuitem>Mount
-device</guimenuitem> option is available. If the device is mounted, it
+Device</guimenuitem> option is available. If the device is mounted, it
 can be unmounted by choosing <guimenuitem>Unmount
-device</guimenuitem>. Selecting <guimenuitem>Open
-filemanager</guimenuitem> opens a new window with a graphical view of
+Device</guimenuitem>. Selecting <guimenuitem>Open in
+File Manager</guimenuitem> opens a new window with a graphical view of
 the files on that device.
 </para>
 
@@ -79,7 +80,7 @@ application.
 documentation which was authored by &Jonathan.Singer;
 &Jonathan.Singer.mail;</para>
 
-<para>Modified for KDE 2.0 by &Mike.McBride;
+<para>Modified for &kde; 2.0 by &Mike.McBride;
 &Mike.McBride.mail;</para>
 <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
 
