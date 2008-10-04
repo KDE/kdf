@@ -72,4 +72,4 @@ Terminal=false
 X-DocPath=kdf/index.html
 X-KDE-StartupNotify=true
 X-DBUS-StartupType=Multi
-Categories=Qt;KDE;System;X-KDE-More;
+Categories=Qt;KDE;System;
