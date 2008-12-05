@@ -72,8 +72,6 @@ KwikDisk::KwikDisk()
    connect( &m_diskList, SIGNAL(criticallyFull(DiskEntry*)),
             this, SLOT(criticallyFull(DiskEntry*)) );
 
-   connect( contextMenu(), SIGNAL(aboutToHide()), this, SLOT(aboutToHide()) );
-
    loadSettings();
    updateDF();
    connect( this, SIGNAL( activated(QSystemTrayIcon::ActivationReason)),
