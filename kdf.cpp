@@ -33,7 +33,7 @@
 static const char description[] =
 	I18N_NOOP("KDE free disk space utility");
 
-static const char version[] = "v0.7";
+static const char version[] = "v0.8";
 
 
 /***************************************************************/
