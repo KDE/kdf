@@ -7,7 +7,7 @@ X-KDE-FactoryName=kdf
 
 X-KDE-LocalUser=false
 Exec=kcmshell4 kcmdf
-Icon=kcmdf
+Icon=kdf
 
 Type=Service
 X-KDE-ServiceTypes=KCModule
