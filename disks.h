@@ -76,13 +76,13 @@ public:
   QString umountCommand() const { return umntcmd; }
   QString fsType() const { return type; }
   bool mounted() const { return isMounted; }
-  int kBSize() const { return size; }
+  qulonglong kBSize() const { return size; }
   QString iconName();
   QString realIconName() { return icoName; }
   QString prettyKBSize() const { return KIO::convertSizeFromKiB(size); }
-  int kBUsed() const { return used; }
+  qulonglong kBUsed() const { return used; }
   QString prettyKBUsed() const { return KIO::convertSizeFromKiB(used); }
-  int kBAvail() const  { return avail; }
+  qulonglong kBAvail() const  { return avail; }
   QString prettyKBAvail() const { return KIO::convertSizeFromKiB(avail); }
   float percentFull() const;
 
@@ -112,9 +112,9 @@ public slots:
   void setMountOptions(const QString & mountOptions);
   void setFsType(const QString & fsType);
   void setMounted(bool nowMounted);
-  void setKBSize(int kb_size);
-  void setKBUsed(int kb_used);
-  void setKBAvail(int kb_avail);
+  void setKBSize(qulonglong kb_size);
+  void setKBUsed(qulonglong kb_used);
+  void setKBAvail(qulonglong kb_avail);
   QString guessIconName();
 
 private slots:
@@ -137,7 +137,7 @@ private:
               mntcmd,
               umntcmd;
 
-  int         size,
+  qulonglong  size,
               used,
               avail;       // ATTENTION: used+avail != size (clustersize!)
 

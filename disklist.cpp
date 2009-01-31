@@ -139,7 +139,7 @@ QString rc;
 					rc += '\\';
 			else if( str == '0')
 			{
-					rc += static_cast<char>(s.mid(i,3).toInt(0, 8));
+					rc += static_cast<char>(s.mid(i,3).toULongLong(0, 8));
 					i += 2;
 			}
 			else
@@ -300,17 +300,17 @@ void DiskList::dfDone()
       //kDebug() << "    Icon:          [" << disk->iconName() << "]" ;
 
       u=s.left(s.indexOf(BLANK));
-      disk->setKBSize(u.toInt() );
+      disk->setKBSize(u.toULongLong() );
       s=s.remove(0,s.indexOf(BLANK)+1 );
       //kDebug() << "    Size:       [" << disk->kBSize() << "]" ;
 
       u=s.left(s.indexOf(BLANK));
-      disk->setKBUsed(u.toInt() );
+      disk->setKBUsed(u.toULongLong() );
       s=s.remove(0,s.indexOf(BLANK)+1 );
       //kDebug() << "    Used:       [" << disk->kBUsed() << "]" ;
 
       u=s.left(s.indexOf(BLANK));
-      disk->setKBAvail(u.toInt() );
+      disk->setKBAvail(u.toULongLong() );
       s=s.remove(0,s.indexOf(BLANK)+1 );
       //kDebug() << "    Avail:       [" << disk->kBAvail() << "]" ;
 
