@@ -81,7 +81,7 @@ int CListViewItem::compare ( Q3ListViewItem *i, int column, bool ) const
   }
 }
 
-void CListViewItem::setKeys (qulonglong kb_size, qulonglong kb_avail, qulonglong percent_full)
+void CListViewItem::setKeys (qulonglong kb_size, qulonglong kb_avail, float percent_full)
 {
   size  = kb_size;
   avail = kb_avail;
