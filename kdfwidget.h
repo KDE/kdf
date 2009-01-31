@@ -78,11 +78,11 @@ class CListViewItem : public Q3ListViewItem
  
     virtual int compare ( Q3ListViewItem* i, int col, bool) const;
     	
-    void    setKeys ( int kb_size, int kb_avail, float percent_full ) ;
+    void    setKeys ( qulonglong kb_size, qulonglong kb_avail, float percent_full ) ;
 
   private:
-    int     size;
-    int     avail;
+    qulonglong     size;
+    qulonglong     avail;
     float   full;
 };
 
