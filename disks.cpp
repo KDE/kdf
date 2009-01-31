@@ -310,13 +310,13 @@ void DiskEntry::setMounted(bool nowMounted)
   emit mountedChanged();
 }
 
-void DiskEntry::setKBSize(int kb_size)
+void DiskEntry::setKBSize(qulonglong kb_size)
 {
   size=kb_size;
   emit kBSizeChanged();
 }
 
-void DiskEntry::setKBUsed(int kb_used)
+void DiskEntry::setKBUsed(qulonglong kb_used)
 {
   used=kb_used;
   if ( size < (used+avail) ) {  //adjust kBAvail
@@ -326,7 +326,7 @@ void DiskEntry::setKBUsed(int kb_used)
   emit kBUsedChanged();
 }
 
-void DiskEntry::setKBAvail(int kb_avail)
+void DiskEntry::setKBAvail(qulonglong kb_avail)
 {
   avail=kb_avail;
   if ( size < (used+avail) ) {  //adjust kBUsed
