@@ -346,24 +346,16 @@ void KDFWidget::criticallyFull( DiskEntry *disk )
 DiskEntry * KDFWidget::selectedDisk( QModelIndex index )
 {
     if( !index.isValid() )
-    {
-        QList<QModelIndex> selected = m_listWidget->selectionModel()->selectedIndexes();
-        if ( selected.size() > 0 )
-            index = selected.at(0);
-        else
-            return 0;
-    }
-
-    index = m_sortModel->mapToSource( index );
+        return 0;
     
     QStandardItem * itemDevice = m_listModel->item( index.row() , DeviceCol );
     QStandardItem * itemMountPoint = m_listModel->item( index.row() , MountPointCol );
     
     DiskEntry * disk = new DiskEntry( itemDevice->text() );
     disk->setMountPoint( itemMountPoint->text() );
-
+    
     int pos = mDiskList.find( disk );
-
+    
     delete disk;
     return mDiskList.at(pos);
 
@@ -373,11 +365,23 @@ void KDFWidget::contextMenuRequested( const QPoint &p )
 {
     if (mPopup) //The user may even be able to popup another menu while this open is active...
         return;
-
+    
     QModelIndex index = m_listWidget->indexAt( p );
     
+    if( !index.isValid() )
+    {
+        QList<QModelIndex> selected = m_listWidget->selectionModel()->selectedIndexes();
+        if ( selected.size() > 0 )
+            index = selected.at(0);
+        else
+            return;
+    }
+    
+    index = m_sortModel->mapToSource( index );
+    
     mDiskList.setUpdatesDisabled(true);
-    DiskEntry *disk = selectedDisk( index );
+    DiskEntry * disk = selectedDisk( index );
+    
     if( disk == 0 )
         return;
 
@@ -402,8 +406,6 @@ void KDFWidget::contextMenuRequested( const QPoint &p )
     }
     else if( position == mountPointAction || position == umountPointAction )
     {
-        index = m_sortModel->mapToSource( index );
-        
         QStandardItem * SizeItem = m_listModel->item( index.row() , SizeCol );
         SizeItem->setText( i18n("MOUNTING") );
         

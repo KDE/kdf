@@ -1,4 +1,5 @@
 project(kdf)
+add_subdirectory(pics)
 
 ########### next target ###############
 set(libkdf_common_SRCS 
