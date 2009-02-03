@@ -3,9 +3,6 @@
  *
  * Copyright (c) 1998 Michael Kropfberger <michael.kropfberger@gmx.net>
  *
- * Requires the Qt widget libraries, available at no cost at
- * http://www.troll.no/
- *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation; either version 2 of the License, or
@@ -21,16 +18,20 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#include "disks.h"
+
+#include <unistd.h>
+#include <sys/types.h>
 
 #include <QtCore/QFileInfo>
 #include <QtCore/QDir>
 
 #include <kglobal.h>
 #include <kdebug.h>
-#include <k3process.h>
+#include <kprocess.h>
+#include <klocale.h>
+//#include <solid/device.h>
 
-#include "disks.moc"
+#include "disks.h"
 
 /****************************************************/
 /********************* DiskEntry ********************/
@@ -41,299 +42,378 @@
 **/
 void DiskEntry::init(const char *name)
 {
-  setObjectName(name);
-  device="";
-  type="";
-  mountedOn="";
-  options="";
-  size=0;
-  used=0;
-  avail=0;
-  isMounted=false;
-  mntcmd="";
-  umntcmd="";
-  iconSetByUser=false;
-  icoName="";
+    setObjectName(name);
+    device="";
+    type="";
+    mountedOn="";
+    options="";
+    size=0;
+    used=0;
+    avail=0;
+    isMounted=false;
+    mntcmd="";
+    umntcmd="";
+    iconSetByUser=false;
+    icoName="";
 
 
- // BackgroundProcesses ****************************************
+    // BackgroundProcesses ****************************************
 
- sysProc = new K3ShellProcess(); Q_CHECK_PTR(sysProc);
- connect( sysProc, SIGNAL(receivedStdout(K3Process *, char *, int) ),
-        this, SLOT (receivedSysStdErrOut(K3Process *, char *, int)) );
- connect( sysProc, SIGNAL(receivedStderr(K3Process *, char *, int) ),
-        this, SLOT (receivedSysStdErrOut(K3Process *, char *, int)) );
- readingSysStdErrOut=false;
+    sysProc = new KProcess();
+    Q_CHECK_PTR(sysProc);
+    sysProc->setOutputChannelMode( KProcess::MergedChannels );
+    connect( sysProc, SIGNAL( readyReadStandardError() ),
+             this, SLOT ( receivedSysStdErrOut() ) );
+    connect( sysProc, SIGNAL( readyReadStandardOutput() ),
+             this, SLOT ( receivedSysStdErrOut() ) );
+    readingSysStdErrOut=false;
 
 
 }
 
 DiskEntry::DiskEntry(QObject *parent, const char *name)
- : QObject (parent)
+        : QObject (parent)
 {
-  init(name);
+    init(name);
 }
 
 DiskEntry::DiskEntry(const QString & deviceName, QObject *parent, const char *name)
- : QObject (parent)
+        : QObject (parent)
 {
-  init(name);
+    init(name);
 
-  setDeviceName(deviceName);
+    setDeviceName(deviceName);
 }
 DiskEntry::~DiskEntry()
 {
-  disconnect(this);
-  delete sysProc;
+    disconnect(this);
+    if ( sysProc->state() == QProcess::Running )
+    {
+        sysProc->terminate();
+        sysProc->waitForFinished(-1);
+    }
+    delete sysProc;
 }
 
 int DiskEntry::toggleMount()
 {
-  if (!mounted())
-      return mount();
-  else
-      return umount();
+    if (!mounted())
+        return mount();
+    else
+        return umount();
 }
 
 int DiskEntry::mount()
 {
-  QString cmdS=mntcmd;
-  if (cmdS.isEmpty()) // generate default mount cmd
-    if (getuid()!=0 ) // user mountable
-      {
-      cmdS="mount %d";
-      }
-	else  // root mounts with all params/options
-      {
-      // FreeBSD's mount(8) is picky: -o _must_ go before
-      // the device and mountpoint.
-      cmdS=QString::fromLatin1("mount -t%t -o%o %d %m");
-      }
+    QString cmdS=mntcmd;
+    if ( cmdS.isEmpty() )
+    { // generate default mount cmd
+        if ( getuid()!=0 ) // user mountable
+        {
+            cmdS = QLatin1String( "mount %d" );
+        }
+        else  // root mounts with all params/options
+        {
+            // FreeBSD's mount(8) is picky: -o _must_ go before
+            // the device and mountpoint.
+            cmdS = QLatin1String( "mount -t%t -o%o %d %m" );
+        }
+    }
 
-  cmdS.replace(QString::fromLatin1("%d"),deviceName());
-  cmdS.replace(QString::fromLatin1("%m"),mountPoint());
-  cmdS.replace(QString::fromLatin1("%t"),fsType());
-  cmdS.replace(QString::fromLatin1("%o"),mountOptions());
+    cmdS.replace( QLatin1String( "%d" ), deviceName() );
+    cmdS.replace( QLatin1String( "%m" ), mountPoint() );
+    cmdS.replace( QLatin1String( "%t" ), fsType() );
+    cmdS.replace( QLatin1String( "%o" ), mountOptions() );
 
-  kDebug() << "mount-cmd: [" << cmdS << "]" ;
-  int e=sysCall(cmdS);
-  if (!e) setMounted(true);
-  kDebug() << "mount-cmd: e=" << e ;
-  return e;
+    kDebug() << "mount-cmd: [" << cmdS << "]" ;
+    int e = sysCall( cmdS );
+    if (!e)
+        setMounted( true );
+    kDebug() << "mount-cmd: e=" << e ;
+    return e;
 }
 
 int DiskEntry::umount()
 {
-  kDebug() << "umounting" ;
-  QString cmdS=umntcmd;
-  if (cmdS.isEmpty()) // generate default umount cmd
-      cmdS="umount %d";
+    kDebug() << "umounting" ;
+    QString cmdS = umntcmd;
+    if ( cmdS.isEmpty() ) // generate default umount cmd
+        cmdS = QLatin1String( "umount %d" );
 
-  cmdS.replace(QString::fromLatin1("%d"),deviceName());
-  cmdS.replace(QString::fromLatin1("%m"),mountPoint());
+    cmdS.replace( QLatin1String( "%d" ), deviceName() );
+    cmdS.replace( QLatin1String( "%m" ), mountPoint() );
 
-  kDebug() << "umount-cmd: [" << cmdS << "]" ;
-  int e=sysCall(cmdS);
-  if (!e) setMounted(false);
-  kDebug() << "umount-cmd: e=" << e ;
+    kDebug() << "umount-cmd: [" << cmdS << "]" ;
+    int e = sysCall( cmdS );
+    if ( !e )
+        setMounted( false );
+    kDebug() << "umount-cmd: e=" << e ;
 
-  return e;
+    return e;
 }
 
 int DiskEntry::remount()
 {
-  if (mntcmd.isEmpty() && umntcmd.isEmpty() // default mount/umount commands
-      && (getuid()==0)) // you are root
+    if ( mntcmd.isEmpty() && umntcmd.isEmpty() // default mount/umount commands
+            && ( getuid()==0) ) // you are root
     {
-    QString oldOpt=options;
-    if (options.isEmpty())
-       options="remount";
-    else
-       options+=",remount";
-    int e=mount();
-    options=oldOpt;
-    return e;
-   } else {
-    if (int e=umount())
-      return mount();
-   else return e;
-  }
+        QString oldOpt = options;
+        if (options.isEmpty())
+            options = QLatin1String( "remount" );
+        else
+            options += QLatin1String( ",remount" );
+
+        int e = mount();
+        options = oldOpt;
+        return e;
+    } else
+    {
+        if ( int e=umount() )
+            return mount();
+        else
+            return e;
+    }
 }
 
 void DiskEntry::setMountCommand(const QString & mnt)
 {
-  mntcmd=mnt;
+    mntcmd=mnt;
 }
 
 void DiskEntry::setUmountCommand(const QString & umnt)
 {
-  umntcmd=umnt;
+    umntcmd=umnt;
 }
 
 void DiskEntry::setIconName(const QString & iconName)
 {
-  iconSetByUser=true;
-  icoName=iconName;
-  if (icoName.right(6) == "_mount")
-     icoName.truncate(icoName.length()-6);
-  else if (icoName.right(8) == "_unmount")
-     icoName.truncate(icoName.length()-8);
+    iconSetByUser=true;
+    icoName=iconName;
+    if ( icoName.right(6) == QLatin1String( "_mount" ) )
+        icoName.truncate(icoName.length()-6);
+    else if ( icoName.right(8) == QLatin1String( "_unmount" ) )
+        icoName.truncate(icoName.length()-8);
 
-  emit iconNameChanged();
+    emit iconNameChanged();
+}
+
+void DiskEntry::setIconToDefault()
+{
+    iconSetByUser = false;
+    icoName.clear();
+    
 }
 
 QString DiskEntry::iconName()
 {
-  QString iconName=icoName;
-  if (iconSetByUser) {
-    mounted() ? iconName+="_mount" : iconName+="_unmount";
-   return iconName;
-  } else
-   return guessIconName();
+    QString iconName=icoName;
+    if (iconSetByUser)
+    {
+        mounted() ? iconName += QLatin1String( "_mount" ) : iconName += QLatin1String( "_unmount" );
+        return iconName;
+    }
+    else
+        return guessIconName();
 }
 
 //TODO: Need porting to solid
 QString DiskEntry::guessIconName()
 {
-  QString iconName;
+    QString iconName;
+
+    /*
+    //List Solid Devices 
+    foreach (const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::StorageVolume))
+      {
+          kDebug() << device.udi().toLatin1().constData() << device.vendor() << device.product() << device.icon();
+      }
+    Solid::Device * device = new Solid::Device(deviceName());
+    kDebug() << "guess" << deviceName() << device->icon();
+    delete device;
+    */
     // try to be intelligent
-    if (mountPoint().contains("cdrom",Qt::CaseInsensitive)) iconName+="media-optical";
-    else if (deviceName().contains("cdrom",Qt::CaseInsensitive)) iconName+="media-optical";
-    else if (mountPoint().contains("writer",Qt::CaseInsensitive)) iconName+="media-optical-recordable";
-    else if (deviceName().contains("writer",Qt::CaseInsensitive)) iconName+="media-optical-recordable";
-    else if (mountPoint().contains("mo",Qt::CaseInsensitive)) iconName+="mo"; //TODO
-    else if (deviceName().contains("mo",Qt::CaseInsensitive)) iconName+="mo"; //TODO
-    else if (deviceName().contains("fd",Qt::CaseInsensitive)) {
-            if (deviceName().contains("360",Qt::CaseInsensitive)) iconName+="5floppy"; //TODO
-            if (deviceName().contains("1200",Qt::CaseInsensitive)) iconName+="5floppy"; //TODO
-            else iconName+="media-floppy";
-	 }
-    else if (mountPoint().contains("floppy",Qt::CaseInsensitive)) iconName+="media-floppy";
-    else if (mountPoint().contains("zip",Qt::CaseInsensitive)) iconName+="zip"; //TODO
-    else if (fsType().contains("nfs",Qt::CaseInsensitive)) iconName+="nfs"; //TODO
-    else iconName+="drive-harddisk";
+    if (mountPoint().contains("cdrom",Qt::CaseInsensitive))
+        iconName+="media-optical";
+    else if (deviceName().contains("cdrom",Qt::CaseInsensitive))
+        iconName+="media-optical";
+    else if (mountPoint().contains("writer",Qt::CaseInsensitive))
+        iconName+="media-optical-recordable";
+    else if (deviceName().contains("writer",Qt::CaseInsensitive))
+        iconName+="media-optical-recordable";
+    else if (mountPoint().contains("mo",Qt::CaseInsensitive))
+        iconName+="mo"; //TODO
+    else if (deviceName().contains("mo",Qt::CaseInsensitive))
+        iconName+="mo"; //TODO
+    else if (deviceName().contains("fd",Qt::CaseInsensitive))
+    {
+        if (deviceName().contains("360",Qt::CaseInsensitive))
+            iconName+="5floppy"; //TODO
+        if (deviceName().contains("1200",Qt::CaseInsensitive))
+            iconName+="5floppy"; //TODO
+        else
+            iconName+="media-floppy";
+    }
+    else if (mountPoint().contains("floppy",Qt::CaseInsensitive))
+        iconName+="media-floppy";
+    else if (mountPoint().contains("zip",Qt::CaseInsensitive))
+        iconName+="zip"; //TODO
+    else if (fsType().contains("nfs",Qt::CaseInsensitive))
+        iconName+="nfs"; //TODO
+    else
+        iconName+="drive-harddisk";
     ///mounted() ? iconName+="_mount" : iconName+="_unmount";
-//    if ( !mountOptions().contains("user",Qt::CaseInsensitive) )
-//      iconName.prepend("root_"); // special root icon, normal user can't mount
+    //    if ( !mountOptions().contains("user",Qt::CaseInsensitive) )
+    //      iconName.prepend("root_"); // special root icon, normal user can't mount
 
     //debug("device %s is %s",deviceName().latin1(),iconName.latin1());
 
     //emit iconNameChanged();
-  return iconName;
+    return iconName;
 }
 
 
 /***************************************************************************
   * starts a command on the underlying system via /bin/sh
 **/
-int DiskEntry::sysCall(const QString & command)
+int DiskEntry::sysCall(QString & completeCommand)
 {
-  if (readingSysStdErrOut || sysProc->isRunning() )  return -1;
+    if (readingSysStdErrOut || sysProc->state() == QProcess::Running )
+        return -1;
 
-  sysStringErrOut=i18n("Called: %1\n\n", command); // put the called command on ErrOut
-  sysProc->clearArguments();
-  (*sysProc) << command;
-    if (!sysProc->start( K3Process::Block, K3Process::AllOutput ))
-     kFatal() << i18n("could not execute %1", command.toLocal8Bit().data()) ;
+    sysStringErrOut=i18n("Called: %1\n\n", completeCommand); // put the called command on ErrOut
+    sysProc->clearProgram();
 
-  if (sysProc->exitStatus()!=0) emit sysCallError(this, sysProc->exitStatus());
+    //Split command and arguments to use the new API, otherwise it doesn't work
+    QTextStream tS(&completeCommand);
 
-  return (sysProc->exitStatus());
+    QString command;
+    tS >> command;
+
+    QString tmp;
+    QStringList args;
+    while( !tS.atEnd() )
+    {
+        tS >> tmp;
+        args << tmp;
+    }
+
+    sysProc->setProgram(command, args);
+    sysProc->start();
+
+    if ( !sysProc->waitForStarted(-1) )
+        kFatal() << i18n("could not execute %1", command.toLocal8Bit().data()) ;
+
+    sysProc->waitForFinished(-1);
+
+    if (sysProc->exitCode()!=0)
+        emit sysCallError(this, sysProc->exitStatus());
+
+    return (sysProc->exitCode());
 }
 
 
 /***************************************************************************
   * is called, when the Sys-command writes on StdOut or StdErr
 **/
-void DiskEntry::receivedSysStdErrOut(K3Process *, char *data, int len)
+void DiskEntry::receivedSysStdErrOut()
 {
-  QString tmp = QString::fromLocal8Bit(data, len);
-  sysStringErrOut.append(tmp);
+    QString stdOut = QString::fromLocal8Bit( sysProc->readAllStandardOutput() );
+    QString stdErr = QString::fromLocal8Bit( sysProc->readAllStandardError() );
+
+    sysStringErrOut.append( stdOut );
+    sysStringErrOut.append( stdErr );
 }
 
 float DiskEntry::percentFull() const
 {
-   if (size != 0) {
-      return 100 - ( ((float)avail / (float)size) * 100 );
-   } else {
-      return -1;
-   }
+    if (size != 0)
+    {
+        return 100 - ( ((float)avail / (float)size) * 100 );
+    }
+    else
+    {
+        return -1;
+    }
 }
 
 void DiskEntry::setDeviceName(const QString & deviceName)
 {
- device=deviceName;
- emit deviceNameChanged();
+    device=deviceName;
+    emit deviceNameChanged();
 }
 
 QString DiskEntry::deviceRealName() const
 {
- QFileInfo inf( device );
- QDir dir( inf.absolutePath() );
- QString relPath = inf.fileName();
- if ( inf.isSymLink() ) {
-  QString link = inf.readLink();
-  if ( link.startsWith( '/' ) )
-    return link;
-  relPath = link;
- }
- return dir.canonicalPath() + '/' + relPath;
+    QFileInfo inf( device );
+    QDir dir( inf.absolutePath() );
+    QString relPath = inf.fileName();
+    if ( inf.isSymLink() )
+    {
+        QString link = inf.readLink();
+        if ( link.startsWith( '/' ) )
+            return link;
+        relPath = link;
+    }
+    return dir.canonicalPath() + '/' + relPath;
 }
 
 void DiskEntry::setMountPoint(const QString & mountPoint)
 {
-  mountedOn=mountPoint;
- emit mountPointChanged();
+    mountedOn=mountPoint;
+    emit mountPointChanged();
 }
 
 QString DiskEntry::realMountPoint() const
 {
- QDir dir( mountedOn );
- return dir.canonicalPath();
+    QDir dir( mountedOn );
+    return dir.canonicalPath();
 }
 
 void DiskEntry::setMountOptions(const QString & mountOptions)
 {
- options=mountOptions;
- emit mountOptionsChanged();
+    options=mountOptions;
+    emit mountOptionsChanged();
 }
 
 void DiskEntry::setFsType(const QString & fsType)
 {
-  type=fsType;
-  emit fsTypeChanged();
+    type=fsType;
+    emit fsTypeChanged();
 }
 
 void DiskEntry::setMounted(bool nowMounted)
 {
-  isMounted=nowMounted;
-  emit mountedChanged();
+    isMounted=nowMounted;
+    emit mountedChanged();
 }
 
 void DiskEntry::setKBSize(qulonglong kb_size)
 {
-  size=kb_size;
-  emit kBSizeChanged();
+    size=kb_size;
+    emit kBSizeChanged();
 }
 
 void DiskEntry::setKBUsed(qulonglong kb_used)
 {
-  used=kb_used;
-  if ( size < (used+avail) ) {  //adjust kBAvail
-     kWarning() << "device " << device << ": kBAvail(" << avail << ")+*kBUsed(" << used << ") exceeds kBSize(" << size << ")" ;
-     setKBAvail(size-used);
-  }
-  emit kBUsedChanged();
+    used=kb_used;
+    if ( size < (used+avail) )
+    {  //adjust kBAvail
+        kWarning() << "device " << device << ": kBAvail(" << avail << ")+*kBUsed(" << used << ") exceeds kBSize(" << size << ")" ;
+        setKBAvail(size-used);
+    }
+    emit kBUsedChanged();
 }
 
 void DiskEntry::setKBAvail(qulonglong kb_avail)
 {
-  avail=kb_avail;
-  if ( size < (used+avail) ) {  //adjust kBUsed
-     kWarning() << "device " << device << ": *kBAvail(" << avail << ")+kBUsed(" << used << ") exceeds kBSize(" << size << ")" ;
-     setKBUsed(size-avail);
-  }
-  emit kBAvailChanged();
+    avail=kb_avail;
+    if ( size < (used+avail) )
+    {  //adjust kBUsed
+        kWarning() << "device " << device << ": *kBAvail(" << avail << ")+kBUsed(" << used << ") exceeds kBSize(" << size << ")" ;
+        setKBUsed(size-avail);
+    }
+    emit kBAvailChanged();
 }
 
+#include "disks.moc"
 

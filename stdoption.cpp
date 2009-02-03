@@ -25,19 +25,21 @@
 ** Bug reports and questions can be sent to <kde-devel@kde.org>
 */
 
-#include "stdoption.h"
+#include <QtCore/QString>
 
 #include <kapplication.h>
 #include <kconfig.h>
 #include <kconfiggroup.h>
 #include <kglobal.h>
 
+#include "stdoption.h"
+
 QString CStdOption::mDefaultFileManager = "dolphin %m";
 int CStdOption::mDefaultUpdateFrequency = 60;
 
 CStdOption::CStdOption( void )
 {
-  setDefault();
+    setDefault();
 }
 
 
@@ -48,99 +50,91 @@ CStdOption::~CStdOption( void )
 
 void CStdOption::updateConfiguration( void )
 {
-  KConfigGroup config(KGlobal::config(), "KDFConfig");
-  mFileManager = config.readPathEntry(
-    "FileManagerCommand", mDefaultFileManager );
-  mUpdateFrequency = config.readEntry(
-    "UpdateFrequency", mDefaultUpdateFrequency );
-  mPopupIfFull = config.readEntry(
-    "PopupIfFull", true );
-  mOpenFileManagerOnMount = config.readEntry(
-    "OpenFileMgrOnMount", false );
+    KConfigGroup config(KGlobal::config(), "KDFConfig");
+    mFileManager = config.readPathEntry(
+                       "FileManagerCommand", mDefaultFileManager );
+    mUpdateFrequency = config.readEntry(
+                           "UpdateFrequency", mDefaultUpdateFrequency );
+    mPopupIfFull = config.readEntry(
+                       "PopupIfFull", true );
+    mOpenFileManagerOnMount = config.readEntry(
+                                  "OpenFileMgrOnMount", false );
 }
 
 
 void CStdOption::writeConfiguration( void )
 {
-  KConfigGroup config(KGlobal::config(), "KDFConfig");
-  config.writeEntry( "UpdateFrequency", mUpdateFrequency );
-  config.writePathEntry( "FileManagerCommand", mFileManager );
-  config.writeEntry( "PopupIfFull", mPopupIfFull );
-  config.writeEntry( "OpenFileMgrOnMount", mOpenFileManagerOnMount );
-  config.sync();
+    KConfigGroup config(KGlobal::config(), "KDFConfig");
+    config.writeEntry( "UpdateFrequency", mUpdateFrequency );
+    config.writePathEntry( "FileManagerCommand", mFileManager );
+    config.writeEntry( "PopupIfFull", mPopupIfFull );
+    config.writeEntry( "OpenFileMgrOnMount", mOpenFileManagerOnMount );
+    config.sync();
 }
 
 
 void CStdOption::writeDefaultFileManager( void )
 {
-  KConfigGroup config(KGlobal::config(), "KDFConfig");
-  config.writePathEntry( "FileManagerCommand", mDefaultFileManager );
-  config.sync();
+    KConfigGroup config(KGlobal::config(), "KDFConfig");
+    config.writePathEntry( "FileManagerCommand", mDefaultFileManager );
+    config.sync();
 }
 
 
 
 QString CStdOption::fileManager( void )
 {
-  return( mFileManager );
+    return( mFileManager );
 }
 
 
 int CStdOption::updateFrequency( void )
 {
-  return( mUpdateFrequency );
+    return( mUpdateFrequency );
 }
 
 
 bool CStdOption::popupIfFull( void )
 {
-  return( mPopupIfFull );
+    return( mPopupIfFull );
 }
 
 
 bool CStdOption::openFileManager( void )
 {
-  return( mOpenFileManagerOnMount );
+    return( mOpenFileManagerOnMount );
 }
 
 
 void CStdOption::setDefault( void )
 {
-  mFileManager     = mDefaultFileManager;
-  mUpdateFrequency = mDefaultUpdateFrequency;
-  mPopupIfFull     = true;
-  mOpenFileManagerOnMount = false;
+    mFileManager     = mDefaultFileManager;
+    mUpdateFrequency = mDefaultUpdateFrequency;
+    mPopupIfFull     = true;
+    mOpenFileManagerOnMount = false;
 }
 
 
 void CStdOption::setFileManager( const QString &fileManager )
 {
-  mFileManager = fileManager;
+    mFileManager = fileManager;
 }
 
 
 void CStdOption::setUpdateFrequency( int frequency )
 {
-  mUpdateFrequency = frequency;
+    mUpdateFrequency = frequency;
 }
 
 
 void CStdOption::setPopupIfFull( bool popupIfFull )
 {
-  mPopupIfFull = popupIfFull;
+    mPopupIfFull = popupIfFull;
 }
 
 
 void CStdOption::setOpenFileManager( bool openFileManagerOnMount )
 {
-  mOpenFileManagerOnMount = openFileManagerOnMount;
+    mOpenFileManagerOnMount = openFileManagerOnMount;
 }
-
-
-
-
-
-
-
-
 

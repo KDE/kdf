@@ -40,40 +40,42 @@
 #include <kglobal.h>
 
 static const char description[] =
-	I18N_NOOP("A test application");
+    I18N_NOOP("A test application");
 
 static const char version[] = "v0.0.1";
 
 main(int argc, char ** argv)
 {
- KCmdLineArgs::init(argc, argv, "test", description, version);
- 
- KApplication app;
- KSharedConfig::Ptr cfg = KGlobal::config();
+    KCmdLineArgs::init(argc, argv, "test", description, version);
 
- Q3Dict<char> dict;
+    KApplication app;
+    KSharedConfig::Ptr cfg = KGlobal::config();
 
- dict.insert("Blah", "Arse");
- dict.insert("Blah", "Smack");
- dict.insert("Blah", "Monkey");
+    Q3Dict<char> dict;
 
- Q3DictIterator<char> it(dict);
+    dict.insert("Blah", "Arse");
+    dict.insert("Blah", "Smack");
+    dict.insert("Blah", "Monkey");
 
- QString key = "TestConfigItem";
+    Q3DictIterator<char> it(dict);
 
- for (; it.current(); ++it) {
+    QString key = "TestConfigItem";
 
-  cerr << "Before saving: " << endl;
-  cerr << "key : \"" << key << "\"" << endl;
-  cerr << "val : \"" << it.current() << "\"" << endl;
+    for (; it.current(); ++it)
+    {
 
-  debug("got back [%s]",cfg->writeEntry(key, it.current()));
-//  debug("got back [%s]",s.data());
+        cerr << "Before saving: " << endl;
+        cerr << "key : \"" << key << "\"" << endl;
+        cerr << "val : \"" << it.current() << "\"" << endl;
 
-  cerr << "After saving: " << endl;
-  cerr << "key : \"" << key << "\"" << endl;
-  cerr << "val : \"" << it.current() << "\"" << endl;
+        debug("got back [%s]",cfg->writeEntry(key, it.current()));
+        //  debug("got back [%s]",s.data());
 
-  cerr << endl;
- }
+        cerr << "After saving: " << endl;
+        cerr << "key : \"" << key << "\"" << endl;
+        cerr << "val : \"" << it.current() << "\"" << endl;
+
+        cerr << endl;
+    }
 }
+

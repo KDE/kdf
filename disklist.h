@@ -1,139 +1,106 @@
 /*
- * disklist.h
- *
- * Copyright (c) 1999 Michael Kropfberger <michael.kropfberger@gmx.net>
- *
- * Requires the Qt widget libraries, available at no cost at
- * http://www.troll.no/
- *
- *  This program is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
- */
+* disklist.h
+*
+* Copyright (c) 1999 Michael Kropfberger <michael.kropfberger@gmx.net>
+*               2009 Dario Andres Rodriguez <andresbajotierra@gmail.com>
+*
+*  This program is free software; you can redistribute it and/or modify
+*  it under the terms of the GNU General Public License as published by
+*  the Free Software Foundation; either version 2 of the License, or
+*  (at your option) any later version.
+*
+*  This program is distributed in the hope that it will be useful,
+*  but WITHOUT ANY WARRANTY; without even the implied warranty of
+*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*  GNU General Public License for more details.
+*
+*  You should have received a copy of the GNU General Public License
+*  along with this program; if not, write to the Free Software
+*  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+*/
 
 #ifndef __DISKLIST_H__
 #define __DISKLIST_H__
 
-#include <kdebug.h>
-#include <kconfig.h>
-#include <klocale.h>
-//#include <kcontrol.h>
-
 // defines the os-type
 #include <QtCore/qglobal.h>
-//Added by qt3to4:
-#include <Qt3Support/Q3PtrList>
+
+#include <ksharedconfig.h>
 
 #include "disks.h"
 
-#define DF_COMMAND    "df"
-// be pessimistic: df -T only works under linux !??
-#if defined(_OS_LINUX_)
-#define DF_ARGS       "-kT"
-#define NO_FS_TYPE    false
+static const char DF_Command[] = "df";
+
+#if defined(Q_OS_LINUX)
+    static const char DF_Args[] = "-kT";
+    static const bool No_FS_Type = false;
 #else
-#define DF_ARGS       "-k"
-#define NO_FS_TYPE    true
+    static const char DF_Args[] = "-k";
+    static const bool No_FS_Type = true;
 #endif
 
-#ifdef _OS_SOLARIS_
-#define CACHEFSTAB "/etc/cachefstab"
-#define FSTAB "/etc/vfstab"
+#if defined(Q_OS_SOLARIS)
+    static const char CacheFSTAB[] = "/etc/cachefstab";
+    static const char FSTAB[] = "/etc/vfstab";
 #else
-#define FSTAB "/etc/fstab"
+    static const char FSTAB[] = "/etc/fstab";
 #endif
 
-#define SEPARATOR "|"
+static const char Separator[] = "|";
 
 /***************************************************************************/
-typedef Q3PtrList<DiskEntry>		DisksBase;
-typedef Q3PtrListIterator<DiskEntry>	DisksIterator;
+typedef QList<DiskEntry*>		                 Disks;
+typedef QList<DiskEntry*>::const_iterator		 DisksConstIterator;
+typedef QList<DiskEntry*>::iterator		         DisksIterator;
 
 class KProcess;
 
-/***************************************************************************/
-class Disks : public DisksBase
-{
- public:
-  Disks(bool deepCopies=true) { dc = deepCopies;}
-  ~Disks() { clear(); }
-private:
-  int compareItems( DiskEntry s1, DiskEntry s2 )
-  {
-    int ret = s1.deviceName().compare(s2.deviceName());
-    if( ret == 0 )
-    {
-      ret = s1.mountPoint().compare(s2.mountPoint());
-    }
-
-    kDebug() << "compareDISKS " << s1.deviceName() << " vs " << s2.deviceName() << " (" << ret << ")" ;
-    return( ret );
-  }
-
-  /*
-  int compareItems( DiskEntry* s1, DiskEntry* s2 ) {
-	int ret;
-	ret = strcmp (static_cast<DiskEntry*>(s1)->deviceName(),
-		      static_cast<DiskEntry*>(s2)->deviceName() );
-	if (0 == ret)
-	   ret = strcmp (static_cast<DiskEntry*>(s1)->mountPoint(),
-			 static_cast<DiskEntry*>(s2)->mountPoint());
-	return ret;
-      };
-  */
-
-  bool  dc;
-};
-
-/***************************************************************************/
 class DiskList : public QObject
-{  Q_OBJECT
-public:
-   DiskList( QObject *parent=0 );
- ~DiskList();
-   int readFSTAB();
-   int readDF();
-   int find(const DiskEntry* disk) {return disks->find(disk);}
-   DiskEntry*  at(uint index) {return disks->at(index);}
-   DiskEntry* first() {return disks->first();}
-   DiskEntry* next() {return disks->next();}
-   uint count() { return disks->count(); }
+{  
+    Q_OBJECT
+    
+    public:
+        DiskList( QObject *parent=0 );
+        ~DiskList();
+        
+        int readFSTAB();
+        int readDF();
+        int find(DiskEntry* disk);
+        DiskEntry* at(uint index) { return disks->at(index); }
+        uint count() { return disks->count(); }
+        void deleteAllMountedAt(const QString &mountpoint);
+        void setUpdatesDisabled(bool disable);
+        
+        //To iterate over disks items
+        DisksConstIterator disksConstIteratorBegin() { return disks->constBegin(); }
+        DisksConstIterator disksConstIteratorEnd() { return disks->constEnd(); }
+        
+        DisksIterator disksIteratorBegin() { return disks->begin(); }
+        DisksIterator disksIteratorEnd() { return disks->end(); }
 
-   void deleteAllMountedAt(const QString &mountpoint);
-   void setUpdatesDisabled(bool disable);
-   
-signals:
-   void readDFDone();
-   void criticallyFull(DiskEntry *disk);
+    Q_SIGNALS:
+        void readDFDone();
+        void criticallyFull(DiskEntry *disk);
+        
+        public slots:
+        void loadSettings();
+        void applySettings();
+        
+        private slots:
+        void dfDone();
 
-public slots:
-  void loadSettings();
-  void applySettings();
+    private:
+        void replaceDeviceEntry(DiskEntry *disk);
+        
+        Disks  *disks;
+        KProcess         *dfProc;
+        bool              readingDFStdErrOut;
+        KSharedConfigPtr  config;
+        bool              updatesDisabled;
 
-private slots:
-   void dfDone();
-
-private:
-  void replaceDeviceEntry(DiskEntry *disk);
-
-  Disks            *disks;
-  KProcess         *dfProc;
-  bool              readingDFStdErrOut;
-  KSharedConfigPtr  config;
-  bool              updatesDisabled;
-  
 };
 /***************************************************************************/
 
 
 #endif
+

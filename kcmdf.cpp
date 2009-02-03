@@ -1,6 +1,6 @@
 /*
   kcmdf.cpp - KcmDiskFree
-
+ 
   Copyright (C) 1998 by Michael Kropfberger <michael.kropfberger@gmx.net>
   
   This program is free software; you can redistribute it and/or modify
@@ -20,52 +20,52 @@
   */
 
 //
-// 1999-12-05 Espen Sand 
-// Modified to use KCModule instead of the old and obsolete 
+// 1999-12-05 Espen Sand
+// Modified to use KCModule instead of the old and obsolete
 // KControlApplication
 //
 
-#include "kcmdf.h"
+#include <QtGui/QVBoxLayout>
 
 #include <kdialog.h>
-
-#include <QtGui/QLayout>
-//Added by qt3to4:
-#include <QtGui/QVBoxLayout>
+#include <klocale.h>
 #include <kcomponentdata.h>
 
+#include "kcmdf.h"
+
 KDiskFreeWidget::KDiskFreeWidget( const KComponentData &inst, QWidget *parent )
- : KCModule( inst, parent )
+        : KCModule( inst, parent )
 {
-  setButtons(Help);
+    setButtons(Help);
 
-  QVBoxLayout *topLayout = new QVBoxLayout( this );
-  topLayout->setSpacing( KDialog::spacingHint() );
-  topLayout->setMargin( 0 );
+    QVBoxLayout *topLayout = new QVBoxLayout( this );
+    topLayout->setSpacing( KDialog::spacingHint() );
+    topLayout->setMargin( 0 );
 
-  mKdf = new KDFWidget( this, false );
-  topLayout->addWidget( mKdf );
+    mKdf = new KDFWidget( this, false );
+    topLayout->addWidget( mKdf );
 }
 
 KDiskFreeWidget::~KDiskFreeWidget()
 {
-  mKdf->applySettings();
+    mKdf->applySettings();
 }
 
 QString KDiskFreeWidget::quickHelp() const
 {
     return i18n("<h3>Hardware Information</h3><br /> All the information modules return information"
-    " about a certain aspect of your computer hardware or your operating system."
-    " Not all modules are available on all hardware architectures and/or operating systems.");
+                " about a certain aspect of your computer hardware or your operating system."
+                " Not all modules are available on all hardware architectures and/or operating systems.");
 }
 
 extern "C"
 {
-  KDE_EXPORT KCModule* create_kdf( QWidget *parent, const char * /*name*/ )
-  {
-  	 KComponentData inst("kdf");
-	 return new KDiskFreeWidget( inst , parent );
-  }
+    KDE_EXPORT KCModule* create_kdf( QWidget *parent, const char * /*name*/ )
+    {
+        KComponentData inst("kdf");
+        return new KDiskFreeWidget( inst , parent );
+    }
 }
 
 #include "kcmdf.moc"
+

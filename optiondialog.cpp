@@ -1,5 +1,6 @@
 /*
  *   Copyright (C) 1999  Espen Sand, espen@kde.org
+ *                 2009 Dario Andres Rodriguez <andresbajotierra@gmail.com>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -17,32 +18,33 @@
  *
  */
 
+#include <klocale.h>
+ 
 #include "optiondialog.h"
-
 #include "kdfconfig.h"
 #include "mntconfig.h"
 
 COptionDialog::COptionDialog( QWidget *parent )
-  :KPageDialog( parent )
+        :KPageDialog( parent )
 {
-  setCaption( i18n("Configure") );
-  setButtons( Help|Apply|Ok|Cancel );
-  setDefaultButton( Ok );
-  setFaceType( KPageDialog::Tabbed );
-  setHelp( "kcontrol/kdf/index.html", QString() );
+    setCaption( i18n("Configure") );
+    setButtons( Help|Apply|Ok|Cancel );
+    setDefaultButton( Ok );
+    setFaceType( KPageDialog::Tabbed );
+    setHelp( "kcontrol/kdf/index.html", QString() );
 
-  mConf = new KDFConfigWidget( this );
-  connect( mConf, SIGNAL( configChanged() ), this, SLOT( slotChanged() ) );
-  addPage( mConf, i18n("General Settings") );
+    mConf = new KDFConfigWidget( this );
+    connect( mConf, SIGNAL( configChanged() ), this, SLOT( slotChanged() ) );
+    addPage( mConf, i18n("General Settings") );
 
-  mMnt = new MntConfigWidget( this );
-  connect( mMnt, SIGNAL( configChanged() ), this, SLOT( slotChanged() ) );
-  addPage( mMnt, i18n("Mount Commands") );
+    mMnt = new MntConfigWidget( this );
+    connect( mMnt, SIGNAL( configChanged() ), this, SLOT( slotChanged() ) );
+    addPage( mMnt, i18n("Mount Commands") );
 
-  enableButton( Apply, false );
-  dataChanged = false;
-  connect(this,SIGNAL(okClicked()),this,SLOT(slotOk()));
-  connect(this,SIGNAL(applyClicked()),this,SLOT(slotApply()));
+    enableButton( Apply, false );
+    dataChanged = false;
+    connect(this,SIGNAL(okClicked()),this,SLOT(slotOk()));
+    connect(this,SIGNAL(applyClicked()),this,SLOT(slotApply()));
 }
 
 
@@ -53,34 +55,26 @@ COptionDialog::~COptionDialog( void )
 
 void COptionDialog::slotOk( void )
 {
-  if( dataChanged )
-    slotApply();
-  accept();
+    if( dataChanged )
+        slotApply();
+    accept();
 }
 
 
 void COptionDialog::slotApply( void )
 {
-  mConf->applySettings();
-  mMnt->applySettings();
-  emit valueChanged();
-  enableButton( Apply, false );
-  dataChanged = false;
+    mConf->applySettings();
+    mMnt->applySettings();
+    emit valueChanged();
+    enableButton( Apply, false );
+    dataChanged = false;
 }
 
 void COptionDialog::slotChanged()
 {
-  enableButton( Apply, true );
-  dataChanged = true;
+    enableButton( Apply, true );
+    dataChanged = true;
 }
 
 #include "optiondialog.moc"
-
-
-
-
-
-
-
-
 

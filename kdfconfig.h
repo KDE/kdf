@@ -1,93 +1,83 @@
 /*
- * kdfconfig.h
- *
- * Copyright (c) 1999 Michael Kropfberger <michael.kropfberger@gmx.net>
- *
- * Requires the Qt widget libraries, available at no cost at
- * http://www.troll.no/
- *
- *  This program is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
- */
+* kdfconfig.h
+*
+* Copyright (c) 1999 Michael Kropfberger <michael.kropfberger@gmx.net>
+*               2009 Dario Andres Rodriguez <andresbajotierra@gmail.com>
+*
+*  This program is free software; you can redistribute it and/or modify
+*  it under the terms of the GNU General Public License as published by
+*  the Free Software Foundation; either version 2 of the License, or
+*  (at your option) any later version.
+*
+*  This program is distributed in the hope that it will be useful,
+*  but WITHOUT ANY WARRANTY; without even the implied warranty of
+*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*  GNU General Public License for more details.
+*
+*  You should have received a copy of the GNU General Public License
+*  along with this program; if not, write to the Free Software
+*  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+*/
 
 #ifndef __KDFCONFIG_H__
 #define __KDFCONFIG_H__
 
-#include <QtCore/QVector>
-#include <QtGui/QLabel>
-#include <QtGui/QCloseEvent>
-
 #include "stdoption.h"
+#include "kdfwidget.h"
 
-class QCheckBox;
+class QCloseEvent;
 class QLabel;
+class QCheckBox;
 class QLCDNumber;
-class KLineEdit;
-class Q3ListViewItem;
-class QScrollBar;
+class QSlider;
+class QPixmap;
+class QTreeWidget;
+class QTreeWidgetItem;
 
-class CListView;
+class Column;
+
+class KLineEdit;
 
 class KDFConfigWidget : public QWidget
 {
-  Q_OBJECT
-
-  class CTabName
-  {
+    Q_OBJECT
+    
     public:
-      CTabName( const QString &res, const QString &name )
-      {
-        mRes     = res;
-        mName    = name;
-      }
-      CTabName( void ) { }
-      ~CTabName( void ) { }
+        explicit KDFConfigWidget( QWidget *parent=0, bool init=false);
+        ~KDFConfigWidget();
+        
+        public slots:
+        void loadSettings( void );
+        void applySettings( void );
+        void defaultsBtnClicked( void );
+        
+        protected slots:
+        void slotChanged();
+        
+        private slots:
+        void toggleListText( QTreeWidgetItem *item, int column );
+    
+    protected:
+        void closeEvent( QCloseEvent * );
+    
+    private:
+        QLCDNumber *mLCD;
+        KLineEdit  *mFileManagerEdit;
+        QCheckBox  *mOpenMountCheck;
+        QCheckBox  *mPopupFullCheck;
+        CStdOption mStd;
+        
+        QPixmap iconVisible;
+        QPixmap iconHidden;
+        
+        QTreeWidget * m_listWidget;
+        QList<Column> m_columnList;
+        
+        QSlider * m_updateSlider;
 
-      QString mRes;
-      QString mName;
-  };
-
-  public:
-    explicit KDFConfigWidget( QWidget *parent=0, bool init=false);
-    ~KDFConfigWidget();
-
-  public slots:
-    void loadSettings( void );
-    void applySettings( void );
-    void defaultsBtnClicked( void );
-
-  protected slots:
-    void slotChanged();
-
-  private slots:
-    void toggleListText( Q3ListViewItem *item, const QPoint &, int column );
-
-  protected:
-    void closeEvent( QCloseEvent * );
-
-  private:
-    QVector<CTabName*> mTabName;
-    CListView  *mList;
-    QScrollBar *mScroll;
-    QLCDNumber *mLCD;
-    KLineEdit  *mFileManagerEdit;
-    QCheckBox  *mOpenMountCheck;
-    QCheckBox  *mPopupFullCheck;
-    CStdOption mStd;
-
-  signals:
-    void configChanged();
+    Q_SIGNALS:
+        void configChanged();
 };
 
 #endif
+

@@ -1,27 +1,22 @@
 project(kdf)
-add_subdirectory( pics ) 
-
-
-
-add_definitions (-DQT3_SUPPORT -DQT3_SUPPORT_WARNINGS)
 
 ########### next target ###############
 set(libkdf_common_SRCS 
 	kdfwidget.cpp 
 	kdfconfig.cpp 
+	kdfitemdelegate.cpp
+    kdfsortproxymodel.cpp
 	mntconfig.cpp 
 	disklist.cpp
 	disks.cpp 
-	listview.cpp 
 	optiondialog.cpp 
 	stdoption.cpp )
-
 
 set(kdf_SRCS kdf.cpp ${libkdf_common_SRCS} )
 
 kde4_add_executable(kdf ${kdf_SRCS})
 
-target_link_libraries(kdf  ${KDE4_KDE3SUPPORT_LIBS} )
+target_link_libraries(kdf ${KDE4_KDEUI_LIBS} ${KDE4_KIO_LIBS})
 
 install(TARGETS kdf  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
@@ -32,7 +27,7 @@ set(kwikdisk_SRCS kwikdisk.cpp ${libkdf_common_SRCS})
 
 kde4_add_executable(kwikdisk ${kwikdisk_SRCS})
 
-target_link_libraries(kwikdisk  ${KDE4_KDE3SUPPORT_LIBS} )
+target_link_libraries(kwikdisk ${KDE4_KDEUI_LIBS} ${KDE4_KIO_LIBS})
 
 install(TARGETS kwikdisk  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
@@ -43,8 +38,7 @@ set(kcm_kdf_PART_SRCS kcmdf.cpp ${libkdf_common_SRCS})
 
 kde4_add_plugin(kcm_kdf ${kcm_kdf_PART_SRCS})
 
-
-target_link_libraries(kcm_kdf  ${KDE4_KDE3SUPPORT_LIBS} )
+target_link_libraries(kcm_kdf ${KDE4_KDEUI_LIBS} ${KDE4_KIO_LIBS})
 
 install(TARGETS kcm_kdf  DESTINATION ${PLUGIN_INSTALL_DIR})
 
