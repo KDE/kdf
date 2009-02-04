@@ -303,7 +303,7 @@ void KDFWidget::updateDFDone( void ){
         QStandardItem * FullItem = new QStandardItem( percent );
         FullItem->setData( disk->percentFull() , Qt::UserRole );
         
-        QStandardItem * UsageBarItem = new QStandardItem( QString::number((int)disk->percentFull()) );
+        QStandardItem * UsageBarItem = new QStandardItem( "" );
         UsageBarItem->setData( disk->percentFull(), Qt::UserRole );
         
         m_listModel->appendRow( QList<QStandardItem*>() << IconItem <<  DeviceItem << TypeItem << SizeItem << MountPointItem <<
