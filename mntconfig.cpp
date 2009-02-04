@@ -101,9 +101,9 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, bool init)
     mIconLineEdit = new KLineEdit(mGroupBox);
     Q_CHECK_PTR(mIconLineEdit);
     mIconLineEdit->setMinimumWidth( fontMetrics().maxWidth()*10 );
-    connect( mIconLineEdit, SIGNAL(textChanged(const QString&)),
+    connect( mIconLineEdit, SIGNAL(textEdited(const QString&)),
 	     this,SLOT(iconChanged(const QString&)));
-    connect( mIconLineEdit, SIGNAL(textChanged(const QString&)),
+    connect( mIconLineEdit, SIGNAL(textEdited(const QString&)),
 	     this,SLOT(slotChanged()));
     gl->addWidget( mIconLineEdit, 2, 0 );
 
