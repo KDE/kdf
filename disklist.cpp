@@ -445,7 +445,7 @@ void DiskList::deleteAllMountedAt(const QString &mountpoint)
         DiskEntry * disk = *prev;
         if (disk->mountPoint() == mountpoint )
         {
-            disks->erase( prev );
+            disks->removeOne( disk );
             delete disk;
         }
     }
