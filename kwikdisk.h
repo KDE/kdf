@@ -31,6 +31,9 @@
 #include <kxmlguiwindow.h>
 #include <ksystemtrayicon.h>
 
+class QActionGroup;
+class QAction;
+
 /**
 * @short Application Main Window (however in Tray)
 * @version 0.2
@@ -44,12 +47,14 @@ class KwikDisk : public KSystemTrayIcon
    private slots:
       void updateDFDone();
       void criticallyFull(DiskEntry*);
-      void toggleMount(int);
+      void toggleMount(QAction*);
       void loadSettings();
       void changeSettings();
       void startKDF();
       void invokeHelp();
       void slotActivated(QSystemTrayIcon::ActivationReason reason);
+      void clearDeviceActions();
+      
    private:
       void timerEvent(QTimerEvent *);
       void enterEvent(QEvent *);
@@ -67,6 +72,8 @@ class KwikDisk : public KSystemTrayIcon
       bool           m_menuVisible;
       bool           m_inside;
       COptionDialog *m_optionDialog;
+      QActionGroup * m_actionGroup;
+      QAction * m_actionSeparator;
 };
 
 #endif // _KWIKDISK_H_

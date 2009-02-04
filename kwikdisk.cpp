@@ -37,6 +37,9 @@
 #include <QtGui/QPainter>
 #include <QtGui/QMouseEvent>
 #include <QtGui/QPixmap>
+#include <QtGui/QAction>
+#include <QtGui/QActionGroup>
+#include <QtCore/QMutableListIterator>
 #include <QtCore/QAbstractEventDispatcher>
 #include <kxmlguiwindow.h>
 #include <klocale.h>
@@ -65,6 +68,7 @@ KwikDisk::KwikDisk()
 {
    kDebug() ;
 
+   contextMenu()->setTitle(i18n("KwikDisk"));
    setIcon(KSystemTrayIcon::loadIcon("kdf"));
    show();
 
@@ -72,10 +76,29 @@ KwikDisk::KwikDisk()
    connect( &m_diskList, SIGNAL(criticallyFull(DiskEntry*)),
             this, SLOT(criticallyFull(DiskEntry*)) );
 
-   loadSettings();
-   updateDF();
    connect( this, SIGNAL( activated(QSystemTrayIcon::ActivationReason)),
             SLOT(slotActivated(QSystemTrayIcon::ActivationReason) ));
+    
+   m_actionGroup = new QActionGroup( this );
+   connect( m_actionGroup, SIGNAL( triggered( QAction* ) ) , this, SLOT( toggleMount( QAction* ) ) );
+
+   m_actionSeparator = contextMenu()->addSeparator();
+
+   contextMenu()->addAction(
+        KSystemTrayIcon::loadIcon("kdf"),
+        i18n("&Start KDiskFree"), this, SLOT(startKDF()));
+
+   contextMenu()->addAction(
+        KSystemTrayIcon::loadIcon("configure"),
+        i18n("&Configure KwikDisk..."), this, SLOT(changeSettings()));
+
+   contextMenu()->addAction(
+        KSystemTrayIcon::loadIcon("help-contents"),
+        KStandardGuiItem::help().text(), this, SLOT(invokeHelp()));
+        
+   loadSettings();
+   updateDF();
+   
 }
 
 void KwikDisk::enterEvent(QEvent *)
@@ -141,6 +164,19 @@ void KwikDisk::updateDF()
    m_diskList.readDF();
 }
 
+void KwikDisk::clearDeviceActions()
+{
+   QList<QAction*> listActions = m_actionGroup->actions();
+   QMutableListIterator<QAction*> it(listActions);
+   while( it.hasNext() )
+   {
+       QAction * action = it.next();
+       m_actionGroup->removeAction( action );
+       contextMenu()->removeAction( action );
+       delete action;
+   }
+}
+
 void KwikDisk::updateDFDone()
 {
    kDebug() ;
@@ -148,8 +184,7 @@ void KwikDisk::updateDFDone()
    m_readingDF = false;
    m_dirty     = false;
 
-   contextMenu()->clear();
-   contextMenu()->setTitle(i18n("KwikDisk"));
+   clearDeviceActions();
 
    int itemNo = 0;
    for( DiskEntry *disk = m_diskList.first(); disk != 0; disk = m_diskList.next() )
@@ -164,8 +199,10 @@ void KwikDisk::updateDFDone()
       {
          entryName += QString("\t\t\t[%1]").arg(disk->prettyKBAvail());
       }
-      int id = contextMenu()->insertItem("", this, SLOT(toggleMount(int)) );
-      contextMenu()->setItemParameter(id, itemNo);
+      
+      QAction * action = new QAction(entryName, m_actionGroup);
+      action->setToolTip( toolTipText );
+      action->setData( itemNo );
       itemNo++;
 
       QPixmap pix(KSystemTrayIcon::loadIcon(disk->iconName()).pixmap());
@@ -195,34 +232,23 @@ void KwikDisk::updateDFDone()
             qp.drawRect(0,0,pix.width(),pix.height());
             qp.end();
          }
-         contextMenu()->disconnectItem(id,disk,SLOT(toggleMount()));
          toolTipText = i18n("You must login as root to mount this disk");
       }
 
-      contextMenu()->changeItem(id,pix,entryName);
+      action->setIcon( pix );
    }
 
-   contextMenu()->addSeparator();
-
-   contextMenu()->insertItem(
-      KSystemTrayIcon::loadIcon("kdf"),
-      i18n("&Start KDiskFree"), this, SLOT(startKDF()),0);
-
-   contextMenu()->insertItem(
-      KSystemTrayIcon::loadIcon("configure"),
-      i18n("&Configure KwikDisk..."), this, SLOT(changeSettings()),0);
-
-   contextMenu()->insertItem(
-      KSystemTrayIcon::loadIcon("help-contents"),
-      KStandardGuiItem::help().text(), this, SLOT(invokeHelp()),0);
-
+    contextMenu()->insertActions( m_actionSeparator, m_actionGroup->actions() );
+   
 }
 
-void KwikDisk::toggleMount(int item)
+void KwikDisk::toggleMount(QAction * action)
 {
    kDebug() ;
+   if ( !action )
+      return;
 
-   DiskEntry *disk = m_diskList.at(item);
+   DiskEntry *disk = m_diskList.at( action->data().toInt() );
    if( disk == 0 )
    {
       return;
@@ -315,6 +341,7 @@ int main(int argc, char **argv)
    mainWin = new KwikDisk;
    QObject::connect(mainWin, SIGNAL(quitSelected()), &app, SLOT(quit()));
 
+   app.setQuitOnLastWindowClosed( false );
    // mainWin has WDestructiveClose flag by default, so it will delete itself.
    return app.exec();
 }
