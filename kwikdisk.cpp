@@ -28,6 +28,7 @@
 // Rewrite for KDE 3
 //
 
+#include "kwikdisk.h"
 
 #include <stdlib.h>
 #include <unistd.h>
@@ -49,8 +50,6 @@
 #include <ktoolinvocation.h>
 #include <kshell.h>
 #include <kdebug.h>
-
-#include "kwikdisk.h"
 
 static const char description[] =
     I18N_NOOP("KDE Free disk space utility");
@@ -193,9 +192,9 @@ void KwikDisk::updateDFDone()
     {
         DiskEntry * disk = *itr;
 
-        QString toolTipText = i18n("%1 (%2) %3 on %4",
-                                   disk->mounted() ? i18nc("Unmount the storage device", "Unmount") : i18nc("Mount the storage device", "Mount"),
-                                   disk->fsType().trimmed(), disk->deviceName().trimmed(), disk->mountPoint().trimmed());
+        QString toolTipText = QString("%1 (%2) %3 on %4")
+          .arg( disk->mounted() ? i18nc("Unmount the storage device", "Unmount") : i18nc("Mount the storage device", "Mount") )
+          .arg( disk->fsType().trimmed() ).arg( disk->deviceName().trimmed() ).arg( disk->mountPoint().trimmed() ); 
 
         QString entryName = disk->mountPoint().trimmed();
         if( disk->mounted() )
@@ -334,7 +333,7 @@ int main(int argc, char **argv)
     KwikDisk *mainWin = 0;
     mainWin = new KwikDisk();
 
-    //Avoid quiting when closing the KwikDisk Settings dialog
+    //Avoid quit when closing the KwikDisk Settings dialog
     app.setQuitOnLastWindowClosed( false );
 
     // mainWin has WDestructiveClose flag by default, so it will delete itself.

@@ -18,8 +18,8 @@
 *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#ifndef __DISKS_H__
-#define __DISKS_H__
+#ifndef DISKS_H
+#define DISKS_H
 
 #include <QtCore/QObject>
 

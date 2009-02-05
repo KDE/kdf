@@ -19,6 +19,7 @@
  *
  */
 
+#include "kdf.h"
 
 #include <kapplication.h>
 #include <kcmdlineargs.h>
@@ -26,13 +27,12 @@
 #include <kxmlguifactory.h>
 
 #include <kmenu.h>
+#include <kdebug.h>
 #include <kmenubar.h>
 #include <kaction.h>
 #include <kstandardshortcut.h>
 #include <kstandardaction.h>
 #include <kactioncollection.h>
-
-#include "kdf.h"
 
 static const char description[] =
     I18N_NOOP("KDE free disk space utility");
@@ -47,7 +47,7 @@ KDFTopLevel::KDFTopLevel(QWidget *)
     kdf = new KDFWidget(this,false);
     Q_CHECK_PTR(kdf);
     QAction *action = actionCollection()->addAction( "updatedf" );
-    action->setText( i18n( "&Update" ) );
+    action->setText( i18nc( "Update action", "&Update" ) );
     connect(action, SIGNAL(triggered(bool) ), kdf, SLOT( updateDF() ));
 
     KStandardAction::quit(this, SLOT(close()), actionCollection());

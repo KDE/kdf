@@ -20,8 +20,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
 
-#ifndef __KCMDF_H__
-#define __KCMDF_H__
+#ifndef KCMDF_H
+#define KCMDF_H
 
 #include <kcmodule.h>
 

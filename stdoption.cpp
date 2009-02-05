@@ -1,6 +1,6 @@
 /*
 **
-** Copyright (C) 1998 by Michael Kropfberger
+** Copyright (C) 1998 by Michael Kropfberger <michael.kropfberger@gmx.net>
 **
 */
 
@@ -25,14 +25,14 @@
 ** Bug reports and questions can be sent to <kde-devel@kde.org>
 */
 
+#include "stdoption.h"
+
 #include <QtCore/QString>
 
 #include <kapplication.h>
 #include <kconfig.h>
 #include <kconfiggroup.h>
 #include <kglobal.h>
-
-#include "stdoption.h"
 
 QString CStdOption::mDefaultFileManager = "dolphin %m";
 int CStdOption::mDefaultUpdateFrequency = 60;

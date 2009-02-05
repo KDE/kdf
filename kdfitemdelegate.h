@@ -18,8 +18,8 @@
 *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#ifndef __KDFITEM_H__
-#define __KDFITEM_H__
+#ifndef KDFITEMDELEGATE_H
+#define KDFITEMDELEGATE_H
 
 #include <QtGui/QStyledItemDelegate>
 

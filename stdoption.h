@@ -1,6 +1,6 @@
 /*
 **
-** Copyright (C) 1998 by Michael Kropfberger
+** Copyright (C) 1998 by Michael Kropfberger <michael.kropfberger@gmx.net>
 **
 */
 
@@ -25,10 +25,11 @@
 ** Bug reports and questions can be sent to <kde-devel@kde.org>
 */
 
-#ifndef __STD_OPTION_H__
-#define __STD_OPTION_H__
+#ifndef CSTDOPTION_H
+#define CSTDOPTION_H
 
-class QString;
+#include <QtCore/QString>
+//class QString;
 
 class CStdOption
 {

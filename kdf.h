@@ -19,8 +19,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 */
 
-#ifndef __KDF_H__
-#define __KDF_H__
+#ifndef KDF_H
+#define KDF_H
 
 #include <kxmlguiwindow.h>
 

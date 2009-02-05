@@ -24,6 +24,8 @@
 // Converted to QLayout and QListView + cleanups
 //
 
+#include "mntconfig.h"
+
 #include <QtGui/QGroupBox>
 #include <QtGui/QLabel>
 #include <QtGui/QPixmap>
@@ -43,8 +45,6 @@
 #include <kcmodule.h>
 #include <kconfig.h>
 #include <kiconloader.h>
-
-#include "mntconfig.h"
 
 #ifndef KDE_USE_FINAL
 static bool GUI;

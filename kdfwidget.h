@@ -19,8 +19,8 @@
 *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#ifndef __KDFWIDGET_H__
-#define __KDFWIDGET_H__
+#ifndef KDFWIDGET_H
+#define KDFWIDGET_H
 
 #include "disks.h"
 #include "disklist.h"

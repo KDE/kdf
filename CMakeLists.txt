@@ -6,7 +6,7 @@ set(libkdf_common_SRCS
 	kdfwidget.cpp 
 	kdfconfig.cpp 
 	kdfitemdelegate.cpp
-    kdfsortproxymodel.cpp
+        kdfsortproxymodel.cpp
 	mntconfig.cpp 
 	disklist.cpp
 	disks.cpp 
@@ -14,6 +14,17 @@ set(libkdf_common_SRCS
 	stdoption.cpp )
 
 set(kdf_SRCS kdf.cpp ${libkdf_common_SRCS} )
+
+#
+#macro_bool_to_01(${CMAKE_SYSTEM_NAME} MATCHES "Linux" HAVE_LINUX)
+#if ( ${CMAKE_SYSTEM_NAME} MATCHES "SunOS" )
+#
+#endif ( ${CMAKE_SYSTEM_NAME} MATCHES "SunOS" )
+#
+#if ( ${CMAKE_SYSTEM_NAME} MATCHES "Linux" )
+#
+#endif ( ${CMAKE_SYSTEM_NAME} MATCHES "Linux" )
+#
 
 kde4_add_executable(kdf ${kdf_SRCS})
 

@@ -19,8 +19,8 @@
 *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#ifndef __KDFCONFIG_H__
-#define __KDFCONFIG_H__
+#ifndef KDFCONFIG_H
+#define KDFCONFIG_H
 
 #include "stdoption.h"
 #include "kdfwidget.h"

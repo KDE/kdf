@@ -26,6 +26,8 @@
 // Usage bars should work again.
 //
 
+#include "kdfwidget.h"
+
 #include <stdlib.h>
 
 #include <QtCore/QAbstractEventDispatcher>
@@ -48,7 +50,6 @@
 #include <kdebug.h>
 
 #include "optiondialog.h"
-#include "kdfwidget.h"
 
 //This aren't used here...
 //#define BAR_COLUMN   7

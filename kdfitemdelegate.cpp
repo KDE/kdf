@@ -18,6 +18,8 @@
 *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
+#include "kdfitemdelegate.h"
+
 #include <QtGui/QStyleOptionViewItem>
 #include <QtGui/QPainter>
 
@@ -28,7 +30,6 @@
 #include <QBrush>
 
 #include "kdfwidget.h"
-#include "kdfitemdelegate.h"
 
 static const float Full_Percent = 95.0; //This should be fetched from another class
 
@@ -45,7 +46,7 @@ void KDFItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
             KCapacityBar bar;
             bar.setBarHeight( option.rect.height() -2 );
             bar.setValue( progress );
-            bar.setText( QString::number( progress ) + "%" );
+            bar.setText( QString::number( progress ) + '%' );
             //Draw red bar on >=Full_Percent
             if ( progress >= Full_Percent )
             {

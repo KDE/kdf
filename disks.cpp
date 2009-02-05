@@ -18,6 +18,7 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#include "disks.h"
 
 #include <unistd.h>
 #include <sys/types.h>
@@ -30,8 +31,6 @@
 #include <kprocess.h>
 #include <klocale.h>
 //#include <solid/device.h>
-
-#include "disks.h"
 
 /****************************************************/
 /********************* DiskEntry ********************/

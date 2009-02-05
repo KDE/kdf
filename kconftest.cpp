@@ -1,6 +1,6 @@
 /*
 **
-** Copyright (C) 1999 by Michael Kropfberger
+** Copyright (C) 1999 by Michael Kropfberger <michael.kropfberger@gmx.net>
 **
 */
 

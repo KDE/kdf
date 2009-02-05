@@ -17,8 +17,8 @@
 *
 */
 
-#ifndef __OPTIONDIALOG_H__
-#define __OPTIONDIALOG_H__
+#ifndef COPTIONDIALOG_H
+#define COPTIONDIALOG_H
 
 #include <kpagedialog.h>
 

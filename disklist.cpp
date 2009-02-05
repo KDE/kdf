@@ -20,6 +20,8 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#include "disklist.h"
+
 #include <math.h>
 #include <stdlib.h>
 
@@ -32,8 +34,6 @@
 #include <kdefakes.h>
 #include <kprocess.h>
 #include <klocale.h>
-
-#include "disklist.h"
 
 static const char Blank[] = " ";
 static const char Delimiter[] = "#";
@@ -465,7 +465,7 @@ void DiskList::replaceDeviceEntry(DiskEntry * disk)
     //
 
     int pos = -1;
-    u_int i = 0;
+    uint i = 0;
 
     DisksConstIterator itr = disksConstIteratorBegin();
     DisksConstIterator end = disksConstIteratorEnd();

@@ -18,9 +18,10 @@
  *
  */
 
-#include <klocale.h>
- 
 #include "optiondialog.h"
+
+#include <klocale.h>
+
 #include "kdfconfig.h"
 #include "mntconfig.h"
 

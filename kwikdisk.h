@@ -22,8 +22,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 // With changes by Espen Sand and Stanislav Karchebny.
 
-#ifndef __KWIKDISK_H__
-#define __KWIKDISK_H__
+#ifndef KWIKDISK_H
+#define KWIKDISK_H
 
 #include <ksystemtrayicon.h>
 

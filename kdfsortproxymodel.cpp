@@ -19,6 +19,7 @@
 */
 
 #include "kdfsortproxymodel.h"
+
 #include "kdfwidget.h"
 
 bool KDFSortFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const

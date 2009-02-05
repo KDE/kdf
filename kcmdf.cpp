@@ -25,13 +25,13 @@
 // KControlApplication
 //
 
+#include "kcmdf.h"
+
 #include <QtGui/QVBoxLayout>
 
 #include <kdialog.h>
 #include <klocale.h>
 #include <kcomponentdata.h>
-
-#include "kcmdf.h"
 
 KDiskFreeWidget::KDiskFreeWidget( const KComponentData &inst, QWidget *parent )
         : KCModule( inst, parent )

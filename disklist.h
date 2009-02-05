@@ -19,8 +19,8 @@
 *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#ifndef __DISKLIST_H__
-#define __DISKLIST_H__
+#ifndef DISKLIST_H
+#define DISKLIST_H
 
 // defines the os-type
 #include <QtCore/qglobal.h>

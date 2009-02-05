@@ -19,8 +19,8 @@
 *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#ifndef __MNTCONFIG_H__
-#define __MNTCONFIG_H__
+#ifndef MNTCONFIG_H
+#define MNTCONFIG_H
 
 #include <QtGui/QWidget>
 

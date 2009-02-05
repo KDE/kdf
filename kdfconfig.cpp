@@ -24,6 +24,8 @@
 // Converted to QLayout and QListView + cleanups
 //
 
+#include "kdfconfig.h"
+
 #include <QtGui/QCheckBox>
 #include <QtGui/QLabel>
 #include <QtGui/QLCDNumber>
@@ -40,8 +42,6 @@
 #include <kiconloader.h>
 #include <kglobal.h>
 #include <klineedit.h>
-
-#include "kdfconfig.h"
 
 #ifndef GUI_DEFINED
 static bool GUI;
