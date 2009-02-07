@@ -393,7 +393,7 @@ void DiskList::dfDone()
                     && (disk->mountPoint() != "/dev/shm")
                     && (!disk->mountPoint().contains("/proc") ) )
             {
-                disk->setMounted(true);    // its now mounted (df lists only mounted)
+                disk->setMounted(true);    // it is now mounted (df lists only mounted)
                 replaceDeviceEntry(disk);
             }
             else
