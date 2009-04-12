@@ -30,8 +30,7 @@
 #include <QBrush>
 
 #include "kdfwidget.h"
-
-static const float Full_Percent = 95.0; //This should be fetched from another class
+#include "kdfutil.h"
 
 void KDFItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
                             const QModelIndex &index) const

@@ -21,6 +21,7 @@
  */
 
 #include "disklist.h"
+#include "kdfutil.h"
 
 #include <math.h>
 #include <stdlib.h>
@@ -37,7 +38,6 @@
 
 static const char Blank[] = " ";
 static const char Delimiter[] = "#";
-static const float Full_Percent = 95.0;
 
 /***************************************************************************
   * constructor
