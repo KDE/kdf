@@ -119,7 +119,7 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, bool init)
         connect( mDefaultIconButton, SIGNAL( clicked() ), this, SLOT( iconDefault() ) );
         layoutIcon->addWidget( mDefaultIconButton );
         
-        formLayout->addRow( i18n("Icon Name"), layoutIcon );
+        formLayout->addRow( i18n("Icon name:"), layoutIcon );
 
         // Mount Command Layout
         QHBoxLayout * layoutMount = new QHBoxLayout( );
@@ -134,12 +134,12 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, bool init)
                  this,SLOT(slotChanged()));
         layoutMount->addWidget( mMountLineEdit );
 
-        mMountButton = new QPushButton( i18n("Get Command"), mGroupBox );
+        mMountButton = new QPushButton( i18n("Get Command..."), mGroupBox );
         Q_CHECK_PTR(mMountButton);
         connect(mMountButton,SIGNAL(clicked()),this,SLOT(selectMntFile()));
         layoutMount->addWidget( mMountButton );
 
-        formLayout->addRow( i18n("Mount Command"), layoutMount );
+        formLayout->addRow( i18n("Mount command:"), layoutMount );
 
         //Umount Command Layout
         QHBoxLayout * layoutUmount = new QHBoxLayout( );
@@ -154,12 +154,12 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, bool init)
                  this,SLOT(slotChanged()));
         layoutUmount->addWidget( mUmountLineEdit );
 
-        mUmountButton = new QPushButton(i18n("Get Command"), mGroupBox );
+        mUmountButton = new QPushButton(i18n("Get Command..."), mGroupBox );
         Q_CHECK_PTR( mUmountButton );
         connect(mUmountButton,SIGNAL(clicked()),this,SLOT(selectUmntFile()));
         layoutUmount->addWidget( mUmountButton );
 
-        formLayout->addRow( i18n("Unmount Command") , layoutUmount );
+        formLayout->addRow( i18n("Unmount command:") , layoutUmount );
 
     }
 
