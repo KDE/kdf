@@ -138,7 +138,7 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, bool init)
         connect(mFileManagerEdit,SIGNAL(textChanged (const QString &)),this,SLOT(slotChanged()));
         layoutFileManager->addWidget( mFileManagerEdit );
 
-        QHBoxLayout * layoutOptions = new QHBoxLayout();
+        QVBoxLayout * layoutOptions = new QVBoxLayout();
         Q_CHECK_PTR( layoutOptions );
         topLayout->addLayout( layoutOptions );
 
