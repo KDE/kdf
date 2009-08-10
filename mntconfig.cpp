@@ -275,7 +275,6 @@ void MntConfigWidget::iconChangedButton(const QString &iconName)
 
 void MntConfigWidget::iconChanged(const QString &iconName)
 {
-    
     QList<QTreeWidgetItem*> list = m_listWidget->selectedItems();
     QTreeWidgetItem * item = list.at(0);
 
@@ -283,23 +282,6 @@ void MntConfigWidget::iconChanged(const QString &iconName)
     if ( !disk )
         return;
     
-    int pos = iconName.lastIndexOf('_');
-    if( pos == 0 ||
-            (iconName.mid(pos)!="_mount" &&
-             iconName.mid(pos)!="_unmount"))
-    {
-        const QIcon icon = item->icon( IconCol );
-        if( !icon.isNull() )
-            mIconButton->setIcon( icon );
-        
-        QString msg = i18n(""
-                           "This filename is not valid: %1\n"
-                           "It must end with "
-                           "\"_mount\" or \"_unmount\".", iconName);
-        KMessageBox::sorry( this, msg );
-        return;
-    }
-
     disk->setIconName(iconName);
     mIconLineEdit->setText(iconName);
 
@@ -307,6 +289,7 @@ void MntConfigWidget::iconChanged(const QString &iconName)
     item->setIcon( IconCol, icon );
     mIconButton->setIcon( icon );
 
+    slotChanged();
 }
 
 void MntConfigWidget::iconDefault()
@@ -318,16 +301,9 @@ void MntConfigWidget::iconDefault()
     if ( !disk )
         return;
 
-    //Set icon in IconButton
-    const QIcon icon = item->icon( IconCol );
-    if( !icon.isNull() )
-        mIconButton->setIcon( icon );
-
-    QString iconName = disk->iconName();
-    mIconLineEdit->setText( iconName );
-    item->setIcon( IconCol, SmallIcon( iconName ) );
-    
+    iconChanged(disk->guessIconName());
 }
+
 void MntConfigWidget::selectMntFile()
 {
     KUrl url = KFileDialog::getOpenUrl( KUrl(),"*", this );
