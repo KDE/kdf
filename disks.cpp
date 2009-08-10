@@ -205,12 +205,8 @@ void DiskEntry::setIconToDefault()
 
 QString DiskEntry::iconName()
 {
-    QString iconName=icoName;
     if (iconSetByUser)
-    {
-        mounted() ? iconName += QLatin1String( "_mount" ) : iconName += QLatin1String( "_unmount" );
-        return iconName;
-    }
+        return icoName;
     else
         return guessIconName();
 }
