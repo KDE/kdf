@@ -58,109 +58,55 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, bool init)
     GUI = !init;
     if (GUI)
     {
+        setupUi(this);
+
         //tabList fillup waits until disklist.readDF() is done...
         mDiskList.readFSTAB();
         mDiskList.readDF();
         mInitializing = true;
         connect( &mDiskList, SIGNAL( readDFDone() ), this, SLOT( readDFDone() ));
 
-        QString text;
-        QVBoxLayout *topLayout = new QVBoxLayout( this );
-        topLayout->setSpacing( KDialog::spacingHint() );
-        topLayout->setMargin( 0 );
-
-        m_listWidget = new QTreeWidget( this );
         connect ( m_listWidget, SIGNAL( itemClicked( QTreeWidgetItem*, int)) , this, SLOT( clicked( QTreeWidgetItem*,int )) );
-        m_listWidget->setRootIsDecorated( false );
-        m_listWidget->setSizePolicy( QSizePolicy( QSizePolicy::Minimum, QSizePolicy::Expanding ) );
         m_listWidget->setHeaderLabels( QStringList() << "" << i18n("Device")
                                        << i18n("Mount Point") << i18n("Mount Command") << i18n("Unmount Command") );
-
         m_listWidget->setColumnWidth( 0, 20 );
 
-        topLayout->addWidget( m_listWidget );
-
-        text = QString("%1: %2  %3: %4").
+        QString text = QString("%1: %2  %3: %4").
                arg(i18n("Device")).
                arg(i18nc("No device is selected", "None")).
                arg(i18n("Mount Point")).
                arg(i18nc("No mount point is selected", "None"));
 
-        mGroupBox = new QGroupBox( text, this );
-        Q_CHECK_PTR(mGroupBox);
         mGroupBox->setEnabled( false );
-        topLayout->addWidget( mGroupBox );
+        mGroupBox->setTitle(text);
 
-        // Form Layout
-        QFormLayout * formLayout = new QFormLayout( mGroupBox );
-        Q_CHECK_PTR( formLayout );
-
-        // Change Icon Layout
-        QHBoxLayout * layoutIcon = new QHBoxLayout( );
-        Q_CHECK_PTR( layoutIcon );
-
-        mIconLineEdit = new KLineEdit( mGroupBox );
-        Q_CHECK_PTR(mIconLineEdit);
-        mIconLineEdit->setMinimumWidth( fontMetrics().maxWidth()*10 );
         connect( mIconLineEdit, SIGNAL(textEdited(const QString&)),
                  this,SLOT(iconChanged(const QString&)));
         connect( mIconLineEdit, SIGNAL(textEdited(const QString&)),
                  this,SLOT(slotChanged()));
-        layoutIcon->addWidget( mIconLineEdit );
 
-        mIconButton = new KIconButton( mGroupBox );
         mIconButton->setIconType(KIconLoader::Small, KIconLoader::Device);
-        Q_CHECK_PTR(mIconButton);
         mIconButton->setFixedHeight( mIconButton->sizeHint().height() );
-        connect(mIconButton,SIGNAL(iconChanged(QString)),this,SLOT(iconChangedButton(QString)));
-        layoutIcon->addWidget( mIconButton );
 
-        mDefaultIconButton = new QPushButton( i18n("Default Icon"), mGroupBox );
+        connect( mIconButton, SIGNAL(iconChanged(QString)), this, SLOT(iconChangedButton(QString)));
+        connect( mIconButton, SIGNAL(iconChanged(QString)), this, SLOT(slotChanged()));
+
         connect( mDefaultIconButton, SIGNAL( clicked() ), this, SLOT( iconDefault() ) );
-        layoutIcon->addWidget( mDefaultIconButton );
-        
-        formLayout->addRow( i18n("Icon name:"), layoutIcon );
+        connect( mDefaultIconButton, SIGNAL( clicked() ), this, SLOT( slotChanged() ) );
 
-        // Mount Command Layout
-        QHBoxLayout * layoutMount = new QHBoxLayout( );
-        Q_CHECK_PTR( layoutMount );
-
-        mMountLineEdit = new KLineEdit( mGroupBox );
-        Q_CHECK_PTR(mMountLineEdit);
-        mMountLineEdit->setMinimumWidth( fontMetrics().maxWidth()*10 );
-        connect(mMountLineEdit,SIGNAL(textChanged(const QString&)),
+        connect( mMountLineEdit,SIGNAL(textChanged(const QString&)),
                 this,SLOT(mntCmdChanged(const QString&)));
         connect( mMountLineEdit, SIGNAL(textChanged(const QString&)),
-                 this,SLOT(slotChanged()));
-        layoutMount->addWidget( mMountLineEdit );
+                this,SLOT(slotChanged()));
 
-        mMountButton = new QPushButton( i18n("Get Command..."), mGroupBox );
-        Q_CHECK_PTR(mMountButton);
-        connect(mMountButton,SIGNAL(clicked()),this,SLOT(selectMntFile()));
-        layoutMount->addWidget( mMountButton );
+        connect( mMountButton, SIGNAL(clicked()), this, SLOT(selectMntFile() ) );
 
-        formLayout->addRow( i18n("Mount command:"), layoutMount );
-
-        //Umount Command Layout
-        QHBoxLayout * layoutUmount = new QHBoxLayout( );
-        Q_CHECK_PTR( layoutUmount );
-
-        mUmountLineEdit=new KLineEdit( mGroupBox );
-        Q_CHECK_PTR(mUmountLineEdit);
-        mUmountLineEdit->setMinimumWidth( fontMetrics().maxWidth()*10 );
-        connect(mUmountLineEdit,SIGNAL(textChanged(const QString&)),
-                this,SLOT(umntCmdChanged(const QString&)));
+        connect( mUmountLineEdit, SIGNAL(textChanged(const QString&)),
+                 this,SLOT(umntCmdChanged(const QString&)));
         connect( mUmountLineEdit, SIGNAL(textChanged(const QString&)),
                  this,SLOT(slotChanged()));
-        layoutUmount->addWidget( mUmountLineEdit );
-
-        mUmountButton = new QPushButton(i18n("Get Command..."), mGroupBox );
-        Q_CHECK_PTR( mUmountButton );
-        connect(mUmountButton,SIGNAL(clicked()),this,SLOT(selectUmntFile()));
-        layoutUmount->addWidget( mUmountButton );
-
-        formLayout->addRow( i18n("Unmount command:") , layoutUmount );
-
+        
+        connect( mUmountButton,SIGNAL(clicked()),this,SLOT(selectUmntFile()));
     }
 
     loadSettings();

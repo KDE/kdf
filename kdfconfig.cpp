@@ -65,15 +65,7 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, bool init)
     GUI = !init;
     if( GUI )
     {
-
-        QVBoxLayout *topLayout = new QVBoxLayout( this );
-        topLayout->setSpacing( KDialog::spacingHint() );
-        topLayout->setMargin( 0 );
-
-        m_listWidget = new QTreeWidget( this );
-        //m_listWidget->setSizePolicy( QSizePolicy(QSizePolicy::Fixed,QSizePolicy::Minimum) );
-        Q_CHECK_PTR( m_listWidget );
-        m_listWidget->setRootIsDecorated( false );
+        setupUi(this);
 
         QStringList headerLabels;
         Q_FOREACH( const Column &c, m_columnList)
@@ -87,8 +79,6 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, bool init)
         connect( m_listWidget, SIGNAL( itemClicked( QTreeWidgetItem*,int ) ),
                  this, SLOT( slotChanged() ) );
 
-        topLayout->addWidget( m_listWidget );
-
         iconVisible = MainBarIcon( "dialog-ok-apply" );
         iconHidden = MainBarIcon( "dialog-cancel" );
 
@@ -101,57 +91,13 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, bool init)
         }
         m_listWidget->setCurrentItem( item );
 
-        QLabel *label = new QLabel( i18n("Update frequency [seconds]. The value 0 disables update" ), this );
-        Q_CHECK_PTR( label );
-        topLayout->addWidget(label);
+        connect(m_updateSpinBox, SIGNAL( valueChanged(int) ), this, SLOT( slotChanged() ) );
 
-        QHBoxLayout * layoutUpdate = new QHBoxLayout();
-        Q_CHECK_PTR( layoutUpdate );
-        topLayout->addLayout( layoutUpdate );
-
-        m_updateSlider = new QSlider( this );
-        Q_CHECK_PTR(m_updateSlider);
-        m_updateSlider->setOrientation( Qt::Horizontal );
-        m_updateSlider->setSingleStep(1);
-        m_updateSlider->setPageStep(20);
-        m_updateSlider->setRange(0, 180 );
-        layoutUpdate->addWidget( m_updateSlider );
-        connect( m_updateSlider, SIGNAL( valueChanged(int) ), this, SLOT( slotChanged() ) );
-
-        mLCD = new QLCDNumber( this );
-        Q_CHECK_PTR(mLCD);
-        mLCD->setNumDigits( 3 );
-        mLCD->setSegmentStyle( QLCDNumber::Filled );
-        connect( m_updateSlider, SIGNAL( valueChanged(int) ), mLCD, SLOT( display(int) ));
-        layoutUpdate->addWidget( mLCD );
-
-        QHBoxLayout * layoutFileManager = new QHBoxLayout();
-        Q_CHECK_PTR( layoutFileManager );
-        topLayout->addLayout( layoutFileManager );
-
-        label = new QLabel( i18n("File manager (e.g. konsole -e mc %m):") ,this);
-        Q_CHECK_PTR( label );
-        layoutFileManager->addWidget( label );
-
-        mFileManagerEdit = new KLineEdit( this );
-        Q_CHECK_PTR(mFileManagerEdit);
         connect(mFileManagerEdit,SIGNAL(textChanged (const QString &)),this,SLOT(slotChanged()));
-        layoutFileManager->addWidget( mFileManagerEdit );
 
-        QVBoxLayout * layoutOptions = new QVBoxLayout();
-        Q_CHECK_PTR( layoutOptions );
-        topLayout->addLayout( layoutOptions );
-
-        mOpenMountCheck = new QCheckBox( i18n("Open file manager automatically on mount"), this );
-        Q_CHECK_PTR(mOpenMountCheck);
         connect(mOpenMountCheck,SIGNAL(toggled(bool)),this,SLOT(slotChanged()));
-        layoutOptions->addWidget( mOpenMountCheck );
 
-        mPopupFullCheck = new QCheckBox( i18n("Pop up a window when a disk gets critically full"), this );
-        Q_CHECK_PTR(mPopupFullCheck);
         connect(mPopupFullCheck,SIGNAL(toggled(bool)),this,SLOT(slotChanged()));
-        layoutOptions->addWidget( mPopupFullCheck );
-
     }
 
     loadSettings();
@@ -184,7 +130,7 @@ void KDFConfigWidget::applySettings( void )
         //config.writeEntry( "Height", height() );
 
         mStd.setFileManager( mFileManagerEdit->text() );
-        mStd.setUpdateFrequency( m_updateSlider->value() );
+        mStd.setUpdateFrequency( m_updateSpinBox->value() );
         mStd.setPopupIfFull( mPopupFullCheck->isChecked() );
         mStd.setOpenFileManager( mOpenMountCheck->isChecked() );
         mStd.writeConfiguration();
@@ -212,8 +158,7 @@ void KDFConfigWidget::loadSettings( void )
     if( GUI )
     {
         mStd.updateConfiguration();
-        m_updateSlider->setValue( mStd.updateFrequency() );
-        mLCD->display( mStd.updateFrequency() );
+        m_updateSpinBox->setValue( mStd.updateFrequency() );
         mPopupFullCheck->setChecked( mStd.popupIfFull() );
         mOpenMountCheck->setChecked( mStd.openFileManager() );
         mFileManagerEdit->setText( mStd.fileManager() );
@@ -235,8 +180,7 @@ void KDFConfigWidget::loadSettings( void )
 void KDFConfigWidget::defaultsBtnClicked( void )
 {
     mStd.setDefault();
-    m_updateSlider->setValue( mStd.updateFrequency() );
-    mLCD->display( mStd.updateFrequency() );
+    m_updateSpinBox->setValue( mStd.updateFrequency() );
     mPopupFullCheck->setChecked( mStd.popupIfFull() );
     mOpenMountCheck->setChecked( mStd.openFileManager() );
     mFileManagerEdit->setText( mStd.fileManager() );

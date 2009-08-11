@@ -22,6 +22,7 @@
 #ifndef KDFCONFIG_H
 #define KDFCONFIG_H
 
+#include "ui_kdfconfig.h"
 #include "stdoption.h"
 #include "kdfwidget.h"
 
@@ -38,7 +39,8 @@ class Column;
 
 class KLineEdit;
 
-class KDFConfigWidget : public QWidget
+class KDFConfigWidget : public QWidget,
+                        private Ui_KDFConfigWidget
 {
     Q_OBJECT
     
@@ -61,19 +63,12 @@ class KDFConfigWidget : public QWidget
         void closeEvent( QCloseEvent * );
     
     private:
-        QLCDNumber *mLCD;
-        KLineEdit  *mFileManagerEdit;
-        QCheckBox  *mOpenMountCheck;
-        QCheckBox  *mPopupFullCheck;
         CStdOption mStd;
         
         QPixmap iconVisible;
         QPixmap iconHidden;
         
-        QTreeWidget * m_listWidget;
         QList<Column> m_columnList;
-        
-        QSlider * m_updateSlider;
 
     Q_SIGNALS:
         void configChanged();

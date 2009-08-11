@@ -24,20 +24,12 @@
 
 #include <QtGui/QWidget>
 
+#include "ui_mntconfig.h"
 #include "disklist.h"
-
-class QGroupBox;
-class QPushButton;
-class QTreeWidget;
-class QTreeWidgetItem;
-class QCloseEvent;
-
-class KLineEdit;
-class KIconButton;
 
 /**************************************************************/
 
-class MntConfigWidget : public QWidget
+class MntConfigWidget : public QWidget, private Ui_MntConfigWidget
 {
     Q_OBJECT
     
@@ -78,18 +70,8 @@ class MntConfigWidget : public QWidget
         void closeEvent( QCloseEvent * );
     
     private:
-        QGroupBox  *mGroupBox;
-        KLineEdit   *mIconLineEdit;
-        KLineEdit   *mMountLineEdit;
-        KLineEdit   *mUmountLineEdit;
-        QPushButton *mMountButton;
-        QPushButton *mUmountButton;
-        QPushButton *mDefaultIconButton;
-        KIconButton *mIconButton;
         DiskList    mDiskList;
         bool        mInitializing;
-    
-        QTreeWidget * m_listWidget;
     
     Q_SIGNALS:
         void configChanged();

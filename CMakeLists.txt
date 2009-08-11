@@ -13,6 +13,10 @@ set(libkdf_common_SRCS
 	optiondialog.cpp 
 	stdoption.cpp )
 
+kde4_add_ui_files(libkdf_common_SRCS
+    kdfconfig.ui
+    mntconfig.ui )
+
 set(kdf_SRCS kdf.cpp ${libkdf_common_SRCS} )
 
 #
