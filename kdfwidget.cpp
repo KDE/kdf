@@ -97,6 +97,7 @@ KDFWidget::KDFWidget( QWidget *parent, bool init )
         m_listWidget->setRootIsDecorated( false );
         m_listWidget->setSortingEnabled( true );
         m_listWidget->setContextMenuPolicy( Qt::CustomContextMenu );
+        m_listWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
         
         topLayout->addWidget( m_listWidget );
 
