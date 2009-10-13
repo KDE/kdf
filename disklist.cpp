@@ -28,6 +28,7 @@
 
 #include <QtCore/QTextStream>
 #include <QtCore/QFile>
+#include <QRegExp>
 
 #include <kdebug.h>
 #include <kglobal.h>
@@ -216,26 +217,72 @@ int DiskList::readFSTAB()
         {
             s=t.readLine();
             s=s.simplified();
-            if ( (!s.isEmpty() ) && (s.indexOf(Delimiter)!=0) )
-            {
+
+	    if ( (!s.isEmpty() ) && (s.indexOf(Delimiter)!=0) )
+	    {
                 // not empty or commented out by '#'
-                // kDebug() << "GOT: [" << s << "]" ;
+                kDebug() << "GOT: [" << s << "]" ;
                 disk = new DiskEntry();
                 disk->setMounted(false);
-                disk->setDeviceName(expandEscapes(s.left(s.indexOf(Blank))));
-                s=s.remove(0,s.indexOf(Blank)+1 );
-                //  kDebug() << "    deviceName:    [" << disk->deviceName() << "]" ;
+		QFile path("/dev/disk/by-uuid/");
+		// We need to remove UUID=
+		// TODO: Fix for other OS if using UUID and not using /dev/disk/by-uuid/
+		if ( s.contains("UUID=") )
+		{
+			if (path.exists())
+			{
+				QRegExp uuid("UUID=(\\S+)(\\s+)");
+				QString extracted ;
+				if (uuid.indexIn(s) != -1) 
+				{
+					extracted = uuid.cap(1);
+				}
+				
+				if (! extracted.isEmpty() )
+				{
+					QString device = path.fileName() + extracted;
+					QFile file(device);
+					
+					if ( file.exists() )
+					{
+						QString filesym = file.symLinkTarget();
+						disk->setDeviceName(filesym);
+					}
+					else
+					{
+						kDebug() << "The device does not seems to exist" ;
+						continue;
+					}
+				}
+				else
+				{
+					kDebug() << "Invalid UUID" ;
+					continue;
+				}
+			}
+			else
+			{
+				kDebug() << "UUID OK but there is no /dev/disk/by-uuid/" ;
+				continue;
+			}
+		}
+		else
+		{
+			disk->setDeviceName(expandEscapes(s.left(s.indexOf(Blank))));
+		}
+		
+		s=s.remove(0,s.indexOf(Blank)+1 );
+                // kDebug() << "    deviceName:    [" << disk->deviceName() << "]" ;
 #ifdef _OS_SOLARIS_
                 //device to fsck
                 s=s.remove(0,s.indexOf(Blank)+1 );
 #endif
-
-                disk->setMountPoint(expandEscapes(s.left(s.indexOf(Blank))));
-                s=s.remove(0,s.indexOf(Blank)+1 );
-                //kDebug() << "    MountPoint:    [" << disk->mountPoint() << "]" ;
-                //kDebug() << "    Icon:          [" << disk->iconName() << "]" ;
-                disk->setFsType(s.left(s.indexOf(Blank)) );
-                s=s.remove(0,s.indexOf(Blank)+1 );
+		disk->setMountPoint(expandEscapes(s.left(s.indexOf(Blank))));
+		s=s.remove(0,s.indexOf(Blank)+1 );
+		//kDebug() << "    MountPoint:    [" << disk->mountPoint() << "]" ;
+		//kDebug() << "    Icon:          [" << disk->iconName() << "]" ;
+		disk->setFsType(s.left(s.indexOf(Blank)) );
+		s=s.remove(0,s.indexOf(Blank)+1 );
                 //kDebug() << "    FS-Type:       [" << disk->fsType() << "]" ;
                 disk->setMountOptions(s.left(s.indexOf(Blank)) );
                 s=s.remove(0,s.indexOf(Blank)+1 );
