@@ -53,9 +53,8 @@ KDiskFreeWidget::~KDiskFreeWidget()
 
 QString KDiskFreeWidget::quickHelp() const
 {
-    return i18n("<h3>Hardware Information</h3><br /> All the information modules return information"
-                " about a certain aspect of your computer hardware or your operating system."
-                " Not all modules are available on all hardware architectures and/or operating systems.");
+    return i18n("A right mouse button click opens a context menu to mount/unmount a device"
+                " or to open it in the file manager.");
 }
 
 extern "C"
