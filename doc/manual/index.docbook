@@ -31,8 +31,8 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2003-09-16</date>
-<releaseinfo>0.</releaseinfo>
+<date>2010-01-12</date>
+<releaseinfo>v0.11 (&kde; 4.4)</releaseinfo>
 
 <abstract><para>&kdiskfree; displays available file devices, along with
 information about them.</para>
@@ -59,7 +59,7 @@ partitions, floppy and &CD; drives, &etc;) along with information on
 their capacity, free space, type and mount point. It also allows you
 to mount and unmount drives and view them in a file manager.</para>
 
-<para>&kdiskfree; is similar to the &kcontrolcenter; Disk-Free module <!--
+<para>&kdiskfree; is similar to the &kinfocenter; Partitions module <!--
 (<application>kcmdf</application>) -->, but takes up less screen
 space. It is useful if you want to keep a &kdiskfree; window available at
 all times.</para>
@@ -74,8 +74,8 @@ all times.</para>
 
 <para>Type <userinput><command>kdf</command></userinput> at a command
 prompt or select <guimenuitem>Disk Free</guimenuitem> from the
-<guisubmenu>System</guisubmenu> group in the <guimenu>K</guimenu>
-menu. The standard &Qt; and &kde; command options are available, and
+<guisubmenu>System</guisubmenu> group in the application 
+launcher. The standard &Qt; and &kde; command options are available, and
 can be listed by entering <userinput><command>kdf</command>
 <option>--help</option></userinput> at the command prompt.</para>
 
@@ -110,16 +110,17 @@ can be listed by entering <userinput><command>kdf</command>
 graph.</para></listitem>
 </itemizedlist>
 
+<!--! new screenshot
 <para>In the picture above, four devices are shown: one reiserfs-formatted
 hard drive partition mounted at the file system root (<filename
 class="directory">/</filename>), two &CD-ROM;'s, and a floppy drive.</para>
-
+-->
 <para><mousebutton>Left</mousebutton> clicking on the header of a
 particular column sorts the devices according to that variable. A
 second <mousebutton>left</mousebutton> click sorts in the opposite
 order.</para>
 
-<para>Clicking on a row pops up a menu. If that device is not
+<para>Clicking with the &RMB; on a row pops up a menu. If that device is not
 currently mounted, the <guimenuitem>Mount Device</guimenuitem> option
 is available. If the device is mounted, it can be unmounted by
 choosing <guimenuitem>Unmount Device</guimenuitem>. Selecting
@@ -201,9 +202,9 @@ and <guilabel>Mount Commands</guilabel></para>
 <term>General Settings</term> <listitem><para>Click on the word
 <guilabel>visible</guilabel> or <guilabel>hidden</guilabel> to turn
 display of an data field on or off.</para> <para>Change the update
-frequency by moving the slider. The value in the box on the left is
+frequency by editing the value. The value in the box is
 the interval (in seconds) between updates of the &kdiskfree; display to
-reflect the current status.</para> <para>The File Manager setting
+reflect the current status.</para> <para>The <guilabel>File Manager</guilabel> setting
 controls the command executed when the <guimenuitem>Open
 Filemanager</guimenuitem> popup menu item is selected.</para>
 <para>There are also two check boxes. One controls if a file manager
