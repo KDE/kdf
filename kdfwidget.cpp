@@ -162,6 +162,17 @@ void KDFWidget::applySettings( void )
             if( !m_listWidget->isColumnHidden( c.number ) )
                 config.writeEntry( c.name, m_listWidget->columnWidth(c.number) );
         }
+
+        config.writeEntry("SortColumn", m_sortModel->sortColumn());
+        config.writeEntry("SortOrder", (int)m_sortModel->sortOrder());
+
+        //Save the sort order of the QTreeView Header
+        QHeaderView * header = m_listWidget->header();
+        QList<int> sectionIndices;
+        for (int i = 0; i < header->count(); i++) {
+            sectionIndices.append(header->visualIndex(i));
+        }
+        config.writeEntry("HeaderSectionIndices", sectionIndices);
     }
     config.sync();
     updateDF();
@@ -187,6 +198,24 @@ void KDFWidget::loadSettings( void )
         Q_FOREACH(const Column &c, m_columnList){
             bool visible = config_visible.readEntry( c.name , true );
             m_listWidget->setColumnHidden( c.number, !visible );
+        }
+
+        int sortColumn = config.readEntry("SortColumn",0);
+        int sortOrder = config.readEntry("SortOrder",(int)Qt::AscendingOrder);
+        m_listWidget->sortByColumn(sortColumn,Qt::SortOrder(sortOrder));
+
+        //Load the sort order of the QTreeView Header
+        //This can also be achieved by header->saveState() and header->restoreState(...),
+        //but this would not be "human-readable" any more...
+        QHeaderView * header = m_listWidget->header();
+        QList<int> sectionIndices;
+        sectionIndices = config.readEntry("HeaderSectionIndices",sectionIndices);
+        if (sectionIndices.count() == header->count()) {
+            for (int i = 0; i < header->count(); i++) {
+                int sectionIndex = sectionIndices.at(i);
+                int oldVisualIndex = header->visualIndex(sectionIndex);
+                header->moveSection(oldVisualIndex,i);
+            }
         }
 
         setUpdateFrequency( mStd.updateFrequency() );
