@@ -37,8 +37,8 @@
 #include <kprocess.h>
 #include <klocale.h>
 
-static const char Blank[] = " ";
-static const char Delimiter[] = "#";
+static const char Blank = ' ';
+static const char Delimiter = '#';
 
 /***************************************************************************
   * constructor
