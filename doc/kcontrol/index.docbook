@@ -6,6 +6,8 @@
 ]>
 
 <article lang="&language;">
+<title>Block Devices</title>
+
 <articleinfo>
 
 <authorgroup>
@@ -16,8 +18,8 @@
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<date>2008-09-04</date>
-<releaseinfo>&kde; 4.1.2</releaseinfo>
+<date>2010-07-29</date>
+<releaseinfo>&kde; 4.5.0</releaseinfo>
 
 <keywordset>
 <keyword>KDE</keyword>
