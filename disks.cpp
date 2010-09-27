@@ -41,7 +41,7 @@
 **/
 void DiskEntry::init(const char *name)
 {
-    setObjectName(name);
+    setObjectName( QLatin1String( name ) );
     device="";
     type="";
     mountedOn="";
