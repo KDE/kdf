@@ -231,7 +231,7 @@ int DiskList::readFSTAB()
 		{
 			if (path.exists())
 			{
-				QRegExp uuid("UUID=(\\S+)(\\s+)");
+				QRegExp uuid( QLatin1String( "UUID=(\\S+)(\\s+)" ));
 				QString extracted ;
 				if (uuid.indexIn(s) != -1) 
 				{

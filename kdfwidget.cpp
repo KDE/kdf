@@ -68,14 +68,14 @@ KDFWidget::KDFWidget( QWidget *parent, bool init )
     connect(&mDiskList , SIGNAL(criticallyFull(DiskEntry*)),
             this, SLOT (criticallyFull(DiskEntry*)) );
 
-    m_columnList.append( Column( "Icon", "", 20, IconCol ));
-    m_columnList.append( Column( "Device", i18nc("Device of the storage", "Device"), 100, DeviceCol ));
-    m_columnList.append( Column( "Type", i18nc("Filesystem on storage", "Type"), 80, TypeCol ));
-    m_columnList.append( Column( "Size", i18nc("Total size of the storage", "Size"), 80, SizeCol ));
-    m_columnList.append( Column( "MountPoint", i18nc("Mount point of storage", "Mount Point"), 120, MountPointCol ));
-    m_columnList.append( Column( "Free", i18nc("Free space in storage", "Free"), 80, FreeCol ));
-    m_columnList.append( Column( "Full%", i18nc("Used storage space in %", "Full %"), 50, FullCol ));
-    m_columnList.append( Column( "UsageBar", i18nc("Usage graphical bar", "Usage"), 200, UsageBarCol ));
+    m_columnList.append( Column( QLatin1String( "Icon" ), "", 20, IconCol ));
+    m_columnList.append( Column( QLatin1String( "Device" ), i18nc("Device of the storage", "Device"), 100, DeviceCol ));
+    m_columnList.append( Column( QLatin1String( "Type" ), i18nc("Filesystem on storage", "Type"), 80, TypeCol ));
+    m_columnList.append( Column( QLatin1String( "Size" ), i18nc("Total size of the storage", "Size"), 80, SizeCol ));
+    m_columnList.append( Column( QLatin1String( "MountPoint" ), i18nc("Mount point of storage", "Mount Point"), 120, MountPointCol ));
+    m_columnList.append( Column( QLatin1String( "Free" ), i18nc("Free space in storage", "Free"), 80, FreeCol ));
+    m_columnList.append( Column( QLatin1String( "Full%" ), i18nc("Used storage space in %", "Full %"), 50, FullCol ));
+    m_columnList.append( Column( QLatin1String( "UsageBar" ), i18nc("Usage graphical bar", "Usage"), 200, UsageBarCol ));
 
     GUI = !init;
     if( GUI )
@@ -87,18 +87,18 @@ KDFWidget::KDFWidget( QWidget *parent, bool init )
         m_listModel = new QStandardItemModel( this );
         m_sortModel = new KDFSortFilterProxyModel( this );
         m_sortModel->setSourceModel( m_listModel );
-        
+
         m_listWidget = new QTreeView( this );
         m_listWidget->setModel( m_sortModel );
 
         m_itemDelegate = new KDFItemDelegate( m_listWidget );
-        
+
         m_listWidget->setItemDelegate( m_itemDelegate );
         m_listWidget->setRootIsDecorated( false );
         m_listWidget->setSortingEnabled( true );
         m_listWidget->setContextMenuPolicy( Qt::CustomContextMenu );
         m_listWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
-        
+
         topLayout->addWidget( m_listWidget );
 
         connect( m_listWidget, SIGNAL( customContextMenuRequested( const QPoint &) ),
@@ -302,7 +302,7 @@ void KDFWidget::updateDFDone( void ){
     for (; itr != end; ++itr)
     {
         DiskEntry * disk = *itr;
-        
+
         QString size,percent;
         if( disk->kBSize() > 0 )
         {
@@ -322,29 +322,29 @@ void KDFWidget::updateDFDone( void ){
         QStandardItem * DeviceItem = new QStandardItem( disk->deviceName() );
 
         QStandardItem * TypeItem = new QStandardItem( disk->fsType() );
-        
+
         QStandardItem * SizeItem = new QStandardItem( size );
         SizeItem->setData( disk->kBSize(), Qt::UserRole );
-        
+
         QStandardItem * MountPointItem = new QStandardItem( disk->mountPoint() );
-        
+
         QStandardItem * FreeItem = new QStandardItem( disk->prettyKBAvail() );
         FreeItem->setData( disk->kBAvail(), Qt::UserRole );
-        
+
         QStandardItem * FullItem = new QStandardItem( percent );
         FullItem->setData( disk->percentFull() , Qt::UserRole );
-        
+
         QStandardItem * UsageBarItem = new QStandardItem( "" );
         UsageBarItem->setData( disk->percentFull(), Qt::UserRole );
-        
+
         m_listModel->appendRow( QList<QStandardItem*>() << IconItem <<  DeviceItem << TypeItem << SizeItem << MountPointItem <<
           FreeItem << FullItem << UsageBarItem);
     }
-    
+
     readingDF = false;
 
     m_listModel->sort( DeviceCol );
-    
+
 }
 
 QIcon KDFWidget::generateIcon( QString iconName, bool mode, bool mounted)
@@ -378,15 +378,15 @@ DiskEntry * KDFWidget::selectedDisk( QModelIndex index )
 {
     if( !index.isValid() )
         return 0;
-    
+
     QStandardItem * itemDevice = m_listModel->item( index.row() , DeviceCol );
     QStandardItem * itemMountPoint = m_listModel->item( index.row() , MountPointCol );
-    
+
     DiskEntry * disk = new DiskEntry( itemDevice->text() );
     disk->setMountPoint( itemMountPoint->text() );
-    
+
     int pos = mDiskList.find( disk );
-    
+
     delete disk;
     return mDiskList.at(pos);
 
@@ -396,9 +396,9 @@ void KDFWidget::contextMenuRequested( const QPoint &p )
 {
     if (mPopup) //The user may even be able to popup another menu while this open is active...
         return;
-    
+
     QModelIndex index = m_listWidget->indexAt( p );
-    
+
     if( !index.isValid() )
     {
         QList<QModelIndex> selected = m_listWidget->selectionModel()->selectedIndexes();
@@ -407,12 +407,12 @@ void KDFWidget::contextMenuRequested( const QPoint &p )
         else
             return;
     }
-    
+
     index = m_sortModel->mapToSource( index );
-    
+
     mDiskList.setUpdatesDisabled(true);
     DiskEntry * disk = selectedDisk( index );
-    
+
     if( disk == 0 )
         return;
 
@@ -439,10 +439,10 @@ void KDFWidget::contextMenuRequested( const QPoint &p )
     {
         QStandardItem * SizeItem = m_listModel->item( index.row() , SizeCol );
         SizeItem->setText( i18n("MOUNTING") );
-        
+
         QStandardItem * FreeItem = m_listModel->item( index.row() , FreeCol );
         FreeItem->setText( i18n("MOUNTING") );
-        
+
         QStandardItem * IconItem = m_listModel->item( index.row() , IconCol );
         IconItem->setIcon( SmallIcon("user-away") );
 

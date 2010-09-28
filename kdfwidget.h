@@ -43,30 +43,30 @@ class QStandardItemModel;
 class Column
 {
     public:
-    
-    Column(QString _name, QString _columnName, int _defaultWidth, int _number)
+
+    Column(const QString& _name, const QString& _columnName, int _defaultWidth, int _number)
     {
         name = _name;
         columnName = _columnName;
         defaultWidth = _defaultWidth;
         number = _number;
     }
-    
+
     QString name;
     QString columnName;
     int defaultWidth;
     int number;
-    
+
 };
 
 class KDFWidget : public QWidget
 {
     Q_OBJECT
-    
+
     public:
         explicit KDFWidget( QWidget *parent=0, bool init=false);
         ~KDFWidget( );
-        
+
         enum ColumnNumber{
             IconCol = 0,
             DeviceCol = 1,
@@ -77,7 +77,7 @@ class KDFWidget : public QWidget
             FullCol = 6,
             UsageBarCol = 7
         };
-    
+
     public Q_SLOTS:
         void settingsChanged( void );
         void loadSettings( void );
@@ -85,22 +85,22 @@ class KDFWidget : public QWidget
         void updateDF( void );
         void updateDFDone( void );
         void settingsBtnClicked( void );
-    
+
     private Q_SLOTS:
         void criticallyFull( DiskEntry *disk );
         void contextMenuRequested ( const QPoint &p );
         void setUpdateFrequency( int frequency );
         void invokeHelp( void );
-    
+
     protected:
         void timerEvent( QTimerEvent * );
         void closeEvent( QCloseEvent * );
-    
+
     private:
         void makeColumns( void );
         DiskEntry *selectedDisk( QModelIndex index );
         QIcon generateIcon( QString iconName , bool mode, bool mounted);
-    
+
         bool readingDF;
         COptionDialog *mOptionDialog;
         KMenu    *mPopup;
@@ -108,11 +108,11 @@ class KDFWidget : public QWidget
         DiskList   mDiskList;
         bool       mIsTopLevel;
         CStdOption mStd;
-        
+
         QTreeView * m_listWidget;
         KDFItemDelegate * m_itemDelegate;
         QList<Column> m_columnList;
-        
+
         QStandardItemModel * m_listModel;
         KDFSortFilterProxyModel * m_sortModel;
 };
