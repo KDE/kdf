@@ -1,23 +1,23 @@
 /*
   kwikdisk.cpp - KDiskFree
- 
+
   Copyright (C) 1999 by Michael Kropfberger <michael.kropfberger@gmx.net>
                 2009 Dario Andres Rodriguez <andresbajotierra@gmail.com>
- 
+
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation; either version 2 of the License, or
   (at your option) any later version.
- 
+
   This program is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
- 
+
   You should have received a copy of the GNU General Public License
   along with this program; if not, write to the Free Software
   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
- 
+
   */
 
 //
@@ -68,7 +68,7 @@ KwikDisk::KwikDisk()
     kDebug() ;
 
     contextMenu()->setTitle(i18n("KwikDisk"));
-    setIcon(KSystemTrayIcon::loadIcon("kdf"));
+    setIcon(KSystemTrayIcon::loadIcon(QLatin1String( "kdf" )));
     show();
 
     connect( &m_diskList, SIGNAL(readDFDone()), this, SLOT(updateDFDone()) );
@@ -84,15 +84,15 @@ KwikDisk::KwikDisk()
     m_actionSeparator = contextMenu()->addSeparator();
 
     contextMenu()->addAction(
-        KSystemTrayIcon::loadIcon("kdf"),
+        KSystemTrayIcon::loadIcon(QLatin1String( "kdf" )),
         i18n("&Start KDiskFree"), this, SLOT(startKDF()));
 
     contextMenu()->addAction(
-        KSystemTrayIcon::loadIcon("configure"),
+        KSystemTrayIcon::loadIcon(QLatin1String( "configure" )),
         i18n("&Configure KwikDisk..."), this, SLOT(changeSettings()));
 
     contextMenu()->addAction(
-        KSystemTrayIcon::loadIcon("help-contents"),
+        KSystemTrayIcon::loadIcon(QLatin1String( "help-contents" )),
         KStandardGuiItem::help().text(), this, SLOT(invokeHelp()));
 
     loadSettings();
@@ -185,21 +185,21 @@ void KwikDisk::updateDFDone()
     clearDeviceActions();
 
     int itemNo = 0;
-    
+
     DisksConstIterator itr = m_diskList.disksConstIteratorBegin();
     DisksConstIterator end = m_diskList.disksConstIteratorEnd();
     for (; itr != end; ++itr)
     {
         DiskEntry * disk = *itr;
 
-        QString toolTipText = QString("%1 (%2) %3 on %4")
+        QString toolTipText = QString::fromLatin1("%1 (%2) %3 on %4")
           .arg( disk->mounted() ? i18nc("Unmount the storage device", "Unmount") : i18nc("Mount the storage device", "Mount") )
-          .arg( disk->fsType().trimmed() ).arg( disk->deviceName().trimmed() ).arg( disk->mountPoint().trimmed() ); 
+          .arg( disk->fsType().trimmed() ).arg( disk->deviceName().trimmed() ).arg( disk->mountPoint().trimmed() );
 
         QString entryName = disk->mountPoint().trimmed();
         if( disk->mounted() )
         {
-            entryName += QString("\t[%1]").arg(disk->prettyKBAvail());
+            entryName += QString::fromLatin1("\t[%1]").arg(disk->prettyKBAvail());
         }
 
         QAction * action = new QAction(entryName, m_actionGroup);
@@ -209,10 +209,10 @@ void KwikDisk::updateDFDone()
 
         QPixmap pix = KSystemTrayIcon::loadIcon(disk->iconName()).pixmap( QSize(32,32) );
 
-        if( getuid() !=0 && !disk->mountOptions().contains("user",Qt::CaseInsensitive) )
+        if( getuid() !=0 && !disk->mountOptions().contains(QLatin1String( "user" ),Qt::CaseInsensitive) )
         {
             QPainter painter( &pix );
-            painter.drawPixmap( QRect(0,0,16,16) , SmallIcon("object-locked"), QRect(0,0,16,16));
+            painter.drawPixmap( QRect(0,0,16,16) , SmallIcon(QLatin1String( "object-locked" )), QRect(0,0,16,16));
             painter.end();
 
             toolTipText = i18n("You must login as root to mount this disk");
@@ -222,7 +222,7 @@ void KwikDisk::updateDFDone()
         if( disk->mounted() )
         {
             QPainter painter ( &pix );
-            painter.drawPixmap( QRect(8,8,16,16) , SmallIcon("emblem-mounted"), QRect(0,0,16,16) );
+            painter.drawPixmap( QRect(8,8,16,16) , SmallIcon(QLatin1String( "emblem-mounted" )), QRect(0,0,16,16) );
             painter.end();
         }
 
@@ -257,14 +257,14 @@ void KwikDisk::toggleMount(QAction * action)
         if( m_options.fileManager().isEmpty() == false )
         {
             QString cmd = m_options.fileManager();
-            int pos = cmd.indexOf("%m");
+            int pos = cmd.indexOf(QLatin1String( "%m" ));
             if( pos > 0 )
             {
-                cmd = cmd.replace( pos, 2, KShell::quoteArg(disk->mountPoint()) ) + " &";
+                cmd = cmd.replace( pos, 2, KShell::quoteArg(disk->mountPoint()) ) + QLatin1String( " &" );
             }
             else
             {
-                cmd += ' ' + KShell::quoteArg(disk->mountPoint()) +" &";
+                cmd += QLatin1Char( ' ' ) + KShell::quoteArg(disk->mountPoint()) +QLatin1String( " &" );
             }
             system( QFile::encodeName(cmd) );
         }
@@ -276,7 +276,7 @@ void KwikDisk::criticallyFull(DiskEntry *disk)
 {
     kDebug() ;
 
-    if( m_options.popupIfFull() == true )
+    if( m_options.popupIfFull())
     {
         QString msg = i18n("Device [%1] on [%2] is critically full.",
                            disk->deviceName(), disk->mountPoint());
@@ -301,12 +301,12 @@ void KwikDisk::startKDF()
 {
     kDebug() ;
 
-    KRun::runCommand("kdf",NULL);
+    KRun::runCommand(QLatin1String( "kdf" ),NULL);
 }
 
 void KwikDisk::invokeHelp()
 {
-    KToolInvocation::invokeHelp("", "kdf");
+    KToolInvocation::invokeHelp(QLatin1String( "" ), QLatin1String( "kdf" ));
 }
 
 /*****************************************************************************/
