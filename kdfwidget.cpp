@@ -68,7 +68,7 @@ KDFWidget::KDFWidget( QWidget *parent, bool init )
     connect(&mDiskList , SIGNAL(criticallyFull(DiskEntry*)),
             this, SLOT (criticallyFull(DiskEntry*)) );
 
-    m_columnList.append( Column( QLatin1String( "Icon" ), "", 20, IconCol ));
+    m_columnList.append( Column( QLatin1String( "Icon" ), QLatin1String( "" ), 20, IconCol ));
     m_columnList.append( Column( QLatin1String( "Device" ), i18nc("Device of the storage", "Device"), 100, DeviceCol ));
     m_columnList.append( Column( QLatin1String( "Type" ), i18nc("Filesystem on storage", "Type"), 80, TypeCol ));
     m_columnList.append( Column( QLatin1String( "Size" ), i18nc("Total size of the storage", "Size"), 80, SizeCol ));
@@ -106,7 +106,7 @@ KDFWidget::KDFWidget( QWidget *parent, bool init )
 
         makeColumns();
 
-        mIsTopLevel = QString(parent->metaObject()->className()) == "KDFTopLevel" ? true : false;
+        mIsTopLevel = QLatin1String(parent->metaObject()->className()) == QLatin1String( "KDFTopLevel" ) ? true : false;
     }
 
     loadSettings();
@@ -306,7 +306,7 @@ void KDFWidget::updateDFDone( void ){
         QString size,percent;
         if( disk->kBSize() > 0 )
         {
-            percent = KGlobal::locale()->formatNumber(disk->percentFull(), 1) + '%';
+            percent = KGlobal::locale()->formatNumber(disk->percentFull(), 1) + QLatin1Char( '%' );
             size = disk->prettyKBSize();
         }
         else
@@ -315,9 +315,9 @@ void KDFWidget::updateDFDone( void ){
             size = i18n("N/A");
         }
 
-        bool root = !disk->mountOptions().contains("user", Qt::CaseInsensitive);
+        bool root = !disk->mountOptions().contains(QLatin1String( "user" ), Qt::CaseInsensitive);
 
-        QStandardItem * IconItem = new QStandardItem( generateIcon(disk->iconName(), root, disk->mounted() ), "" );
+        QStandardItem * IconItem = new QStandardItem( generateIcon(disk->iconName(), root, disk->mounted() ), QLatin1String( "" ) );
 
         QStandardItem * DeviceItem = new QStandardItem( disk->deviceName() );
 
@@ -334,7 +334,7 @@ void KDFWidget::updateDFDone( void ){
         QStandardItem * FullItem = new QStandardItem( percent );
         FullItem->setData( disk->percentFull() , Qt::UserRole );
 
-        QStandardItem * UsageBarItem = new QStandardItem( "" );
+        QStandardItem * UsageBarItem = new QStandardItem( QLatin1String( "" ) );
         UsageBarItem->setData( disk->percentFull(), Qt::UserRole );
 
         m_listModel->appendRow( QList<QStandardItem*>() << IconItem <<  DeviceItem << TypeItem << SizeItem << MountPointItem <<
@@ -354,10 +354,10 @@ QIcon KDFWidget::generateIcon( QString iconName, bool mode, bool mounted)
     QPainter painter(&pix);
 
     if( mode )
-        painter.drawPixmap( QRect(0,6,10,10), SmallIcon("object-locked") );
+        painter.drawPixmap( QRect(0,6,10,10), SmallIcon(QLatin1String( "object-locked" )) );
 
     if( mounted )
-        painter.drawPixmap( QRect(6,6,12,12) , SmallIcon("emblem-mounted") );
+        painter.drawPixmap( QRect(6,6,12,12) , SmallIcon(QLatin1String( "emblem-mounted" )) );
 
     painter.end();
     return QIcon(pix);
@@ -444,7 +444,7 @@ void KDFWidget::contextMenuRequested( const QPoint &p )
         FreeItem->setText( i18n("MOUNTING") );
 
         QStandardItem * IconItem = m_listModel->item( index.row() , IconCol );
-        IconItem->setIcon( SmallIcon("user-away") );
+        IconItem->setIcon( SmallIcon(QLatin1String( "user-away" )) );
 
         int val = disk->toggleMount();
         if( val != 0 /*== false*/ )
@@ -471,14 +471,14 @@ void KDFWidget::contextMenuRequested( const QPoint &p )
         if(  mStd.fileManager().isEmpty() == false )
         {
             QString cmd = mStd.fileManager();
-            int pos = cmd.indexOf("%m");
+            int pos = cmd.indexOf(QLatin1String( "%m" ));
             if( pos > 0 )
             {
-                cmd = cmd.replace( pos, 2, KShell::quoteArg(disk->mountPoint()) ) + " &";
+                cmd = cmd.replace( pos, 2, KShell::quoteArg(disk->mountPoint()) ) + QLatin1String( " &" );
             }
             else
             {
-                cmd += ' ' + KShell::quoteArg(disk->mountPoint()) + " &";
+                cmd += QLatin1Char( ' ' ) + KShell::quoteArg(disk->mountPoint()) + QLatin1String( " &" );
             }
             system( QFile::encodeName(cmd) );
         }
@@ -498,7 +498,7 @@ void KDFWidget::contextMenuRequested( const QPoint &p )
 
 void KDFWidget::invokeHelp()
 {
-    KToolInvocation::invokeHelp("", "kcontrol/kdf");
+    KToolInvocation::invokeHelp(QLatin1String( "" ), QLatin1String( "kcontrol/kdf" ));
 }
 
 #include "kdfwidget.moc"

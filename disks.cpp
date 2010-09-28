@@ -42,18 +42,18 @@
 void DiskEntry::init(const char *name)
 {
     setObjectName( QLatin1String( name ) );
-    device="";
-    type="";
-    mountedOn="";
-    options="";
+    device.clear();
+    type.clear();
+    mountedOn.clear();
+    options.clear();
     size=0;
     used=0;
     avail=0;
     isMounted=false;
-    mntcmd="";
-    umntcmd="";
+    mntcmd.clear();
+    umntcmd.clear();
     iconSetByUser=false;
-    icoName="";
+    icoName.clear();
 
 
     // BackgroundProcesses ****************************************
@@ -200,7 +200,7 @@ void DiskEntry::setIconToDefault()
 {
     iconSetByUser = false;
     icoName.clear();
-    
+
 }
 
 QString DiskEntry::iconName()
@@ -217,7 +217,7 @@ QString DiskEntry::guessIconName()
     QString iconName;
 
     /*
-    //List Solid Devices 
+    //List Solid Devices
     foreach (const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::StorageVolume))
       {
           kDebug() << device.udi().toLatin1().constData() << device.vendor() << device.product() << device.icon();
@@ -227,35 +227,35 @@ QString DiskEntry::guessIconName()
     delete device;
     */
     // try to be intelligent
-    if (mountPoint().contains("cdrom",Qt::CaseInsensitive))
-        iconName+="media-optical";
-    else if (deviceName().contains("cdrom",Qt::CaseInsensitive))
-        iconName+="media-optical";
-    else if (mountPoint().contains("writer",Qt::CaseInsensitive))
-        iconName+="media-optical-recordable";
-    else if (deviceName().contains("writer",Qt::CaseInsensitive))
-        iconName+="media-optical-recordable";
-    else if (mountPoint().contains("mo",Qt::CaseInsensitive))
-        iconName+="mo"; //TODO
-    else if (deviceName().contains("mo",Qt::CaseInsensitive))
-        iconName+="mo"; //TODO
-    else if (deviceName().contains("fd",Qt::CaseInsensitive))
+    if (mountPoint().contains(QLatin1String( "cdrom" ),Qt::CaseInsensitive))
+        iconName+=QLatin1String( "media-optical" );
+    else if (deviceName().contains(QLatin1String( "cdrom" ),Qt::CaseInsensitive))
+        iconName+=QLatin1String( "media-optical" );
+    else if (mountPoint().contains(QLatin1String( "writer" ),Qt::CaseInsensitive))
+        iconName+=QLatin1String( "media-optical-recordable" );
+    else if (deviceName().contains(QLatin1String( "writer" ),Qt::CaseInsensitive))
+        iconName+=QLatin1String( "media-optical-recordable" );
+    else if (mountPoint().contains(QLatin1String( "mo" ),Qt::CaseInsensitive))
+        iconName+=QLatin1String( "mo" ); //TODO
+    else if (deviceName().contains(QLatin1String( "mo" ),Qt::CaseInsensitive))
+        iconName+=QLatin1String( "mo" ); //TODO
+    else if (deviceName().contains(QLatin1String( "fd" ),Qt::CaseInsensitive))
     {
-        if (deviceName().contains("360",Qt::CaseInsensitive))
-            iconName+="5floppy"; //TODO
-        if (deviceName().contains("1200",Qt::CaseInsensitive))
-            iconName+="5floppy"; //TODO
+        if (deviceName().contains(QLatin1String( "360" ),Qt::CaseInsensitive))
+            iconName+=QLatin1String( "5floppy" ); //TODO
+        if (deviceName().contains(QLatin1String( "1200" ),Qt::CaseInsensitive))
+            iconName+=QLatin1String( "5floppy" ); //TODO
         else
-            iconName+="media-floppy";
+            iconName+=QLatin1String( "media-floppy" );
     }
-    else if (mountPoint().contains("floppy",Qt::CaseInsensitive))
-        iconName+="media-floppy";
-    else if (mountPoint().contains("zip",Qt::CaseInsensitive))
-        iconName+="zip"; //TODO
-    else if (fsType().contains("nfs",Qt::CaseInsensitive))
-        iconName+="nfs"; //TODO
+    else if (mountPoint().contains(QLatin1String( "floppy" ),Qt::CaseInsensitive))
+        iconName+=QLatin1String( "media-floppy" );
+    else if (mountPoint().contains(QLatin1String( "zip" ),Qt::CaseInsensitive))
+        iconName+=QLatin1String( "zip" ); //TODO
+    else if (fsType().contains(QLatin1String( "nfs" ),Qt::CaseInsensitive))
+        iconName+=QLatin1String( "nfs" ); //TODO
     else
-        iconName+="drive-harddisk";
+        iconName+=QLatin1String( "drive-harddisk" );
     ///mounted() ? iconName+="_mount" : iconName+="_unmount";
     //    if ( !mountOptions().contains("user",Qt::CaseInsensitive) )
     //      iconName.prepend("root_"); // special root icon, normal user can't mount
@@ -296,7 +296,7 @@ int DiskEntry::sysCall(QString & completeCommand)
     sysProc->start();
 
     if ( !sysProc->waitForStarted(-1) )
-        kFatal() << i18n("could not execute %1", command.toLocal8Bit().data()) ;
+        kFatal() << i18n("could not execute %1", command) ;
 
     sysProc->waitForFinished(-1);
 
@@ -345,11 +345,11 @@ QString DiskEntry::deviceRealName() const
     if ( inf.isSymLink() )
     {
         QString link = inf.readLink();
-        if ( link.startsWith( '/' ) )
+        if ( link.startsWith( QLatin1Char( '/' ) ) )
             return link;
         relPath = link;
     }
-    return dir.canonicalPath() + '/' + relPath;
+    return dir.canonicalPath() + QLatin1Char( '/' ) + relPath;
 }
 
 void DiskEntry::setMountPoint(const QString & mountPoint)

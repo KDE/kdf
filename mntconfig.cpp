@@ -67,11 +67,11 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, bool init)
         connect( &mDiskList, SIGNAL( readDFDone() ), this, SLOT( readDFDone() ));
 
         connect ( m_listWidget, SIGNAL( itemClicked( QTreeWidgetItem*, int)) , this, SLOT( clicked( QTreeWidgetItem*,int )) );
-        m_listWidget->setHeaderLabels( QStringList() << "" << i18n("Device")
+        m_listWidget->setHeaderLabels( QStringList() << QLatin1String( "" ) << i18n("Device")
                                        << i18n("Mount Point") << i18n("Mount Command") << i18n("Unmount Command") );
         m_listWidget->setColumnWidth( 0, 20 );
 
-        QString text = QString("%1: %2  %3: %4").
+        QString text = QString::fromLatin1("%1: %2  %3: %4").
                arg(i18n("Device")).
                arg(i18nc("No device is selected", "None")).
                arg(i18n("Mount Point")).
@@ -105,7 +105,7 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, bool init)
                  this,SLOT(umntCmdChanged(const QString&)));
         connect( mUmountLineEdit, SIGNAL(textChanged(const QString&)),
                  this,SLOT(slotChanged()));
-        
+
         connect( mUmountButton,SIGNAL(clicked()),this,SLOT(selectUmntFile()));
     }
 
@@ -129,7 +129,7 @@ void MntConfigWidget::readDFDone( void )
     m_listWidget->clear();
 
     QTreeWidgetItem *item = 0;
-    
+
     DisksConstIterator itr = mDiskList.disksConstIteratorBegin();
     DisksConstIterator end = mDiskList.disksConstIteratorEnd();
     for (; itr != end; ++itr)
@@ -192,7 +192,7 @@ void MntConfigWidget::clicked( QTreeWidgetItem * item , int col )
     QTreeWidgetItem * header = m_listWidget->headerItem();
 
     mGroupBox->setEnabled( true );
-    mGroupBox->setTitle( QString("%1: %2  %3: %4").
+    mGroupBox->setTitle( QString::fromLatin1("%1: %2  %3: %4").
                          arg(header->text( DeviceCol )).
                          arg(item->text( DeviceCol )).
                          arg(header->text( MountPointCol )).
@@ -227,7 +227,7 @@ void MntConfigWidget::iconChanged(const QString &iconName)
     DiskEntry * disk = selectedDisk( item );
     if ( !disk )
         return;
-    
+
     disk->setIconName(iconName);
     mIconLineEdit->setText(iconName);
 
@@ -252,7 +252,7 @@ void MntConfigWidget::iconDefault()
 
 void MntConfigWidget::selectMntFile()
 {
-    KUrl url = KFileDialog::getOpenUrl( KUrl(),"*", this );
+    KUrl url = KFileDialog::getOpenUrl( KUrl(),QLatin1String( "*" ), this );
 
     if( url.isEmpty() )
         return;
@@ -268,7 +268,7 @@ void MntConfigWidget::selectMntFile()
 
 void MntConfigWidget::selectUmntFile()
 {
-    KUrl url = KFileDialog::getOpenUrl( KUrl(), "*", this );
+    KUrl url = KFileDialog::getOpenUrl( KUrl(), QLatin1String( "*" ), this );
 
     if( url.isEmpty() )
         return;

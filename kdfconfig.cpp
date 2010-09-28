@@ -53,14 +53,14 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, bool init)
         : QWidget( parent)
 {
 
-    m_columnList.append( Column( "Icon", i18nc("TODO", "Icon"), 20, KDFWidget::IconCol) );
-    m_columnList.append( Column( "Device", i18nc("Device of the storage", "Device"), 100, KDFWidget::DeviceCol) );
-    m_columnList.append( Column( "Type", i18nc("Filesystem on storage", "Type"), 100 , KDFWidget::TypeCol) );
-    m_columnList.append( Column( "Size", i18nc("Total size of the storage", "Size"), 100, KDFWidget::SizeCol) );
-    m_columnList.append( Column( "MountPoint", i18nc("Mount point of the storage", "Mount Point"), 100, KDFWidget::MountPointCol) );
-    m_columnList.append( Column( "Free", i18nc("Free space in storage", "Free"), 100, KDFWidget::FreeCol) );
-    m_columnList.append( Column( "Full%", i18nc("Used storage space in %", "Full %"), 50, KDFWidget::FullCol ));
-    m_columnList.append( Column( "UsageBar", i18nc("Usage graphical bar", "Usage"), 100, KDFWidget::UsageBarCol) );
+    m_columnList.append( Column( QLatin1String( "Icon" ), i18nc("TODO", "Icon"), 20, KDFWidget::IconCol) );
+    m_columnList.append( Column( QLatin1String( "Device" ), i18nc("Device of the storage", "Device"), 100, KDFWidget::DeviceCol) );
+    m_columnList.append( Column( QLatin1String( "Type" ), i18nc("Filesystem on storage", "Type"), 100 , KDFWidget::TypeCol) );
+    m_columnList.append( Column( QLatin1String( "Size" ), i18nc("Total size of the storage", "Size"), 100, KDFWidget::SizeCol) );
+    m_columnList.append( Column( QLatin1String( "MountPoint" ), i18nc("Mount point of the storage", "Mount Point"), 100, KDFWidget::MountPointCol) );
+    m_columnList.append( Column( QLatin1String( "Free" ), i18nc("Free space in storage", "Free"), 100, KDFWidget::FreeCol) );
+    m_columnList.append( Column( QLatin1String( "Full%" ), i18nc("Used storage space in %", "Full %"), 50, KDFWidget::FullCol ));
+    m_columnList.append( Column( QLatin1String( "UsageBar" ), i18nc("Usage graphical bar", "Usage"), 100, KDFWidget::UsageBarCol) );
 
     GUI = !init;
     if( GUI )
@@ -79,8 +79,8 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, bool init)
         connect( m_listWidget, SIGNAL( itemClicked( QTreeWidgetItem*,int ) ),
                  this, SLOT( slotChanged() ) );
 
-        iconVisible = MainBarIcon( "dialog-ok-apply" );
-        iconHidden = MainBarIcon( "dialog-cancel" );
+        iconVisible = MainBarIcon( QLatin1String( "dialog-ok-apply" ) );
+        iconHidden = MainBarIcon( QLatin1String( "dialog-cancel" ) );
 
         QTreeWidgetItem * item = new QTreeWidgetItem( m_listWidget );
         for( int i=0; i < m_columnList.size(); i++ )

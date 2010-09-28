@@ -45,7 +45,7 @@ void KDFItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
             KCapacityBar bar;
             bar.setBarHeight( option.rect.height() -2 );
             bar.setValue( progress );
-            bar.setText( QString::number( progress ) + '%' );
+            bar.setText( QString::number( progress ) + QLatin1Char( '%' ) );
             //Draw red bar on >=Full_Percent
             if ( progress >= Full_Percent )
             {
@@ -53,7 +53,7 @@ void KDFItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
                 p.setBrush( QPalette::Highlight, QBrush( Qt::red ) );
                 bar.setPalette( p );
             }
-            
+
             if (option.state & QStyle::State_Selected || option.state & QStyle::State_MouseOver)
                 QStyledItemDelegate::paint( painter, option, index );
 

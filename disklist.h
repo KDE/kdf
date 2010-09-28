@@ -29,24 +29,24 @@
 
 #include "disks.h"
 
-static const char DF_Command[] = "df";
+static QLatin1String DF_Command = QLatin1String( "df" );
 
 #if defined(Q_OS_LINUX)
-    static const char DF_Args[] = "-kT";
+    static QLatin1String DF_Args = QLatin1String( "-kT" );
     static const bool No_FS_Type = false;
 #else
-    static const char DF_Args[] = "-k";
+    static QLatin1String DF_Args = QLatin1String( "-k" );
     static const bool No_FS_Type = true;
 #endif
 
 #if defined(Q_OS_SOLARIS)
-    static const char CacheFSTAB[] = "/etc/cachefstab";
-    static const char FSTAB[] = "/etc/vfstab";
+    static QLatin1String CacheFSTAB = QLatin1String( "/etc/cachefstab" );
+    static QLatin1String FSTAB = QLatin1String( "/etc/vfstab" );
 #else
-    static const char FSTAB[] = "/etc/fstab";
+    static QLatin1String FSTAB = QLatin1String( "/etc/fstab" );
 #endif
 
-static const char Separator[] = "|";
+static const QLatin1Char Separator = QLatin1Char( '|' );
 
 /***************************************************************************/
 typedef QList<DiskEntry*>		                 Disks;
@@ -56,13 +56,13 @@ typedef QList<DiskEntry*>::iterator		         DisksIterator;
 class KProcess;
 
 class DiskList : public QObject
-{  
+{
     Q_OBJECT
-    
+
     public:
         DiskList( QObject *parent=0 );
         ~DiskList();
-        
+
         int readFSTAB();
         int readDF();
         int find(DiskEntry* disk);
@@ -70,28 +70,28 @@ class DiskList : public QObject
         uint count() { return disks->count(); }
         void deleteAllMountedAt(const QString &mountpoint);
         void setUpdatesDisabled(bool disable);
-        
+
         //To iterate over disks items
         DisksConstIterator disksConstIteratorBegin() { return disks->constBegin(); }
         DisksConstIterator disksConstIteratorEnd() { return disks->constEnd(); }
-        
+
         DisksIterator disksIteratorBegin() { return disks->begin(); }
         DisksIterator disksIteratorEnd() { return disks->end(); }
 
     Q_SIGNALS:
         void readDFDone();
         void criticallyFull(DiskEntry *disk);
-        
+
         public slots:
         void loadSettings();
         void applySettings();
-        
+
         private slots:
         void dfDone();
 
     private:
         void replaceDeviceEntry(DiskEntry *disk);
-        
+
         Disks  *disks;
         KProcess         *dfProc;
         bool              readingDFStdErrOut;

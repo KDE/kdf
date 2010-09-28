@@ -32,7 +32,7 @@ COptionDialog::COptionDialog( QWidget *parent )
     setButtons( Help|Apply|Ok|Cancel );
     setDefaultButton( Ok );
     setFaceType( KPageDialog::Tabbed );
-    setHelp( "kcontrol/kdf/index.html", QString() );
+    setHelp( QLatin1String( "kcontrol/kdf/index.html" ), QString() );
 
     mConf = new KDFConfigWidget( this );
     connect( mConf, SIGNAL( configChanged() ), this, SLOT( slotChanged() ) );

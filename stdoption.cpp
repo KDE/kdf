@@ -34,7 +34,7 @@
 #include <kconfiggroup.h>
 #include <kglobal.h>
 
-QString CStdOption::mDefaultFileManager = "dolphin %m";
+QString CStdOption::mDefaultFileManager = QLatin1String( "dolphin %m" );
 int CStdOption::mDefaultUpdateFrequency = 60;
 
 CStdOption::CStdOption( void )
