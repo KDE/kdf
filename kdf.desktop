@@ -2,6 +2,7 @@
 Name=KDiskFree
 Name[af]=Kdiskfree
 Name[ar]=KDiskFree
+Name[ast]=KDiskFree
 Name[bg]=KDiskFree
 Name[br]=KDiskFree
 Name[ca]=KDiskFree
@@ -69,6 +70,7 @@ Type=Application
 GenericName=View Disk Usage
 GenericName[af]=Besigtig Disket Gebruik
 GenericName[ar]=عرض المستخدم من القرص
+GenericName[ast]=Ver Usu de Discu
 GenericName[bg]=Свободно място на диска
 GenericName[ca]=Veure l'ús de disc
 GenericName[ca@valencia]=Veure l'ús de disc
