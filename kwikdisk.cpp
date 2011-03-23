@@ -313,9 +313,7 @@ void KwikDisk::invokeHelp()
 
 int main(int argc, char **argv)
 {
-    KLocale::setMainCatalog( "kdf" );
-
-    KAboutData about("kwikdisk", 0, ki18n("KwikDisk"), version, ki18n(description),
+    KAboutData about("kwikdisk", "kdf", ki18n("KwikDisk"), version, ki18n(description),
                      KAboutData::License_GPL, ki18n("(C) 2004 Stanislav Karchebny"),
                      KLocalizedString(),  "http://utils.kde.org/projects/kdf",
                      "Stanislav.Karchebny@kdemail.net");
