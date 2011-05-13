@@ -1,4 +1,10 @@
 project(kdf)
+
+find_package(KDE4)
+include( KDE4Defaults )
+
+include_directories(${KDE4_INCLUDES})
+
 add_subdirectory(pics)
 
 ########### next target ###############
