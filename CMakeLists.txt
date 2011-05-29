@@ -1,5 +1,9 @@
 project(kdf)
 
+if(NOT UNIX)
+  message(FATAL_ERROR "kdf is only supposed to be built on Unix platforms.")
+endif(NOT UNIX)
+
 find_package(KDE4)
 include( KDE4Defaults )
 
