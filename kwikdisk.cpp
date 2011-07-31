@@ -75,11 +75,11 @@ KwikDisk::KwikDisk()
     connect( &m_diskList, SIGNAL(criticallyFull(DiskEntry*)),
              this, SLOT(criticallyFull(DiskEntry*)) );
 
-    connect( this, SIGNAL( activated(QSystemTrayIcon::ActivationReason)),
-             SLOT(slotActivated(QSystemTrayIcon::ActivationReason) ));
+    connect( this, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
+             SLOT(slotActivated(QSystemTrayIcon::ActivationReason)));
 
     m_actionGroup = new QActionGroup( this );
-    connect( m_actionGroup, SIGNAL( triggered( QAction* ) ) , this, SLOT( toggleMount( QAction* ) ) );
+    connect( m_actionGroup, SIGNAL(triggered(QAction*)) , this, SLOT(toggleMount(QAction*)) );
 
     m_actionSeparator = contextMenu()->addSeparator();
 

@@ -63,7 +63,7 @@ static bool GUI;
 KDFWidget::KDFWidget( QWidget *parent, bool init )
         : QWidget(parent), mOptionDialog(0), mPopup(0), mTimer(0)
 {
-    connect(&mDiskList , SIGNAL(readDFDone() ),
+    connect(&mDiskList , SIGNAL(readDFDone()),
             this, SLOT (updateDFDone()) );
     connect(&mDiskList , SIGNAL(criticallyFull(DiskEntry*)),
             this, SLOT (criticallyFull(DiskEntry*)) );
@@ -101,8 +101,8 @@ KDFWidget::KDFWidget( QWidget *parent, bool init )
 
         topLayout->addWidget( m_listWidget );
 
-        connect( m_listWidget, SIGNAL( customContextMenuRequested( const QPoint &) ),
-                 this, SLOT( contextMenuRequested( const QPoint & )));
+        connect( m_listWidget, SIGNAL(customContextMenuRequested(QPoint)),
+                 this, SLOT(contextMenuRequested(QPoint)));
 
         makeColumns();
 

@@ -74,10 +74,10 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, bool init)
         }
         m_listWidget->setHeaderLabels(headerLabels);
 
-        connect( m_listWidget, SIGNAL( itemClicked( QTreeWidgetItem*,int ) ),
-                 this, SLOT( toggleListText( QTreeWidgetItem * , int )) );
-        connect( m_listWidget, SIGNAL( itemClicked( QTreeWidgetItem*,int ) ),
-                 this, SLOT( slotChanged() ) );
+        connect( m_listWidget, SIGNAL(itemClicked(QTreeWidgetItem*,int)),
+                 this, SLOT(toggleListText(QTreeWidgetItem*,int)) );
+        connect( m_listWidget, SIGNAL(itemClicked(QTreeWidgetItem*,int)),
+                 this, SLOT(slotChanged()) );
 
         iconVisible = MainBarIcon( QLatin1String( "dialog-ok-apply" ) );
         iconHidden = MainBarIcon( QLatin1String( "dialog-cancel" ) );
@@ -91,9 +91,9 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, bool init)
         }
         m_listWidget->setCurrentItem( item );
 
-        connect(m_updateSpinBox, SIGNAL( valueChanged(int) ), this, SLOT( slotChanged() ) );
+        connect(m_updateSpinBox, SIGNAL(valueChanged(int)), this, SLOT(slotChanged()) );
 
-        connect(mFileManagerEdit,SIGNAL(textChanged (const QString &)),this,SLOT(slotChanged()));
+        connect(mFileManagerEdit,SIGNAL(textChanged(QString)),this,SLOT(slotChanged()));
 
         connect(mOpenMountCheck,SIGNAL(toggled(bool)),this,SLOT(slotChanged()));
 

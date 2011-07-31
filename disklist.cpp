@@ -59,8 +59,8 @@ DiskList::DiskList(QObject *parent)
 
     // BackgroundProcesses ****************************************
     dfProc->setOutputChannelMode(KProcess::MergedChannels);
-    connect(dfProc,SIGNAL(finished(int, QProcess::ExitStatus) ),
-            this, SLOT(dfDone() ) );
+    connect(dfProc,SIGNAL(finished(int,QProcess::ExitStatus)),
+            this, SLOT(dfDone()) );
 
     readingDFStdErrOut=false;
     config = KGlobal::config();

@@ -61,10 +61,10 @@ void DiskEntry::init(const char *name)
     sysProc = new KProcess();
     Q_CHECK_PTR(sysProc);
     sysProc->setOutputChannelMode( KProcess::MergedChannels );
-    connect( sysProc, SIGNAL( readyReadStandardError() ),
-             this, SLOT ( receivedSysStdErrOut() ) );
-    connect( sysProc, SIGNAL( readyReadStandardOutput() ),
-             this, SLOT ( receivedSysStdErrOut() ) );
+    connect( sysProc, SIGNAL(readyReadStandardError()),
+             this, SLOT (receivedSysStdErrOut()) );
+    connect( sysProc, SIGNAL(readyReadStandardOutput()),
+             this, SLOT (receivedSysStdErrOut()) );
     readingSysStdErrOut=false;
 
 

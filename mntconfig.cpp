@@ -64,9 +64,9 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, bool init)
         mDiskList.readFSTAB();
         mDiskList.readDF();
         mInitializing = true;
-        connect( &mDiskList, SIGNAL( readDFDone() ), this, SLOT( readDFDone() ));
+        connect( &mDiskList, SIGNAL(readDFDone()), this, SLOT(readDFDone()));
 
-        connect ( m_listWidget, SIGNAL( itemClicked( QTreeWidgetItem*, int)) , this, SLOT( clicked( QTreeWidgetItem*,int )) );
+        connect ( m_listWidget, SIGNAL(itemClicked(QTreeWidgetItem*,int)) , this, SLOT(clicked(QTreeWidgetItem*,int)) );
         m_listWidget->setHeaderLabels( QStringList() << QLatin1String( "" ) << i18n("Device")
                                        << i18n("Mount Point") << i18n("Mount Command") << i18n("Unmount Command") );
         m_listWidget->setColumnWidth( 0, 20 );
@@ -80,9 +80,9 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, bool init)
         mGroupBox->setEnabled( false );
         mGroupBox->setTitle(text);
 
-        connect( mIconLineEdit, SIGNAL(textEdited(const QString&)),
-                 this,SLOT(iconChanged(const QString&)));
-        connect( mIconLineEdit, SIGNAL(textEdited(const QString&)),
+        connect( mIconLineEdit, SIGNAL(textEdited(QString)),
+                 this,SLOT(iconChanged(QString)));
+        connect( mIconLineEdit, SIGNAL(textEdited(QString)),
                  this,SLOT(slotChanged()));
 
         mIconButton->setIconType(KIconLoader::Small, KIconLoader::Device);
@@ -91,19 +91,19 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, bool init)
         connect( mIconButton, SIGNAL(iconChanged(QString)), this, SLOT(iconChangedButton(QString)));
         connect( mIconButton, SIGNAL(iconChanged(QString)), this, SLOT(slotChanged()));
 
-        connect( mDefaultIconButton, SIGNAL( clicked() ), this, SLOT( iconDefault() ) );
-        connect( mDefaultIconButton, SIGNAL( clicked() ), this, SLOT( slotChanged() ) );
+        connect( mDefaultIconButton, SIGNAL(clicked()), this, SLOT(iconDefault()) );
+        connect( mDefaultIconButton, SIGNAL(clicked()), this, SLOT(slotChanged()) );
 
-        connect( mMountLineEdit,SIGNAL(textChanged(const QString&)),
-                this,SLOT(mntCmdChanged(const QString&)));
-        connect( mMountLineEdit, SIGNAL(textChanged(const QString&)),
+        connect( mMountLineEdit,SIGNAL(textChanged(QString)),
+                this,SLOT(mntCmdChanged(QString)));
+        connect( mMountLineEdit, SIGNAL(textChanged(QString)),
                 this,SLOT(slotChanged()));
 
-        connect( mMountButton, SIGNAL(clicked()), this, SLOT(selectMntFile() ) );
+        connect( mMountButton, SIGNAL(clicked()), this, SLOT(selectMntFile()) );
 
-        connect( mUmountLineEdit, SIGNAL(textChanged(const QString&)),
-                 this,SLOT(umntCmdChanged(const QString&)));
-        connect( mUmountLineEdit, SIGNAL(textChanged(const QString&)),
+        connect( mUmountLineEdit, SIGNAL(textChanged(QString)),
+                 this,SLOT(umntCmdChanged(QString)));
+        connect( mUmountLineEdit, SIGNAL(textChanged(QString)),
                  this,SLOT(slotChanged()));
 
         connect( mUmountButton,SIGNAL(clicked()),this,SLOT(selectUmntFile()));

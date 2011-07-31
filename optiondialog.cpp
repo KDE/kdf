@@ -35,11 +35,11 @@ COptionDialog::COptionDialog( QWidget *parent )
     setHelp( QLatin1String( "kcontrol/kdf/index.html" ), QString() );
 
     mConf = new KDFConfigWidget( this );
-    connect( mConf, SIGNAL( configChanged() ), this, SLOT( slotChanged() ) );
+    connect( mConf, SIGNAL(configChanged()), this, SLOT(slotChanged()) );
     addPage( mConf, i18n("General Settings") );
 
     mMnt = new MntConfigWidget( this );
-    connect( mMnt, SIGNAL( configChanged() ), this, SLOT( slotChanged() ) );
+    connect( mMnt, SIGNAL(configChanged()), this, SLOT(slotChanged()) );
     addPage( mMnt, i18n("Mount Commands") );
 
     enableButton( Apply, false );
