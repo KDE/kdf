@@ -328,8 +328,7 @@ int main(int argc, char **argv)
     KCmdLineArgs::addCmdLineOptions( options );
     KApplication app;
 
-    KwikDisk *mainWin = 0;
-    mainWin = new KwikDisk();
+    KwikDisk mainWin;
 
     //Avoid quit when closing the KwikDisk Settings dialog
     app.setQuitOnLastWindowClosed( false );

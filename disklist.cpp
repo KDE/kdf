@@ -533,7 +533,6 @@ void DiskList::replaceDeviceEntry(DiskEntry * disk)
         {
             //search for fitting cachefs-entry in static /etc/vfstab-data
             DiskEntry* olddisk;
-            bool next = true;
 
             DisksConstIterator itr = disksConstIteratorBegin();
             DisksConstIterator end = disksConstIteratorEnd();
@@ -561,7 +560,6 @@ void DiskList::replaceDeviceEntry(DiskEntry * disk)
                 {
                     pos = disks->indexOf(disk); //store the actual position
                     disk->setDeviceName(olddisk->deviceName());
-                    next = false;
                 }
                 //else  olddisk=disks->next();
             }// while
