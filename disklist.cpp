@@ -370,9 +370,16 @@ void DiskList::dfDone()
 
     kDebug() << t.status();
 
-    QString s=t.readLine();
-    if ( ( s.isEmpty() ) || ( s.left(10) != QLatin1String( "Filesystem" ) ) )
+    QString s;
+    while ( !t.atEnd() )
+    {
+        s = t.readLine();
+        if ( s.left(10) == QLatin1String( "Filesystem" ) )
+            break;
+    }
+    if ( t.atEnd() )
         qFatal("Error running df command... got [%s]",qPrintable(s));
+
     while ( !t.atEnd() )
     {
         QString u,v;
