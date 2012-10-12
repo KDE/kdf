@@ -6,9 +6,9 @@
   <!ENTITY % addindex "IGNORE">
 ]>
 
-<book lang="&language;">
+<book id="app" lang="&language;">
 
-<bookinfo>
+<book id="app"info>
 <title>The &kdiskfree; Handbook</title>
 
 <authorgroup>
