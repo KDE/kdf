@@ -31,8 +31,8 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2010-01-12</date>
-<releaseinfo>v0.11 (&kde; 4.4)</releaseinfo>
+<date>2013-05-25</date>
+<releaseinfo>v0.15 (&kde; 4.11)</releaseinfo>
 
 <abstract><para>&kdiskfree; displays available file devices, along with
 information about them.</para>
@@ -55,7 +55,7 @@ information about them.</para>
 <title>Introduction</title>
 
 <para>&kdiskfree; displays the available file devices (hard drive
-partitions, floppy and &CD; drives, &etc;) along with information on
+partitions, floppy and &CD; drives, USB sticks &etc;) along with information on
 their capacity, free space, type and mount point. It also allows you
 to mount and unmount drives and view them in a file manager.</para>
 
@@ -110,11 +110,6 @@ can be listed by entering <userinput><command>kdf</command>
 graph.</para></listitem>
 </itemizedlist>
 
-<!--! new screenshot
-<para>In the picture above, four devices are shown: one reiserfs-formatted
-hard drive partition mounted at the file system root (<filename
-class="directory">/</filename>), two &CD-ROM;'s, and a floppy drive.</para>
--->
 <para><mousebutton>Left</mousebutton> clicking on the header of a
 particular column sorts the devices according to that variable. A
 second <mousebutton>left</mousebutton> click sorts in the opposite
@@ -129,11 +124,11 @@ graphical view of the files on that device.</para>
 
 </sect1>
 
-<sect1 id="the-menus">
-<title>The &kdiskfree; menu bar</title>
+<sect1 id="menus-and-configuration">
+<title>Menu Bar and Configuration</title>
 
 <sect2>
-<title>The <guimenu>File</guimenu> Menu</title>
+<title>The File Menu</title>
 
 <variablelist>
 <varlistentry>
@@ -159,30 +154,18 @@ status</action></para></listitem>
 </varlistentry>
 </variablelist>
 
+<para>
+Additionally &kdiskfree; has some common &kde; <guimenu>Settings</guimenu> and <guimenu>Help</guimenu>
+menu items, for more information read the sections about the <ulink url="help:/fundamentals/ui.html#menus-settings"
+>Settings Menu</ulink> and <ulink url="help:/fundamentals/ui.html#menus-help">Help Menu</ulink>
+of the &kde; Fundamentals.
+</para>
+
 </sect2>
 
 <sect2>
-<title>The <guimenu>Settings</guimenu> menu and dialog</title>
+<title>The Settings Dialog</title>
 
-<variablelist>
-<varlistentry>
-<term>
-<menuchoice><guimenu>Settings</guimenu>
-<guimenuitem>Configure Shortcuts...</guimenuitem></menuchoice>
-</term>
-<listitem>
-<para>The standard &kde; dialog for setting shortcuts.</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term>
-<menuchoice>
-<guimenu>Settings</guimenu>
-<guimenuitem>Configure KDiskFree...</guimenuitem>
-</menuchoice>
-</term>
-<listitem><para><action>Opens a configuration dialog.</action></para>
 <screenshot>
 <screeninfo>Configure &kdiskfree; Screen</screeninfo>
         <mediaobject>
@@ -222,15 +205,6 @@ these commands can be found on the man page for <application>mount</application>
 command prompt).</para></listitem>
 </varlistentry>
 </variablelist>
-</listitem>
-</varlistentry>
-</variablelist>
-</sect2>
-
-<sect2>
-<title>The <guimenu>Help</guimenu> menu</title>
-
-&help.menu.documentation;
 
 </sect2>
 
