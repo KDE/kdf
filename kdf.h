@@ -35,8 +35,8 @@ class KDFTopLevel : public KXmlGuiWindow
         KDFTopLevel(QWidget *parent=0);
         ~KDFTopLevel() { }
     
-    protected Q_SLOTS:
-        virtual bool queryExit( void );
+    protected:
+        void closeEvent(QCloseEvent *event);
     protected:
         KDFWidget* kdf;
 };

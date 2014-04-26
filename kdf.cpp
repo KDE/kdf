@@ -61,10 +61,10 @@ KDFTopLevel::KDFTopLevel(QWidget *)
 }
 
 
-bool KDFTopLevel::queryExit( void )
+void KDFTopLevel::closeEvent(QCloseEvent *event)
 {
     kdf->applySettings();
-    return( true );
+    KXmlGuiWindow::closeEvent(event);
 }
 
 
