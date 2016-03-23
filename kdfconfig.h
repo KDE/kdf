@@ -48,15 +48,15 @@ class KDFConfigWidget : public QWidget,
         explicit KDFConfigWidget( QWidget *parent=0, bool init=false);
         ~KDFConfigWidget();
         
-        public slots:
+    public Q_SLOTS:
         void loadSettings( void );
         void applySettings( void );
         void defaultsBtnClicked( void );
         
-        protected slots:
+    protected Q_SLOTS:
         void slotChanged();
         
-        private slots:
+    private Q_SLOTS:
         void toggleListText( QTreeWidgetItem *item, int column );
     
     protected:

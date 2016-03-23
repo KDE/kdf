@@ -33,7 +33,7 @@ class COptionDialog : public KPageDialog
         explicit COptionDialog( QWidget *parent=0 );
         ~COptionDialog( void );
         
-        protected slots:
+    protected Q_SLOTS:
         void slotOk( void );
         void slotApply( void );
         void slotChanged();

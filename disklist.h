@@ -82,11 +82,11 @@ class DiskList : public QObject
         void readDFDone();
         void criticallyFull(DiskEntry *disk);
 
-        public slots:
+    public Q_SLOTS:
         void loadSettings();
         void applySettings();
 
-        private slots:
+    private Q_SLOTS:
         void dfDone();
 
     private:

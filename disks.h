@@ -126,7 +126,7 @@ class DiskEntry : public QObject
         void setKBAvail(qulonglong kb_avail);
         QString guessIconName();
         
-        private slots:
+    private Q_SLOTS:
         void receivedSysStdErrOut();
     
     private:
