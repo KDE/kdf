@@ -26,7 +26,6 @@
 #include "kdfutil.h"
 
 #include <kconfiggroup.h>
-#include <kdefakes.h>
 #include <kprocess.h>
 #include <klocale.h>
 

@@ -29,11 +29,10 @@
 
 #include <kdialog.h>
 #include <klocale.h>
-#include <kcomponentdata.h>
 
 #include <QVBoxLayout>
 
-KDiskFreeWidget::KDiskFreeWidget( const KComponentData &inst, QWidget *parent )
+KDiskFreeWidget::KDiskFreeWidget( QWidget *parent )
         : KCModule( parent )
 {
     setButtons(Help);
@@ -61,8 +60,7 @@ extern "C"
 {
     Q_DECL_EXPORT KCModule* create_kdf( QWidget *parent, const char * /*name*/ )
     {
-        KComponentData inst("kdf");
-        return new KDiskFreeWidget( inst , parent );
+        return new KDiskFreeWidget( parent );
     }
 }
 

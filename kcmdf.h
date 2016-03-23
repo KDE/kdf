@@ -24,7 +24,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #define KCMDF_H
 
 #include <kcmodule.h>
-#include <kcomponentdata.h>
 
 #include "kdfwidget.h"
 #include "kdfconfig.h"
@@ -37,7 +36,7 @@ class KDiskFreeWidget : public KCModule
     Q_OBJECT
     
     public:
-        explicit KDiskFreeWidget( const KComponentData &inst, QWidget *parent = 0  );
+        explicit KDiskFreeWidget( QWidget *parent = 0  );
         ~KDiskFreeWidget();
         
         QString quickHelp() const;
