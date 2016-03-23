@@ -26,7 +26,6 @@
 
 #include "mntconfig.h"
 
-#include <kfiledialog.h>
 #include <kicondialog.h>
 #include <kmessagebox.h>
 #include <klocale.h>
@@ -43,6 +42,7 @@
 #include <QHBoxLayout>
 #include <QFormLayout>
 #include <QCloseEvent>
+#include <QFileDialog>
 #include <QTreeWidget>
 #include <QTreeWidgetItem>
 
@@ -252,7 +252,7 @@ void MntConfigWidget::iconDefault()
 
 void MntConfigWidget::selectMntFile()
 {
-    KUrl url = KFileDialog::getOpenUrl( KUrl(),QLatin1String( "*" ), this );
+    QUrl url = QFileDialog::getOpenFileUrl( this, QLatin1String( "*" ));
 
     if( url.isEmpty() )
         return;
@@ -268,7 +268,7 @@ void MntConfigWidget::selectMntFile()
 
 void MntConfigWidget::selectUmntFile()
 {
-    KUrl url = KFileDialog::getOpenUrl( KUrl(), QLatin1String( "*" ), this );
+    QUrl url = QFileDialog::getOpenFileUrl( this, QLatin1String( "*" ));
 
     if( url.isEmpty() )
         return;
