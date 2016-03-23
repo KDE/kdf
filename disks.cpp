@@ -20,8 +20,9 @@
 
 #include "disks.h"
 
+#include "kdf_debug.h"
+
 #include <kglobal.h>
-#include <kdebug.h>
 #include <kprocess.h>
 #include <klocale.h>
 
@@ -123,17 +124,17 @@ int DiskEntry::mount()
     cmdS.replace( QLatin1String( "%t" ), fsType() );
     cmdS.replace( QLatin1String( "%o" ), mountOptions() );
 
-    kDebug() << "mount-cmd: [" << cmdS << "]" ;
+    qCDebug(KDF) << "mount-cmd: [" << cmdS << "]";
     int e = sysCall( cmdS );
     if (!e)
         setMounted( true );
-    kDebug() << "mount-cmd: e=" << e ;
+    qCDebug(KDF) << "mount-cmd: e=" << e;
     return e;
 }
 
 int DiskEntry::umount()
 {
-    kDebug() << "umounting" ;
+    qCDebug(KDF) << "umounting";
     QString cmdS = umntcmd;
     if ( cmdS.isEmpty() ) // generate default umount cmd
         cmdS = QLatin1String( "umount %d" );
@@ -141,11 +142,11 @@ int DiskEntry::umount()
     cmdS.replace( QLatin1String( "%d" ), deviceName() );
     cmdS.replace( QLatin1String( "%m" ), mountPoint() );
 
-    kDebug() << "umount-cmd: [" << cmdS << "]" ;
+    qCDebug(KDF) << "umount-cmd: [" << cmdS << "]";
     int e = sysCall( cmdS );
     if ( !e )
         setMounted( false );
-    kDebug() << "umount-cmd: e=" << e ;
+    qCDebug(KDF) << "umount-cmd: e=" << e;
 
     return e;
 }
@@ -219,10 +220,10 @@ QString DiskEntry::guessIconName()
     //List Solid Devices
     foreach (const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::StorageVolume))
       {
-          kDebug() << device.udi().toLatin1().constData() << device.vendor() << device.product() << device.icon();
+          qCDebug(KDF) << device.udi().toLatin1().constData() << device.vendor() << device.product() << device.icon();
       }
     Solid::Device * device = new Solid::Device(deviceName());
-    kDebug() << "guess" << deviceName() << device->icon();
+    qCDebug(KDF) << "guess" << deviceName() << device->icon();
     delete device;
     */
     // try to be intelligent
@@ -295,7 +296,7 @@ int DiskEntry::sysCall(QString & completeCommand)
     sysProc->start();
 
     if ( !sysProc->waitForStarted(-1) )
-        kFatal() << i18n("could not execute %1", command) ;
+        qCCritical(KDF) << i18n("could not execute %1", command) ;
 
     sysProc->waitForFinished(-1);
 
@@ -392,7 +393,7 @@ void DiskEntry::setKBUsed(qulonglong kb_used)
     used=kb_used;
     if ( size < (used+avail) )
     {  //adjust kBAvail
-        kWarning() << "device " << device << ": kBAvail(" << avail << ")+*kBUsed(" << used << ") exceeds kBSize(" << size << ")" ;
+        qCWarning(KDF) << "device " << device << ": kBAvail(" << avail << ")+*kBUsed(" << used << ") exceeds kBSize(" << size << ")" ;
         setKBAvail(size-used);
     }
     emit kBUsedChanged();
@@ -403,7 +404,7 @@ void DiskEntry::setKBAvail(qulonglong kb_avail)
     avail=kb_avail;
     if ( size < (used+avail) )
     {  //adjust kBUsed
-        kWarning() << "device " << device << ": *kBAvail(" << avail << ")+kBUsed(" << used << ") exceeds kBSize(" << size << ")" ;
+        qCWarning(KDF) << "device " << device << ": *kBAvail(" << avail << ")+kBUsed(" << used << ") exceeds kBSize(" << size << ")" ;
         setKBUsed(size-avail);
     }
     emit kBAvailChanged();

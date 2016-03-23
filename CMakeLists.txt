@@ -22,6 +22,7 @@ set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake)
 include(ECMGenerateHeaders)
 include(ECMInstallIcons)
 include(ECMPackageConfigHelpers)
+include(ECMQtDeclareLoggingCategory)
 include(ECMSetupVersion)
 include(GenerateExportHeader)
 include(FeatureSummary)
@@ -67,6 +68,11 @@ set(libkdf_common_SRCS
     optiondialog.cpp
     stdoption.cpp
 )
+
+ecm_qt_declare_logging_category(libkdf_common_SRCS
+                                HEADER kdf_debug.h
+                                IDENTIFIER KDF
+                                CATEGORY_NAME kdf)
 
 ki18n_wrap_ui(libkdf_common_SRCS
     kdfconfig.ui

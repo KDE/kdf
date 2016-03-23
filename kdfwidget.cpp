@@ -28,6 +28,7 @@
 
 #include "kdfwidget.h"
 
+#include "kdf_debug.h"
 #include "optiondialog.h"
 
 #include <kapplication.h>
@@ -37,7 +38,6 @@
 #include <kglobal.h>
 #include <kshell.h>
 #include <klocale.h>
-#include <kdebug.h>
 #include <khelpclient.h>
 #include <kglobal.h>
 #include <kconfiggroup.h>
@@ -469,7 +469,7 @@ void KDFWidget::contextMenuRequested( const QPoint &p )
 
     if( openFileManager == true )
     {
-        kDebug() << "opening filemanager" ;
+        qCDebug(KDF) << "opening filemanager";
         if(  mStd.fileManager().isEmpty() == false )
         {
             QString cmd = mStd.fileManager();

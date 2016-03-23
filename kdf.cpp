@@ -28,7 +28,6 @@
 #include <k4aboutdata.h>
 #include <kxmlguifactory.h>
 #include <kmenu.h>
-#include <kdebug.h>
 #include <kmenubar.h>
 #include <kaction.h>
 #include <kstandardshortcut.h>

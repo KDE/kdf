@@ -30,7 +30,6 @@
 #include <kicondialog.h>
 #include <kmessagebox.h>
 #include <kglobal.h>
-#include <kdebug.h>
 #include <klocale.h>
 #include <klineedit.h>
 #include <kcmodule.h>
