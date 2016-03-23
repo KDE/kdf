@@ -33,7 +33,6 @@
 class QTreeView;
 class QTimer;
 class COptionDialog;
-class KMenu;
 
 class QStandardItemModel;
 
@@ -101,7 +100,7 @@ class KDFWidget : public QWidget
 
         bool readingDF;
         COptionDialog *mOptionDialog;
-        KMenu    *mPopup;
+        QMenu    *mPopup;
         QTimer        *mTimer;
         DiskList   mDiskList;
         bool       mIsTopLevel;

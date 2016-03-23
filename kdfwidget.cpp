@@ -33,7 +33,6 @@
 
 #include <kapplication.h>
 #include <kmessagebox.h>
-#include <kmenu.h>
 #include <ktoolinvocation.h>
 #include <kshell.h>
 #include <klocale.h>
@@ -49,6 +48,7 @@
 #include <QStandardItemModel>
 #include <QStandardItem>
 #include <QPainter>
+#include <QMenu>
 
 #include <stdlib.h>
 
@@ -417,8 +417,8 @@ void KDFWidget::contextMenuRequested( const QPoint &p )
     if( disk == 0 )
         return;
 
-    mPopup = new KMenu( 0 );
-    mPopup->addTitle( disk->mountPoint() );
+    mPopup = new QMenu( 0 );
+    mPopup->setTitle( disk->mountPoint() );
     QAction *mountPointAction = mPopup->addAction( i18n("Mount Device") );
     QAction *umountPointAction = mPopup->addAction( i18n("Unmount Device") );
     mPopup->addSeparator();

@@ -37,7 +37,6 @@
 #include <kaboutdata.h>
 #include <khelpclient.h>
 #include <kmessagebox.h>
-#include <kmenu.h>
 #include <krun.h>
 #include <ktoolinvocation.h>
 #include <kshell.h>
@@ -49,6 +48,7 @@
 #include <QPainter>
 #include <QPixmap>
 #include <QActionGroup>
+#include <QMenu>
 
 #include <stdlib.h>
 #include <unistd.h>
