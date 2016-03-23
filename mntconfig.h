@@ -22,10 +22,10 @@
 #ifndef MNTCONFIG_H
 #define MNTCONFIG_H
 
-#include <QWidget>
-
 #include "ui_mntconfig.h"
 #include "disklist.h"
+
+#include <QWidget>
 
 /**************************************************************/
 

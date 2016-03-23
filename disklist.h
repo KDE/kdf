@@ -22,12 +22,12 @@
 #ifndef DISKLIST_H
 #define DISKLIST_H
 
-// defines the os-type
-#include <qglobal.h>
+#include "disks.h"
 
 #include <ksharedconfig.h>
 
-#include "disks.h"
+// defines the os-type
+#include <qglobal.h>
 
 static QLatin1String DF_Command = QLatin1String( "df" );
 

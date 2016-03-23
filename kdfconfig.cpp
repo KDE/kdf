@@ -26,6 +26,14 @@
 
 #include "kdfconfig.h"
 
+#include <kapplication.h>
+#include <kconfig.h>
+#include <kdialog.h>
+#include <klocale.h>
+#include <kiconloader.h>
+#include <kglobal.h>
+#include <klineedit.h>
+
 #include <QCheckBox>
 #include <QLabel>
 #include <QLCDNumber>
@@ -34,14 +42,6 @@
 #include <QTreeWidget>
 #include <QTreeWidgetItem>
 #include <QSizePolicy>
-
-#include <kapplication.h>
-#include <kconfig.h>
-#include <kdialog.h>
-#include <klocale.h>
-#include <kiconloader.h>
-#include <kglobal.h>
-#include <klineedit.h>
 
 #ifndef GUI_DEFINED
 static bool GUI;

@@ -28,17 +28,7 @@
 
 #include "kdfwidget.h"
 
-#include <stdlib.h>
-
-#include <QAbstractEventDispatcher>
-#include <QTimer>
-#include <QFile>
-
-#include <QLayout>
-#include <QTreeView>
-#include <QStandardItemModel>
-#include <QStandardItem>
-#include <QPainter>
+#include "optiondialog.h"
 
 #include <kapplication.h>
 #include <kmessagebox.h>
@@ -49,7 +39,16 @@
 #include <klocale.h>
 #include <kdebug.h>
 
-#include "optiondialog.h"
+#include <QAbstractEventDispatcher>
+#include <QTimer>
+#include <QFile>
+#include <QLayout>
+#include <QTreeView>
+#include <QStandardItemModel>
+#include <QStandardItem>
+#include <QPainter>
+
+#include <stdlib.h>
 
 //This aren't used here...
 //#define BAR_COLUMN   7

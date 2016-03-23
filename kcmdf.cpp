@@ -27,11 +27,11 @@
 
 #include "kcmdf.h"
 
-#include <QVBoxLayout>
-
 #include <kdialog.h>
 #include <klocale.h>
 #include <kcomponentdata.h>
+
+#include <QVBoxLayout>
 
 KDiskFreeWidget::KDiskFreeWidget( const KComponentData &inst, QWidget *parent )
         : KCModule( inst, parent )

@@ -26,6 +26,8 @@
 #include "stdoption.h"
 #include "kdfwidget.h"
 
+class KLineEdit;
+
 class QCloseEvent;
 class QLabel;
 class QCheckBox;
@@ -36,8 +38,6 @@ class QTreeWidget;
 class QTreeWidgetItem;
 
 class Column;
-
-class KLineEdit;
 
 class KDFConfigWidget : public QWidget,
                         private Ui_KDFConfigWidget

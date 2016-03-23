@@ -20,17 +20,16 @@
 
 #include "disks.h"
 
-#include <unistd.h>
-#include <sys/types.h>
-
-#include <QFileInfo>
-#include <QDir>
-
 #include <kglobal.h>
 #include <kdebug.h>
 #include <kprocess.h>
 #include <klocale.h>
-//#include <solid/device.h>
+
+#include <QFileInfo>
+#include <QDir>
+
+#include <unistd.h>
+#include <sys/types.h>
 
 /****************************************************/
 /********************* DiskEntry ********************/

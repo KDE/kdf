@@ -26,15 +26,6 @@
 
 #include "mntconfig.h"
 
-#include <QGroupBox>
-#include <QLabel>
-#include <QPixmap>
-#include <QHBoxLayout>
-#include <QFormLayout>
-#include <QCloseEvent>
-#include <QTreeWidget>
-#include <QTreeWidgetItem>
-
 #include <kfiledialog.h>
 #include <kicondialog.h>
 #include <kmessagebox.h>
@@ -45,6 +36,15 @@
 #include <kcmodule.h>
 #include <kconfig.h>
 #include <kiconloader.h>
+
+#include <QGroupBox>
+#include <QLabel>
+#include <QPixmap>
+#include <QHBoxLayout>
+#include <QFormLayout>
+#include <QCloseEvent>
+#include <QTreeWidget>
+#include <QTreeWidgetItem>
 
 #ifndef KDE_USE_FINAL
 static bool GUI;

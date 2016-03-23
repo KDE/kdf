@@ -25,7 +25,6 @@
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
 #include <kxmlguifactory.h>
-
 #include <kmenu.h>
 #include <kdebug.h>
 #include <kmenubar.h>

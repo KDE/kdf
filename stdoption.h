@@ -29,7 +29,6 @@
 #define CSTDOPTION_H
 
 #include <QString>
-//class QString;
 
 class CStdOption
 {

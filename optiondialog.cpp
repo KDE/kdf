@@ -20,10 +20,10 @@
 
 #include "optiondialog.h"
 
-#include <klocale.h>
-
 #include "kdfconfig.h"
 #include "mntconfig.h"
+
+#include <klocale.h>
 
 COptionDialog::COptionDialog( QWidget *parent )
         :KPageDialog( parent )

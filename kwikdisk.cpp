@@ -30,16 +30,6 @@
 
 #include "kwikdisk.h"
 
-#include <stdlib.h>
-#include <unistd.h>
-
-#include <QFile>
-#include <QAbstractEventDispatcher>
-
-#include <QPainter>
-#include <QPixmap>
-#include <QActionGroup>
-
 #include <klocale.h>
 #include <kapplication.h>
 #include <kaboutdata.h>
@@ -50,6 +40,15 @@
 #include <ktoolinvocation.h>
 #include <kshell.h>
 #include <kdebug.h>
+
+#include <QFile>
+#include <QAbstractEventDispatcher>
+#include <QPainter>
+#include <QPixmap>
+#include <QActionGroup>
+
+#include <stdlib.h>
+#include <unistd.h>
 
 static const char description[] =
     I18N_NOOP("KDE Free disk space utility");

@@ -21,14 +21,8 @@
  */
 
 #include "disklist.h"
+
 #include "kdfutil.h"
-
-#include <math.h>
-#include <stdlib.h>
-
-#include <QTextStream>
-#include <QFile>
-#include <QRegExp>
 
 #include <kdebug.h>
 #include <kglobal.h>
@@ -36,6 +30,13 @@
 #include <kdefakes.h>
 #include <kprocess.h>
 #include <klocale.h>
+
+#include <QTextStream>
+#include <QFile>
+#include <QRegExp>
+
+#include <math.h>
+#include <stdlib.h>
 
 static const QLatin1Char Blank = QLatin1Char( ' ' );
 static const QLatin1Char Delimiter = QLatin1Char( '#' );

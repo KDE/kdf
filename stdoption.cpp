@@ -27,12 +27,12 @@
 
 #include "stdoption.h"
 
-#include <QString>
-
 #include <kapplication.h>
 #include <kconfig.h>
 #include <kconfiggroup.h>
 #include <kglobal.h>
+
+#include <QString>
 
 QString CStdOption::mDefaultFileManager = QLatin1String( "dolphin %m" );
 int CStdOption::mDefaultUpdateFrequency = 60;

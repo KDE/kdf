@@ -27,12 +27,10 @@
 #include "mntconfig.h"
 #include "kdfconfig.h"
 #include "stdoption.h"
-
 #include "kdfitemdelegate.h"
 #include "kdfsortproxymodel.h"
 
 class QTreeView;
-//class QTreeWidgetItem;
 class QTimer;
 class COptionDialog;
 class KMenu;

@@ -23,11 +23,11 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #ifndef KCMDF_H
 #define KCMDF_H
 
-#include <kcmodule.h>
-
 #include "kdfwidget.h"
 #include "kdfconfig.h"
 #include "mntconfig.h"
+
+#include <kcmodule.h>
 
 class KDiskFreeWidget : public KCModule
 {

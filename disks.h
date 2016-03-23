@@ -21,9 +21,9 @@
 #ifndef DISKS_H
 #define DISKS_H
 
-#include <QObject>
-
 #include <kio/global.h>
+
+#include <QObject>
 
 class KProcess;
 

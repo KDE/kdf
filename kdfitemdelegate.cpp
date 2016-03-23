@@ -20,6 +20,8 @@
 
 #include "kdfitemdelegate.h"
 
+#include "kdfwidget.h"
+#include "kdfutil.h"
 
 #include <klocale.h>
 #include <kcapacitybar.h>
@@ -28,9 +30,6 @@
 #include <QPainter>
 #include <QPalette>
 #include <QStyleOptionViewItem>
-
-#include "kdfwidget.h"
-#include "kdfutil.h"
 
 void KDFItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
                             const QModelIndex &index) const
