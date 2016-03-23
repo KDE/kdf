@@ -40,6 +40,7 @@
 #include <krun.h>
 #include <ktoolinvocation.h>
 #include <kshell.h>
+#include <kstatusnotifieritem.h>
 
 #include <QApplication>
 #include <QCommandLineParser>
@@ -59,7 +60,7 @@ static const char description[] =
 /*****************************************************************************/
 
 KwikDisk::KwikDisk()
-        : KSystemTrayIcon()
+        : KStatusNotifierItem()
         , m_readingDF(false)
         , m_dirty(true)
         , m_inside(false)
@@ -67,37 +68,37 @@ KwikDisk::KwikDisk()
 {
     qCDebug(KDF);
 
-    contextMenu()->setTitle(i18n("KwikDisk"));
-    setIcon(KSystemTrayIcon::loadIcon(QLatin1String( "kdf" )));
-    show();
+    setIconByName(QStringLiteral("kdf"));
 
     connect( &m_diskList, SIGNAL(readDFDone()), this, SLOT(updateDFDone()) );
     connect( &m_diskList, SIGNAL(criticallyFull(DiskEntry*)),
              this, SLOT(criticallyFull(DiskEntry*)) );
 
-    connect( this, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
-             SLOT(slotActivated(QSystemTrayIcon::ActivationReason)));
-
     m_actionGroup = new QActionGroup( this );
     connect( m_actionGroup, SIGNAL(triggered(QAction*)) , this, SLOT(toggleMount(QAction*)) );
 
-    m_actionSeparator = contextMenu()->addSeparator();
+    QMenu *contextMenu = new QMenu(i18n("KwikDisk"));
 
-    contextMenu()->addAction(
-        KSystemTrayIcon::loadIcon(QLatin1String( "kdf" )),
+    m_actionSeparator = contextMenu->addSeparator();
+
+    contextMenu->addAction(
+        QIcon::fromTheme(QStringLiteral( "kdf" )),
         i18n("&Start KDiskFree"), this, SLOT(startKDF()));
 
-    contextMenu()->addAction(
-        KSystemTrayIcon::loadIcon(QLatin1String( "configure" )),
+    contextMenu->addAction(
+        QIcon::fromTheme(QStringLiteral( "configure" )),
         i18n("&Configure KwikDisk..."), this, SLOT(changeSettings()));
 
-    contextMenu()->addAction(
-        KSystemTrayIcon::loadIcon(QLatin1String( "help-contents" )),
+    contextMenu->addAction(
+        QIcon::fromTheme(QStringLiteral( "help-contents" )),
         KStandardGuiItem::help().text(), this, SLOT(invokeHelp()));
+
+    setContextMenu(contextMenu);
+
+    setStatus(KStatusNotifierItem::Active);
 
     loadSettings();
     updateDF();
-
 }
 
 void KwikDisk::enterEvent(QEvent *)
@@ -112,8 +113,9 @@ void KwikDisk::leaveEvent(QEvent *)
     m_inside = false;
 }
 
-void KwikDisk::slotActivated(QSystemTrayIcon::ActivationReason)
+void KwikDisk::activate(const QPoint &pos)
 {
+    Q_UNUSED(pos);
     qCDebug(KDF);
 
     if( m_dirty )
@@ -207,7 +209,7 @@ void KwikDisk::updateDFDone()
         action->setData( itemNo );
         itemNo++;
 
-        QPixmap pix = KSystemTrayIcon::loadIcon(disk->iconName()).pixmap( QSize(32,32) );
+        QPixmap pix = QIcon::fromTheme(disk->iconName()).pixmap(QSize(32,32));
 
         if( getuid() !=0 && !disk->mountOptions().contains(QLatin1String( "user" ),Qt::CaseInsensitive) )
         {

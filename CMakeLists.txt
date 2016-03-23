@@ -49,6 +49,7 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
     KIO
     KCMUtils
     KDELibs4Support
+    Notifications
     WidgetsAddons
     XmlGui
 )
@@ -112,6 +113,7 @@ target_link_libraries(kwikdisk
     KF5::KIOCore
     KF5::KIOWidgets
     KF5::KDELibs4Support
+    KF5::Notifications
     KF5::WidgetsAddons)
 
 install(TARGETS kwikdisk  ${INSTALL_TARGETS_DEFAULT_ARGS} )

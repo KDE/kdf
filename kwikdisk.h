@@ -29,7 +29,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "stdoption.h"
 #include "optiondialog.h"
 
-#include <ksystemtrayicon.h>
+#include <kstatusnotifieritem.h>
 
 class QActionGroup;
 
@@ -38,13 +38,16 @@ class QActionGroup;
 * @version 0.2
 */
 
-class KwikDisk : public KSystemTrayIcon
+class KwikDisk : public KStatusNotifierItem
 {
     Q_OBJECT
     
     public:
         KwikDisk();
-    
+
+    public Q_SLOTS:
+        virtual void activate(const QPoint &pos);
+
     private Q_SLOTS:
         void updateDFDone();
         void criticallyFull(DiskEntry*);
@@ -53,7 +56,6 @@ class KwikDisk : public KSystemTrayIcon
         void changeSettings();
         void startKDF();
         void invokeHelp();
-        void slotActivated(QSystemTrayIcon::ActivationReason reason);
         void clearDeviceActions();
     
     private:
