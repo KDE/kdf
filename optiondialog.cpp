@@ -23,16 +23,15 @@
 #include "kdfconfig.h"
 #include "mntconfig.h"
 
+#include <khelpclient.h>
 #include <klocale.h>
 
 COptionDialog::COptionDialog( QWidget *parent )
         :KPageDialog( parent )
 {
-    setCaption( i18n("Configure") );
-    setButtons( Help|Apply|Ok|Cancel );
-    setDefaultButton( Ok );
+    setWindowTitle( i18n("Configure") );
+    setStandardButtons( QDialogButtonBox::Help|QDialogButtonBox::Apply|QDialogButtonBox::Ok|QDialogButtonBox::Cancel );
     setFaceType( KPageDialog::Tabbed );
-    setHelp( QLatin1String( "kcontrol/kdf/index.html" ), QString() );
 
     mConf = new KDFConfigWidget( this );
     connect( mConf, SIGNAL(configChanged()), this, SLOT(slotChanged()) );
@@ -42,10 +41,11 @@ COptionDialog::COptionDialog( QWidget *parent )
     connect( mMnt, SIGNAL(configChanged()), this, SLOT(slotChanged()) );
     addPage( mMnt, i18n("Mount Commands") );
 
-    enableButton( Apply, false );
+    button(QDialogButtonBox::Apply)->setEnabled(false);
     dataChanged = false;
-    connect(this,SIGNAL(okClicked()),this,SLOT(slotOk()));
-    connect(this,SIGNAL(applyClicked()),this,SLOT(slotApply()));
+    connect(button(QDialogButtonBox::Ok), SIGNAL(clicked()),this,SLOT(slotOk()));
+    connect(button(QDialogButtonBox::Apply), SIGNAL(clicked()),this,SLOT(slotApply()));
+    connect(button(QDialogButtonBox::Help), SIGNAL(clicked()), this, SLOT(slotHelp()));
 }
 
 
@@ -67,14 +67,19 @@ void COptionDialog::slotApply( void )
     mConf->applySettings();
     mMnt->applySettings();
     emit valueChanged();
-    enableButton( Apply, false );
+    button(QDialogButtonBox::Apply)->setEnabled(false);
     dataChanged = false;
 }
 
 void COptionDialog::slotChanged()
 {
-    enableButton( Apply, true );
+    button(QDialogButtonBox::Apply)->setEnabled(true);
     dataChanged = true;
+}
+
+void COptionDialog::slotHelp( void )
+{
+    KHelpClient::invokeHelp(QLatin1String(""), QLatin1String("kdf"));
 }
 
 #include "optiondialog.moc"

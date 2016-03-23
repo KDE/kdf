@@ -34,7 +34,7 @@
 #include <QVBoxLayout>
 
 KDiskFreeWidget::KDiskFreeWidget( const KComponentData &inst, QWidget *parent )
-        : KCModule( inst, parent )
+        : KCModule( parent )
 {
     setButtons(Help);
 
@@ -59,7 +59,7 @@ QString KDiskFreeWidget::quickHelp() const
 
 extern "C"
 {
-    KDE_EXPORT KCModule* create_kdf( QWidget *parent, const char * /*name*/ )
+    Q_DECL_EXPORT KCModule* create_kdf( QWidget *parent, const char * /*name*/ )
     {
         KComponentData inst("kdf");
         return new KDiskFreeWidget( inst , parent );

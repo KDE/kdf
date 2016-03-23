@@ -30,10 +30,13 @@
 
 #include "kwikdisk.h"
 
+#include "kdf_version.h"
+
 #include <klocale.h>
 #include <kapplication.h>
-#include <kaboutdata.h>
+#include <k4aboutdata.h>
 #include <kcmdlineargs.h>
+#include <khelpclient.h>
 #include <kmessagebox.h>
 #include <kmenu.h>
 #include <krun.h>
@@ -52,8 +55,6 @@
 
 static const char description[] =
     I18N_NOOP("KDE Free disk space utility");
-
-static const char version[] = "0.4";
 
 /*****************************************************************************/
 
@@ -211,7 +212,8 @@ void KwikDisk::updateDFDone()
         if( getuid() !=0 && !disk->mountOptions().contains(QLatin1String( "user" ),Qt::CaseInsensitive) )
         {
             QPainter painter( &pix );
-            painter.drawPixmap( QRect(0,0,16,16) , SmallIcon(QLatin1String( "object-locked" )), QRect(0,0,16,16));
+            QPixmap lockedPixmap = QIcon::fromTheme(QLatin1String( "object-locked" )).pixmap(QSize(16,16));
+            painter.drawPixmap( QRect(0,0,16,16) , lockedPixmap, QRect(0,0,16,16));
             painter.end();
 
             toolTipText = i18n("You must login as root to mount this disk");
@@ -221,7 +223,8 @@ void KwikDisk::updateDFDone()
         if( disk->mounted() )
         {
             QPainter painter ( &pix );
-            painter.drawPixmap( QRect(8,8,16,16) , SmallIcon(QLatin1String( "emblem-mounted" )), QRect(0,0,16,16) );
+            QPixmap mountedPixmap = QIcon::fromTheme(QLatin1String( "emblem-mounted" )).pixmap(QSize(16,16));
+            painter.drawPixmap( QRect(8,8,16,16) , mountedPixmap, QRect(0,0,16,16) );
             painter.end();
         }
 
@@ -265,7 +268,8 @@ void KwikDisk::toggleMount(QAction * action)
             {
                 cmd += QLatin1Char( ' ' ) + KShell::quoteArg(disk->mountPoint()) +QLatin1String( " &" );
             }
-            system( QFile::encodeName(cmd) );
+            QByteArray encodedCommand = QFile::encodeName(cmd);
+            system( encodedCommand.data() );
         }
     }
     m_dirty = true;
@@ -305,15 +309,15 @@ void KwikDisk::startKDF()
 
 void KwikDisk::invokeHelp()
 {
-    KToolInvocation::invokeHelp(QLatin1String( "" ), QLatin1String( "kdf" ));
+    KHelpClient::invokeHelp(QLatin1String(""), QLatin1String("kdf"));
 }
 
 /*****************************************************************************/
 
 int main(int argc, char **argv)
 {
-    KAboutData about("kwikdisk", "kdf", ki18n("KwikDisk"), version, ki18n(description),
-                     KAboutData::License_GPL, ki18n("(C) 2004 Stanislav Karchebny"),
+    K4AboutData about("kwikdisk", "kdf", ki18n("KwikDisk"), KDF_VERSION_STRING, ki18n(description),
+                     K4AboutData::License_GPL, ki18n("(C) 2004 Stanislav Karchebny"),
                      KLocalizedString(),  "http://utils.kde.org/projects/kdf",
                      "Stanislav.Karchebny@kdemail.net");
     about.addAuthor( ki18n("Michael Kropfberger"), ki18n("Original author"),

@@ -21,9 +21,11 @@
 
 #include "kdf.h"
 
+#include "kdf_version.h"
+
 #include <kapplication.h>
 #include <kcmdlineargs.h>
-#include <kaboutdata.h>
+#include <k4aboutdata.h>
 #include <kxmlguifactory.h>
 #include <kmenu.h>
 #include <kdebug.h>
@@ -36,18 +38,15 @@
 static const char description[] =
     I18N_NOOP("KDE free disk space utility");
 
-static const char version[] = "v0.15";
-
-
 /***************************************************************/
 KDFTopLevel::KDFTopLevel(QWidget *)
         : KXmlGuiWindow(0)
 {
     kdf = new KDFWidget(this,false);
     Q_CHECK_PTR(kdf);
-    KAction *action = actionCollection()->addAction( QLatin1String( "updatedf" ));
+    QAction *action = actionCollection()->addAction( QLatin1String("updatedf"));
     action->setText( i18nc( "Update action", "&Update" ) );
-    action->setShortcut(KStandardShortcut::reload());
+    actionCollection()->setDefaultShortcuts(action, KStandardShortcut::reload());
     connect(action, SIGNAL(triggered(bool)), kdf, SLOT(updateDF()));
 
     KStandardAction::quit(this, SLOT(close()), actionCollection());
@@ -71,8 +70,8 @@ void KDFTopLevel::closeEvent(QCloseEvent *event)
 /***************************************************************/
 int main(int argc, char **argv)
 {
-    KAboutData aboutData( "kdf", 0, ki18n("KDiskFree"),
-                          version, ki18n(description), KAboutData::License_GPL,
+    K4AboutData aboutData( "kdf", 0, ki18n("KDiskFree"),
+                          KDF_VERSION_STRING, ki18n(description), K4AboutData::License_GPL,
                           ki18n("(c) 1998-2001, Michael Kropfberger"), KLocalizedString(),
                           "http://utils.kde.org/projects/kdf");
     aboutData.addAuthor(ki18n("Michael Kropfberger"),KLocalizedString(), "michael.kropfberger@gmx.net");

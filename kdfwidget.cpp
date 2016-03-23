@@ -38,6 +38,9 @@
 #include <kshell.h>
 #include <klocale.h>
 #include <kdebug.h>
+#include <khelpclient.h>
+#include <kglobal.h>
+#include <kconfiggroup.h>
 
 #include <QAbstractEventDispatcher>
 #include <QTimer>
@@ -479,7 +482,8 @@ void KDFWidget::contextMenuRequested( const QPoint &p )
             {
                 cmd += QLatin1Char( ' ' ) + KShell::quoteArg(disk->mountPoint()) + QLatin1String( " &" );
             }
-            system( QFile::encodeName(cmd) );
+            QByteArray encodedCommand = QFile::encodeName(cmd);
+            system( encodedCommand.data() );
         }
     }
 
@@ -497,7 +501,7 @@ void KDFWidget::contextMenuRequested( const QPoint &p )
 
 void KDFWidget::invokeHelp()
 {
-    KToolInvocation::invokeHelp(QLatin1String( "" ), QLatin1String( "kcontrol/kdf" ));
+    KHelpClient::invokeHelp(QLatin1String( "" ), QLatin1String( "kcontrol/kdf" ));
 }
 
 #include "kdfwidget.moc"

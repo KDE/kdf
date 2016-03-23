@@ -36,6 +36,8 @@
 #include <kcmodule.h>
 #include <kconfig.h>
 #include <kiconloader.h>
+#include <kurl.h>
+#include <kconfiggroup.h>
 
 #include <QGroupBox>
 #include <QLabel>

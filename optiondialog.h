@@ -34,9 +34,10 @@ class COptionDialog : public KPageDialog
         ~COptionDialog( void );
         
         protected slots:
-        virtual void slotOk( void );
-        virtual void slotApply( void );
+        void slotOk( void );
+        void slotApply( void );
         void slotChanged();
+        void slotHelp();
     
     Q_SIGNALS:
         void valueChanged( void );

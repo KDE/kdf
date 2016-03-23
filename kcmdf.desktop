@@ -6,7 +6,7 @@ X-KDE-ParentApp=kcontrol
 X-KDE-FactoryName=kdf
 
 X-KDE-LocalUser=false
-Exec=kcmshell4 kcmdf
+Exec=kcmshell5 kcmdf
 Icon=kdf
 
 Type=Service
