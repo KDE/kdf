@@ -34,9 +34,7 @@
 #include "kdf_debug.h"
 
 #include <klocale.h>
-#include <kapplication.h>
-#include <k4aboutdata.h>
-#include <kcmdlineargs.h>
+#include <kaboutdata.h>
 #include <khelpclient.h>
 #include <kmessagebox.h>
 #include <kmenu.h>
@@ -44,6 +42,8 @@
 #include <ktoolinvocation.h>
 #include <kshell.h>
 
+#include <QApplication>
+#include <QCommandLineParser>
 #include <QFile>
 #include <QAbstractEventDispatcher>
 #include <QPainter>
@@ -316,20 +316,40 @@ void KwikDisk::invokeHelp()
 
 int main(int argc, char **argv)
 {
-    K4AboutData about("kwikdisk", "kdf", ki18n("KwikDisk"), KDF_VERSION_STRING, ki18n(description),
-                     K4AboutData::License_GPL, ki18n("(C) 2004 Stanislav Karchebny"),
-                     KLocalizedString(),  "http://utils.kde.org/projects/kdf",
-                     "Stanislav.Karchebny@kdemail.net");
-    about.addAuthor( ki18n("Michael Kropfberger"), ki18n("Original author"),
-                     "michael.kropfberger@gmx.net" );
-    about.addAuthor( ki18n("Espen Sand"), ki18n("KDE 2 changes"));
-    about.addAuthor( ki18n("Stanislav Karchebny"), ki18n("KDE 3 changes"),
-                     "Stanislav.Karchebny@kdemail.net" );
-    KCmdLineArgs::init(argc, argv, &about);
+    QApplication app(argc, argv);
+    KAboutData aboutData(QStringLiteral("kwikdisk"),
+                     i18n("KwikDisk"),
+                     QStringLiteral(KDF_VERSION_STRING),
+                     i18n(description),
+                     KAboutLicense::GPL,
+                     i18n("(C) 2004 Stanislav Karchebny"),
+                     QStringLiteral(),
+                     QStringLiteral("http://utils.kde.org/projects/kdf"),
+                     QStringLiteral("Stanislav.Karchebny@kdemail.net"));
 
-    KCmdLineOptions options;
-    KCmdLineArgs::addCmdLineOptions( options );
-    KApplication app;
+    aboutData.addAuthor(i18n("Michael Kropfberger"),
+                    i18n("Original author"),
+                    QStringLiteral("michael.kropfberger@gmx.net"));
+    aboutData.addAuthor(i18n("Espen Sand"),
+                    i18n("KDE 2 changes"));
+    aboutData.addAuthor(i18n("Stanislav Karchebny"),
+                    i18n("KDE 3 changes"),
+                    QStringLiteral("Stanislav.Karchebny@kdemail.net"));
+
+    QCommandLineParser parser;
+    parser.setApplicationDescription(aboutData.shortDescription());
+    parser.addHelpOption();
+    parser.addVersionOption();
+
+    aboutData.setupCommandLine(&parser);
+
+    KAboutData::setApplicationData(aboutData);
+
+    // do the command line parsing
+    parser.process(app);
+
+    // handle standard options
+    aboutData.processCommandLine(&parser);
 
     KwikDisk mainWin;
 

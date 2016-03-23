@@ -25,14 +25,14 @@
 
 #include <kapplication.h>
 #include <kcmdlineargs.h>
-#include <k4aboutdata.h>
+#include <kaboutdata.h>
 #include <kxmlguifactory.h>
-#include <kmenu.h>
-#include <kmenubar.h>
-#include <kaction.h>
 #include <kstandardshortcut.h>
 #include <kstandardaction.h>
 #include <kactioncollection.h>
+
+#include <QApplication>
+#include <QCommandLineParser>
 
 static const char description[] =
     I18N_NOOP("KDE free disk space utility");
@@ -69,14 +69,38 @@ void KDFTopLevel::closeEvent(QCloseEvent *event)
 /***************************************************************/
 int main(int argc, char **argv)
 {
-    K4AboutData aboutData( "kdf", 0, ki18n("KDiskFree"),
-                          KDF_VERSION_STRING, ki18n(description), K4AboutData::License_GPL,
-                          ki18n("(c) 1998-2001, Michael Kropfberger"), KLocalizedString(),
-                          "http://utils.kde.org/projects/kdf");
-    aboutData.addAuthor(ki18n("Michael Kropfberger"),KLocalizedString(), "michael.kropfberger@gmx.net");
-    KCmdLineArgs::init( argc, argv, &aboutData );
+    QApplication app(argc, argv);
 
-    KApplication app;
+    KAboutData aboutData(QStringLiteral("kdf"),
+                         i18n("KDiskFree"),
+                         QStringLiteral(KDF_VERSION_STRING),
+                         i18n(description),
+                         KAboutLicense::GPL,
+                         i18n("(c) 1998-2001, Michael Kropfberger"),
+                         QStringLiteral(),
+                         QStringLiteral("http://utils.kde.org/projects/kdf"),
+                         QStringLiteral()
+                        );
+
+    aboutData.setOrganizationDomain("kde.org");
+    aboutData.addAuthor(i18n("Michael Kropfberger"),
+                        QString(),
+                        QStringLiteral("michael.kropfberger@gmx.net"));
+
+    QCommandLineParser parser;
+    parser.setApplicationDescription(aboutData.shortDescription());
+    parser.addHelpOption();
+    parser.addVersionOption();
+
+    aboutData.setupCommandLine(&parser);
+
+    KAboutData::setApplicationData(aboutData);
+
+    // do the command line parsing
+    parser.process(app);
+
+    // handle standard options
+    aboutData.processCommandLine(&parser);
 
     if( app.isSessionRestored() ) //SessionManagement
     {
