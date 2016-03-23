@@ -1,1 +1,31 @@
-kde4_install_icons( ${ICON_INSTALL_DIR}   )
+ecm_install_icons(
+  ICONS
+    16-apps-kdf.png
+    22-apps-kdf.png
+    32-apps-kdf.png
+    48-apps-kdf.png
+    64-apps-kdf.png
+    128-apps-kdf.png
+  DESTINATION
+    ${ICON_INSTALL_DIR}
+)
+ecm_install_icons(
+  ICONS
+    16-apps-kwikdisk.png
+    22-apps-kwikdisk.png
+    32-apps-kwikdisk.png
+    48-apps-kwikdisk.png
+    64-apps-kwikdisk.png
+    128-apps-kwikdisk.png
+  DESTINATION
+    ${ICON_INSTALL_DIR}
+)
+
+ecm_install_icons(
+  ICONS
+    16-apps-kcmdf.png
+    22-apps-kcmdf.png
+    32-apps-kcmdf.png
+  DESTINATION
+    ${ICON_INSTALL_DIR}
+)
