@@ -22,7 +22,6 @@
 
 #include "kdf_debug.h"
 
-#include <kglobal.h>
 #include <kprocess.h>
 #include <klocale.h>
 

@@ -35,7 +35,6 @@
 #include <kmessagebox.h>
 #include <kmenu.h>
 #include <ktoolinvocation.h>
-#include <kglobal.h>
 #include <kshell.h>
 #include <klocale.h>
 #include <khelpclient.h>
@@ -308,7 +307,7 @@ void KDFWidget::updateDFDone( void ){
         QString size,percent;
         if( disk->kBSize() > 0 )
         {
-            percent = KGlobal::locale()->formatNumber(disk->percentFull(), 1) + QLatin1Char( '%' );
+            percent = QLocale().toString(disk->percentFull()) + QLatin1Char('%');
             size = disk->prettyKBSize();
         }
         else

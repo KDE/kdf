@@ -31,7 +31,6 @@
 #include <kdialog.h>
 #include <klocale.h>
 #include <kiconloader.h>
-#include <kglobal.h>
 #include <klineedit.h>
 
 #include <QCheckBox>
@@ -122,7 +121,7 @@ void KDFConfigWidget::closeEvent(QCloseEvent *)
 
 void KDFConfigWidget::applySettings( void )
 {
-    KConfigGroup config(KGlobal::config(), "KDFConfig");
+    KConfigGroup config(KSharedConfig::openConfig(), "KDFConfig");
 
     if( GUI )
     {
@@ -153,7 +152,7 @@ void KDFConfigWidget::applySettings( void )
 
 void KDFConfigWidget::loadSettings( void )
 {
-    KConfigGroup config(KGlobal::config(), "KDFConfig");
+    KConfigGroup config(KSharedConfig::openConfig(), "KDFConfig");
 
     if( GUI )
     {

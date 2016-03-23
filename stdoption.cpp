@@ -30,7 +30,6 @@
 #include <kapplication.h>
 #include <kconfig.h>
 #include <kconfiggroup.h>
-#include <kglobal.h>
 
 #include <QString>
 
@@ -50,7 +49,7 @@ CStdOption::~CStdOption( void )
 
 void CStdOption::updateConfiguration( void )
 {
-    KConfigGroup config(KGlobal::config(), "KDFConfig");
+    KConfigGroup config(KSharedConfig::openConfig(), "KDFConfig");
     mFileManager = config.readPathEntry(
                        "FileManagerCommand", mDefaultFileManager );
     mUpdateFrequency = config.readEntry(
@@ -64,7 +63,7 @@ void CStdOption::updateConfiguration( void )
 
 void CStdOption::writeConfiguration( void )
 {
-    KConfigGroup config(KGlobal::config(), "KDFConfig");
+    KConfigGroup config(KSharedConfig::openConfig(), "KDFConfig");
     config.writeEntry( "UpdateFrequency", mUpdateFrequency );
     config.writePathEntry( "FileManagerCommand", mFileManager );
     config.writeEntry( "PopupIfFull", mPopupIfFull );
@@ -75,7 +74,7 @@ void CStdOption::writeConfiguration( void )
 
 void CStdOption::writeDefaultFileManager( void )
 {
-    KConfigGroup config(KGlobal::config(), "KDFConfig");
+    KConfigGroup config(KSharedConfig::openConfig(), "KDFConfig");
     config.writePathEntry( "FileManagerCommand", mDefaultFileManager );
     config.sync();
 }

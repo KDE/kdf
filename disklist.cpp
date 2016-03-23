@@ -25,7 +25,6 @@
 #include "kdf_debug.h"
 #include "kdfutil.h"
 
-#include <kglobal.h>
 #include <kconfiggroup.h>
 #include <kdefakes.h>
 #include <kprocess.h>
@@ -64,7 +63,7 @@ DiskList::DiskList(QObject *parent)
             this, SLOT(dfDone()) );
 
     readingDFStdErrOut=false;
-    config = KGlobal::config();
+    config = KSharedConfig::openConfig();
     loadSettings();
 }
 

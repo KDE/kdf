@@ -29,7 +29,6 @@
 #include <kfiledialog.h>
 #include <kicondialog.h>
 #include <kmessagebox.h>
-#include <kglobal.h>
 #include <klocale.h>
 #include <klineedit.h>
 #include <kcmodule.h>
