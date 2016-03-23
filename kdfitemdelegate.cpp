@@ -20,14 +20,14 @@
 
 #include "kdfitemdelegate.h"
 
-#include <QtGui/QStyleOptionViewItem>
-#include <QtGui/QPainter>
 
 #include <klocale.h>
 #include <kcapacitybar.h>
 
-#include <QPalette>
 #include <QBrush>
+#include <QPainter>
+#include <QPalette>
+#include <QStyleOptionViewItem>
 
 #include "kdfwidget.h"
 #include "kdfutil.h"

@@ -27,7 +27,7 @@
 
 #include "stdoption.h"
 
-#include <QtCore/QString>
+#include <QString>
 
 #include <kapplication.h>
 #include <kconfig.h>

@@ -28,7 +28,7 @@
 #ifndef CSTDOPTION_H
 #define CSTDOPTION_H
 
-#include <QtCore/QString>
+#include <QString>
 //class QString;
 
 class CStdOption

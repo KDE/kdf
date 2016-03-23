@@ -26,8 +26,8 @@
 #include <math.h>
 #include <stdlib.h>
 
-#include <QtCore/QTextStream>
-#include <QtCore/QFile>
+#include <QTextStream>
+#include <QFile>
 #include <QRegExp>
 
 #include <kdebug.h>

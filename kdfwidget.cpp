@@ -30,15 +30,15 @@
 
 #include <stdlib.h>
 
-#include <QtCore/QAbstractEventDispatcher>
-#include <QtCore/QTimer>
-#include <QtCore/QFile>
+#include <QAbstractEventDispatcher>
+#include <QTimer>
+#include <QFile>
 
-#include <QtGui/QLayout>
-#include <QtGui/QTreeView>
-#include <QtGui/QStandardItemModel>
-#include <QtGui/QStandardItem>
-#include <QtGui/QPainter>
+#include <QLayout>
+#include <QTreeView>
+#include <QStandardItemModel>
+#include <QStandardItem>
+#include <QPainter>
 
 #include <kapplication.h>
 #include <kmessagebox.h>

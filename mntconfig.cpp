@@ -26,14 +26,14 @@
 
 #include "mntconfig.h"
 
-#include <QtGui/QGroupBox>
-#include <QtGui/QLabel>
-#include <QtGui/QPixmap>
-#include <QtGui/QHBoxLayout>
-#include <QtGui/QFormLayout>
-#include <QtGui/QCloseEvent>
-#include <QtGui/QTreeWidget>
-#include <QtGui/QTreeWidgetItem>
+#include <QGroupBox>
+#include <QLabel>
+#include <QPixmap>
+#include <QHBoxLayout>
+#include <QFormLayout>
+#include <QCloseEvent>
+#include <QTreeWidget>
+#include <QTreeWidgetItem>
 
 #include <kfiledialog.h>
 #include <kicondialog.h>

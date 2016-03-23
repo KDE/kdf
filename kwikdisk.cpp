@@ -33,12 +33,12 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#include <QtCore/QFile>
-#include <QtCore/QAbstractEventDispatcher>
+#include <QFile>
+#include <QAbstractEventDispatcher>
 
-#include <QtGui/QPainter>
-#include <QtGui/QPixmap>
-#include <QtGui/QActionGroup>
+#include <QPainter>
+#include <QPixmap>
+#include <QActionGroup>
 
 #include <klocale.h>
 #include <kapplication.h>

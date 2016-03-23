@@ -27,7 +27,7 @@
 
 #include "kcmdf.h"
 
-#include <QtGui/QVBoxLayout>
+#include <QVBoxLayout>
 
 #include <kdialog.h>
 #include <klocale.h>

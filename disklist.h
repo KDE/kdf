@@ -23,7 +23,7 @@
 #define DISKLIST_H
 
 // defines the os-type
-#include <QtCore/qglobal.h>
+#include <qglobal.h>
 
 #include <ksharedconfig.h>
 

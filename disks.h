@@ -21,7 +21,7 @@
 #ifndef DISKS_H
 #define DISKS_H
 
-#include <QtCore/QObject>
+#include <QObject>
 
 #include <kio/global.h>
 

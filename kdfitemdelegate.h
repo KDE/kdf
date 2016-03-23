@@ -21,7 +21,7 @@
 #ifndef KDFITEMDELEGATE_H
 #define KDFITEMDELEGATE_H
 
-#include <QtGui/QStyledItemDelegate>
+#include <QStyledItemDelegate>
 
 class QPainter;
 

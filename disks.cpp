@@ -23,8 +23,8 @@
 #include <unistd.h>
 #include <sys/types.h>
 
-#include <QtCore/QFileInfo>
-#include <QtCore/QDir>
+#include <QFileInfo>
+#include <QDir>
 
 #include <kglobal.h>
 #include <kdebug.h>

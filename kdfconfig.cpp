@@ -26,14 +26,14 @@
 
 #include "kdfconfig.h"
 
-#include <QtGui/QCheckBox>
-#include <QtGui/QLabel>
-#include <QtGui/QLCDNumber>
-#include <QtGui/QVBoxLayout>
-#include <QtGui/QCloseEvent>
-#include <QtGui/QTreeWidget>
-#include <QtGui/QTreeWidgetItem>
-#include <QtGui/QSizePolicy>
+#include <QCheckBox>
+#include <QLabel>
+#include <QLCDNumber>
+#include <QVBoxLayout>
+#include <QCloseEvent>
+#include <QTreeWidget>
+#include <QTreeWidgetItem>
+#include <QSizePolicy>
 
 #include <kapplication.h>
 #include <kconfig.h>
