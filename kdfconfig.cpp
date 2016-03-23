@@ -26,9 +26,7 @@
 
 #include "kdfconfig.h"
 
-#include <kapplication.h>
-#include <kconfig.h>
-#include <kdialog.h>
+#include <kconfiggroup.h>
 #include <klocale.h>
 #include <kiconloader.h>
 #include <klineedit.h>
@@ -115,7 +113,7 @@ KDFConfigWidget::~KDFConfigWidget()
 void KDFConfigWidget::closeEvent(QCloseEvent *)
 {
     applySettings();
-    kapp->quit();
+    qApp->quit();
 }
 
 

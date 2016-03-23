@@ -31,13 +31,11 @@
 #include "kdf_debug.h"
 #include "optiondialog.h"
 
-#include <kapplication.h>
 #include <kmessagebox.h>
 #include <ktoolinvocation.h>
 #include <kshell.h>
 #include <klocale.h>
 #include <khelpclient.h>
-#include <kglobal.h>
 #include <kconfiggroup.h>
 
 #include <QAbstractEventDispatcher>
@@ -138,7 +136,7 @@ void KDFWidget::makeColumns( void )
 void KDFWidget::closeEvent(QCloseEvent *)
 {
     applySettings();
-    kapp->quit();
+    qApp->quit();
 }
 
 
@@ -189,13 +187,13 @@ void KDFWidget::loadSettings( void )
 
     if(GUI)
     {
-        KConfigGroup config(KGlobal::config(), "KDiskFree");
+        KConfigGroup config(KSharedConfig::openConfig(), "KDiskFree");
         Q_FOREACH(const Column &c, m_columnList){
             int width = config.readEntry( c.name, c.defaultWidth );
             m_listWidget->setColumnWidth( c.number, width );
         }
 
-        KConfigGroup config_visible(KGlobal::config(), "KDFConfig");
+        KConfigGroup config_visible(KSharedConfig::openConfig(), "KDFConfig");
         Q_FOREACH(const Column &c, m_columnList){
             bool visible = config_visible.readEntry( c.name , true );
             m_listWidget->setColumnHidden( c.number, !visible );

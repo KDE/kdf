@@ -23,8 +23,6 @@
 
 #include "kdf_version.h"
 
-#include <kapplication.h>
-#include <kcmdlineargs.h>
 #include <kaboutdata.h>
 #include <kxmlguifactory.h>
 #include <kstandardshortcut.h>

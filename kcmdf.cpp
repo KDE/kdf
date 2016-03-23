@@ -27,7 +27,6 @@
 
 #include "kcmdf.h"
 
-#include <kdialog.h>
 #include <klocale.h>
 
 #include <QVBoxLayout>
@@ -38,7 +37,6 @@ KDiskFreeWidget::KDiskFreeWidget( QWidget *parent )
     setButtons(Help);
 
     QVBoxLayout *topLayout = new QVBoxLayout( this );
-    topLayout->setSpacing( KDialog::spacingHint() );
     topLayout->setMargin( 0 );
 
     mKdf = new KDFWidget( this, false );

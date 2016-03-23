@@ -31,10 +31,9 @@
 #include <klocale.h>
 #include <klineedit.h>
 #include <kcmodule.h>
-#include <kconfig.h>
 #include <kiconloader.h>
-#include <kurl.h>
 #include <kconfiggroup.h>
+#include <ksharedconfig.h>
 
 #include <QGroupBox>
 #include <QLabel>
@@ -156,7 +155,7 @@ void MntConfigWidget::applySettings( void )
 {
     mDiskList.applySettings();
 
-    KConfigGroup config(KGlobal::config(), "MntConfig");
+    KConfigGroup config(KSharedConfig::openConfig(), "MntConfig");
     if( GUI )
     {
         config.writeEntry("Width", width() );
@@ -168,7 +167,7 @@ void MntConfigWidget::applySettings( void )
 
 void MntConfigWidget::loadSettings( void )
 {
-    KConfigGroup config = KGlobal::config()->group("MntConfig");
+    KConfigGroup config = KSharedConfig::openConfig()->group("MntConfig");
     if( mInitializing == false && GUI )
     {
         if( isTopLevel() )
