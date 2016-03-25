@@ -7,7 +7,7 @@ ecm_install_icons(
     64-apps-kdf.png
     128-apps-kdf.png
   DESTINATION
-    ${ICON_INSTALL_DIR}
+    ${KDE_INSTALL_ICONDIR}
 )
 ecm_install_icons(
   ICONS
@@ -18,7 +18,7 @@ ecm_install_icons(
     64-apps-kwikdisk.png
     128-apps-kwikdisk.png
   DESTINATION
-    ${ICON_INSTALL_DIR}
+    ${KDE_INSTALL_ICONDIR}
 )
 
 ecm_install_icons(
@@ -27,5 +27,5 @@ ecm_install_icons(
     22-apps-kcmdf.png
     32-apps-kcmdf.png
   DESTINATION
-    ${ICON_INSTALL_DIR}
+    ${KDE_INSTALL_ICONDIR}
 )

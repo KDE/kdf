@@ -92,7 +92,7 @@ target_link_libraries(kdf
     KF5::XmlGui
 )
 
-install(TARGETS kdf  ${INSTALL_TARGETS_DEFAULT_ARGS} )
+install(TARGETS kdf  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
 
 
 ########### next target ###############
@@ -115,7 +115,7 @@ target_link_libraries(kwikdisk
     KF5::WidgetsAddons
 )
 
-install(TARGETS kwikdisk  ${INSTALL_TARGETS_DEFAULT_ARGS} )
+install(TARGETS kwikdisk  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
 
 
 ########### next target ###############
@@ -134,11 +134,11 @@ target_link_libraries(kcm_kdf
     KF5::KCMUtils
 )
 
-install(TARGETS kcm_kdf  DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS kcm_kdf  DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
-install( FILES kcmdf.desktop DESTINATION  ${SERVICES_INSTALL_DIR} )
+install( FILES kcmdf.desktop DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )
 
 ########### install files ###############
 
-install( PROGRAMS org.kde.kdf.desktop org.kde.kwikdisk.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
-install( FILES kdfui.rc  DESTINATION ${KXMLGUI_INSTALL_DIR}/kdf)
+install( PROGRAMS org.kde.kdf.desktop org.kde.kwikdisk.desktop DESTINATION ${KDE_INSTALL_APPDIR})
+install( FILES kdfui.rc  DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/kdf)
