@@ -75,9 +75,9 @@ int main(int argc, char **argv)
                          i18n(description),
                          KAboutLicense::GPL,
                          i18n("(c) 1998-2001, Michael Kropfberger"),
-                         QStringLiteral(),
+                         QString(),
                          QStringLiteral("http://utils.kde.org/projects/kdf"),
-                         QStringLiteral()
+                         QString()
                         );
 
     aboutData.setOrganizationDomain("kde.org");

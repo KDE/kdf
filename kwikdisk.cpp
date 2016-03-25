@@ -325,7 +325,7 @@ int main(int argc, char **argv)
                      i18n(description),
                      KAboutLicense::GPL,
                      i18n("(C) 2004 Stanislav Karchebny"),
-                     QStringLiteral(),
+                     QString(),
                      QStringLiteral("http://utils.kde.org/projects/kdf"),
                      QStringLiteral("Stanislav.Karchebny@kdemail.net"));
 
