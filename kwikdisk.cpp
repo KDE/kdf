@@ -31,7 +31,7 @@
 #include "kwikdisk.h"
 
 #include "kdf_version.h"
-#include "kdf_debug.h"
+#include "kwikdisk_debug.h"
 
 #include <klocale.h>
 #include <kaboutdata.h>

@@ -24,6 +24,8 @@
 
 #include "disks.h"
 
+#include "kdf_export.h"
+
 #include <ksharedconfig.h>
 
 // defines the os-type
@@ -55,7 +57,7 @@ typedef QList<DiskEntry*>::iterator		         DisksIterator;
 
 class KProcess;
 
-class DiskList : public QObject
+class KDF_EXPORT DiskList : public QObject
 {
     Q_OBJECT
 

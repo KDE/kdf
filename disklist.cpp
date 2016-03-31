@@ -22,7 +22,7 @@
 
 #include "disklist.h"
 
-#include "kdf_debug.h"
+#include "kdfprivate_debug.h"
 #include "kdfutil.h"
 
 #include <kconfiggroup.h>

@@ -28,7 +28,7 @@
 
 #include "kdfwidget.h"
 
-#include "kdf_debug.h"
+#include "kdfprivate_debug.h"
 #include "optiondialog.h"
 
 #include <kmessagebox.h>

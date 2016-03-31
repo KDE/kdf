@@ -22,6 +22,7 @@
 #ifndef KDFWIDGET_H
 #define KDFWIDGET_H
 
+#include "kdf_export.h"
 #include "disks.h"
 #include "disklist.h"
 #include "mntconfig.h"
@@ -56,7 +57,7 @@ class Column
 
 };
 
-class KDFWidget : public QWidget
+class KDF_EXPORT KDFWidget : public QWidget
 {
     Q_OBJECT
 

@@ -21,13 +21,15 @@
 #ifndef DISKS_H
 #define DISKS_H
 
+#include "kdf_export.h"
+
 #include <kio/global.h>
 
 #include <QObject>
 
 class KProcess;
 
-class DiskEntry : public QObject
+class KDF_EXPORT DiskEntry : public QObject
 {
     Q_OBJECT
 

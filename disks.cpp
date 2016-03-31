@@ -20,7 +20,7 @@
 
 #include "disks.h"
 
-#include "kdf_debug.h"
+#include "kdfprivate_debug.h"
 
 #include <kprocess.h>
 #include <klocale.h>
