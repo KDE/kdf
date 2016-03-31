@@ -47,8 +47,7 @@
 #include <QStandardItem>
 #include <QPainter>
 #include <QMenu>
-
-#include <stdlib.h>
+#include <QProcess>
 
 //This aren't used here...
 //#define BAR_COLUMN   7
@@ -473,14 +472,13 @@ void KDFWidget::contextMenuRequested( const QPoint &p )
             int pos = cmd.indexOf(QLatin1String( "%m" ));
             if( pos > 0 )
             {
-                cmd = cmd.replace( pos, 2, KShell::quoteArg(disk->mountPoint()) ) + QLatin1String( " &" );
+                cmd = cmd.replace(pos, 2, KShell::quoteArg(disk->mountPoint()));
             }
             else
             {
-                cmd += QLatin1Char( ' ' ) + KShell::quoteArg(disk->mountPoint()) + QLatin1String( " &" );
+                cmd += QLatin1Char( ' ' ) + KShell::quoteArg(disk->mountPoint());
             }
-            const QByteArray encodedCommand = QFile::encodeName(cmd);
-            system( encodedCommand.data() );
+            QProcess::startDetached(cmd);
         }
     }
 
