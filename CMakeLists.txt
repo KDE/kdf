@@ -48,7 +48,6 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
     IconThemes
     KIO
     KCMUtils
-    KDELibs4Support
     Notifications
     WidgetsAddons
     XmlGui
@@ -90,8 +89,8 @@ target_link_libraries(kdf
     KF5::I18n
     KF5::IconThemes
     KF5::KIOCore
-    KF5::KDELibs4Support
-    KF5::XmlGui)
+    KF5::XmlGui
+)
 
 install(TARGETS kdf  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
@@ -112,9 +111,9 @@ target_link_libraries(kwikdisk
     KF5::IconThemes
     KF5::KIOCore
     KF5::KIOWidgets
-    KF5::KDELibs4Support
     KF5::Notifications
-    KF5::WidgetsAddons)
+    KF5::WidgetsAddons
+)
 
 install(TARGETS kwikdisk  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
@@ -131,9 +130,9 @@ target_link_libraries(kcm_kdf
     KF5::Completion
     KF5::IconThemes
     KF5::I18n
+    KF5::KIOCore
     KF5::KCMUtils
-    KF5::KDELibs4Support
-    KF5::KIOCore)
+)
 
 install(TARGETS kcm_kdf  DESTINATION ${PLUGIN_INSTALL_DIR})
 
