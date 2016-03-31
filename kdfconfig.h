@@ -43,31 +43,31 @@ class KDFConfigWidget : public QWidget,
                         private Ui_KDFConfigWidget
 {
     Q_OBJECT
-    
+
     public:
         explicit KDFConfigWidget( QWidget *parent=0, bool init=false);
         ~KDFConfigWidget();
-        
+
     public Q_SLOTS:
         void loadSettings( void );
         void applySettings( void );
         void defaultsBtnClicked( void );
-        
+
     protected Q_SLOTS:
         void slotChanged();
-        
+
     private Q_SLOTS:
         void toggleListText( QTreeWidgetItem *item, int column );
-    
+
     protected:
         void closeEvent( QCloseEvent * );
-    
+
     private:
         CStdOption mStd;
-        
+
         QPixmap iconVisible;
         QPixmap iconHidden;
-        
+
         QList<Column> m_columnList;
 
     Q_SIGNALS:

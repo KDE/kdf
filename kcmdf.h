@@ -34,13 +34,13 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 class KDiskFreeWidget : public KCModule
 {
     Q_OBJECT
-    
+
     public:
         explicit KDiskFreeWidget( QWidget *parent = 0  );
         ~KDiskFreeWidget();
-        
+
         QString quickHelp() const;
-    
+
     private:
         KDFWidget *mKdf;
         KDFConfigWidget *mMcw;

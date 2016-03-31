@@ -30,11 +30,11 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 class KDFTopLevel : public KXmlGuiWindow
 {
     Q_OBJECT
-    
+
     public:
         KDFTopLevel(QWidget *parent=0);
         ~KDFTopLevel() { }
-    
+
     protected:
         void closeEvent(QCloseEvent *event);
     protected:

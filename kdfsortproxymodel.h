@@ -26,7 +26,7 @@
 class KDFSortFilterProxyModel: public QSortFilterProxyModel
 {
     Q_OBJECT
-    
+
     public:
         KDFSortFilterProxyModel(QObject * parent = 0):
             QSortFilterProxyModel(parent){};

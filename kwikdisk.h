@@ -41,7 +41,7 @@ class QActionGroup;
 class KwikDisk : public KStatusNotifierItem
 {
     Q_OBJECT
-    
+
     public:
         KwikDisk();
 
@@ -57,16 +57,16 @@ class KwikDisk : public KStatusNotifierItem
         void startKDF();
         void invokeHelp();
         void clearDeviceActions();
-    
+
     private:
         void timerEvent(QTimerEvent *);
         void enterEvent(QEvent *);
         void leaveEvent(QEvent *);
-        
+
         void setUpdateFrequency(int frequency);
-        
+
         void updateDF();
-    
+
         DiskList       m_diskList;
         CStdOption     m_options;
         bool           m_readingDF;

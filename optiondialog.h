@@ -28,20 +28,20 @@ class MntConfigWidget;
 class COptionDialog : public KPageDialog
 {
     Q_OBJECT
-    
+
     public:
         explicit COptionDialog( QWidget *parent=0 );
         ~COptionDialog( void );
-        
+
     protected Q_SLOTS:
         void slotOk( void );
         void slotApply( void );
         void slotChanged();
         void slotHelp();
-    
+
     Q_SIGNALS:
         void valueChanged( void );
-    
+
     private:
         KDFConfigWidget *mConf;
         MntConfigWidget *mMnt;

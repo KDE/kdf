@@ -57,7 +57,7 @@ add_subdirectory(doc)
 add_subdirectory(pics)
 
 ########### next target ###############
-set(libkdf_common_SRCS 
+set(libkdf_common_SRCS
     kdfwidget.cpp
     kdfconfig.cpp
     kdfitemdelegate.cpp

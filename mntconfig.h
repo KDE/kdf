@@ -32,7 +32,7 @@
 class MntConfigWidget : public QWidget, private Ui_MntConfigWidget
 {
     Q_OBJECT
-    
+
     public:
         enum ColType
         {
@@ -42,17 +42,17 @@ class MntConfigWidget : public QWidget, private Ui_MntConfigWidget
             MountCommandCol = 3,
             UmountCommandCol = 4
         };
-    
+
         explicit MntConfigWidget( QWidget *parent=0, bool init=false );
         ~MntConfigWidget();
-    
+
     public Q_SLOTS:
         void loadSettings( void );
         void applySettings( void );
-    
+
     protected Q_SLOTS:
         void slotChanged();
-    
+
     private Q_SLOTS:
         void readDFDone( void );
         void clicked( QTreeWidgetItem *, int);
@@ -63,16 +63,16 @@ class MntConfigWidget : public QWidget, private Ui_MntConfigWidget
         void iconDefault();
         void mntCmdChanged( const QString & );
         void umntCmdChanged( const QString & );
-    
+
         DiskEntry * selectedDisk( QTreeWidgetItem * );
-    
-    protected:       
+
+    protected:
         void closeEvent( QCloseEvent * );
-    
+
     private:
         DiskList    mDiskList;
         bool        mInitializing;
-    
+
     Q_SIGNALS:
         void configChanged();
 };

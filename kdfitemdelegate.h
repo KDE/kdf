@@ -28,14 +28,14 @@ class QPainter;
 class KDFItemDelegate: public QStyledItemDelegate
 {
     Q_OBJECT
-    
+
     public:
         KDFItemDelegate(QObject * parent = 0): QStyledItemDelegate(parent) {};
         ~KDFItemDelegate() {};
-        
+
         void paint(QPainter *painter, const QStyleOptionViewItem &option,
             const QModelIndex &index) const;
-    
+
 };
 
 #endif

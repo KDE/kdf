@@ -30,7 +30,7 @@ class KProcess;
 class DiskEntry : public QObject
 {
     Q_OBJECT
-    
+
     public:
         explicit DiskEntry(QObject *parent=0, const char *name=0);
         explicit DiskEntry(const QString & deviceName, QObject *parent=0, const char *name=0);
@@ -82,7 +82,7 @@ class DiskEntry : public QObject
             bool ret = this->deviceName() == s2.deviceName();
             if( ret )
                 ret = this->mountPoint()  == s2.mountPoint();
-            
+
             return( ret );
         }
         // Comparison using *real* device and mountpoint
@@ -91,10 +91,10 @@ class DiskEntry : public QObject
             bool ret = this->deviceRealName() == s2.deviceRealName();
             if( ret )
                 ret = this->realMountPoint()  == s2.realMountPoint();
-            
+
             return( ret );
         }
-        
+
     Q_SIGNALS:
         void sysCallError(DiskEntry *disk, int err_no);
         void deviceNameChanged();
@@ -106,7 +106,7 @@ class DiskEntry : public QObject
         void kBUsedChanged();
         void kBAvailChanged();
         void iconNameChanged();
-        
+
     public Q_SLOTS:
         int toggleMount();
         int mount();
@@ -125,19 +125,19 @@ class DiskEntry : public QObject
         void setKBUsed(qulonglong kb_used);
         void setKBAvail(qulonglong kb_avail);
         QString guessIconName();
-        
+
     private Q_SLOTS:
         void receivedSysStdErrOut();
-    
+
     private:
         void init(const char *name);
         int sysCall(QString & command);
         QString prettyPrint(int kBValue) const;
-        
+
         KProcess     *sysProc;
         QString           sysStringErrOut;
         bool              readingSysStdErrOut;
-        
+
         QString     device,
         type,
         mountedOn,
@@ -145,11 +145,11 @@ class DiskEntry : public QObject
         icoName,
         mntcmd,
         umntcmd;
-        
+
         qulonglong  size,
         used,
         avail;       // ATTENTION: used+avail != size (clustersize!)
-        
+
         bool        isMounted,
         iconSetByUser;
 };
