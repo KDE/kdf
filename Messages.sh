@@ -1,3 +1,4 @@
 #! /bin/sh
-$EXTRACTRC *.rc *.ui >> rc.cpp
-$XGETTEXT *.cpp -o $podir/kdf.pot
+$EXTRACTRC $(find . -name '*.rc' -o -name '*.ui') >> rc.cpp
+$XGETTEXT $(find . -name '*.cpp' -o -name '*.h') -o $podir/kdf.pot
+rm -f rc.cpp
