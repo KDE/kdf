@@ -28,11 +28,11 @@
 #ifndef CSTDOPTION_H
 #define CSTDOPTION_H
 
-#include "kdf_export.h"
+#include "kdfprivate_export.h"
 
 #include <QString>
 
-class KDF_EXPORT CStdOption
+class KDFPRIVATE_EXPORT CStdOption
 {
     public:
         CStdOption( void );

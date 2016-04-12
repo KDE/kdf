@@ -24,7 +24,7 @@
 
 #include "disks.h"
 
-#include "kdf_export.h"
+#include "kdfprivate_export.h"
 
 #include <ksharedconfig.h>
 
@@ -57,7 +57,7 @@ typedef QList<DiskEntry*>::iterator		         DisksIterator;
 
 class KProcess;
 
-class KDF_EXPORT DiskList : public QObject
+class KDFPRIVATE_EXPORT DiskList : public QObject
 {
     Q_OBJECT
 

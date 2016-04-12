@@ -21,7 +21,7 @@
 #ifndef DISKS_H
 #define DISKS_H
 
-#include "kdf_export.h"
+#include "kdfprivate_export.h"
 
 #include <kio/global.h>
 
@@ -29,7 +29,7 @@
 
 class KProcess;
 
-class KDF_EXPORT DiskEntry : public QObject
+class KDFPRIVATE_EXPORT DiskEntry : public QObject
 {
     Q_OBJECT
 

@@ -20,14 +20,14 @@
 #ifndef COPTIONDIALOG_H
 #define COPTIONDIALOG_H
 
-#include "kdf_export.h"
+#include "kdfprivate_export.h"
 
 #include <kpagedialog.h>
 
 class KDFConfigWidget;
 class MntConfigWidget;
 
-class KDF_EXPORT COptionDialog : public KPageDialog
+class KDFPRIVATE_EXPORT COptionDialog : public KPageDialog
 {
     Q_OBJECT
 
