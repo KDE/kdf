@@ -11,6 +11,7 @@ Icon=kdf
 
 Type=Service
 X-KDE-ServiceTypes=KCModule
+X-KDE-System-Settings-Parent-Category=hardware
 
 Name=Storage Devices
 Name[af]=Stoorplek Toestelle
