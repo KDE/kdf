@@ -303,7 +303,7 @@ void KDFWidget::updateDFDone( void ){
         QString size,percent;
         if( disk->kBSize() > 0 )
         {
-            percent = QLocale().toString(disk->percentFull()) + QLatin1Char('%');
+            percent = i18nc("Disk percentage", "%1%", QString::number(disk->percentFull()));
             size = disk->prettyKBSize();
         }
         else

@@ -77,7 +77,7 @@ class KDFPRIVATE_EXPORT DiskEntry : public QObject
         QString prettyKBUsed() const { return KIO::convertSizeFromKiB(used); }
         qulonglong kBAvail() const  { return avail; }
         QString prettyKBAvail() const { return KIO::convertSizeFromKiB(avail); }
-        float percentFull() const;
+        int percentFull() const;
         // == comparison
         bool operator==( const DiskEntry & s2 ) const
         {

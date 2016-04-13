@@ -318,11 +318,11 @@ void DiskEntry::receivedSysStdErrOut()
     sysStringErrOut.append( stdErr );
 }
 
-float DiskEntry::percentFull() const
+int DiskEntry::percentFull() const
 {
     if (size != 0)
     {
-        return 100 - ( ((float)avail / (float)size) * 100 );
+        return 100 - qRound((qreal(avail) / qreal(size)) * 100);
     }
     else
     {
