@@ -1,4 +1,5 @@
- 
+add_definitions(-DTRANSLATION_DOMAIN=\"kdf\")
+
 ########### kdfprivate library ###############
 
 set(kdfprivate_SRCS
