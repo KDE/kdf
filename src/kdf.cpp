@@ -28,6 +28,7 @@
 #include <kstandardshortcut.h>
 #include <kstandardaction.h>
 #include <kactioncollection.h>
+#include <klocalizedstring.h>
 
 #include <QApplication>
 #include <QCommandLineParser>
@@ -68,6 +69,8 @@ void KDFTopLevel::closeEvent(QCloseEvent *event)
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
+
+    KLocalizedString::setApplicationDomain("kdf");
 
     KAboutData aboutData(QStringLiteral("kdf"),
                          i18n("KDiskFree"),

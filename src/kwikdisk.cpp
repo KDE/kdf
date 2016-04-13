@@ -41,6 +41,7 @@
 #include <ktoolinvocation.h>
 #include <kshell.h>
 #include <kstatusnotifieritem.h>
+#include <klocalizedstring.h>
 
 #include <QApplication>
 #include <QCommandLineParser>
@@ -318,6 +319,9 @@ void KwikDisk::invokeHelp()
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
+
+    KLocalizedString::setApplicationDomain("kdf");
+
     KAboutData aboutData(QStringLiteral("kwikdisk"),
                      i18n("KwikDisk"),
                      QStringLiteral(KDF_VERSION_STRING),
