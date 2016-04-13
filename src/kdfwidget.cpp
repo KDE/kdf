@@ -34,7 +34,6 @@
 #include <kmessagebox.h>
 #include <ktoolinvocation.h>
 #include <kshell.h>
-#include <klocale.h>
 #include <khelpclient.h>
 #include <kconfiggroup.h>
 

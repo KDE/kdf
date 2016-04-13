@@ -26,8 +26,8 @@
 #include "kdfutil.h"
 
 #include <kconfiggroup.h>
+#include <klocalizedstring.h>
 #include <kprocess.h>
-#include <klocale.h>
 
 #include <QTextStream>
 #include <QFile>

@@ -24,7 +24,6 @@
 #include "mntconfig.h"
 
 #include <khelpclient.h>
-#include <klocale.h>
 
 COptionDialog::COptionDialog( QWidget *parent )
         :KPageDialog( parent )

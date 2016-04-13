@@ -27,8 +27,6 @@
 
 #include "kcmdf.h"
 
-#include <klocale.h>
-
 #include <QVBoxLayout>
 
 KDiskFreeWidget::KDiskFreeWidget( QWidget *parent )

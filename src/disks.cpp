@@ -22,8 +22,8 @@
 
 #include "kdfprivate_debug.h"
 
+#include <klocalizedstring.h>
 #include <kprocess.h>
-#include <klocale.h>
 
 #include <QFileInfo>
 #include <QDir>

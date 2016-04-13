@@ -33,7 +33,6 @@
 #include "kdf_version.h"
 #include "kwikdisk_debug.h"
 
-#include <klocale.h>
 #include <kaboutdata.h>
 #include <khelpclient.h>
 #include <kmessagebox.h>

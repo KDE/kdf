@@ -27,8 +27,6 @@
 #include "kdfconfig.h"
 
 #include <kconfiggroup.h>
-#include <klocale.h>
-#include <kiconloader.h>
 #include <klineedit.h>
 
 #include <QCheckBox>

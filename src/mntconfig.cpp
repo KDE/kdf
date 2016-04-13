@@ -28,7 +28,6 @@
 
 #include <kicondialog.h>
 #include <kmessagebox.h>
-#include <klocale.h>
 #include <klineedit.h>
 #include <kcmodule.h>
 #include <kiconloader.h>

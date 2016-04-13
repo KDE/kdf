@@ -23,7 +23,6 @@
 #include "kdfwidget.h"
 #include "kdfutil.h"
 
-#include <klocale.h>
 #include <kcapacitybar.h>
 
 #include <QBrush>
