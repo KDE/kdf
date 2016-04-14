@@ -1,7 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
   <!ENTITY kappname "&kdiskfree;">
-  <!ENTITY package "kdeutils">
   <!ENTITY % English "INCLUDE" > <!-- change language only here -->
   <!ENTITY % addindex "IGNORE">
 ]>
@@ -31,8 +30,8 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2013-05-25</date>
-<releaseinfo>v0.15 (&kde; 4.11)</releaseinfo>
+<date>2016-04-13</date>
+<releaseinfo>Applications 16.08</releaseinfo>
 
 <abstract><para>&kdiskfree; displays available file devices, along with
 information about them.</para>
@@ -59,8 +58,8 @@ partitions, floppy and &CD; drives, USB sticks &etc;) along with information on
 their capacity, free space, type and mount point. It also allows you
 to mount and unmount drives and view them in a file manager.</para>
 
-<para>&kdiskfree; is similar to the &kinfocenter; Partitions module<!--
-(<application>kcmdf</application>) -->, but takes up less screen
+<para>&kdiskfree; is similar to the &systemsettings; Storage Devices module, 
+but takes up less screen
 space. It is useful if you want to keep a &kdiskfree; window available at
 all times.</para>
 
@@ -73,12 +72,18 @@ all times.</para>
 <title>Starting &kdiskfree;</title> 
 
 <para>Type <userinput><command>kdf</command></userinput> at a command
-prompt or select <guimenuitem>Disk Free</guimenuitem> from the
+prompt or select <guimenuitem>KDiskFree</guimenuitem> from the
 <guisubmenu>System</guisubmenu> group in the application 
 launcher. The standard &Qt; and &kde; command options are available, and
 can be listed by entering <userinput><command>kdf</command>
 <option>--help</option></userinput> at the command prompt.</para>
 
+<para>To run the application as an applet in the systemtray, use 
+<menuchoice><guisubmenu>System</guisubmenu><guimenuitem>KwikDisk</guimenuitem></menuchoice>
+in application launcher.</para>
+
+<para>The features of &kdiskfree; are also available in the &systemsettings; module
+<guilabel>Storage Devices</guilabel>.</para>
 </sect1>
 
 <sect1 id="main-window">
@@ -121,7 +126,8 @@ is available. If the device is mounted, it can be unmounted by
 choosing <guimenuitem>Unmount Device</guimenuitem>. Selecting
 <guimenuitem>Open in File Manager</guimenuitem> opens a new window with a
 graphical view of the files on that device.</para>
-
+<para>The setting for the file manager used by &kdiskfree; is independent from the choice
+in the &systemsettings; module <guilabel>Default Applications</guilabel>.</para>
 </sect1>
 
 <sect1 id="menus-and-configuration">
@@ -134,6 +140,7 @@ graphical view of the files on that device.</para>
 <varlistentry>
 <term>
 <menuchoice>
+<shortcut><keycap>F5</keycap></shortcut>
 <guimenu>File</guimenu>
 <guimenuitem>Update</guimenuitem>
 </menuchoice></term>
