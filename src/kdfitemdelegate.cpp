@@ -43,7 +43,7 @@ void KDFItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
             KCapacityBar bar;
             bar.setBarHeight( option.rect.height() -2 );
             bar.setValue( progress );
-            bar.setText( QString::number( progress ) + QLatin1Char( '%' ) );
+            bar.setText(i18nc("Disk percentage", "%1%", progress));
             //Draw red bar on >=Full_Percent
             if ( progress >= Full_Percent )
             {
