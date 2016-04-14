@@ -17,8 +17,8 @@
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<date>2013-05-25</date>
-<releaseinfo>&kde; 4.11</releaseinfo>
+<date>2016-04-14</date>
+<releaseinfo>Application 16.04</releaseinfo>
 
 <keywordset>
 <keyword>KDE</keyword>
@@ -29,7 +29,7 @@
 </articleinfo>
 
 <sect1>
-<title>Block Devices</title>
+<title>Storage Devices</title>
 
 <para>
 The module window displays the available file devices and some
