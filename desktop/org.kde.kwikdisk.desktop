@@ -2,7 +2,6 @@
 Name=KwikDisk
 Name[af]=Kwikdisk
 Name[ar]=KwikDisk
-Name[ast]=KwikDisk
 Name[bg]=KwikDisk
 Name[br]=KwikDisk
 Name[bs]=KwikDisk
@@ -77,7 +76,6 @@ X-DocPath=kdf/index.html
 GenericName=Removable Media Utility
 GenericName[af]=Verwyderbare Media Program
 GenericName[ar]=أداة الوسائط القابلة للإزالة
-GenericName[ast]=Utilidá de medios estrayibles
 GenericName[bg]=Сменяеми носители
 GenericName[br]=Ostilh media lem-laka
 GenericName[bs]=Alatka za uklonjive medijume
