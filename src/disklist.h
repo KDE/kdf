@@ -33,7 +33,7 @@
 
 static QLatin1String DF_Command = QLatin1String( "df" );
 
-#if defined(Q_OS_LINUX)
+#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
     static QLatin1String DF_Args = QLatin1String( "-kT" );
     static const bool No_FS_Type = false;
 #else
