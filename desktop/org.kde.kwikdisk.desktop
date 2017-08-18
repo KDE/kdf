@@ -145,5 +145,6 @@ GenericName[xh]=Umdlali wezoSasazo
 GenericName[x-test]=xxRemovable Media Utilityxx
 GenericName[zh_CN]=可移动介质工具
 GenericName[zh_TW]=可移動媒體公用程式
+Comment=Panel icon to mount and unmount disks
 Terminal=false
 Categories=Qt;KDE;System;
