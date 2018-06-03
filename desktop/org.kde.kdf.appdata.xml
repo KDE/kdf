@@ -4,6 +4,7 @@
   <metadata_license>FSFAP</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>KDiskFree</name>
+  <name xml:lang="ast">KDiskFree</name>
   <name xml:lang="ca">KDiskFree</name>
   <name xml:lang="ca-valencia">KDiskFree</name>
   <name xml:lang="cs">KDiskFree</name>
@@ -15,6 +16,7 @@
   <name xml:lang="ia">KDiskFree</name>
   <name xml:lang="it">KDiskFree</name>
   <name xml:lang="nl">KDiskFree</name>
+  <name xml:lang="pl">KDiskFree</name>
   <name xml:lang="pt">KDiskFree</name>
   <name xml:lang="sk">KDiskFree</name>
   <name xml:lang="sv">Kdiskfree</name>
@@ -28,10 +30,12 @@
   <summary xml:lang="de">Festplattenbelegung anzeigen</summary>
   <summary xml:lang="en-GB">View Disk Usage</summary>
   <summary xml:lang="es">Visor de uso del disco</summary>
+  <summary xml:lang="fr">Visualiser l'occupation du disque</summary>
   <summary xml:lang="gl">Visor do uso dos discos</summary>
   <summary xml:lang="ia">Vide uso de disco</summary>
   <summary xml:lang="it">Visualizza l'utilizzo del disco</summary>
   <summary xml:lang="nl">Schijfgebruik bekijken</summary>
+  <summary xml:lang="pl">Informacja o wolnym miejscu na dyskach</summary>
   <summary xml:lang="pt">Visualização do Uso do Disco</summary>
   <summary xml:lang="sk">Zobraziť využitie disku</summary>
   <summary xml:lang="sv">Visa hårddiskanvändning</summary>
@@ -47,9 +51,11 @@
     <p xml:lang="de">KDiskFree zeigt die verfügbaren Plattenbereiche an (Partitionen auf Festplatten, Disketten, CD-Laufwerke, USB-Sticks usw.). Zu jedem Bereich wird die Gesamtgröße, der freie Bereich, das Dateisystem und der Ort des Einhängens ins Dateisystem (Einhängepunkt) angezeigt. Mit KDiskFree können auch (sofern die Berechtigung vorhanden ist) Laufwerke ein- bzw. ausgehängt und die Dateiverwaltung mit der Anzeige für dieses Laufwerk geöffnet werden.</p>
     <p xml:lang="en-GB">KDiskFree displays the available file devices (hard drive partitions, floppy and CD drives, etc.) along with information on their capacity, free space, type and mount point. It also allows you to mount and unmount drives and view them in a file manager.</p>
     <p xml:lang="es">KDiskFree muestra los dispositivos de archivos disponibles (particiones de disco duro, disquetes, unidades de CD, etc.), junto a información sobre su capacidad, espacio libre, tipo y punto de montaje. También le permite montar y desmontar dispositivos, así como abrirlos en un gestor de archivos.</p>
+    <p xml:lang="fr">KDiskFree affiche les systèmes de fichiers disponibles (partitions du disque dur, lecteurs disquettes/CD/DVD, etc.) ainsi que des informations sur leur capacité, l'espace disponible, leur type et leur point de montage. L'outil vous permet également de monter, de libérer et d'afficher les lecteurs dans un gestionnaire de fichiers.</p>
     <p xml:lang="gl">KDiskFree mostra os dispositivos de ficheiros dispoñíbeis (particións de discos duros, lectores de disquetes e CD, etc.) xunto con información sobre a súa capacidade, espazo libre, tipo e punto de montaxe. Tamén permite montar e desmontar lectores e velos no xestor de ficheiros.</p>
     <p xml:lang="it">KDiskFree mostra i dispositivi file disponibili (partizioni dei dischi fissi, unità a dischetti e lettori CD, eccetera) insieme ad informazioni sulla loro capacità, sullo spazio libero, sul tipo e sul punto di montaggio. Permette anche di montare e di smontare le unità e di visualizzarle in un gestore di file.</p>
     <p xml:lang="nl">KDiskFree toont de beschikbare apparaten voor bestandsopslag (vaste-schijfpartities, diskette- en -stations, USB-sticks, cd-station, etc.), met informatie over hun capaciteit, vrije ruimte, type en aankoppelpunt. Het geeft u ook de mogelijkheid om schijven aan- en af te koppelen en ze in een bestandsbeheerder te bekijken.</p>
+    <p xml:lang="pl">KDiskFree wyświetla dostępne urządzenia plikowe (partycje dysków twardych, dyskietki i napędy CD, itp.) wraz z informacją o ich pojemności, wolnej przestrzeni, rodzaju i punkcie podpięcia. Umożliwia podpinanie i odpinanie napędów, a także przeglądanie ich w przeglądarce plików.</p>
     <p xml:lang="pt">O KDiskFree mostra os dispositivos de ficheiros disponíveis (partições de discos rígidos, unidades de disquetes e CD's, etc.) em conjunto com informações sobre a sua capacidade, espaço livre, tipo e ponto de montagem. Também lhe permite montar e desmontar as unidades e vê-las num gestor de ficheiros.</p>
     <p xml:lang="sv">Kdiskfree visar tillgängliga filenheter (hårddiskpartitioner, diskett- och cd-enheter, etc.) tillsammans med information om deras kapacitet, ledigt utrymme, typ och monteringsplats. Det låter dig också montera och avmontera enheter och visa dem i en filhanterare.</p>
     <p xml:lang="uk">KDiskFree показує список доступних файлових пристроїв (розділів жорсткого диска, пристроїв читання гнучких дисків, компакт-дисків, флеш-карток USB тощо), а також інформацію щодо їх місткості, вільного місця, типу і точки монтування. Ця програма також надає вам можливість монтувати, демонтувати пристрої і переглядати їх вміст у програмі для роботи з файлами.</p>
