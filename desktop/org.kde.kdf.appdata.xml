@@ -16,6 +16,7 @@
   <name xml:lang="ia">KDiskFree</name>
   <name xml:lang="it">KDiskFree</name>
   <name xml:lang="nl">KDiskFree</name>
+  <name xml:lang="nn">KDiskFree</name>
   <name xml:lang="pl">KDiskFree</name>
   <name xml:lang="pt">KDiskFree</name>
   <name xml:lang="sk">KDiskFree</name>
@@ -35,6 +36,7 @@
   <summary xml:lang="ia">Vide uso de disco</summary>
   <summary xml:lang="it">Visualizza l'utilizzo del disco</summary>
   <summary xml:lang="nl">Schijfgebruik bekijken</summary>
+  <summary xml:lang="nn">Vis diskbruk</summary>
   <summary xml:lang="pl">Informacja o wolnym miejscu na dyskach</summary>
   <summary xml:lang="pt">Visualização do Uso do Disco</summary>
   <summary xml:lang="sk">Zobraziť využitie disku</summary>
