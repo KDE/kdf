@@ -342,8 +342,6 @@ int main(int argc, char **argv)
 
     QCommandLineParser parser;
     parser.setApplicationDescription(aboutData.shortDescription());
-    parser.addHelpOption();
-    parser.addVersionOption();
 
     aboutData.setupCommandLine(&parser);
 
