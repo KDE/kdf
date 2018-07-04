@@ -35,18 +35,18 @@
 QString CStdOption::mDefaultFileManager = QLatin1String( "dolphin %m" );
 int CStdOption::mDefaultUpdateFrequency = 60;
 
-CStdOption::CStdOption( void )
+CStdOption::CStdOption()
 {
     setDefault();
 }
 
 
-CStdOption::~CStdOption( void )
+CStdOption::~CStdOption()
 {
 }
 
 
-void CStdOption::updateConfiguration( void )
+void CStdOption::updateConfiguration()
 {
     KConfigGroup config(KSharedConfig::openConfig(), "KDFConfig");
     mFileManager = config.readPathEntry(
@@ -60,7 +60,7 @@ void CStdOption::updateConfiguration( void )
 }
 
 
-void CStdOption::writeConfiguration( void )
+void CStdOption::writeConfiguration()
 {
     KConfigGroup config(KSharedConfig::openConfig(), "KDFConfig");
     config.writeEntry( "UpdateFrequency", mUpdateFrequency );
@@ -71,7 +71,7 @@ void CStdOption::writeConfiguration( void )
 }
 
 
-void CStdOption::writeDefaultFileManager( void )
+void CStdOption::writeDefaultFileManager()
 {
     KConfigGroup config(KSharedConfig::openConfig(), "KDFConfig");
     config.writePathEntry( "FileManagerCommand", mDefaultFileManager );
@@ -80,31 +80,31 @@ void CStdOption::writeDefaultFileManager( void )
 
 
 
-QString CStdOption::fileManager( void )
+QString CStdOption::fileManager() const
 {
     return( mFileManager );
 }
 
 
-int CStdOption::updateFrequency( void )
+int CStdOption::updateFrequency() const
 {
     return( mUpdateFrequency );
 }
 
 
-bool CStdOption::popupIfFull( void )
+bool CStdOption::popupIfFull() const
 {
     return( mPopupIfFull );
 }
 
 
-bool CStdOption::openFileManager( void )
+bool CStdOption::openFileManager() const
 {
     return( mOpenFileManagerOnMount );
 }
 
 
-void CStdOption::setDefault( void )
+void CStdOption::setDefault()
 {
     mFileManager     = mDefaultFileManager;
     mUpdateFrequency = mDefaultUpdateFrequency;

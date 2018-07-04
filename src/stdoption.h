@@ -35,20 +35,20 @@
 class KDFPRIVATE_EXPORT CStdOption
 {
     public:
-        CStdOption( void );
-        ~CStdOption( void );
+        CStdOption();
+        ~CStdOption();
 
-        void updateConfiguration( void );
-        void writeConfiguration( void );
-        void writeDefaultFileManager( void );
+        void updateConfiguration();
+        void writeConfiguration();
+        void writeDefaultFileManager();
 
-        QString fileManager( void );
+        QString fileManager() const;
 
-        int     updateFrequency( void );
-        bool    popupIfFull( void );
-        bool    openFileManager( void );
+        int     updateFrequency() const;
+        bool    popupIfFull() const;
+        bool    openFileManager() const;
 
-        void setDefault( void );
+        void setDefault( );
         void setFileManager( const QString &fileManager );
         void setUpdateFrequency( int frequency );
         void setPopupIfFull( bool popupIfFull );

@@ -62,8 +62,8 @@ class KDFPRIVATE_EXPORT KDFWidget : public QWidget
     Q_OBJECT
 
     public:
-        explicit KDFWidget( QWidget *parent=0, bool init=false);
-        ~KDFWidget( );
+        explicit KDFWidget( QWidget *parent=nullptr, bool init=false);
+        ~KDFWidget( ) override;
 
         enum ColumnNumber{
             IconCol = 0,
@@ -91,8 +91,8 @@ class KDFPRIVATE_EXPORT KDFWidget : public QWidget
         void invokeHelp( void );
 
     protected:
-        void timerEvent( QTimerEvent * );
-        void closeEvent( QCloseEvent * );
+        void timerEvent( QTimerEvent * ) override;
+        void closeEvent( QCloseEvent * ) override;
 
     private:
         void makeColumns( void );

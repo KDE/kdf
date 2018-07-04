@@ -43,8 +43,8 @@ class MntConfigWidget : public QWidget, private Ui_MntConfigWidget
             UmountCommandCol = 4
         };
 
-        explicit MntConfigWidget( QWidget *parent=0, bool init=false );
-        ~MntConfigWidget();
+        explicit MntConfigWidget( QWidget *parent=nullptr, bool init=false );
+        ~MntConfigWidget() override;
 
     public Q_SLOTS:
         void loadSettings( void );
@@ -67,7 +67,7 @@ class MntConfigWidget : public QWidget, private Ui_MntConfigWidget
         DiskEntry * selectedDisk( QTreeWidgetItem * );
 
     protected:
-        void closeEvent( QCloseEvent * );
+        void closeEvent( QCloseEvent * ) override;
 
     private:
         DiskList    mDiskList;

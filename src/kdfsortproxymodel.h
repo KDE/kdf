@@ -28,11 +28,11 @@ class KDFSortFilterProxyModel: public QSortFilterProxyModel
     Q_OBJECT
 
     public:
-        KDFSortFilterProxyModel(QObject * parent = 0):
+        explicit KDFSortFilterProxyModel(QObject * parent = nullptr):
             QSortFilterProxyModel(parent){};
 
     protected:
-        bool lessThan(const QModelIndex &left, const QModelIndex &right) const;
+        bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
 
 };
 

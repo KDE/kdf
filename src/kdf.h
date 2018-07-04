@@ -32,11 +32,11 @@ class KDFTopLevel : public KXmlGuiWindow
     Q_OBJECT
 
     public:
-        KDFTopLevel(QWidget *parent=0);
-        ~KDFTopLevel() { }
+        explicit KDFTopLevel(QWidget *parent= nullptr);
+        ~KDFTopLevel() override { }
 
     protected:
-        void closeEvent(QCloseEvent *event);
+        void closeEvent(QCloseEvent *event) override;
     protected:
         KDFWidget* kdf;
 };

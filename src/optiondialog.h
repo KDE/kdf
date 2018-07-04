@@ -32,17 +32,17 @@ class KDFPRIVATE_EXPORT COptionDialog : public KPageDialog
     Q_OBJECT
 
     public:
-        explicit COptionDialog( QWidget *parent=0 );
-        ~COptionDialog( void );
+        explicit COptionDialog( QWidget *parent=nullptr );
+        ~COptionDialog();
 
     protected Q_SLOTS:
-        void slotOk( void );
-        void slotApply( void );
+        void slotOk();
+        void slotApply();
         void slotChanged();
         void slotHelp();
 
     Q_SIGNALS:
-        void valueChanged( void );
+        void valueChanged();
 
     private:
         KDFConfigWidget *mConf;

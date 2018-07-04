@@ -59,7 +59,7 @@ class KwikDisk : public KStatusNotifierItem
         void clearDeviceActions();
 
     private:
-        void timerEvent(QTimerEvent *);
+        void timerEvent(QTimerEvent *) override;
         void enterEvent(QEvent *);
         void leaveEvent(QEvent *);
 

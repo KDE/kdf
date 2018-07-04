@@ -30,11 +30,11 @@ class KDFItemDelegate: public QStyledItemDelegate
     Q_OBJECT
 
     public:
-        KDFItemDelegate(QObject * parent = 0): QStyledItemDelegate(parent) {};
-        ~KDFItemDelegate() {};
+        explicit KDFItemDelegate(QObject * parent = nullptr): QStyledItemDelegate(parent) {}
+        ~KDFItemDelegate() override {}
 
         void paint(QPainter *painter, const QStyleOptionViewItem &option,
-            const QModelIndex &index) const;
+            const QModelIndex &index) const override;
 
 };
 

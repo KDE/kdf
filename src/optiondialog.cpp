@@ -48,12 +48,12 @@ COptionDialog::COptionDialog( QWidget *parent )
 }
 
 
-COptionDialog::~COptionDialog( void )
+COptionDialog::~COptionDialog()
 {
 }
 
 
-void COptionDialog::slotOk( void )
+void COptionDialog::slotOk()
 {
     if( dataChanged )
         slotApply();
@@ -61,7 +61,7 @@ void COptionDialog::slotOk( void )
 }
 
 
-void COptionDialog::slotApply( void )
+void COptionDialog::slotApply()
 {
     mConf->applySettings();
     mMnt->applySettings();

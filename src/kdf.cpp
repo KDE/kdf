@@ -38,7 +38,7 @@ static const char description[] =
 
 /***************************************************************/
 KDFTopLevel::KDFTopLevel(QWidget *)
-        : KXmlGuiWindow(0)
+        : KXmlGuiWindow(nullptr)
 {
     kdf = new KDFWidget(this,false);
     Q_CHECK_PTR(kdf);

@@ -45,8 +45,8 @@ class KDFConfigWidget : public QWidget,
     Q_OBJECT
 
     public:
-        explicit KDFConfigWidget( QWidget *parent=0, bool init=false);
-        ~KDFConfigWidget();
+        explicit KDFConfigWidget( QWidget *parent=nullptr, bool init=false);
+        ~KDFConfigWidget() override;
 
     public Q_SLOTS:
         void loadSettings( void );
@@ -60,7 +60,7 @@ class KDFConfigWidget : public QWidget,
         void toggleListText( QTreeWidgetItem *item, int column );
 
     protected:
-        void closeEvent( QCloseEvent * );
+        void closeEvent( QCloseEvent * ) override;
 
     private:
         CStdOption mStd;
