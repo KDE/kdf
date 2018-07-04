@@ -60,5 +60,3 @@ extern "C"
     }
 }
 
-#include "kcmdf.moc"
-
