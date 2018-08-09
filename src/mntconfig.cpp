@@ -340,5 +340,4 @@ void MntConfigWidget::slotChanged()
     emit configChanged();
 }
 
-#include "mntconfig.moc"
 

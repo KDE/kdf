@@ -498,4 +498,3 @@ void KDFWidget::invokeHelp()
     KHelpClient::invokeHelp(QLatin1String( "" ), QLatin1String( "kcontrol/kdf" ));
 }
 
-#include "kdfwidget.moc"

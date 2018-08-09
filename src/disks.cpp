@@ -409,5 +409,4 @@ void DiskEntry::setKBAvail(qulonglong kb_avail)
     emit kBAvailChanged();
 }
 
-#include "disks.moc"
 

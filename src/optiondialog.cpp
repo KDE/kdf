@@ -81,5 +81,4 @@ void COptionDialog::slotHelp( void )
     KHelpClient::invokeHelp(QLatin1String(""), QLatin1String("kdf"));
 }
 
-#include "optiondialog.moc"
 

@@ -209,6 +209,3 @@ void KDFConfigWidget::slotChanged()
 {
     emit configChanged();
 }
-
-#include "kdfconfig.moc"
-
