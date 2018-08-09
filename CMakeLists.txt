@@ -12,11 +12,10 @@ if(NOT UNIX)
   message(FATAL_ERROR "kdf is only supposed to be built on Unix platforms.")
 endif(NOT UNIX)
 
-set (QT_MIN_VERSION "5.2.0")
-set (KF5_MIN_VERSION "5.6.0")
-set (ECM_MIN_VERSION "5.14.0")
+set (QT_MIN_VERSION "5.9.0")
+set (KF5_MIN_VERSION "5.42.0")
 
-find_package(ECM ${ECM_MIN_VERSION} CONFIG REQUIRED)
+find_package(ECM ${KF5_MIN_VERSION} CONFIG REQUIRED)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake)
 
 include(ECMGenerateHeaders)
