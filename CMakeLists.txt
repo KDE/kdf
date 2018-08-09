@@ -68,3 +68,5 @@ add_subdirectory(desktop)
 add_subdirectory(doc)
 add_subdirectory(pics)
 add_subdirectory(src)
+install( FILES kdf.categories DESTINATION ${KDE_INSTALL_CONFDIR} )
+
