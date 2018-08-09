@@ -46,7 +46,7 @@ class KwikDisk : public KStatusNotifierItem
         KwikDisk();
 
     public Q_SLOTS:
-        virtual void activate(const QPoint &pos);
+        void activate(const QPoint &pos) override;
 
     private Q_SLOTS:
         void updateDFDone();

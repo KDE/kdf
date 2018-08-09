@@ -34,8 +34,8 @@ class KDFPRIVATE_EXPORT DiskEntry : public QObject
     Q_OBJECT
 
     public:
-        explicit DiskEntry(QObject *parent=nullptr, const char *name=nullptr);
-        explicit DiskEntry(const QString & deviceName, QObject *parent=nullptr, const char *name=nullptr);
+        explicit DiskEntry(QObject *parent=nullptr, const QString &name=QString());
+        explicit DiskEntry(const QString & deviceName, QObject *parent=nullptr, const QString &name=QString());
         ~DiskEntry();
         QString lastSysError() {return sysStringErrOut; }
         QString deviceName() const { return device; }
@@ -132,7 +132,7 @@ class KDFPRIVATE_EXPORT DiskEntry : public QObject
         void receivedSysStdErrOut();
 
     private:
-        void init(const char *name);
+        void init(const QString &name);
         int sysCall(QString & command);
         QString prettyPrint(int kBValue) const;
 

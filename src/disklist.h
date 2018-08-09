@@ -68,8 +68,8 @@ class KDFPRIVATE_EXPORT DiskList : public QObject
         int readFSTAB();
         int readDF();
         int find(DiskEntry* disk);
-        DiskEntry* at(uint index) { return disks->at(index); }
-        uint count() const { return disks->count(); }
+        DiskEntry* at(int index) { return disks->at(index); }
+        int count() const { return disks->count(); }
         void deleteAllMountedAt(const QString &mountpoint);
         void setUpdatesDisabled(bool disable);
 

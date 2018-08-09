@@ -126,7 +126,7 @@ void MntConfigWidget::readDFDone( void )
     mInitializing = false;
     m_listWidget->clear();
 
-    QTreeWidgetItem *item = 0;
+    QTreeWidgetItem *item = nullptr;
 
     DisksConstIterator itr = mDiskList.disksConstIteratorBegin();
     DisksConstIterator end = mDiskList.disksConstIteratorEnd();
@@ -257,7 +257,7 @@ void MntConfigWidget::selectMntFile()
 
     if( !url.isLocalFile() )
     {
-        KMessageBox::sorry( 0L, i18n( "Only local files supported." ) );
+        KMessageBox::sorry( nullptr, i18n( "Only local files supported." ) );
         return;
     }
 
@@ -273,7 +273,7 @@ void MntConfigWidget::selectUmntFile()
 
     if( !url.isLocalFile() )
     {
-        KMessageBox::sorry( 0L, i18n( "Only local files are currently supported." ) );
+        KMessageBox::sorry( nullptr, i18n( "Only local files are currently supported." ) );
         return;
     }
 
@@ -312,13 +312,13 @@ void MntConfigWidget::umntCmdChanged( const QString &data )
 
 DiskEntry * MntConfigWidget::selectedDisk( QTreeWidgetItem * item )
 {
-    if( item == 0 )
+    if( item == nullptr )
     {
         QList<QTreeWidgetItem*> selected = m_listWidget->selectedItems();
         if ( selected.size() == 1 )
             item =  selected.at(0);
         else
-            return 0;
+            return nullptr;
     }
 
     DiskEntry * tmpDisk = new DiskEntry(item->text( DeviceCol ));

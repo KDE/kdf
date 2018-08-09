@@ -64,7 +64,7 @@ KwikDisk::KwikDisk()
         , m_readingDF(false)
         , m_dirty(true)
         , m_inside(false)
-        , m_optionDialog(0)
+        , m_optionDialog(nullptr)
 {
     qCDebug(KDF);
 
@@ -245,7 +245,7 @@ void KwikDisk::toggleMount(QAction * action)
         return;
 
     DiskEntry *disk = m_diskList.at( action->data().toInt() );
-    if( disk == 0 )
+    if( disk == nullptr )
     {
         return;
     }
@@ -253,7 +253,7 @@ void KwikDisk::toggleMount(QAction * action)
     int val = disk->toggleMount();
     if( val != 0 )
     {
-        KMessageBox::error(0, disk->lastSysError());
+        KMessageBox::error(nullptr, disk->lastSysError());
     }
     else if( (m_options.openFileManager() == true) && (disk->mounted() == true ) )
     {
@@ -284,15 +284,15 @@ void KwikDisk::criticallyFull(DiskEntry *disk)
     {
         QString msg = i18n("Device [%1] on [%2] is critically full.",
                            disk->deviceName(), disk->mountPoint());
-        KMessageBox::sorry( 0, msg, i18nc("Device is getting critically full", "Warning"));
+        KMessageBox::sorry( nullptr, msg, i18nc("Device is getting critically full", "Warning"));
     }
 }
 
 void KwikDisk::changeSettings()
 {
-    if( m_optionDialog == 0 )
+    if( m_optionDialog == nullptr )
     {
-        m_optionDialog = new COptionDialog(0);
+        m_optionDialog = new COptionDialog(nullptr);
         if( !m_optionDialog )
             return;
         connect(m_optionDialog, SIGNAL(valueChanged()),
@@ -305,7 +305,7 @@ void KwikDisk::startKDF()
 {
     qCDebug(KDF);
 
-    KRun::runCommand(QLatin1String( "kdf" ),NULL);
+    KRun::runCommand(QLatin1String( "kdf" ),nullptr);
 }
 
 void KwikDisk::invokeHelp()

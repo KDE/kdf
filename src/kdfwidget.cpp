@@ -58,7 +58,7 @@ static bool GUI;
 #endif
 
 KDFWidget::KDFWidget( QWidget *parent, bool init )
-        : QWidget(parent), mOptionDialog(0), mPopup(0), mTimer(0)
+        : QWidget(parent), mOptionDialog(nullptr), mPopup(nullptr), mTimer(nullptr)
 {
     connect(&mDiskList , SIGNAL(readDFDone()),
             this, SLOT (updateDFDone()) );
@@ -228,10 +228,10 @@ void KDFWidget::settingsBtnClicked( void )
 {
     if( mIsTopLevel == true )
     {
-        if( mOptionDialog == 0 )
+        if( mOptionDialog == nullptr )
         {
             mOptionDialog = new COptionDialog( this );
-            if( mOptionDialog == 0 )
+            if( mOptionDialog == nullptr )
             {
                 return;
             }
@@ -276,7 +276,7 @@ void KDFWidget::updateDF( void )
     //
     // We can only do this if the popupmenu is not present
     //
-    if( mPopup == 0 )
+    if( mPopup == nullptr )
     {
         readingDF = true;
         mDiskList.readFSTAB();
@@ -374,7 +374,7 @@ void KDFWidget::criticallyFull( DiskEntry *disk )
 DiskEntry * KDFWidget::selectedDisk( QModelIndex index )
 {
     if( !index.isValid() )
-        return 0;
+        return nullptr;
 
     QStandardItem * itemDevice = m_listModel->item( index.row() , DeviceCol );
     QStandardItem * itemMountPoint = m_listModel->item( index.row() , MountPointCol );
@@ -410,10 +410,10 @@ void KDFWidget::contextMenuRequested( const QPoint &p )
     mDiskList.setUpdatesDisabled(true);
     DiskEntry * disk = selectedDisk( index );
 
-    if( disk == 0 )
+    if( disk == nullptr )
         return;
 
-    mPopup = new QMenu( 0 );
+    mPopup = new QMenu( nullptr );
     mPopup->setTitle( disk->mountPoint() );
     QAction *mountPointAction = mPopup->addAction( i18n("Mount Device") );
     QAction *umountPointAction = mPopup->addAction( i18n("Unmount Device") );
@@ -429,7 +429,7 @@ void KDFWidget::contextMenuRequested( const QPoint &p )
     {
         mDiskList.setUpdatesDisabled(false);
         delete mPopup;
-        mPopup = 0;
+        mPopup = nullptr;
         return;
     }
     else if( position == mountPointAction || position == umountPointAction )
@@ -484,7 +484,7 @@ void KDFWidget::contextMenuRequested( const QPoint &p )
     //Update only here as showing of error message triggers event loop.
     mDiskList.setUpdatesDisabled(false);
     delete mPopup;
-    mPopup = 0;
+    mPopup = nullptr;
 
     if( position != openFileManagerAction ) // No need to update when just opening the fm.
     {
