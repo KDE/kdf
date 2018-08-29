@@ -1,4 +1,4 @@
 kdf.private kdf (private lib) IDENTIFIER [KDF]
 kdf.main kdf (main windows) IDENTIFIER [KDF]
-kdf.kwikdisk (kdf kwikdisk) IDENTIFIER [KDF]
-kdf.kcm (kdf kcm)  IDENTIFIER [KDF]
+kdf.kwikdisk kdf(kdf kwikdisk) IDENTIFIER [KDF]
+kdf.kcm kdf (kdf kcm)  IDENTIFIER [KDF]
