@@ -174,7 +174,7 @@ static QString expandEscapes(const QString& s) {
                 rc += QLatin1Char( '\\' );
             else if( str == QLatin1Char( '0' ))
             {
-                rc += QLatin1Char( s.mid(i,3).toULongLong(0, 8) );
+                rc += QLatin1Char( s.mid(i,3).toULongLong(nullptr, 8) );
                 i += 2;
             }
             else

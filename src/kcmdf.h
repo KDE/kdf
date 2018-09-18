@@ -29,8 +29,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "kdfconfig.h"
 #include "mntconfig.h"
 
-#include <kcmodule.h>
-
 class KDiskFreeWidget : public KCModule
 {
     Q_OBJECT
