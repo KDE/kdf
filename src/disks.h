@@ -47,7 +47,7 @@ class KDFPRIVATE_EXPORT DiskEntry : public QObject
         QString realMountPoint() const;
         /**
         * sets the used mountCommand for the actual DiskEntry.
-        * @param mntcmd   is a string containing the executable file and
+        * @return mntcmd   is a string containing the executable file and
         *                 special codes which will be filled in when used: <BR>
         *                 %m : mountpoint <BR>
         *                 %d : deviceName <BR>
@@ -59,7 +59,7 @@ class KDFPRIVATE_EXPORT DiskEntry : public QObject
         QString mountCommand() const { return mntcmd; }
         /**
         * sets the used umountCommand for the actual DiskEntry.
-        * @param mntcmd   is a string containing the executable file and
+        * @return umntcmd   is a string containing the executable file and
         *                 special codes which will be filled in when used: <BR>
         *                 %m : mountpoint <BR>
         *                 %d : deviceName <BR>

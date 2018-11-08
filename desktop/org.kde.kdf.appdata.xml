@@ -82,6 +82,7 @@
   <url type="homepage">https://utils.kde.org/projects/kdf/</url>
   <screenshots>
     <screenshot type="default">
+      <caption>KDiskFree main window</caption>
       <image>https://www.kde.org/images/screenshots/kdiskfree.png</image>
     </screenshot>
   </screenshots>
