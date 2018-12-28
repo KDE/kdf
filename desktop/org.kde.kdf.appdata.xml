@@ -68,6 +68,7 @@
     <p xml:lang="fi">KDiskFree näyttää saatavilla olevat tiedostolaitteet (kiintolevyosiot, levyke- ja CD-asemat jne.) tietoineen: kapasiteetti, vapaa tila, tyyppi ja liitospiste. Se antaa myös liittää ja irrottaa asemia ja katsoa niitä tiedostonhallinnassa.</p>
     <p xml:lang="fr">KDiskFree affiche les systèmes de fichiers disponibles (partitions du disque dur, lecteurs disquettes/CD/DVD, etc.) ainsi que des informations sur leur capacité, l'espace disponible, leur type et leur point de montage. L'outil vous permet également de monter, de libérer et d'afficher les lecteurs dans un gestionnaire de fichiers.</p>
     <p xml:lang="gl">KDiskFree mostra os dispositivos de ficheiros dispoñíbeis (particións de discos duros, lectores de disquetes e CD, etc.) xunto con información sobre a súa capacidade, espazo libre, tipo e punto de montaxe. Tamén permite montar e desmontar lectores e velos no xestor de ficheiros.</p>
+    <p xml:lang="ia">KDiskFree monstra dispositivos de file disponibile (partitiones de disco dur, disquettes e drives de CD, etc.) conjunctemente con lor capacitate, spatio libere, typo e puncto de montage. Anque permitte que on pote montar e dismontar drives e vide illos in  le gerente de files.</p>
     <p xml:lang="id">KDiskFree menampilkan perangkat file yang tersedia (partisi hard drive, floppy dan drive CD, dll.) bersama dengan informasi tentang kapasitas, ruang kosong, jenis dan titik kaitnya. Ini juga memungkinkan kamu untuk mengait dan melepas drive dan melihatnya di file manager.</p>
     <p xml:lang="it">KDiskFree mostra i dispositivi file disponibili (partizioni dei dischi fissi, unità a dischetti e lettori CD, eccetera) insieme ad informazioni sulla loro capacità, sullo spazio libero, sul tipo e sul punto di montaggio. Permette anche di montare e di smontare le unità e di visualizzarle in un gestore di file.</p>
     <p xml:lang="ko">KDiskFree는 하드 드라이브 파티션, CD 및 플로피 드라이브 등 저장 장치의 크기, 사용 가능한 공간, 마운트 지점 등 정보를 표시합니다. 장치 마운트를 관리하고 파일 관리자로 열 수 있습니다.</p>
@@ -98,6 +99,7 @@
       <caption xml:lang="fi">KDiskFreen pääikkuna</caption>
       <caption xml:lang="fr">Fenêtre principale de KDiskFree</caption>
       <caption xml:lang="gl">Xanela principal de KDiskFree</caption>
+      <caption xml:lang="ia">Fenestra principal de KDiskFree</caption>
       <caption xml:lang="id">Window utama KDiskFree</caption>
       <caption xml:lang="it">Finestra principale di KDiskFree</caption>
       <caption xml:lang="nl">Hoofdvenster van KDiskFree</caption>
