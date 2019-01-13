@@ -29,6 +29,7 @@
   <name xml:lang="uk">KDiskFree</name>
   <name xml:lang="x-test">xxKDiskFreexx</name>
   <name xml:lang="zh-CN">KDiskFree</name>
+  <name xml:lang="zh-TW">KDiskFree</name>
   <summary>View Disk Usage</summary>
   <summary xml:lang="ca">Veure l'ús de disc</summary>
   <summary xml:lang="ca-valencia">Veure l'ús de disc</summary>
@@ -55,6 +56,7 @@
   <summary xml:lang="uk">Перегляд використання диска</summary>
   <summary xml:lang="x-test">xxView Disk Usagexx</summary>
   <summary xml:lang="zh-CN">查看磁盘使用状况</summary>
+  <summary xml:lang="zh-TW">檢視磁碟用量</summary>
   <description>
     <p>
      KDiskFree displays the available file devices (hard drive partitions, floppy and CD drives, etc.) along with information on their capacity, free space, type and mount point. It also allows you to mount and unmount drives and view them in a file manager.
@@ -112,6 +114,7 @@
       <caption xml:lang="uk">Головне вікно KDiskFree</caption>
       <caption xml:lang="x-test">xxKDiskFree main windowxx</caption>
       <caption xml:lang="zh-CN">KDiskFree 主窗口</caption>
+      <caption xml:lang="zh-TW">KDiskFree 主視窗</caption>
       <image>https://www.kde.org/images/screenshots/kdiskfree.png</image>
     </screenshot>
   </screenshots>
