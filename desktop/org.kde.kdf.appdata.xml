@@ -80,6 +80,7 @@
     <p xml:lang="pt">O KDiskFree mostra os dispositivos de ficheiros disponíveis (partições de discos rígidos, unidades de disquetes e CD's, etc.) em conjunto com informações sobre a sua capacidade, espaço livre, tipo e ponto de montagem. Também lhe permite montar e desmontar as unidades e vê-las num gestor de ficheiros.</p>
     <p xml:lang="pt-BR">O KDiskFree mostra os dispositivos de arquivos disponíveis (partições de discos rígidos, unidades de disquetes e CDs, dispositivos USB, etc.) juntamente com informações sobre sua capacidade, espaço livre, tipo e ponto de montagem. Também permite a montagem e desmontagem de unidades e visualizá-las em um gerenciador de arquivos.</p>
     <p xml:lang="ru">KDiskFree служит для просмотра информации о доступных файловых устройствах (таких как разделы жёсткого диска, дискеты и приводы компакт-дисков): объём, доступное свободное место, тип и точка подключения. Кроме того, приложение позволяет подключать и отключать диски и открывать их для просмотра в приложении для управления файлами.</p>
+    <p xml:lang="sk">KDiskFree zobrazuje dostuné zariadenia na súbory (pevné disky, partície, diskety, CD, atď.) tak isto informácie o ich kapacite, voľnom mieste, type a prípojnom bode. Tiež vám umožnuje pripájať a odpájať disky a prehliadať ich v správcovi súborov.</p>
     <p xml:lang="sv">Kdiskfree visar tillgängliga filenheter (hårddiskpartitioner, diskett- och cd-enheter, etc.) tillsammans med information om deras kapacitet, ledigt utrymme, typ och monteringsplats. Det låter dig också montera och avmontera enheter och visa dem i en filhanterare.</p>
     <p xml:lang="uk">KDiskFree показує список доступних файлових пристроїв (розділів жорсткого диска, пристроїв читання гнучких дисків, компакт-дисків, флеш-карток USB тощо), а також інформацію щодо їх місткості, вільного місця, типу і точки монтування. Ця програма також надає вам можливість монтувати, демонтувати пристрої і переглядати їх вміст у програмі для роботи з файлами.</p>
     <p xml:lang="x-test">xxKDiskFree displays the available file devices (hard drive partitions, floppy and CD drives, etc.) along with information on their capacity, free space, type and mount point. It also allows you to mount and unmount drives and view them in a file manager.xx</p>
@@ -110,6 +111,7 @@
       <caption xml:lang="pt">Janela principal do KDiskFree</caption>
       <caption xml:lang="pt-BR">Janela principal do KDiskFree</caption>
       <caption xml:lang="ru">Главное окно приложения KDiskFree</caption>
+      <caption xml:lang="sk">Hlavné okno KDiskFree</caption>
       <caption xml:lang="sv">Huvudfönstret i Kdiskfree</caption>
       <caption xml:lang="uk">Головне вікно KDiskFree</caption>
       <caption xml:lang="x-test">xxKDiskFree main windowxx</caption>
