@@ -79,7 +79,7 @@ KDFWidget::KDFWidget( QWidget *parent, bool init )
     {
         QVBoxLayout *topLayout = new QVBoxLayout( this );
         topLayout->setSpacing( 0 );
-        topLayout->setMargin( 0 );
+        topLayout->setContentsMargins(0, 0, 0, 0);
 
         m_listModel = new QStandardItemModel( this );
         m_sortModel = new KDFSortFilterProxyModel( this );
