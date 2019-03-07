@@ -1,5 +1,5 @@
-<!DOCTYPE kpartgui>
-<kpartgui name="kdf" version="1">
+<!DOCTYPE gui SYSTEM "kpartgui.dtd">
+<gui name="kdf" version="1">
 <MenuBar>
  <Menu name="file" noMerge="1">
     <text>&amp;File</text>
@@ -8,4 +8,4 @@
     <Action name="file_quit"/> 
  </Menu>
 </MenuBar>
-</kpartgui>
+</gui>
