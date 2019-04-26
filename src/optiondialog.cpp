@@ -33,18 +33,18 @@ COptionDialog::COptionDialog( QWidget *parent )
     setFaceType( KPageDialog::Tabbed );
 
     mConf = new KDFConfigWidget( this );
-    connect( mConf, SIGNAL(configChanged()), this, SLOT(slotChanged()) );
+    connect( mConf, &KDFConfigWidget::configChanged, this, &COptionDialog::slotChanged );
     addPage( mConf, i18n("General Settings") );
 
     mMnt = new MntConfigWidget( this );
-    connect( mMnt, SIGNAL(configChanged()), this, SLOT(slotChanged()) );
+    connect( mMnt, &MntConfigWidget::configChanged, this, &COptionDialog::slotChanged );
     addPage( mMnt, i18n("Mount Commands") );
 
     button(QDialogButtonBox::Apply)->setEnabled(false);
     dataChanged = false;
-    connect(button(QDialogButtonBox::Ok), SIGNAL(clicked()),this,SLOT(slotOk()));
-    connect(button(QDialogButtonBox::Apply), SIGNAL(clicked()),this,SLOT(slotApply()));
-    connect(button(QDialogButtonBox::Help), SIGNAL(clicked()), this, SLOT(slotHelp()));
+    connect(button(QDialogButtonBox::Ok), &QAbstractButton::clicked,this,&COptionDialog::slotOk);
+    connect(button(QDialogButtonBox::Apply), &QAbstractButton::clicked,this,&COptionDialog::slotApply);
+    connect(button(QDialogButtonBox::Help), &QAbstractButton::clicked, this, &COptionDialog::slotHelp);
 }
 
 
@@ -78,7 +78,7 @@ void COptionDialog::slotChanged()
 
 void COptionDialog::slotHelp( void )
 {
-    KHelpClient::invokeHelp(QLatin1String(""), QLatin1String("kdf"));
+    KHelpClient::invokeHelp(QLatin1String(""), QStringLiteral("kdf"));
 }
 
 

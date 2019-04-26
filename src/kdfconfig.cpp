@@ -48,14 +48,14 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, bool init)
         : QWidget( parent)
 {
 
-    m_columnList.append( Column( QLatin1String( "Icon" ), i18nc("TODO", "Icon"), 20, KDFWidget::IconCol) );
-    m_columnList.append( Column( QLatin1String( "Device" ), i18nc("Device of the storage", "Device"), 100, KDFWidget::DeviceCol) );
-    m_columnList.append( Column( QLatin1String( "Type" ), i18nc("Filesystem on storage", "Type"), 100 , KDFWidget::TypeCol) );
-    m_columnList.append( Column( QLatin1String( "Size" ), i18nc("Total size of the storage", "Size"), 100, KDFWidget::SizeCol) );
-    m_columnList.append( Column( QLatin1String( "MountPoint" ), i18nc("Mount point of the storage", "Mount Point"), 100, KDFWidget::MountPointCol) );
-    m_columnList.append( Column( QLatin1String( "Free" ), i18nc("Free space in storage", "Free"), 100, KDFWidget::FreeCol) );
-    m_columnList.append( Column( QLatin1String( "Full%" ), i18nc("Used storage space in %", "Full %"), 50, KDFWidget::FullCol ));
-    m_columnList.append( Column( QLatin1String( "UsageBar" ), i18nc("Usage graphical bar", "Usage"), 100, KDFWidget::UsageBarCol) );
+    m_columnList.append( Column( QStringLiteral( "Icon" ), i18nc("TODO", "Icon"), 20, KDFWidget::IconCol) );
+    m_columnList.append( Column( QStringLiteral( "Device" ), i18nc("Device of the storage", "Device"), 100, KDFWidget::DeviceCol) );
+    m_columnList.append( Column( QStringLiteral( "Type" ), i18nc("Filesystem on storage", "Type"), 100 , KDFWidget::TypeCol) );
+    m_columnList.append( Column( QStringLiteral( "Size" ), i18nc("Total size of the storage", "Size"), 100, KDFWidget::SizeCol) );
+    m_columnList.append( Column( QStringLiteral( "MountPoint" ), i18nc("Mount point of the storage", "Mount Point"), 100, KDFWidget::MountPointCol) );
+    m_columnList.append( Column( QStringLiteral( "Free" ), i18nc("Free space in storage", "Free"), 100, KDFWidget::FreeCol) );
+    m_columnList.append( Column( QStringLiteral( "Full%" ), i18nc("Used storage space in %", "Full %"), 50, KDFWidget::FullCol ));
+    m_columnList.append( Column( QStringLiteral( "UsageBar" ), i18nc("Usage graphical bar", "Usage"), 100, KDFWidget::UsageBarCol) );
 
     GUI = !init;
     if( GUI )
@@ -69,13 +69,13 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, bool init)
         }
         m_listWidget->setHeaderLabels(headerLabels);
 
-        connect( m_listWidget, SIGNAL(itemClicked(QTreeWidgetItem*,int)),
-                 this, SLOT(toggleListText(QTreeWidgetItem*,int)) );
-        connect( m_listWidget, SIGNAL(itemClicked(QTreeWidgetItem*,int)),
-                 this, SLOT(slotChanged()) );
+        connect( m_listWidget, &QTreeWidget::itemClicked,
+                 this, &KDFConfigWidget::toggleListText );
+        connect( m_listWidget, &QTreeWidget::itemClicked,
+                 this, &KDFConfigWidget::slotChanged );
 
-        iconVisible = MainBarIcon( QLatin1String( "dialog-ok-apply" ) );
-        iconHidden = MainBarIcon( QLatin1String( "dialog-cancel" ) );
+        iconVisible = MainBarIcon( QStringLiteral( "dialog-ok-apply" ) );
+        iconHidden = MainBarIcon( QStringLiteral( "dialog-cancel" ) );
 
         QTreeWidgetItem * item = new QTreeWidgetItem( m_listWidget );
         for( int i=0; i < m_columnList.size(); i++ )
@@ -88,11 +88,11 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, bool init)
 
         connect(m_updateSpinBox, SIGNAL(valueChanged(int)), this, SLOT(slotChanged()) );
 
-        connect(mFileManagerEdit,SIGNAL(textChanged(QString)),this,SLOT(slotChanged()));
+        connect(mFileManagerEdit,&QLineEdit::textChanged,this,&KDFConfigWidget::slotChanged);
 
-        connect(mOpenMountCheck,SIGNAL(toggled(bool)),this,SLOT(slotChanged()));
+        connect(mOpenMountCheck,&QAbstractButton::toggled,this,&KDFConfigWidget::slotChanged);
 
-        connect(mPopupFullCheck,SIGNAL(toggled(bool)),this,SLOT(slotChanged()));
+        connect(mPopupFullCheck,&QAbstractButton::toggled,this,&KDFConfigWidget::slotChanged);
     }
 
     loadSettings();

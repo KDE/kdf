@@ -60,10 +60,10 @@ void DiskEntry::init(const QString &name)
     sysProc = new KProcess();
     Q_CHECK_PTR(sysProc);
     sysProc->setOutputChannelMode( KProcess::MergedChannels );
-    connect( sysProc, SIGNAL(readyReadStandardError()),
-             this, SLOT (receivedSysStdErrOut()) );
-    connect( sysProc, SIGNAL(readyReadStandardOutput()),
-             this, SLOT (receivedSysStdErrOut()) );
+    connect( sysProc, &QProcess::readyReadStandardError,
+             this, &DiskEntry::receivedSysStdErrOut );
+    connect( sysProc, &QProcess::readyReadStandardOutput,
+             this, &DiskEntry::receivedSysStdErrOut );
     readingSysStdErrOut=false;
 
 
@@ -108,13 +108,13 @@ int DiskEntry::mount()
     { // generate default mount cmd
         if ( getuid()!=0 ) // user mountable
         {
-            cmdS = QLatin1String( "mount %d" );
+            cmdS = QStringLiteral( "mount %d" );
         }
         else  // root mounts with all params/options
         {
             // FreeBSD's mount(8) is picky: -o _must_ go before
             // the device and mountpoint.
-            cmdS = QLatin1String( "mount -t%t -o%o %d %m" );
+            cmdS = QStringLiteral( "mount -t%t -o%o %d %m" );
         }
     }
 
@@ -136,7 +136,7 @@ int DiskEntry::umount()
     qCDebug(KDF) << "umounting";
     QString cmdS = umntcmd;
     if ( cmdS.isEmpty() ) // generate default umount cmd
-        cmdS = QLatin1String( "umount %d" );
+        cmdS = QStringLiteral( "umount %d" );
 
     cmdS.replace( QLatin1String( "%d" ), deviceName() );
     cmdS.replace( QLatin1String( "%m" ), mountPoint() );
@@ -157,7 +157,7 @@ int DiskEntry::remount()
     {
         QString oldOpt = options;
         if (options.isEmpty())
-            options = QLatin1String( "remount" );
+            options = QStringLiteral( "remount" );
         else
             options += QLatin1String( ",remount" );
 

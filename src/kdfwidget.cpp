@@ -60,19 +60,19 @@ static bool GUI;
 KDFWidget::KDFWidget( QWidget *parent, bool init )
         : QWidget(parent), mOptionDialog(nullptr), mPopup(nullptr), mTimer(nullptr)
 {
-    connect(&mDiskList , SIGNAL(readDFDone()),
-            this, SLOT (updateDFDone()) );
-    connect(&mDiskList , SIGNAL(criticallyFull(DiskEntry*)),
-            this, SLOT (criticallyFull(DiskEntry*)) );
+    connect(&mDiskList , &DiskList::readDFDone,
+            this, &KDFWidget::updateDFDone );
+    connect(&mDiskList , &DiskList::criticallyFull,
+            this, &KDFWidget::criticallyFull );
 
-    m_columnList.append( Column( QLatin1String( "Icon" ), QLatin1String( "" ), 20, IconCol ));
-    m_columnList.append( Column( QLatin1String( "Device" ), i18nc("Device of the storage", "Device"), 100, DeviceCol ));
-    m_columnList.append( Column( QLatin1String( "Type" ), i18nc("Filesystem on storage", "Type"), 80, TypeCol ));
-    m_columnList.append( Column( QLatin1String( "Size" ), i18nc("Total size of the storage", "Size"), 80, SizeCol ));
-    m_columnList.append( Column( QLatin1String( "MountPoint" ), i18nc("Mount point of storage", "Mount Point"), 120, MountPointCol ));
-    m_columnList.append( Column( QLatin1String( "Free" ), i18nc("Free space in storage", "Free"), 80, FreeCol ));
-    m_columnList.append( Column( QLatin1String( "Full%" ), i18nc("Used storage space in %", "Full %"), 50, FullCol ));
-    m_columnList.append( Column( QLatin1String( "UsageBar" ), i18nc("Usage graphical bar", "Usage"), 200, UsageBarCol ));
+    m_columnList.append( Column( QStringLiteral( "Icon" ), QLatin1String( "" ), 20, IconCol ));
+    m_columnList.append( Column( QStringLiteral( "Device" ), i18nc("Device of the storage", "Device"), 100, DeviceCol ));
+    m_columnList.append( Column( QStringLiteral( "Type" ), i18nc("Filesystem on storage", "Type"), 80, TypeCol ));
+    m_columnList.append( Column( QStringLiteral( "Size" ), i18nc("Total size of the storage", "Size"), 80, SizeCol ));
+    m_columnList.append( Column( QStringLiteral( "MountPoint" ), i18nc("Mount point of storage", "Mount Point"), 120, MountPointCol ));
+    m_columnList.append( Column( QStringLiteral( "Free" ), i18nc("Free space in storage", "Free"), 80, FreeCol ));
+    m_columnList.append( Column( QStringLiteral( "Full%" ), i18nc("Used storage space in %", "Full %"), 50, FullCol ));
+    m_columnList.append( Column( QStringLiteral( "UsageBar" ), i18nc("Usage graphical bar", "Usage"), 200, UsageBarCol ));
 
     GUI = !init;
     if( GUI )
@@ -98,8 +98,8 @@ KDFWidget::KDFWidget( QWidget *parent, bool init )
 
         topLayout->addWidget( m_listWidget );
 
-        connect( m_listWidget, SIGNAL(customContextMenuRequested(QPoint)),
-                 this, SLOT(contextMenuRequested(QPoint)));
+        connect( m_listWidget, &QWidget::customContextMenuRequested,
+                 this, &KDFWidget::contextMenuRequested);
 
         makeColumns();
 
@@ -235,8 +235,8 @@ void KDFWidget::settingsBtnClicked( void )
             {
                 return;
             }
-            connect( mOptionDialog, SIGNAL(valueChanged()),
-                     this, SLOT(settingsChanged()) );
+            connect( mOptionDialog, &COptionDialog::valueChanged,
+                     this, &KDFWidget::settingsChanged );
         }
         mOptionDialog->show();
     }
@@ -344,17 +344,17 @@ void KDFWidget::updateDFDone( void ){
 
 }
 
-QIcon KDFWidget::generateIcon( QString iconName, bool mode, bool mounted)
+QIcon KDFWidget::generateIcon( const QString &iconName, bool mode, bool mounted)
 {
     QPixmap pix = SmallIcon(iconName);
 
     QPainter painter(&pix);
 
     if( mode )
-        painter.drawPixmap( QRect(0,6,10,10), SmallIcon(QLatin1String( "object-locked" )) );
+        painter.drawPixmap( QRect(0,6,10,10), SmallIcon(QStringLiteral( "object-locked" )) );
 
     if( mounted )
-        painter.drawPixmap( QRect(6,6,12,12) , SmallIcon(QLatin1String( "emblem-mounted" )) );
+        painter.drawPixmap( QRect(6,6,12,12) , SmallIcon(QStringLiteral( "emblem-mounted" )) );
 
     painter.end();
     return QIcon(pix);
@@ -371,7 +371,7 @@ void KDFWidget::criticallyFull( DiskEntry *disk )
     }
 }
 
-DiskEntry * KDFWidget::selectedDisk( QModelIndex index )
+DiskEntry * KDFWidget::selectedDisk( const QModelIndex &index )
 {
     if( !index.isValid() )
         return nullptr;
@@ -495,6 +495,6 @@ void KDFWidget::contextMenuRequested( const QPoint &p )
 
 void KDFWidget::invokeHelp()
 {
-    KHelpClient::invokeHelp(QLatin1String( "" ), QLatin1String( "kcontrol/kdf" ));
+    KHelpClient::invokeHelp(QLatin1String( "" ), QStringLiteral( "kcontrol/kdf" ));
 }
 

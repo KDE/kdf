@@ -32,7 +32,7 @@
 
 #include <QString>
 
-QString CStdOption::mDefaultFileManager = QLatin1String( "dolphin %m" );
+QString CStdOption::mDefaultFileManager = QStringLiteral( "dolphin %m" );
 int CStdOption::mDefaultUpdateFrequency = 60;
 
 CStdOption::CStdOption()

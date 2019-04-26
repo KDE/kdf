@@ -62,14 +62,14 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, bool init)
         mDiskList.readFSTAB();
         mDiskList.readDF();
         mInitializing = true;
-        connect( &mDiskList, SIGNAL(readDFDone()), this, SLOT(readDFDone()));
+        connect( &mDiskList, &DiskList::readDFDone, this, &MntConfigWidget::readDFDone);
 
-        connect ( m_listWidget, SIGNAL(itemClicked(QTreeWidgetItem*,int)) , this, SLOT(clicked(QTreeWidgetItem*,int)) );
+        connect ( m_listWidget, &QTreeWidget::itemClicked , this, &MntConfigWidget::clicked );
         m_listWidget->setHeaderLabels( QStringList() << QLatin1String( "" ) << i18n("Device")
                                        << i18n("Mount Point") << i18n("Mount Command") << i18n("Unmount Command") );
         m_listWidget->setColumnWidth( 0, 20 );
 
-        QString text = QString::fromLatin1("%1: %2  %3: %4").
+        QString text = QStringLiteral("%1: %2  %3: %4").
                arg(i18n("Device")).
                arg(i18nc("No device is selected", "None")).
                arg(i18n("Mount Point")).
@@ -78,33 +78,33 @@ MntConfigWidget::MntConfigWidget(QWidget *parent, bool init)
         mGroupBox->setEnabled( false );
         mGroupBox->setTitle(text);
 
-        connect( mIconLineEdit, SIGNAL(textEdited(QString)),
-                 this,SLOT(iconChanged(QString)));
-        connect( mIconLineEdit, SIGNAL(textEdited(QString)),
-                 this,SLOT(slotChanged()));
+        connect( mIconLineEdit, &QLineEdit::textEdited,
+                 this,&MntConfigWidget::iconChanged);
+        connect( mIconLineEdit, &QLineEdit::textEdited,
+                 this,&MntConfigWidget::slotChanged);
 
         mIconButton->setIconType(KIconLoader::Small, KIconLoader::Device);
         mIconButton->setFixedHeight( mIconButton->sizeHint().height() );
 
-        connect( mIconButton, SIGNAL(iconChanged(QString)), this, SLOT(iconChangedButton(QString)));
-        connect( mIconButton, SIGNAL(iconChanged(QString)), this, SLOT(slotChanged()));
+        connect( mIconButton, &KIconButton::iconChanged, this, &MntConfigWidget::iconChangedButton);
+        connect( mIconButton, &KIconButton::iconChanged, this, &MntConfigWidget::slotChanged);
 
-        connect( mDefaultIconButton, SIGNAL(clicked()), this, SLOT(iconDefault()) );
-        connect( mDefaultIconButton, SIGNAL(clicked()), this, SLOT(slotChanged()) );
+        connect( mDefaultIconButton, &QAbstractButton::clicked, this, &MntConfigWidget::iconDefault );
+        connect( mDefaultIconButton, &QAbstractButton::clicked, this, &MntConfigWidget::slotChanged );
 
-        connect( mMountLineEdit,SIGNAL(textChanged(QString)),
-                this,SLOT(mntCmdChanged(QString)));
-        connect( mMountLineEdit, SIGNAL(textChanged(QString)),
-                this,SLOT(slotChanged()));
+        connect( mMountLineEdit,&QLineEdit::textChanged,
+                this,&MntConfigWidget::mntCmdChanged);
+        connect( mMountLineEdit, &QLineEdit::textChanged,
+                this,&MntConfigWidget::slotChanged);
 
-        connect( mMountButton, SIGNAL(clicked()), this, SLOT(selectMntFile()) );
+        connect( mMountButton, &QAbstractButton::clicked, this, &MntConfigWidget::selectMntFile );
 
-        connect( mUmountLineEdit, SIGNAL(textChanged(QString)),
-                 this,SLOT(umntCmdChanged(QString)));
-        connect( mUmountLineEdit, SIGNAL(textChanged(QString)),
-                 this,SLOT(slotChanged()));
+        connect( mUmountLineEdit, &QLineEdit::textChanged,
+                 this,&MntConfigWidget::umntCmdChanged);
+        connect( mUmountLineEdit, &QLineEdit::textChanged,
+                 this,&MntConfigWidget::slotChanged);
 
-        connect( mUmountButton,SIGNAL(clicked()),this,SLOT(selectUmntFile()));
+        connect( mUmountButton,&QAbstractButton::clicked,this,&MntConfigWidget::selectUmntFile);
     }
 
     loadSettings();
@@ -190,7 +190,7 @@ void MntConfigWidget::clicked( QTreeWidgetItem * item , int col )
     QTreeWidgetItem * header = m_listWidget->headerItem();
 
     mGroupBox->setEnabled( true );
-    mGroupBox->setTitle( QString::fromLatin1("%1: %2  %3: %4").
+    mGroupBox->setTitle( QStringLiteral("%1: %2  %3: %4").
                          arg(header->text( DeviceCol )).
                          arg(item->text( DeviceCol )).
                          arg(header->text( MountPointCol )).
@@ -250,7 +250,7 @@ void MntConfigWidget::iconDefault()
 
 void MntConfigWidget::selectMntFile()
 {
-    QUrl url = QFileDialog::getOpenFileUrl( this, QLatin1String( "*" ));
+    QUrl url = QFileDialog::getOpenFileUrl( this, QStringLiteral( "*" ));
 
     if( url.isEmpty() )
         return;
@@ -266,7 +266,7 @@ void MntConfigWidget::selectMntFile()
 
 void MntConfigWidget::selectUmntFile()
 {
-    QUrl url = QFileDialog::getOpenFileUrl( this, QLatin1String( "*" ));
+    QUrl url = QFileDialog::getOpenFileUrl( this, QStringLiteral( "*" ));
 
     if( url.isEmpty() )
         return;

@@ -223,7 +223,7 @@ int DiskList::readFSTAB()
                 qCDebug(KDF) << "GOT: [" << s << "]";
                 disk = new DiskEntry();
                 disk->setMounted(false);
-		QFile path(QLatin1String( "/dev/disk/by-uuid/" ));
+		QFile path(QStringLiteral( "/dev/disk/by-uuid/" ));
 		// We need to remove UUID=
 		// TODO: Fix for other OS if using UUID and not using /dev/disk/by-uuid/
 		if ( s.contains(QLatin1String( "UUID=" )) )
@@ -326,12 +326,12 @@ int DiskList::readDF()
     dfProc->clearProgram();
 
     QStringList dfenv;
-    dfenv << QLatin1String( "LANG=en_US" );
-    dfenv << QLatin1String( "LC_ALL=en_US" );
-    dfenv << QLatin1String( "LC_MESSAGES=en_US" );
-    dfenv << QLatin1String( "LC_TYPE=en_US" );
-    dfenv << QLatin1String( "LANGUAGE=en_US" );
-    dfenv << QLatin1String( "LC_ALL=POSIX" );
+    dfenv << QStringLiteral( "LANG=en_US" );
+    dfenv << QStringLiteral( "LC_ALL=en_US" );
+    dfenv << QStringLiteral( "LC_MESSAGES=en_US" );
+    dfenv << QStringLiteral( "LC_TYPE=en_US" );
+    dfenv << QStringLiteral( "LANGUAGE=en_US" );
+    dfenv << QStringLiteral( "LC_ALL=POSIX" );
     dfProc->setEnvironment(dfenv);
     dfProc->setProgram(DF_Command,QString(DF_Args).split(QLatin1Char( ' ' )));
     dfProc->start();
@@ -402,7 +402,7 @@ void DiskList::dfDone()
 
             if (No_FS_Type)
             {
-                disk->setFsType(QLatin1String( "?" ));
+                disk->setFsType(QStringLiteral( "?" ));
             }
             else
             {
@@ -546,7 +546,7 @@ void DiskList::replaceDeviceEntry(DiskEntry * disk)
                 int ci=odiskName.indexOf(QLatin1Char( ':' )); // goto host-column
                 while ((ci =odiskName.indexOf(QLatin1Char( '/' ),ci)) > 0)
                 {
-                    odiskName.replace(ci,1,QLatin1String( "_" ));
+                    odiskName.replace(ci,1,QStringLiteral( "_" ));
                 }//while
                 // check if there is something that is exactly the tail
                 // eg. [srv:/tmp3] is exact tail of [/cache/.cfs_mnt_points/srv:_tmp3]

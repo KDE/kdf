@@ -70,12 +70,12 @@ KwikDisk::KwikDisk()
 
     setIconByName(QStringLiteral("kdf"));
 
-    connect( &m_diskList, SIGNAL(readDFDone()), this, SLOT(updateDFDone()) );
-    connect( &m_diskList, SIGNAL(criticallyFull(DiskEntry*)),
-             this, SLOT(criticallyFull(DiskEntry*)) );
+    connect( &m_diskList, &DiskList::readDFDone, this, &KwikDisk::updateDFDone );
+    connect( &m_diskList, &DiskList::criticallyFull,
+             this, &KwikDisk::criticallyFull );
 
     m_actionGroup = new QActionGroup( this );
-    connect( m_actionGroup, SIGNAL(triggered(QAction*)) , this, SLOT(toggleMount(QAction*)) );
+    connect( m_actionGroup, &QActionGroup::triggered , this, &KwikDisk::toggleMount );
 
     QMenu *contextMenu = new QMenu(i18n("KwikDisk"));
 
@@ -83,15 +83,15 @@ KwikDisk::KwikDisk()
 
     contextMenu->addAction(
         QIcon::fromTheme(QStringLiteral( "kdf" )),
-        i18n("&Start KDiskFree"), this, SLOT(startKDF()));
+        i18n("&Start KDiskFree"), this, &KwikDisk::startKDF);
 
     contextMenu->addAction(
         QIcon::fromTheme(QStringLiteral( "configure" )),
-        i18n("&Configure KwikDisk..."), this, SLOT(changeSettings()));
+        i18n("&Configure KwikDisk..."), this, &KwikDisk::changeSettings);
 
     contextMenu->addAction(
         QIcon::fromTheme(QStringLiteral( "help-contents" )),
-        KStandardGuiItem::help().text(), this, SLOT(invokeHelp()));
+        KStandardGuiItem::help().text(), this, &KwikDisk::invokeHelp);
 
     setContextMenu(contextMenu);
 
@@ -194,14 +194,14 @@ void KwikDisk::updateDFDone()
     {
         DiskEntry * disk = *itr;
 
-        QString toolTipText = QString::fromLatin1("%1 (%2) %3 on %4")
+        QString toolTipText = QStringLiteral("%1 (%2) %3 on %4")
           .arg( disk->mounted() ? i18nc("Unmount the storage device", "Unmount") : i18nc("Mount the storage device", "Mount") )
           .arg( disk->fsType().trimmed() ).arg( disk->deviceName().trimmed() ).arg( disk->mountPoint().trimmed() );
 
         QString entryName = disk->mountPoint().trimmed();
         if( disk->mounted() )
         {
-            entryName += QString::fromLatin1("\t[%1]").arg(disk->prettyKBAvail());
+            entryName += QStringLiteral("\t[%1]").arg(disk->prettyKBAvail());
         }
 
         QAction * action = new QAction(entryName, m_actionGroup);
@@ -214,7 +214,7 @@ void KwikDisk::updateDFDone()
         if( getuid() !=0 && !disk->mountOptions().contains(QLatin1String( "user" ),Qt::CaseInsensitive) )
         {
             QPainter painter( &pix );
-            QPixmap lockedPixmap = QIcon::fromTheme(QLatin1String( "object-locked" )).pixmap(QSize(16,16));
+            QPixmap lockedPixmap = QIcon::fromTheme(QStringLiteral( "object-locked" )).pixmap(QSize(16,16));
             painter.drawPixmap( QRect(0,0,16,16) , lockedPixmap, QRect(0,0,16,16));
             painter.end();
 
@@ -225,7 +225,7 @@ void KwikDisk::updateDFDone()
         if( disk->mounted() )
         {
             QPainter painter ( &pix );
-            QPixmap mountedPixmap = QIcon::fromTheme(QLatin1String( "emblem-mounted" )).pixmap(QSize(16,16));
+            QPixmap mountedPixmap = QIcon::fromTheme(QStringLiteral( "emblem-mounted" )).pixmap(QSize(16,16));
             painter.drawPixmap( QRect(8,8,16,16) , mountedPixmap, QRect(0,0,16,16) );
             painter.end();
         }
@@ -295,8 +295,8 @@ void KwikDisk::changeSettings()
         m_optionDialog = new COptionDialog(nullptr);
         if( !m_optionDialog )
             return;
-        connect(m_optionDialog, SIGNAL(valueChanged()),
-                this, SLOT(loadSettings()));
+        connect(m_optionDialog, &COptionDialog::valueChanged,
+                this, &KwikDisk::loadSettings);
     }
     m_optionDialog->show();
 }
@@ -305,12 +305,12 @@ void KwikDisk::startKDF()
 {
     qCDebug(KDF);
 
-    KRun::runCommand(QLatin1String( "kdf" ),nullptr);
+    KRun::runCommand(QStringLiteral( "kdf" ),nullptr);
 }
 
 void KwikDisk::invokeHelp()
 {
-    KHelpClient::invokeHelp(QLatin1String(""), QLatin1String("kdf"));
+    KHelpClient::invokeHelp(QLatin1String(""), QStringLiteral("kdf"));
 }
 
 /*****************************************************************************/

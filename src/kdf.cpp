@@ -42,10 +42,10 @@ KDFTopLevel::KDFTopLevel(QWidget *)
 {
     kdf = new KDFWidget(this,false);
     Q_CHECK_PTR(kdf);
-    QAction *action = actionCollection()->addAction( QLatin1String("updatedf"));
+    QAction *action = actionCollection()->addAction( QStringLiteral("updatedf"));
     action->setText( i18nc( "Update action", "&Update" ) );
     actionCollection()->setDefaultShortcuts(action, KStandardShortcut::reload());
-    connect(action, SIGNAL(triggered(bool)), kdf, SLOT(updateDF()));
+    connect(action, &QAction::triggered, kdf, &KDFWidget::updateDF);
 
     KStandardAction::quit(this, SLOT(close()), actionCollection());
     KStandardAction::preferences(kdf, SLOT(settingsBtnClicked()), actionCollection());

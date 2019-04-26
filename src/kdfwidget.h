@@ -96,8 +96,8 @@ class KDFPRIVATE_EXPORT KDFWidget : public QWidget
 
     private:
         void makeColumns( void );
-        DiskEntry *selectedDisk( QModelIndex index );
-        QIcon generateIcon( QString iconName , bool mode, bool mounted);
+        DiskEntry *selectedDisk( const QModelIndex &index );
+        QIcon generateIcon( const QString &iconName , bool mode, bool mounted);
 
         bool readingDF;
         COptionDialog *mOptionDialog;
