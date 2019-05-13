@@ -343,7 +343,7 @@ QString DiskEntry::deviceRealName() const
     QString relPath = inf.fileName();
     if ( inf.isSymLink() )
     {
-        QString link = inf.readLink();
+        QString link = inf.symLinkTarget();
         if ( link.startsWith( QLatin1Char( '/' ) ) )
             return link;
         relPath = link;
