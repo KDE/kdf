@@ -26,13 +26,8 @@
 #include "stdoption.h"
 #include "kdfwidget.h"
 
-class KLineEdit;
 
 class QCloseEvent;
-class QLabel;
-class QCheckBox;
-class QLCDNumber;
-class QSlider;
 class QPixmap;
 class QTreeWidget;
 class QTreeWidgetItem;
