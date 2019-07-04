@@ -30,13 +30,9 @@
 #include <klineedit.h>
 
 #include <QCheckBox>
-#include <QLabel>
-#include <QLCDNumber>
-#include <QVBoxLayout>
 #include <QCloseEvent>
 #include <QTreeWidget>
 #include <QTreeWidgetItem>
-#include <QSizePolicy>
 
 #ifndef GUI_DEFINED
 static bool GUI;

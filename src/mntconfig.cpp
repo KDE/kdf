@@ -34,11 +34,7 @@
 #include <kconfiggroup.h>
 #include <ksharedconfig.h>
 
-#include <QGroupBox>
-#include <QLabel>
 #include <QPixmap>
-#include <QHBoxLayout>
-#include <QFormLayout>
 #include <QCloseEvent>
 #include <QFileDialog>
 #include <QTreeWidget>

@@ -44,7 +44,6 @@
 
 #include <QApplication>
 #include <QCommandLineParser>
-#include <QFile>
 #include <QAbstractEventDispatcher>
 #include <QPainter>
 #include <QPixmap>

@@ -39,7 +39,6 @@
 
 #include <QAbstractEventDispatcher>
 #include <QTimer>
-#include <QFile>
 #include <QLayout>
 #include <QTreeView>
 #include <QStandardItemModel>
