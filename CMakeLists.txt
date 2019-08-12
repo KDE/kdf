@@ -58,6 +58,10 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
 
 add_definitions(-DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT)
 #add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
+if (KF5ConfigWidgets_VERSION VERSION_GREATER "5.56.0")
+        add_definitions(-DQT_NO_FOREACH)
+        MESSAGE(STATUS "compile without foreach")
+endif()
 
 add_subdirectory(desktop)
 add_subdirectory(doc)

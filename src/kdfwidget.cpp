@@ -122,7 +122,7 @@ void KDFWidget::makeColumns( void )
 {
 
     QStringList columns;
-    Q_FOREACH(const Column &c, m_columnList){
+    for (const Column &c : qAsConst(m_columnList)){
         columns << c.columnName;
     }
     m_listModel->setHorizontalHeaderLabels( columns );
@@ -154,7 +154,7 @@ void KDFWidget::applySettings( void )
 
     if( GUI )
     {
-        Q_FOREACH(const Column &c, m_columnList){
+        for (const Column &c : qAsConst(m_columnList)){
             if( !m_listWidget->isColumnHidden( c.number ) )
                 config.writeEntry( c.name, m_listWidget->columnWidth(c.number) );
         }
@@ -185,13 +185,13 @@ void KDFWidget::loadSettings( void )
     if(GUI)
     {
         KConfigGroup config(KSharedConfig::openConfig(), "KDiskFree");
-        Q_FOREACH(const Column &c, m_columnList){
+        for (const Column &c : qAsConst(m_columnList)){
             int width = config.readEntry( c.name, c.defaultWidth );
             m_listWidget->setColumnWidth( c.number, width );
         }
 
         KConfigGroup config_visible(KSharedConfig::openConfig(), "KDFConfig");
-        Q_FOREACH(const Column &c, m_columnList){
+        for (const Column &c : qAsConst(m_columnList)){
             bool visible = config_visible.readEntry( c.name , true );
             m_listWidget->setColumnHidden( c.number, !visible );
         }

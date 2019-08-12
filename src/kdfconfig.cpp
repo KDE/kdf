@@ -59,7 +59,7 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, bool init)
         setupUi(this);
 
         QStringList headerLabels;
-        Q_FOREACH( const Column &c, m_columnList)
+        for ( const Column &c : qAsConst(m_columnList))
         {
             headerLabels << c.columnName;
         }
