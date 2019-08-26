@@ -270,17 +270,17 @@ int DiskList::readFSTAB()
 			disk->setDeviceName(expandEscapes(s.left(s.indexOf(Blank))));
 		}
 
-		s=s.remove(0,s.indexOf(Blank)+1 );
+		s.remove(0,s.indexOf(Blank)+1 );
 #ifdef _OS_SOLARIS_
                 //device to fsck
-                s=s.remove(0,s.indexOf(Blank)+1 );
+                s.remove(0,s.indexOf(Blank)+1 );
 #endif
 		disk->setMountPoint(expandEscapes(s.left(s.indexOf(Blank))));
-		s=s.remove(0,s.indexOf(Blank)+1 );
+		s.remove(0,s.indexOf(Blank)+1 );
 		disk->setFsType(s.left(s.indexOf(Blank)) );
-		s=s.remove(0,s.indexOf(Blank)+1 );
+		s.remove(0,s.indexOf(Blank)+1 );
                 disk->setMountOptions(s.left(s.indexOf(Blank)) );
-                s=s.remove(0,s.indexOf(Blank)+1 );
+                s.remove(0,s.indexOf(Blank)+1 );
 
                 if ( (disk->deviceName() != QLatin1String( "none" ))
                         && (disk->fsType() != QLatin1String( "swap" ))
@@ -392,13 +392,13 @@ void DiskList::dfDone()
                 if ( !t.atEnd() )
                 {       // just appends the next line
                     v=t.readLine();
-                    s=s.append(v );
+                    s.append(v );
                     s=s.simplified();
                 }//if silly linefeed
 
 
             disk->setDeviceName(s.left(s.indexOf(Blank)) );
-            s=s.remove(0,s.indexOf(Blank)+1 );
+            s.remove(0,s.indexOf(Blank)+1 );
 
             if (No_FS_Type)
             {
@@ -407,23 +407,23 @@ void DiskList::dfDone()
             else
             {
                 disk->setFsType(s.left(s.indexOf(Blank)) );
-                s=s.remove(0,s.indexOf(Blank)+1 );
+                s.remove(0,s.indexOf(Blank)+1 );
             };
 
             u=s.left(s.indexOf(Blank));
             disk->setKBSize(u.toULongLong() );
-            s=s.remove(0,s.indexOf(Blank)+1 );
+            s.remove(0,s.indexOf(Blank)+1 );
 
             u=s.left(s.indexOf(Blank));
             disk->setKBUsed(u.toULongLong() );
-            s=s.remove(0,s.indexOf(Blank)+1 );
+            s.remove(0,s.indexOf(Blank)+1 );
 
             u=s.left(s.indexOf(Blank));
             disk->setKBAvail(u.toULongLong() );
-            s=s.remove(0,s.indexOf(Blank)+1 );
+            s.remove(0,s.indexOf(Blank)+1 );
 
 
-            s=s.remove(0,s.indexOf(Blank)+1 );  // delete the capacity 94%
+            s.remove(0,s.indexOf(Blank)+1 );  // delete the capacity 94%
             disk->setMountPoint(s);
 
             if ( (disk->kBSize() > 0)

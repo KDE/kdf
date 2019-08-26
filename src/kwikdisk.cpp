@@ -263,7 +263,7 @@ void KwikDisk::toggleMount(QAction * action)
             int pos = cmd.indexOf(QLatin1String( "%m" ));
             if( pos > 0 )
             {
-                cmd = cmd.replace( pos, 2, KShell::quoteArg(disk->mountPoint()) );
+                cmd.replace( pos, 2, KShell::quoteArg(disk->mountPoint()) );
             }
             else
             {
