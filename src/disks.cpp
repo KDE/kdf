@@ -188,9 +188,9 @@ void DiskEntry::setIconName(const QString & iconName)
     iconSetByUser=true;
     icoName=iconName;
     if ( icoName.right(6) == QLatin1String( "_mount" ) )
-        icoName.truncate(icoName.length()-6);
+        icoName.chop(6);
     else if ( icoName.right(8) == QLatin1String( "_unmount" ) )
-        icoName.truncate(icoName.length()-8);
+        icoName.chop(8);
 
     emit iconNameChanged();
 }
