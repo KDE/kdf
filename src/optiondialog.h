@@ -22,7 +22,7 @@
 
 #include "kdfprivate_export.h"
 
-#include <kpagedialog.h>
+#include <KPageDialog>
 
 class KDFConfigWidget;
 class MntConfigWidget;

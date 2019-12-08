@@ -23,12 +23,12 @@
 
 #include "kdf_version.h"
 
-#include <kaboutdata.h>
-#include <kxmlguifactory.h>
-#include <kstandardshortcut.h>
-#include <kstandardaction.h>
-#include <kactioncollection.h>
-#include <klocalizedstring.h>
+#include <KAboutData>
+#include <KXMLGUIFactory>
+#include <KStandardShortcut>
+#include <KStandardAction>
+#include <KActionCollection>
+#include <KLocalizedString>
 
 #include <QApplication>
 #include <QCommandLineParser>

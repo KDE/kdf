@@ -27,8 +27,8 @@
 
 #include "stdoption.h"
 
-#include <kconfiggroup.h>
-#include <ksharedconfig.h>
+#include <KConfigGroup>
+#include <KSharedConfig>
 
 #include <QString>
 

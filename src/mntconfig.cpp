@@ -26,13 +26,13 @@
 
 #include "mntconfig.h"
 
-#include <kicondialog.h>
-#include <kmessagebox.h>
-#include <klineedit.h>
-#include <kcmodule.h>
-#include <kiconloader.h>
-#include <kconfiggroup.h>
-#include <ksharedconfig.h>
+#include <KIconDialog>
+#include <KMessageBox>
+#include <KLineEdit>
+#include <KCModule>
+#include <KIconLoader>
+#include <KConfigGroup>
+#include <KSharedConfig>
 
 #include <QPixmap>
 #include <QCloseEvent>

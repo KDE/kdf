@@ -33,14 +33,14 @@
 #include "kdf_version.h"
 #include "kwikdisk_debug.h"
 
-#include <kaboutdata.h>
-#include <khelpclient.h>
-#include <kmessagebox.h>
-#include <krun.h>
-#include <ktoolinvocation.h>
-#include <kshell.h>
-#include <kstatusnotifieritem.h>
-#include <klocalizedstring.h>
+#include <KAboutData>
+#include <KHelpClient>
+#include <KMessageBox>
+#include <KRun>
+#include <KToolInvocation>
+#include <KShell>
+#include <KStatusNotifierItem>
+#include <KLocalizedString>
 
 #include <QApplication>
 #include <QCommandLineParser>

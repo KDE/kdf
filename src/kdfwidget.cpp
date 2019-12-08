@@ -31,11 +31,11 @@
 #include "kdfprivate_debug.h"
 #include "optiondialog.h"
 
-#include <kmessagebox.h>
-#include <ktoolinvocation.h>
-#include <kshell.h>
-#include <khelpclient.h>
-#include <kconfiggroup.h>
+#include <KMessageBox>
+#include <KToolInvocation>
+#include <KShell>
+#include <KHelpClient>
+#include <KConfigGroup>
 
 #include <QAbstractEventDispatcher>
 #include <QTimer>

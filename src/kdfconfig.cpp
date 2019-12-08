@@ -26,8 +26,8 @@
 
 #include "kdfconfig.h"
 
-#include <kconfiggroup.h>
-#include <klineedit.h>
+#include <KConfigGroup>
+#include <KLineEdit>
 
 #include <QCheckBox>
 #include <QCloseEvent>

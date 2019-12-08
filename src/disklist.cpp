@@ -25,9 +25,9 @@
 #include "kdfprivate_debug.h"
 #include "kdfutil.h"
 
-#include <kconfiggroup.h>
-#include <klocalizedstring.h>
-#include <kprocess.h>
+#include <KConfigGroup>
+#include <KLocalizedString>
+#include <KProcess>
 
 #include <QTextStream>
 #include <QFile>

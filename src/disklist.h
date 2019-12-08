@@ -26,7 +26,7 @@
 
 #include "kdfprivate_export.h"
 
-#include <ksharedconfig.h>
+#include <KSharedConfig>
 
 // defines the os-type
 #include <qglobal.h>

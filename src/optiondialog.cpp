@@ -23,7 +23,7 @@
 #include "kdfconfig.h"
 #include "mntconfig.h"
 
-#include <khelpclient.h>
+#include <KHelpClient>
 
 COptionDialog::COptionDialog( QWidget *parent )
         :KPageDialog( parent )
