@@ -610,8 +610,14 @@ void DiskList::replaceDeviceEntry(DiskEntry * disk)
                 (disk->percentFull() >= Full_Percent) )
         {
             qCDebug(KDF) << "Device " << disk->deviceName()
-            << " is critFull! " << olddisk->percentFull()
-            << "--" << disk->percentFull() << endl;
+                         << " is critFull! " << olddisk->percentFull()
+                         << "--" << disk->percentFull()
+                #if (QT_VERSION < QT_VERSION_CHECK(5, 15, 0))
+                         << endl
+                #else
+                         << Qt::endl
+                #endif
+                            ;
             emit criticallyFull(disk);
         }
 
