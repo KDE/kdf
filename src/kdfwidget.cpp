@@ -476,7 +476,7 @@ void KDFWidget::contextMenuRequested( const QPoint &p )
             {
                 cmd += QLatin1Char( ' ' ) + KShell::quoteArg(disk->mountPoint());
             }
-            QProcess::startDetached(cmd);
+            QProcess::startDetached(cmd, QStringList());
         }
     }
 
