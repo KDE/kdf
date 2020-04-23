@@ -34,9 +34,10 @@
 #include "kwikdisk_debug.h"
 
 #include <KAboutData>
+#include <KDialogJobUiDelegate>
 #include <KHelpClient>
 #include <KMessageBox>
-#include <KRun>
+#include <KIO/CommandLauncherJob>
 #include <KToolInvocation>
 #include <KShell>
 #include <KStatusNotifierItem>
@@ -304,7 +305,9 @@ void KwikDisk::startKDF()
 {
     qCDebug(KDF);
 
-    KRun::runCommand(QStringLiteral( "kdf" ),nullptr);
+    auto *job = new KIO::CommandLauncherJob(QStringLiteral("kdf"));
+    job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
+    job->start();
 }
 
 void KwikDisk::invokeHelp()
