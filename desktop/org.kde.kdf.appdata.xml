@@ -30,6 +30,7 @@
   <name xml:lang="sl">KDiskFree</name>
   <name xml:lang="sv">Kdiskfree</name>
   <name xml:lang="uk">KDiskFree</name>
+  <name xml:lang="x-test">xxKDiskFreexx</name>
   <name xml:lang="zh-CN">KDiskFree</name>
   <name xml:lang="zh-TW">KDiskFree</name>
   <summary>View Disk Usage</summary>
@@ -59,6 +60,7 @@
   <summary xml:lang="sl">Pogled porabe diska</summary>
   <summary xml:lang="sv">Visa hårddiskanvändning</summary>
   <summary xml:lang="uk">Перегляд використання диска</summary>
+  <summary xml:lang="x-test">xxView Disk Usagexx</summary>
   <summary xml:lang="zh-CN">查看磁盘使用状况</summary>
   <summary xml:lang="zh-TW">檢視磁碟用量</summary>
   <description>
@@ -90,6 +92,7 @@
     <p xml:lang="sl">KDiskFree prikazuje razpoložljive enote hrambe datotek (particije trdega diska, diskete in pogone CD-jev itd.), skupaj s podatki o njihovi kapaciteti, prostem prostoru, vrsti in mestu priključitve. Omogoča vam tudi, da lahko pogone priklopite in odklopite ter si jih ogledate v upravitelju datotek.</p>
     <p xml:lang="sv">Kdiskfree visar tillgängliga filenheter (hårddiskpartitioner, diskett- och cd-enheter, etc.) tillsammans med information om deras kapacitet, ledigt utrymme, typ och monteringsplats. Det låter dig också montera och avmontera enheter och visa dem i en filhanterare.</p>
     <p xml:lang="uk">KDiskFree показує список доступних файлових пристроїв (розділів жорсткого диска, пристроїв читання гнучких дисків, компакт-дисків, флеш-карток USB тощо), а також інформацію щодо їх місткості, вільного місця, типу і точки монтування. Ця програма також надає вам можливість монтувати, демонтувати пристрої і переглядати їх вміст у програмі для роботи з файлами.</p>
+    <p xml:lang="x-test">xxKDiskFree displays the available file devices (hard drive partitions, floppy and CD drives, etc.) along with information on their capacity, free space, type and mount point. It also allows you to mount and unmount drives and view them in a file manager.xx</p>
     <p xml:lang="zh-CN">KDiskFree 显示所有的文件设备 (硬盘分区，软盘和 CD 驱动器等) 及他们的容量，可用空间，类型和挂载点。它也允许您挂载及卸载驱动器，以及在文件管理器中查看它们。</p>
   </description>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kdf</url>
@@ -125,6 +128,7 @@
       <caption xml:lang="sl">Glavno okno KDiskFree</caption>
       <caption xml:lang="sv">Huvudfönstret i Kdiskfree</caption>
       <caption xml:lang="uk">Головне вікно KDiskFree</caption>
+      <caption xml:lang="x-test">xxKDiskFree main windowxx</caption>
       <caption xml:lang="zh-CN">KDiskFree 主窗口</caption>
       <caption xml:lang="zh-TW">KDiskFree 主視窗</caption>
       <image>https://cdn.kde.org/screenshots/kdf/kdf.png</image>
