@@ -32,7 +32,6 @@
 #include "optiondialog.h"
 
 #include <KMessageBox>
-#include <KToolInvocation>
 #include <KShell>
 #include <KHelpClient>
 #include <KConfigGroup>

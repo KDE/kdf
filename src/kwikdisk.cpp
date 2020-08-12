@@ -38,7 +38,6 @@
 #include <KHelpClient>
 #include <KMessageBox>
 #include <KIO/CommandLauncherJob>
-#include <KToolInvocation>
 #include <KShell>
 #include <KStatusNotifierItem>
 #include <KLocalizedString>
