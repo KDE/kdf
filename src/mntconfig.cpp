@@ -26,7 +26,6 @@
 
 #include "mntconfig.h"
 
-#include <KIconDialog>
 #include <KMessageBox>
 #include <KLineEdit>
 #include <KCModule>
