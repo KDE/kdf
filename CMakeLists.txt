@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.12)
+cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 
 project(kdf)
 
@@ -12,7 +12,7 @@ if(NOT UNIX)
   message(FATAL_ERROR "kdf is only supposed to be built on Unix platforms.")
 endif(NOT UNIX)
 
-set (QT_MIN_VERSION "5.9.0")
+set (QT_MIN_VERSION "5.12.0")
 set (KF5_MIN_VERSION "5.70.0")
 
 find_package(ECM ${KF5_MIN_VERSION} CONFIG REQUIRED)
@@ -66,9 +66,5 @@ add_subdirectory(desktop)
 add_subdirectory(doc)
 add_subdirectory(pics)
 add_subdirectory(src)
-if (ECM_VERSION VERSION_GREATER "5.58.0")
-    install(FILES kdf.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
-else()
-    install(FILES kdf.categories DESTINATION ${KDE_INSTALL_CONFDIR})
-endif()
+install(FILES kdf.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
 
