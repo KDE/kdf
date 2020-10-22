@@ -39,7 +39,6 @@
 #include <KMessageBox>
 #include <KIO/CommandLauncherJob>
 #include <KShell>
-#include <KStatusNotifierItem>
 #include <KLocalizedString>
 
 #include <QApplication>

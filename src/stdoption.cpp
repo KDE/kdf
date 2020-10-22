@@ -30,7 +30,6 @@
 #include <KConfigGroup>
 #include <KSharedConfig>
 
-#include <QString>
 
 QString CStdOption::mDefaultFileManager = QStringLiteral( "dolphin %m" );
 int CStdOption::mDefaultUpdateFrequency = 60;
