@@ -39,7 +39,7 @@
 #include <QTreeWidget>
 #include <QTreeWidgetItem>
 
-#ifndef KDE_USE_FINAL
+#ifndef CMAKE_UNITY_BUILD
 static bool GUI;
 #endif
 

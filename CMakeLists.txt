@@ -62,6 +62,10 @@ add_definitions(
 )
 #add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
 
+if (CMAKE_UNITY_BUILD)
+	add_definitions(-DCMAKE_UNITY_BUILD)
+endif()
+
 add_subdirectory(desktop)
 add_subdirectory(doc)
 add_subdirectory(pics)
