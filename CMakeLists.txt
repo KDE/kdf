@@ -70,5 +70,8 @@ add_subdirectory(desktop)
 add_subdirectory(doc)
 add_subdirectory(pics)
 add_subdirectory(src)
-install(FILES kdf.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
-
+ecm_qt_install_logging_categories(
+	EXPORT KDF
+        FILE kdf.categories
+        DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
+        )
