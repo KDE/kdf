@@ -33,7 +33,7 @@ class KDFPRIVATE_EXPORT COptionDialog : public KPageDialog
 
     public:
         explicit COptionDialog( QWidget *parent=nullptr );
-        ~COptionDialog();
+        ~COptionDialog() override;
 
     protected Q_SLOTS:
         void slotOk();

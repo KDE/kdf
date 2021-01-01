@@ -36,7 +36,7 @@ class KDFPRIVATE_EXPORT DiskEntry : public QObject
     public:
         explicit DiskEntry(QObject *parent=nullptr, const QString &name=QString());
         explicit DiskEntry(const QString & deviceName, QObject *parent=nullptr, const QString &name=QString());
-        ~DiskEntry();
+        ~DiskEntry() override;
         QString lastSysError() {return sysStringErrOut; }
         QString deviceName() const { return device; }
         // The real device (in case deviceName() is a symlink)

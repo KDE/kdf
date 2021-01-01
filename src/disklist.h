@@ -63,7 +63,7 @@ class KDFPRIVATE_EXPORT DiskList : public QObject
 
     public:
         explicit DiskList( QObject *parent=nullptr );
-        ~DiskList();
+        ~DiskList() override;
 
         int readFSTAB();
         int readDF();
