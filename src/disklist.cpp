@@ -505,7 +505,7 @@ void DiskList::replaceDeviceEntry(DiskEntry * disk)
 {
 
     //
-    // The 'disks' may already already contain the 'disk'. If it do
+    // The 'disks' may already contain the 'disk'. If it do
     // we will replace some data. Otherwise 'disk' will be added to the list
     //
 
