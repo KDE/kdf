@@ -134,7 +134,6 @@ class KDFPRIVATE_EXPORT DiskEntry : public QObject
     private:
         void init(const QString &name);
         int sysCall(QString & command);
-        QString prettyPrint(int kBValue) const;
 
         KProcess     *sysProc;
         QString           sysStringErrOut;
