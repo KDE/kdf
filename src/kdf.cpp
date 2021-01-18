@@ -47,8 +47,8 @@ KDFTopLevel::KDFTopLevel(QWidget *)
     actionCollection()->setDefaultShortcuts(action, KStandardShortcut::reload());
     connect(action, &QAction::triggered, kdf, &KDFWidget::updateDF);
 
-    KStandardAction::quit(this, SLOT(close()), actionCollection());
-    KStandardAction::preferences(kdf, SLOT(settingsBtnClicked()), actionCollection());
+    KStandardAction::quit(this, &KDFTopLevel::close, actionCollection());
+    KStandardAction::preferences(kdf, &KDFWidget::settingsBtnClicked, actionCollection());
     KStandardAction::keyBindings(guiFactory(), SLOT(configureShortcuts()),
                                  actionCollection());
     setCentralWidget(kdf);

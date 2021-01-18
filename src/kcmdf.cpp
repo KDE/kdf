@@ -35,7 +35,7 @@ KDiskFreeWidget::KDiskFreeWidget( QWidget *parent )
     setButtons(Help);
 
     QVBoxLayout *topLayout = new QVBoxLayout( this );
-    topLayout->setContentsMargins(0, 0, 0, 0);
+    topLayout->setContentsMargins({});
 
     mKdf = new KDFWidget( this, false );
     topLayout->addWidget( mKdf );

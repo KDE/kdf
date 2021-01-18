@@ -76,7 +76,7 @@ void COptionDialog::slotChanged()
     dataChanged = true;
 }
 
-void COptionDialog::slotHelp( void )
+void COptionDialog::slotHelp()
 {
     KHelpClient::invokeHelp(QLatin1String(""), QStringLiteral("kdf"));
 }

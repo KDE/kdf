@@ -45,8 +45,8 @@ class KDFPRIVATE_EXPORT COptionDialog : public KPageDialog
         void valueChanged();
 
     private:
-        KDFConfigWidget *mConf;
-        MntConfigWidget *mMnt;
+        KDFConfigWidget *mConf = nullptr;
+        MntConfigWidget *mMnt = nullptr;
         bool dataChanged;
 };
 

@@ -56,7 +56,7 @@ static bool GUI;
 #endif
 
 KDFWidget::KDFWidget( QWidget *parent, bool init )
-        : QWidget(parent), mOptionDialog(nullptr), mPopup(nullptr), mTimer(nullptr)
+        : QWidget(parent)
 {
     connect(&mDiskList , &DiskList::readDFDone,
             this, &KDFWidget::updateDFDone );

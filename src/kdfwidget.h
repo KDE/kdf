@@ -100,19 +100,19 @@ class KDFPRIVATE_EXPORT KDFWidget : public QWidget
         QIcon generateIcon( const QString &iconName , bool mode, bool mounted);
 
         bool readingDF;
-        COptionDialog *mOptionDialog;
-        QMenu    *mPopup;
-        QTimer        *mTimer;
+        COptionDialog *mOptionDialog = nullptr;
+        QMenu    *mPopup = nullptr;
+        QTimer        *mTimer = nullptr;
         DiskList   mDiskList;
         bool       mIsTopLevel;
         CStdOption mStd;
 
-        QTreeView * m_listWidget;
-        KDFItemDelegate * m_itemDelegate;
+        QTreeView * m_listWidget = nullptr;
+        KDFItemDelegate * m_itemDelegate = nullptr;
         QList<Column> m_columnList;
 
-        QStandardItemModel * m_listModel;
-        KDFSortFilterProxyModel * m_sortModel;
+        QStandardItemModel * m_listModel = nullptr;
+        KDFSortFilterProxyModel * m_sortModel = nullptr;
 };
 
 #endif
