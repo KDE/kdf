@@ -20,7 +20,6 @@ set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake)
 
 include(ECMGenerateHeaders)
 include(ECMInstallIcons)
-include(ECMPackageConfigHelpers)
 include(ECMQtDeclareLoggingCategory)
 include(ECMSetupVersion)
 include(GenerateExportHeader)
