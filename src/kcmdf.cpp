@@ -28,9 +28,13 @@
 #include "kcmdf.h"
 
 #include <QVBoxLayout>
+#include <KPluginFactory>
+#include <kpluginfactory.h>
 
-KDiskFreeWidget::KDiskFreeWidget( QWidget *parent )
-        : KCModule( parent )
+K_PLUGIN_CLASS_WITH_JSON(KDiskFreeWidget, "kcmdf.json")
+
+KDiskFreeWidget::KDiskFreeWidget( QWidget *parent, const QVariantList &args )
+        : KCModule( parent, args )
 {
     setButtons(Help);
 
@@ -52,11 +56,4 @@ QString KDiskFreeWidget::quickHelp() const
                 " or to open it in the file manager.");
 }
 
-extern "C"
-{
-    Q_DECL_EXPORT KCModule* create_kdf( QWidget *parent, const char * /*name*/ )
-    {
-        return new KDiskFreeWidget( parent );
-    }
-}
-
+#include "kcmdf.moc"

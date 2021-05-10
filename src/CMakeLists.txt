@@ -94,7 +94,7 @@ ecm_qt_declare_logging_category(kcm_kdf_PART_SRCS
                                 CATEGORY_NAME kdf.kcm DESCRIPTION "kdf (kdf kcm)" EXPORT KDF)
 
 add_library(kcm_kdf ${kcm_kdf_PART_SRCS})
-
+kcoreaddons_desktop_to_json(kcm_kdf "../desktop/kcmdf.desktop" SERVICE_TYPES kcmodule.desktop)
 target_link_libraries(kcm_kdf
     kdfprivate
     Qt5::Core

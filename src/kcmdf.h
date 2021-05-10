@@ -34,7 +34,7 @@ class KDiskFreeWidget : public KCModule
     Q_OBJECT
 
     public:
-        explicit KDiskFreeWidget( QWidget *parent = nullptr  );
+        explicit KDiskFreeWidget( QWidget *parent = nullptr, const QVariantList &args = {});
         ~KDiskFreeWidget() override;
 
         QString quickHelp() const override;
