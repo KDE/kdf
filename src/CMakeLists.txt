@@ -37,7 +37,7 @@ target_link_libraries(kdfprivate PUBLIC
 )
 
 set_target_properties(kdfprivate PROPERTIES
-    VERSION ${KDFPRIVATE_VERSION_STRING}
+    VERSION ${KDFPRIVATE_VERSION}
     SOVERSION ${KDFPRIVATE_SOVERSION}
 )
 
