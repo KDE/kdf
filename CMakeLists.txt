@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 
 project(kdf)
 
@@ -12,8 +12,8 @@ if(NOT UNIX)
   message(FATAL_ERROR "kdf is only supposed to be built on Unix platforms.")
 endif(NOT UNIX)
 
-set (QT_MIN_VERSION "5.12.0")
-set (KF5_MIN_VERSION "5.70.0")
+set (QT_MIN_VERSION "5.15.0")
+set (KF5_MIN_VERSION "5.82.0")
 
 find_package(ECM ${KF5_MIN_VERSION} CONFIG REQUIRED)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake)
