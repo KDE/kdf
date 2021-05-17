@@ -27,7 +27,7 @@ ki18n_wrap_ui(kdfprivate_SRCS
 add_library(kdfprivate ${kdfprivate_SRCS})
 generate_export_header(kdfprivate BASE_NAME kdfprivate)
 target_link_libraries(kdfprivate PUBLIC
-    Qt5::Core
+    Qt::Core
     KF5::Completion
     KF5::ConfigWidgets
     KF5::I18n
@@ -57,7 +57,7 @@ add_executable(kdf ${kdf_SRCS})
 
 target_link_libraries(kdf
     kdfprivate
-    Qt5::Core
+    Qt::Core
     KF5::XmlGui
 )
 
@@ -77,7 +77,7 @@ add_executable(kwikdisk ${kwikdisk_SRCS})
 
 target_link_libraries(kwikdisk
     kdfprivate
-    Qt5::Core
+    Qt::Core
     KF5::KIOWidgets
     KF5::Notifications
 )
@@ -97,7 +97,7 @@ add_library(kcm_kdf ${kcm_kdf_PART_SRCS})
 kcoreaddons_desktop_to_json(kcm_kdf "../desktop/kcmdf.desktop" SERVICE_TYPES kcmodule.desktop)
 target_link_libraries(kcm_kdf
     kdfprivate
-    Qt5::Core
+    Qt::Core
 )
 
 install(TARGETS kcm_kdf  DESTINATION ${KDE_INSTALL_PLUGINDIR})
