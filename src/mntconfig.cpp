@@ -332,7 +332,7 @@ void MntConfigWidget::closeEvent(QCloseEvent *)
 
 void MntConfigWidget::slotChanged()
 {
-    emit configChanged();
+    Q_EMIT configChanged();
 }
 
 

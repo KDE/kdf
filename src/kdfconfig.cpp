@@ -203,5 +203,5 @@ void KDFConfigWidget::toggleListText( QTreeWidgetItem *item, int column )
 
 void KDFConfigWidget::slotChanged()
 {
-    emit configChanged();
+    Q_EMIT configChanged();
 }

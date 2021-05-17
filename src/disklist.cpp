@@ -453,7 +453,7 @@ void DiskList::dfDone()
 
     readingDFStdErrOut=false;
     loadSettings(); //to get the mountCommands
-    emit readDFDone();
+    Q_EMIT readDFDone();
 }
 
 int DiskList::find( DiskEntry* item )
@@ -612,7 +612,7 @@ void DiskList::replaceDeviceEntry(DiskEntry * disk)
             qCDebug(KDF) << "Device " << disk->deviceName()
                          << " is critFull! " << olddisk->percentFull()
                          << "--" << disk->percentFull();
-            emit criticallyFull(disk);
+            Q_EMIT criticallyFull(disk);
         }
 
         //Take the diskentry from the list and delete it properly

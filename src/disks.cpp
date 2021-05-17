@@ -192,7 +192,7 @@ void DiskEntry::setIconName(const QString & iconName)
     else if ( icoName.right(8) == QLatin1String( "_unmount" ) )
         icoName.chop(8);
 
-    emit iconNameChanged();
+    Q_EMIT iconNameChanged();
 }
 
 void DiskEntry::setIconToDefault()
@@ -261,7 +261,7 @@ QString DiskEntry::guessIconName()
 
     //debug("device %s is %s",deviceName().latin1(),iconName.latin1());
 
-    //emit iconNameChanged();
+    //Q_EMIT iconNameChanged();
     return iconName;
 }
 
@@ -300,7 +300,7 @@ int DiskEntry::sysCall(QString & completeCommand)
     sysProc->waitForFinished(-1);
 
     if (sysProc->exitCode()!=0)
-        emit sysCallError(this, sysProc->exitStatus());
+        Q_EMIT sysCallError(this, sysProc->exitStatus());
 
     return (sysProc->exitCode());
 }
@@ -333,7 +333,7 @@ int DiskEntry::percentFull() const
 void DiskEntry::setDeviceName(const QString & deviceName)
 {
     device=deviceName;
-    emit deviceNameChanged();
+    Q_EMIT deviceNameChanged();
 }
 
 QString DiskEntry::deviceRealName() const
@@ -354,7 +354,7 @@ QString DiskEntry::deviceRealName() const
 void DiskEntry::setMountPoint(const QString & mountPoint)
 {
     mountedOn=mountPoint;
-    emit mountPointChanged();
+    Q_EMIT mountPointChanged();
 }
 
 QString DiskEntry::realMountPoint() const
@@ -366,25 +366,25 @@ QString DiskEntry::realMountPoint() const
 void DiskEntry::setMountOptions(const QString & mountOptions)
 {
     options=mountOptions;
-    emit mountOptionsChanged();
+    Q_EMIT mountOptionsChanged();
 }
 
 void DiskEntry::setFsType(const QString & fsType)
 {
     type=fsType;
-    emit fsTypeChanged();
+    Q_EMIT fsTypeChanged();
 }
 
 void DiskEntry::setMounted(bool nowMounted)
 {
     isMounted=nowMounted;
-    emit mountedChanged();
+    Q_EMIT mountedChanged();
 }
 
 void DiskEntry::setKBSize(qulonglong kb_size)
 {
     size=kb_size;
-    emit kBSizeChanged();
+    Q_EMIT kBSizeChanged();
 }
 
 void DiskEntry::setKBUsed(qulonglong kb_used)
@@ -395,7 +395,7 @@ void DiskEntry::setKBUsed(qulonglong kb_used)
         qCWarning(KDF) << "device " << device << ": kBAvail(" << avail << ")+*kBUsed(" << used << ") exceeds kBSize(" << size << ")" ;
         setKBAvail(size-used);
     }
-    emit kBUsedChanged();
+    Q_EMIT kBUsedChanged();
 }
 
 void DiskEntry::setKBAvail(qulonglong kb_avail)
@@ -406,7 +406,7 @@ void DiskEntry::setKBAvail(qulonglong kb_avail)
         qCWarning(KDF) << "device " << device << ": *kBAvail(" << avail << ")+kBUsed(" << used << ") exceeds kBSize(" << size << ")" ;
         setKBUsed(size-avail);
     }
-    emit kBAvailChanged();
+    Q_EMIT kBAvailChanged();
 }
 
 

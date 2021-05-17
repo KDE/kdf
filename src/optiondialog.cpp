@@ -65,7 +65,7 @@ void COptionDialog::slotApply()
 {
     mConf->applySettings();
     mMnt->applySettings();
-    emit valueChanged();
+    Q_EMIT valueChanged();
     button(QDialogButtonBox::Apply)->setEnabled(false);
     dataChanged = false;
 }
