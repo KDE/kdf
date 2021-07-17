@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 
-project(kdf)
-
 # KDE Application Version, managed by release script
 set (RELEASE_SERVICE_VERSION_MAJOR "21")
 set (RELEASE_SERVICE_VERSION_MINOR "11")
 set (RELEASE_SERVICE_VERSION_MICRO "70")
 set (RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_VERSION_MINOR}.${RELEASE_SERVICE_VERSION_MICRO}")
+
+project(kdf VERSION ${RELEASE_SERVICE_VERSION})
 
 if(NOT UNIX)
   message(FATAL_ERROR "kdf is only supposed to be built on Unix platforms.")
