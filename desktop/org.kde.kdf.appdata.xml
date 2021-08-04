@@ -140,4 +140,7 @@
     <binary>kdf</binary>
   </provides>
   <launchable type="desktop-id">org.kde.kdf.desktop</launchable>
+  <releases>
+    <release version="21.08.0" date="2021-08-12"/>
+  </releases>
 </component>
