@@ -13,7 +13,7 @@ if(NOT UNIX)
 endif(NOT UNIX)
 
 set (QT_MIN_VERSION "5.15.0")
-set (KF5_MIN_VERSION "5.82.0")
+set (KF5_MIN_VERSION "5.85.0")
 
 find_package(ECM ${KF5_MIN_VERSION} CONFIG REQUIRED)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake)
@@ -26,7 +26,7 @@ include(GenerateExportHeader)
 include(FeatureSummary)
 include(KDEInstallDirs)
 include(KDECMakeSettings)
-include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
+include(KDECompilerSettings NO_POLICY_SCOPE)
 
 ecm_setup_version(${RELEASE_SERVICE_VERSION} VARIABLE_PREFIX KDF
                   VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/src/kdf_version.h"

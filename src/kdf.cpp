@@ -49,12 +49,7 @@ KDFTopLevel::KDFTopLevel(QWidget *)
 
     KStandardAction::quit(this, &KDFTopLevel::close, actionCollection());
     KStandardAction::preferences(kdf, &KDFWidget::settingsBtnClicked, actionCollection());
-#if KXMLGUI_VERSION >= QT_VERSION_CHECK(5, 84, 0)
     KStandardAction::keyBindings(guiFactory(), &KXMLGUIFactory::showConfigureShortcutsDialog, actionCollection());
-#else
-    KStandardAction::keyBindings(guiFactory(), SLOT(configureShortcuts()),
-                                 actionCollection());
-#endif
     setCentralWidget(kdf);
     //  kdf->setMinimumSize(kdf->sizeHint());
     kdf->resize(kdf->sizeHint());
