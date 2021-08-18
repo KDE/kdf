@@ -59,7 +59,7 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, bool init)
         setupUi(this);
 
         QStringList headerLabels;
-        for ( const Column &c : qAsConst(m_columnList))
+        for ( const Column &c : std::as_const(m_columnList))
         {
             headerLabels << c.columnName;
         }

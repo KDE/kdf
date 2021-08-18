@@ -121,7 +121,7 @@ void KDFWidget::makeColumns( void )
 {
 
     QStringList columns;
-    for (const Column &c : qAsConst(m_columnList)){
+    for (const Column &c : std::as_const(m_columnList)){
         columns << c.columnName;
     }
     m_listModel->setHorizontalHeaderLabels( columns );
@@ -153,7 +153,7 @@ void KDFWidget::applySettings( void )
 
     if( GUI )
     {
-        for (const Column &c : qAsConst(m_columnList)){
+        for (const Column &c : std::as_const(m_columnList)){
             if( !m_listWidget->isColumnHidden( c.number ) )
                 config.writeEntry( c.name, m_listWidget->columnWidth(c.number) );
         }
@@ -184,13 +184,13 @@ void KDFWidget::loadSettings( void )
     if(GUI)
     {
         KConfigGroup config(KSharedConfig::openConfig(), "KDiskFree");
-        for (const Column &c : qAsConst(m_columnList)){
+        for (const Column &c : std::as_const(m_columnList)){
             int width = config.readEntry( c.name, c.defaultWidth );
             m_listWidget->setColumnWidth( c.number, width );
         }
 
         KConfigGroup config_visible(KSharedConfig::openConfig(), "KDFConfig");
-        for (const Column &c : qAsConst(m_columnList)){
+        for (const Column &c : std::as_const(m_columnList)){
             bool visible = config_visible.readEntry( c.name , true );
             m_listWidget->setColumnHidden( c.number, !visible );
         }
