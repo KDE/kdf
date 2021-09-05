@@ -1,9 +1,8 @@
 /*
-    SPDX-FileCopyrightText: 1999 Espen Sand espen@kde.org
-    2009 Dario Andres Rodriguez <andresbajotierra@gmail.com>
+    SPDX-FileCopyrightText: 1999 Espen Sand <espen@kde.org>
+    SPDX-FileCopyrightText: 2009 Dario Andres Rodriguez <andresbajotierra@gmail.com>
 
     SPDX-License-Identifier: GPL-2.0-or-later
-
 */
 
 #include "optiondialog.h"

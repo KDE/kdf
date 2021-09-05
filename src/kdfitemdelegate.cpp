@@ -1,6 +1,4 @@
 /*
-    kdfitemdelegate.cpp
-
     SPDX-FileCopyrightText: 2009 Dario Andres Rodriguez <andresbajotierra@gmail.com>
 
     SPDX-License-Identifier: GPL-2.0-or-later

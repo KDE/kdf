@@ -1,8 +1,6 @@
 /*
     SPDX-FileCopyrightText: 1999 Espen Sand espen@kde.org
-
     SPDX-License-Identifier: GPL-2.0-or-later
-
 */
 
 #ifndef COPTIONDIALOG_H

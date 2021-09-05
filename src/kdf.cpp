@@ -1,10 +1,6 @@
 /*
-    kdf.cpp - KDiskFree
-
     SPDX-FileCopyrightText: 1998-2001 Michael Kropfberger <michael.kropfberger@gmx.net>
-
     SPDX-License-Identifier: GPL-2.0-or-later
-
 */
 
 #include "kdf.h"

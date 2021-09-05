@@ -1,8 +1,5 @@
 /*
-    disks.h
-
     SPDX-FileCopyrightText: 1998 Michael Kropfberger <michael.kropfberger@gmx.net>
-
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 

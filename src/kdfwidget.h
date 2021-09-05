@@ -1,8 +1,6 @@
 /*
-    kdfwidget.h
-
     SPDX-FileCopyrightText: 1998 Michael Kropfberger <michael.kropfberger@gmx.net>
-    2009 Dario Andres Rodriguez <andresbajotierra@gmail.com>
+    SPDX-FileCopyrightText: 2009 Dario Andres Rodriguez <andresbajotierra@gmail.com>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */

@@ -1,10 +1,6 @@
 /*
-kcmdf.h - KDiskFree
-
-SPDX-FileCopyrightText: 1999 Michael Kropfberger <michael.kropfberger@gmx.net>
-
-SPDX-License-Identifier: GPL-2.0-or-later
-
+    SPDX-FileCopyrightText: 1999 Michael Kropfberger <michael.kropfberger@gmx.net>
+    SPDX-License-Identifier: GPL-2.0-or-later
 */
 
 
