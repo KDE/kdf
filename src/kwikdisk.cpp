@@ -253,7 +253,9 @@ void KwikDisk::toggleMount(QAction * action)
             {
                 cmd += QLatin1Char( ' ' ) + KShell::quoteArg(disk->mountPoint());
             }
-            QProcess::startDetached(cmd, QStringList());
+            QStringList argList = cmd.split(QLatin1Char( ' ' ), Qt::SkipEmptyParts);
+            cmd = argList.takeFirst();
+            QProcess::startDetached(cmd, argList);
         }
     }
     m_dirty = true;
