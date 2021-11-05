@@ -12,6 +12,16 @@ set(kdfprivate_SRCS
     disks.cpp
     optiondialog.cpp
     stdoption.cpp
+    kdfconfig.h
+    optiondialog.h
+    kdfwidget.h
+    mntconfig.h
+    kdfutil.h
+    stdoption.h
+    disks.h
+    kdfsortproxymodel.h
+    kdfitemdelegate.h
+    disklist.h
 )
 
 ecm_qt_declare_logging_category(kdfprivate_SRCS
@@ -46,7 +56,7 @@ install(TARGETS kdfprivate ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_
 
 ########### kdf executable ###############
 
-set(kdf_SRCS kdf.cpp)
+set(kdf_SRCS kdf.cpp kdf.h)
 
 ecm_qt_declare_logging_category(kdf_SRCS
                                 HEADER kdf_debug.h
@@ -66,7 +76,7 @@ install(TARGETS kdf  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
 
 ########### kwikdisk executable ###############
 
-set(kwikdisk_SRCS kwikdisk.cpp)
+set(kwikdisk_SRCS kwikdisk.cpp kwikdisk.h)
 
 ecm_qt_declare_logging_category(kwikdisk_SRCS
                                 HEADER kwikdisk_debug.h
@@ -87,7 +97,7 @@ install(TARGETS kwikdisk  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
 
 ########### kdf KCM ###############
 
-set(kcm_kdf_PART_SRCS kcmdf.cpp)
+set(kcm_kdf_PART_SRCS kcmdf.cpp kcmdf.h)
 ecm_qt_declare_logging_category(kcm_kdf_PART_SRCS
                                 HEADER kcmdf_debug.h
                                 IDENTIFIER KDF
