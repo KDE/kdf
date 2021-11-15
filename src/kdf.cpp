@@ -17,9 +17,6 @@
 #include <QApplication>
 #include <QCommandLineParser>
 
-static const char description[] =
-    I18N_NOOP("KDE free disk space utility");
-
 /***************************************************************/
 KDFTopLevel::KDFTopLevel(QWidget *)
         : KXmlGuiWindow(nullptr)
@@ -60,7 +57,7 @@ int main(int argc, char **argv)
     KAboutData aboutData(QStringLiteral("kdf"),
                          i18n("KDiskFree"),
                          QStringLiteral(KDF_VERSION_STRING),
-                         i18n(description),
+                         i18n("KDE free disk space utility"),
                          KAboutLicense::GPL,
                          i18n("(c) 1998-2001, Michael Kropfberger"),
                          QString(),

@@ -37,9 +37,6 @@
 
 #include <unistd.h>
 
-static const char description[] =
-    I18N_NOOP("KDE Free disk space utility");
-
 /*****************************************************************************/
 
 KwikDisk::KwikDisk()
@@ -311,7 +308,7 @@ int main(int argc, char **argv)
     KAboutData aboutData(QStringLiteral("kwikdisk"),
                      i18n("KwikDisk"),
                      QStringLiteral(KDF_VERSION_STRING),
-                     i18n(description),
+                     i18n("KDE Free disk space utility"),
                      KAboutLicense::GPL,
                      i18n("(C) 2004 Stanislav Karchebny"),
                      QString(),
