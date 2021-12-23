@@ -330,15 +330,16 @@ void KDFWidget::updateDFDone( void ){
 
 QIcon KDFWidget::generateIcon( const QString &iconName, bool mode, bool mounted)
 {
-    QPixmap pix = SmallIcon(iconName);
+    const int smallIcon = qApp->style()->pixelMetric(QStyle::PM_SmallIconSize);
+    QPixmap pix = QIcon::fromTheme( iconName ).pixmap(smallIcon);
 
     QPainter painter(&pix);
 
     if( mode )
-        painter.drawPixmap( QRect(0,6,10,10), SmallIcon(QStringLiteral( "object-locked" )) );
+        painter.drawPixmap( QRect(0,6,10,10), QIcon::fromTheme(QStringLiteral( "object-locked" )).pixmap(smallIcon) );
 
     if( mounted )
-        painter.drawPixmap( QRect(6,6,12,12) , SmallIcon(QStringLiteral( "emblem-mounted" )) );
+        painter.drawPixmap( QRect(6,6,12,12) , QIcon::fromTheme(QStringLiteral( "emblem-mounted" )).pixmap(smallIcon) );
 
     painter.end();
     return QIcon(pix);
@@ -425,7 +426,7 @@ void KDFWidget::contextMenuRequested( const QPoint &p )
         FreeItem->setText( i18n("MOUNTING") );
 
         QStandardItem * IconItem = m_listModel->item( index.row() , IconCol );
-        IconItem->setIcon( SmallIcon(QLatin1String( "user-away" )) );
+        IconItem->setIcon( QIcon::fromTheme(QStringLiteral( "user-away" )) );
 
         int val = disk->toggleMount();
         if( val != 0 /*== false*/ )

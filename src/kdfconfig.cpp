@@ -55,9 +55,9 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, bool init)
                  this, &KDFConfigWidget::toggleListText );
         connect( m_listWidget, &QTreeWidget::itemClicked,
                  this, &KDFConfigWidget::slotChanged );
-
-        iconVisible = MainBarIcon( QStringLiteral( "dialog-ok-apply" ) );
-        iconHidden = MainBarIcon( QStringLiteral( "dialog-cancel" ) );
+        const int smallIcon = qApp->style()->pixelMetric(QStyle::PM_ToolBarIconSize);
+        iconVisible = QIcon::fromTheme( QStringLiteral( "dialog-ok-apply" ) ).pixmap(smallIcon);
+        iconHidden = QIcon::fromTheme( QStringLiteral( "dialog-cancel" ) ).pixmap(smallIcon);
 
         QTreeWidgetItem * item = new QTreeWidgetItem( m_listWidget );
         for( int i=0; i < m_columnList.size(); i++ )

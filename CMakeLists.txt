@@ -45,7 +45,6 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
     ConfigWidgets
     CoreAddons
-    DocTools
     I18n
     IconThemes
     KIO
@@ -54,11 +53,16 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
     WidgetsAddons
     XmlGui
 )
+find_package(KF5DocTools ${KF5_MIN_VERSION})
+set_package_properties(KF5DocTools PROPERTIES DESCRIPTION
+    "Tools to generate documentation"
+    TYPE OPTIONAL
+)
 
 add_definitions(
     -DQT_DISABLE_DEPRECATED_BEFORE=0x050F00
     -DQT_DEPRECATED_WARNINGS_SINCE=0x060000
-    #-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055800
+    -DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055800
     -DKF_DEPRECATED_WARNINGS_SINCE=0x060000
 )
 
@@ -67,7 +71,6 @@ if (CMAKE_UNITY_BUILD)
 endif()
 
 add_subdirectory(desktop)
-add_subdirectory(doc)
 add_subdirectory(pics)
 add_subdirectory(src)
 ecm_qt_install_logging_categories(
@@ -75,7 +78,11 @@ ecm_qt_install_logging_categories(
         FILE kdf.categories
         DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
         )
-ki18n_install(po)
+if(KF5DocTools_FOUND)
+    kdoctools_install(po)
+    add_subdirectory(doc)
+endif()
+
 kdoctools_install(po)
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 

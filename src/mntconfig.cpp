@@ -116,7 +116,7 @@ void MntConfigWidget::readDFDone( void )
         DiskEntry * disk = *itr;
         item = new QTreeWidgetItem( m_listWidget, QStringList() << QString() << disk->deviceName()
                                     << disk->mountPoint() << disk->mountCommand() << disk->umountCommand() );
-        item->setIcon( IconCol, SmallIcon( disk->iconName() ) );
+        item->setIcon( IconCol, QIcon::fromTheme( disk->iconName() ) );
     }
 
     /*
@@ -210,7 +210,8 @@ void MntConfigWidget::iconChanged(const QString &iconName)
     disk->setIconName(iconName);
     mIconLineEdit->setText(iconName);
 
-    QPixmap icon = SmallIcon( iconName );
+    const int smallIcon = qApp->style()->pixelMetric(QStyle::PM_SmallIconSize);
+    const QPixmap icon = QIcon::fromTheme( iconName ).pixmap(smallIcon);
     item->setIcon( IconCol, icon );
     mIconButton->setIcon( icon );
 
