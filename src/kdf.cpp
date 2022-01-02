@@ -6,7 +6,6 @@
 #include "kdf.h"
 
 #include "kdf_version.h"
-#include <kxmlgui_version.h>
 #include <KAboutData>
 #include <KXMLGUIFactory>
 #include <KStandardShortcut>
