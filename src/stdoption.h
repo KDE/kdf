@@ -29,12 +29,14 @@ class KDFPRIVATE_EXPORT CStdOption
         int     updateFrequency() const;
         bool    popupIfFull() const;
         bool    openFileManager() const;
+        bool    useSystemFileManager() const;
 
         void setDefault( );
         void setFileManager( const QString &fileManager );
         void setUpdateFrequency( int frequency );
         void setPopupIfFull( bool popupIfFull );
         void setOpenFileManager( bool openFileManagerOnMount );
+        void setUseSystemFileManager( bool useSystemFileManager );
 
     private:
         static QString mDefaultFileManager;
@@ -43,6 +45,7 @@ class KDFPRIVATE_EXPORT CStdOption
         int     mUpdateFrequency;
         bool    mPopupIfFull;
         bool    mOpenFileManagerOnMount;
+        bool    mUseSystemFileManager;
 };
 
 #endif

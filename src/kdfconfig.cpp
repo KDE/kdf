@@ -72,6 +72,10 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, bool init)
 
         connect(mFileManagerEdit,&QLineEdit::textChanged,this,&KDFConfigWidget::slotChanged);
 
+        connect(mSystemFileManagerCheck,&QAbstractButton::toggled,this,&KDFConfigWidget::slotChanged);
+        connect(mSystemFileManagerCheck,&QAbstractButton::toggled,mFileManagerEdit,&QWidget::setDisabled);
+        connect(mSystemFileManagerCheck,&QAbstractButton::toggled,fileManagerEdit,&QWidget::setDisabled);
+
         connect(mOpenMountCheck,&QAbstractButton::toggled,this,&KDFConfigWidget::slotChanged);
 
         connect(mPopupFullCheck,&QAbstractButton::toggled,this,&KDFConfigWidget::slotChanged);
@@ -110,6 +114,7 @@ void KDFConfigWidget::applySettings( void )
         mStd.setUpdateFrequency( m_updateSpinBox->value() );
         mStd.setPopupIfFull( mPopupFullCheck->isChecked() );
         mStd.setOpenFileManager( mOpenMountCheck->isChecked() );
+        mStd.setUseSystemFileManager( mSystemFileManagerCheck->isChecked() );
         mStd.writeConfiguration();
 
         QTreeWidgetItem * item = m_listWidget->topLevelItem(0);
@@ -138,7 +143,11 @@ void KDFConfigWidget::loadSettings( void )
         m_updateSpinBox->setValue( mStd.updateFrequency() );
         mPopupFullCheck->setChecked( mStd.popupIfFull() );
         mOpenMountCheck->setChecked( mStd.openFileManager() );
+        mSystemFileManagerCheck->setChecked( mStd.useSystemFileManager() );
         mFileManagerEdit->setText( mStd.fileManager() );
+
+        mFileManagerEdit->setEnabled( !mStd.useSystemFileManager() );
+        fileManagerEdit->setEnabled( !mStd.useSystemFileManager() );
 
         QTreeWidgetItem * item = m_listWidget->topLevelItem(0);
         for( int i=0; i < m_columnList.size(); i++ )
@@ -160,6 +169,7 @@ void KDFConfigWidget::defaultsBtnClicked( void )
     m_updateSpinBox->setValue( mStd.updateFrequency() );
     mPopupFullCheck->setChecked( mStd.popupIfFull() );
     mOpenMountCheck->setChecked( mStd.openFileManager() );
+    mSystemFileManagerCheck->setChecked( mStd.useSystemFileManager() );
     mFileManagerEdit->setText( mStd.fileManager() );
 
     QTreeWidgetItem * item = m_listWidget->topLevelItem(0);

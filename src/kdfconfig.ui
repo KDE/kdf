@@ -49,28 +49,35 @@
      </property>
     </widget>
    </item>
-   <item row="5" column="0" colspan="2">
+   <item row="6" column="0" colspan="2">
     <widget class="QCheckBox" name="mOpenMountCheck">
      <property name="text">
       <string>Open file manager automatically on mount</string>
      </property>
     </widget>
    </item>
-   <item row="6" column="0" colspan="2">
+   <item row="7" column="0" colspan="2">
     <widget class="QCheckBox" name="mPopupFullCheck">
      <property name="text">
       <string>Pop up a window when a disk gets critically full</string>
      </property>
     </widget>
    </item>
-   <item row="2" column="0">
+   <item row="2" column="0" colspan="2">
+    <widget class="QCheckBox" name="mSystemFileManagerCheck">
+     <property name="text">
+      <string>Use system default file manager</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0">
     <widget class="QLabel" name="fileManagerEdit">
      <property name="text">
       <string>File manager (e.g. konsole -e mc %m):</string>
      </property>
     </widget>
    </item>
-   <item row="2" column="1">
+   <item row="3" column="1">
     <widget class="KLineEdit" name="mFileManagerEdit"/>
    </item>
   </layout>

@@ -31,6 +31,8 @@
 #include <QPainter>
 #include <QMenu>
 #include <QProcess>
+#include <QDesktopServices>
+#include <QUrl>
 
 //This aren't used here...
 //#define BAR_COLUMN   7
@@ -450,7 +452,11 @@ void KDFWidget::contextMenuRequested( const QPoint &p )
     if( openFileManager == true )
     {
         qCDebug(KDF) << "opening filemanager";
-        if(  mStd.fileManager().isEmpty() == false )
+        if( mStd.useSystemFileManager() == true )
+        {
+            QDesktopServices::openUrl( QUrl::fromLocalFile( disk->mountPoint() ) );
+        }
+        else if(  mStd.fileManager().isEmpty() == false )
         {
             QString cmd = mStd.fileManager();
             int pos = cmd.indexOf(QLatin1String( "%m" ));

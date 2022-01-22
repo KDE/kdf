@@ -38,6 +38,8 @@ void CStdOption::updateConfiguration()
                        "PopupIfFull", true );
     mOpenFileManagerOnMount = config.readEntry(
                                   "OpenFileMgrOnMount", false );
+    mUseSystemFileManager = config.readEntry(
+                       "UseSystemFileMgr", true);
 }
 
 
@@ -48,6 +50,7 @@ void CStdOption::writeConfiguration()
     config.writePathEntry( "FileManagerCommand", mFileManager );
     config.writeEntry( "PopupIfFull", mPopupIfFull );
     config.writeEntry( "OpenFileMgrOnMount", mOpenFileManagerOnMount );
+    config.writeEntry( "UseSystemFileMgr", mUseSystemFileManager);
     config.sync();
 }
 
@@ -85,12 +88,19 @@ bool CStdOption::openFileManager() const
 }
 
 
+bool CStdOption::useSystemFileManager() const
+{
+    return( mUseSystemFileManager );
+}
+
+
 void CStdOption::setDefault()
 {
     mFileManager     = mDefaultFileManager;
     mUpdateFrequency = mDefaultUpdateFrequency;
     mPopupIfFull     = true;
     mOpenFileManagerOnMount = false;
+    mUseSystemFileManager   = true;
 }
 
 
@@ -115,5 +125,11 @@ void CStdOption::setPopupIfFull( bool popupIfFull )
 void CStdOption::setOpenFileManager( bool openFileManagerOnMount )
 {
     mOpenFileManagerOnMount = openFileManagerOnMount;
+}
+
+
+void CStdOption::setUseSystemFileManager( bool useSystemFileManager )
+{
+    mUseSystemFileManager = useSystemFileManager;
 }
 
