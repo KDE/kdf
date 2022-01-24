@@ -79,6 +79,13 @@ KDFConfigWidget::KDFConfigWidget(QWidget *parent, bool init)
         connect(mOpenMountCheck,&QAbstractButton::toggled,this,&KDFConfigWidget::slotChanged);
 
         connect(mPopupFullCheck,&QAbstractButton::toggled,this,&KDFConfigWidget::slotChanged);
+
+        if(!QStandardPaths::locate(QStandardPaths::RuntimeLocation, QLatin1String("flatpak-info")).isEmpty())
+        {
+            mFlatpakLabel->setVisible( true );
+            mSystemFileManagerCheck->setEnabled( false );
+            mFileManagerEdit->setEnabled( false );
+        }
     }
 
     loadSettings();

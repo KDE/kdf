@@ -80,6 +80,21 @@
    <item row="3" column="1">
     <widget class="KLineEdit" name="mFileManagerEdit"/>
    </item>
+   <item row="4" column="0" colspan="2">
+    <widget class="QLabel" name="mFlatpakLabel">
+     <property name="visible">
+      <bool>false</bool>
+     </property>
+     <property name="font">
+      <font>
+       <italic>true</italic>
+      </font>
+     </property>
+     <property name="text">
+      <string>Custom file manager not supported when running as Flatpak.</string>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <customwidgets>
