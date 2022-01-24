@@ -148,7 +148,7 @@ void MntConfigWidget::applySettings( void )
 void MntConfigWidget::loadSettings( void )
 {
     KConfigGroup config = KSharedConfig::openConfig()->group("MntConfig");
-    if( mInitializing == false && GUI )
+    if( !mInitializing && GUI )
     {
         if( isTopLevel() )
         {

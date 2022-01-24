@@ -235,10 +235,10 @@ void KwikDisk::toggleMount(QAction * action)
     {
         KMessageBox::error(nullptr, disk->lastSysError());
     }
-    else if( (m_options.openFileManager() == true) && (disk->mounted() == true ) )
+    else if( m_options.openFileManager() && ( disk->mounted() ) )
     {
         qCDebug(KDF) << "opening filemanager";
-        if( m_options.fileManager().isEmpty() == false )
+        if( !m_options.fileManager().isEmpty() )
         {
             QString cmd = m_options.fileManager();
             int pos = cmd.indexOf(QLatin1String( "%m" ));

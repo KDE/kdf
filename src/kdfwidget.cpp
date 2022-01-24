@@ -212,7 +212,7 @@ void KDFWidget::loadSettings( void )
 **/
 void KDFWidget::settingsBtnClicked( void )
 {
-    if( mIsTopLevel == true )
+    if( mIsTopLevel )
     {
         if( mOptionDialog == nullptr )
         {
@@ -350,7 +350,7 @@ QIcon KDFWidget::generateIcon( const QString &iconName, bool mode, bool mounted)
 
 void KDFWidget::criticallyFull( DiskEntry *disk )
 {
-    if( mStd.popupIfFull() == true )
+    if( mStd.popupIfFull() )
     {
         QString msg = i18n("Device [%1] on [%2] is critically full.",
                            disk->deviceName(), disk->mountPoint());
@@ -435,7 +435,7 @@ void KDFWidget::contextMenuRequested( const QPoint &p )
         {
             KMessageBox::error( this, disk->lastSysError() );
         }
-        else if ( ( mStd.openFileManager() == true)
+        else if ( mStd.openFileManager()
                   && (position == mountPointAction) ) //only on mount
         {
             openFileManager = true;
@@ -449,14 +449,14 @@ void KDFWidget::contextMenuRequested( const QPoint &p )
         openFileManager = true;
     }
 
-    if( openFileManager == true )
+    if( openFileManager )
     {
         qCDebug(KDF) << "opening filemanager";
-        if( mStd.useSystemFileManager() == true )
+        if( mStd.useSystemFileManager() )
         {
             QDesktopServices::openUrl( QUrl::fromLocalFile( disk->mountPoint() ) );
         }
-        else if(  mStd.fileManager().isEmpty() == false )
+        else if( !mStd.fileManager().isEmpty() )
         {
             QString cmd = mStd.fileManager();
             int pos = cmd.indexOf(QLatin1String( "%m" ));
