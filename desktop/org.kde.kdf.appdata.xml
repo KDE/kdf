@@ -4,6 +4,7 @@
   <metadata_license>FSFAP</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>KDiskFree</name>
+  <name xml:lang="ar">المساحة المتبقية</name>
   <name xml:lang="ca">KDiskFree</name>
   <name xml:lang="ca-valencia">KDiskFree</name>
   <name xml:lang="cs">KDiskFree</name>
@@ -35,6 +36,7 @@
   <name xml:lang="zh-CN">KDiskFree</name>
   <name xml:lang="zh-TW">KDiskFree</name>
   <summary>View Disk Usage</summary>
+  <summary xml:lang="ar">اعرض استخدام القرص</summary>
   <summary xml:lang="ca">Veure l'ús del disc</summary>
   <summary xml:lang="ca-valencia">Veure l'ús del disc</summary>
   <summary xml:lang="cs">Zobrazení využití disku</summary>
@@ -68,6 +70,7 @@
     <p>
      KDiskFree displays the available file devices (hard drive partitions, floppy and CD drives, etc.) along with information on their capacity, free space, type and mount point. It also allows you to mount and unmount drives and view them in a file manager.
     </p>
+    <p xml:lang="ar">يعرض تطبيق المساحة المتبقية أجهزة الملفات المتاحة (أقسام القرص الصلب ومحركات الأقراص المرنة والأقراص المضغوطة وما إلى ذلك) بالإضافة إلى معلومات عن سعتها ومساحتها الخالية ونوعها ونقطة الضّم. كما يسمح لك أيضًا بتركيب وإلغاء تحميل محركات الأقراص وعرضها في مدير الملفات.</p>
     <p xml:lang="ca">El KDiskFree mostra els dispositius de fitxers disponibles (particions de disc dur, disquets i unitats de CD, etc.) juntament amb informació sobre la seva capacitat, espai lliure, tipus i punt de muntatge. També permet muntar i desmuntar les unitats i veure-les en un gestor de fitxers.</p>
     <p xml:lang="ca-valencia">El KDiskFree mostra els dispositius de fitxers disponibles (particions de disc dur, disquets i unitats de CD, etc.) juntament amb informació sobre la seua capacitat, espai lliure, tipus i punt de muntatge. També permet muntar i desmuntar les unitats i veure-les en un gestor de fitxers.</p>
     <p xml:lang="de">KDiskFree zeigt die verfügbaren Plattenbereiche an (Partitionen auf Festplatten, Disketten, CD-Laufwerke, USB-Sticks usw.). Zu jedem Bereich wird die Gesamtgröße, der freie Bereich, das Dateisystem und der Ort des Einhängens ins Dateisystem (Einhängepunkt) angezeigt. Mit KDiskFree können auch (sofern die Berechtigung vorhanden ist) Laufwerke ein- bzw. ausgehängt und die Dateiverwaltung mit der Anzeige für dieses Laufwerk geöffnet werden.</p>
@@ -103,6 +106,7 @@
   <screenshots>
     <screenshot type="default">
       <caption>KDiskFree main window</caption>
+      <caption xml:lang="ar">نافذة المساحة المتبقية</caption>
       <caption xml:lang="ca">Finestra principal del KDiskFree</caption>
       <caption xml:lang="ca-valencia">Finestra principal del KDiskFree</caption>
       <caption xml:lang="cs">Hlavní okno KDiskFree</caption>
