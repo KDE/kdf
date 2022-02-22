@@ -13,7 +13,7 @@ if(NOT UNIX)
 endif(NOT UNIX)
 
 set (QT_MIN_VERSION "5.15.0")
-set (KF5_MIN_VERSION "5.90.0")
+set (KF5_MIN_VERSION "5.91.0")
 
 find_package(ECM ${KF5_MIN_VERSION} CONFIG REQUIRED)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake)
@@ -27,6 +27,8 @@ include(FeatureSummary)
 include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
+include(ECMDeprecationSettings)
+
 
 ecm_setup_version(${RELEASE_SERVICE_VERSION} VARIABLE_PREFIX KDF
                   VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/src/kdf_version.h"
@@ -59,11 +61,8 @@ set_package_properties(KF5DocTools PROPERTIES DESCRIPTION
     TYPE OPTIONAL
 )
 
-add_definitions(
-    -DQT_DISABLE_DEPRECATED_BEFORE=0x050F00
-    -DQT_DEPRECATED_WARNINGS_SINCE=0x060000
-    -DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055900
-    -DKF_DEPRECATED_WARNINGS_SINCE=0x060000
+ecm_set_disabled_deprecation_versions(QT 5.15.2
+    KF 5.91
 )
 
 if (CMAKE_UNITY_BUILD)
