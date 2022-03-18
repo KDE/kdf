@@ -77,11 +77,11 @@ ecm_qt_install_logging_categories(
         FILE kdf.categories
         DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
         )
+ki18n_install(po)
 if(KF5DocTools_FOUND)
     kdoctools_install(po)
     add_subdirectory(doc)
 endif()
 
-kdoctools_install(po)
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
