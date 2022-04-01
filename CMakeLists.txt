@@ -12,8 +12,8 @@ if(NOT UNIX)
   message(FATAL_ERROR "kdf is only supposed to be built on Unix platforms.")
 endif(NOT UNIX)
 
-set (QT_MIN_VERSION "5.15.0")
-set (KF5_MIN_VERSION "5.91.0")
+set (QT_MIN_VERSION "5.15.2")
+set (KF5_MIN_VERSION "5.92.0")
 
 find_package(ECM ${KF5_MIN_VERSION} CONFIG REQUIRED)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake)
@@ -62,7 +62,7 @@ set_package_properties(KF5DocTools PROPERTIES DESCRIPTION
 )
 
 ecm_set_disabled_deprecation_versions(QT 5.15.2
-    KF 5.91
+    KF 5.92
 )
 
 if (CMAKE_UNITY_BUILD)
