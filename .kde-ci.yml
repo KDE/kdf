@@ -13,3 +13,5 @@ Dependencies:
     'frameworks/kdoctools' : '@latest'
     'frameworks/extra-cmake-modules': '@latest'
 
+Options:
+  require-passing-tests-on: [ 'Linux', 'FreeBSD']
