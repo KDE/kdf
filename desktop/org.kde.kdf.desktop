@@ -143,6 +143,7 @@ GenericName[zh_CN]=查看磁盘使用状况
 GenericName[zh_TW]=檢視磁碟使用情形
 Comment=Displays information about hard disks and other storage devices
 Comment[ar]=يعرض معلومات حول الأقراص الثابتة وأجهزة التخزين الأخرى
+Comment[bg]=Показва информация за твърдите дискове и други съхраняващи устройства
 Comment[ca]=Mostra la informació sobre els discs durs i altres dispositius d'emmagatzematge
 Comment[ca@valencia]=Mostra la informació sobre els discs durs i altres dispositius d'emmagatzematge
 Comment[cs]=Zobrazí informace o pevných discích a jiných úložných zařízeních
