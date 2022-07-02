@@ -5,6 +5,7 @@
   <project_license>GPL-2.0+</project_license>
   <name>KDiskFree</name>
   <name xml:lang="ar">المساحة المتبقية</name>
+  <name xml:lang="bg">KDiskFree</name>
   <name xml:lang="ca">KDiskFree</name>
   <name xml:lang="ca-valencia">KDiskFree</name>
   <name xml:lang="cs">KDiskFree</name>
@@ -38,6 +39,7 @@
   <name xml:lang="zh-TW">KDiskFree</name>
   <summary>View Disk Usage</summary>
   <summary xml:lang="ar">اعرض استخدام القرص</summary>
+  <summary xml:lang="bg">Преглед на използването на диска</summary>
   <summary xml:lang="ca">Veure l'ús del disc</summary>
   <summary xml:lang="ca-valencia">Veure l'ús del disc</summary>
   <summary xml:lang="cs">Zobrazení využití disku</summary>
@@ -74,6 +76,7 @@
      KDiskFree displays the available file devices (hard drive partitions, floppy and CD drives, etc.) along with information on their capacity, free space, type and mount point. It also allows you to mount and unmount drives and view them in a file manager.
     </p>
     <p xml:lang="ar">يعرض تطبيق المساحة المتبقية أجهزة الملفات المتاحة (أقسام القرص الصلب ومحركات الأقراص المرنة والأقراص المضغوطة وما إلى ذلك) بالإضافة إلى معلومات عن سعتها ومساحتها الخالية ونوعها ونقطة الضّم. كما يسمح لك أيضًا بتركيب وإلغاء تحميل محركات الأقراص وعرضها في مدير الملفات.</p>
+    <p xml:lang="bg">KDiskFree показва наличните файлови устройства (дялове на твърдия диск, флопи и CD дискове и др.), заедно с информация за техния размер, свободно пространство, тип и точка на монтиране. Той също така ви позволява да монтирате и демонтирате устройства и да ги преглеждате във файлов мениджър.</p>
     <p xml:lang="ca">El KDiskFree mostra els dispositius de fitxers disponibles (particions de disc dur, disquets i unitats de CD, etc.) juntament amb informació sobre la seva capacitat, espai lliure, tipus i punt de muntatge. També permet muntar i desmuntar les unitats i veure-les en un gestor de fitxers.</p>
     <p xml:lang="ca-valencia">KDiskFree mostra els dispositius de fitxers disponibles (particions de disc dur, disquets i unitats de CD, etc.) juntament amb informació sobre la seua capacitat, espai lliure, tipus i punt de muntatge. També permet muntar i desmuntar les unitats i veure-les en un gestor de fitxers.</p>
     <p xml:lang="da">KDiskFree viser de tilgængelige filenheder (harddiskpartitioner, diskette- og cd-drev, osv.) med information om deres kapacitet, ledig plads, type og monteringspunkt. Det lader dig også montere og afmontere drev og se dem i filhåndteringen.</p>
@@ -112,6 +115,7 @@
     <screenshot type="default">
       <caption>KDiskFree main window</caption>
       <caption xml:lang="ar">نافذة المساحة المتبقية</caption>
+      <caption xml:lang="bg">Основен прозорец на KDiskFree</caption>
       <caption xml:lang="ca">Finestra principal del KDiskFree</caption>
       <caption xml:lang="ca-valencia">Finestra principal de KDiskFree</caption>
       <caption xml:lang="cs">Hlavní okno KDiskFree</caption>
