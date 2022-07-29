@@ -239,7 +239,7 @@ void MntConfigWidget::selectMntFile()
 
     if( !url.isLocalFile() )
     {
-        KMessageBox::sorry( nullptr, i18n( "Only local files supported." ) );
+        KMessageBox::error( nullptr, i18n( "Only local files supported." ) );
         return;
     }
 
@@ -255,7 +255,7 @@ void MntConfigWidget::selectUmntFile()
 
     if( !url.isLocalFile() )
     {
-        KMessageBox::sorry( nullptr, i18n( "Only local files are currently supported." ) );
+        KMessageBox::error( nullptr, i18n( "Only local files are currently supported." ) );
         return;
     }
 

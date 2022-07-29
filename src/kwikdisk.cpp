@@ -266,7 +266,7 @@ void KwikDisk::criticallyFull(DiskEntry *disk)
     {
         QString msg = i18n("Device [%1] on [%2] is critically full.",
                            disk->deviceName(), disk->mountPoint());
-        KMessageBox::sorry( nullptr, msg, i18nc("Device is getting critically full", "Warning"));
+        KMessageBox::error( nullptr, msg, i18nc("Device is getting critically full", "Warning"));
     }
 }
 

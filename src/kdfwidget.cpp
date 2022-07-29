@@ -354,7 +354,7 @@ void KDFWidget::criticallyFull( DiskEntry *disk )
     {
         QString msg = i18n("Device [%1] on [%2] is critically full.",
                            disk->deviceName(), disk->mountPoint());
-        KMessageBox::sorry( this, msg, i18nc("Warning device getting critically full", "Warning"));
+        KMessageBox::error( this, msg, i18nc("Warning device getting critically full", "Warning"));
     }
 }
 
