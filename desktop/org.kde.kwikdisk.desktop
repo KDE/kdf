@@ -182,5 +182,4 @@ Comment[uk]=Піктограма на панелі для монтування �
 Comment[x-test]=xxPanel icon to mount and unmount disksxx
 Comment[zh_CN]=挂载和卸载磁盘的面板图标
 Comment[zh_TW]=一個面板圖示用於掛載與解除掛載磁碟
-Terminal=false
 Categories=Qt;KDE;System;
