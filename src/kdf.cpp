@@ -66,7 +66,6 @@ int main(int argc, char **argv)
                          QString()
                         );
 
-    aboutData.setOrganizationDomain("kde.org");
     aboutData.addAuthor(i18n("Michael Kropfberger"),
                         QString(),
                         QStringLiteral("michael.kropfberger@gmx.net"));
