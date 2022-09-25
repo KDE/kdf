@@ -13,7 +13,6 @@
 #include "kdfconfig.h"
 
 #include <KConfigGroup>
-#include <KLineEdit>
 
 #include <QCheckBox>
 #include <QCloseEvent>

@@ -13,8 +13,6 @@
 #include "mntconfig.h"
 
 #include <KMessageBox>
-#include <KLineEdit>
-#include <KCModule>
 #include <KIconLoader>
 #include <KConfigGroup>
 #include <KSharedConfig>
