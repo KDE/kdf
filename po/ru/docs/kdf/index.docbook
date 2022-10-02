@@ -1,0 +1,399 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&kdiskfree;">
+  <!ENTITY package "kdeutils">
+  <!ENTITY % Russian "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>Руководство &kdiskfree;</title>
+
+<authorgroup>
+<author
+>&Jonathan.Singer; &Jonathan.Singer.mail; </author>
+
+<author
+>&Michael.Kropfberger; &Michael.Kropfberger.mail; </author>
+
+<othercredit role="translator"
+><firstname
+>Олег</firstname
+> <surname
+>Баталов</surname
+> <affiliation
+><address
+> <email
+>batalov@twiga.kz</email
+></address
+></affiliation
+><contrib
+>Перевод на русский</contrib
+></othercredit
+> 
+
+</authorgroup>
+
+<copyright>
+<year
+>2000-2002</year>
+<holder
+>&Jonathan.Singer;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>12 января 2010 г.</date>
+<releaseinfo
+>v0.11 (&kde; 4.4)</releaseinfo>
+
+<abstract
+><para
+>&kdiskfree; отображает список доступных файловых устройств, вместе с информацией о них.</para>
+
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdf</keyword>
+<keyword
+>kdeutils</keyword>
+<keyword
+>disks</keyword>
+<keyword
+>devices</keyword>
+<keyword
+>mount</keyword>
+<keyword
+>unmount</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Введение</title>
+
+<para
+>&kdiskfree; отображает информацию о доступных файловых устройствах (жестких дисках, дискетах, &CD;, &etc;) совместно с информацией о их размере, свободном пространстве, типе и точке монтирования. Это позволяет вам монтировать, отмонтировать устройства и открывать их в файловом менеджере.</para>
+
+<para
+>&kdiskfree; аналогичен модулю разделов дисков в Центре информации о системе, но занимает на экране меньше места. Это бывает полезно, если вы хотите держать &kdiskfree; на экране постоянно.</para>
+
+</chapter>
+
+<chapter id="using-kdf">
+<title
+>Использование &kdiskfree;</title>
+
+<sect1 id="starting-kdf">
+<title
+>Запуск &kdiskfree;</title
+> 
+
+<para
+>Наберите в командной строке <userinput
+><command
+>kdf</command
+></userinput
+> либо выберите <guimenuitem
+>KDiskFree (Статистика использования дисков</guimenuitem
+> в меню <guimenu
+>K</guimenu
+> <guisubmenu
+>Система</guisubmenu
+>. Поддерживаются стандартные для &Qt; и &kde; параметры командной строки, список которых можно получить, введя в командной строке <userinput
+><command
+>kdf</command
+> <option
+>--help</option
+></userinput
+>.</para>
+
+</sect1>
+
+<sect1 id="main-window">
+<title
+>Главное окно</title>
+
+<para
+>Главное окно &kdiskfree; отображает все доступные файловые устройства.</para>
+
+<para
+>Обычно включены следующие части информации:</para>
+<screenshot>
+<screeninfo
+>Экран &kdiskfree;</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="kdf.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Экран &kdiskfree;</phrase>
+          </textobject>
+        </mediaobject>
+</screenshot>
+
+<itemizedlist>
+<listitem
+><para
+>Пиктограмма отображающая тип устройства</para
+></listitem>
+<listitem
+><para
+>Устройство</para
+></listitem>
+<listitem
+><para
+>Тип файловой системы</para
+></listitem>
+<listitem
+><para
+>Размер</para
+></listitem>
+<listitem
+><para
+>Точка монтирования</para
+></listitem>
+<listitem
+><para
+>Свободно</para
+></listitem>
+<listitem
+><para
+>Заполнено</para
+></listitem>
+</itemizedlist>
+
+<!--! new screenshot
+<para
+>In the picture above, four devices are shown: one reiserfs-formatted
+hard drive partition mounted at the file system root (<filename
+class="directory"
+>/</filename
+>), two &CD-ROM;'s, and a floppy drive.</para>
+-->
+<para
+>Щелчок <mousebutton
+>левой</mousebutton
+> кнопкой мыши на заголовке колонки сортирует список устройств по соответствующему параметру. Второй щелчок <mousebutton
+>левой</mousebutton
+> кнопкой мыши сортирует список в обратном порядке.</para>
+
+<para
+>Щелчок правой кнопкой мыши на строке откроет контекстное меню. Если это устройство в текущее время не смонтировано, доступен пункт меню <guimenuitem
+>Подключить устройство</guimenuitem
+>. Выбор <guimenuitem
+>Открыть в диспетчере файлов</guimenuitem
+> открывает новое окно с графическим представлением файлов на этом устройстве.</para>
+
+</sect1>
+
+<sect1 id="the-menus">
+<title
+>Меню &kdiskfree;</title>
+
+<sect2>
+<title
+>Меню <guimenu
+>Файл</guimenu
+></title>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice
+><guimenu
+>Файл</guimenu
+> <guimenuitem
+>Обновить</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Немедленно обновить экран для обновления текущего статуса</action
+></para
+></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Файл</guimenu
+> <guimenuitem
+>Выход</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Закрывает</action
+> &kdiskfree;</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+<sect2>
+<title
+>Меню и диалог <guimenu
+>Настройка</guimenu
+></title>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice
+><guimenu
+>Настройка</guimenu
+> <guimenuitem
+>Комбинации клавиш...</guimenuitem
+></menuchoice>
+</term>
+<listitem>
+<para
+>Открывает стандартное для KDE диалоговое окно настройки комбинаций клавиш.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice
+><guimenu
+>Настройка</guimenu
+> <guimenuitem
+>Настроить KDiskFree...</guimenuitem
+> </menuchoice>
+</term>
+<listitem
+><para
+><action
+>Открывает диалог настройки</action
+></para>
+<screenshot>
+<screeninfo
+>Окно настройки &kdiskfree;</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="kdf_config.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Окно настройки &kdiskfree;</phrase>
+          </textobject>
+        </mediaobject>
+</screenshot>
+
+<para
+>Этот диалог содержит две вкладки <guilabel
+>Общие настройки</guilabel
+> и <guilabel
+>Команды монтирования</guilabel
+></para>
+<variablelist>
+<varlistentry>
+<term
+>Общие настройки</term
+> <listitem
+><para
+>Щёлкните на словах <guilabel
+>показывать</guilabel
+> либо <guilabel
+>спрятать</guilabel
+> для отображения/скрытия соответствующего столбца.</para
+> <para
+>Частота обновления задаётся числовым значением в поле. Значение в поле — интервал (в секундах) между обновлениями экрана &kdiskfree;, отражающими текущий статус.</para
+> <para
+>Параметр «Диспетчер файлов» указывает, какая команда выполняется при выборе пункта контекстного меню <guimenuitem
+>Открыть в диспетчере файлов</guimenuitem
+>.</para>
+<para
+>Также существует два флажка. Один контролирует открытие менеджера файлов при монтировании устройства. другая контролирует появление окна, когда устройство заполнено до критического уровня.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Команды монтирования</guilabel
+></term>
+<listitem
+><para
+>Позволяет пользователю указать команды монтирования и отмонтирования для данного устройства, что отображается соответствующим значком. Подробная информация относительно этих команд может быть найдена на странице руководства команды <application
+>mount</application
+> (наберите в командной строке<userinput
+><command
+>man</command
+> <option
+>mount</option
+></userinput
+>).</para
+></listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+</variablelist>
+</sect2>
+
+<sect2>
+<title
+>Меню <guimenu
+>Справка</guimenu
+></title>
+&help.menu.documentation; </sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="credits">
+<title
+>Авторские права и лицензия</title>
+
+<para
+>&kdiskfree;</para>
+
+<para
+>Авторское право на программу &copy; 1998-2000 &Michael.Kropfberger; &Michael.Kropfberger.mail;</para>
+
+<para
+>Авторское право на документацию &copy; 2000 &Jonathan.Singer; &Jonathan.Singer.mail;</para>
+
+<para
+>Перевод на русский: Олег Баталов <email
+>batalov@twiga.kz</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+&documentation.index; 
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->

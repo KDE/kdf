@@ -1,0 +1,137 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Ukrainian "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="block-devices" lang="&language;">
+<title
+>Блокові пристрої</title>
+
+<articleinfo>
+
+<authorgroup>
+<author
+><firstname
+>Mike</firstname
+> <surname
+>McBride</surname
+> </author>
+<othercredit role="translator"
+><firstname
+>Юрій</firstname
+><surname
+>Чорноіван</surname
+><affiliation
+><address
+><email
+>yurchor@ukr.net</email
+></address
+></affiliation
+><contrib
+>Переклад українською</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>14 квітня 2016 року</date>
+<releaseinfo
+>Програми 16.04</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KControl</keyword>
+<keyword
+>Блокові пристрої</keyword>
+<keyword
+>Простір на диску</keyword>
+</keywordset>
+</articleinfo>
+
+<sect1>
+<title
+>Пристрої накопичення</title>
+
+<para
+>У вікні модуля показано доступні файлові пристрої і деяку інформацію щодо кожного з цих пристроїв. За допомогою цього вікна ви також можете керувати точками монтування і монтувати або демонтувати пристрої. </para>
+
+<para
+>Зазвичай, на цій вкладці показано такі відомості: </para>
+
+<itemizedlist>
+<listitem
+><para
+>піктограму, що визначається типом носія інформації</para
+></listitem>
+<listitem
+><para
+>назву пристрою</para
+></listitem>
+<listitem
+><para
+>тип файлової системи</para
+></listitem>
+<listitem
+><para
+>загальну місткість</para
+></listitem>
+<listitem
+><para
+>точку монтування</para
+></listitem>
+<listitem
+><para
+>вільне місце на диску</para
+></listitem>
+<listitem
+><para
+>відсоток використаного місця як число і у графічному вигляді.</para
+></listitem>
+</itemizedlist>
+
+<para
+>Наведення вказівника миші на заголовок стовпчика з наступним клацанням <mousebutton
+>лівою</mousebutton
+> кнопкою впорядкує пристрої за параметром, показаним у цьому стовпчику. Повторне клацання <mousebutton
+>лівою</mousebutton
+> кнопкою змінить порядок записів на протилежний. </para>
+
+<para
+>Наведення вказівника миші на рядок з наступним клацанням <mousebutton
+>правою</mousebutton
+> кнопкою миші відкриє контекстне меню. Якщо цей пристрій на даний момент часу не змонтовано, у цьому меню буде пункт <guimenuitem
+>Змонтувати пристрій</guimenuitem
+>. Якщо пристрій змонтовано, його можна буде демонтувати за допомогою пункту <guimenuitem
+>Демонтувати пристрій</guimenuitem
+>. Вибір пункту <guimenuitem
+>Відкрити менеджер файлів</guimenuitem
+> призведе до відкриття нового вікна з графічним зображення файлів на відповідному пристрої. </para>
+
+<para
+>Відповідні команди монтування і демонтування, а також те, у який спосіб буде відкрито інструмент для роботи з файлами з контекстного меню, можна налаштувати за допомогою програми &kdiskfree;. </para>
+
+<sect2>
+<title
+>Автор розділу</title>
+
+<para
+>Цей розділ є модифікацією документації до <application
+>kdf</application
+>, автором якої є &Jonathan.Singer; &Jonathan.Singer.mail;</para>
+
+<para
+>Автором змін для &kde; 2.0 є &Mike.McBride; &Mike.McBride.mail;</para>
+<para
+>Переклад українською: Юрій Чорноіван <email
+>yurchor@ukr.net</email
+></para
+> 
+
+</sect2>
+</sect1>
+</article>
+

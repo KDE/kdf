@@ -1,0 +1,135 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Portuguese "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="block-devices" lang="&language;">
+<title
+>Dispositivos de Bloco</title>
+
+<articleinfo>
+
+<authorgroup>
+<author
+><firstname
+>Mike</firstname
+> <surname
+>McBride</surname
+> </author>
+<othercredit role="translator"
+><firstname
+>José</firstname
+><surname
+>Pires</surname
+><affiliation
+><address
+><email
+>zepires@gmail.com</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2016-04-14</date>
+<releaseinfo
+>Aplicações 16.04</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KControl</keyword>
+<keyword
+>Dispositivos de Bloco</keyword>
+<keyword
+>Espaço em disco</keyword>
+</keywordset>
+</articleinfo>
+
+<sect1>
+<title
+>Dispositivos de Armazenamento</title>
+
+<para
+>A janela do módulo mostra os dispositivos de ficheiros disponíveis e alguma informação sobre cada dispositivo. Também lhe permite controlar os pontos de montagem e os dispositivos de montagem/desmontagem. </para>
+
+<para
+>Normalmente, são mostradas as seguintes informações nesta secção: </para>
+
+<itemizedlist>
+<listitem
+><para
+>um ícone que representa o tipo de armazenamento</para
+></listitem>
+<listitem
+><para
+>o nome do dispositivo</para
+></listitem>
+<listitem
+><para
+>tipo de sistema de ficheiros</para
+></listitem>
+<listitem
+><para
+>o tamanho total</para
+></listitem>
+<listitem
+><para
+>o ponto de montagem</para
+></listitem>
+<listitem
+><para
+>o espaço livre em disco</para
+></listitem>
+<listitem
+><para
+>a percentagem de espaço usado, em número e como um gráfico.</para
+></listitem>
+</itemizedlist>
+
+<para
+>Se carregar com o botão <mousebutton
+>esquerdo</mousebutton
+> no cabeçalho duma determinada coluna, irá ordenar os dispositivos de acordo com essa variável. Se carregar uma segunda vez com o mesmo botão, ordena na ordem inversa. </para>
+
+<para
+>Se carregar com o botão <mousebutton
+>direito</mousebutton
+> numa linha, fará aparecer um menu. Se esse dispositivo não estiver montado no momento, a opção <guimenuitem
+>Montar o Dispositivo</guimenuitem
+> estará disponível. Se o dispositivo estiver montado, poderá ser desmontado ao escolher a opção <guimenuitem
+>Desmontar Dispositivo</guimenuitem
+>. Se seleccionar a opção <guimenuitem
+>Abrir no Gestor de Ficheiros</guimenuitem
+>, irá abrir uma nova janela com uma vista gráfica dos ficheiros nesse dispositivo. </para>
+
+<para
+>Os comandos de montagem e desmontagem apropriados, bem como o modo como o gestor de ficheiros é aberto, a partir do menu de contexto, podem ser configurados na aplicação &kdiskfree;. </para>
+
+<sect2>
+<title
+>Autor da Secção</title>
+
+<para
+>Esta secção é modificada a partir da documentação do <application
+>kdf</application
+> que foi criada por &Jonathan.Singer; &Jonathan.Singer.mail;</para>
+
+<para
+>Modificada para o &kde; 2.0 por &Mike.McBride; &Mike.McBride.mail;</para>
+<para
+>Tradução de José Nuno Pires <email
+>zepires@gmail.com</email
+></para
+> 
+
+</sect2>
+</sect1>
+</article>
+

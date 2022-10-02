@@ -1,0 +1,480 @@
+# translation of kdf.po to Dutch
+# KTranslator Generated File
+# Nederlandse vertaling van kdf
+# Copyright (C) 2000-2002 KDE e.v..
+# Copyright (C) 2000-2002 KDE-Nederlands team <i18n@kde.nl>.
+# Gelezen, Rinse
+#
+# Niels Reedijk, <n.reedijk@planet.nl>, 2000.
+# Rinse de Vries <Rinse@kde.nl>, 2000-2002.
+# Wilbert Berendsen <wbsoft@xs4all.nl>, 2003, 2004.
+# Rinse de Vries <rinse@kde.nl>, 2004.
+# Tom Albers <tomalbers@kde.nl>, 2004.
+# Rinse de Vries <rinsedevries@kde.nl>, 2005, 2007, 2008.
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2009, 2010, 2016, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdf\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:49+0000\n"
+"PO-Revision-Date: 2022-01-25 11:45+0100\n"
+"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 21.12.1\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+"Niels Reedijk - 2000,Rinse de Vries - 2000 tot 2002; 2004; 2005; 2007,Tom "
+"Albers - 2004,Wilbert Berendsen - 2003; 2004,Freek de Kruijf - 2022"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ",rinse@kde.nl,,,freekdekruijf@kde.nl"
+
+#. i18n: ectx: Menu (file)
+#: desktop/kdfui.rc:5
+#, kde-format
+msgid "&File"
+msgstr "&Bestand"
+
+#: src/disklist.cpp:325
+#, kde-format
+msgid "could not execute [%1]"
+msgstr "kon [%1] niet uitvoeren"
+
+#: src/disks.cpp:262
+#, kde-format
+msgid ""
+"Called: %1\n"
+"\n"
+msgstr ""
+"%1 geroepen\n"
+"\n"
+
+#: src/disks.cpp:283
+#, kde-format
+msgid "could not execute %1"
+msgstr "kon %1 niet uitvoeren"
+
+#: src/kcmdf.cpp:39
+#, kde-format
+msgid ""
+"A right mouse button click opens a context menu to mount/unmount a device or "
+"to open it in the file manager."
+msgstr ""
+"Een rechter muisklik opent een contextmenu om een apparaat aan/af te "
+"koppelen of om het in de bestandsbeheerder te openen."
+
+#: src/kdf.cpp:26
+#, kde-format
+msgctxt "Update action"
+msgid "&Update"
+msgstr "Bij&werken"
+
+#: src/kdf.cpp:59
+#, kde-format
+msgid "KDiskFree"
+msgstr "KDiskFree"
+
+#: src/kdf.cpp:61
+#, kde-format
+msgid "KDE free disk space utility"
+msgstr "KDE Vrije Schijfruimte"
+
+#: src/kdf.cpp:63
+#, kde-format
+msgid "(c) 1998-2001, Michael Kropfberger"
+msgstr "(c) 1998-2001, Michael Kropfberger"
+
+#: src/kdf.cpp:69 src/kwikdisk.cpp:318
+#, kde-format
+msgid "Michael Kropfberger"
+msgstr "Michael Kropfberger"
+
+#: src/kdfconfig.cpp:32
+#, kde-format
+msgctxt "TODO"
+msgid "Icon"
+msgstr "Pictogram"
+
+#: src/kdfconfig.cpp:33 src/kdfwidget.cpp:55
+#, kde-format
+msgctxt "Device of the storage"
+msgid "Device"
+msgstr "Apparaat"
+
+#: src/kdfconfig.cpp:34 src/kdfwidget.cpp:56
+#, kde-format
+msgctxt "Filesystem on storage"
+msgid "Type"
+msgstr "Type"
+
+#: src/kdfconfig.cpp:35 src/kdfwidget.cpp:57
+#, kde-format
+msgctxt "Total size of the storage"
+msgid "Size"
+msgstr "Grootte"
+
+#: src/kdfconfig.cpp:36
+#, kde-format
+msgctxt "Mount point of the storage"
+msgid "Mount Point"
+msgstr "Aankoppelpunt"
+
+#: src/kdfconfig.cpp:37 src/kdfwidget.cpp:59
+#, kde-format
+msgctxt "Free space in storage"
+msgid "Free"
+msgstr "Vrij"
+
+#: src/kdfconfig.cpp:38 src/kdfwidget.cpp:60
+#, kde-format
+msgctxt "Used storage space in %"
+msgid "Full %"
+msgstr "Vol %"
+
+#: src/kdfconfig.cpp:39 src/kdfwidget.cpp:61
+#, kde-format
+msgctxt "Usage graphical bar"
+msgid "Usage"
+msgstr "Gebruik"
+
+#: src/kdfconfig.cpp:64 src/kdfconfig.cpp:184
+#, kde-format
+msgctxt "Visible items on device information columns (enable|disable)"
+msgid "visible"
+msgstr "zichtbaar"
+
+#: src/kdfconfig.cpp:163
+#, kde-format
+msgctxt "Are items on device information columns visible?"
+msgid "visible"
+msgstr "zichtbaar"
+
+#: src/kdfconfig.cpp:164
+#, kde-format
+msgctxt "Are items on device information columns hidden?"
+msgid "hidden"
+msgstr "verborgen"
+
+#: src/kdfconfig.cpp:201
+#, kde-format
+msgctxt "Device information item is hidden"
+msgid "hidden"
+msgstr "verborgen"
+
+#: src/kdfconfig.cpp:202
+#, kde-format
+msgctxt "Device information item is visible"
+msgid "visible"
+msgstr "zichtbaar"
+
+#. i18n: ectx: property (text), widget (QLabel, updateLabel)
+#: src/kdfconfig.ui:35
+#, kde-format
+msgid "Update frequency:"
+msgstr "Bijwerkfrequentie:"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, m_updateSpinBox)
+#: src/kdfconfig.ui:42
+#, kde-format
+msgid " sec"
+msgstr " sec"
+
+#. i18n: ectx: property (text), widget (QCheckBox, mOpenMountCheck)
+#: src/kdfconfig.ui:55
+#, kde-format
+msgid "Open file manager automatically on mount"
+msgstr "Bestandsbeheerder automatisch openen bij het aankoppelen"
+
+#. i18n: ectx: property (text), widget (QCheckBox, mPopupFullCheck)
+#: src/kdfconfig.ui:62
+#, kde-format
+msgid "Pop up a window when a disk gets critically full"
+msgstr "Waarschuwen wanneer er kritiek weinig schijfruimte is"
+
+#. i18n: ectx: property (text), widget (QCheckBox, mSystemFileManagerCheck)
+#: src/kdfconfig.ui:69
+#, kde-format
+msgid "Use system default file manager"
+msgstr "Systeemstandaard bestandsbeheerder gebruiken"
+
+#. i18n: ectx: property (text), widget (QLabel, fileManagerEdit)
+#: src/kdfconfig.ui:76
+#, no-c-format, kde-format
+msgid "File manager (e.g. konsole -e mc %m):"
+msgstr "Bestandsbeheerder (bijv. konsole -e mc %m):"
+
+#. i18n: ectx: property (text), widget (QLabel, mFlatpakLabel)
+#: src/kdfconfig.ui:94
+#, kde-format
+msgid "Custom file manager not supported when running as Flatpak."
+msgstr ""
+"Aangepaste bestandsbeheerder wordt niet ondersteund bij uitvoeren als "
+"Flatpak."
+
+#: src/kdfitemdelegate.cpp:32 src/kdfwidget.cpp:292
+#, kde-format
+msgctxt "Disk percentage"
+msgid "%1%"
+msgstr "%1%"
+
+#: src/kdfwidget.cpp:58
+#, kde-format
+msgctxt "Mount point of storage"
+msgid "Mount Point"
+msgstr "Aankoppelpunt"
+
+#: src/kdfwidget.cpp:297 src/kdfwidget.cpp:298
+#, kde-format
+msgid "N/A"
+msgstr "N/A"
+
+#: src/kdfwidget.cpp:355 src/kwikdisk.cpp:267
+#, kde-format
+msgid "Device [%1] on [%2] is critically full."
+msgstr "Apparaat [%1] op [%2] is kritiek vol!"
+
+#: src/kdfwidget.cpp:357
+#, kde-format
+msgctxt "Warning device getting critically full"
+msgid "Warning"
+msgstr "Waarschuwing"
+
+#: src/kdfwidget.cpp:405
+#, kde-format
+msgid "Mount Device"
+msgstr "Apparaat aankoppelen"
+
+#: src/kdfwidget.cpp:406
+#, kde-format
+msgid "Unmount Device"
+msgstr "Apparaat afkoppelen"
+
+#: src/kdfwidget.cpp:408
+#, kde-format
+msgid "Open in File Manager"
+msgstr "In bestandsbeheerder openen"
+
+#: src/kdfwidget.cpp:425 src/kdfwidget.cpp:428
+#, kde-format
+msgid "MOUNTING"
+msgstr "BEZIG MET AANKOPPELEN"
+
+#: src/kwikdisk.cpp:60 src/kwikdisk.cpp:309
+#, kde-format
+msgid "KwikDisk"
+msgstr "KwikDisk"
+
+#: src/kwikdisk.cpp:66
+#, kde-format
+msgid "&Start KDiskFree"
+msgstr "KDiskFree &starten"
+
+#: src/kwikdisk.cpp:70
+#, kde-format
+msgid "&Configure KwikDisk..."
+msgstr "KwikDisk &instellen..."
+
+#: src/kwikdisk.cpp:178
+#, kde-format
+msgctxt "Unmount the storage device"
+msgid "Unmount"
+msgstr "Afkoppelen"
+
+#: src/kwikdisk.cpp:178
+#, kde-format
+msgctxt "Mount the storage device"
+msgid "Mount"
+msgstr "Aankoppelen"
+
+#: src/kwikdisk.cpp:201
+#, kde-format
+msgid "You must login as root to mount this disk"
+msgstr "Alleen de systeembeheerder kan deze schijf aankoppelen"
+
+#: src/kwikdisk.cpp:269
+#, kde-format
+msgctxt "Device is getting critically full"
+msgid "Warning"
+msgstr "Waarschuwing"
+
+#: src/kwikdisk.cpp:311
+#, kde-format
+msgid "KDE Free disk space utility"
+msgstr "KDE Vrije schijfruimte"
+
+#: src/kwikdisk.cpp:313
+#, kde-format
+msgid "(C) 2004 Stanislav Karchebny"
+msgstr "(C) 2004 Stanislav Karchebny"
+
+#: src/kwikdisk.cpp:319
+#, kde-format
+msgid "Original author"
+msgstr "Oorspronkelijke auteur"
+
+#: src/kwikdisk.cpp:321
+#, kde-format
+msgid "Espen Sand"
+msgstr "Espen Sand"
+
+#: src/kwikdisk.cpp:322
+#, kde-format
+msgid "KDE 2 changes"
+msgstr "Veranderingen in KDE 2"
+
+#: src/kwikdisk.cpp:323
+#, kde-format
+msgid "Stanislav Karchebny"
+msgstr "Stanislav Karchebny"
+
+#: src/kwikdisk.cpp:324
+#, kde-format
+msgid "KDE 3 changes"
+msgstr "Veranderingen in KDE 3"
+
+#: src/mntconfig.cpp:47 src/mntconfig.cpp:52
+#, kde-format
+msgid "Device"
+msgstr "Apparaat"
+
+#: src/mntconfig.cpp:48 src/mntconfig.cpp:54
+#, kde-format
+msgid "Mount Point"
+msgstr "Aankoppelpunt"
+
+#: src/mntconfig.cpp:48
+#, kde-format
+msgid "Mount Command"
+msgstr "Aankoppelcommando"
+
+#: src/mntconfig.cpp:48
+#, kde-format
+msgid "Unmount Command"
+msgstr "Afkoppelcommando"
+
+#: src/mntconfig.cpp:53
+#, kde-format
+msgctxt "No device is selected"
+msgid "None"
+msgstr "Geen"
+
+#: src/mntconfig.cpp:55
+#, kde-format
+msgctxt "No mount point is selected"
+msgid "None"
+msgstr "Geen"
+
+#: src/mntconfig.cpp:240
+#, kde-format
+msgid "Only local files supported."
+msgstr "Alleen lokale bestanden worden ondersteund."
+
+#: src/mntconfig.cpp:256
+#, kde-format
+msgid "Only local files are currently supported."
+msgstr "Momenteel worden alleen lokale bestanden ondersteund."
+
+#. i18n: ectx: property (text), widget (QLabel, iconNameLabel)
+#: src/mntconfig.ui:20
+#, kde-format
+msgid "Icon name:"
+msgstr "Pictogramnaam:"
+
+#. i18n: ectx: property (text), widget (QLabel, mountLabel)
+#: src/mntconfig.ui:30
+#, kde-format
+msgid "Mount Command:"
+msgstr "Aankoppelcommando"
+
+#. i18n: ectx: property (text), widget (QLabel, umountLabel)
+#: src/mntconfig.ui:40
+#, kde-format
+msgid "Unmount Command:"
+msgstr "Afkoppelcommando"
+
+#. i18n: ectx: property (text), widget (QPushButton, mDefaultIconButton)
+#: src/mntconfig.ui:50
+#, kde-format
+msgid "Default Icon"
+msgstr "Standaard pictogram"
+
+#. i18n: ectx: property (text), widget (QPushButton, mMountButton)
+#. i18n: ectx: property (text), widget (QPushButton, mUmountButton)
+#: src/mntconfig.ui:57 src/mntconfig.ui:64
+#, kde-format
+msgid "Get Command..."
+msgstr "Commando verkrijgen..."
+
+#: src/optiondialog.cpp:18
+#, kde-format
+msgid "Configure"
+msgstr "Instellen"
+
+#: src/optiondialog.cpp:24
+#, kde-format
+msgid "General Settings"
+msgstr "Algemene instellingen"
+
+#: src/optiondialog.cpp:28
+#, kde-format
+msgid "Mount Commands"
+msgstr "Aankoppelcommando's"
+
+#~ msgid "A test application"
+#~ msgstr "Een testprogramma"
+
+#~ msgid ""
+#~ "<h3>Hardware Information</h3><br /> All the information modules return "
+#~ "information about a certain aspect of your computer hardware or your "
+#~ "operating system. Not all modules are available on all hardware "
+#~ "architectures and/or operating systems."
+#~ msgstr ""
+#~ "<h3>Hardwareinformatie</h3> <br /> Alle informatiemodules geven "
+#~ "informatie over een bepaald aspect van de hardware van uw computer of uw "
+#~ "besturingssysteem. Niet alle modules zijn beschikbaar op alle "
+#~ "hardwarearchitecturen en/of besturingssystemen."
+
+#~ msgid "Update frequency [seconds]. The value 0 disables update"
+#~ msgstr ""
+#~ "Bijwerkfrequentie [seconden]. De waarde 0 schakelt het bijwerken uit"
+
+#, fuzzy
+#~| msgid "Mount Command"
+#~ msgid "Mount command:"
+#~ msgstr "Aankoppelcommando"
+
+#, fuzzy
+#~| msgid "Unmount Command"
+#~ msgid "Unmount command:"
+#~ msgstr "Afkoppelcommando"
+
+#~ msgid ""
+#~ "This filename is not valid: %1\n"
+#~ "It must end with \"_mount\" or \"_unmount\"."
+#~ msgstr ""
+#~ "Deze bestandsnaam is niet geldig: %1\n"
+#~ "Het moet eindigen op \"_mount\" of \"_unmount\"."
+
+#~ msgctxt "Storage device icon"
+#~ msgid "Icon"
+#~ msgstr "Pictogram"
+
+#~ msgctxt "Item on the device information column is visible"
+#~ msgid "visible"
+#~ msgstr "zichtbaar"
+
+#~ msgid "%1 (%2) %3 on %4"
+#~ msgstr "%1 (%2) %3 op %4"
+
+#~ msgid "Get Unmount Command"
+#~ msgstr "Afkoppelcommando opzoeken"

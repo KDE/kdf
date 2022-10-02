@@ -1,0 +1,167 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Russian "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="block-devices" lang="&language;">
+<title
+>Блочные устройства</title>
+
+<articleinfo>
+
+<authorgroup>
+<author
+><firstname
+>Mike</firstname
+> <surname
+>McBride</surname
+> </author>
+<othercredit role="translator"
+><firstname
+>Ольга</firstname
+><surname
+>Миронова</surname
+><affiliation
+><address
+><email
+>omiro@basealt.ru</email
+></address
+></affiliation
+><contrib
+>Перевод на русский язык</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+></firstname
+><surname
+></surname
+><affiliation
+><address
+><email
+>olegbatalov@mail.ru</email
+></address
+></affiliation
+><contrib
+></contrib
+></othercredit
+><othercredit role="reviewer"
+><firstname
+>Александр</firstname
+><surname
+>Яворский</surname
+><contrib
+>Рецензирование</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>14 апреля 2016 г.</date>
+<releaseinfo
+>Приложения KDE 16.04</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KControl</keyword>
+<keyword
+>блочные устройства</keyword>
+<keyword
+>дисковое пространство</keyword>
+</keywordset>
+</articleinfo>
+
+<sect1>
+<title
+>Устройства хранения данных</title>
+
+<para
+>В окне этого модуля настройки показаны доступные файловые устройства и информация о каждом из них. Здесь также можно управлять точками монтирования, подключать и отключать устройства. </para>
+
+<para
+>Обычно в этой вкладке отображается следующая информация: </para>
+
+<itemizedlist>
+<listitem
+><para
+>значок, обозначающий тип носителя;</para
+></listitem>
+<listitem
+><para
+>имя устройства;</para
+></listitem>
+<listitem
+><para
+>тип файловой системы;</para
+></listitem>
+<listitem
+><para
+>общий размер;</para
+></listitem>
+<listitem
+><para
+>точка монтирования;</para
+></listitem>
+<listitem
+><para
+>свободное место на диске;</para
+></listitem>
+<listitem
+><para
+>процент заполнения пространства, в числовом и графическом отображении.</para
+></listitem>
+</itemizedlist>
+
+<para
+>Щелчок <mousebutton
+>левой</mousebutton
+> кнопкой мыши по заголовку столбца сортирует список устройств по этому критерию. Второй щелчок <mousebutton
+>левой</mousebutton
+> кнопкой мыши изменяет порядок сортировки на обратный. </para>
+
+<para
+>Щелчок <mousebutton
+>правой</mousebutton
+> кнопкой мыши по строке списка открывает контекстное меню. Если выделенное устройство не подключено, для выбора будет доступен пункт <guimenuitem
+>Подключить устройство</guimenuitem
+>. Если устройство подключено, его можно отключить, выбрав пункт <guimenuitem
+>Отключить устройство</guimenuitem
+>. Пункт <guimenuitem
+>Открыть в диспетчере файлов</guimenuitem
+> открывает новое окно, в котором будут показаны файлы, содержащиеся на устройстве. </para>
+
+<para
+>Задать подходящие команды подключения и отключения, а также настроить то, как диспетчер файлов должен открываться из контекстного меню, можно в приложении для определения свободного дискового пространства &kdiskfree;. </para>
+
+<sect2>
+<title
+>Автор раздела</title>
+
+<para
+>Этот раздел составлен на основе документации по <application
+>kdf</application
+>, написанной Jonathan Singer <email
+>jsinger@leeta.net</email
+>.</para>
+
+<para
+>Переработка для KDE 2.0: Mike McBride <email
+>mpmcbride7@yahoo.com</email
+>.</para>
+<para
+>Ольга Миронова<email
+>omiro@basealt.ru</email
+></para
+><para
+>Oleg Batalov<email
+>olegbatalov@mail.ru</email
+></para
+> 
+
+</sect2>
+</sect1>
+</article>
+

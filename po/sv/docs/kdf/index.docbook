@@ -1,0 +1,381 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&kdiskfree;">
+  <!ENTITY % Swedish "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kdf" lang="&language;">
+
+<bookinfo>
+<title
+>Handbok &kdiskfree;</title>
+
+<authorgroup>
+<author
+>&Jonathan.Singer; &Jonathan.Singer.mail; </author>
+
+<author
+>&Michael.Kropfberger; &Michael.Kropfberger.mail; </author>
+
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+
+</authorgroup>
+
+<copyright>
+<year
+>2000-2002</year>
+<holder
+>&Jonathan.Singer;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2016-04-13</date>
+<releaseinfo
+>Program 16.08</releaseinfo>
+
+<abstract
+><para
+>&kdiskfree; visar tillgängliga filenheter, samt information om dem.</para>
+
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdf</keyword>
+<keyword
+>kdeutils</keyword>
+<keyword
+>diskar</keyword>
+<keyword
+>enheter</keyword>
+<keyword
+>montera</keyword>
+<keyword
+>avmontera</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Inledning</title>
+
+<para
+>&kdiskfree; visar tillgängliga filenheter (hårddiskar, disketter och cd-enheter, USB-minnen, <abbrev
+>etc.</abbrev
+>) samt information om deras storlek, ledigt utrymme, typ och monteringspunkt. Det låter dig också montera och avmontera enheter och titta på dem i en filhanterare.</para>
+
+<para
+>&kdiskfree; liknar systeminställningarnas modul Lagringsenheter, men upptar mindre skärmutrymme. Den är användbar om du vill ha ett &kdiskfree;-fönster tillgängligt hela tiden.</para>
+
+</chapter>
+
+<chapter id="using-kdf">
+<title
+>Att använda &kdiskfree;</title>
+
+<sect1 id="starting-kdf">
+<title
+>Starta &kdiskfree;</title
+> 
+
+<para
+>Skriv <userinput
+><command
+>kdf</command
+></userinput
+> på kommandoraden eller välj <guimenuitem
+>Kdiskfree</guimenuitem
+> från gruppen <guisubmenu
+>System</guisubmenu
+> i programstarten. De vanliga &Qt;- och &kde;-kommandoväljarna är tillgängliga, och kan listas genom att skriva <userinput
+><command
+>kdf</command
+> <option
+>--help</option
+></userinput
+> på kommandoraden.</para>
+
+<para
+>Använd <menuchoice
+><guisubmenu
+>System</guisubmenu
+> <guimenuitem
+>KwikDisk</guimenuitem
+></menuchoice
+> i starta program, för att köra programmet som ett miniprogram i systembrickan.</para>
+
+<para
+>Funktionerna i &kdiskfree; är också tillgängliga i systeminställningarnas modul <guilabel
+>Lagringsenheter</guilabel
+>.</para>
+</sect1>
+
+<sect1 id="main-window">
+<title
+>Huvudfönstret</title>
+
+<para
+>Huvudfönstret för &kdiskfree; visar de tillgängliga filenheterna.</para>
+
+<para
+>Normalt visas följande information:</para>
+<screenshot>
+<screeninfo
+>&kdiskfree;s skärm</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="kdf.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>&kdiskfree;s skärm</phrase>
+          </textobject>
+        </mediaobject>
+</screenshot>
+
+<itemizedlist>
+<listitem
+><para
+>en ikon som anger typen av lagringsmedia</para
+></listitem>
+<listitem
+><para
+>enhetsnamn</para
+></listitem>
+<listitem
+><para
+>typ av filsystem</para
+></listitem>
+<listitem
+><para
+>total storlek</para
+></listitem>
+<listitem
+><para
+>monteringspunkt</para
+></listitem>
+<listitem
+><para
+>ledigt diskutrymme</para
+></listitem>
+<listitem
+><para
+>procent använt utrymme som ett tal och en stapel.</para
+></listitem>
+</itemizedlist>
+
+<para
+>Att <mousebutton
+>vänster</mousebutton
+>klicka på huvudet i en särskild kolumn sorterar enheterna enligt den variabeln. Ett andra <mousebutton
+>vänster</mousebutton
+>klick sorterar i omvänd ordning.</para>
+
+<para
+>Att klicka med höger musknapp på en rad visar en meny. Om enheten inte är monterad för närvarande, är alternativet <guimenuitem
+>Montera enhet</guimenuitem
+> tillgänglig. Om enheten är monterad kan den avmonteras genom att välja <guimenuitem
+>Avmontera enhet</guimenuitem
+>. Om <guimenuitem
+>Öppna filhanterare</guimenuitem
+> väljes öppnas ett nytt fönster med en grafisk vy av filerna på enheten.</para>
+<para
+>Inställningarna för filhanteraren som används av &kdiskfree; är oberoende av valet i systeminställningarnas modul <guilabel
+>Standardprogram</guilabel
+>.</para>
+</sect1>
+
+<sect1 id="menus-and-configuration">
+<title
+>Menyrad och inställning</title>
+
+<sect2>
+<title
+>Menyn Arkiv</title>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+><keycap
+>F5</keycap
+></shortcut
+> <guimenu
+>Arkiv</guimenu
+> <guimenuitem
+>Uppdatera</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Uppdaterar omedelbart visningen för att motsvara det aktuella läget</action
+></para
+></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Arkiv</guimenu
+> <guimenuitem
+>Avsluta</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Stänger</action
+> &kdiskfree;</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Dessutom har &kdiskfree; några av &kde;:s vanliga menyalternativ i <guimenu
+>Inställningar</guimenu
+> och <guimenu
+>Hjälp</guimenu
+>. För mer information, läs avsnitten <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Menyn Inställningar</ulink
+> och <ulink url="help:/fundamentals/menus.html#menus-help"
+>Menyn Hjälp</ulink
+> i &kde;:s Grunder. </para>
+
+</sect2>
+
+<sect2>
+<title
+>Inställningsdialogrutan</title>
+
+<screenshot>
+<screeninfo
+>Anpassa &kdiskfree;s skärm</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="kdf_config.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Anpassa &kdiskfree;s skärm</phrase>
+          </textobject>
+        </mediaobject>
+</screenshot>
+
+<para
+>Den här dialogrutan har två flikar, <guilabel
+>Allmänna inställningar</guilabel
+> och <guilabel
+>Monteringskommandon</guilabel
+></para>
+<variablelist>
+<varlistentry>
+<term
+>Allmänna inställningar</term
+> <listitem
+><para
+>Klicka på ordet <guilabel
+>synlig</guilabel
+> eller <guilabel
+>dold</guilabel
+> för att dölja eller visa ett datafält.</para
+> <para
+>Ändra uppdateringsfrekvens genom att redigera värdet. Värdet i rutan är intervallet (i sekunder) mellan uppdateringar av visningen i &kdiskfree; för att motsvara det aktuella läget.</para
+> <para
+>Inställningen för <guilabel
+>Filhanterare</guilabel
+> anger kommandot som körs när det sammanhangsberoende menyalternativet <guimenuitem
+>Öppna filhanterare</guimenuitem
+> väljes.</para>
+<para
+>Det finns också två kryssrutor. En styr om ett filhanteringsfönster öppnas automatiskt när en enhet monteras. Den andra gör att ett varningsfönster dyker upp om en disk blir kritiskt full.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Monteringskommandon</guilabel
+></term>
+<listitem
+><para
+>Låter användaren ange monterings- och avmonteringskommandon för angivna enheter, samt ikonen som används för att representera den. Mer information om de här kommandona finns på manualsidan för <application
+>mount</application
+> (skriv <userinput
+><command
+>man</command
+> <option
+>mount</option
+></userinput
+> på kommandoraden).</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="credits">
+<title
+>Tack till och licens</title>
+
+<para
+>&kdiskfree;</para>
+
+<para
+>Program copyright 1998-2000 &Michael.Kropfberger; &Michael.Kropfberger.mail;</para>
+
+<para
+>Dokumentation copyright &copy; 2000 &Jonathan.Singer; &Jonathan.Singer.mail;</para>
+
+<para
+>Översättning Stefan Asserhäll <email
+>stefan.asserhall@bredband.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index; 
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->

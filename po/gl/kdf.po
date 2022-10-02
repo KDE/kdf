@@ -1,0 +1,736 @@
+# translation of kdf.po to Galician
+#
+# Xosé <xosecalvo@gmail.com>, 2008.
+# mvillarino <mvillarino@users.sourceforge.net>, 2008.
+# Marce Villarino <mvillarino@users.sourceforge.net>, 2009.
+# Xosé Calvo <xosecalvo@gmail.com>, 2009, 2012.
+# Adrian Chaves Fernandez <adriyetichaves@gmail.com>, 2013, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdf\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:49+0000\n"
+"PO-Revision-Date: 2016-04-20 08:10+0100\n"
+"Last-Translator: Adrián Chaves Fernández (Gallaecio) <adriyetichaves@gmail."
+"com>\n"
+"Language-Team: Galician <kde-i18n-doc@kde.org>\n"
+"Language: gl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Adrián Chaves Fernández"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "adrian@chaves.io"
+
+#. i18n: ectx: Menu (file)
+#: desktop/kdfui.rc:5
+#, kde-format
+msgid "&File"
+msgstr "&Ficheiro"
+
+#: src/disklist.cpp:325
+#, kde-format
+msgid "could not execute [%1]"
+msgstr "Non se puido executar [%1]."
+
+#: src/disks.cpp:262
+#, kde-format
+msgid ""
+"Called: %1\n"
+"\n"
+msgstr ""
+"Chamouse: %1\n"
+"\n"
+
+#: src/disks.cpp:283
+#, kde-format
+msgid "could not execute %1"
+msgstr "Non se puido executar %1."
+
+#: src/kcmdf.cpp:39
+#, kde-format
+msgid ""
+"A right mouse button click opens a context menu to mount/unmount a device or "
+"to open it in the file manager."
+msgstr ""
+"Un clic co botón dereito do rato abre un menú contextual para montar ou "
+"desmontar un dispositivo, ou para abrilo no xestor de ficheiros."
+
+#: src/kdf.cpp:26
+#, kde-format
+msgctxt "Update action"
+msgid "&Update"
+msgstr "&Actualizar"
+
+#: src/kdf.cpp:59
+#, kde-format
+msgid "KDiskFree"
+msgstr "KDiskFree"
+
+#: src/kdf.cpp:61
+#, kde-format
+msgid "KDE free disk space utility"
+msgstr "Utilidade de KDE para o espazo libre no disco."
+
+#: src/kdf.cpp:63
+#, kde-format
+msgid "(c) 1998-2001, Michael Kropfberger"
+msgstr "© 1998-2001, Michael Kropfberger"
+
+#: src/kdf.cpp:69 src/kwikdisk.cpp:318
+#, kde-format
+msgid "Michael Kropfberger"
+msgstr "Michael Kropfberger"
+
+#: src/kdfconfig.cpp:32
+#, kde-format
+msgctxt "TODO"
+msgid "Icon"
+msgstr "Icona"
+
+#: src/kdfconfig.cpp:33 src/kdfwidget.cpp:55
+#, kde-format
+msgctxt "Device of the storage"
+msgid "Device"
+msgstr "Dispositivo"
+
+#: src/kdfconfig.cpp:34 src/kdfwidget.cpp:56
+#, kde-format
+msgctxt "Filesystem on storage"
+msgid "Type"
+msgstr "Tipo"
+
+#: src/kdfconfig.cpp:35 src/kdfwidget.cpp:57
+#, kde-format
+msgctxt "Total size of the storage"
+msgid "Size"
+msgstr "Tamaño"
+
+#: src/kdfconfig.cpp:36
+#, kde-format
+msgctxt "Mount point of the storage"
+msgid "Mount Point"
+msgstr "Punto de montaxe"
+
+#: src/kdfconfig.cpp:37 src/kdfwidget.cpp:59
+#, kde-format
+msgctxt "Free space in storage"
+msgid "Free"
+msgstr "Libre"
+
+#: src/kdfconfig.cpp:38 src/kdfwidget.cpp:60
+#, kde-format
+msgctxt "Used storage space in %"
+msgid "Full %"
+msgstr "% completo"
+
+#: src/kdfconfig.cpp:39 src/kdfwidget.cpp:61
+#, kde-format
+msgctxt "Usage graphical bar"
+msgid "Usage"
+msgstr "Uso"
+
+#: src/kdfconfig.cpp:64 src/kdfconfig.cpp:184
+#, kde-format
+msgctxt "Visible items on device information columns (enable|disable)"
+msgid "visible"
+msgstr "visíbel"
+
+#: src/kdfconfig.cpp:163
+#, kde-format
+msgctxt "Are items on device information columns visible?"
+msgid "visible"
+msgstr "visíbel"
+
+#: src/kdfconfig.cpp:164
+#, kde-format
+msgctxt "Are items on device information columns hidden?"
+msgid "hidden"
+msgstr "agochado"
+
+#: src/kdfconfig.cpp:201
+#, kde-format
+msgctxt "Device information item is hidden"
+msgid "hidden"
+msgstr "agochado"
+
+#: src/kdfconfig.cpp:202
+#, kde-format
+msgctxt "Device information item is visible"
+msgid "visible"
+msgstr "visíbel"
+
+#. i18n: ectx: property (text), widget (QLabel, updateLabel)
+#: src/kdfconfig.ui:35
+#, kde-format
+msgid "Update frequency:"
+msgstr "Frecuencia de actualización:"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, m_updateSpinBox)
+#: src/kdfconfig.ui:42
+#, kde-format
+msgid " sec"
+msgstr " seg"
+
+#. i18n: ectx: property (text), widget (QCheckBox, mOpenMountCheck)
+#: src/kdfconfig.ui:55
+#, kde-format
+msgid "Open file manager automatically on mount"
+msgstr "Abrir o xestor de ficheiros automaticamente ao montar."
+
+#. i18n: ectx: property (text), widget (QCheckBox, mPopupFullCheck)
+#: src/kdfconfig.ui:62
+#, kde-format
+msgid "Pop up a window when a disk gets critically full"
+msgstr ""
+"Abrir unha xanela cando o espazo libre en disco sexa esaxeradamente pouco."
+
+#. i18n: ectx: property (text), widget (QCheckBox, mSystemFileManagerCheck)
+#: src/kdfconfig.ui:69
+#, kde-format
+msgid "Use system default file manager"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, fileManagerEdit)
+#: src/kdfconfig.ui:76
+#, no-c-format, kde-format
+msgid "File manager (e.g. konsole -e mc %m):"
+msgstr "Xestor de ficheiros (por exemplo, «konsole -e mc %m»):"
+
+#. i18n: ectx: property (text), widget (QLabel, mFlatpakLabel)
+#: src/kdfconfig.ui:94
+#, kde-format
+msgid "Custom file manager not supported when running as Flatpak."
+msgstr ""
+
+#: src/kdfitemdelegate.cpp:32 src/kdfwidget.cpp:292
+#, kde-format
+msgctxt "Disk percentage"
+msgid "%1%"
+msgstr "%1%"
+
+#: src/kdfwidget.cpp:58
+#, kde-format
+msgctxt "Mount point of storage"
+msgid "Mount Point"
+msgstr "Punto de montaxe"
+
+#: src/kdfwidget.cpp:297 src/kdfwidget.cpp:298
+#, kde-format
+msgid "N/A"
+msgstr "N/D"
+
+#: src/kdfwidget.cpp:355 src/kwikdisk.cpp:267
+#, kde-format
+msgid "Device [%1] on [%2] is critically full."
+msgstr "Ao dispositivo [%1] en [%2] apenas lle queda espazo libre."
+
+#: src/kdfwidget.cpp:357
+#, kde-format
+msgctxt "Warning device getting critically full"
+msgid "Warning"
+msgstr "Aviso"
+
+#: src/kdfwidget.cpp:405
+#, kde-format
+msgid "Mount Device"
+msgstr "Montar o dispositivo"
+
+#: src/kdfwidget.cpp:406
+#, kde-format
+msgid "Unmount Device"
+msgstr "Desmontar o dispositivo"
+
+#: src/kdfwidget.cpp:408
+#, kde-format
+msgid "Open in File Manager"
+msgstr "Abrir no xestor de ficheiros"
+
+#: src/kdfwidget.cpp:425 src/kdfwidget.cpp:428
+#, kde-format
+msgid "MOUNTING"
+msgstr "Montando"
+
+#: src/kwikdisk.cpp:60 src/kwikdisk.cpp:309
+#, kde-format
+msgid "KwikDisk"
+msgstr "KwikDisk"
+
+#: src/kwikdisk.cpp:66
+#, kde-format
+msgid "&Start KDiskFree"
+msgstr "&Iniciar KDiskFree"
+
+#: src/kwikdisk.cpp:70
+#, kde-format
+msgid "&Configure KwikDisk..."
+msgstr "&Configurar KwikDisk…"
+
+#: src/kwikdisk.cpp:178
+#, kde-format
+msgctxt "Unmount the storage device"
+msgid "Unmount"
+msgstr "Desmontar"
+
+#: src/kwikdisk.cpp:178
+#, kde-format
+msgctxt "Mount the storage device"
+msgid "Mount"
+msgstr "Montar"
+
+#: src/kwikdisk.cpp:201
+#, kde-format
+msgid "You must login as root to mount this disk"
+msgstr "Ten que acceder como administrador (root) para montar o disco."
+
+#: src/kwikdisk.cpp:269
+#, kde-format
+msgctxt "Device is getting critically full"
+msgid "Warning"
+msgstr "Aviso"
+
+#: src/kwikdisk.cpp:311
+#, kde-format
+msgid "KDE Free disk space utility"
+msgstr "Utilidade de KDE para o espazo libre no disco."
+
+#: src/kwikdisk.cpp:313
+#, kde-format
+msgid "(C) 2004 Stanislav Karchebny"
+msgstr "© 2004 Stanislav Karchebny"
+
+#: src/kwikdisk.cpp:319
+#, kde-format
+msgid "Original author"
+msgstr "Autor orixinal."
+
+#: src/kwikdisk.cpp:321
+#, kde-format
+msgid "Espen Sand"
+msgstr "Espen Sand"
+
+#: src/kwikdisk.cpp:322
+#, kde-format
+msgid "KDE 2 changes"
+msgstr "Cambios para KDE 2."
+
+#: src/kwikdisk.cpp:323
+#, kde-format
+msgid "Stanislav Karchebny"
+msgstr "Stanislav Karchebny"
+
+#: src/kwikdisk.cpp:324
+#, kde-format
+msgid "KDE 3 changes"
+msgstr "Cambios para KDE 3."
+
+#: src/mntconfig.cpp:47 src/mntconfig.cpp:52
+#, kde-format
+msgid "Device"
+msgstr "Dispositivo"
+
+#: src/mntconfig.cpp:48 src/mntconfig.cpp:54
+#, kde-format
+msgid "Mount Point"
+msgstr "Punto de montaxe"
+
+#: src/mntconfig.cpp:48
+#, kde-format
+msgid "Mount Command"
+msgstr "Orde de montaxe"
+
+#: src/mntconfig.cpp:48
+#, kde-format
+msgid "Unmount Command"
+msgstr "Orde de desmontaxe"
+
+#: src/mntconfig.cpp:53
+#, kde-format
+msgctxt "No device is selected"
+msgid "None"
+msgstr "Ningún"
+
+#: src/mntconfig.cpp:55
+#, kde-format
+msgctxt "No mount point is selected"
+msgid "None"
+msgstr "Ningún"
+
+#: src/mntconfig.cpp:240
+#, kde-format
+msgid "Only local files supported."
+msgstr "Só se admiten ficheiros locais."
+
+#: src/mntconfig.cpp:256
+#, kde-format
+msgid "Only local files are currently supported."
+msgstr "Por agora só se admiten ficheiros locais."
+
+#. i18n: ectx: property (text), widget (QLabel, iconNameLabel)
+#: src/mntconfig.ui:20
+#, kde-format
+msgid "Icon name:"
+msgstr "Nome da icona:"
+
+#. i18n: ectx: property (text), widget (QLabel, mountLabel)
+#: src/mntconfig.ui:30
+#, kde-format
+msgid "Mount Command:"
+msgstr "Orde de montaxe:"
+
+#. i18n: ectx: property (text), widget (QLabel, umountLabel)
+#: src/mntconfig.ui:40
+#, kde-format
+msgid "Unmount Command:"
+msgstr "Orde de desmontaxe:"
+
+#. i18n: ectx: property (text), widget (QPushButton, mDefaultIconButton)
+#: src/mntconfig.ui:50
+#, kde-format
+msgid "Default Icon"
+msgstr "Icona predeterminada"
+
+#. i18n: ectx: property (text), widget (QPushButton, mMountButton)
+#. i18n: ectx: property (text), widget (QPushButton, mUmountButton)
+#: src/mntconfig.ui:57 src/mntconfig.ui:64
+#, kde-format
+msgid "Get Command..."
+msgstr "Obter a orde…"
+
+#: src/optiondialog.cpp:18
+#, kde-format
+msgid "Configure"
+msgstr "Configurar"
+
+#: src/optiondialog.cpp:24
+#, kde-format
+msgid "General Settings"
+msgstr "Opcións xerais"
+
+#: src/optiondialog.cpp:28
+#, kde-format
+msgid "Mount Commands"
+msgstr "Ordes de montaxe"
+
+#~ msgid "A test application"
+#~ msgstr "Un aplicativo de proba"
+
+#~ msgid "The &kdiskfree; Handbook"
+#~ msgstr "Manual do &kdiskfree;"
+
+#~ msgid "&Jonathan.Singer; &Jonathan.Singer.mail;"
+#~ msgstr "&Jonathan.Singer; &Jonathan.Singer.mail;"
+
+#~ msgid "&Michael.Kropfberger; &Michael.Kropfberger.mail;"
+#~ msgstr "&Michael.Kropfberger; &Michael.Kropfberger.mail;"
+
+#~ msgid "ROLES_OF_TRANSLATORS"
+#~ msgstr ""
+#~ "<othercredit role=\"translator\"><firstname>Xosé</"
+#~ "firstname><surname>Calvo</"
+#~ "surname><affiliation><address><email>xosecalvo@edu.xunta.es</email></"
+#~ "address></affiliation><contrib>Tradutor do proxecto Trasno</contrib> </"
+#~ "othercredit>"
+
+#~ msgid "&Jonathan.Singer;"
+#~ msgstr "&Jonathan.Singer;"
+
+#~ msgid "2010-01-12"
+#~ msgstr "2010-01-12"
+
+#~ msgid "v0.11 (&kde; 4.4)"
+#~ msgstr "v0.11 (&kde; 4.4)"
+
+#~ msgid ""
+#~ "&kdiskfree; displays available file devices, along with information about "
+#~ "them."
+#~ msgstr ""
+#~ "O &kdiskfree; mostra os sistemas de ficheiros disponíbeis, xuntamente con "
+#~ "informacións sobre eles."
+
+#~ msgid "<keyword>KDE</keyword>"
+#~ msgstr "<keyword>KDE</keyword>"
+
+#~ msgid "<keyword>kdf</keyword>"
+#~ msgstr "<keyword>kdf</keyword>"
+
+#~ msgid "kdeutils"
+#~ msgstr "kdeutils"
+
+#~ msgid "disks"
+#~ msgstr "discos"
+
+#~ msgid "Introduction"
+#~ msgstr "Introdución"
+
+#~ msgid ""
+#~ "&kdiskfree; displays the available file devices (hard drive partitions, "
+#~ "floppy and &CD; drives, &etc;) along with information on their capacity, "
+#~ "free space, type and mount point. It also allows you to mount and unmount "
+#~ "drives and view them in a file manager."
+#~ msgstr ""
+#~ "O &kdiskfree; mostra os sistemas de ficheiros disponíbeis (particións de  discos ríxidos, lectores de disquetes e &CD;, <abbrev>etc.</abbrev>), "
+#~ "xuntamente con  informacións sobre a súa capacidade, espazo libre, tipo e punto de "
+#~ "montaxe. Tamén permite montar e desmontar discos e visualizalos nun "
+#~ "xestor de ficheiros."
+
+#~| msgid ""
+#~| "&kdiskfree; is similar to the &kcontrolcenter; Disk-Free module , but "
+#~| "takes up less screen space. It is useful if you want to keep a "
+#~| "&kdiskfree; window available at all times."
+#~ msgid ""
+#~ "&kdiskfree; is similar to the &kinfocenter; Partitions module, but takes "
+#~ "up less screen space. It is useful if you want to keep a &kdiskfree; "
+#~ "window available at all times."
+#~ msgstr ""
+#~ "O &kdiskfree; é semellante ao módulo Particións do &kinfocenter;, mais "
+#~ "ocupa menos espazo na pantalla. É útil se se quere ter sempre unha xanela "
+#~ "do &kdiskfree; dispoñíbel en todo o momento."
+
+#~ msgid "Using &kdiskfree;"
+#~ msgstr "Utilización do &kdiskfree;"
+
+#~| msgid ""
+#~| "Type <userinput><command>kdf</command></userinput> at a command prompt "
+#~| "or select <guimenuitem>Disk Free</guimenuitem> from the "
+#~| "<guisubmenu>System</guisubmenu> group in the <guimenu>K</guimenu> menu. "
+#~| "The standard &Qt; and &kde; command options are available, and can be "
+#~| "listed by entering <userinput><command>kdf</command> <option>--help</"
+#~| "option></userinput> at the command prompt."
+#~ msgid ""
+#~ "Type <userinput><command>kdf</command></userinput> at a command prompt or "
+#~ "select <guimenuitem>Disk Free</guimenuitem> from the <guisubmenu>System</"
+#~ "guisubmenu> group in the application launcher. The standard &Qt; and "
+#~ "&kde; command options are available, and can be listed by entering "
+#~ "<userinput><command>kdf</command> <option>--help</option></userinput> at "
+#~ "the command prompt."
+#~ msgstr ""
+#~ "Escriba <userinput><command>kdf</command></userinput> na liña de ordes ou "
+#~ "seleccione <guimenuitem>Disk Free</guimenuitem> do <guisubmenu>grupo "
+#~ "Sistema</guisubmenu> no iniciador de aplicativos. Dispón das ordes "
+#~ "normais do  &kde; e &Qt;, que se poden enumerar introducindo:<userinput><command>kdf</"
+#~ "command> <option>--help</option></userinput> na liña de ordes."
+
+#~ msgid "The Main window"
+#~ msgstr "A xanela principal"
+
+#~ msgid "The main &kdiskfree; window displays the available file devices."
+#~ msgstr ""
+#~ "A xanela principal do &kdiskfree; mostra os sistemas de ficheiros "
+#~ "dispoñíbeis."
+
+#~ msgid "Normally, the following pieces of information are included:"
+#~ msgstr "Normalmente, inclúese a información seguinte:"
+
+#~ msgid "<screeninfo>&kdiskfree; Screen</screeninfo>"
+#~ msgstr "<screeninfo>Pantalla do &kdiskfree;</screeninfo>"
+
+#~ msgid "<phrase>&kdiskfree; Screen</phrase>"
+#~ msgstr "<phrase>Pantalla do &kdiskfree;</phrase>"
+
+#~ msgid "an icon depicting the type of storage"
+#~ msgstr "unha icona que representa o tipo de almacenamento"
+
+#~ msgid "device name"
+#~ msgstr "nome do dispositivo"
+
+#~ msgid "filesystem type"
+#~ msgstr "tipo do sistema de ficheiros"
+
+#~ msgid "total size"
+#~ msgstr "tamaño total"
+
+#~ msgid "the percentage of space used as a number and as a graph."
+#~ msgstr "a porcentaxe de espazo usado, en número e en gráfico."
+
+#~ msgid ""
+#~ "<mousebutton>Left</mousebutton> clicking on the header of a particular "
+#~ "column sorts the devices according to that variable. A second "
+#~ "<mousebutton>left</mousebutton> click sorts in the opposite order."
+#~ msgstr ""
+#~ "Ao premer co botón <mousebutton>esquerdo</mousebutton> do rato na "
+#~ "cabeceira dunha columna determinada, os dispositivos ordénanse de acordo "
+#~ "con esa variábel. Ao premer unha segunda vez co mesmo botón, ordénanse na "
+#~ "orde inversa."
+
+#~| msgid ""
+#~| "Clicking on a row pops up a menu. If that device is not currently "
+#~| "mounted, the <guimenuitem>Mount Device</guimenuitem> option is "
+#~| "available. If the device is mounted, it can be unmounted by choosing "
+#~| "<guimenuitem>Unmount Device</guimenuitem>. Selecting <guimenuitem>Open "
+#~| "in File Manager</guimenuitem> opens a new window with a graphical view "
+#~| "of the files on that device."
+#~ msgid ""
+#~ "Clicking with the &RMB; on a row pops up a menu. If that device is not "
+#~ "currently mounted, the <guimenuitem>Mount Device</guimenuitem> option is "
+#~ "available. If the device is mounted, it can be unmounted by choosing "
+#~ "<guimenuitem>Unmount Device</guimenuitem>. Selecting <guimenuitem>Open in "
+#~ "File Manager</guimenuitem> opens a new window with a graphical view of "
+#~ "the files on that device."
+#~ msgstr ""
+#~ "Ao calcar nunha fileira co &RMB; aparece un menú. Se ese dispositivo non "
+#~ "estiver montado, a opción <guimenuitem>Montar Dispositivo</guimenuitem> "
+#~ "está dispoñíbel. Se  ese dispositivo xa estiver montado, pódese desmontar seleccionando a "
+#~ "opción <guimenuitem>Desmontar Dispositivo</guimenuitem>. Ao seleccionar  <guimenuitem>Abrir no Xestor de Ficheiros</guimenuitem> ábrese unha "
+#~ "xanela nova cunha vista gráfica dos ficheiros dese dispositivo."
+
+#~ msgid "The &kdiskfree; menu bar"
+#~ msgstr "A barra de menú do &kdiskfree;"
+
+#~ msgid "The <guimenu>File</guimenu> Menu"
+#~ msgstr "O menú <guimenu>Ficheiro</guimenu>"
+
+#~ msgid "<guimenu>File</guimenu> <guimenuitem>Update</guimenuitem>"
+#~ msgstr "<guimenu>Ficheiro</guimenu> <guimenuitem>Actualizar</guimenuitem>"
+
+#~ msgid "Immediately updates the display to reflect the current status"
+#~ msgstr ""
+#~ "Actualiza inmediatamente os dispositivos para mostrar o estado actual."
+
+#~ msgid ""
+#~ "<shortcut> <keycombo action=\"simul\">&Ctrl;<keycap>Q</keycap></keycombo> "
+#~ "</shortcut> <guimenu>File</guimenu> <guimenuitem>Quit</guimenuitem>"
+#~ msgstr ""
+#~ "<shortcut> <keycombo action=\"simul\">&Ctrl;<keycap>Q</keycap></keycombo> "
+#~ "</shortcut> <guimenu>Ficheiro</guimenu> <guimenuitem>Saír</guimenuitem>"
+
+#~ msgid "<action>Closes</action> &kdiskfree;"
+#~ msgstr "<action>Fecha</action> o &kdiskfree;"
+
+#~ msgid "The <guimenu>Settings</guimenu> menu and dialog"
+#~ msgstr "O menú e o diálogo <guimenu>Configuración</guimenu>"
+
+#~ msgid ""
+#~ "<guimenu>Settings</guimenu> <guimenuitem>Configure Shortcuts...</"
+#~ "guimenuitem>"
+#~ msgstr ""
+#~ "<guimenu>Configuración</guimenu> <guimenuitem>Configurar os atallos de "
+#~ "teclado...</guimenuitem>"
+
+#~ msgid "The standard &kde; dialog for setting shortcuts."
+#~ msgstr "O diálogo normal do &kde; para configurar os atallos de teclado."
+
+#~ msgid ""
+#~ "<guimenu>Settings</guimenu> <guimenuitem>Configure KDiskFree...</"
+#~ "guimenuitem>"
+#~ msgstr ""
+#~ "<guimenu>Configuración</guimenu> <guimenuitem>Configurar KDiskFree...</"
+#~ "guimenuitem>"
+
+#~ msgid "Opens a configuration dialog."
+#~ msgstr "Abre un diálogo de configuración."
+
+#~ msgid "<screeninfo>Configure &kdiskfree; Screen</screeninfo>"
+#~ msgstr "<screeninfo>Pantalla de configuración do &kdiskfree;</screeninfo>"
+
+#~ msgid "<phrase>Configure &kdiskfree; Screen</phrase>"
+#~ msgstr "<phrase>Pantalla de configuración do &kdiskfree;</phrase>"
+
+#~ msgid ""
+#~ "This dialog has two tabbed windows, <guilabel>General Settings</guilabel> "
+#~ "and <guilabel>Mount Commands</guilabel>"
+#~ msgstr ""
+#~ "Este diálogo contén dúas xanelas con lapelas, <guilabel>Opcións xerais</"
+#~ "guilabel> e <guilabel>ordes de montaxe</guilabel>"
+
+#~ msgid ""
+#~ "Click on the word <guilabel>visible</guilabel> or <guilabel>hidden</"
+#~ "guilabel> to turn display of an data field on or off."
+#~ msgstr ""
+#~ "Prema a palabra <guilabel>visíbel</guilabel> ou <guilabel>agochado</"
+#~ "guilabel> para activar ou desactivar que se mostre un campo de data."
+
+#~| msgid ""
+#~| "Change the update frequency by moving the slider. The value in the box "
+#~| "on the left is the interval (in seconds) between updates of the "
+#~| "&kdiskfree; display to reflect the current status."
+#~ msgid ""
+#~ "Change the update frequency by editing the value. The value in the box is "
+#~ "the interval (in seconds) between updates of the &kdiskfree; display to "
+#~ "reflect the current status."
+#~ msgstr ""
+#~ "Mude a frecuencia de actualización arrastrando a barra. O valor da caixa "
+#~ "da esquerda é o intervalo (en segundos) entre actualizacións da pantalla "
+#~ "do &kdiskfree; para reflectir o estado actual."
+
+#~| msgid ""
+#~| "The File Manager setting controls the command executed when the "
+#~| "<guimenuitem>Open Filemanager</guimenuitem> popup menu item is selected."
+#~ msgid ""
+#~ "The <guilabel>File Manager</guilabel> setting controls the command "
+#~ "executed when the <guimenuitem>Open Filemanager</guimenuitem> popup menu "
+#~ "item is selected."
+#~ msgstr ""
+#~ "A opción <guilabel>Xestor de ficheiros</guilabel> controla a orde que se "
+#~ "executa cando se selecciona o elemento do menú de contexto "
+#~ "<guimenuitem>Abrir Xestor de ficheiros</guimenuitem>."
+
+#~ msgid ""
+#~ "There are also two check boxes. One controls if a file manager window "
+#~ "will be automatically opened when a device is mounted. The other causes "
+#~ "an alert window to pop up if a disk gets critically full."
+#~ msgstr ""
+#~ "Hai outras dúas opcións. Unha controla se se ha abrir automaticamente a "
+#~ "xanela do xestor cando se monte un dispositivo. A outra fai que apareza "
+#~ "unha mensaxe de alerta cando un disco estiver moi cheo."
+
+#~ msgid ""
+#~ "Allows the user to specify the mount and unmount commands for a given "
+#~ "device, as well as the icon used to represent it. More information on "
+#~ "these commands can be found on the man page for <application>mount</"
+#~ "application> (type <userinput><command>man</command> <option>mount</"
+#~ "option></userinput> at the command prompt)."
+#~ msgstr ""
+#~ "Permite especificar as ordes de montaxe e desmontaxe dun dispositivo "
+#~ "dado, así como a icona que os representa. Pódese atopar máis información "
+#~ "sobre estas ordes na páxina do manual de <application>mount</application> "
+#~ "(escriba <userinput><command>man</command> <option>mount</option></"
+#~ "userinput> na liña de ordes)."
+
+#~ msgid "The <guimenu>Help</guimenu> menu"
+#~ msgstr "O menú <guimenu>Axuda</guimenu>"
+
+#~ msgid "&help.menu.documentation;"
+#~ msgstr "&help.menu.documentation;"
+
+#~ msgid "Credits and License"
+#~ msgstr "Créditos e licenza"
+
+#~ msgid "&kdiskfree;"
+#~ msgstr "&kdiskfree;"
+
+#~ msgid ""
+#~ "Program Copyright &copy; 1998-2000 &Michael.Kropfberger; &Michael."
+#~ "Kropfberger.mail;"
+#~ msgstr "Copyright do programa &copy; 1998-2000 &Michael.Kropfberger;  &Michael.Kropfberger.mail;"
+
+#~ msgid ""
+#~ "Documentation Copyright &copy; 2000 &Jonathan.Singer; &Jonathan.Singer."
+#~ "mail;"
+#~ msgstr ""
+#~ "Copyright da documentación &copy; 2000 &Jonathan.Singer; &Jonathan.Singer."
+#~ "mail;"
+
+#~ msgid "CREDIT_FOR_TRANSLATORS"
+#~ msgstr ""
+#~ "<para>Tradución da documentación: Xosé Calvo - http://trasno.net/</para>"
+
+#~ msgid "&underFDL; &underGPL;"
+#~ msgstr "&underFDL; &underGPL;"
+
+#~ msgid ""
+#~ "In the picture above, four devices are shown: one reiserfs-formatted hard "
+#~ "drive partition mounted at the file system root (<filename class="
+#~ "\"directory\">/</filename>), two &CD-ROM;'s, and a floppy drive."
+#~ msgstr ""
+#~ "Na imaxe anterior móstranse catro dispositivos: un disco ríxido formatado "
+#~ "co sistema reiserfs na raiz do sistema de ficheiros (<filename class="
+#~ "\"directory\">/</filename>), dous &CD-ROM; e unha unidade de disquetes."

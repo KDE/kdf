@@ -1,0 +1,151 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Serbian-Latin "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="block-devices" lang="&language;">
+<title
+>Blokovski uređaji</title>
+
+<articleinfo>
+
+<authorgroup>
+<author
+><firstname
+>Majk</firstname
+> <surname
+>Mekbrajd</surname
+> </author>
+<othercredit role="translator"
+><firstname
+>Dragan</firstname
+><surname
+>Pantelić</surname
+><affiliation
+><address
+><email
+>falcon-10@gmx.de</email
+></address
+></affiliation
+><contrib
+>prevod</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>14. 4. 2016.</date>
+<releaseinfo
+>Programi KDE‑a 16.04</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>K‑kontrola</keyword>
+<keyword
+>blokovski uređaji</keyword>
+<keyword
+>prostor na disku</keyword>
+</keywordset>
+</articleinfo>
+
+<sect1>
+<title
+>Skladišni uređaji</title>
+
+<para
+>Prozor modula prikazuje dostupne fajl uređaje i nešto informacija o svakom od njih. Takođe vam omogućava da upravljate tačkama montiranja i montiranjem i demontiranjem uređaja. </para>
+
+<para
+>Pod ovim jezičkom normalno su prikazani sledeći podaci: </para>
+
+<itemizedlist>
+<listitem
+><para
+>ikonica koja prikazuje tip skladišta</para
+></listitem>
+<listitem
+><para
+>ime uređaja</para
+></listitem>
+<listitem
+><para
+>tip fajl sistema</para
+></listitem>
+<listitem
+><para
+>ukupna veličina</para
+></listitem>
+<listitem
+><para
+>tačka montiranja</para
+></listitem>
+<listitem
+><para
+>slobodan prostor</para
+></listitem>
+<listitem
+><para
+>procenat iskorišćenosti (kao broj ili grafikon)</para
+></listitem>
+</itemizedlist>
+
+<para
+><mousebutton
+>Levi</mousebutton
+> klik na zaglavlje kolone ređa uređaje prema datoj promenljivoj. Naredni <mousebutton
+>levi</mousebutton
+> klik ređa obrnutim redosledom. </para>
+
+<para
+><mousebutton
+>Desni</mousebutton
+> klik na vrstu poziva meni. Ako dati uređaj trenutno nije montiran, tu je opcija <guimenuitem
+>Montiraj uređaj</guimenuitem
+>. Ako uređaj jeste montiran, može se demontirati izborom <guimenuitem
+>Demontiraj uređaj</guimenuitem
+>. Stavka <guimenuitem
+>Otvori u menadžeru fajlova</guimenuitem
+> otvara nov prozor sa grafičkim prikazom fajlova na tom uređaju. </para>
+
+<para
+>Odgovarajuće naredbe za montiranje i demontiranje, i način otvaranja menadžera fajlova iz kontekstnog menija, mogu se podesiti u programu <application
+>K‑disk‑prostor</application
+>. </para>
+
+<sect2>
+<title
+>Autor sekcije</title>
+
+<para
+>Ova sekcija je prilagođena iz dokumentacije <application
+>K‑disk‑prostora</application
+>, koju je napisao <personname
+><firstname
+>Džonatan</firstname
+> <surname
+>Singer</surname
+></personname
+> &Jonathan.Singer.mail;.</para>
+
+<para
+>Za KDE 2.0 preradio <personname
+><firstname
+>Majk</firstname
+> <surname
+>Mekbrajd</surname
+></personname
+> &Mike.McBride.mail;.</para>
+<para
+>Preveo Dragan Pantelić <email
+>falcon-10@gmx.de</email
+>.</para
+> 
+
+</sect2>
+</sect1>
+</article>
+

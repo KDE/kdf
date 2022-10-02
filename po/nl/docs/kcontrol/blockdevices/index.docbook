@@ -1,0 +1,119 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Dutch "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="block-devices" lang="&language;">
+<title
+>Blokapparaten</title>
+
+<articleinfo>
+
+<authorgroup>
+<author
+><firstname
+>Mike</firstname
+> <surname
+>McBride</surname
+> </author>
+&Niels.Reedijk;&Tom.Albers; 
+</authorgroup>
+
+<date
+>2016-04-14</date>
+<releaseinfo
+>Applications 16.04</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KControl</keyword>
+<keyword
+>Blokapparaten</keyword>
+<keyword
+>Schijfruimte</keyword>
+</keywordset>
+</articleinfo>
+
+<sect1>
+<title
+>Opslagapparaten</title>
+
+<para
+>Het module venster toont de beschikbare apparaten en wat informatie over elk apparaat. Het geeft u ook de mogelijkheid om de mount punten te beheren en het mounten/unmounten van apparaten. </para>
+
+<para
+>Normaalgesproken worden de volgende informatie eenheden getoond op dit tabblad: </para>
+
+<itemizedlist>
+<listitem
+><para
+>een pictogram dat het opslag type weergeeft</para
+></listitem>
+<listitem
+><para
+>apparaatnaam</para
+></listitem>
+<listitem
+><para
+>type bestandssysteem</para
+></listitem>
+<listitem
+><para
+>totale grootte</para
+></listitem>
+<listitem
+><para
+>mountpunt</para
+></listitem>
+<listitem
+><para
+>beschikbare schijfruimte</para
+></listitem>
+<listitem
+><para
+>het percentage gebruikte ruimte als een nummer en een grafiek.</para
+></listitem>
+</itemizedlist>
+
+<para
+>Met <mousebutton
+>links</mousebutton
+> klikken op de koptekst van een bepaalde kolom sorteert de apparaten volgens die variabele. Een tweede klik met <mousebutton
+>links</mousebutton
+> sorteert in de omgekeerde volgorde. </para>
+
+<para
+>Met <mousebutton
+>rechts</mousebutton
+> klikken op een regel tovert een menu te voorschijn. Als dat apparaat nog niet is aangekoppeld dan is de optie <guimenuitem
+>Apparaat aankoppelen</guimenuitem
+> beschikbaar. Als het apparaat al is aangekoppeld dan zal het kunnen worden afgekoppeld door <guimenuitem
+>Afkoppelen</guimenuitem
+> te kiezen. Het selecteren van <guimenuitem
+>Openen in bestandsbeheerder</guimenuitem
+> opent een nieuw venster met een grafische weergave van dat apparaat. </para>
+
+<para
+>De precieze mount en umount commando's, en hoe bestandsbeheer wordt geopend vanuit het context menu kan worden ingesteld vanuit de &kdiskfree;-toepassing. </para>
+
+<sect2>
+<title
+>Auteurssectie</title>
+
+<para
+>Dit gedeelte is aangepast aan de <application
+>kdf</application
+> documentatie die is geschreven door &Jonathan.Singer; &Jonathan.Singer.mail;</para>
+
+<para
+>Aangepast voor &kde; 2.0 door &Mike.McBride; &Mike.McBride.mail;</para>
+&meld.fouten;&vertaling.niels;&nagelezen.tom; 
+
+</sect2>
+</sect1>
+</article>
+

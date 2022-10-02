@@ -1,0 +1,416 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeorg\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:49+0000\n"
+"PO-Revision-Date: 2022-09-20 01:55\n"
+"Last-Translator: \n"
+"Language-Team: Chinese Simplified\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Crowdin-Project: kdeorg\n"
+"X-Crowdin-Project-ID: 269464\n"
+"X-Crowdin-Language: zh-CN\n"
+"X-Crowdin-File: /kf5-trunk/messages/kdf/kdf.pot\n"
+"X-Crowdin-File-ID: 5735\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "KDE 中国, Guo Yunhe, Tyson Tan"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kde-china@kde.org, i@guoyunhe.me, tysontan@tysontan.com"
+
+#. i18n: ectx: Menu (file)
+#: desktop/kdfui.rc:5
+#, kde-format
+msgid "&File"
+msgstr "文件(&F)"
+
+#: src/disklist.cpp:325
+#, kde-format
+msgid "could not execute [%1]"
+msgstr "无法执行 [%1]"
+
+#: src/disks.cpp:262
+#, kde-format
+msgid ""
+"Called: %1\n"
+"\n"
+msgstr ""
+"调用：%1\n"
+"\n"
+
+#: src/disks.cpp:283
+#, kde-format
+msgid "could not execute %1"
+msgstr "无法执行 %1"
+
+#: src/kcmdf.cpp:39
+#, kde-format
+msgid ""
+"A right mouse button click opens a context menu to mount/unmount a device or "
+"to open it in the file manager."
+msgstr ""
+"鼠标右键单击可打开一个菜单，可供您挂载/卸载设备，或是在文件管理器里打开它们。"
+
+#: src/kdf.cpp:26
+#, kde-format
+msgctxt "Update action"
+msgid "&Update"
+msgstr "更新(&U)"
+
+#: src/kdf.cpp:59
+#, kde-format
+msgid "KDiskFree"
+msgstr "KDiskFree"
+
+#: src/kdf.cpp:61
+#, kde-format
+msgid "KDE free disk space utility"
+msgstr "KDE 剩余磁盘空间工具"
+
+#: src/kdf.cpp:63
+#, kde-format
+msgid "(c) 1998-2001, Michael Kropfberger"
+msgstr "(c) 1998-2001, Michael Kropfberger"
+
+#: src/kdf.cpp:69 src/kwikdisk.cpp:318
+#, kde-format
+msgid "Michael Kropfberger"
+msgstr "Michael Kropfberger"
+
+#: src/kdfconfig.cpp:32
+#, kde-format
+msgctxt "TODO"
+msgid "Icon"
+msgstr "图标"
+
+#: src/kdfconfig.cpp:33 src/kdfwidget.cpp:55
+#, kde-format
+msgctxt "Device of the storage"
+msgid "Device"
+msgstr "设备"
+
+#: src/kdfconfig.cpp:34 src/kdfwidget.cpp:56
+#, kde-format
+msgctxt "Filesystem on storage"
+msgid "Type"
+msgstr "文件系统"
+
+#: src/kdfconfig.cpp:35 src/kdfwidget.cpp:57
+#, kde-format
+msgctxt "Total size of the storage"
+msgid "Size"
+msgstr "大小"
+
+#: src/kdfconfig.cpp:36
+#, kde-format
+msgctxt "Mount point of the storage"
+msgid "Mount Point"
+msgstr "挂载点"
+
+#: src/kdfconfig.cpp:37 src/kdfwidget.cpp:59
+#, kde-format
+msgctxt "Free space in storage"
+msgid "Free"
+msgstr "空闲"
+
+#: src/kdfconfig.cpp:38 src/kdfwidget.cpp:60
+#, kde-format
+msgctxt "Used storage space in %"
+msgid "Full %"
+msgstr "已用 %"
+
+#: src/kdfconfig.cpp:39 src/kdfwidget.cpp:61
+#, kde-format
+msgctxt "Usage graphical bar"
+msgid "Usage"
+msgstr "使用情况"
+
+#: src/kdfconfig.cpp:64 src/kdfconfig.cpp:184
+#, kde-format
+msgctxt "Visible items on device information columns (enable|disable)"
+msgid "visible"
+msgstr "可见"
+
+#: src/kdfconfig.cpp:163
+#, kde-format
+msgctxt "Are items on device information columns visible?"
+msgid "visible"
+msgstr "可见"
+
+#: src/kdfconfig.cpp:164
+#, kde-format
+msgctxt "Are items on device information columns hidden?"
+msgid "hidden"
+msgstr "隐藏"
+
+#: src/kdfconfig.cpp:201
+#, kde-format
+msgctxt "Device information item is hidden"
+msgid "hidden"
+msgstr "隐藏"
+
+#: src/kdfconfig.cpp:202
+#, kde-format
+msgctxt "Device information item is visible"
+msgid "visible"
+msgstr "可见"
+
+#. i18n: ectx: property (text), widget (QLabel, updateLabel)
+#: src/kdfconfig.ui:35
+#, kde-format
+msgid "Update frequency:"
+msgstr "更新频率："
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, m_updateSpinBox)
+#: src/kdfconfig.ui:42
+#, kde-format
+msgid " sec"
+msgstr " 秒"
+
+#. i18n: ectx: property (text), widget (QCheckBox, mOpenMountCheck)
+#: src/kdfconfig.ui:55
+#, kde-format
+msgid "Open file manager automatically on mount"
+msgstr "挂载时自动打开文件管理器"
+
+#. i18n: ectx: property (text), widget (QCheckBox, mPopupFullCheck)
+#: src/kdfconfig.ui:62
+#, kde-format
+msgid "Pop up a window when a disk gets critically full"
+msgstr "当磁盘剩余空间危急时弹窗提醒"
+
+#. i18n: ectx: property (text), widget (QCheckBox, mSystemFileManagerCheck)
+#: src/kdfconfig.ui:69
+#, kde-format
+msgid "Use system default file manager"
+msgstr "使用系统默认文件管理器"
+
+#. i18n: ectx: property (text), widget (QLabel, fileManagerEdit)
+#: src/kdfconfig.ui:76
+#, no-c-format, kde-format
+msgid "File manager (e.g. konsole -e mc %m):"
+msgstr "文件管理器 (如 konsole -e mc %m)："
+
+#. i18n: ectx: property (text), widget (QLabel, mFlatpakLabel)
+#: src/kdfconfig.ui:94
+#, kde-format
+msgid "Custom file manager not supported when running as Flatpak."
+msgstr "作为 Flatpak 运行时不支持自定义文件管理器。"
+
+#: src/kdfitemdelegate.cpp:32 src/kdfwidget.cpp:292
+#, kde-format
+msgctxt "Disk percentage"
+msgid "%1%"
+msgstr "%1%"
+
+#: src/kdfwidget.cpp:58
+#, kde-format
+msgctxt "Mount point of storage"
+msgid "Mount Point"
+msgstr "挂载点"
+
+#: src/kdfwidget.cpp:297 src/kdfwidget.cpp:298
+#, kde-format
+msgid "N/A"
+msgstr "不可用"
+
+#: src/kdfwidget.cpp:355 src/kwikdisk.cpp:267
+#, kde-format
+msgid "Device [%1] on [%2] is critically full."
+msgstr "[%2] 上的设备 [%1] 剩余空间危急。"
+
+#: src/kdfwidget.cpp:357
+#, kde-format
+msgctxt "Warning device getting critically full"
+msgid "Warning"
+msgstr "警告"
+
+#: src/kdfwidget.cpp:405
+#, kde-format
+msgid "Mount Device"
+msgstr "挂载设备"
+
+#: src/kdfwidget.cpp:406
+#, kde-format
+msgid "Unmount Device"
+msgstr "卸载设备"
+
+#: src/kdfwidget.cpp:408
+#, kde-format
+msgid "Open in File Manager"
+msgstr "在文件管理器中打开"
+
+#: src/kdfwidget.cpp:425 src/kdfwidget.cpp:428
+#, kde-format
+msgid "MOUNTING"
+msgstr "正在挂载"
+
+#: src/kwikdisk.cpp:60 src/kwikdisk.cpp:309
+#, kde-format
+msgid "KwikDisk"
+msgstr "KwikDisk"
+
+#: src/kwikdisk.cpp:66
+#, kde-format
+msgid "&Start KDiskFree"
+msgstr "启动 KDiskFree(&S)"
+
+#: src/kwikdisk.cpp:70
+#, kde-format
+msgid "&Configure KwikDisk..."
+msgstr "配置 KwikDisk(&C)..."
+
+#: src/kwikdisk.cpp:178
+#, kde-format
+msgctxt "Unmount the storage device"
+msgid "Unmount"
+msgstr "卸载"
+
+#: src/kwikdisk.cpp:178
+#, kde-format
+msgctxt "Mount the storage device"
+msgid "Mount"
+msgstr "挂载"
+
+#: src/kwikdisk.cpp:201
+#, kde-format
+msgid "You must login as root to mount this disk"
+msgstr "您必须登录为 root 才能挂载磁盘"
+
+#: src/kwikdisk.cpp:269
+#, kde-format
+msgctxt "Device is getting critically full"
+msgid "Warning"
+msgstr "警告"
+
+#: src/kwikdisk.cpp:311
+#, kde-format
+msgid "KDE Free disk space utility"
+msgstr "KDE 剩余磁盘空间工具"
+
+#: src/kwikdisk.cpp:313
+#, kde-format
+msgid "(C) 2004 Stanislav Karchebny"
+msgstr "(C) 2004 Stanislav Karchebny"
+
+#: src/kwikdisk.cpp:319
+#, kde-format
+msgid "Original author"
+msgstr "原始作者"
+
+#: src/kwikdisk.cpp:321
+#, kde-format
+msgid "Espen Sand"
+msgstr "Espen Sand"
+
+#: src/kwikdisk.cpp:322
+#, kde-format
+msgid "KDE 2 changes"
+msgstr "KDE 2 更改"
+
+#: src/kwikdisk.cpp:323
+#, kde-format
+msgid "Stanislav Karchebny"
+msgstr "Stanislav Karchebny"
+
+#: src/kwikdisk.cpp:324
+#, kde-format
+msgid "KDE 3 changes"
+msgstr "KDE 3 更改"
+
+#: src/mntconfig.cpp:47 src/mntconfig.cpp:52
+#, kde-format
+msgid "Device"
+msgstr "设备"
+
+#: src/mntconfig.cpp:48 src/mntconfig.cpp:54
+#, kde-format
+msgid "Mount Point"
+msgstr "挂载点"
+
+#: src/mntconfig.cpp:48
+#, kde-format
+msgid "Mount Command"
+msgstr "挂载命令"
+
+#: src/mntconfig.cpp:48
+#, kde-format
+msgid "Unmount Command"
+msgstr "卸载命令"
+
+#: src/mntconfig.cpp:53
+#, kde-format
+msgctxt "No device is selected"
+msgid "None"
+msgstr "无"
+
+#: src/mntconfig.cpp:55
+#, kde-format
+msgctxt "No mount point is selected"
+msgid "None"
+msgstr "无"
+
+#: src/mntconfig.cpp:240
+#, kde-format
+msgid "Only local files supported."
+msgstr "只支持本地文件。"
+
+#: src/mntconfig.cpp:256
+#, kde-format
+msgid "Only local files are currently supported."
+msgstr "目前只支持本地文件。"
+
+#. i18n: ectx: property (text), widget (QLabel, iconNameLabel)
+#: src/mntconfig.ui:20
+#, kde-format
+msgid "Icon name:"
+msgstr "图标名称："
+
+#. i18n: ectx: property (text), widget (QLabel, mountLabel)
+#: src/mntconfig.ui:30
+#, kde-format
+msgid "Mount Command:"
+msgstr "挂载命令："
+
+#. i18n: ectx: property (text), widget (QLabel, umountLabel)
+#: src/mntconfig.ui:40
+#, kde-format
+msgid "Unmount Command:"
+msgstr "卸载命令："
+
+#. i18n: ectx: property (text), widget (QPushButton, mDefaultIconButton)
+#: src/mntconfig.ui:50
+#, kde-format
+msgid "Default Icon"
+msgstr "默认图标"
+
+#. i18n: ectx: property (text), widget (QPushButton, mMountButton)
+#. i18n: ectx: property (text), widget (QPushButton, mUmountButton)
+#: src/mntconfig.ui:57 src/mntconfig.ui:64
+#, kde-format
+msgid "Get Command..."
+msgstr "获取命令..."
+
+#: src/optiondialog.cpp:18
+#, kde-format
+msgid "Configure"
+msgstr "配置"
+
+#: src/optiondialog.cpp:24
+#, kde-format
+msgid "General Settings"
+msgstr "常规设置"
+
+#: src/optiondialog.cpp:28
+#, kde-format
+msgid "Mount Commands"
+msgstr "挂载命令"

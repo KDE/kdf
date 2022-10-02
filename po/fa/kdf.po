@@ -1,0 +1,470 @@
+# translation of kdf.po to Persian
+# MaryamSadat Razavi <razavi@itland.ir>, 2006.
+# Nasim Daniarzadeh <daniarzadeh@itland.ir>, 2006.
+# Nazanin Kazemi <kazemi@itland.ir>, 2006, 2007.
+# Tahereh Dadkhahfar <dadkhahfar@itland.ir>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdf\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:49+0000\n"
+"PO-Revision-Date: 2007-09-03 15:25+0330\n"
+"Last-Translator: Nazanin Kazemi <kazemi@itland.ir>\n"
+"Language-Team: Persian <kde-i18n-fa@kde.org>\n"
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "مریم سادات رضوی"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "razavi@itland.ir"
+
+#. i18n: ectx: Menu (file)
+#: desktop/kdfui.rc:5
+#, kde-format
+msgid "&File"
+msgstr "&پرونده‌"
+
+#: src/disklist.cpp:325
+#, fuzzy, kde-format
+#| msgid "could not execute [%s]"
+msgid "could not execute [%1]"
+msgstr "[%s] را نتوانست اجرا کند"
+
+#: src/disks.cpp:262
+#, kde-format
+msgid ""
+"Called: %1\n"
+"\n"
+msgstr ""
+"فراخوانی‌شده: %1 \n"
+"\n"
+
+#: src/disks.cpp:283
+#, kde-format
+msgid "could not execute %1"
+msgstr "%1 را نتوانست اجرا کند"
+
+#: src/kcmdf.cpp:39
+#, kde-format
+msgid ""
+"A right mouse button click opens a context menu to mount/unmount a device or "
+"to open it in the file manager."
+msgstr ""
+
+#: src/kdf.cpp:26
+#, fuzzy, kde-format
+#| msgid "&Update"
+msgctxt "Update action"
+msgid "&Update"
+msgstr "&به‌روزرسانی‌"
+
+#: src/kdf.cpp:59
+#, kde-format
+msgid "KDiskFree"
+msgstr ""
+
+#: src/kdf.cpp:61
+#, kde-format
+msgid "KDE free disk space utility"
+msgstr "برنامه سودمند فضای آزاد دیسک KDE"
+
+#: src/kdf.cpp:63
+#, kde-format
+msgid "(c) 1998-2001, Michael Kropfberger"
+msgstr ""
+
+#: src/kdf.cpp:69 src/kwikdisk.cpp:318
+#, kde-format
+msgid "Michael Kropfberger"
+msgstr ""
+
+#: src/kdfconfig.cpp:32
+#, fuzzy, kde-format
+#| msgid "Icon"
+msgctxt "TODO"
+msgid "Icon"
+msgstr "شمایل"
+
+#: src/kdfconfig.cpp:33 src/kdfwidget.cpp:55
+#, kde-format
+msgctxt "Device of the storage"
+msgid "Device"
+msgstr "دستگاه"
+
+#: src/kdfconfig.cpp:34 src/kdfwidget.cpp:56
+#, kde-format
+msgctxt "Filesystem on storage"
+msgid "Type"
+msgstr "نوع"
+
+#: src/kdfconfig.cpp:35 src/kdfwidget.cpp:57
+#, kde-format
+msgctxt "Total size of the storage"
+msgid "Size"
+msgstr "اندازه"
+
+#: src/kdfconfig.cpp:36
+#, kde-format
+msgctxt "Mount point of the storage"
+msgid "Mount Point"
+msgstr "نقطه سوار شدن"
+
+#: src/kdfconfig.cpp:37 src/kdfwidget.cpp:59
+#, kde-format
+msgctxt "Free space in storage"
+msgid "Free"
+msgstr "آزاد"
+
+#: src/kdfconfig.cpp:38 src/kdfwidget.cpp:60
+#, kde-format
+msgctxt "Used storage space in %"
+msgid "Full %"
+msgstr "٪ پر"
+
+#: src/kdfconfig.cpp:39 src/kdfwidget.cpp:61
+#, kde-format
+msgctxt "Usage graphical bar"
+msgid "Usage"
+msgstr "کاربرد"
+
+#: src/kdfconfig.cpp:64 src/kdfconfig.cpp:184
+#, kde-format
+msgctxt "Visible items on device information columns (enable|disable)"
+msgid "visible"
+msgstr "مرئی"
+
+#: src/kdfconfig.cpp:163
+#, kde-format
+msgctxt "Are items on device information columns visible?"
+msgid "visible"
+msgstr "مرئی"
+
+#: src/kdfconfig.cpp:164
+#, kde-format
+msgctxt "Are items on device information columns hidden?"
+msgid "hidden"
+msgstr "مخفی"
+
+#: src/kdfconfig.cpp:201
+#, kde-format
+msgctxt "Device information item is hidden"
+msgid "hidden"
+msgstr "مخفی"
+
+#: src/kdfconfig.cpp:202
+#, kde-format
+msgctxt "Device information item is visible"
+msgid "visible"
+msgstr "مرئی"
+
+#. i18n: ectx: property (text), widget (QLabel, updateLabel)
+#: src/kdfconfig.ui:35
+#, kde-format
+msgid "Update frequency:"
+msgstr ""
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, m_updateSpinBox)
+#: src/kdfconfig.ui:42
+#, kde-format
+msgid " sec"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, mOpenMountCheck)
+#: src/kdfconfig.ui:55
+#, kde-format
+msgid "Open file manager automatically on mount"
+msgstr "باز کردن مدیر پرونده به طور خودکار هنگام سوار کردن"
+
+#. i18n: ectx: property (text), widget (QCheckBox, mPopupFullCheck)
+#: src/kdfconfig.ui:62
+#, kde-format
+msgid "Pop up a window when a disk gets critically full"
+msgstr "بالا پریدن پنجره، هنگامی‌ که دیسک تا حد بحرانی پر می‌شود"
+
+#. i18n: ectx: property (text), widget (QCheckBox, mSystemFileManagerCheck)
+#: src/kdfconfig.ui:69
+#, kde-format
+msgid "Use system default file manager"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, fileManagerEdit)
+#: src/kdfconfig.ui:76
+#, no-c-format, kde-format
+msgid "File manager (e.g. konsole -e mc %m):"
+msgstr "مدیر پرونده )برای مثال :konsole -e mc %m(:"
+
+#. i18n: ectx: property (text), widget (QLabel, mFlatpakLabel)
+#: src/kdfconfig.ui:94
+#, kde-format
+msgid "Custom file manager not supported when running as Flatpak."
+msgstr ""
+
+#: src/kdfitemdelegate.cpp:32 src/kdfwidget.cpp:292
+#, kde-format
+msgctxt "Disk percentage"
+msgid "%1%"
+msgstr ""
+
+#: src/kdfwidget.cpp:58
+#, kde-format
+msgctxt "Mount point of storage"
+msgid "Mount Point"
+msgstr "نقطه سوار شدن"
+
+#: src/kdfwidget.cpp:297 src/kdfwidget.cpp:298
+#, kde-format
+msgid "N/A"
+msgstr "ناموجود"
+
+#: src/kdfwidget.cpp:355 src/kwikdisk.cpp:267
+#, kde-format
+msgid "Device [%1] on [%2] is critically full."
+msgstr "دستگاه ]%1[ روی ]%2[ تا حد بحرانی پر است."
+
+#: src/kdfwidget.cpp:357
+#, kde-format
+msgctxt "Warning device getting critically full"
+msgid "Warning"
+msgstr "اخطار"
+
+#: src/kdfwidget.cpp:405
+#, kde-format
+msgid "Mount Device"
+msgstr "سوار کردن دستگاه"
+
+#: src/kdfwidget.cpp:406
+#, kde-format
+msgid "Unmount Device"
+msgstr "پیاده کردن دستگاه"
+
+#: src/kdfwidget.cpp:408
+#, kde-format
+msgid "Open in File Manager"
+msgstr "باز کردن در مدیر پرونده"
+
+#: src/kdfwidget.cpp:425 src/kdfwidget.cpp:428
+#, kde-format
+msgid "MOUNTING"
+msgstr "سوار کردن"
+
+#: src/kwikdisk.cpp:60 src/kwikdisk.cpp:309
+#, kde-format
+msgid "KwikDisk"
+msgstr ""
+
+#: src/kwikdisk.cpp:66
+#, kde-format
+msgid "&Start KDiskFree"
+msgstr "&آغاز KDiskFree‌"
+
+#: src/kwikdisk.cpp:70
+#, kde-format
+msgid "&Configure KwikDisk..."
+msgstr "&پیکربندی KwikDisk...‌"
+
+#: src/kwikdisk.cpp:178
+#, kde-format
+msgctxt "Unmount the storage device"
+msgid "Unmount"
+msgstr "پیاده کردن"
+
+#: src/kwikdisk.cpp:178
+#, kde-format
+msgctxt "Mount the storage device"
+msgid "Mount"
+msgstr "سوار کردن"
+
+#: src/kwikdisk.cpp:201
+#, kde-format
+msgid "You must login as root to mount this disk"
+msgstr "برای سوار کردن دیسک، باید به عنوان کاربر ارشد وارد شوید"
+
+#: src/kwikdisk.cpp:269
+#, kde-format
+msgctxt "Device is getting critically full"
+msgid "Warning"
+msgstr "اخطار"
+
+#: src/kwikdisk.cpp:311
+#, kde-format
+msgid "KDE Free disk space utility"
+msgstr "برنامه سودمند فضای آزاد دیسک KDE"
+
+#: src/kwikdisk.cpp:313
+#, kde-format
+msgid "(C) 2004 Stanislav Karchebny"
+msgstr ""
+
+#: src/kwikdisk.cpp:319
+#, kde-format
+msgid "Original author"
+msgstr "نویسنده اصلی"
+
+#: src/kwikdisk.cpp:321
+#, kde-format
+msgid "Espen Sand"
+msgstr ""
+
+#: src/kwikdisk.cpp:322
+#, kde-format
+msgid "KDE 2 changes"
+msgstr "تغییرات KDE ۲"
+
+#: src/kwikdisk.cpp:323
+#, kde-format
+msgid "Stanislav Karchebny"
+msgstr ""
+
+#: src/kwikdisk.cpp:324
+#, kde-format
+msgid "KDE 3 changes"
+msgstr "تغییرات KDE ۳"
+
+#: src/mntconfig.cpp:47 src/mntconfig.cpp:52
+#, kde-format
+msgid "Device"
+msgstr "دستگاه"
+
+#: src/mntconfig.cpp:48 src/mntconfig.cpp:54
+#, kde-format
+msgid "Mount Point"
+msgstr "نقطه سوار شدن"
+
+#: src/mntconfig.cpp:48
+#, kde-format
+msgid "Mount Command"
+msgstr "فرمان سوار کردن"
+
+#: src/mntconfig.cpp:48
+#, kde-format
+msgid "Unmount Command"
+msgstr "فرمان پیاده کردن"
+
+#: src/mntconfig.cpp:53
+#, kde-format
+msgctxt "No device is selected"
+msgid "None"
+msgstr "هیچ‌کدام"
+
+#: src/mntconfig.cpp:55
+#, kde-format
+msgctxt "No mount point is selected"
+msgid "None"
+msgstr "هیچ‌کدام"
+
+#: src/mntconfig.cpp:240
+#, kde-format
+msgid "Only local files supported."
+msgstr "فقط پرونده‌های محلی پشتیبانی می‌شوند."
+
+#: src/mntconfig.cpp:256
+#, kde-format
+msgid "Only local files are currently supported."
+msgstr "در حال حاضر، فقط پرونده‌های محلی پشتیبانی می‌شوند."
+
+#. i18n: ectx: property (text), widget (QLabel, iconNameLabel)
+#: src/mntconfig.ui:20
+#, fuzzy, kde-format
+#| msgid "Icon"
+msgid "Icon name:"
+msgstr "شمایل"
+
+#. i18n: ectx: property (text), widget (QLabel, mountLabel)
+#: src/mntconfig.ui:30
+#, fuzzy, kde-format
+#| msgid "Mount Command"
+msgid "Mount Command:"
+msgstr "فرمان سوار کردن"
+
+#. i18n: ectx: property (text), widget (QLabel, umountLabel)
+#: src/mntconfig.ui:40
+#, fuzzy, kde-format
+#| msgid "Unmount Command"
+msgid "Unmount Command:"
+msgstr "فرمان پیاده کردن"
+
+#. i18n: ectx: property (text), widget (QPushButton, mDefaultIconButton)
+#: src/mntconfig.ui:50
+#, kde-format
+msgid "Default Icon"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, mMountButton)
+#. i18n: ectx: property (text), widget (QPushButton, mUmountButton)
+#: src/mntconfig.ui:57 src/mntconfig.ui:64
+#, fuzzy, kde-format
+#| msgid "Get Mount Command"
+msgid "Get Command..."
+msgstr "به دست آوردن فرمان سوار کردن"
+
+#: src/optiondialog.cpp:18
+#, kde-format
+msgid "Configure"
+msgstr "پیکربندی"
+
+#: src/optiondialog.cpp:24
+#, kde-format
+msgid "General Settings"
+msgstr "تنظیمات عمومی"
+
+#: src/optiondialog.cpp:28
+#, kde-format
+msgid "Mount Commands"
+msgstr "فرمانهای سوار کردن"
+
+#~ msgid "A test application"
+#~ msgstr "کاربرد آزمون"
+
+#~ msgid ""
+#~ "<h3>Hardware Information</h3><br /> All the information modules return "
+#~ "information about a certain aspect of your computer hardware or your "
+#~ "operating system. Not all modules are available on all hardware "
+#~ "architectures and/or operating systems."
+#~ msgstr ""
+#~ "<h3>اطلاعات سخت‌افزاری</h3><br>همه پیمانه‌های اطلاعات، اطلاعاتی پیرامون "
+#~ "جنبه مشخصی از سخت‌افزار رایانه یا سیستم عامل شما را ارائه می‌کند. همه "
+#~ "پیمانه‌ها بر روی همه معماریها و/یا سیستمهای عامل وجود ندارند."
+
+#~ msgid "Update frequency [seconds]. The value 0 disables update"
+#~ msgstr "بسامد به‌روزرسانی ]ثانیه[. مقدار ۰ به‌روزرسانی را غیرفعال می‌کند"
+
+#, fuzzy
+#~| msgid "Mount Command"
+#~ msgid "Mount command:"
+#~ msgstr "فرمان سوار کردن"
+
+#, fuzzy
+#~| msgid "Unmount Command"
+#~ msgid "Unmount command:"
+#~ msgstr "فرمان پیاده کردن"
+
+#~ msgid ""
+#~ "This filename is not valid: %1\n"
+#~ "It must end with \"_mount\" or \"_unmount\"."
+#~ msgstr ""
+#~ " اسم پرونده معتبر نیست: %1\n"
+#~ "باید به »_mount« یا »_unmount« ختم شود."
+
+#~ msgid "%1 (%2) %3 on %4"
+#~ msgstr "%1 )%2( %3 روی %4"
+
+#~ msgctxt "Storage device icon"
+#~ msgid "Icon"
+#~ msgstr "شمایل"
+
+#~ msgctxt "Item on the device information column is visible"
+#~ msgid "visible"
+#~ msgstr "مرئی"
+
+#~ msgid "Get Unmount Command"
+#~ msgstr "به دست آوردن فرمان پیاده کردن"

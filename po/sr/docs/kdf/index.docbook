@@ -1,0 +1,447 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname-n '<application>К‑диск‑простор</application>'>
+  <!ENTITY kappname-g '<application>К‑диск‑простора</application>'>
+  <!ENTITY kappname-d '<application>К‑диск‑простору</application>'>
+  <!ENTITY kappname-a '<application>К‑диск‑простор</application>'>
+  <!ENTITY kappname-i '<application>К‑диск‑простором</application>'>
+  <!ENTITY kappname-l '<application>К‑диск‑простору</application>'>
+  <!ENTITY % Serbian "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kdf" lang="&language;">
+
+<bookinfo>
+<title
+>Приручник за <application
+>К‑диск‑простор</application
+></title>
+
+<authorgroup>
+<author
+><personname
+><firstname
+>Џонатан</firstname
+> <surname
+>Сингер</surname
+></personname
+> &Jonathan.Singer.mail; </author>
+
+<author
+><personname
+><firstname
+>Михаел</firstname
+> <surname
+>Кропфбергер</surname
+></personname
+> &Michael.Kropfberger.mail; </author>
+
+<othercredit role="translator"
+><firstname
+>Драган</firstname
+><surname
+>Пантелић</surname
+><affiliation
+><address
+><email
+>falcon-10@gmx.de</email
+></address
+></affiliation
+><contrib
+>превод</contrib
+></othercredit
+> 
+
+</authorgroup>
+
+<copyright>
+<year
+>2000-2002</year>
+<holder
+>Џонатан Сингер</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>13. 4. 2016.</date>
+<releaseinfo
+>Програми КДЕ‑а 16.08</releaseinfo>
+
+<abstract
+><para
+><application
+>К‑диск‑простор</application
+> приказује расположиве фајл уређаје, заједно са подацима о њима.</para>
+
+</abstract>
+
+<keywordset>
+<keyword
+>КДЕ</keyword>
+<keyword
+>К‑диск‑простор</keyword>
+<keyword
+>kdeutils</keyword>
+<keyword
+>дискови</keyword>
+<keyword
+>уређаји</keyword>
+<keyword
+>монтирање</keyword>
+<keyword
+>демонтирање</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Увод</title>
+
+<para
+><application
+>К‑диск‑простор</application
+> приказује фајл уређаје (партиције хард‑диска, дискетне и ЦД јединице, УСБ штапиће, итд.) заједно с подацима о капацитету, слободном простору, типу и тачки монтирања. Такође допушта монтирање и демонтирање јединица и њихово приказивање у менаџеру фајлова.</para>
+
+<para
+><application
+>К‑диск‑простор</application
+> је сличан модулу складишних уређаја у Системским поставкама, али заузима мање места на екрану. Користан је ако желите да прозор <application
+>К‑диск‑простора</application
+> буде стално доступан.</para>
+
+</chapter>
+
+<chapter id="using-kdf">
+<title
+>Коришћење <application
+>К‑диск‑простора</application
+></title>
+
+<sect1 id="starting-kdf">
+<title
+>Покретање <application
+>К‑диск‑простора</application
+></title
+> 
+
+<para
+>Упишите <userinput
+><command
+>kdf</command
+></userinput
+> у командни одзивник или изаберите <guimenuitem
+>К‑диск‑простор</guimenuitem
+> из групе <guisubmenu
+>Систем</guisubmenu
+> у покретачу програма. Доступне су стандардне КДЕ и КуТ опције наредби, и могу се набројати извршавањем <userinput
+><command
+>kdf</command
+> <option
+>--help</option
+></userinput
+>.</para>
+
+<para
+>Ако желите да програм ради као аплет у системској касети, идите на <menuchoice
+><guisubmenu
+>Систем</guisubmenu
+><guimenuitem
+>Квикдиск</guimenuitem
+></menuchoice
+> у покретачу програма.</para>
+
+<para
+>Могућности <application
+>К‑диск‑простора</application
+> доступне су и Системским поставкама, модул <guilabel
+>Складишни уређаји</guilabel
+>.</para>
+</sect1>
+
+<sect1 id="main-window">
+<title
+>Главни прозор</title>
+
+<para
+>Главни прозор <application
+>К‑диск‑простора</application
+> приказује доступне фајл уређаје.</para>
+
+<para
+>Нормално су приказани следећи подаци:</para>
+<screenshot>
+<screeninfo
+>Екран <application
+>К‑диск‑простора</application
+>.</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="kdf.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Екран <application
+>К‑диск‑простора</application
+>.</phrase>
+          </textobject>
+        </mediaobject>
+</screenshot>
+
+<itemizedlist>
+<listitem
+><para
+>иконица која указује на тип складишта</para
+></listitem>
+<listitem
+><para
+>име уређаја</para
+></listitem>
+<listitem
+><para
+>тип фајл система</para
+></listitem>
+<listitem
+><para
+>укупна величина</para
+></listitem>
+<listitem
+><para
+>тачка монтирања</para
+></listitem>
+<listitem
+><para
+>слободан простор</para
+></listitem>
+<listitem
+><para
+>проценат искоришћености (као број или графикон)</para
+></listitem>
+</itemizedlist>
+
+<para
+><mousebutton
+>Леви</mousebutton
+> клик на заглавље колоне ређа уређаје према датој променљивој. Наредни <mousebutton
+>леви</mousebutton
+> клик ређа обрнутим редоследом.</para>
+
+<para
+>Десни клик на врсту позива мени. Ако дати уређај тренутно није монтиран, ту је опција <guimenuitem
+>Монтирај уређај</guimenuitem
+>. Ако уређај јесте монтиран, може се демонтирати избором <guimenuitem
+>Демонтирај уређај</guimenuitem
+>. Ставка <guimenuitem
+>Отвори у менаџеру фајлова</guimenuitem
+> отвара нов прозор са графичким приказом фајлова на том уређају.</para>
+<para
+>Поставка за менаџер фајлова у <application
+>К‑диск‑простору</application
+> независна је од оне из модула <guilabel
+>Подразумевани програми</guilabel
+> у Системским поставкама.</para>
+</sect1>
+
+<sect1 id="menus-and-configuration">
+<title
+>Трака менија и подешавање</title>
+
+<sect2>
+<title
+>Мени <guimenu
+>Фајл</guimenu
+></title>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+><keycap
+>F5</keycap
+></shortcut
+> <guimenu
+>Фајл</guimenu
+> <guimenuitem
+>Ажурирај</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Одмах ажурира приказ тако да одражава текуће стање.</action
+></para
+></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Фајл</guimenu
+> <guimenuitem
+>Напусти</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Затвара</action
+> <application
+>К‑диск‑простор</application
+>.</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+><application
+>К‑диск‑простор</application
+> такође има уобичајене КДЕ меније <guimenu
+>Подешавање</guimenu
+> и <guimenu
+>Помоћ</guimenu
+>. Детаље о њима потражите у Основама КДЕ‑а, одељци <ulink url="help:/fundamentals/ui.html#menus-settings"
+>менију за подешавање</ulink
+> и <ulink url="help:/fundamentals/ui.html#menus-help"
+>менију помоћи</ulink
+>. </para>
+
+</sect2>
+
+<sect2>
+<title
+>Дијалог поставки</title>
+
+<screenshot>
+<screeninfo
+>Екран за подешавање <application
+>К‑диск‑простора</application
+>.</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="kdf_config.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Екран за подешавање <application
+>К‑диск‑простора</application
+>.</phrase>
+          </textobject>
+        </mediaobject>
+</screenshot>
+
+<para
+>Овај дијалог има два прозора с језичцима, <guilabel
+>Опште поставке</guilabel
+> и <guilabel
+>Наредбе монтирања</guilabel
+>.</para>
+<variablelist>
+<varlistentry>
+<term
+>Опште поставке</term
+> <listitem
+><para
+>Кликните на реч <guilabel
+>видљиво</guilabel
+> или <guilabel
+>скривено</guilabel
+> да укључите или искључите поље података.</para
+> <para
+>Учесталост ажурирања задајете уређивањем вредности периода (у секундама) између ажурирања приказа <application
+>К‑диск‑простора</application
+> тако да одражава тренутно стање.</para
+> <para
+>Поставка <guilabel
+>Менаџер фајлова</guilabel
+> наводи наредбу коју треба извршити на избор ставке <guimenuitem
+>Отвори у менаџеру фајлова</guimenuitem
+> из искачућег менија.</para>
+<para
+>Ту су и две кућице. Једна одређује да ли ће се прозор менаџера фајлова аутоматски отворити кад се уређај монтира. Друга задаје искакање прозора са упозорењем ако се диск критично препуни.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Наредбе монтирања</guilabel
+></term>
+<listitem
+><para
+>Корисник овде може задати наредбе за монтирање и демонтирање уређаја, као и иконицу која га представља. Више информација о овим наредбама може се наћи на упутној страници <command
+>mount</command
+> (упишите <userinput
+><command
+>man</command
+> mount</userinput
+> у командни одзивник).</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="credits">
+<title
+>Заслуге и лиценца</title>
+
+<para
+><application
+>К‑диск‑простор</application
+></para>
+
+<para
+>Програм: © 1998–2000, <personname
+><firstname
+>Михаел</firstname
+> <surname
+>Кропфбергер</surname
+></personname
+> &Michael.Kropfberger.mail;.</para>
+
+<para
+>Документација: © 2000, <personname
+><firstname
+>Џонатан</firstname
+> <surname
+>Сингер</surname
+></personname
+> &Jonathan.Singer.mail;.</para>
+
+<para
+>Превео Драган Пантелић <email
+>falcon-10@gmx.de</email
+>.</para
+> 
+&underFDL; &underGPL; </chapter>
+
+&documentation.index; 
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->

@@ -1,0 +1,121 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % French "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="block-devices" lang="&language;">
+<title
+>Périphériques bloc</title>
+
+<articleinfo>
+
+<authorgroup>
+<author
+><firstname
+>Mike</firstname
+> <surname
+>McBride</surname
+> </author>
+&traducteurGerardDelafond;&relecteurLudovicGrossard;&traducteurXavierBesnard; 
+</authorgroup>
+
+<date
+>14-04-2016</date>
+<releaseinfo
+>Applications 16.04</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KControl</keyword>
+<keyword
+>Périphériques bloc</keyword>
+<keyword
+>Espace disque</keyword>
+</keywordset>
+</articleinfo>
+
+<sect1>
+<title
+>Périphériques de stockage</title>
+
+<para
+>Cette boîte de dialogue affiche les systèmes de fichiers disponibles et quelques informations pour chaque périphérique. Elle vous permet également de configurer les points de montage et le montage / libération des périphériques. </para>
+
+<para
+>Normalement, les informations suivantes sont indiquées dans cet onglet :  </para>
+
+<itemizedlist>
+<listitem
+><para
+>une icône qui décrit le type de stockage</para
+></listitem>
+<listitem
+><para
+>nom du périphérique</para
+></listitem>
+<listitem
+><para
+>type de système de fichiers</para
+></listitem>
+<listitem
+><para
+>la taille totale</para
+></listitem>
+<listitem
+><para
+>le point de montage</para
+></listitem>
+<listitem
+><para
+>l'espace disque disponible</para
+></listitem>
+<listitem
+><para
+>le pourcentage d'espace disque utilisé représenté par un nombre et un graphique.</para
+></listitem>
+</itemizedlist>
+
+<para
+>En cliquant avec le bouton <mousebutton
+>gauche</mousebutton
+> de la souris sur l'en-tête d'une colonne, on trie les périphériques suivants les critères définis dans cet en-tête. Un second clic avec le <mousebutton
+>bouton gauche</mousebutton
+> permet de trier dans l'ordre inverse. </para>
+
+<para
+>En cliquant avec le bouton <mousebutton
+>droit</mousebutton
+>, on obtient l'affichage d'un menu contextuel. Si le périphérique n'est pas monté, l'option <guimenuitem
+>Monter le périphérique</guimenuitem
+> est disponible. Si le périphérique est monté, il peut être libéré en choisissant l'option <guimenuitem
+>Libérer le périphérique</guimenuitem
+> Sélectionnez <guimenuitem
+>Ouvrir le gestionnaire de fichiers</guimenuitem
+> pour ouvrir dans une nouvelle fenêtre une vue graphique des fichiers de ce périphérique. </para>
+
+<para
+>Les commandes « mount » et « umount » appropriées, ainsi que la façon dont le gestionnaire de fichiers est ouvert depuis le menu contextuel peuvent être configurées depuis l'application &kdiskfree;. </para>
+
+<sect2>
+<title
+>Auteurs de la section</title>
+
+<para
+>Cette section est une version modifiée de la documentation de <application
+>kdf</application
+> avec l'autorisation de &Jonathan.Singer; &Jonathan.Singer.mail;</para>
+
+<para
+>Modifiée pour KDE 2.0 par &Mike.McBride; &Mike.McBride.mail;</para>
+<para
+>Traduction française par &GerardDelafond;, relecture par &LudovicGrossard;.</para
+> 
+
+</sect2>
+</sect1>
+</article>
+

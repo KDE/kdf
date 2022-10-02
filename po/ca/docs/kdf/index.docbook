@@ -1,0 +1,379 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&kdiskfree;">
+  <!ENTITY % Catalan  "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kdf" lang="&language;">
+
+<bookinfo>
+<title
+>El manual de &kdiskfree;</title>
+
+<authorgroup>
+<author
+>&Jonathan.Singer; &Jonathan.Singer.mail; </author>
+
+<author
+>&Michael.Kropfberger; &Michael.Kropfberger.mail; </author>
+
+<othercredit role="translator"
+> <firstname
+>Albert</firstname
+> <surname
+>Astals Cid</surname
+> <affiliation
+><address
+><email
+>aacid@kde.org</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+> 
+
+</authorgroup>
+
+<copyright>
+<year
+>2000-2002</year>
+<holder
+>&Jonathan.Singer;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>13 d'abril de 2016</date>
+<releaseinfo
+>Aplicacions 16.08</releaseinfo>
+
+<abstract
+><para
+>El &kdiskfree; mostra els dispositius de fitxers disponibles i informació quant a ells.</para>
+
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdf</keyword>
+<keyword
+>kdeutils</keyword>
+<keyword
+>discs</keyword>
+<keyword
+>dispositius</keyword>
+<keyword
+>muntar</keyword>
+<keyword
+>desmuntar</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introducció</title>
+
+<para
+>El &kdiskfree; mostra els dispositius de fitxers disponibles (particions de disc dur, disquets i lectors de &CD;, memòries USB, &etc;) juntament amb informació de la seva capacitat, espai lliure, tipus i punt de muntatge. També permet muntar i desmuntar els dispositius i veure'ls en un gestor de fitxers.</para>
+
+<para
+>El &kdiskfree; és similar al mòdul dels dispositius d'emmagatzematge a l'&systemsettings;, però necessita menys espai de pantalla. És útil si voleu mantenir una finestra del &kdiskfree; disponible en tot moment.</para>
+
+</chapter>
+
+<chapter id="using-kdf">
+<title
+>Com usar el &kdiskfree;</title>
+
+<sect1 id="starting-kdf">
+<title
+>Com iniciar el &kdiskfree;</title
+> 
+
+<para
+>Escriviu <userinput
+><command
+>kdf</command
+></userinput
+> en una línia d'ordres o seleccioneu <guimenuitem
+>KDiskFree</guimenuitem
+> al grup <guisubmenu
+>Sistema</guisubmenu
+> en el llançador d'aplicacions. Estan disponibles les opcions estàndard de les &Qt; i el &kde;, i es poden llistar introduint <userinput
+><command
+>kdf</command
+> <option
+>--help</option
+></userinput
+> a l'indicador d'ordres.</para>
+
+<para
+>Per executar-la com una miniaplicació a la safata del sistema, empreu <menuchoice
+><guisubmenu
+>Sistema</guisubmenu
+><guimenuitem
+>KwikDisk</guimenuitem
+></menuchoice
+> al llançador d'aplicacions.</para>
+
+<para
+>Les característiques del &kdiskfree; també es troben disponibles al mòdul <guilabel
+>Dispositius d'emmagatzematge</guilabel
+> a l'&systemsettings;.</para>
+</sect1>
+
+<sect1 id="main-window">
+<title
+>La finestra principal</title>
+
+<para
+>La finestra principal del &kdiskfree; mostra els dispositius de fitxers disponibles.</para>
+
+<para
+>Normalment es mostra la següent informació:</para>
+<screenshot>
+<screeninfo
+>Pantalla del &kdiskfree;</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="kdf.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Pantalla del &kdiskfree;</phrase>
+          </textobject>
+        </mediaobject>
+</screenshot>
+
+<itemizedlist>
+<listitem
+><para
+>una icona descrivint el tipus d'emmagatzematge</para
+></listitem>
+<listitem
+><para
+>nom del dispositiu</para
+></listitem>
+<listitem
+><para
+>tipus del sistema de fitxers</para
+></listitem>
+<listitem
+><para
+>mida total</para
+></listitem>
+<listitem
+><para
+>punt de muntatge</para
+></listitem>
+<listitem
+><para
+>espai lliure al disc</para
+></listitem>
+<listitem
+><para
+>el percentatge d'espai usat en número i en gràfic.</para
+></listitem>
+</itemizedlist>
+
+<para
+>Un clic <mousebutton
+>esquerre</mousebutton
+> a la capçalera d'una columna en particular ordena els dispositius segons aquesta variable. Un altre clic <mousebutton
+>esquerre</mousebutton
+> ordena en l'ordre contrari.</para>
+
+<para
+>En fer clic amb el &BDR; en una fila es mostrarà un menú. Si el dispositiu no està muntat actualment, l'opció <guimenuitem
+>Munta el dispositiu</guimenuitem
+> estarà disponible. Si el dispositiu està muntat, es podrà desmuntar escollint <guimenuitem
+>Desmunta el dispositiu</guimenuitem
+>. Escollir <guimenuitem
+>Obre al gestor de fitxers</guimenuitem
+> farà que s'obri una nova finestra amb una visió gràfica dels fitxers en aquest dispositiu.</para>
+<para
+>L'opció pel gestor de fitxers que empra el &kdiskfree; és independent de les eleccions al mòdul <guilabel
+>Aplicacions per omissió</guilabel
+> de l'&systemsettings;.</para>
+</sect1>
+
+<sect1 id="menus-and-configuration">
+<title
+>Barra de menús i configuració</title>
+
+<sect2>
+<title
+>El menú Fitxer</title>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+><keycap
+>F5</keycap
+></shortcut
+> <guimenu
+>Fitxer</guimenu
+> <guimenuitem
+>Actualitza</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Actualitza immediatament la finestra per a reflectir l'estat actual</action
+></para
+></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Fitxer</guimenu
+> <guimenuitem
+>Surt</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Tanca</action
+> el &kdiskfree;</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>De manera addicional, el &kdiskfree; té la configuració comuna al &kde; i els elements dels menús <guimenu
+>Arranjament</guimenu
+> i <guimenu
+>Ajuda</guimenu
+>. Per a obtenir més informació, llegiu les seccions sobre <ulink url="help:/fundamentals/menus.html#menus-settings"
+>El menú Arranjament</ulink
+> i <ulink url="help:/fundamentals/menus.html#menus-help"
+>El menú Ajuda</ulink
+> en els Fonaments del &kde;. </para>
+
+</sect2>
+
+<sect2>
+<title
+>El diàleg d'arranjament</title>
+
+<screenshot>
+<screeninfo
+>Pantalla de Configura el &kdiskfree;</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="kdf_config.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Pantalla de Configura el &kdiskfree;</phrase>
+          </textobject>
+        </mediaobject>
+</screenshot>
+
+<para
+>Aquest diàleg té dues pestanyes, <guilabel
+>Paràmetres generals</guilabel
+> i <guilabel
+>Ordres de muntatge</guilabel
+></para>
+<variablelist>
+<varlistentry>
+<term
+>Paràmetres generals</term
+> <listitem
+><para
+>Feu clic a la paraula <guilabel
+>visible</guilabel
+> o <guilabel
+>ocult</guilabel
+> per fer que un cap es mostri o no.</para
+> <para
+>Canvieu la freqüència d'actualització editant el valor. El valor en el quadre és l'interval (en segons) entre les actualitzacions de la finestra del &kdiskfree; per a reflectir l'estat.</para
+> <para
+>El paràmetre <guilabel
+>Gestor de fitxers</guilabel
+> controla l'ordre que s'executarà quan s'esculli l'element <guimenuitem
+>Obre al gestor de fitxers</guimenuitem
+> del menú emergent.</para>
+<para
+>També hi ha dues caselles de selecció. Una controla si s'ha d'obrir automàticament una finestra del gestor de fitxers en muntar un dispositiu. L'altra fa que es mostri una finestra d'alerta quan el disc s'ompli perillosament.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Ordres de muntatge</guilabel
+></term>
+<listitem
+><para
+>Permet a l'usuari especificar les ordres de muntatge i desmuntatge per a cada dispositiu, així com la icona usada per representar-lo. Es pot trobar més informació quant a aquestes ordres a les pàgines man de <application
+>mount</application
+> (escriviu <userinput
+><command
+>man</command
+> <option
+>mount</option
+></userinput
+> a l'indicador d'ordres).</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="credits">
+<title
+>Crèdits i llicència</title>
+
+<para
+>&kdiskfree;</para>
+
+<para
+>Copyright del programa &copy; 1998-2000 &Michael.Kropfberger; &Michael.Kropfberger.mail;</para>
+
+<para
+>Copyright de la documentació &copy; 2000 &Jonathan.Singer; &Jonathan.Singer.mail;</para>
+
+<para
+>Traductor de la documentació: Albert Astals Cid <email
+>aacid@kde.org</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index; 
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->

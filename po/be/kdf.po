@@ -1,0 +1,468 @@
+# translation of kdf.po to Belarusian
+#
+# Siarhei Liantsevich <serzh.by@gmail.com>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdf\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:49+0000\n"
+"PO-Revision-Date: 2007-01-27 00:49+0100\n"
+"Last-Translator: Siarhei Liantsevich <serzh.by@gmail.com>\n"
+"Language-Team: Belarusian\n"
+"Language: be\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || n%10>=5 && n%10<=9 || n"
+"%100>=11 && n%100<=14 ? 2 : 3);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Сяржук Лянцэвіч"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "serzh.by@gmail.com"
+
+#. i18n: ectx: Menu (file)
+#: desktop/kdfui.rc:5
+#, kde-format
+msgid "&File"
+msgstr ""
+
+#: src/disklist.cpp:325
+#, fuzzy, kde-format
+msgid "could not execute [%1]"
+msgstr "немагчыма запусціць [%s]"
+
+#: src/disks.cpp:262
+#, fuzzy, kde-format
+msgid ""
+"Called: %1\n"
+"\n"
+msgstr "Выкананая каманда: %1\n"
+
+#: src/disks.cpp:283
+#, fuzzy, kde-format
+msgid "could not execute %1"
+msgstr "немагчыма запусціць %1"
+
+#: src/kcmdf.cpp:39
+#, kde-format
+msgid ""
+"A right mouse button click opens a context menu to mount/unmount a device or "
+"to open it in the file manager."
+msgstr ""
+
+#: src/kdf.cpp:26
+#, kde-format
+msgctxt "Update action"
+msgid "&Update"
+msgstr ""
+
+#: src/kdf.cpp:59
+#, fuzzy, kde-format
+msgid "KDiskFree"
+msgstr "KDiskFree"
+
+#: src/kdf.cpp:61
+#, fuzzy, kde-format
+msgid "KDE free disk space utility"
+msgstr "Утыліта азначэння вольнай дыскавай прасторы для KDE"
+
+#: src/kdf.cpp:63
+#, kde-format
+msgid "(c) 1998-2001, Michael Kropfberger"
+msgstr ""
+
+#: src/kdf.cpp:69 src/kwikdisk.cpp:318
+#, kde-format
+msgid "Michael Kropfberger"
+msgstr ""
+
+#: src/kdfconfig.cpp:32
+#, fuzzy, kde-format
+msgctxt "TODO"
+msgid "Icon"
+msgstr "Значок"
+
+#: src/kdfconfig.cpp:33 src/kdfwidget.cpp:55
+#, fuzzy, kde-format
+msgctxt "Device of the storage"
+msgid "Device"
+msgstr "Прылада"
+
+#: src/kdfconfig.cpp:34 src/kdfwidget.cpp:56
+#, fuzzy, kde-format
+msgctxt "Filesystem on storage"
+msgid "Type"
+msgstr "Файлавая сістэма"
+
+#: src/kdfconfig.cpp:35 src/kdfwidget.cpp:57
+#, fuzzy, kde-format
+msgctxt "Total size of the storage"
+msgid "Size"
+msgstr "Памер"
+
+#: src/kdfconfig.cpp:36
+#, fuzzy, kde-format
+msgctxt "Mount point of the storage"
+msgid "Mount Point"
+msgstr "Кропка мантавання"
+
+#: src/kdfconfig.cpp:37 src/kdfwidget.cpp:59
+#, fuzzy, kde-format
+msgctxt "Free space in storage"
+msgid "Free"
+msgstr "Вольна"
+
+#: src/kdfconfig.cpp:38 src/kdfwidget.cpp:60
+#, fuzzy, kde-format
+msgctxt "Used storage space in %"
+msgid "Full %"
+msgstr "Занята адсоткаў"
+
+#: src/kdfconfig.cpp:39 src/kdfwidget.cpp:61
+#, fuzzy, kde-format
+msgctxt "Usage graphical bar"
+msgid "Usage"
+msgstr "Скарыстана"
+
+#: src/kdfconfig.cpp:64 src/kdfconfig.cpp:184
+#, fuzzy, kde-format
+msgctxt "Visible items on device information columns (enable|disable)"
+msgid "visible"
+msgstr "паказваць"
+
+#: src/kdfconfig.cpp:163
+#, fuzzy, kde-format
+msgctxt "Are items on device information columns visible?"
+msgid "visible"
+msgstr "паказваць"
+
+#: src/kdfconfig.cpp:164
+#, fuzzy, kde-format
+msgctxt "Are items on device information columns hidden?"
+msgid "hidden"
+msgstr "схаваць"
+
+#: src/kdfconfig.cpp:201
+#, fuzzy, kde-format
+msgctxt "Device information item is hidden"
+msgid "hidden"
+msgstr "схаваць"
+
+#: src/kdfconfig.cpp:202
+#, fuzzy, kde-format
+msgctxt "Device information item is visible"
+msgid "visible"
+msgstr "паказваць"
+
+#. i18n: ectx: property (text), widget (QLabel, updateLabel)
+#: src/kdfconfig.ui:35
+#, kde-format
+msgid "Update frequency:"
+msgstr ""
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, m_updateSpinBox)
+#: src/kdfconfig.ui:42
+#, kde-format
+msgid " sec"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, mOpenMountCheck)
+#: src/kdfconfig.ui:55
+#, fuzzy, kde-format
+msgid "Open file manager automatically on mount"
+msgstr "Аўтаматычна адкрыць файлавы мэнэджэр пры мантаванні"
+
+#. i18n: ectx: property (text), widget (QCheckBox, mPopupFullCheck)
+#: src/kdfconfig.ui:62
+#, fuzzy, kde-format
+msgid "Pop up a window when a disk gets critically full"
+msgstr "Паказаць акно праграмы, калі дыск амаль запоўнены"
+
+#. i18n: ectx: property (text), widget (QCheckBox, mSystemFileManagerCheck)
+#: src/kdfconfig.ui:69
+#, kde-format
+msgid "Use system default file manager"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, fileManagerEdit)
+#: src/kdfconfig.ui:76
+#, fuzzy, no-c-format, kde-format
+msgid "File manager (e.g. konsole -e mc %m):"
+msgstr "Файлавы мэнэджэр (напрыклад, konsole -e mc %m):"
+
+#. i18n: ectx: property (text), widget (QLabel, mFlatpakLabel)
+#: src/kdfconfig.ui:94
+#, kde-format
+msgid "Custom file manager not supported when running as Flatpak."
+msgstr ""
+
+#: src/kdfitemdelegate.cpp:32 src/kdfwidget.cpp:292
+#, kde-format
+msgctxt "Disk percentage"
+msgid "%1%"
+msgstr ""
+
+#: src/kdfwidget.cpp:58
+#, fuzzy, kde-format
+msgctxt "Mount point of storage"
+msgid "Mount Point"
+msgstr "Кропка мантавання"
+
+#: src/kdfwidget.cpp:297 src/kdfwidget.cpp:298
+#, fuzzy, kde-format
+msgid "N/A"
+msgstr "Н/Д"
+
+#: src/kdfwidget.cpp:355 src/kwikdisk.cpp:267
+#, fuzzy, kde-format
+msgid "Device [%1] on [%2] is critically full."
+msgstr ""
+"На прыладзе [%1], змантаваным у [%2], амаль не засталося вольнага месца!"
+
+#: src/kdfwidget.cpp:357
+#, kde-format
+msgctxt "Warning device getting critically full"
+msgid "Warning"
+msgstr ""
+
+#: src/kdfwidget.cpp:405
+#, fuzzy, kde-format
+msgid "Mount Device"
+msgstr "Змантаваць прыладу"
+
+#: src/kdfwidget.cpp:406
+#, fuzzy, kde-format
+msgid "Unmount Device"
+msgstr "Размантаваць прыладу"
+
+#: src/kdfwidget.cpp:408
+#, fuzzy, kde-format
+msgid "Open in File Manager"
+msgstr "Адкрыць у файлавым мэнэджэру"
+
+#: src/kdfwidget.cpp:425 src/kdfwidget.cpp:428
+#, fuzzy, kde-format
+msgid "MOUNTING"
+msgstr "МАНТАВАННЕ"
+
+#: src/kwikdisk.cpp:60 src/kwikdisk.cpp:309
+#, fuzzy, kde-format
+msgid "KwikDisk"
+msgstr "KwikDisk"
+
+#: src/kwikdisk.cpp:66
+#, fuzzy, kde-format
+msgid "&Start KDiskFree"
+msgstr "Запуск kdiskfree;"
+
+#: src/kwikdisk.cpp:70
+#, fuzzy, kde-format
+msgid "&Configure KwikDisk..."
+msgstr "Наладзіць KwikDisk..."
+
+#: src/kwikdisk.cpp:178
+#, fuzzy, kde-format
+msgctxt "Unmount the storage device"
+msgid "Unmount"
+msgstr "Размантаваць"
+
+#: src/kwikdisk.cpp:178
+#, fuzzy, kde-format
+msgctxt "Mount the storage device"
+msgid "Mount"
+msgstr "Змантаваць"
+
+#: src/kwikdisk.cpp:201
+#, fuzzy, kde-format
+msgid "You must login as root to mount this disk"
+msgstr "Каб змантаваць гэты дыск, вам трэба ўвайсці ў сістэму пад імем root"
+
+#: src/kwikdisk.cpp:269
+#, kde-format
+msgctxt "Device is getting critically full"
+msgid "Warning"
+msgstr ""
+
+#: src/kwikdisk.cpp:311
+#, fuzzy, kde-format
+msgid "KDE Free disk space utility"
+msgstr "Утыліта азначэння вольнай дыскавай прасторы для KDE"
+
+#: src/kwikdisk.cpp:313
+#, kde-format
+msgid "(C) 2004 Stanislav Karchebny"
+msgstr ""
+
+#: src/kwikdisk.cpp:319
+#, fuzzy, kde-format
+msgid "Original author"
+msgstr "Аўтар ідэі"
+
+#: src/kwikdisk.cpp:321
+#, kde-format
+msgid "Espen Sand"
+msgstr ""
+
+#: src/kwikdisk.cpp:322
+#, fuzzy, kde-format
+msgid "KDE 2 changes"
+msgstr "Змены ў KDE 2"
+
+#: src/kwikdisk.cpp:323
+#, kde-format
+msgid "Stanislav Karchebny"
+msgstr ""
+
+#: src/kwikdisk.cpp:324
+#, fuzzy, kde-format
+msgid "KDE 3 changes"
+msgstr "Змены ў KDE 3"
+
+#: src/mntconfig.cpp:47 src/mntconfig.cpp:52
+#, fuzzy, kde-format
+msgid "Device"
+msgstr "Прылада"
+
+#: src/mntconfig.cpp:48 src/mntconfig.cpp:54
+#, fuzzy, kde-format
+msgid "Mount Point"
+msgstr "Кропка мантавання"
+
+#: src/mntconfig.cpp:48
+#, fuzzy, kde-format
+msgid "Mount Command"
+msgstr "Каманда мантавання"
+
+#: src/mntconfig.cpp:48
+#, fuzzy, kde-format
+msgid "Unmount Command"
+msgstr "Каманда размантавання"
+
+#: src/mntconfig.cpp:53
+#, fuzzy, kde-format
+msgctxt "No device is selected"
+msgid "None"
+msgstr "Не"
+
+#: src/mntconfig.cpp:55
+#, fuzzy, kde-format
+msgctxt "No mount point is selected"
+msgid "None"
+msgstr "Не"
+
+#: src/mntconfig.cpp:240
+#, fuzzy, kde-format
+msgid "Only local files supported."
+msgstr "Падтрымліваюцца толькі лакальныя файлы."
+
+#: src/mntconfig.cpp:256
+#, fuzzy, kde-format
+msgid "Only local files are currently supported."
+msgstr "У дадзены момант падтрымліваюцца толькі лакальныя файлы."
+
+#. i18n: ectx: property (text), widget (QLabel, iconNameLabel)
+#: src/mntconfig.ui:20
+#, fuzzy, kde-format
+msgid "Icon name:"
+msgstr "Значок"
+
+#. i18n: ectx: property (text), widget (QLabel, mountLabel)
+#: src/mntconfig.ui:30
+#, fuzzy, kde-format
+msgid "Mount Command:"
+msgstr "Каманда мантавання"
+
+#. i18n: ectx: property (text), widget (QLabel, umountLabel)
+#: src/mntconfig.ui:40
+#, fuzzy, kde-format
+msgid "Unmount Command:"
+msgstr "Каманда размантавання"
+
+#. i18n: ectx: property (text), widget (QPushButton, mDefaultIconButton)
+#: src/mntconfig.ui:50
+#, kde-format
+msgid "Default Icon"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, mMountButton)
+#. i18n: ectx: property (text), widget (QPushButton, mUmountButton)
+#: src/mntconfig.ui:57 src/mntconfig.ui:64
+#, fuzzy, kde-format
+msgid "Get Command..."
+msgstr "Атрымаць каманду мантавання"
+
+#: src/optiondialog.cpp:18
+#, kde-format
+msgid "Configure"
+msgstr ""
+
+#: src/optiondialog.cpp:24
+#, fuzzy, kde-format
+msgid "General Settings"
+msgstr "Агульныя налады"
+
+#: src/optiondialog.cpp:28
+#, fuzzy, kde-format
+msgid "Mount Commands"
+msgstr "Каманды мантавання"
+
+#, fuzzy
+#~ msgid "A test application"
+#~ msgstr "Тэставае прыкладанне"
+
+#, fuzzy
+#~ msgid ""
+#~ "<h3>Hardware Information</h3><br /> All the information modules return "
+#~ "information about a certain aspect of your computer hardware or your "
+#~ "operating system. Not all modules are available on all hardware "
+#~ "architectures and/or operating systems."
+#~ msgstr ""
+#~ "<h3>Інфармацыя аб абсталяванні</h3><br> Усе модулі інфармацыі вяртаюць "
+#~ "дадзеныя аб якія-небудзь аспектах абсталявання або аперацыйнай сістэмы. "
+#~ "Не ўсе модулі даступныя для ўсіх архітэктур і/або аперацыйных сістэм."
+
+#, fuzzy
+#~ msgid "Update frequency [seconds]. The value 0 disables update"
+#~ msgstr "Частата абнаўлення ў секундах, значэнне 0 адключае абнаўленне."
+
+#, fuzzy
+#~ msgid "Mount command:"
+#~ msgstr "Каманда мантавання"
+
+#, fuzzy
+#~ msgid "Unmount command:"
+#~ msgstr "Каманда размантавання"
+
+#, fuzzy
+#~ msgid ""
+#~ "This filename is not valid: %1\n"
+#~ "It must end with \"_mount\" or \"_unmount\"."
+#~ msgstr ""
+#~ "Імя файла '%1' няслушна\n"
+#~ "Яно павінна сканчацца на \"_mount\" або \"_unmount\"."
+
+#, fuzzy
+#~ msgid "%1 (%2) %3 on %4"
+#~ msgstr "%1 (%2) %3 на %4"
+
+#, fuzzy
+#~ msgctxt "Storage device icon"
+#~ msgid "Icon"
+#~ msgstr "Значок"
+
+#, fuzzy
+#~ msgctxt "Item on the device information column is visible"
+#~ msgid "visible"
+#~ msgstr "паказваць"
+
+#, fuzzy
+#~ msgid "Get Unmount Command"
+#~ msgstr "Атрымаць каманду размантавання"

@@ -1,0 +1,447 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname-n '<application>K‑disk‑prostor</application>'>
+  <!ENTITY kappname-g '<application>K‑disk‑prostora</application>'>
+  <!ENTITY kappname-d '<application>K‑disk‑prostoru</application>'>
+  <!ENTITY kappname-a '<application>K‑disk‑prostor</application>'>
+  <!ENTITY kappname-i '<application>K‑disk‑prostorom</application>'>
+  <!ENTITY kappname-l '<application>K‑disk‑prostoru</application>'>
+  <!ENTITY % Serbian-Latin "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kdf" lang="&language;">
+
+<bookinfo>
+<title
+>Priručnik za <application
+>K‑disk‑prostor</application
+></title>
+
+<authorgroup>
+<author
+><personname
+><firstname
+>Džonatan</firstname
+> <surname
+>Singer</surname
+></personname
+> &Jonathan.Singer.mail; </author>
+
+<author
+><personname
+><firstname
+>Mihael</firstname
+> <surname
+>Kropfberger</surname
+></personname
+> &Michael.Kropfberger.mail; </author>
+
+<othercredit role="translator"
+><firstname
+>Dragan</firstname
+><surname
+>Pantelić</surname
+><affiliation
+><address
+><email
+>falcon-10@gmx.de</email
+></address
+></affiliation
+><contrib
+>prevod</contrib
+></othercredit
+> 
+
+</authorgroup>
+
+<copyright>
+<year
+>2000-2002</year>
+<holder
+>Džonatan Singer</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>13. 4. 2016.</date>
+<releaseinfo
+>Programi KDE‑a 16.08</releaseinfo>
+
+<abstract
+><para
+><application
+>K‑disk‑prostor</application
+> prikazuje raspoložive fajl uređaje, zajedno sa podacima o njima.</para>
+
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>K‑disk‑prostor</keyword>
+<keyword
+>kdeutils</keyword>
+<keyword
+>diskovi</keyword>
+<keyword
+>uređaji</keyword>
+<keyword
+>montiranje</keyword>
+<keyword
+>demontiranje</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Uvod</title>
+
+<para
+><application
+>K‑disk‑prostor</application
+> prikazuje fajl uređaje (particije hard‑diska, disketne i CD jedinice, USB štapiće, itd.) zajedno s podacima o kapacitetu, slobodnom prostoru, tipu i tački montiranja. Takođe dopušta montiranje i demontiranje jedinica i njihovo prikazivanje u menadžeru fajlova.</para>
+
+<para
+><application
+>K‑disk‑prostor</application
+> je sličan modulu skladišnih uređaja u Sistemskim postavkama, ali zauzima manje mesta na ekranu. Koristan je ako želite da prozor <application
+>K‑disk‑prostora</application
+> bude stalno dostupan.</para>
+
+</chapter>
+
+<chapter id="using-kdf">
+<title
+>Korišćenje <application
+>K‑disk‑prostora</application
+></title>
+
+<sect1 id="starting-kdf">
+<title
+>Pokretanje <application
+>K‑disk‑prostora</application
+></title
+> 
+
+<para
+>Upišite <userinput
+><command
+>kdf</command
+></userinput
+> u komandni odzivnik ili izaberite <guimenuitem
+>K‑disk‑prostor</guimenuitem
+> iz grupe <guisubmenu
+>Sistem</guisubmenu
+> u pokretaču programa. Dostupne su standardne KDE i Qt opcije naredbi, i mogu se nabrojati izvršavanjem <userinput
+><command
+>kdf</command
+> <option
+>--help</option
+></userinput
+>.</para>
+
+<para
+>Ako želite da program radi kao aplet u sistemskoj kaseti, idite na <menuchoice
+><guisubmenu
+>Sistem</guisubmenu
+><guimenuitem
+>KwikDisk</guimenuitem
+></menuchoice
+> u pokretaču programa.</para>
+
+<para
+>Mogućnosti <application
+>K‑disk‑prostora</application
+> dostupne su i Sistemskim postavkama, modul <guilabel
+>Skladišni uređaji</guilabel
+>.</para>
+</sect1>
+
+<sect1 id="main-window">
+<title
+>Glavni prozor</title>
+
+<para
+>Glavni prozor <application
+>K‑disk‑prostora</application
+> prikazuje dostupne fajl uređaje.</para>
+
+<para
+>Normalno su prikazani sledeći podaci:</para>
+<screenshot>
+<screeninfo
+>Ekran <application
+>K‑disk‑prostora</application
+>.</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="kdf.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Ekran <application
+>K‑disk‑prostora</application
+>.</phrase>
+          </textobject>
+        </mediaobject>
+</screenshot>
+
+<itemizedlist>
+<listitem
+><para
+>ikonica koja ukazuje na tip skladišta</para
+></listitem>
+<listitem
+><para
+>ime uređaja</para
+></listitem>
+<listitem
+><para
+>tip fajl sistema</para
+></listitem>
+<listitem
+><para
+>ukupna veličina</para
+></listitem>
+<listitem
+><para
+>tačka montiranja</para
+></listitem>
+<listitem
+><para
+>slobodan prostor</para
+></listitem>
+<listitem
+><para
+>procenat iskorišćenosti (kao broj ili grafikon)</para
+></listitem>
+</itemizedlist>
+
+<para
+><mousebutton
+>Levi</mousebutton
+> klik na zaglavlje kolone ređa uređaje prema datoj promenljivoj. Naredni <mousebutton
+>levi</mousebutton
+> klik ređa obrnutim redosledom.</para>
+
+<para
+>Desni klik na vrstu poziva meni. Ako dati uređaj trenutno nije montiran, tu je opcija <guimenuitem
+>Montiraj uređaj</guimenuitem
+>. Ako uređaj jeste montiran, može se demontirati izborom <guimenuitem
+>Demontiraj uređaj</guimenuitem
+>. Stavka <guimenuitem
+>Otvori u menadžeru fajlova</guimenuitem
+> otvara nov prozor sa grafičkim prikazom fajlova na tom uređaju.</para>
+<para
+>Postavka za menadžer fajlova u <application
+>K‑disk‑prostoru</application
+> nezavisna je od one iz modula <guilabel
+>Podrazumevani programi</guilabel
+> u Sistemskim postavkama.</para>
+</sect1>
+
+<sect1 id="menus-and-configuration">
+<title
+>Traka menija i podešavanje</title>
+
+<sect2>
+<title
+>Meni <guimenu
+>Fajl</guimenu
+></title>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+><keycap
+>F5</keycap
+></shortcut
+> <guimenu
+>Fajl</guimenu
+> <guimenuitem
+>Ažuriraj</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Odmah ažurira prikaz tako da odražava tekuće stanje.</action
+></para
+></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Fajl</guimenu
+> <guimenuitem
+>Napusti</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Zatvara</action
+> <application
+>K‑disk‑prostor</application
+>.</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+><application
+>K‑disk‑prostor</application
+> takođe ima uobičajene KDE menije <guimenu
+>Podešavanje</guimenu
+> i <guimenu
+>Pomoć</guimenu
+>. Detalje o njima potražite u Osnovama KDE‑a, odeljci <ulink url="help:/fundamentals/ui.html#menus-settings"
+>meniju za podešavanje</ulink
+> i <ulink url="help:/fundamentals/ui.html#menus-help"
+>meniju pomoći</ulink
+>. </para>
+
+</sect2>
+
+<sect2>
+<title
+>Dijalog postavki</title>
+
+<screenshot>
+<screeninfo
+>Ekran za podešavanje <application
+>K‑disk‑prostora</application
+>.</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="kdf_config.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Ekran za podešavanje <application
+>K‑disk‑prostora</application
+>.</phrase>
+          </textobject>
+        </mediaobject>
+</screenshot>
+
+<para
+>Ovaj dijalog ima dva prozora s jezičcima, <guilabel
+>Opšte postavke</guilabel
+> i <guilabel
+>Naredbe montiranja</guilabel
+>.</para>
+<variablelist>
+<varlistentry>
+<term
+>Opšte postavke</term
+> <listitem
+><para
+>Kliknite na reč <guilabel
+>vidljivo</guilabel
+> ili <guilabel
+>skriveno</guilabel
+> da uključite ili isključite polje podataka.</para
+> <para
+>Učestalost ažuriranja zadajete uređivanjem vrednosti perioda (u sekundama) između ažuriranja prikaza <application
+>K‑disk‑prostora</application
+> tako da odražava trenutno stanje.</para
+> <para
+>Postavka <guilabel
+>Menadžer fajlova</guilabel
+> navodi naredbu koju treba izvršiti na izbor stavke <guimenuitem
+>Otvori u menadžeru fajlova</guimenuitem
+> iz iskačućeg menija.</para>
+<para
+>Tu su i dve kućice. Jedna određuje da li će se prozor menadžera fajlova automatski otvoriti kad se uređaj montira. Druga zadaje iskakanje prozora sa upozorenjem ako se disk kritično prepuni.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Naredbe montiranja</guilabel
+></term>
+<listitem
+><para
+>Korisnik ovde može zadati naredbe za montiranje i demontiranje uređaja, kao i ikonicu koja ga predstavlja. Više informacija o ovim naredbama može se naći na uputnoj stranici <command
+>mount</command
+> (upišite <userinput
+><command
+>man</command
+> mount</userinput
+> u komandni odzivnik).</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="credits">
+<title
+>Zasluge i licenca</title>
+
+<para
+><application
+>K‑disk‑prostor</application
+></para>
+
+<para
+>Program: © 1998–2000, <personname
+><firstname
+>Mihael</firstname
+> <surname
+>Kropfberger</surname
+></personname
+> &Michael.Kropfberger.mail;.</para>
+
+<para
+>Dokumentacija: © 2000, <personname
+><firstname
+>Džonatan</firstname
+> <surname
+>Singer</surname
+></personname
+> &Jonathan.Singer.mail;.</para>
+
+<para
+>Preveo Dragan Pantelić <email
+>falcon-10@gmx.de</email
+>.</para
+> 
+&underFDL; &underGPL; </chapter>
+
+&documentation.index; 
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->

@@ -1,0 +1,363 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&kdiskfree;">
+  <!ENTITY % French "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kdf" lang="&language;">
+
+<bookinfo>
+<title
+>Manuel de &kdiskfree;</title>
+
+<authorgroup>
+<author
+>&Jonathan.Singer; &Jonathan.Singer.mail; </author>
+
+<author
+>&Michael.Kropfberger; &Michael.Kropfberger.mail; </author>
+
+&traducteurLudovicGrossard; 
+
+</authorgroup>
+
+<copyright>
+<year
+>2000-2002</year>
+<holder
+>&Jonathan.Singer;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>13-04-2016</date>
+<releaseinfo
+>Applications 16.08</releaseinfo>
+
+<abstract
+><para
+>&kdiskfree; affiche les périphériques de fichiers disponibles et les informations associées à chacun d'eux.</para>
+
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdf</keyword>
+<keyword
+>kdeutils</keyword>
+<keyword
+>disques</keyword>
+<keyword
+>périphériques</keyword>
+<keyword
+>montage</keyword>
+<keyword
+>démontage</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introduction</title>
+
+<para
+>&kdiskfree; affiche les périphériques de fichiers disponibles (partitions de disque dur, lecteurs de disquettes et lecteurs &CD;, clés USB, &etc;) ainsi que des informations sur leur capacité, espace disponible, type et point de montage. Il vous permet également de monter et libérer des lecteurs et de les afficher dans un gestionnaire de fichiers.</para>
+
+<para
+>&kdiskfree; est similaire au module &systemsettings; « Périphériques de stockage ». Mais il prend moins de place sur l'écran. Il est utile si vous voulez conserver une fenêtre de &kdiskfree; en permanence.</para>
+
+</chapter>
+
+<chapter id="using-kdf">
+<title
+>Utilisation de &kdiskfree;</title>
+
+<sect1 id="starting-kdf">
+<title
+>Démarrage de &kdiskfree;</title
+> 
+
+<para
+>Saisissez <userinput
+><command
+>kdf</command
+></userinput
+> dans un terminal ou sélectionnez <guimenuitem
+>KDiskFree</guimenuitem
+> à partir du menu <guisubmenu
+>Système</guisubmenu
+> dans le lanceur d'applications. Les options standard de la ligne de commande de &Qt; et de &kde; sont disponibles et peuvent être listées en saisissant <userinput
+><command
+>kdf</command
+> <option
+>--help</option
+></userinput
+> dans un terminal.</para>
+
+<para
+>Pour utiliser l'application comme un composant graphique de la boîte à icônes, utiliser <menuchoice
+><guisubmenu
+>Système</guisubmenu
+><guimenuitem
+>KwikDisk</guimenuitem
+></menuchoice
+> dans le lanceur d'applications.</para>
+
+<para
+>Les fonctionnalités de &kdiskfree; sont aussi disponibles dans le module &systemsettings; <guilabel
+>Périphériques de stockage</guilabel
+>.</para>
+</sect1>
+
+<sect1 id="main-window">
+<title
+>La fenêtre principale</title>
+
+<para
+>La fenêtre principale de &kdiskfree; affiche les périphériques de fichiers disponibles.</para>
+
+<para
+>Normalement, les informations suivantes sont affichées :</para>
+<screenshot>
+<screeninfo
+>Écran de &kdiskfree;</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="kdf.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>L'écran de &kdiskfree;</phrase>
+          </textobject>
+        </mediaobject>
+</screenshot>
+
+<itemizedlist>
+<listitem
+><para
+>Une icône indiquant le type de périphérique</para
+></listitem>
+<listitem
+><para
+>nom du périphérique</para
+></listitem>
+<listitem
+><para
+>système de fichiers</para
+></listitem>
+<listitem
+><para
+>taille totale</para
+></listitem>
+<listitem
+><para
+>point de montage</para
+></listitem>
+<listitem
+><para
+>espace disque libre</para
+></listitem>
+<listitem
+><para
+>le pourcentage d'occupation sous forme de nombre et de graphique.</para
+></listitem>
+</itemizedlist>
+
+<para
+>En cliquant avec le bouton <mousebutton
+>gauche</mousebutton
+> de la souris sur l'en-tête d'une colonne particulière, les périphériques seront triés suivant cette variable. Un second clic <mousebutton
+>gauche</mousebutton
+> trie les périphériques dans l'ordre inverse.</para>
+
+<para
+>Un clic avec le &BGS; sur une ligne fait apparaître un menu. Si le périphérique n'est pas actuellement monté, l'option <guimenuitem
+>Monter le périphérique</guimenuitem
+> est disponible. Si le périphérique est monté, il peut être libéré en choisissant <guimenuitem
+>Libérer le périphérique</guimenuitem
+>. En sélectionnant <guimenuitem
+>Ouvrir le gestionnaire de fichiers</guimenuitem
+>, une nouvelle fenêtre est ouverte contenant une vue graphique des fichiers sur ce périphérique.</para>
+<para
+>Les paramètres pour le gestionnaire de fichiers utilisés par &kdiskfree; sont indépendants des choix faits dans le module &systemsettings; <guilabel
+>Applications par défaut</guilabel
+>.</para>
+</sect1>
+
+<sect1 id="menus-and-configuration">
+<title
+>Barre de menus et de configuration.</title>
+
+<sect2>
+<title
+>Le menu « Fichier »</title>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+><keycap
+>F5</keycap
+></shortcut
+> <guimenu
+>Fichier</guimenu
+> <guimenuitem
+>Mise à jour</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Rafraîchit immédiatement l'affichage pour prendre en compte l'état actuel</action
+></para
+></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Fichier</guimenu
+> <guimenuitem
+>Quitter</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Ferme</action
+> &kdiskfree;</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>En plus, &kdiskfree; possède des éléments communs de menu KDE <guimenu
+>Configuration</guimenu
+> et <guimenu
+>Aide</guimenu
+>. Pour plus d'informations, veuillez consulter les sections <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Menu de configuration</ulink
+> et <ulink url="help:/fundamentals/menus.html#menus-help"
+>Menu d'aide</ulink
+> des fondamentaux de &kde;. </para>
+
+</sect2>
+
+<sect2>
+<title
+>La boîte de dialogue de configuration</title>
+
+<screenshot>
+<screeninfo
+>Écran de configuration de &kdiskfree;</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="kdf_config.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Écran de configuration de &kdiskfree;</phrase>
+          </textobject>
+        </mediaobject>
+</screenshot>
+
+<para
+>Cette fenêtre a deux onglets, <guilabel
+>Configuration générale</guilabel
+> et <guilabel
+>Commandes de montage</guilabel
+></para>
+<variablelist>
+<varlistentry>
+<term
+>Configuration générale</term
+> <listitem
+><para
+>Cliquez sur le mot <guilabel
+>visible</guilabel
+> ou <guilabel
+>caché</guilabel
+> pour (dés)activer l'affichage d'un champ de données.</para
+> <para
+>Modifiez l'intervalle de rafraîchissement en modifiant la valeur. Celle-ci dans la zone de gauche représente l'intervalle (en secondes) entre deux rafraîchissements de l'affichage de &kdiskfree; pour refléter l'état courant.</para
+> <para
+>Les réglages du <guilabel
+>Gestionnaire de fichiers</guilabel
+> contrôlent la commande exécutée lorsque l'entrée du menu contextuel <guimenuitem
+>Ouvrir le gestionnaire de fichiers</guimenuitem
+> est sélectionnée.</para>
+<para
+>Il y a aussi deux cases à cocher. Une contrôle si la fenêtre du gestionnaire de fichiers sera automatiquement ouverte lorsqu'un périphérique est monté. L'autre permet d'afficher une boîte d'alerte si un disque est rempli de manière critique.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Commandes de montage</guilabel
+></term>
+<listitem
+><para
+>Permet à l'utilisateur de spécifier les commandes de montage et de démontage pour un périphérique donné, ainsi que l'icône utilisée pour le représenter. Vous pouvez trouver plus d'informations sur ces commandes dans les pages man de <application
+>mount</application
+> (saisissez <userinput
+><command
+>man</command
+> <option
+>mount</option
+></userinput
+> depuis un terminal).</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="credits">
+<title
+>Remerciements et licence</title>
+
+<para
+>&kdiskfree;</para>
+
+<para
+>Programme Copyright &copy; 1998-2000 &Michael.Kropfberger; &Michael.Kropfberger.mail;</para>
+
+<para
+>Documentation Copyright &copy; 2000 &Jonathan.Singer; &Jonathan.Singer.mail;</para>
+
+<para
+>Traduction française par &LudovicGrossard;.</para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index; 
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->

@@ -1,0 +1,380 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&kdiskfree;">
+  <!ENTITY % Ukrainian "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kdf" lang="&language;">
+
+<bookinfo>
+<title
+>Підручник з &kdiskfree;</title>
+
+<authorgroup>
+<author
+>&Jonathan.Singer; &Jonathan.Singer.mail; </author>
+
+<author
+>&Michael.Kropfberger; &Michael.Kropfberger.mail; </author>
+
+<othercredit role="translator"
+><firstname
+>Юрій</firstname
+><surname
+>Чорноіван</surname
+><affiliation
+><address
+><email
+>yurchor@ukr.net</email
+></address
+></affiliation
+><contrib
+>Переклад українською</contrib
+></othercredit
+> 
+
+</authorgroup>
+
+<copyright>
+<year
+>2000-2002</year>
+<holder
+>&Jonathan.Singer;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>13 квітня 2016 року</date>
+<releaseinfo
+>Програми 16.08</releaseinfo>
+
+<abstract
+><para
+>&kdiskfree; показує доступні файлові пристрої та інформацію про них.</para>
+
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdf</keyword>
+<keyword
+>kdeutils</keyword>
+<keyword
+>диски</keyword>
+<keyword
+>пристрої</keyword>
+<keyword
+>mount</keyword>
+<keyword
+>unmount</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Вступ</title>
+
+<para
+>&kdiskfree; показує список доступних файлових пристроїв (розділів жорсткого диска, пристроїв читання гнучких дисків, компакт-дисків, флеш-карток USB тощо), а також інформацію щодо їх місткості, вільного місця, типу і точки монтування. Ця програма також надає вам можливість монтувати, розмонтовувати пристрої і переглядати їх вміст у програмі для роботи з файлами.</para>
+
+<para
+>&kdiskfree; подібний до модуля пристроїв накопичення «Системних параметрів», але займає на екрані менше місця. Він корисний, якщо вам потрібно бачити вікно &kdiskfree; доступним у будь-який момент часу.</para>
+
+</chapter>
+
+<chapter id="using-kdf">
+<title
+>Користування &kdiskfree;</title>
+
+<sect1 id="starting-kdf">
+<title
+>Як запустити &kdiskfree;</title
+> 
+
+<para
+>Виконайте команду <userinput
+><command
+>kdf</command
+></userinput
+> з командного рядка або виберіть пункт <guimenuitem
+>KDiskFree</guimenuitem
+> з підменю <guisubmenu
+>Система</guisubmenu
+> інструменту запуску програм. Під час виконання команди ви можете скористатися загальними параметрами командного рядка &Qt; і &kde;, список таких параметрів можна отримати за допомогою команди <userinput
+><command
+>kdf</command
+> <option
+>--help</option
+></userinput
+>.</para>
+
+<para
+>Щоб запустити програму як аплет у системному лотку, скористайтеся пунктом меню запуску програм <menuchoice
+><guisubmenu
+>Система</guisubmenu
+><guimenuitem
+>KwikDisk</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+>Можливостями &kdiskfree; також можна скористатися за допомогою модуля «Системних параметрів» <guilabel
+>Пристрої накопичення</guilabel
+>.</para>
+</sect1>
+
+<sect1 id="main-window">
+<title
+>Головне вікно</title>
+
+<para
+>У головному вікні &kdiskfree; показано всі доступні файлові пристрої.</para>
+
+<para
+>Зазвичай, показано такі інформаційні дані:</para>
+<screenshot>
+<screeninfo
+>Знімок вікна &kdiskfree;</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="kdf.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Знімок вікна &kdiskfree;</phrase>
+          </textobject>
+        </mediaobject>
+</screenshot>
+
+<itemizedlist>
+<listitem
+><para
+>піктограму, що визначається типом носія інформації</para
+></listitem>
+<listitem
+><para
+>назву пристрою</para
+></listitem>
+<listitem
+><para
+>тип файлової системи</para
+></listitem>
+<listitem
+><para
+>загальну місткість</para
+></listitem>
+<listitem
+><para
+>точку монтування</para
+></listitem>
+<listitem
+><para
+>вільне місце на диску</para
+></listitem>
+<listitem
+><para
+>відсоток використаного місця як число і у графічному вигляді.</para
+></listitem>
+</itemizedlist>
+
+<para
+>Наведення вказівника миші на заголовок стовпчика з наступним клацанням <mousebutton
+>лівою</mousebutton
+> кнопкою впорядкує пристрої за параметром, показаним у цьому стовпчику. Повторне клацання <mousebutton
+>лівою</mousebutton
+> кнопкою змінить порядок записів на протилежний.</para>
+
+<para
+>Наведення вказівника на рядок з наступним клацанням правою кнопкою відкриє меню. Якщо пристрій ще не змонтовано, у цьому меню буде пункт <guimenuitem
+>Змонтувати пристрій</guimenuitem
+>. Якщо пристрій змонтовано, його можна розмонтувати за допомогою пункту <guimenuitem
+>Демонтувати пристрій</guimenuitem
+>. Вибір пункту <guimenuitem
+>Відкрити в менеджері файлів</guimenuitem
+> відкриє нове вікно з графічним представленням файлів на пристрої.</para>
+<para
+>Значення параметра для програми для керування файлами, яка використовується &kdiskfree; є незалежним від вказаного за допомогою модуля «Системних параметрів» <guilabel
+>Типові програми</guilabel
+>.</para>
+</sect1>
+
+<sect1 id="menus-and-configuration">
+<title
+>Панель меню і налаштування</title>
+
+<sect2>
+<title
+>Меню «Файл»</title>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+><keycap
+>F5</keycap
+></shortcut
+> <guimenu
+>Файл</guimenu
+> <guimenuitem
+>Оновити</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Негайно оновлює показ, щоб відобразити поточний стан</action
+></para
+></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Файл</guimenu
+> <guimenuitem
+>Вийти</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Завершує роботу</action
+> &kdiskfree;</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Крім того, у &kdiskfree; передбачено деякі типові для &kde; пункти меню <guimenu
+>Параметри</guimenu
+> і <guimenu
+>Довідка</guimenu
+>. Щоб дізнатися більше, ознайомтеся з розділами щодо <ulink url="help:/fundamentals/menus.html#menus-settings"
+>меню «Параметри»</ulink
+> та <ulink url="help:/fundamentals/menus.html#menus-help"
+>меню «Довідка»</ulink
+> підручника з основ роботи у &kde;. </para>
+
+</sect2>
+
+<sect2>
+<title
+>Діалогове вікно параметрів</title>
+
+<screenshot>
+<screeninfo
+>Вікно налаштування &kdiskfree;</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="kdf_config.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Вікно налаштування &kdiskfree;</phrase>
+          </textobject>
+        </mediaobject>
+</screenshot>
+
+<para
+>У цьому діалоговому вікні є дві сторінки-вкладки: <guilabel
+>Загальні параметри</guilabel
+> і <guilabel
+>Команди монтування</guilabel
+></para>
+<variablelist>
+<varlistentry>
+<term
+>Загальні параметри</term
+> <listitem
+><para
+>Наведіть вказівник миші на слово <guilabel
+>видимий</guilabel
+> або <guilabel
+>схований</guilabel
+> і клацніть лівою кнопкою, щоб увімкнути або вимкнути показ поля з даними.</para
+> <para
+>Зміною значення ви можете змінити частоту оновлень. Значення, розташоване ліворуч від поля є інтервалом (у секундах) між оновленнями області показу &kdiskfree; з метою відобразити поточний стан системи.</para
+> <para
+>Параметри <guilabel
+>Менеджер файлів</guilabel
+> визначає команду, яку буде виконано за умови вибору пункту контекстного меню <guimenuitem
+>Відкрити у менеджері файлів</guimenuitem
+>.</para>
+<para
+>Окрім цього, існує ще два поля для позначок. Одне з них визначає, чи слід автоматично відкривати засіб для роботи з файлами після монтування пристрою. Інше — спричиняє до появи вікна попередження у разі критичного заповнення диска.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Команди монтування</guilabel
+></term>
+<listitem
+><para
+>Надає користувачеві змогу вказати команди для монтування і демонтування вказаного пристрою, а також обрати піктограму, яка відповідатиме пристрою. Докладнішу інформацію щодо цих команд можна отримати на сторінці довідки (man) команди <application
+>mount</application
+> (щоб її побачити слід у командному рядку виконати команду <userinput
+><command
+>man</command
+> <option
+>mount</option
+></userinput
+>).</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="credits">
+<title
+>Подяки і ліцензія</title>
+
+<para
+>&kdiskfree;</para>
+
+<para
+>Авторські права на програму &copy; 1998-2000 &Michael.Kropfberger; &Michael.Kropfberger.mail;</para>
+
+<para
+>Авторські права на документацію &copy; 2000 &Jonathan.Singer; &Jonathan.Singer.mail;</para>
+
+<para
+>Переклад українською: Юрій Чорноіван <email
+>yurchor@ukr.net</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+&documentation.index; 
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->

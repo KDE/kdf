@@ -1,0 +1,361 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&kdiskfree;">
+  <!ENTITY package "kdeutils">
+  <!ENTITY % Estonian  "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kdf" lang="&language;">
+
+<bookinfo>
+<title
+>&kdiskfree; käsiraamat</title>
+
+<authorgroup>
+<author
+>&Jonathan.Singer; &Jonathan.Singer.mail; </author>
+
+<author
+>&Michael.Kropfberger; &Michael.Kropfberger.mail; </author>
+
+<othercredit role="translator"
+><firstname
+>Marek</firstname
+><surname
+>Laane</surname
+><affiliation
+><address
+><email
+>bald@starman.ee</email
+></address
+></affiliation
+><contrib
+>Tõlge eesti keelde</contrib
+></othercredit
+> 
+
+</authorgroup>
+
+<copyright>
+<year
+>2000-2002</year>
+<holder
+>&Jonathan.Singer;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2013-05-25</date>
+<releaseinfo
+>v0.15 (&kde; 4.11)</releaseinfo>
+
+<abstract
+><para
+>&kdiskfree; näitab saadaolevaid failiseadmeid ja nende kohta käivat infot.</para>
+
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdf</keyword>
+<keyword
+>kdeutils</keyword>
+<keyword
+>kettad</keyword>
+<keyword
+>seadmed</keyword>
+<keyword
+>ühendamine</keyword>
+<keyword
+>lahutamine</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Sissejuhatus</title>
+
+<para
+>&kdiskfree; näitab saadaolevaid failiseadmeid (kõvaketta partitsioonid, disketi- ja &CD;-seadmed, USB-pulgad &etc;) koos infoga nende mahu, vaba ruumi, tüübi ja ühenduspunkti kohta. Samuti on võimalik seadmeid ühendada ja lahutada ning neid failihalduris vaadata.</para>
+
+<para
+>&kdiskfree; sarnaneb Infokeskuse partitsioonide mooduliga, kuid võtab enda alla ekraanil vähem ruumi. See on päris kasulik omadus, kui soovid &kdiskfree; akent kogu aeg kättesaadavana hoida.</para>
+
+</chapter>
+
+<chapter id="using-kdf">
+<title
+>&kdiskfree; kasutamine</title>
+
+<sect1 id="starting-kdf">
+<title
+>&kdiskfree; käivitamine</title
+> 
+
+<para
+>Anna käsureal korraldus <userinput
+><command
+>kdf</command
+></userinput
+> või vali <guimenuitem
+>Kettakasutus</guimenuitem
+> rakenduste käivitaja alammenüüst <guisubmenu
+>Süsteem</guisubmenu
+>. Kasutada saab &Qt; ja &kde; tavapäraseid käsurea võtmeid, millest ülevaate saab käsuga <userinput
+><command
+>kdf</command
+> <option
+>--help</option
+></userinput
+>.</para>
+
+</sect1>
+
+<sect1 id="main-window">
+<title
+>Peaaken</title>
+
+<para
+>&kdiskfree; peaaken näitab saadaolevaid failiseadmeid.</para>
+
+<para
+>Tavapäraselt on näha järgmised infoväljad:</para>
+<screenshot>
+<screeninfo
+>&kdiskfree; peaaken</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="kdf.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>&kdiskfree; peaaken</phrase>
+          </textobject>
+        </mediaobject>
+</screenshot>
+
+<itemizedlist>
+<listitem
+><para
+>ikoon, mis näitab andmekandja tüüpi</para
+></listitem>
+<listitem
+><para
+>seadme nimi</para
+></listitem>
+<listitem
+><para
+>failisüsteemi tüüp</para
+></listitem>
+<listitem
+><para
+>kogumaht</para
+></listitem>
+<listitem
+><para
+>ühenduspunkt</para
+></listitem>
+<listitem
+><para
+>vaba kettaruum</para
+></listitem>
+<listitem
+><para
+>kasutatud ruumi protsent numbri ja graafikuna.</para
+></listitem>
+</itemizedlist>
+
+<para
+>Klõps hiire <mousebutton
+>vasaku</mousebutton
+> nupuga mingi tulba päisel sorteerib seadmed vastavalt selle tulba parameetrile. Teine klõps hiire <mousebutton
+>vasaku</mousebutton
+> nupuga samal päisel muudab järjekorra vastupidiseks.</para>
+
+<para
+>Klõps &HVNga; real avab hüpikmenüü. Kui seade ei ole parajasti ühendatud, on aktiivne võimalus <guimenuitem
+>Ühenda seade</guimenuitem
+>. Kui seade on ühendatud, on aktiivne <guimenuitem
+>Lahuta seade</guimenuitem
+>. Võimalus <guimenuitem
+>Ava failihalduris</guimenuitem
+> seda teebki - avab uue akna antud seadme failide graafilise vaatega.</para>
+
+</sect1>
+
+<sect1 id="menus-and-configuration">
+<title
+>Menüüriba ja seadistamine</title>
+
+<sect2>
+<title
+>Menüü Fail</title>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice
+><guimenu
+>Fail</guimenu
+> <guimenuitem
+>Värskenda</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Uuendab kohe seadmete andmeid</action
+></para
+></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Fail</guimenu
+> <guimenuitem
+>Välju</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Sulgeb</action
+> &kdiskfree;</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Lisaks on &kdiskfree;l tavapärased &kde; <guimenu
+>seadistuste</guimenu
+> ja <guimenu
+>abi</guimenu
+>menüü elemendid, mille kohta leiab rohkem teavet &kde; põhialuste käsiraamatu osadest <ulink url="help:/fundamentals/ui.html#menus-settings"
+>Menüü Seadistused</ulink
+> ja <ulink url="help:/fundamentals/ui.html#menus-help"
+>Menüü Abi</ulink
+>. </para>
+
+</sect2>
+
+<sect2>
+<title
+>Seadistustedialoog</title>
+
+<screenshot>
+<screeninfo
+>&kdiskfree; seadistusteaken</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="kdf_config.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>&kdiskfree; seadistusteaken</phrase>
+          </textobject>
+        </mediaobject>
+</screenshot>
+
+<para
+>Sellel dialoogil on kaks kaarti: <guilabel
+>Üldised seadistused</guilabel
+> ja <guilabel
+>Ühendamise käsud</guilabel
+></para>
+<variablelist>
+<varlistentry>
+<term
+>Üldised seadistused</term
+> <listitem
+><para
+>Klõps sõnal <guilabel
+>nähtav</guilabel
+> või <guilabel
+>peidetud</guilabel
+> muudab antud andmevälja nähtavaks või varjatuks.</para
+> <para
+>Värskendamise sagedust saab muuta väärtust muutes. Kastis on näha intervall (sekundites), mille järel &kdiskfree; värskendab andmeid seadmete kohta.</para
+> <para
+><guilabel
+>Failihalduri</guilabel
+> sektsioonis saab määrata käsu, mis käivitatakse, kui valida peaaknas kontekstimenüüst käsk <guimenuitem
+>Ava failihalduris</guimenuitem
+>.</para>
+<para
+>Seal on ka kaks märkekasti. Üks neist määrab, kas failihaldur avatakse automaatselt seadme ühendamisel. Teine tekitab hoiatusakna, kui ketas täitub kriitilise väärtuseni.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Ühendamise käsud</guilabel
+></term>
+<listitem
+><para
+>Võimaldavad määrata konkreetse seadme ühendamise ja lahutamise käsu ning seadet tähistava ikooni. Rohkem infot nende käskude kohta leiab käsu <application
+>mount</application
+> man-leheküljelt (anna käsureal korraldus <userinput
+><command
+>man</command
+> <option
+>mount</option
+></userinput
+>).</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="credits">
+<title
+>Autorid ja litsents</title>
+
+<para
+>&kdiskfree;</para>
+
+<para
+>Rakenduse autoriõigus &copy; 1998-2000: &Michael.Kropfberger; &Michael.Kropfberger.mail;</para>
+
+<para
+>Dokumentatsiooni autoriõigus &copy; 2000: &Jonathan.Singer; &Jonathan.Singer.mail;</para>
+
+<para
+>Tõlge eesti keelde: Marek Laane <email
+>bald@starman.ee</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+&documentation.index; 
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->

@@ -1,0 +1,151 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Serbian "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="block-devices" lang="&language;">
+<title
+>Блоковски уређаји</title>
+
+<articleinfo>
+
+<authorgroup>
+<author
+><firstname
+>Мајк</firstname
+> <surname
+>Мекбрајд</surname
+> </author>
+<othercredit role="translator"
+><firstname
+>Драган</firstname
+><surname
+>Пантелић</surname
+><affiliation
+><address
+><email
+>falcon-10@gmx.de</email
+></address
+></affiliation
+><contrib
+>превод</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>14. 4. 2016.</date>
+<releaseinfo
+>Програми КДЕ‑а 16.04</releaseinfo>
+
+<keywordset>
+<keyword
+>КДЕ</keyword>
+<keyword
+>К‑контрола</keyword>
+<keyword
+>блоковски уређаји</keyword>
+<keyword
+>простор на диску</keyword>
+</keywordset>
+</articleinfo>
+
+<sect1>
+<title
+>Складишни уређаји</title>
+
+<para
+>Прозор модула приказује доступне фајл уређаје и нешто информација о сваком од њих. Такође вам омогућава да управљате тачкама монтирања и монтирањем и демонтирањем уређаја. </para>
+
+<para
+>Под овим језичком нормално су приказани следећи подаци: </para>
+
+<itemizedlist>
+<listitem
+><para
+>иконица која приказује тип складишта</para
+></listitem>
+<listitem
+><para
+>име уређаја</para
+></listitem>
+<listitem
+><para
+>тип фајл система</para
+></listitem>
+<listitem
+><para
+>укупна величина</para
+></listitem>
+<listitem
+><para
+>тачка монтирања</para
+></listitem>
+<listitem
+><para
+>слободан простор</para
+></listitem>
+<listitem
+><para
+>проценат искоришћености (као број или графикон)</para
+></listitem>
+</itemizedlist>
+
+<para
+><mousebutton
+>Леви</mousebutton
+> клик на заглавље колоне ређа уређаје према датој променљивој. Наредни <mousebutton
+>леви</mousebutton
+> клик ређа обрнутим редоследом. </para>
+
+<para
+><mousebutton
+>Десни</mousebutton
+> клик на врсту позива мени. Ако дати уређај тренутно није монтиран, ту је опција <guimenuitem
+>Монтирај уређај</guimenuitem
+>. Ако уређај јесте монтиран, може се демонтирати избором <guimenuitem
+>Демонтирај уређај</guimenuitem
+>. Ставка <guimenuitem
+>Отвори у менаџеру фајлова</guimenuitem
+> отвара нов прозор са графичким приказом фајлова на том уређају. </para>
+
+<para
+>Одговарајуће наредбе за монтирање и демонтирање, и начин отварања менаџера фајлова из контекстног менија, могу се подесити у програму <application
+>К‑диск‑простор</application
+>. </para>
+
+<sect2>
+<title
+>Аутор секције</title>
+
+<para
+>Ова секција је прилагођена из документације <application
+>К‑диск‑простора</application
+>, коју је написао <personname
+><firstname
+>Џонатан</firstname
+> <surname
+>Сингер</surname
+></personname
+> &Jonathan.Singer.mail;.</para>
+
+<para
+>За КДЕ 2.0 прерадио <personname
+><firstname
+>Мајк</firstname
+> <surname
+>Мекбрајд</surname
+></personname
+> &Mike.McBride.mail;.</para>
+<para
+>Превео Драган Пантелић <email
+>falcon-10@gmx.de</email
+>.</para
+> 
+
+</sect2>
+</sect1>
+</article>
+

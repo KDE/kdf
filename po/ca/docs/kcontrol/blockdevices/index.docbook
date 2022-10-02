@@ -1,0 +1,137 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Catalan  "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="block-devices" lang="&language;">
+<title
+>Dispositius de bloc</title>
+
+<articleinfo>
+
+<authorgroup>
+<author
+><firstname
+>Mike</firstname
+> <surname
+>McBride</surname
+> </author>
+<othercredit role="translator"
+> <firstname
+>Albert</firstname
+> <surname
+>Astals Cid</surname
+> <affiliation
+><address
+><email
+>aacid@kde.org</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+> 
+</authorgroup>
+
+<date
+>14 d'abril de 2016</date>
+<releaseinfo
+>Aplicacions 16.04</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KControl</keyword>
+<keyword
+>Dispositius de bloc</keyword>
+<keyword
+>Espai al disc</keyword>
+</keywordset>
+</articleinfo>
+
+<sect1>
+<title
+>Dispositius d'emmagatzematge</title>
+
+<para
+>La finestra mostra els dispositius de fitxer disponibles i informació quant a cada dispositiu. També et permet controlar els punts de muntatge i muntar/desmuntar els dispositius. </para>
+
+<para
+>Normalment, en aquesta pestanya es mostra la informació següent: </para>
+
+<itemizedlist>
+<listitem
+><para
+>una icona descrivint el tipus d'emmagatzematge</para
+></listitem>
+<listitem
+><para
+>nom del dispositiu</para
+></listitem>
+<listitem
+><para
+>tipus del sistema de fitxers</para
+></listitem>
+<listitem
+><para
+>mida total</para
+></listitem>
+<listitem
+><para
+>punt de muntatge</para
+></listitem>
+<listitem
+><para
+>espai lliure al disc</para
+></listitem>
+<listitem
+><para
+>el percentatge d'espai usat en número i en gràfic.</para
+></listitem>
+</itemizedlist>
+
+<para
+>Un clic <mousebutton
+>esquerre</mousebutton
+> a la capçalera d'una columna en particular ordenarà els dispositius segons aquesta variable. Un altre clic <mousebutton
+>esquerre</mousebutton
+> els ordenarà en l'ordre contrari. </para>
+
+<para
+>Un clic <mousebutton
+>dret</mousebutton
+> en una fila fa aparèixer un menú. Si aquest dispositiu no està muntat, l'opció <guimenuitem
+>Munta el dispositiu</guimenuitem
+> està disponible. Si el dispositiu està muntat, pot desmuntar-se escollint<guimenuitem
+>Desmunta el dispositiu</guimenuitem
+>. Escollir <guimenuitem
+>Obre al gestor de fitxers</guimenuitem
+> obrirà una nova finestra amb una vista gràfica dels fitxers d'aquest dispositiu. </para>
+
+<para
+>Les ordres de muntatge i desmuntatge i com s'obre el gestor de fitxers des del menú contextual es poden configurar a l'aplicació &kdiskfree;. </para>
+
+<sect2>
+<title
+>Secció d'autors</title>
+
+<para
+>Aquesta secció és una modificació de la documentació de <application
+>kdf</application
+>, obra de &Jonathan.Singer; &Jonathan.Singer.mail;</para>
+
+<para
+>Modificat per &kde; 2.0 per &Mike.McBride; &Mike.McBride.mail;</para>
+<para
+>Traduït per l'Albert Astals Cid <email
+>aacid@kde.org</email
+></para
+> 
+
+</sect2>
+</sect1>
+</article>
+

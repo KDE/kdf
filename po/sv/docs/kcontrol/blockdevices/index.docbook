@@ -1,0 +1,137 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Swedish "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="block-devices" lang="&language;">
+<title
+>Blockenheter</title>
+
+<articleinfo>
+
+<authorgroup>
+<author
+><firstname
+>Mike</firstname
+> <surname
+>McBride</surname
+> </author>
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2016-04-14</date>
+<releaseinfo
+>Program 16.04</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Kcontrol</keyword>
+<keyword
+>Blockenheter</keyword>
+<keyword
+>Diskutrymme</keyword>
+</keywordset>
+</articleinfo>
+
+<sect1>
+<title
+>Lagringsenheter</title>
+
+<para
+>Modulfönstret visar alla tillgängliga enheter och viss information om varje enhet. Det låter dig också kontrollera monteringspunkter, och montera/avmontera enheter. </para>
+
+<para
+>Normalt visas följande information under den här fliken: </para>
+
+<itemizedlist>
+<listitem
+><para
+>en ikon som representerar lagringstypen</para
+></listitem>
+<listitem
+><para
+>enhetsnamn</para
+></listitem>
+<listitem
+><para
+>filsystemtyp</para
+></listitem>
+<listitem
+><para
+>total storlek</para
+></listitem>
+<listitem
+><para
+>monteringspunkt</para
+></listitem>
+<listitem
+><para
+>ledigt diskutrymme</para
+></listitem>
+<listitem
+><para
+>procent av utrymmet som används som ett tal och en stapel.</para
+></listitem>
+</itemizedlist>
+
+<para
+>Enheterna sorteras enligt en variabel genom att <mousebutton
+>vänster</mousebutton
+>klicka på rubriken av en viss kolumn,  Ett andra <mousebutton
+>vänster</mousebutton
+>klick sorterar i omvänd ordning. </para>
+
+<para
+><mousebutton
+>Höger</mousebutton
+>klick på en rad visar en meny. Om enheten inte är monterad för närvarande, är valet <guimenuitem
+>Montera  enhet</guimenuitem
+> tillgängligt. Om enheten är monterad, kan den avmonteras genom att välja <guimenuitem
+>Avmontera enhet</guimenuitem
+>. Ett nytt fönster med en grafisk bild av enhetens filer visas om <guimenuitem
+> Öppna filhanteraren</guimenuitem
+> väljs. </para>
+
+<para
+>Lämpliga monterings- och avmonteringskommandon, och hur filhanteraren öppnas från den sammanhangsberoende menyn, kan anpassas från &kdiskfree;-programmet. </para>
+
+<sect2>
+<title
+>Avsnittsförfattare</title>
+
+<para
+>Det här avsnittet är modifierat från <application
+>kdf</application
+> dokumentationen som är skriven av &Jonathan.Singer; &Jonathan.Singer.mail;</para>
+
+<para
+>Ändrad för &kde; 2.0 av &Mike.McBride; &Mike.McBride.mail;</para>
+<para
+>Översättning Stefan Asserhäll <email
+>stefan.asserhall@bredband.net</email
+></para
+> 
+
+</sect2>
+</sect1>
+</article>
+

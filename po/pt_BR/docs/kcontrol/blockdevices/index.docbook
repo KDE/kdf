@@ -1,0 +1,151 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Brazilian-Portuguese "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="block-devices" lang="&language;">
+<title
+>Dispositivos de bloco</title>
+
+<articleinfo>
+
+<authorgroup>
+<author
+><firstname
+>Mike</firstname
+> <surname
+>McBride</surname
+> </author>
+<othercredit role="translator"
+><firstname
+>Lisiane</firstname
+> <surname
+>Sztoltz</surname
+><affiliation
+><address
+> <email
+>lisiane@conectiva.com.br</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>André Marcelo</firstname
+><surname
+>Alvarenga</surname
+><affiliation
+><address
+><email
+>alvarenga@kde.org</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>14/04/2016</date>
+<releaseinfo
+>Applications 16.04</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KControl</keyword>
+<keyword
+>Dispositivos de bloco</keyword>
+<keyword
+>Espaço em disco</keyword>
+</keywordset>
+</articleinfo>
+
+<sect1>
+<title
+>Dispositivos de armazenamento</title>
+
+<para
+>A janela do módulo exibe os arquivos de dispositivo disponíveis e algumas informações sobre cada um. Ela também permite a você controlar pontos de montagem e montar/desmontar dispositivos. </para>
+
+<para
+>Normalmente, as seguintes informações são mostradas: </para>
+
+<itemizedlist>
+<listitem
+><para
+>um ícone que representa o tipo de armazenamento</para
+></listitem>
+<listitem
+><para
+>nome do dispositivo</para
+></listitem>
+<listitem
+><para
+>o tipo de sistema de arquivos</para
+></listitem>
+<listitem
+><para
+>o tamanho total</para
+></listitem>
+<listitem
+><para
+>ponto de montagem</para
+></listitem>
+<listitem
+><para
+>o espaço livre em disco</para
+></listitem>
+<listitem
+><para
+>a porcentagem de espaço usada, mostrada em número e em gráfico.</para
+></listitem>
+</itemizedlist>
+
+<para
+>Clicar com o botão <mousebutton
+>esquerdo</mousebutton
+> no cabeçalho de uma determinada coluna ordena os dispositivos de acordo com essa variável. Clicar pela segunda vez com o mesmo botão ordena na ordem inversa. </para>
+
+<para
+>O clique com o botão <mousebutton
+>direito</mousebutton
+> sobre o uma linha ativa um menu. Se este dispositivo não estiver atualmente montado, a opção <guimenuitem
+>Montar dispositivo</guimenuitem
+> estará disponível. Se o dispositivo já estiver montado, você pode desmontá-lo através da opção <guimenuitem
+>Desmontar dispositivo</guimenuitem
+>. Ao selecionar a opção <guimenuitem
+>Abrir no gerenciador de arquivos</guimenuitem
+>, uma janela será aberta com a visão gráfica dos arquivos daquele dispositivo. </para>
+
+<para
+>Os comandos apropriados de montagem e desmontagem, e como o gerenciador de arquivos é aberto do menu de contexto, podem ser configurados usando o aplicativo &kdiskfree;. </para>
+
+<sect2>
+<title
+>Autor da seção</title>
+
+<para
+>Esta seção foi modificada da documentação do <application
+>kdf </application
+>, que foi escrita por &Jonathan.Singer; &Jonathan.Singer.mail;</para>
+
+<para
+>Modificado para o &kde; 2.0 por &Mike.McBride; &Mike.McBride.mail;</para>
+<para
+>Tradução de Lisiane Sztoltz <email
+>lisiane@conectiva.com.br</email
+> e André Marcelo Alvarenga <email
+>alvarenga@kde.org</email
+></para
+> 
+
+</sect2>
+</sect1>
+</article>
+

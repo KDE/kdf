@@ -1,0 +1,378 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&kdiskfree;">
+  <!ENTITY % Brazilian-Portuguese "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kdf" lang="&language;">
+
+<bookinfo>
+<title
+>Manual do &kdiskfree;</title>
+
+<authorgroup>
+<author
+>&Jonathan.Singer; &Jonathan.Singer.mail; </author>
+
+<author
+>&Michael.Kropfberger; &Michael.Kropfberger.mail; </author>
+
+<othercredit role="translator"
+><firstname
+>Marcus</firstname
+><surname
+>Gama</surname
+><affiliation
+><address
+><email
+>marcus.gama@gmail.com</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+
+</authorgroup>
+
+<copyright>
+<year
+>2000-2002</year>
+<holder
+>&Jonathan.Singer;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>13/04/2016</date>
+<releaseinfo
+>Applications 16.08</releaseinfo>
+
+<abstract
+><para
+>O &kdiskfree; mostra os sistemas de arquivos disponíveis, juntamente com informações sobre eles.</para>
+
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdf</keyword>
+<keyword
+>kdeutils</keyword>
+<keyword
+>discos</keyword>
+<keyword
+>dispositivos</keyword>
+<keyword
+>montar</keyword>
+<keyword
+>desmontar</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introdução</title>
+
+<para
+>O &kdiskfree; mostra os sistemas de arquivos disponíveis (partições de discos rígidos, unidades de disquetes e &CD;, dispositivos USB, &etc;) juntamente com informações sobre sua capacidade, espaço livre, tipo e ponto de montagem. Também permite a montagem e desmontagem de unidades e visualizá-las em um gerenciador de arquivos.</para>
+
+<para
+>O &kdiskfree; é parecido com o módulo Dispositivos de Armazanamento das &systemsettings;, mas ocupa menos espaço na tela. É útil se deseja ter sempre uma janela do &kdiskfree; disponível a toda hora.</para>
+
+</chapter>
+
+<chapter id="using-kdf">
+<title
+>Usando o &kdiskfree;</title>
+
+<sect1 id="starting-kdf">
+<title
+>Iniciando o &kdiskfree;</title
+> 
+
+<para
+>Digite <userinput
+><command
+>kdf</command
+></userinput
+> na linha de comando ou selecione <guimenuitem
+>KDiskFree</guimenuitem
+> no grupo <guisubmenu
+>Sistema</guisubmenu
+> do lançador de aplicativos. Os comandos padrão do &kde; e &Qt; estão disponíveis, e podem ser listados inserindo:<userinput
+><command
+>kdf</command
+> <option
+>--help</option
+></userinput
+> na linha de comando.</para>
+
+<para
+>Para executá-lo como um miniaplicativo na área de notificação, use a opção <menuchoice
+><guisubmenu
+>Sistema</guisubmenu
+><guimenuitem
+>KwikDisk</guimenuitem
+></menuchoice
+> no lançador de aplicativos.</para>
+
+<para
+>As funcionalidades do &kdiskfree; também estão disponíveis no módulo <guilabel
+>Dispositivos de Armazenamento</guilabel
+> das &systemsettings;.</para>
+</sect1>
+
+<sect1 id="main-window">
+<title
+>A Janela Principal</title>
+
+<para
+>A janela principal do &kdiskfree; mostra os sistemas de arquivos disponíveis.</para>
+
+<para
+>Normalmente, as seguintes informações estão incluídas:</para>
+<screenshot>
+<screeninfo
+>Tela do &kdiskfree;</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="kdf.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Tela do &kdiskfree;</phrase>
+          </textobject>
+        </mediaobject>
+</screenshot>
+
+<itemizedlist>
+<listitem
+><para
+>um ícone que representa o tipo de armazenamento</para
+></listitem>
+<listitem
+><para
+>nome do dispositivo</para
+></listitem>
+<listitem
+><para
+>tipo do sistema de arquivos</para
+></listitem>
+<listitem
+><para
+>tamanho total</para
+></listitem>
+<listitem
+><para
+>ponto de montagem</para
+></listitem>
+<listitem
+><para
+>espaço livre em disco</para
+></listitem>
+<listitem
+><para
+>a porcentagem de espaço usado, em número e como um gráfico.</para
+></listitem>
+</itemizedlist>
+
+<para
+>Clicar com o botão <mousebutton
+>esquerdo</mousebutton
+> no cabeçalho de uma determinada coluna ordena os dispositivos de acordo com essa variável. Clicar pela segunda vez com o mesmo botão ordena na ordem inversa.</para>
+
+<para
+>Clicar com o &RMB; numa linha mostra um menu. Se esse dispositivo não está montado, a opção <guimenuitem
+>Montar Dispositivo</guimenuitem
+> está disponível. Se esse dispositivo já estiver montado, pode ser desmontado selecionando a opção <guimenuitem
+>Desmontar Dispositivo</guimenuitem
+>. Selecionar <guimenuitem
+>Abrir no Gerenciador de Arquivos</guimenuitem
+> abre uma nova janela com uma visão gráfica dos arquivos desse dispositivo.</para>
+<para
+>A configuração do gerenciador de arquivos usado pelo &kdiskfree; é independente da escolha no módulo <guilabel
+>Aplicativos Padrão</guilabel
+> das &systemsettings;.</para>
+</sect1>
+
+<sect1 id="menus-and-configuration">
+<title
+>Barra de menus e Configuração</title>
+
+<sect2>
+<title
+>Menu Arquivo</title>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+><keycap
+>F5</keycap
+></shortcut
+> <guimenu
+>Arquivo</guimenu
+> <guimenuitem
+>Atualizar</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Atualiza imediatamente os dispositivos para mostrar o estado atual.</action
+></para
+></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Arquivo</guimenu
+> <guimenuitem
+>Sair</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Fecha</action
+> o &kdiskfree;</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>O &kdiskfree; possui os itens dos menus <guimenu
+>Configurações</guimenu
+> e <guimenu
+>Ajuda</guimenu
+>, comuns do &kde;. Para mais informações, consulte as seções sobre o <ulink url="help:/fundamentals/ui.html#menus-settings"
+>Menu Configurações</ulink
+> e o <ulink url="help:/fundamentals/ui.html#menus-help"
+>Menu Ajuda</ulink
+> dos Fundamentos do &kde;. </para>
+
+</sect2>
+
+<sect2>
+<title
+>Caixa de diálogo Configurações</title>
+
+<screenshot>
+<screeninfo
+>Tela de Configuração do &kdiskfree;</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="kdf_config.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Tela de Configuração do &kdiskfree;</phrase>
+          </textobject>
+        </mediaobject>
+</screenshot>
+
+<para
+>Esta janela contém duas abas, <guilabel
+>Configuração Geral</guilabel
+> e <guilabel
+>Comandos de Montagem</guilabel
+></para>
+<variablelist>
+<varlistentry>
+<term
+>Configurações gerais</term
+> <listitem
+><para
+>Clique na palavra <guilabel
+>visível</guilabel
+> ou <guilabel
+>oculto</guilabel
+> para ligar ou desligar o aparecimento desse campo de dados.</para
+> <para
+>Mude a frequência de atualização editando o valor. O valor na caixa é o intervalo (em segundos) entre as atualizações do &kdiskfree; para mostrar o estado atual.</para
+> <para
+>A opção <guilabel
+>Gerenciador de Arquivos</guilabel
+> controla o comando executado quando o item do menu de contexto <guimenuitem
+>Abrir no Gerenciador de Arquivos</guimenuitem
+> for selecionado.</para>
+<para
+>Há ainda mais duas opções. Uma define se o gerenciador de arquivos é ou não aberto automaticamente assim que um dispositivo é montado. A outra faz com que uma janela de alerta apareça quando um disco estiver muito cheio.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Comandos de Montagem</guilabel
+></term>
+<listitem
+><para
+>Permite ao usuário indicar os comandos de montagem e desmontagem para um dispositivo específico, assim como o ícone que o representa. Mais informações destes comandos podem ser encontradas na página de manual do <application
+>mount</application
+> (digite <userinput
+><command
+>man</command
+> <option
+>mount</option
+></userinput
+> na linha de comando).</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="credits">
+<title
+>Créditos e licença</title>
+
+<para
+>&kdiskfree;</para>
+
+<para
+>Direitos autorais do programa &copy; 1998-2000 &Michael.Kropfberger; &Michael.Kropfberger.mail;</para>
+
+<para
+>Direitos autorais da documentação &copy; 2000 &Jonathan.Singer; &Jonathan.Singer.mail;</para>
+
+<para
+>Tradução de Marcus Gama <email
+>marcus.gama@gmail.com</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+&documentation.index; 
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->
