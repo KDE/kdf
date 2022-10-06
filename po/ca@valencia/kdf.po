@@ -37,7 +37,7 @@ msgstr "quico@softcatala.org,aacid@kde.org,joanmaspons@gmail.com"
 #: desktop/kdfui.rc:5
 #, kde-format
 msgid "&File"
-msgstr "&Fitxer"
+msgstr "Fi&txer"
 
 #: src/disklist.cpp:325
 #, kde-format
@@ -71,7 +71,7 @@ msgstr ""
 #, kde-format
 msgctxt "Update action"
 msgid "&Update"
-msgstr "&Actualitza"
+msgstr "Act&ualitza"
 
 #: src/kdf.cpp:59
 #, kde-format
