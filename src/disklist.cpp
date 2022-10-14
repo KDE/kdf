@@ -1,6 +1,7 @@
 /*
     SPDX-FileCopyrightText: 1999 Michael Kropfberger <michael.kropfberger@gmx.net>
     SPDX-FileCopyrightText: 2009 Dario Andres Rodriguez <andresbajotierra@gmail.com>
+    SPDX-FileCopyrightText: 2022 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -64,19 +65,7 @@ DiskList::~DiskList()
         dfProc->waitForFinished();
     }
     delete dfProc;
-    //We have to delete the diskentries manually, otherwise they get leaked (?)
-    // (they aren't released on delete disks )
-    DisksIterator itr = disksIteratorBegin();
-    DisksIterator end = disksIteratorEnd();
-    while( itr != end )
-    {
-        DisksIterator prev = itr;
-        ++itr;
-
-        DiskEntry * disk = *prev;
-        disks->erase( prev );
-        delete disk;
-    }
+    qDeleteAll(*disks);
     delete disks;
 }
 
@@ -467,18 +456,13 @@ void DiskList::deleteAllMountedAt(const QString &mountpoint)
 {
     qCDebug(KDF);
 
-    DisksIterator itr = disksIteratorBegin();
-    DisksIterator end = disksIteratorEnd();
-    while( itr != end)
-    {
-        DisksIterator prev = itr;
-        ++itr;
-
-        DiskEntry * disk = *prev;
-        if (disk->mountPoint() == mountpoint )
-        {
-            disks->removeOne( disk );
-            delete disk;
+    for (auto it = disksIteratorBegin(); it != disksIteratorEnd();) {
+        DiskEntry *disk = *it;
+        if (disk->mountPoint() == mountpoint) {
+            it = disks->erase(it);
+            disk->deleteLater();
+        } else {
+            ++it;
         }
     }
 }
