@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-26 00:49+0000\n"
+"POT-Creation-Date: 2022-10-15 00:50+0000\n"
 "PO-Revision-Date: 2016-11-10 14:16+0800\n"
 "Last-Translator: Jeff Huang <s8321414@gmail.com>\n"
 "Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
@@ -41,7 +41,7 @@ msgstr ""
 msgid "&File"
 msgstr "檔案(&F)"
 
-#: src/disklist.cpp:325
+#: src/disklist.cpp:314
 #, kde-format
 msgid "could not execute [%1]"
 msgstr "無法執行 [%1]"

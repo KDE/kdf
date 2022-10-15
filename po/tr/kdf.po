@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeutils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-26 00:49+0000\n"
+"POT-Creation-Date: 2022-10-15 00:50+0000\n"
 "PO-Revision-Date: 2022-04-01 12:46+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -41,7 +41,7 @@ msgstr "omer_fad@hotmail.com"
 msgid "&File"
 msgstr "&Dosya"
 
-#: src/disklist.cpp:325
+#: src/disklist.cpp:314
 #, kde-format
 msgid "could not execute [%1]"
 msgstr "[%1] çalıştırılamadı"

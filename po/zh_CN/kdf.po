@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-26 00:49+0000\n"
+"POT-Creation-Date: 2022-10-15 00:50+0000\n"
 "PO-Revision-Date: 2022-10-02 15:49\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -33,7 +33,7 @@ msgstr "kde-china@kde.org, i@guoyunhe.me, tysontan@tysontan.com"
 msgid "&File"
 msgstr "文件(&F)"
 
-#: src/disklist.cpp:325
+#: src/disklist.cpp:314
 #, kde-format
 msgid "could not execute [%1]"
 msgstr "无法执行 [%1]"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-26 00:49+0000\n"
+"POT-Creation-Date: 2022-10-15 00:50+0000\n"
 "PO-Revision-Date: 2010-01-31 10:31+0530\n"
 "Last-Translator: A S Alam <aalam@users.sf.net>\n"
 "Language-Team: ਪੰਜਾਬੀ <punjabi-users@lists.sf.net>\n"
@@ -34,7 +34,7 @@ msgstr "aalam@users.sf.net"
 msgid "&File"
 msgstr "ਫਾਇਲ(&F)"
 
-#: src/disklist.cpp:325
+#: src/disklist.cpp:314
 #, kde-format
 msgid "could not execute [%1]"
 msgstr "[%1] ਚਲਾਇਆ ਨਹੀਂ ਜਾ ਸਕਿਆ"

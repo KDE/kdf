@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-26 00:49+0000\n"
+"POT-Creation-Date: 2022-10-15 00:50+0000\n"
 "PO-Revision-Date: 2022-09-27 17:54+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -34,7 +34,7 @@ msgstr "dirgitadevina@yahoo.co.id"
 msgid "&File"
 msgstr "&File"
 
-#: src/disklist.cpp:325
+#: src/disklist.cpp:314
 #, kde-format
 msgid "could not execute [%1]"
 msgstr "tidak dapat mengeksekusi [%1]"

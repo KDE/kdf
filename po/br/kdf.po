@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeutils/kdf.pot\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-26 00:49+0000\n"
+"POT-Creation-Date: 2022-10-15 00:50+0000\n"
 "PO-Revision-Date: 2004-09-20 15:44+0200\n"
 "Last-Translator: Thierry Vignaud <tvignaud@mandriva.com>\n"
 "Language-Team: br <LL@li.org>\n"
@@ -30,7 +30,7 @@ msgstr "tvignaud@mandriva.com, jdrapier@club-internet.fr"
 msgid "&File"
 msgstr "&Restr"
 
-#: src/disklist.cpp:325
+#: src/disklist.cpp:314
 #, fuzzy, kde-format
 #| msgid "could not execute [%s]"
 msgid "could not execute [%1]"
