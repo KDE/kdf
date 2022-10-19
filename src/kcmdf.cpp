@@ -11,9 +11,8 @@
 
 #include "kcmdf.h"
 
-#include <QVBoxLayout>
 #include <KPluginFactory>
-#include <kpluginfactory.h>
+#include <QVBoxLayout>
 
 K_PLUGIN_CLASS_WITH_JSON(KDiskFreeWidget, "kcmdf.json")
 
