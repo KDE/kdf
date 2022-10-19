@@ -22,6 +22,7 @@
   <name xml:lang="ia">KDiskFree</name>
   <name xml:lang="id">KDiskFree</name>
   <name xml:lang="it">KDiskFree</name>
+  <name xml:lang="ka">KDiskFree</name>
   <name xml:lang="ko">KDiskFree</name>
   <name xml:lang="nl">KDiskFree</name>
   <name xml:lang="nn">KDiskFree</name>
@@ -56,6 +57,7 @@
   <summary xml:lang="ia">Vide uso de disco</summary>
   <summary xml:lang="id">Tampilan Penggunaan Disk</summary>
   <summary xml:lang="it">Visualizza l'utilizzo del disco</summary>
+  <summary xml:lang="ka">დისკის გამოყენების ინფორმაციის ნახვა</summary>
   <summary xml:lang="ko">디스크 사용량 보기</summary>
   <summary xml:lang="nl">Schijfgebruik bekijken</summary>
   <summary xml:lang="nn">Vis diskbruk</summary>
@@ -132,6 +134,7 @@
       <caption xml:lang="ia">Fenestra principal de KDiskFree</caption>
       <caption xml:lang="id">Jendela utama KDiskFree</caption>
       <caption xml:lang="it">Finestra principale di KDiskFree</caption>
+      <caption xml:lang="ka">KDiskFree -ის მთავარი ფანჯარა</caption>
       <caption xml:lang="ko">KDiskFree 주 창</caption>
       <caption xml:lang="nl">Hoofdvenster van KDiskFree</caption>
       <caption xml:lang="nn">Hovudvindauge for KDiskFree</caption>
