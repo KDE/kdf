@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-15 00:50+0000\n"
+"POT-Creation-Date: 2022-10-20 00:56+0000\n"
 "PO-Revision-Date: 2007-09-11 22:44+0200\n"
 "Last-Translator: Northern Sami translation team <i18n-sme@lister.ping.uio."
 "no>\n"
@@ -52,7 +52,7 @@ msgstr ""
 msgid "could not execute %1"
 msgstr ""
 
-#: src/kcmdf.cpp:39
+#: src/kcmdf.cpp:38
 #, kde-format
 msgid ""
 "A right mouse button click opens a context menu to mount/unmount a device or "
