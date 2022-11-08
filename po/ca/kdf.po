@@ -422,6 +422,3 @@ msgstr "Arranjament general"
 #, kde-format
 msgid "Mount Commands"
 msgstr "Ordres de muntatge"
-
-#~ msgid "A test application"
-#~ msgstr "Una aplicació de prova"
