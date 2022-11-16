@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kdeutils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:56+0000\n"
-"PO-Revision-Date: 2022-04-01 12:46+0300\n"
+"PO-Revision-Date: 2022-11-15 05:06+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -66,8 +66,8 @@ msgid ""
 "A right mouse button click opens a context menu to mount/unmount a device or "
 "to open it in the file manager."
 msgstr ""
-"Sağ tıklayınca aygıt bağlamak/çıkartmak veya dosya yöneticisinde açmak için "
-"içerik menüsünü açar."
+"Sağ tıklayınca aygıt bağlamak/bağlantıyı kesmek veya dosya yöneticisinde "
+"açmak için içerik menüsünü açar."
 
 #: src/kdf.cpp:26
 #, kde-format
