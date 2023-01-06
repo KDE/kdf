@@ -1,135 +1,89 @@
 <?xml version="1.0" ?>
 <!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
 <!ENTITY % addindex "IGNORE">
-<!ENTITY % German "INCLUDE"
-> <!-- change language only here -->
+<!ENTITY % English "INCLUDE" > <!-- change language only here -->
 ]>
 
 <article id="block-devices" lang="&language;">
-<title
->Blockorientierte Geräte</title>
+<title>Block Devices</title>
 
 <articleinfo>
 
 <authorgroup>
-<author
-><firstname
->Mike</firstname
-> <surname
->McBride</surname
-> </author>
-<othercredit role="translator"
-><firstname
->Frank</firstname
-><surname
->Schütte</surname
-><affiliation
-><address
-><email
->F.Schuette@t-online.de</email
-></address
-></affiliation
-><contrib
->Deutsche Übersetzung</contrib
-></othercredit
-> 
+<author>
+<firstname>Mike</firstname>
+<surname>McBride</surname>
+</author>
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<date
->2016-04-14</date>
-<releaseinfo
->Anwendungen 16.04</releaseinfo>
+<date>2016-04-14</date>
+<releaseinfo>Applications 16.04</releaseinfo>
 
 <keywordset>
-<keyword
->KDE</keyword>
-<keyword
->Kontrollzentrum</keyword>
-<keyword
->blockorientiert</keyword
-> <keyword
->Gerät</keyword>
-<keyword
->Speicherplatz</keyword>
+<keyword>KDE</keyword>
+<keyword>KControl</keyword>
+<keyword>Block Devices</keyword>
+<keyword>Disk space</keyword>
 </keywordset>
 </articleinfo>
 
 <sect1>
-<title
->Speicher-Geräte</title>
+<title>Storage Devices</title>
 
-<para
->Das Modulfenster zeigt eine Liste der vorhandenen Dateigeräte und einige Informationen über jedes dieser Geräte. Sie können Einhängepunkte einstellen und Geräte ein- oder aushängen. </para>
+<para>
+The module window displays the available file devices and some
+information about each device. It also allows you to control mount
+points, and mount/unmount devices.
+</para>
 
-<para
->Standardmäßig werden folgende Informationen auf dieser Seite angezeigt: </para>
+<para>
+Normally, the following pieces of information are shown in this tab:
+</para>
 
 <itemizedlist>
-<listitem
-><para
->ein Symbol für die Geräteart</para
-></listitem>
-<listitem
-><para
->Name des Geräts</para
-></listitem>
-<listitem
-><para
->Art des Dateisystems</para
-></listitem>
-<listitem
-><para
->Größe</para
-></listitem>
-<listitem
-><para
->Einhängepunkt</para
-></listitem>
-<listitem
-><para
->Frei (freier Speicherplatz)</para
-></listitem>
-<listitem
-><para
->Belegter Speicher prozentual und als Graph.</para
-></listitem>
+<listitem><para>an icon depicting the type of storage</para></listitem>
+<listitem><para>device name</para></listitem>
+<listitem><para>file system type</para></listitem>
+<listitem><para>total size</para></listitem>
+<listitem><para>mount point</para></listitem>
+<listitem><para>free disk space</para></listitem>
+<listitem><para>the percentage of space used as a number and as a
+graph.</para></listitem>
 </itemizedlist>
 
-<para
->Durch <mousebutton
->Links</mousebutton
->-Klicken auf einen der Spaltenköpfe sortieren Sie die betreffende Tabellenspalte aufsteigend. Durch einen weiteren Links-Klick kehren Sie die Sortierreihenfolge um. </para>
+<para>
+<mousebutton>Left</mousebutton> clicking on the header of a particular
+column sorts the devices according to that variable. A second
+<mousebutton>left</mousebutton> click sorts in the opposite order.
+</para>
 
-<para
->Durch <mousebutton
->Rechts</mousebutton
->-Klick in eine Zeile öffnen Sie ein Menü. Falls das Gerät nicht eingehängt ist, ist der Menüeintrag <guimenuitem
->Gerät einhängen</guimenuitem
-> wählbar. Falls das Gerät bereits eingehängt ist, können Sie den Eintrag <guimenuitem
->Geräte aushängen</guimenuitem
-> auswählen. Durch den Eintrag <guimenuitem
->In Dateiverwaltung öffnen</guimenuitem
-> können Sie ein neues Fenster mit einer Liste der Dateien dieses Gerätes öffnen. </para>
+<para>
+<mousebutton>Right</mousebutton> clicking on a row pops up a menu. If
+that device is not currently mounted, the <guimenuitem>Mount
+Device</guimenuitem> option is available. If the device is mounted, it
+can be unmounted by choosing <guimenuitem>Unmount
+Device</guimenuitem>. Selecting <guimenuitem>Open in
+File Manager</guimenuitem> opens a new window with a graphical view of
+the files on that device.
+</para>
 
-<para
->Der geeignete Befehl zum Ein- und Aushängen sowie die Art, wie die Dateiverwaltung aus dem Kontextmenü geöffnet wird, kann von der Anwendung &kdiskfree; aus konfiguriert werden. </para>
+<para>
+The appropriate mount and unmount commands, and how the file manager is
+opened from the context menu, can be configured from the &kdiskfree;
+application.
+</para>
 
 <sect2>
-<title
->Mitwirkende</title>
+<title>Section Author</title>
 
-<para
->Dieser Abschnitt wurde auf der Grundlage der Dokumentation zu <application
->kdf</application
-> von  &Jonathan.Singer; &Jonathan.Singer.mail; geschrieben.</para>
+<para>This section is modified from the <application>kdf</application>
+documentation which was authored by &Jonathan.Singer;
+&Jonathan.Singer.mail;</para>
 
-<para
->Angepasst für &kde; von &Mike.McBride; &Mike.McBride.mail;</para>
-<para
->Deutsche Übersetzung von Frank Schütte <email
->F.Schuette@t-online.de</email
-></para
-> 
+<para>Modified for &kde; 2.0 by &Mike.McBride;
+&Mike.McBride.mail;</para>
+<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
 
 </sect2>
 </sect1>
