@@ -1,215 +1,339 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
   <!ENTITY kappname "&kdiskfree;">
-  <!ENTITY % English "INCLUDE" > <!-- change language only here -->
+  <!ENTITY % German "INCLUDE"
+> <!-- change language only here -->
   <!ENTITY % addindex "IGNORE">
 ]>
 
 <book id="kdf" lang="&language;">
 
 <bookinfo>
-<title>The &kdiskfree; Handbook</title>
+<title
+>Das Handbuch zu &kdiskfree;</title>
 
 <authorgroup>
-<author>
-&Jonathan.Singer; &Jonathan.Singer.mail;
-</author>
+<author
+>&Jonathan.Singer; &Jonathan.Singer.mail; </author>
 
-<author>
-&Michael.Kropfberger; &Michael.Kropfberger.mail;
-</author>
+<author
+>&Michael.Kropfberger; &Michael.Kropfberger.mail; </author>
 
-<!-- TRANS:ROLES_OF_TRANSLATORS -->
+<othercredit role="translator"
+><firstname
+>Gregor</firstname
+><surname
+>Zumstein</surname
+><affiliation
+><address
+><email
+>zumstein@ssd.ethz.ch</email
+></address
+></affiliation
+><contrib
+>Übersetzung von</contrib
+></othercredit
+> 
 
 </authorgroup>
 
 <copyright>
-<year>2000-2002</year>
-<holder>&Jonathan.Singer;</holder>
+<year
+>2000-2002</year>
+<holder
+>&Jonathan.Singer;</holder>
 </copyright>
 
-<legalnotice>&FDLNotice;</legalnotice>
+<legalnotice
+>&FDLNotice;</legalnotice>
 
-<date>2016-04-13</date>
-<releaseinfo>Applications 16.08</releaseinfo>
+<date
+>2016-04-13</date>
+<releaseinfo
+>Anwendungen 16.08</releaseinfo>
 
-<abstract><para>&kdiskfree; displays available file devices, along with
-information about them.</para>
+<abstract
+><para
+>&kdiskfree; zeigt Informationen über die verfügbaren Plattenbereiche (Partitionen).</para>
 
 </abstract>
 
 <keywordset>
-<keyword>KDE</keyword>
-<keyword>kdf</keyword>
-<keyword>kdeutils</keyword>
-<keyword>disks</keyword>
-<keyword>devices</keyword>
-<keyword>mount</keyword>
-<keyword>unmount</keyword>
+<keyword
+>KDE</keyword>
+<keyword
+>kdf</keyword>
+<keyword
+>kdeutils</keyword>
+<keyword
+>Festplatte</keyword>
+<keyword
+>Geräte</keyword>
+<keyword
+>mount</keyword>
+<keyword
+>unmount</keyword>
 </keywordset>
 
 </bookinfo>
 
 <chapter id="introduction">
-<title>Introduction</title>
+<title
+>Einleitung</title>
 
-<para>&kdiskfree; displays the available file devices (hard drive
-partitions, floppy and &CD; drives, USB sticks &etc;) along with information on
-their capacity, free space, type and mount point. It also allows you
-to mount and unmount drives and view them in a file manager.</para>
+<para
+>&kdiskfree; zeigt die verfügbaren Plattenbereiche an (Partitionen auf Festplatten, Disketten, &CD;-Laufwerke, USB-Sticks &etc;). Zu jedem Bereich wird die Gesamtgröße, der freie Bereich, das Dateisystem und der Ort des Einhängens ins Dateisystem (Einhängepunkt) angezeigt. Mit &kdiskfree; können auch (sofern die Berechtigung vorhanden ist) Laufwerke ein- bzw. ausgehängt und die Dateiverwaltung mit der Anzeige für dieses Laufwerk geöffnet werden.</para>
 
-<para>&kdiskfree; is similar to the &systemsettings; Storage Devices module, 
-but takes up less screen
-space. It is useful if you want to keep a &kdiskfree; window available at
-all times.</para>
+<para
+>&kdiskfree; hat Ähnlichkeiten mit dem Modul „Speicher-Geräte“ aus den &systemsettings; braucht aber weniger Platz auf dem Bildschirm und ist deshalb nützlich, wenn immer ein &kdiskfree;-Fenster geöffnet sein soll.</para>
 
 </chapter>
 
 <chapter id="using-kdf">
-<title>Using &kdiskfree;</title>
+<title
+>Wie benutze ich &kdiskfree;</title>
 
 <sect1 id="starting-kdf">
-<title>Starting &kdiskfree;</title> 
+<title
+>Starten von &kdiskfree;</title
+> 
 
-<para>Type <userinput><command>kdf</command></userinput> at a command
-prompt or select <guimenuitem>KDiskFree</guimenuitem> from the
-<guisubmenu>System</guisubmenu> group in the application 
-launcher. The standard &Qt; and &kde; command options are available, and
-can be listed by entering <userinput><command>kdf</command>
-<option>--help</option></userinput> at the command prompt.</para>
+<para
+>Um das Programm zu starten, geben Sie <userinput
+><command
+>kdf</command
+></userinput
+> auf der Befehlszeile ein oder wählen <guimenuitem
+>KDiskFree</guimenuitem
+> aus der Gruppe <guisubmenu
+>System</guisubmenu
+> im Anwendungsstarter. Die Standard &Qt;- und &kde;-Befehlszeilenparameter sind verfügbar und können mit dem Befehl <userinput
+><command
+>kdf<option
+>--help</option
+></command
+></userinput
+> angezeigt werden.</para>
 
-<para>To run the application as an applet in the systemtray, use 
-<menuchoice><guisubmenu>System</guisubmenu><guimenuitem>KwikDisk</guimenuitem></menuchoice>
-in application launcher.</para>
+<para
+>Um die Anwendung als Miniprogramm im Systemabschnitt der Kontrollleiste auszuführen, wählen Sie <menuchoice
+><guisubmenu
+>System</guisubmenu
+><guimenuitem
+>KwikDisk</guimenuitem
+></menuchoice
+> im Anwendungsstarter.</para>
 
-<para>The features of &kdiskfree; are also available in the &systemsettings; module
-<guilabel>Storage Devices</guilabel>.</para>
+<para
+>Die Funktionen von &kdiskfree; sind auch im &systemsettings;-Modul <guilabel
+>Speichergeräte</guilabel
+> verfügbar.</para>
 </sect1>
 
 <sect1 id="main-window">
-<title>The Main window</title>
+<title
+>Das Hauptfenster</title>
 
-<para>The main &kdiskfree; window displays the available file devices.</para>
+<para
+>Das Hauptfenster von &kdiskfree; zeigt die verfügbaren Partitionen an.</para>
 
-<para>Normally, the following pieces of information are included:</para>
+<para
+>Standardmäßig werden die folgenden Informationen angezeigt:</para>
 <screenshot>
-<screeninfo>&kdiskfree; Screen</screeninfo>
+<screeninfo
+>&kdiskfree; Anzeige </screeninfo>
         <mediaobject>
           <imageobject>
             <imagedata fileref="kdf.png" format="PNG"/>
           </imageobject>
           <textobject>
-            <phrase>&kdiskfree; Screen</phrase>
+            <phrase
+>&kdiskfree; Anzeige</phrase>
           </textobject>
         </mediaobject>
 </screenshot>
 
 <itemizedlist>
-<listitem><para>an icon depicting the type of storage</para></listitem>
-<listitem><para>device name</para></listitem>
-<listitem><para>filesystem type</para></listitem>
-<listitem><para>total size</para></listitem>
-<listitem><para>mount point</para></listitem>
-<listitem><para>free disk space</para></listitem>
-<listitem><para>the percentage of space used as a number and as a
-graph.</para></listitem>
+<listitem
+><para
+>Ein Symbol, das den Gerätetyp angibt</para
+></listitem>
+<listitem
+><para
+>Der Gerätename</para
+></listitem>
+<listitem
+><para
+>Der Dateisystemtyp</para
+></listitem>
+<listitem
+><para
+>Die Gesamtgröße</para
+></listitem>
+<listitem
+><para
+>Der Einhängepunkt</para
+></listitem>
+<listitem
+><para
+>Der freie Speicher</para
+></listitem>
+<listitem
+><para
+>Die Belegung der Partition in Prozent und als Auslastungsdiagramm.</para
+></listitem>
 </itemizedlist>
 
-<para><mousebutton>Left</mousebutton> clicking on the header of a
-particular column sorts the devices according to that variable. A
-second <mousebutton>left</mousebutton> click sorts in the opposite
-order.</para>
+<para
+>Ein <mousebutton
+>Druck mit der linken Maustaste</mousebutton
+> auf die Beschreibung einer Spalte sortiert die Anzeige nach diesem Kriterium. Ein weiterer Druck kehrt die Sortierrichtung um.</para>
 
-<para>Clicking with the &RMB; on a row pops up a menu. If that device is not
-currently mounted, the <guimenuitem>Mount Device</guimenuitem> option
-is available. If the device is mounted, it can be unmounted by
-choosing <guimenuitem>Unmount Device</guimenuitem>. Selecting
-<guimenuitem>Open in File Manager</guimenuitem> opens a new window with a
-graphical view of the files on that device.</para>
-<para>The setting for the file manager used by &kdiskfree; is independent from the choice
-in the &systemsettings; module <guilabel>Default Applications</guilabel>.</para>
+<para
+>Klicken Sie mit der &RMBn; auf eine Zeile, um ein Menü zu öffnen. Wenn die Partition noch nicht eingehängt ist, steht die Aktion <guimenuitem
+>Gerät einhängen</guimenuitem
+> zu Verfügung. Wenn eine Partition bereits eingehängt ist, so kann hier <guimenuitem
+>Geräte aushängen</guimenuitem
+> gewählt werden. Der Menüpunkt <guimenuitem
+>In Dateiverwaltung öffnen</guimenuitem
+> öffnet ein neues Fenster, in dem die Dateien auf dieser Partition angezeigt werden. Welche Dateiverwaltung geöffnet werden soll, kann im Dialog <guimenuitem
+>KDiskFree einrichten</guimenuitem
+> bestimmt werden.</para>
+<para
+>Die Einstellung für das von &kdiskfree; verwendete Dateiverwaltungsprogramm ist unabhängig von der Einstellung im &systemsettings;-Modul <guilabel
+>Standard-Komponenten</guilabel
+>.</para>
 </sect1>
 
 <sect1 id="menus-and-configuration">
-<title>Menu Bar and Configuration</title>
+<title
+>Menüleiste und Einstellungen</title>
 
 <sect2>
-<title>The File Menu</title>
+<title
+>Das Menü Datei</title>
 
 <variablelist>
 <varlistentry>
 <term>
-<menuchoice>
-<shortcut><keycap>F5</keycap></shortcut>
-<guimenu>File</guimenu>
-<guimenuitem>Update</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>Immediately updates the display to reflect the current
-status</action></para></listitem>
+<menuchoice
+><shortcut
+><keycap
+>F5</keycap
+></shortcut
+><guimenu
+>Datei</guimenu
+> <guimenuitem
+>Aktualisieren</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Zeigt sofort den aktuellen Zustand der Partitionen an.</action
+></para
+></listitem>
 </varlistentry>
 <varlistentry>
 
 <term>
-<menuchoice>
-<shortcut>
-<keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo>
-</shortcut>
-<guimenu>File</guimenu>
-<guimenuitem>Quit</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>Closes</action> &kdiskfree;</para></listitem>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Datei</guimenu
+> <guimenuitem
+>Beenden</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Schließt</action
+> das &kdiskfree;-Fenster.</para
+></listitem>
 </varlistentry>
 </variablelist>
 
-<para>
-Additionally &kdiskfree; has some common &kde; <guimenu>Settings</guimenu> and <guimenu>Help</guimenu>
-menu items, for more information read the sections about the <ulink url="help:/fundamentals/menus.html#menus-settings"
->Settings Menu</ulink> and <ulink url="help:/fundamentals/menus.html#menus-help">Help Menu</ulink>
-of the &kde; Fundamentals.
-</para>
+<para
+>Zusätzlich hat &kdiskfree; die bekannten &kde;-Einträge im Menü <guimenu
+>Einstellungen</guimenu
+> und <guimenu
+>Hilfe</guimenu
+>, weitere Informationen dazu finden Sie in den Abschnitten über die Menüs <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Einstellungen</ulink
+> und <ulink url="help:/fundamentals/menus.html#menus-help"
+>Hilfe</ulink
+> der &kde;-Grundlagen. </para>
 
 </sect2>
 
 <sect2>
-<title>The Settings Dialog</title>
+<title
+>Der Einrichtungsdialog</title>
 
 <screenshot>
-<screeninfo>Configure &kdiskfree; Screen</screeninfo>
+<screeninfo
+>&kdiskfree;-Einrichtungsdialog</screeninfo>
         <mediaobject>
           <imageobject>
             <imagedata fileref="kdf_config.png" format="PNG"/>
           </imageobject>
           <textobject>
-            <phrase>Configure &kdiskfree; Screen</phrase>
+            <phrase
+>&kdiskfree;-Einrichtungsdialog</phrase>
           </textobject>
         </mediaobject>
 </screenshot>
 
-<para>This dialog has two tabbed windows, <guilabel>General Settings</guilabel>
-and <guilabel>Mount Commands</guilabel></para>
+<para
+>Dieser Dialog besteht aus zwei Teilen, <guilabel
+>Allgemeine Einstellungen</guilabel
+> und <guilabel
+>Befehle zum Einhängen</guilabel
+>:</para>
 <variablelist>
 <varlistentry>
-<term>General Settings</term> <listitem><para>Click on the word
-<guilabel>visible</guilabel> or <guilabel>hidden</guilabel> to turn
-display of an data field on or off.</para> <para>Change the update
-frequency by editing the value. The value in the box is
-the interval (in seconds) between updates of the &kdiskfree; display to
-reflect the current status.</para> <para>The <guilabel>File Manager</guilabel> setting
-controls the command executed when the <guimenuitem>Open
-Filemanager</guimenuitem> popup menu item is selected.</para>
-<para>There are also two check boxes. One controls if a file manager
-window will be automatically opened when a device is mounted. The
-other causes an alert window to pop up if a disk gets critically
-full.</para>
+<term
+>Allgemeine Einstellungen</term
+> <listitem
+><para
+>Um eine Information anzuzeigen bzw. auszublenden, klicken Sie auf  <guilabel
+>angezeigt</guilabel
+> oder <guilabel
+>ausgeblendet</guilabel
+>.</para
+> <para
+>Die <guilabel
+>Aktualisierungsfrequenz</guilabel
+> wird durch Eingabe eines Wertes geändert. Dieser Wert gibt an, nach wie vielen Sekunden eine Aktualisierung der Anzeige in &kdiskfree; durchgeführt wird.</para
+> <para
+>Im Eingabefeld <guilabel
+>Dateiverwaltung</guilabel
+> können Sie einem ein Befehl eingeben, der dann ausgeführt wird, wenn im Kontextmenü <guimenuitem
+>In Dateiverwaltung öffnen</guimenuitem
+> gewählt wird.</para>
+<para
+>In einem ersten Ankreuzfeld kann angegeben werden, ob die Dateiverwaltung automatisch beim Einhängen einer Partition geöffnet werden soll. Im zweiten kann eingestellt werden, dass sich ein Warnfenster öffnet, wenn der freie Speicher eine kritische Größe unterschreitet.</para>
 </listitem>
 </varlistentry>
 <varlistentry>
-<term><guilabel>Mount Commands</guilabel></term>
-<listitem><para>Allows the user to specify the mount and unmount commands for a
-given device, as well as the icon used to represent it. More information on
-these commands can be found on the man page for <application>mount</application> (type
-<userinput><command>man</command> <option>mount</option></userinput> at the
-command prompt).</para></listitem>
+<term
+><guilabel
+>Befehle zum Einhängen</guilabel
+></term>
+<listitem
+><para
+>Hier werden die Befehle zum Ein- und Aushängen für jede einzelne Partition und das Symbol für den Partitionstyp festgelegt. Informationen über diese Befehle finden sich in der Handbuchseite zu mount (<command
+>man <option
+>mount</option
+></command
+> auf der Befehlszeile oder in der Adressleiste in &konqueror; eingeben). </para
+></listitem>
 </varlistentry>
 </variablelist>
 
@@ -219,19 +343,23 @@ command prompt).</para></listitem>
 </chapter>
 
 <chapter id="credits">
-<title>Credits and License</title>
+<title
+>Danksagungen und Lizenz</title>
 
-<para>&kdiskfree;</para>
+<para
+>&kdiskfree;</para>
 
-<para>Program Copyright &copy; 1998-2000 &Michael.Kropfberger; &Michael.Kropfberger.mail;</para>
+<para
+>Copyright des Programms &copy; 1998-2000 &Michael.Kropfberger; &Michael.Kropfberger.mail;.</para>
 
-<para>Documentation Copyright &copy; 2000 &Jonathan.Singer; &Jonathan.Singer.mail;</para>
+<para
+>Copyright für die Dokumentation &copy; 2000 &Jonathan.Singer; &Jonathan.Singer.mail;.</para>
 
-<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
-&underFDL;
-&underGPL;
-
-</chapter>
+<para
+>Übersetzung Gregor Zumstein <email
+>zumstein@ssd.ethz.ch</email
+></para
+> &underFDL; &underGPL; </chapter>
 
 &documentation.index; 
 </book>
