@@ -13,9 +13,9 @@ if(NOT UNIX)
 endif(NOT UNIX)
 
 set (QT_MIN_VERSION "5.15.2")
-set (KF5_MIN_VERSION "5.92.0")
+set (KF_MIN_VERSION "5.92.0")
 
-find_package(ECM ${KF5_MIN_VERSION} CONFIG REQUIRED)
+find_package(ECM ${KF_MIN_VERSION} CONFIG REQUIRED)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake)
 
 include(ECMGenerateHeaders)
@@ -44,7 +44,7 @@ find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED
     Widgets
 )
 
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
+find_package(KF5 ${KF_MIN_VERSION} REQUIRED
     ConfigWidgets
     CoreAddons
     I18n
@@ -55,7 +55,7 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
     WidgetsAddons
     XmlGui
 )
-find_package(KF5DocTools ${KF5_MIN_VERSION})
+find_package(KF5DocTools ${KF_MIN_VERSION})
 set_package_properties(KF5DocTools PROPERTIES DESCRIPTION
     "Tools to generate documentation"
     TYPE OPTIONAL
