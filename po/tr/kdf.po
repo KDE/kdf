@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kdeutils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:56+0000\n"
-"PO-Revision-Date: 2023-02-07 00:40+0300\n"
+"PO-Revision-Date: 2023-02-08 14:26+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -294,7 +294,7 @@ msgstr "Bağla"
 #: src/kwikdisk.cpp:201
 #, kde-format
 msgid "You must login as root to mount this disk"
-msgstr "Bu diski bağlayabilmek için root olarak giriş yapmalısınız"
+msgstr "Bu diski bağlayabilmek için kök kullanıcı olarak oturum açmalısınız"
 
 #: src/kwikdisk.cpp:269
 #, kde-format
