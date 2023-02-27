@@ -148,7 +148,11 @@ void MntConfigWidget::loadSettings( void )
     KConfigGroup config = KSharedConfig::openConfig()->group("MntConfig");
     if( !mInitializing && GUI )
     {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         if( isTopLevel() )
+#else
+        if( isWindow() )
+#endif
         {
             int w = config.readEntry("Width",this->width() );
             int h = config.readEntry("Height",this->height() );
