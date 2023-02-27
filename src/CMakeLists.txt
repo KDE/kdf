@@ -38,13 +38,18 @@ add_library(kdfprivate ${kdfprivate_SRCS})
 generate_export_header(kdfprivate BASE_NAME kdfprivate)
 target_link_libraries(kdfprivate PUBLIC
     Qt${QT_MAJOR_VERSION}::Core
-    KF5::Completion
-    KF5::ConfigWidgets
-    KF5::I18n
-    KF5::IconThemes
-    KF5::KIOCore
-    KF5::WidgetsAddons
+    KF${KF_MAJOR_VERSION}::Completion
+    KF${KF_MAJOR_VERSION}::ConfigWidgets
+    KF${KF_MAJOR_VERSION}::I18n
+    KF${KF_MAJOR_VERSION}::IconThemes
+    KF${KF_MAJOR_VERSION}::KIOCore
+    KF${KF_MAJOR_VERSION}::WidgetsAddons
 )
+
+if (QT_MAJOR_VERSION STREQUAL "6")
+	target_link_libraries(kdfprivate PUBLIC Qt6::Core5Compat)
+endif()
+
 
 set_target_properties(kdfprivate PROPERTIES
     VERSION ${KDFPRIVATE_VERSION}
@@ -68,7 +73,7 @@ add_executable(kdf ${kdf_SRCS})
 target_link_libraries(kdf
     kdfprivate
     Qt::Core
-    KF5::XmlGui
+    KF${KF_MAJOR_VERSION}::XmlGui
 )
 
 install(TARGETS kdf  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
@@ -88,8 +93,8 @@ add_executable(kwikdisk ${kwikdisk_SRCS})
 target_link_libraries(kwikdisk
     kdfprivate
     Qt${QT_MAJOR_VERSION}::Core
-    KF5::KIOWidgets
-    KF5::Notifications
+    KF${KF_MAJOR_VERSION}::KIOWidgets
+    KF${KF_MAJOR_VERSION}::Notifications
 )
 
 install(TARGETS kwikdisk  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
@@ -104,7 +109,6 @@ ecm_qt_declare_logging_category(kcm_kdf_PART_SRCS
                                 CATEGORY_NAME kdf.kcm DESCRIPTION "kdf (kdf kcm)" EXPORT KDF)
 
 add_library(kcm_kdf ${kcm_kdf_PART_SRCS})
-kcoreaddons_desktop_to_json(kcm_kdf "../desktop/kcmdf.desktop" SERVICE_TYPES kcmodule.desktop)
 target_link_libraries(kcm_kdf
     kdfprivate
     Qt${QT_MAJOR_VERSION}::Core

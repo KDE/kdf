@@ -28,6 +28,13 @@ include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(ECMDeprecationSettings)
+if (QT_MAJOR_VERSION STREQUAL "6")
+    set(QT_REQUIRED_VERSION "6.4.0")
+    set(KF_MIN_VERSION "5.240.0")
+    set(KF_MAJOR_VERSION "6")
+else()
+    set(KF_MAJOR_VERSION "5")
+endif()
 
 
 ecm_setup_version(${RELEASE_SERVICE_VERSION} VARIABLE_PREFIX KDF
@@ -44,7 +51,11 @@ find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED
     Widgets
 )
 
-find_package(KF5 ${KF_MIN_VERSION} REQUIRED
+if (QT_MAJOR_VERSION STREQUAL "6")
+    find_package(Qt6Core5Compat)
+endif()
+
+find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED
     ConfigWidgets
     CoreAddons
     I18n
@@ -55,13 +66,13 @@ find_package(KF5 ${KF_MIN_VERSION} REQUIRED
     WidgetsAddons
     XmlGui
 )
-find_package(KF5DocTools ${KF_MIN_VERSION})
-set_package_properties(KF5DocTools PROPERTIES DESCRIPTION
+find_package(KF${KF_MAJOR_VERSION}DocTools ${KF_MIN_VERSION})
+set_package_properties(KF${KF_MAJOR_VERSION}DocTools PROPERTIES DESCRIPTION
     "Tools to generate documentation"
     TYPE OPTIONAL
 )
 
-ecm_set_disabled_deprecation_versions(QT 5.15.2
+ecm_set_disabled_deprecation_versions(QT 6.4
     KF 5.101
 )
 
@@ -78,7 +89,7 @@ ecm_qt_install_logging_categories(
         DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
         )
 ki18n_install(po)
-if(KF5DocTools_FOUND)
+if(KF${KF_MAJOR_VERSION}DocTools_FOUND)
     kdoctools_install(po)
     add_subdirectory(doc)
 endif()
