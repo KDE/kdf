@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-20 00:56+0000\n"
+"POT-Creation-Date: 2023-02-28 01:02+0000\n"
 "PO-Revision-Date: 2008-08-05 22:28+0200\n"
 "Last-Translator: Yannig Marchegay (Kokoyaya) <yannig@marchegay.org>\n"
 "Language-Team: Occitan (lengadocian) <ubuntu-l10n-oci@lists.ubuntu.com>\n"
@@ -359,12 +359,12 @@ msgctxt "No mount point is selected"
 msgid "None"
 msgstr "Pas cap"
 
-#: src/mntconfig.cpp:240
+#: src/mntconfig.cpp:244
 #, kde-format
 msgid "Only local files supported."
 msgstr ""
 
-#: src/mntconfig.cpp:256
+#: src/mntconfig.cpp:260
 #, kde-format
 msgid "Only local files are currently supported."
 msgstr ""

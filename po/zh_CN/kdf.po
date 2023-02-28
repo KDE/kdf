@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-20 00:56+0000\n"
+"POT-Creation-Date: 2023-02-28 01:02+0000\n"
 "PO-Revision-Date: 2023-02-24 12:43\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -359,12 +359,12 @@ msgctxt "No mount point is selected"
 msgid "None"
 msgstr "无"
 
-#: src/mntconfig.cpp:240
+#: src/mntconfig.cpp:244
 #, kde-format
 msgid "Only local files supported."
 msgstr "只支持本地文件。"
 
-#: src/mntconfig.cpp:256
+#: src/mntconfig.cpp:260
 #, kde-format
 msgid "Only local files are currently supported."
 msgstr "目前只支持本地文件。"

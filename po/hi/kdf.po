@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-20 00:56+0000\n"
+"POT-Creation-Date: 2023-02-28 01:02+0000\n"
 "PO-Revision-Date: 2021-08-21 16:25+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -362,12 +362,12 @@ msgctxt "No mount point is selected"
 msgid "None"
 msgstr "कुछ नहीं"
 
-#: src/mntconfig.cpp:240
+#: src/mntconfig.cpp:244
 #, kde-format
 msgid "Only local files supported."
 msgstr "सिर्फ स्थानीय फ़ाइलें ही समर्थित."
 
-#: src/mntconfig.cpp:256
+#: src/mntconfig.cpp:260
 #, kde-format
 msgid "Only local files are currently supported."
 msgstr "सिर्फ स्थानीय फ़ाइल ही वर्तमान में समर्थित हैं."

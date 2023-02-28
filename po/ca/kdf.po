@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-20 00:56+0000\n"
+"POT-Creation-Date: 2023-02-28 01:02+0000\n"
 "PO-Revision-Date: 2022-01-25 09:37+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -367,12 +367,12 @@ msgctxt "No mount point is selected"
 msgid "None"
 msgstr "Cap"
 
-#: src/mntconfig.cpp:240
+#: src/mntconfig.cpp:244
 #, kde-format
 msgid "Only local files supported."
 msgstr "Només es permeten fitxers locals."
 
-#: src/mntconfig.cpp:256
+#: src/mntconfig.cpp:260
 #, kde-format
 msgid "Only local files are currently supported."
 msgstr "Per ara només es permeten fitxers locals."

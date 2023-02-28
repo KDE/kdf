@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-20 00:56+0000\n"
+"POT-Creation-Date: 2023-02-28 01:02+0000\n"
 "PO-Revision-Date: 2022-02-20 22:18+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -362,12 +362,12 @@ msgctxt "No mount point is selected"
 msgid "None"
 msgstr "없음"
 
-#: src/mntconfig.cpp:240
+#: src/mntconfig.cpp:244
 #, kde-format
 msgid "Only local files supported."
 msgstr "로컬 파일만 지원합니다."
 
-#: src/mntconfig.cpp:256
+#: src/mntconfig.cpp:260
 #, kde-format
 msgid "Only local files are currently supported."
 msgstr "아직까지는 로컬 파일만 지원합니다."

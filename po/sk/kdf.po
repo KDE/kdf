@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-20 00:56+0000\n"
+"POT-Creation-Date: 2023-02-28 01:02+0000\n"
 "PO-Revision-Date: 2022-04-09 20:18+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -361,12 +361,12 @@ msgctxt "No mount point is selected"
 msgid "None"
 msgstr "Žiadne"
 
-#: src/mntconfig.cpp:240
+#: src/mntconfig.cpp:244
 #, kde-format
 msgid "Only local files supported."
 msgstr "Podporované sú iba lokálne súbory."
 
-#: src/mntconfig.cpp:256
+#: src/mntconfig.cpp:260
 #, kde-format
 msgid "Only local files are currently supported."
 msgstr "Zatiaľ sú podporované iba lokálne súbory."

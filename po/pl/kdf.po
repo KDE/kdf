@@ -1,5 +1,5 @@
 # translation of kdf.po to
-# Version: $Revision: 1636410 $
+# Version: $Revision: 1645594 $
 # translation of kdf.po to Polish
 # KTranslator Generated File
 # Michał Rudolf <mrudolf@kdewebdev.org>, 2002.
@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-20 00:56+0000\n"
+"POT-Creation-Date: 2023-02-28 01:02+0000\n"
 "PO-Revision-Date: 2022-02-12 16:04+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -368,12 +368,12 @@ msgctxt "No mount point is selected"
 msgid "None"
 msgstr "Brak"
 
-#: src/mntconfig.cpp:240
+#: src/mntconfig.cpp:244
 #, kde-format
 msgid "Only local files supported."
 msgstr "Obsługiwane są tylko pliki lokalne."
 
-#: src/mntconfig.cpp:256
+#: src/mntconfig.cpp:260
 #, kde-format
 msgid "Only local files are currently supported."
 msgstr "Aktualnie obsługiwane są tylko pliki lokalne."
