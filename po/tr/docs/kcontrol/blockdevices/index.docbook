@@ -1,0 +1,137 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Turkish "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="block-devices" lang="&language;">
+<title
+>Blok Aygıtları</title>
+
+<articleinfo>
+
+<authorgroup>
+<author
+><firstname
+>Mike</firstname
+> <surname
+>McBride</surname
+> </author>
+<othercredit role="translator"
+><firstname
+>Kaan</firstname
+><surname
+>Özdinçer</surname
+><affiliation
+><address
+><email
+>kaanozdincer@gmail.com</email
+></address
+></affiliation
+><contrib
+>Çeviri</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2016-04-14</date>
+<releaseinfo
+>Uygulamalar 16.04</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KControl</keyword>
+<keyword
+>Blok Aygıtları</keyword>
+<keyword
+>Disk alanı</keyword>
+</keywordset>
+</articleinfo>
+
+<sect1>
+<title
+>Depolama Aygıtları</title>
+
+<para
+>Modül penceresinde kullanılabilir dosya aygıtları ve her aygıtla ilgili bazı bilgiler görüntülenir. Ayrıca, bağlama noktalarını kontrol etmenizi ve aygıtları bağlamanızı/çıkarmanızı sağlar. </para>
+
+<para
+>Normalde, aşağıdaki bilgiler bu sekmede gösterilir: </para>
+
+<itemizedlist>
+<listitem
+><para
+>depolama türünü gösteren bir simge</para
+></listitem>
+<listitem
+><para
+>aygıt adı</para
+></listitem>
+<listitem
+><para
+>dosya sistemi türü</para
+></listitem>
+<listitem
+><para
+>toplam boyut</para
+></listitem>
+<listitem
+><para
+>bağlama noktası</para
+></listitem>
+<listitem
+><para
+>boş disk alanı</para
+></listitem>
+<listitem
+><para
+>boş alan yüzdesini sayı ve grafik olarak kullanır.</para
+></listitem>
+</itemizedlist>
+
+<para
+><mousebutton
+>Sol</mousebutton
+> düğme ile belirli bir sütunun başlığına tıklamak, aygıtları o değişkene göre sıralar. İkinci bir <mousebutton
+>left</mousebutton
+> tıklama ise, tersine doğru sıralayacaktır. </para>
+
+<para
+><mousebutton
+>Sağ</mousebutton
+> düğme ile bir satıra tıklattığınızda menü açılacaktır. Bu aygıt şu anda takılı değilse, <guimenuitem
+>Aygıtı Bağla</guimenuitem
+> seçeneği mevcuttur. Aygıt bağlıysa, <guimenuitem
+>Aygıtı Ayır</guimenuitem
+> seçeneğiyle ayırma yapılabilir. <guimenuitem
+>Dosya Yöneticisinde Aç</guimenuitem
+> seçilerek, bu aygıttaki dosyaların grafik görünümüyle yeni bir pencere açılabilir. </para>
+
+<para
+>Uygun bağlama ve ayırma komutları, dosya yöneticisinin bağlam menüsünden nasıl açıldığı, &kdiskfree; uygulamasından yapılandırılabilir. </para>
+
+<sect2>
+<title
+>Bölüm Yazarı</title>
+
+<para
+>Bu bölüm &Jonathan.Singer; &Jonathan.Singer.mail; tarafından yazılan <application
+>kdf</application
+> belgelendirmesi değiştirilerek hazırlanmıştır.</para>
+
+<para
+>&Mike.McBride; &Mike.McBride.mail; tarafından &kde; 2.0 için düzenlenmiştir</para>
+<para
+>Çeviren Kaan Özdinçer <email
+>kaanozdincer@gmail.com</email
+></para
+> 
+
+</sect2>
+</sect1>
+</article>
+
