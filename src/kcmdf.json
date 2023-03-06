@@ -2,6 +2,7 @@
     "KPlugin": {
         "Description": "Shows the disk usage of the mounted devices",
         "Description[ar]": "يعرض المساحة المستخدمة من الأقراص المضمومة",
+        "Description[ca@valencia]": "Mostra l'ús del disc dels dispositius muntats",
         "Description[ca]": "Mostra l'ús del disc dels dispositius muntats",
         "Description[en_GB]": "Shows the disk usage of the mounted devices",
         "Description[es]": "Muestra el uso de disco de los dispositivos montados",
@@ -17,6 +18,7 @@
         "Icon": "kdf",
         "Name": "Storage Devices",
         "Name[ar]": "أجهزة تخزين",
+        "Name[ca@valencia]": "Dispositius d'emmagatzematge",
         "Name[ca]": "Dispositius d'emmagatzematge",
         "Name[en_GB]": "Storage Devices",
         "Name[es]": "Dispositivos de almacenamiento",
