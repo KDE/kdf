@@ -34,7 +34,7 @@
   <name xml:lang="sk">KDiskFree</name>
   <name xml:lang="sl">KDiskFree</name>
   <name xml:lang="sv">Kdiskfree</name>
-  <name xml:lang="tr">K Boş Alan</name>
+  <name xml:lang="tr">KDiskFree</name>
   <name xml:lang="uk">KDiskFree</name>
   <name xml:lang="x-test">xxKDiskFreexx</name>
   <name xml:lang="zh-CN">KDiskFree 磁盘占用查看器</name>
@@ -95,7 +95,6 @@
     <p xml:lang="gl">KDiskFree mostra os dispositivos de ficheiros dispoñíbeis (particións de discos duros, lectores de disquetes e CD, etc.) xunto con información sobre a súa capacidade, espazo libre, tipo e punto de montaxe. Tamén permite montar e desmontar lectores e velos no xestor de ficheiros.</p>
     <p xml:lang="ia">KDiskFree monstra dispositivos de file disponibile (partitiones de disco dur, disquettes e drives de CD, etc.) conjunctemente con lor capacitate, spatio libere, typo e puncto de montage. Anque permitte que on pote montar e dismontar drives e vide illos in  le gerente de files.</p>
     <p xml:lang="id">KDiskFree menampilkan peranti file yang tersedia (partisi hard drive, floppy dan drive CD, dll.) bersama dengan informasi tentang kapasitas, ruang kosong, jenis dan titik kaitnya. Ini juga memungkinkan kamu untuk mengait dan melepas drive dan melihatnya di file manager.</p>
-    <p xml:lang="is">KDiskFree birtir tiltæk skráatæki (disksneiðar á hörðum diskum, disklingum og CD-drifum, o.s.frv.) ásamt upplýsingum um rýmd þeirra, laust pláss, tegund og tengipunkt. Það gerir einnig kleift að tengja drif í skráakerfi eða aftengja og að skoða þau í skráastjóra.</p>
     <p xml:lang="it">KDiskFree mostra i dispositivi file disponibili (partizioni dei dischi fissi, unità a dischetti e lettori CD, eccetera) insieme ad informazioni sulla loro capacità, sullo spazio libero, sul tipo e sul punto di montaggio. Permette anche di montare e di smontare le unità e di visualizzarle in un gestore di file.</p>
     <p xml:lang="ka">KDiskFree ხელმისაწვდომ მოწყობილობებზე (მყარ დისკებზე, დისკეტებზე, CD-ზე, და ა.შ.) თავისუფალ ადგილს აჩვენებს. მოცულობასთან ერთად ასევე ნაჩვენებია მისი მოცულობა, თავისუფალი ადგილი, ტიპი და მიმაგრების ადგილი. ასევე საშუალებას გაძლევთ, მიამაგროთ და მოხსნათ დისკები, ან ფაილების მმართველში გახსნათ ისინი.</p>
     <p xml:lang="ko">KDiskFree는 하드 드라이브 파티션, CD 및 플로피 드라이브 등 저장 장치의 크기, 사용 가능한 공간, 마운트 지점 등 정보를 표시합니다. 장치 마운트를 관리하고 파일 관리자로 열 수 있습니다.</p>
@@ -108,7 +107,7 @@
     <p xml:lang="sk">KDiskFree zobrazuje dostuné zariadenia na súbory (pevné disky, partície, diskety, CD, atď.) tak isto informácie o ich kapacite, voľnom mieste, type a prípojnom bode. Tiež vám umožnuje pripájať a odpájať disky a prehliadať ich v správcovi súborov.</p>
     <p xml:lang="sl">KDiskFree prikazuje razpoložljive enote hrambe datotek (particije trdega diska, diskete in pogone CD-jev itd.), skupaj s podatki o njihovi kapaciteti, prostem prostoru, vrsti in mestu priključitve. Omogoča vam tudi, da lahko pogone priklopite in odklopite ter si jih ogledate v upravitelju datotek.</p>
     <p xml:lang="sv">Kdiskfree visar tillgängliga filenheter (hårddiskpartitioner, diskett- och cd-enheter, etc.) tillsammans med information om deras kapacitet, ledigt utrymme, typ och monteringsplats. Det låter dig också montera och avmontera enheter och visa dem i en filhanterare.</p>
-    <p xml:lang="tr">K Boş Alan, kullanılabilir aygıtları (sabit disk bölümleri, disket ve CD sürücüler vb.) sığaları, boş alan, tür ve bağlanma noktaları gibi bilgiler ile listeler. Ayrıca sürücüleri bağlayıp çıkarmanızı ve bir dosya yöneticisinde görüntülemenizi sağlar.</p>
+    <p xml:lang="tr">KDiskFree, kullanılabilir aygıtları (sabit disk bölümleri, disket ve CD sürücüler vb.) sığaları, boş alan, tür ve bağlanma noktaları gibi bilgiler ile listeler. Ayrıca sürücüleri bağlayıp çıkarmanızı ve bir dosya yöneticisinde görüntülemenizi sağlar.</p>
     <p xml:lang="uk">KDiskFree показує список доступних файлових пристроїв (розділів жорсткого диска, пристроїв читання гнучких дисків, компакт-дисків, флеш-карток USB тощо), а також інформацію щодо їх місткості, вільного місця, типу і точки монтування. Ця програма також надає вам можливість монтувати, демонтувати пристрої і переглядати їх вміст у програмі для роботи з файлами.</p>
     <p xml:lang="x-test">xxKDiskFree displays the available file devices (hard drive partitions, floppy and CD drives, etc.) along with information on their capacity, free space, type and mount point. It also allows you to mount and unmount drives and view them in a file manager.xx</p>
     <p xml:lang="zh-CN">KDiskFree 可以显示所有可用的文件设备 (硬盘分区、软盘和 CD 驱动器等)，并显示它们的总容量、可用空间、文件系统类型和挂载点。您还可以通过它挂载/卸载驱动器，并在文件管理器中查看它们。</p>
@@ -150,7 +149,7 @@
       <caption xml:lang="sk">Hlavné okno KDiskFree</caption>
       <caption xml:lang="sl">Glavno okno KDiskFree</caption>
       <caption xml:lang="sv">Huvudfönstret i Kdiskfree</caption>
-      <caption xml:lang="tr">K Boş Alan ana penceresi</caption>
+      <caption xml:lang="tr">KDiskFree ana penceresi</caption>
       <caption xml:lang="uk">Головне вікно KDiskFree</caption>
       <caption xml:lang="x-test">xxKDiskFree main windowxx</caption>
       <caption xml:lang="zh-CN">KDiskFree 主窗口</caption>
