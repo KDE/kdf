@@ -73,6 +73,7 @@ add_executable(kdf ${kdf_SRCS})
 target_link_libraries(kdf
     kdfprivate
     Qt::Core
+    KF${KF_MAJOR_VERSION}::KCMUtils
     KF${KF_MAJOR_VERSION}::XmlGui
 )
 
@@ -112,6 +113,7 @@ add_library(kcm_kdf ${kcm_kdf_PART_SRCS})
 target_link_libraries(kcm_kdf
     kdfprivate
     Qt${QT_MAJOR_VERSION}::Core
+    KF${KF_MAJOR_VERSION}::KCMUtils
 )
 
 install(TARGETS kcm_kdf  DESTINATION ${KDE_INSTALL_PLUGINDIR})
