@@ -13,6 +13,9 @@
 #include "kdfconfig.h"
 #include "mntconfig.h"
 
+#if KCMUTILS_VERSION >= QT_VERSION_CHECK(5, 240, 0)
+class KPluginMetaData;
+#endif
 class KDiskFreeWidget : public KCModule
 {
     Q_OBJECT
