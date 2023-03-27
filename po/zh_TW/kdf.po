@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-28 01:02+0000\n"
+"POT-Creation-Date: 2023-03-27 00:52+0000\n"
 "PO-Revision-Date: 2016-11-10 14:16+0800\n"
 "Last-Translator: Jeff Huang <s8321414@gmail.com>\n"
 "Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
@@ -60,7 +60,7 @@ msgstr ""
 msgid "could not execute %1"
 msgstr "無法執行 [%1]"
 
-#: src/kcmdf.cpp:38
+#: src/kcmdf.cpp:49
 #, kde-format
 msgid ""
 "A right mouse button click opens a context menu to mount/unmount a device or "
