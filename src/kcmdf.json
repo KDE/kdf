@@ -23,6 +23,7 @@
         "Description[tr]": "Bağlı aygıtların disk kullanımlarını gösterir",
         "Description[uk]": "Показує ступінь використання змонтованих пристроїв",
         "Description[x-test]": "xxShows the disk usage of the mounted devicesxx",
+        "Description[zh_CN]": "显示已挂载设备的磁盘使用情况",
         "Icon": "kdf",
         "Name": "Storage Devices",
         "Name[ar]": "أجهزة تخزين",
@@ -47,6 +48,7 @@
         "Name[tr]": "Depolama Aygıtları",
         "Name[uk]": "Пристрої зберігання даних",
         "Name[x-test]": "xxStorage Devicesxx",
+        "Name[zh_CN]": "存储设备",
         "ServiceTypes": [
             "KCModule"
         ]
