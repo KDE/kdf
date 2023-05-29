@@ -47,7 +47,7 @@ target_link_libraries(kdfprivate PUBLIC
 )
 
 if (QT_MAJOR_VERSION STREQUAL "6")
-	target_link_libraries(kdfprivate PUBLIC Qt6::Core5Compat)
+	target_link_libraries(kdfprivate PUBLIC Qt6::Core5Compat KF6::IconWidgets)
 endif()
 
 
