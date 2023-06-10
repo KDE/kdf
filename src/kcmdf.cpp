@@ -20,8 +20,8 @@ K_PLUGIN_CLASS_WITH_JSON(KDiskFreeWidget, "kcmdf.json")
 KDiskFreeWidget::KDiskFreeWidget( QWidget *parent, const QVariantList &args )
         : KCModule( parent, args )
 #else
-KDiskFreeWidget::KDiskFreeWidget( QObject *parent, const KPluginMetaData &data, const QVariantList &args )
-        : KCModule( parent, data, args )
+KDiskFreeWidget::KDiskFreeWidget( QObject *parent, const KPluginMetaData &data)
+        : KCModule( parent, data)
 #endif
 {
     setButtons(Help);

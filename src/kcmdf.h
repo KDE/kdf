@@ -24,7 +24,7 @@ class KDiskFreeWidget : public KCModule
 #if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
         explicit KDiskFreeWidget( QWidget *parent = nullptr, const QVariantList &args = {});
 #else
-        explicit KDiskFreeWidget(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
+        explicit KDiskFreeWidget(QObject *parent, const KPluginMetaData &data);
 #endif
         ~KDiskFreeWidget() override;
 #if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
