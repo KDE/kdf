@@ -13,6 +13,7 @@
   <name xml:lang="de">KDiskFree</name>
   <name xml:lang="el">KDiskFree</name>
   <name xml:lang="en-GB">KDiskFree</name>
+  <name xml:lang="eo">KDiskFree</name>
   <name xml:lang="es">KDiskFree</name>
   <name xml:lang="et">KDiskFree</name>
   <name xml:lang="eu">KDiskFree</name>
@@ -49,6 +50,7 @@
   <summary xml:lang="de">Festplattenbelegung anzeigen</summary>
   <summary xml:lang="el">Προβολή στατιστικών χρήσης δίσκου</summary>
   <summary xml:lang="en-GB">View Disk Usage</summary>
+  <summary xml:lang="eo">Rigardi Diskuzadon</summary>
   <summary xml:lang="es">Visor de uso del disco</summary>
   <summary xml:lang="et">Kettakasutuse näitamine</summary>
   <summary xml:lang="eu">Ikusi diskoaren erabilera</summary>
@@ -129,6 +131,7 @@
       <caption xml:lang="de">Hauptfenster von KDiskFree</caption>
       <caption xml:lang="el">Κύριο παράθυρο KDiskFree</caption>
       <caption xml:lang="en-GB">KDiskFree main window</caption>
+      <caption xml:lang="eo">KDiskFree ĉefa fenestro</caption>
       <caption xml:lang="es">Ventana principal de KDiskFree</caption>
       <caption xml:lang="et">KDiskFree peaaken</caption>
       <caption xml:lang="eu">KDiskFree leiho nagusia</caption>
