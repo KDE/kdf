@@ -14,7 +14,7 @@
 #include <KPluginFactory>
 #include <QVBoxLayout>
 
-K_PLUGIN_CLASS_WITH_JSON(KDiskFreeWidget, "kcmdf.json")
+K_PLUGIN_CLASS_WITH_JSON(KDiskFreeWidget, "kcm_kdf.json")
 
 #if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
 KDiskFreeWidget::KDiskFreeWidget( QWidget *parent, const QVariantList &args )

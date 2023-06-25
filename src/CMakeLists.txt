@@ -109,11 +109,13 @@ ecm_qt_declare_logging_category(kcm_kdf_PART_SRCS
                                 IDENTIFIER KDF
                                 CATEGORY_NAME kdf.kcm DESCRIPTION "kdf (kdf kcm)" EXPORT KDF)
 
-add_library(kcm_kdf ${kcm_kdf_PART_SRCS})
+add_library(kcm_kdf MODULE ${kcm_kdf_PART_SRCS})
 target_link_libraries(kcm_kdf
     kdfprivate
     Qt${QT_MAJOR_VERSION}::Core
     KF${KF_MAJOR_VERSION}::KCMUtils
 )
 
-install(TARGETS kcm_kdf  DESTINATION ${KDE_INSTALL_PLUGINDIR})
+kcmutils_generate_desktop_file(kcm_kdf)
+
+install(TARGETS kcm_kdf  DESTINATION ${KDE_INSTALL_PLUGINDIR}/plasma/kcms/systemsettings_qwidgets)
