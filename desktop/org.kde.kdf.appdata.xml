@@ -13,6 +13,7 @@
   <name xml:lang="de">KDiskFree</name>
   <name xml:lang="el">KDiskFree</name>
   <name xml:lang="en-GB">KDiskFree</name>
+  <name xml:lang="eo">KDiskFree</name>
   <name xml:lang="es">KDiskFree</name>
   <name xml:lang="et">KDiskFree</name>
   <name xml:lang="eu">KDiskFree</name>
@@ -49,6 +50,7 @@
   <summary xml:lang="de">Festplattenbelegung anzeigen</summary>
   <summary xml:lang="el">Προβολή στατιστικών χρήσης δίσκου</summary>
   <summary xml:lang="en-GB">View Disk Usage</summary>
+  <summary xml:lang="eo">Rigardi Diskuzadon</summary>
   <summary xml:lang="es">Visor de uso del disco</summary>
   <summary xml:lang="et">Kettakasutuse näitamine</summary>
   <summary xml:lang="eu">Ikusi diskoaren erabilera</summary>
@@ -70,7 +72,7 @@
   <summary xml:lang="sk">Zobraziť využitie disku</summary>
   <summary xml:lang="sl">Pogled porabe diska</summary>
   <summary xml:lang="sv">Visa hårddiskanvändning</summary>
-  <summary xml:lang="tr">Disk Kullanımı Görüntüleyici</summary>
+  <summary xml:lang="tr">Disk Kullanımı Görüntüleyicisi</summary>
   <summary xml:lang="uk">Перегляд використання диска</summary>
   <summary xml:lang="x-test">xxView Disk Usagexx</summary>
   <summary xml:lang="zh-CN">查看磁盘使用情况</summary>
@@ -87,6 +89,7 @@
     <p xml:lang="de">KDiskFree zeigt die verfügbaren Plattenbereiche an (Partitionen auf Festplatten, Disketten, CD-Laufwerke, USB-Sticks usw.). Zu jedem Bereich wird die Gesamtgröße, der freie Bereich, das Dateisystem und der Ort des Einhängens ins Dateisystem (Einhängepunkt) angezeigt. Mit KDiskFree können auch (sofern die Berechtigung vorhanden ist) Laufwerke ein- bzw. ausgehängt und die Dateiverwaltung mit der Anzeige für dieses Laufwerk geöffnet werden.</p>
     <p xml:lang="el">Το KDiskFree εμφανίζει τις διαθέσιμες συσκευές αρχείων (διαμερίσεις σκληρών δίσκων, οδηγών εύκαμπτων δίσκων και CD, κλπ) μαζί με πληροφορίες για τη χωρητικότητα, ελεύθερο χώρο, τύπο και σημείο προσάρτησης. Επίσης σας επιτρέπει να κάνετε προσάρτηση και αποπροσάρτηση συσκευών και να τις δείτε σε έναν διαχειριστή αρχείων.</p>
     <p xml:lang="en-GB">KDiskFree displays the available file devices (hard drive partitions, floppy and CD drives, etc.) along with information on their capacity, free space, type and mount point. It also allows you to mount and unmount drives and view them in a file manager.</p>
+    <p xml:lang="eo">KDiskFree montras la disponeblajn dosier-aparatojn (diskpartigojn, disketojn kaj KD-diskojn, ktp.) kune kun informoj pri ilia kapablo, libera spaco, tipo kaj muntejo. Ĝi ankaŭ permesas vin munti kaj malmunti diskojn kaj rigardi ilin en dosieradministrilo.</p>
     <p xml:lang="es">KDiskFree muestra los dispositivos de archivos disponibles (particiones de disco duro, disquetes, unidades de CD, etc.), junto a información sobre su capacidad, espacio libre, tipo y punto de montaje. También le permite montar y desmontar dispositivos, así como abrirlos en un gestor de archivos.</p>
     <p xml:lang="et">KDiskFree näitab saadaolevaid failiseadmeid (kõvaketta partitsioonid, disketid, CD-d jne) ühes teabega nende mahu, vaba ruumi, tüübi ja haakepunkti kohta. Samuti saab selle abil kettaid ühendada ja lahutada ning näha neid failihalduris.</p>
     <p xml:lang="eu">KDiskFreek erabilgarri dauden fitxategi gailuak azaltzen ditu (disko zurrun partizioak, diskete eta CD unitateak, etab.), haien gaitasuna, leku askea, mota, eta muntatze-puntuari buruzko informazioarekin batera. Unitateak muntatzea eta desmuntatzea eta haiek fitxategi-kudeatzailean ikustea eskaintzen du.</p>
@@ -129,6 +132,7 @@
       <caption xml:lang="de">Hauptfenster von KDiskFree</caption>
       <caption xml:lang="el">Κύριο παράθυρο KDiskFree</caption>
       <caption xml:lang="en-GB">KDiskFree main window</caption>
+      <caption xml:lang="eo">KDiskFree ĉefa fenestro</caption>
       <caption xml:lang="es">Ventana principal de KDiskFree</caption>
       <caption xml:lang="et">KDiskFree peaaken</caption>
       <caption xml:lang="eu">KDiskFree leiho nagusia</caption>
