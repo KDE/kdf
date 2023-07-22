@@ -36,3 +36,5 @@ bool KDFSortFilterProxyModel::lessThan(const QModelIndex &left, const QModelInde
     }
 
 }
+
+#include "moc_kdfsortproxymodel.cpp"

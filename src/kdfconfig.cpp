@@ -207,3 +207,5 @@ void KDFConfigWidget::slotChanged()
 {
     Q_EMIT configChanged();
 }
+
+#include "moc_kdfconfig.cpp"

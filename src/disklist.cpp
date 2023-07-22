@@ -599,3 +599,5 @@ void DiskList::replaceDeviceEntry(DiskEntry * disk)
 }
 
 
+
+#include "moc_disklist.cpp"

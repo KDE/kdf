@@ -69,3 +69,5 @@ void COptionDialog::slotHelp()
 }
 
 
+
+#include "moc_optiondialog.cpp"

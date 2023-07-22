@@ -51,3 +51,5 @@ QString KDiskFreeWidget::quickHelp() const
 }
 #endif
 #include "kcmdf.moc"
+
+#include "moc_kcmdf.cpp"

@@ -491,3 +491,5 @@ void KDFWidget::invokeHelp()
     KHelpClient::invokeHelp(QLatin1String( "" ), QStringLiteral( "kcontrol/kdf" ));
 }
 
+
+#include "moc_kdfwidget.cpp"

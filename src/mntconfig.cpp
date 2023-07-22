@@ -325,3 +325,5 @@ void MntConfigWidget::slotChanged()
 }
 
 
+
+#include "moc_mntconfig.cpp"

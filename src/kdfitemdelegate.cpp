@@ -57,3 +57,5 @@ void KDFItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     }
 }
 
+
+#include "moc_kdfitemdelegate.cpp"
