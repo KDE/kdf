@@ -22,6 +22,7 @@ set(kdfprivate_SRCS
     kdfsortproxymodel.h
     kdfitemdelegate.h
     disklist.h
+    kdf.qrc
 )
 
 ecm_qt_declare_logging_category(kdfprivate_SRCS
