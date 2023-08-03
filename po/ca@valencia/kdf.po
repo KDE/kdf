@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-27 00:52+0000\n"
+"POT-Creation-Date: 2023-08-03 00:48+0000\n"
 "PO-Revision-Date: 2022-01-25 09:37+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -32,12 +32,6 @@ msgstr "Quico Llach,Albert Astals Cid,Joan Maspons Ventura"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "quico@softcatala.org,aacid@kde.org,joanmaspons@gmail.com"
-
-#. i18n: ectx: Menu (file)
-#: desktop/kdfui.rc:5
-#, kde-format
-msgid "&File"
-msgstr "Fi&txer"
 
 #: src/disklist.cpp:314
 #, kde-format
@@ -219,6 +213,12 @@ msgstr ""
 msgctxt "Disk percentage"
 msgid "%1%"
 msgstr "%1%"
+
+#. i18n: ectx: Menu (file)
+#: src/kdfui.rc:5
+#, kde-format
+msgid "&File"
+msgstr "Fi&txer"
 
 #: src/kdfwidget.cpp:58
 #, kde-format

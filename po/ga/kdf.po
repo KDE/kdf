@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeutils/kdf.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-27 00:52+0000\n"
+"POT-Creation-Date: 2023-08-03 00:48+0000\n"
 "PO-Revision-Date: 2004-12-03 14:52-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -26,12 +26,6 @@ msgstr "Séamus Ó Ciardhuáin,Kevin Scannell"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "seoc@iolfree.ie,kscanne@gmail.com"
-
-#. i18n: ectx: Menu (file)
-#: desktop/kdfui.rc:5
-#, kde-format
-msgid "&File"
-msgstr "&Comhad"
 
 #: src/disklist.cpp:314
 #, kde-format
@@ -213,6 +207,12 @@ msgstr ""
 msgctxt "Disk percentage"
 msgid "%1%"
 msgstr ""
+
+#. i18n: ectx: Menu (file)
+#: src/kdfui.rc:5
+#, kde-format
+msgid "&File"
+msgstr "&Comhad"
 
 #: src/kdfwidget.cpp:58
 #, kde-format

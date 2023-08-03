@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeutils/kdf.pot\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-27 00:52+0000\n"
+"POT-Creation-Date: 2023-08-03 00:48+0000\n"
 "PO-Revision-Date: 2004-09-20 15:44+0200\n"
 "Last-Translator: Thierry Vignaud <tvignaud@mandriva.com>\n"
 "Language-Team: br <LL@li.org>\n"
@@ -23,12 +23,6 @@ msgstr "Thierry Vignaud, Jañ-Mai Drapier"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "tvignaud@mandriva.com, jdrapier@club-internet.fr"
-
-#. i18n: ectx: Menu (file)
-#: desktop/kdfui.rc:5
-#, kde-format
-msgid "&File"
-msgstr "&Restr"
 
 #: src/disklist.cpp:314
 #, fuzzy, kde-format
@@ -222,6 +216,12 @@ msgstr ""
 msgctxt "Disk percentage"
 msgid "%1%"
 msgstr ""
+
+#. i18n: ectx: Menu (file)
+#: src/kdfui.rc:5
+#, kde-format
+msgid "&File"
+msgstr "&Restr"
 
 #: src/kdfwidget.cpp:58
 #, fuzzy, kde-format

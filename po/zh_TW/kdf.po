@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-27 00:52+0000\n"
+"POT-Creation-Date: 2023-08-03 00:48+0000\n"
 "PO-Revision-Date: 2016-11-10 14:16+0800\n"
 "Last-Translator: Jeff Huang <s8321414@gmail.com>\n"
 "Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
@@ -34,12 +34,6 @@ msgid "Your emails"
 msgstr ""
 "s852101@giga.net.tw,zclin@csie.nctu.edu.tw,anthony@thizlinux.com, "
 "s8321414@gmail.com"
-
-#. i18n: ectx: Menu (file)
-#: desktop/kdfui.rc:5
-#, kde-format
-msgid "&File"
-msgstr "檔案(&F)"
 
 #: src/disklist.cpp:314
 #, kde-format
@@ -218,6 +212,12 @@ msgstr ""
 msgctxt "Disk percentage"
 msgid "%1%"
 msgstr "%1%"
+
+#. i18n: ectx: Menu (file)
+#: src/kdfui.rc:5
+#, kde-format
+msgid "&File"
+msgstr "檔案(&F)"
 
 #: src/kdfwidget.cpp:58
 #, kde-format

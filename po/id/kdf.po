@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-27 00:52+0000\n"
+"POT-Creation-Date: 2023-08-03 00:48+0000\n"
 "PO-Revision-Date: 2022-09-27 17:54+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -27,12 +27,6 @@ msgstr "Dirgita"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "dirgitadevina@yahoo.co.id"
-
-#. i18n: ectx: Menu (file)
-#: desktop/kdfui.rc:5
-#, kde-format
-msgid "&File"
-msgstr "&File"
 
 #: src/disklist.cpp:314
 #, kde-format
@@ -214,6 +208,12 @@ msgstr ""
 msgctxt "Disk percentage"
 msgid "%1%"
 msgstr "%1%"
+
+#. i18n: ectx: Menu (file)
+#: src/kdfui.rc:5
+#, kde-format
+msgid "&File"
+msgstr "&File"
 
 #: src/kdfwidget.cpp:58
 #, kde-format

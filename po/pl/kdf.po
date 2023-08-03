@@ -1,5 +1,5 @@
 # translation of kdf.po to
-# Version: $Revision: 1648055 $
+# Version: $Revision: 1657375 $
 # translation of kdf.po to Polish
 # KTranslator Generated File
 # Michał Rudolf <mrudolf@kdewebdev.org>, 2002.
@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-27 00:52+0000\n"
+"POT-Creation-Date: 2023-08-03 00:48+0000\n"
 "PO-Revision-Date: 2022-02-12 16:04+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -33,12 +33,6 @@ msgstr "Michał Rudolf, Nikodem Kuźnik, Łukasz Wojniłowicz"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "mrudolf@kdewebdev.org, nkuznik@yahoo.com, lukasz.wojnilowicz@gmail.com"
-
-#. i18n: ectx: Menu (file)
-#: desktop/kdfui.rc:5
-#, kde-format
-msgid "&File"
-msgstr "&Plik"
 
 #: src/disklist.cpp:314
 #, kde-format
@@ -220,6 +214,12 @@ msgstr ""
 msgctxt "Disk percentage"
 msgid "%1%"
 msgstr "%1%"
+
+#. i18n: ectx: Menu (file)
+#: src/kdfui.rc:5
+#, kde-format
+msgid "&File"
+msgstr "&Plik"
 
 #: src/kdfwidget.cpp:58
 #, kde-format

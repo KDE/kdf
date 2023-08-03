@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-27 00:52+0000\n"
+"POT-Creation-Date: 2023-08-03 00:48+0000\n"
 "PO-Revision-Date: 2022-02-05 14:58+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -35,12 +35,6 @@ msgid "Your emails"
 msgstr ""
 "f2c2001@yahoo.com, bayazidi@arabeyes.org, munzir@kacst.edu.sa, dr.khaled."
 "hosny@gmail.com,Fahad.alsaidi@gmail.com, niceboy120@gmail.com"
-
-#. i18n: ectx: Menu (file)
-#: desktop/kdfui.rc:5
-#, kde-format
-msgid "&File"
-msgstr "&ملف"
 
 #: src/disklist.cpp:314
 #, kde-format
@@ -221,6 +215,12 @@ msgstr "مدير ملفات مخصص غير  مدعوم عند تشغيل الب
 msgctxt "Disk percentage"
 msgid "%1%"
 msgstr "%1٪"
+
+#. i18n: ectx: Menu (file)
+#: src/kdfui.rc:5
+#, kde-format
+msgid "&File"
+msgstr "&ملف"
 
 #: src/kdfwidget.cpp:58
 #, kde-format
