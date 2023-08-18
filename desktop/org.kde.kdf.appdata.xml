@@ -115,6 +115,7 @@
     <p xml:lang="uk">KDiskFree показує список доступних файлових пристроїв (розділів жорсткого диска, пристроїв читання гнучких дисків, компакт-дисків, флеш-карток USB тощо), а також інформацію щодо їх місткості, вільного місця, типу і точки монтування. Ця програма також надає вам можливість монтувати, демонтувати пристрої і переглядати їх вміст у програмі для роботи з файлами.</p>
     <p xml:lang="x-test">xxKDiskFree displays the available file devices (hard drive partitions, floppy and CD drives, etc.) along with information on their capacity, free space, type and mount point. It also allows you to mount and unmount drives and view them in a file manager.xx</p>
     <p xml:lang="zh-CN">KDiskFree 可以显示所有可用的文件设备 (硬盘分区、软盘和 CD 驱动器等)，并显示它们的总容量、可用空间、文件系统类型和挂载点。您还可以通过它挂载/卸载驱动器，并在文件管理器中查看它们。</p>
+    <p xml:lang="zh-TW">KDiskFree 會顯示可用的檔案裝置（硬碟分割區、軟碟、CD 等等）以及它們的大小、剩餘空間、類型與掛載點。它也讓您可以掛載或卸載磁碟，或是在檔案管理員裡檢視它們。</p>
   </description>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kdf</url>
   <url type="donation">https://www.kde.org/community/donations/?app=kdf&amp;source=appdata</url>
