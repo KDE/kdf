@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-27 00:52+0000\n"
+"POT-Creation-Date: 2023-08-03 00:48+0000\n"
 "PO-Revision-Date: 2007-09-11 22:44+0200\n"
 "Last-Translator: Northern Sami translation team <i18n-sme@lister.ping.uio."
 "no>\n"
@@ -27,12 +27,6 @@ msgstr ""
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
-
-#. i18n: ectx: Menu (file)
-#: desktop/kdfui.rc:5
-#, kde-format
-msgid "&File"
 msgstr ""
 
 #: src/disklist.cpp:314
@@ -209,6 +203,12 @@ msgstr ""
 #, kde-format
 msgctxt "Disk percentage"
 msgid "%1%"
+msgstr ""
+
+#. i18n: ectx: Menu (file)
+#: src/kdfui.rc:5
+#, kde-format
+msgid "&File"
 msgstr ""
 
 #: src/kdfwidget.cpp:58
