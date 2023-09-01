@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kdeutils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-27 00:52+0000\n"
-"PO-Revision-Date: 2023-06-04 02:04+0300\n"
+"PO-Revision-Date: 2023-08-31 14:12+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.07.70\n"
+"X-Generator: Lokalize 23.11.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -44,7 +44,7 @@ msgstr "&Dosya"
 #: src/disklist.cpp:314
 #, kde-format
 msgid "could not execute [%1]"
-msgstr "[%1] çalıştırılamadı"
+msgstr "[%1] yürütülemedi"
 
 #: src/disks.cpp:262
 #, kde-format
@@ -52,13 +52,13 @@ msgid ""
 "Called: %1\n"
 "\n"
 msgstr ""
-" Çağrılan: %1\n"
+"Çağrıldı: %1\n"
 "\n"
 
 #: src/disks.cpp:283
 #, kde-format
 msgid "could not execute %1"
-msgstr "[%1] çalıştırılamadı"
+msgstr "%1 yürütülemedi"
 
 #: src/kcmdf.cpp:49
 #, kde-format
@@ -252,7 +252,7 @@ msgstr "Aygıtı Bağla"
 #: src/kdfwidget.cpp:406
 #, kde-format
 msgid "Unmount Device"
-msgstr "Aygıt Bağlantısını Kes"
+msgstr "Aygıtın Bağlantısını Kes"
 
 #: src/kdfwidget.cpp:408
 #, kde-format
@@ -277,7 +277,7 @@ msgstr "K Boş Alan'ı &Başlat"
 #: src/kwikdisk.cpp:70
 #, kde-format
 msgid "&Configure KwikDisk..."
-msgstr "&KWikDisk'i Yapılandır..."
+msgstr "&KwikDisk'i Yapılandır..."
 
 #: src/kwikdisk.cpp:178
 #, kde-format
@@ -389,13 +389,13 @@ msgstr "Simge adı:"
 #: src/mntconfig.ui:30
 #, kde-format
 msgid "Mount Command:"
-msgstr "Bağlama Komutu:"
+msgstr "Bağlama komutu:"
 
 #. i18n: ectx: property (text), widget (QLabel, umountLabel)
 #: src/mntconfig.ui:40
 #, kde-format
 msgid "Unmount Command:"
-msgstr "Bağlantıyı Kesme Komutu:"
+msgstr "Bağlantıyı kesme komutu:"
 
 #. i18n: ectx: property (text), widget (QPushButton, mDefaultIconButton)
 #: src/mntconfig.ui:50
