@@ -1,0 +1,379 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&kdiskfree;">
+  <!ENTITY % Turkish "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kdf" lang="&language;">
+
+<bookinfo>
+<title
+>&kdiskfree; El Kitabı</title>
+
+<authorgroup>
+<author
+>&Jonathan.Singer; &Jonathan.Singer.mail; </author>
+
+<author
+>&Michael.Kropfberger; &Michael.Kropfberger.mail; </author>
+
+<othercredit role="translator"
+><firstname
+>Kaan</firstname
+><surname
+>Özdinçer</surname
+><affiliation
+><address
+><email
+>kaanozdincer@gmail.com</email
+></address
+></affiliation
+><contrib
+>Çeviri</contrib
+></othercredit
+> 
+
+</authorgroup>
+
+<copyright>
+<year
+>2000-2002</year>
+<holder
+>&Jonathan.Singer;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2016-04-13</date>
+<releaseinfo
+>Uygulamalar 16.08</releaseinfo>
+
+<abstract
+><para
+>&kdiskfree;, kullanılabilir aygıtları ve onların bilgilerini gösterir.</para>
+
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdf</keyword>
+<keyword
+>kdeutils</keyword>
+<keyword
+>diskler</keyword>
+<keyword
+>aygıtlar</keyword>
+<keyword
+>bağla</keyword>
+<keyword
+>ayır</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Giriş</title>
+
+<para
+>&kdiskfree; kullanılabilir dosya aygıtlarını (sabit sürücü bölüntüleri, disket ve &CD; sürücüleri, USB bellekler &etc;) kapasite, boş alan, tür ve bağlama noktası hakkında bilgileriyle birlikte görüntüler. Ayrıca sürücüleri bağlamanıza ve çıkarmanıza; bir dosya yöneticisinde görüntülemenize olanak tanır.</para>
+
+<para
+>&kdiskfree;, &systemsettings;'in Depolama Aygıtları modülüne benzerdir, ancak daha az ekran alanı kullanır. &kdiskfree; penceresini hep açık tutmak istediğinizde oldukça kullanışlıdır.</para>
+
+</chapter>
+
+<chapter id="using-kdf">
+<title
+>&kdiskfree; Kullanımı</title>
+
+<sect1 id="starting-kdf">
+<title
+>&kdiskfree;'ı Başlatmak</title
+> 
+
+<para
+>Bir komut isteminde <userinput
+><command
+>kdf</command
+></userinput
+> yazın veya uygulama başlatıcısındaki <guisubmenu
+>Sistem</guisubmenu
+> alt grubundan <guimenuitem
+>K Boş Alan</guimenuitem
+>'ı seçin. Standart &Qt; ve &kde; komut seçenekleri kullanılabilirdir ve komut isteminde <userinput
+><command
+>kdf</command
+> <option
+>--help</option
+></userinput
+> yazarak listelenebilirler.</para>
+
+<para
+>Uygulamayı sistem tepsisindeki bir uygulamacık olarak çalıştırmak için uygulama başlatıcısındaki <menuchoice
+><guisubmenu
+>Sistem</guisubmenu
+><guimenuitem
+>KwikDisk</guimenuitem
+></menuchoice
+> ögesini kullanın.</para>
+
+<para
+>&kdiskfree; özelliklerine aynı zamanda <guilabel
+>Depolama Aygıtları</guilabel
+> &systemsettings; modülünden de erişilebilir.</para>
+</sect1>
+
+<sect1 id="main-window">
+<title
+>Ana pencere</title>
+
+<para
+>&kdiskfree; ana penceresi, kullanılabilir aygıtları görüntüler.</para>
+
+<para
+>Normalde, aşağıdaki bilgileri içerilir:</para>
+<screenshot>
+<screeninfo
+>&kdiskfree; Ekranı</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="kdf.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>&kdiskfree; Ekranı</phrase>
+          </textobject>
+        </mediaobject>
+</screenshot>
+
+<itemizedlist>
+<listitem
+><para
+>depolama türünü gösteren bir simge</para
+></listitem>
+<listitem
+><para
+>aygıt adı</para
+></listitem>
+<listitem
+><para
+>dosya sistemi türü</para
+></listitem>
+<listitem
+><para
+>toplam boyut</para
+></listitem>
+<listitem
+><para
+>bağlama noktası</para
+></listitem>
+<listitem
+><para
+>boş disk alanı</para
+></listitem>
+<listitem
+><para
+>kullanılan alanın yüzdesinin sayısı ve grafiği.</para
+></listitem>
+</itemizedlist>
+
+<para
+>Belirli bir sütunun başlığına <mousebutton
+>sol</mousebutton
+> fare düğmesi ile tıklamak, aygıtları o değişkene göre sıralır. İkinci bir <mousebutton
+>sol</mousebutton
+> tıklama, tersi sırada sıralar.</para>
+
+<para
+>Bir satıra &RMB; ile tıklamak bir menü açar. Belirtilen aygıt şu anda bağlı değilse <guimenuitem
+>Aygıtı Bağla</guimenuitem
+> seçeneği kullanılabilirdir. Aygıt bağlıysa <guimenuitem
+>Aygıtın Bağlantısını Kes</guimenuitem
+> seçeneğiyle bağlantı kesilebilir. <guimenuitem
+>Dosya Yöneticisinde Aç</guimenuitem
+> seçeneği, o aygıttaki dosyaların grafiksel bir görünümünü sunan yeni bir pencere açar.</para>
+<para
+>&kdiskfree; tarafından kullanılan dosya yöneticisi ayarı, <guilabel
+>Öntanımlı Uygulamalar</guilabel
+> &systemsettings; modülündeki seçenekten bağımsızdır.</para>
+</sect1>
+
+<sect1 id="menus-and-configuration">
+<title
+>Menü Çubuğu ve Yapılandırma</title>
+
+<sect2>
+<title
+>Dosya Menüsü</title>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+><keycap
+>F5</keycap
+></shortcut
+> <guimenu
+>Dosya</guimenu
+> <guimenuitem
+>Güncelle</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Güncel durumu yansıtacak biçimde görüntüyü anında günceller</action
+></para
+></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Dosya</guimenu
+> <guimenuitem
+>Çık</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>&kdiskfree;'ı <action
+>kapatır</action
+></para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Ek olarak &kdiskfree;, bazı &kde; <guimenu
+>Ayarlar</guimenu
+> ve <guimenu
+>Yardım</guimenu
+> menü ögelerine sahiptir; daha fazla bilgi için &kde; Temelleri"nin <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Ayarlar Menüsü</ulink
+> ve <ulink url="help:/fundamentals/menus.html#menus-help"
+>Yardım Menüsü</ulink
+> bölümlerini okuyun. </para>
+
+</sect2>
+
+<sect2>
+<title
+>Ayarlar İletişim Kutusu</title>
+
+<screenshot>
+<screeninfo
+>&kdiskfree; Ekranını Yapılandır</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="kdf_config.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>&kdiskfree; Ekranını Yapılandır</phrase>
+          </textobject>
+        </mediaobject>
+</screenshot>
+
+<para
+>Bu iletişim kutusunun iki adet sekmeli penceresi vardır, <guilabel
+>Genel Ayarlar</guilabel
+> ve <guilabel
+>Bağlama Komutları</guilabel
+></para>
+<variablelist>
+<varlistentry>
+<term
+>Genel Ayarlar</term
+> <listitem
+><para
+>Bir veri alanının görünümünü açıp kapatmak için <guilabel
+>görünür</guilabel
+> veya <guilabel
+>gizli</guilabel
+> sözcüklerine tıklayın.</para
+> <para
+>Değeri düzenleyerek güncelleme sıklığını değiştirin. Kutudaki değer, geçerli durumu yansıtacak biçimde &kdiskfree; ekranın güncellemeleri arasındaki aralıktır (saniye olarak).</para
+> <para
+><guilabel
+>Dosya Yöneticisi</guilabel
+> ayarı, <guimenuitem
+>Dosya Yöneticisini Aç</guimenuitem
+> açılır menüsü seçildiğinde, çalıştırılacak olan komutu denetler.</para>
+<para
+>İki onay kutusu vardır. Bir aygıt bağlandığında, bir dosya yöneticisi penceresinin otomatik olarak açılıp açılmayacağını denetler. Diğeriyse bir disk kritik bir biçimde dolduğunda bir uyarı penceresinin açılmasına neden olur.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Bağlama Komutları</guilabel
+></term>
+<listitem
+><para
+>Kullanıcının, belirli bir aygıta ait bağlama ve kaldırma komutlarını ve onu temsil etmek için kullanılan simgeyi belirtmesine izin verir. Bu komutlarla ilgili daha fazla bilgiyi <application
+>mount</application
+> için man sayfasında bulabilirsiniz. (komut isteminde <userinput
+><command
+>man</command
+> <option
+>mount</option
+></userinput
+> yazın).</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="credits">
+<title
+>Emeği Geçenler ve Lisans</title>
+
+<para
+>&kdiskfree;</para>
+
+<para
+>Program Telif Hakkı &copy; 1998-2000 &Michael.Kropfberger; &Michael.Kropfberger.mail;</para>
+
+<para
+>Belgelendirme Telif Hakkı &copy; 2000 &Jonathan.Singer; &Jonathan.Singer.mail;</para>
+
+<para
+>Çeviren Kaan Özdinçer <email
+>kaanozdincer@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index; 
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->
