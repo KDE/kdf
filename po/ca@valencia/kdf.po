@@ -199,7 +199,7 @@ msgstr "Utilitza el gestor de fitxers predeterminat del sistema"
 #: src/kdfconfig.ui:76
 #, no-c-format, kde-format
 msgid "File manager (e.g. konsole -e mc %m):"
-msgstr "Gestor de fitxers (p. ex. konsole -e mc %m):"
+msgstr "Gestor de fitxers (p. ex., konsole -e mc %m):"
 
 #. i18n: ectx: property (text), widget (QLabel, mFlatpakLabel)
 #: src/kdfconfig.ui:94
