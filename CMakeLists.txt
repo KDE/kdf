@@ -77,8 +77,8 @@ set_package_properties(KF${KF_MAJOR_VERSION}DocTools PROPERTIES DESCRIPTION
     TYPE OPTIONAL
 )
 
-ecm_set_disabled_deprecation_versions(QT 6.4
-    KF 5.101
+ecm_set_disabled_deprecation_versions(QT 6.5
+    KF 5.240
 )
 
 if (CMAKE_UNITY_BUILD)
