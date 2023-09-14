@@ -60,6 +60,7 @@ find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED
     CoreAddons
     I18n
     IconThemes
+    JobWidgets
     KIO
     KCMUtils
     Notifications

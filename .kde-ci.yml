@@ -13,6 +13,7 @@ Dependencies:
     'frameworks/kdoctools' : '@latest-kf6'
     'frameworks/extra-cmake-modules': '@latest-kf6'
     'frameworks/kio': '@latest-kf6'
+    'frameworks/kjobwidgets': '@latest-kf6'
 
 - 'on': ['Linux/Qt5', 'FreeBSD/Qt5']
   'require':
@@ -25,6 +26,7 @@ Dependencies:
     'frameworks/kdoctools' : '@latest'
     'frameworks/extra-cmake-modules': '@latest'
     'frameworks/kio': '@latest'
+    'frameworks/kjobwidgets': '@latest'
 
 Options:
   require-passing-tests-on: [ 'Linux', 'FreeBSD']
