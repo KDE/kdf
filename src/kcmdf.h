@@ -13,23 +13,14 @@
 #include "kdfconfig.h"
 #include "mntconfig.h"
 
-#if KCMUTILS_VERSION >= QT_VERSION_CHECK(5, 240, 0)
 class KPluginMetaData;
-#endif
 class KDiskFreeWidget : public KCModule
 {
     Q_OBJECT
 
     public:
-#if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
-        explicit KDiskFreeWidget( QWidget *parent = nullptr, const QVariantList &args = {});
-#else
         explicit KDiskFreeWidget(QObject *parent, const KPluginMetaData &data);
-#endif
         ~KDiskFreeWidget() override;
-#if KCMUTILS_VERSION < QT_VERSION_CHECK(5, 240, 0)
-        QString quickHelp() const override;
-#endif
 
     private:
         KDFWidget *mKdf;

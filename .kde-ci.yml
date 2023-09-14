@@ -15,17 +15,5 @@ Dependencies:
     'frameworks/kio': '@latest-kf6'
     'frameworks/kstatusnotifieritem': '@latest-kf6'
 
-- 'on': ['Linux/Qt5', 'FreeBSD/Qt5']
-  'require':
-    'frameworks/kcoreaddons': '@latest'
-    'frameworks/kconfig': '@latest'
-    'frameworks/knotifications': '@latest'
-    'frameworks/kcmutils': '@latest'
-    'frameworks/kwidgetsaddons': '@latest'
-    'frameworks/kxmlgui' : '@latest'
-    'frameworks/kdoctools' : '@latest'
-    'frameworks/extra-cmake-modules': '@latest'
-    'frameworks/kio': '@latest'
-
 Options:
   require-passing-tests-on: [ 'Linux', 'FreeBSD']
