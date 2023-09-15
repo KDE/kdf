@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-03 00:48+0000\n"
+"POT-Creation-Date: 2023-09-15 01:54+0000\n"
 "PO-Revision-Date: 2009-12-22 20:20+0100\n"
 "Last-Translator: Tamas Szanto <taszanto@gmail.com>\n"
 "Language-Team: Hungarian <kde-lista@sophia.jpte.hu>\n"
@@ -43,38 +43,28 @@ msgstr ""
 msgid "could not execute %1"
 msgstr "nem sikerült végrehajtani: %1"
 
-#: src/kcmdf.cpp:49
-#, kde-format
-msgid ""
-"A right mouse button click opens a context menu to mount/unmount a device or "
-"to open it in the file manager."
-msgstr ""
-"A jobb kattintással előhívható felbukkanó menüben eszközt lehet "
-"csatlakoztatni vagy leválasztani, továbbá az eszköz megnyitható a "
-"fájlkezelővel."
-
 #: src/kdf.cpp:26
 #, kde-format
 msgctxt "Update action"
 msgid "&Update"
 msgstr "&Frissítés"
 
-#: src/kdf.cpp:59
+#: src/kdf.cpp:56
 #, kde-format
 msgid "KDiskFree"
 msgstr "KDiskFree"
 
-#: src/kdf.cpp:61
+#: src/kdf.cpp:58
 #, kde-format
 msgid "KDE free disk space utility"
 msgstr "KDE alkalmazás a szabad lemezkapacitás megjelenítéséhez"
 
-#: src/kdf.cpp:63
+#: src/kdf.cpp:60
 #, kde-format
 msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr "(c) Michael Kropfberger, 1998-2001."
 
-#: src/kdf.cpp:69 src/kwikdisk.cpp:318
+#: src/kdf.cpp:66 src/kwikdisk.cpp:318
 #, kde-format
 msgid "Michael Kropfberger"
 msgstr "Michael Kropfberger"
@@ -358,12 +348,12 @@ msgctxt "No mount point is selected"
 msgid "None"
 msgstr "Nincs"
 
-#: src/mntconfig.cpp:244
+#: src/mntconfig.cpp:240
 #, kde-format
 msgid "Only local files supported."
 msgstr "Csak helyi fájlokat lehet használni."
 
-#: src/mntconfig.cpp:260
+#: src/mntconfig.cpp:256
 #, kde-format
 msgid "Only local files are currently supported."
 msgstr "Jelenleg csak helyi fájlokat lehet használni."
@@ -413,6 +403,14 @@ msgstr "Általános beállítások"
 #, kde-format
 msgid "Mount Commands"
 msgstr "Csatlakoztatási parancsok"
+
+#~ msgid ""
+#~ "A right mouse button click opens a context menu to mount/unmount a device "
+#~ "or to open it in the file manager."
+#~ msgstr ""
+#~ "A jobb kattintással előhívható felbukkanó menüben eszközt lehet "
+#~ "csatlakoztatni vagy leválasztani, továbbá az eszköz megnyitható a "
+#~ "fájlkezelővel."
 
 #~ msgid "A test application"
 #~ msgstr "Tesztalkalmazás"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-03 00:48+0000\n"
+"POT-Creation-Date: 2023-09-15 01:54+0000\n"
 "PO-Revision-Date: 2007-08-27 14:53+0545\n"
 "Last-Translator: Narayan Kumar Magar <narayan@mpp.org.np>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -50,13 +50,6 @@ msgstr ""
 msgid "could not execute %1"
 msgstr "%1 कार्यान्वयन गर्न सकेन"
 
-#: src/kcmdf.cpp:49
-#, kde-format
-msgid ""
-"A right mouse button click opens a context menu to mount/unmount a device or "
-"to open it in the file manager."
-msgstr ""
-
 #: src/kdf.cpp:26
 #, fuzzy, kde-format
 #| msgid "&Update"
@@ -64,22 +57,22 @@ msgctxt "Update action"
 msgid "&Update"
 msgstr "अध्यावधिक गर्नुहोस्"
 
-#: src/kdf.cpp:59
+#: src/kdf.cpp:56
 #, kde-format
 msgid "KDiskFree"
 msgstr "केडीई खाली डिस्क"
 
-#: src/kdf.cpp:61
+#: src/kdf.cpp:58
 #, kde-format
 msgid "KDE free disk space utility"
 msgstr "केडीई खाली डिस्क स्थान उपयोगिता"
 
-#: src/kdf.cpp:63
+#: src/kdf.cpp:60
 #, kde-format
 msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr "(c) 1998-2001, माइकल क्रोप्फ्बर्गर"
 
-#: src/kdf.cpp:69 src/kwikdisk.cpp:318
+#: src/kdf.cpp:66 src/kwikdisk.cpp:318
 #, kde-format
 msgid "Michael Kropfberger"
 msgstr "माइकल क्रोप्फ्बर्गर"
@@ -383,12 +376,12 @@ msgctxt "No mount point is selected"
 msgid "None"
 msgstr "कुनै पनि होइन"
 
-#: src/mntconfig.cpp:244
+#: src/mntconfig.cpp:240
 #, kde-format
 msgid "Only local files supported."
 msgstr "स्थानीय फाइल मात्र समर्थन गरियो ।"
 
-#: src/mntconfig.cpp:260
+#: src/mntconfig.cpp:256
 #, kde-format
 msgid "Only local files are currently supported."
 msgstr "स्थानीय फाइल मात्र हाल समर्थित छन् ।"

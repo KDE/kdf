@@ -2,7 +2,7 @@
 # translation of kdf.po to Slovenian
 # SLOVENIAN TRANSLATION OF KDF.
 # Copyright (C) 2001,2002,2003, 2004, 2005 Free Software Foundation, Inc.
-# $Id: kdf.po 1657375 2023-08-03 01:26:57Z scripty $
+# $Id: kdf.po 1660204 2023-09-15 02:08:55Z scripty $
 # $Source$
 #
 # Roman Maurer <roman.maurer@hermes.si>, 2000.
@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-03 00:48+0000\n"
+"POT-Creation-Date: 2023-09-15 01:54+0000\n"
 "PO-Revision-Date: 2022-01-26 14:11+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -60,37 +60,28 @@ msgstr ""
 msgid "could not execute %1"
 msgstr "ni mogoče izvesti %1"
 
-#: src/kcmdf.cpp:49
-#, kde-format
-msgid ""
-"A right mouse button click opens a context menu to mount/unmount a device or "
-"to open it in the file manager."
-msgstr ""
-"Klik z desnim gumbom miške odpre vsebinski meni za priklapljanje/"
-"odklapljanje naprave in odpiranje v upravljalniku datotek."
-
 #: src/kdf.cpp:26
 #, kde-format
 msgctxt "Update action"
 msgid "&Update"
 msgstr "&Posodobi"
 
-#: src/kdf.cpp:59
+#: src/kdf.cpp:56
 #, kde-format
 msgid "KDiskFree"
 msgstr "KDiskFree"
 
-#: src/kdf.cpp:61
+#: src/kdf.cpp:58
 #, kde-format
 msgid "KDE free disk space utility"
 msgstr "Pripomoček za prikaz prostora na disku"
 
-#: src/kdf.cpp:63
+#: src/kdf.cpp:60
 #, kde-format
 msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr "© 1998-2001, Michael Kropfberger"
 
-#: src/kdf.cpp:69 src/kwikdisk.cpp:318
+#: src/kdf.cpp:66 src/kwikdisk.cpp:318
 #, kde-format
 msgid "Michael Kropfberger"
 msgstr "Michael Kropfberger"
@@ -374,12 +365,12 @@ msgctxt "No mount point is selected"
 msgid "None"
 msgstr "Brez"
 
-#: src/mntconfig.cpp:244
+#: src/mntconfig.cpp:240
 #, kde-format
 msgid "Only local files supported."
 msgstr "Podprte so le krajevne datoteke."
 
-#: src/mntconfig.cpp:260
+#: src/mntconfig.cpp:256
 #, kde-format
 msgid "Only local files are currently supported."
 msgstr "Trenutno so podprte le krajevne datoteke."
@@ -429,6 +420,13 @@ msgstr "Splošne nastavitve"
 #, kde-format
 msgid "Mount Commands"
 msgstr "Ukazi za priklop"
+
+#~ msgid ""
+#~ "A right mouse button click opens a context menu to mount/unmount a device "
+#~ "or to open it in the file manager."
+#~ msgstr ""
+#~ "Klik z desnim gumbom miške odpre vsebinski meni za priklapljanje/"
+#~ "odklapljanje naprave in odpiranje v upravljalniku datotek."
 
 #~ msgid "A test application"
 #~ msgstr "Preizkusni program"

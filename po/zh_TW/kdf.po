@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-03 00:48+0000\n"
+"POT-Creation-Date: 2023-09-15 01:54+0000\n"
 "PO-Revision-Date: 2023-08-17 22:22+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -55,35 +55,28 @@ msgstr ""
 msgid "could not execute %1"
 msgstr "無法執行 [%1]"
 
-#: src/kcmdf.cpp:49
-#, kde-format
-msgid ""
-"A right mouse button click opens a context menu to mount/unmount a device or "
-"to open it in the file manager."
-msgstr "滑鼠右鍵可以開啟內文選單來掛載或卸載裝置，或在檔案管理員中開啟。"
-
 #: src/kdf.cpp:26
 #, kde-format
 msgctxt "Update action"
 msgid "&Update"
 msgstr "更新(&U)"
 
-#: src/kdf.cpp:59
+#: src/kdf.cpp:56
 #, kde-format
 msgid "KDiskFree"
 msgstr "KDiskFree 磁碟空間程式"
 
-#: src/kdf.cpp:61
+#: src/kdf.cpp:58
 #, kde-format
 msgid "KDE free disk space utility"
 msgstr "KDE 磁碟空間公用程式"
 
-#: src/kdf.cpp:63
+#: src/kdf.cpp:60
 #, kde-format
 msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr "(c) 1998-2001, Michael Kropfberger"
 
-#: src/kdf.cpp:69 src/kwikdisk.cpp:318
+#: src/kdf.cpp:66 src/kwikdisk.cpp:318
 #, kde-format
 msgid "Michael Kropfberger"
 msgstr "Michael Kropfberger"
@@ -367,12 +360,12 @@ msgctxt "No mount point is selected"
 msgid "None"
 msgstr "無"
 
-#: src/mntconfig.cpp:244
+#: src/mntconfig.cpp:240
 #, kde-format
 msgid "Only local files supported."
 msgstr "只支援本機檔案。"
 
-#: src/mntconfig.cpp:260
+#: src/mntconfig.cpp:256
 #, kde-format
 msgid "Only local files are currently supported."
 msgstr "目前只支援本機檔案。"
@@ -422,3 +415,8 @@ msgstr "一般設定"
 #, kde-format
 msgid "Mount Commands"
 msgstr "裝載命令"
+
+#~ msgid ""
+#~ "A right mouse button click opens a context menu to mount/unmount a device "
+#~ "or to open it in the file manager."
+#~ msgstr "滑鼠右鍵可以開啟內文選單來掛載或卸載裝置，或在檔案管理員中開啟。"

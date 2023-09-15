@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-03 00:48+0000\n"
+"POT-Creation-Date: 2023-09-15 01:54+0000\n"
 "PO-Revision-Date: 2022-01-26 18:49+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -48,37 +48,28 @@ msgstr ""
 msgid "could not execute %1"
 msgstr "kunde inte köra %1"
 
-#: src/kcmdf.cpp:49
-#, kde-format
-msgid ""
-"A right mouse button click opens a context menu to mount/unmount a device or "
-"to open it in the file manager."
-msgstr ""
-"Ett högerklick med musen visar en sammanhangsberoende meny för att montera "
-"eller avmontera en enhet, eller öppna den i filhanteraren."
-
 #: src/kdf.cpp:26
 #, kde-format
 msgctxt "Update action"
 msgid "&Update"
 msgstr "Upp&datera"
 
-#: src/kdf.cpp:59
+#: src/kdf.cpp:56
 #, kde-format
 msgid "KDiskFree"
 msgstr "Kdiskfree"
 
-#: src/kdf.cpp:61
+#: src/kdf.cpp:58
 #, kde-format
 msgid "KDE free disk space utility"
 msgstr "Verktyg för ledigt diskutrymme"
 
-#: src/kdf.cpp:63
+#: src/kdf.cpp:60
 #, kde-format
 msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr "© 1998-2001, Michael Kropfberger"
 
-#: src/kdf.cpp:69 src/kwikdisk.cpp:318
+#: src/kdf.cpp:66 src/kwikdisk.cpp:318
 #, kde-format
 msgid "Michael Kropfberger"
 msgstr "Michael Kropfberger"
@@ -362,12 +353,12 @@ msgctxt "No mount point is selected"
 msgid "None"
 msgstr "Ingen"
 
-#: src/mntconfig.cpp:244
+#: src/mntconfig.cpp:240
 #, kde-format
 msgid "Only local files supported."
 msgstr "Endast lokala filer stöds."
 
-#: src/mntconfig.cpp:260
+#: src/mntconfig.cpp:256
 #, kde-format
 msgid "Only local files are currently supported."
 msgstr "Endast lokala filer stöds för närvarande."
@@ -417,6 +408,13 @@ msgstr "Allmänna inställningar"
 #, kde-format
 msgid "Mount Commands"
 msgstr "Monteringskommandon"
+
+#~ msgid ""
+#~ "A right mouse button click opens a context menu to mount/unmount a device "
+#~ "or to open it in the file manager."
+#~ msgstr ""
+#~ "Ett högerklick med musen visar en sammanhangsberoende meny för att "
+#~ "montera eller avmontera en enhet, eller öppna den i filhanteraren."
 
 #~ msgid "A test application"
 #~ msgstr "Ett testprogram"

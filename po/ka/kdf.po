@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-03 00:48+0000\n"
+"POT-Creation-Date: 2023-09-15 01:54+0000\n"
 "PO-Revision-Date: 2022-11-27 11:37+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -45,37 +45,28 @@ msgstr "გამოვიძახე: %1\n"
 msgid "could not execute %1"
 msgstr "შესრულების შეცდომა [%1]"
 
-#: src/kcmdf.cpp:49
-#, kde-format
-msgid ""
-"A right mouse button click opens a context menu to mount/unmount a device or "
-"to open it in the file manager."
-msgstr ""
-"თაგუნას მარჯვენა ღილაკის დაწკაპუნება გახსნის კონტექსტურ მენიუს, სადაც "
-"მოწყობილობის მიმაგრება/მოხსნა და მისი ფაილების მმართველში გახსნა შეგიძლიათ."
-
 #: src/kdf.cpp:26
 #, kde-format
 msgctxt "Update action"
 msgid "&Update"
 msgstr "&განახლება"
 
-#: src/kdf.cpp:59
+#: src/kdf.cpp:56
 #, kde-format
 msgid "KDiskFree"
 msgstr "KDiskFree"
 
-#: src/kdf.cpp:61
+#: src/kdf.cpp:58
 #, kde-format
 msgid "KDE free disk space utility"
 msgstr "KDE-ის ადგილის გაფრთხილების დემონი"
 
-#: src/kdf.cpp:63
+#: src/kdf.cpp:60
 #, kde-format
 msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr "(c) 1998-2001, Michael Kropfberger"
 
-#: src/kdf.cpp:69 src/kwikdisk.cpp:318
+#: src/kdf.cpp:66 src/kwikdisk.cpp:318
 #, kde-format
 msgid "Michael Kropfberger"
 msgstr "Michael Kropfberger"
@@ -360,12 +351,12 @@ msgctxt "No mount point is selected"
 msgid "None"
 msgstr "არაფერი"
 
-#: src/mntconfig.cpp:244
+#: src/mntconfig.cpp:240
 #, kde-format
 msgid "Only local files supported."
 msgstr "მხარდაჭერილია მხოლოდ ლოკალური ფაილები."
 
-#: src/mntconfig.cpp:260
+#: src/mntconfig.cpp:256
 #, kde-format
 msgid "Only local files are currently supported."
 msgstr "ამჟამად მხოლოდ ლოკალური ფაილების მხარდაჭერილი."
@@ -415,3 +406,11 @@ msgstr "ზოგადი პარამეტრები"
 #, kde-format
 msgid "Mount Commands"
 msgstr "მიმაგრების ბრძანებები"
+
+#~ msgid ""
+#~ "A right mouse button click opens a context menu to mount/unmount a device "
+#~ "or to open it in the file manager."
+#~ msgstr ""
+#~ "თაგუნას მარჯვენა ღილაკის დაწკაპუნება გახსნის კონტექსტურ მენიუს, სადაც "
+#~ "მოწყობილობის მიმაგრება/მოხსნა და მისი ფაილების მმართველში გახსნა "
+#~ "შეგიძლიათ."

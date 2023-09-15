@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-03 00:48+0000\n"
+"POT-Creation-Date: 2023-09-15 01:54+0000\n"
 "PO-Revision-Date: 2011-01-05 11:31+0100\n"
 "Last-Translator: Manfred Wiese <m.j.wiese@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -48,37 +48,28 @@ msgstr ""
 msgid "could not execute %1"
 msgstr "\"%1\" lett sik nich utföhren"
 
-#: src/kcmdf.cpp:49
-#, kde-format
-msgid ""
-"A right mouse button click opens a context menu to mount/unmount a device or "
-"to open it in the file manager."
-msgstr ""
-"Mit de Muus laat sik mit dat Rechtsklickmenü Reedschappen in- oder afhangen, "
-"oder ok mit den Dateipleger opmaken."
-
 #: src/kdf.cpp:26
 #, kde-format
 msgctxt "Update action"
 msgid "&Update"
 msgstr "&Opfrischen"
 
-#: src/kdf.cpp:59
+#: src/kdf.cpp:56
 #, kde-format
 msgid "KDiskFree"
 msgstr "KDiskFree"
 
-#: src/kdf.cpp:61
+#: src/kdf.cpp:58
 #, kde-format
 msgid "KDE free disk space utility"
 msgstr "KDE-Warktüüch för fre'en Fastplaatplatz"
 
-#: src/kdf.cpp:63
+#: src/kdf.cpp:60
 #, kde-format
 msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr "© 1998-2001, Michael Kropfberger"
 
-#: src/kdf.cpp:69 src/kwikdisk.cpp:318
+#: src/kdf.cpp:66 src/kwikdisk.cpp:318
 #, kde-format
 msgid "Michael Kropfberger"
 msgstr "Michael Kropfberger"
@@ -362,12 +353,12 @@ msgctxt "No mount point is selected"
 msgid "None"
 msgstr "Keen"
 
-#: src/mntconfig.cpp:244
+#: src/mntconfig.cpp:240
 #, kde-format
 msgid "Only local files supported."
 msgstr "Bloots lokale Dateien warrt ünnerstütt."
 
-#: src/mntconfig.cpp:260
+#: src/mntconfig.cpp:256
 #, kde-format
 msgid "Only local files are currently supported."
 msgstr "Opstunns warrt bloots lokale Dateien ünnerstütt."
@@ -417,6 +408,13 @@ msgstr "Allgemeen Instellen"
 #, kde-format
 msgid "Mount Commands"
 msgstr "Inhangbefehlen"
+
+#~ msgid ""
+#~ "A right mouse button click opens a context menu to mount/unmount a device "
+#~ "or to open it in the file manager."
+#~ msgstr ""
+#~ "Mit de Muus laat sik mit dat Rechtsklickmenü Reedschappen in- oder "
+#~ "afhangen, oder ok mit den Dateipleger opmaken."
 
 #~ msgid "A test application"
 #~ msgstr "En Utprobeerprogramm"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-03 00:48+0000\n"
+"POT-Creation-Date: 2023-09-15 01:54+0000\n"
 "PO-Revision-Date: 2010-01-09 15:52+0200\n"
 "Last-Translator: Viesturs Zarins <viesturs.zarins@mii.lu.lv>\n"
 "Language-Team: Latvian <locale@laka.lv>\n"
@@ -50,37 +50,28 @@ msgstr ""
 msgid "could not execute %1"
 msgstr "nevar izpildīt [%1]"
 
-#: src/kcmdf.cpp:49
-#, kde-format
-msgid ""
-"A right mouse button click opens a context menu to mount/unmount a device or "
-"to open it in the file manager."
-msgstr ""
-"Peles labās pogas klikšķis atver konteksta izvēlni ierīces piemontēšanai, "
-"nomontēšanai vai atvēršanai failu pārlūkā."
-
 #: src/kdf.cpp:26
 #, kde-format
 msgctxt "Update action"
 msgid "&Update"
 msgstr "&Atjaunot"
 
-#: src/kdf.cpp:59
+#: src/kdf.cpp:56
 #, kde-format
 msgid "KDiskFree"
 msgstr "KDiskFree"
 
-#: src/kdf.cpp:61
+#: src/kdf.cpp:58
 #, kde-format
 msgid "KDE free disk space utility"
 msgstr "KDE brīvās diska vietas utilīta"
 
-#: src/kdf.cpp:63
+#: src/kdf.cpp:60
 #, kde-format
 msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr "(c) 1998-2001, Michael Kropfberger"
 
-#: src/kdf.cpp:69 src/kwikdisk.cpp:318
+#: src/kdf.cpp:66 src/kwikdisk.cpp:318
 #, kde-format
 msgid "Michael Kropfberger"
 msgstr "Michael Kropfberger"
@@ -364,12 +355,12 @@ msgctxt "No mount point is selected"
 msgid "None"
 msgstr "Nav"
 
-#: src/mntconfig.cpp:244
+#: src/mntconfig.cpp:240
 #, kde-format
 msgid "Only local files supported."
 msgstr "Tikai lokālie faili tiek atbalstīti."
 
-#: src/mntconfig.cpp:260
+#: src/mntconfig.cpp:256
 #, kde-format
 msgid "Only local files are currently supported."
 msgstr "Šobrīd tiek atbalstīti tikai lokāli faili."
@@ -419,6 +410,13 @@ msgstr "Pamata iestatījumi"
 #, kde-format
 msgid "Mount Commands"
 msgstr "Montēšanas komandas"
+
+#~ msgid ""
+#~ "A right mouse button click opens a context menu to mount/unmount a device "
+#~ "or to open it in the file manager."
+#~ msgstr ""
+#~ "Peles labās pogas klikšķis atver konteksta izvēlni ierīces piemontēšanai, "
+#~ "nomontēšanai vai atvēršanai failu pārlūkā."
 
 #~ msgid "A test application"
 #~ msgstr "Testa lietotne"

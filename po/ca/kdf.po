@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-03 00:48+0000\n"
+"POT-Creation-Date: 2023-09-15 01:54+0000\n"
 "PO-Revision-Date: 2022-01-25 09:37+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -52,37 +52,28 @@ msgstr ""
 msgid "could not execute %1"
 msgstr "no s'ha pogut executar %1"
 
-#: src/kcmdf.cpp:49
-#, kde-format
-msgid ""
-"A right mouse button click opens a context menu to mount/unmount a device or "
-"to open it in the file manager."
-msgstr ""
-"Un clic amb el botó dret del ratolí obre un menú contextual per a muntar/"
-"desmuntar un dispositiu o obrir-lo en el gestor de fitxer."
-
 #: src/kdf.cpp:26
 #, kde-format
 msgctxt "Update action"
 msgid "&Update"
 msgstr "&Actualitza"
 
-#: src/kdf.cpp:59
+#: src/kdf.cpp:56
 #, kde-format
 msgid "KDiskFree"
 msgstr "KDiskFree"
 
-#: src/kdf.cpp:61
+#: src/kdf.cpp:58
 #, kde-format
 msgid "KDE free disk space utility"
 msgstr "Utilitat d'espai de disc lliure del KDE"
 
-#: src/kdf.cpp:63
+#: src/kdf.cpp:60
 #, kde-format
 msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr "(c) 1998-2001, Michael Kropfberger"
 
-#: src/kdf.cpp:69 src/kwikdisk.cpp:318
+#: src/kdf.cpp:66 src/kwikdisk.cpp:318
 #, kde-format
 msgid "Michael Kropfberger"
 msgstr "Michael Kropfberger"
@@ -367,12 +358,12 @@ msgctxt "No mount point is selected"
 msgid "None"
 msgstr "Cap"
 
-#: src/mntconfig.cpp:244
+#: src/mntconfig.cpp:240
 #, kde-format
 msgid "Only local files supported."
 msgstr "Només es permeten fitxers locals."
 
-#: src/mntconfig.cpp:260
+#: src/mntconfig.cpp:256
 #, kde-format
 msgid "Only local files are currently supported."
 msgstr "Per ara només es permeten fitxers locals."
@@ -422,6 +413,13 @@ msgstr "Arranjament general"
 #, kde-format
 msgid "Mount Commands"
 msgstr "Ordres de muntatge"
+
+#~ msgid ""
+#~ "A right mouse button click opens a context menu to mount/unmount a device "
+#~ "or to open it in the file manager."
+#~ msgstr ""
+#~ "Un clic amb el botó dret del ratolí obre un menú contextual per a muntar/"
+#~ "desmuntar un dispositiu o obrir-lo en el gestor de fitxer."
 
 #~ msgid "A test application"
 #~ msgstr "Una aplicació de prova"
