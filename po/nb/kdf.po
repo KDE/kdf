@@ -416,10 +416,3 @@ msgstr "Generelle innstillinger"
 #, kde-format
 msgid "Mount Commands"
 msgstr "Monteringskommandoer"
-
-#~ msgid ""
-#~ "A right mouse button click opens a context menu to mount/unmount a device "
-#~ "or to open it in the file manager."
-#~ msgstr ""
-#~ "Et trykk på høyre museknapp åpner en kontekstmeny for å montere/avmontere "
-#~ "en enhet eller åpne den i filbehandleren."
