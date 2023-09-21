@@ -1,10 +1,10 @@
 # Translation of kdf.po to Catalan (Valencian)
-# Copyright (C) 2000-2022 This_file_is_part_of_KDE
+# Copyright (C) 2000-2023 This_file_is_part_of_KDE
 #
 # Traducció per Softcatalà (Excepte la part de Albert Astals) <info@softcatala.org>, 2000.
 # Quico Llach <quico@softcatala.org>, 2000.
 # Albert Astals Cid <aacid@kde.org>, 2002, 2003, 2004.
-# Josep M. Ferrer <txemaq@gmail.com>, 2007, 2008, 2009, 2010, 2016, 2021, 2022.
+# Josep M. Ferrer <txemaq@gmail.com>, 2007, 2008, 2009, 2010, 2016, 2021, 2022, 2023.
 # Joan Maspons <joanmaspons@gmail.com>, 2009.
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2016, 2020.
 msgid ""
@@ -12,14 +12,14 @@ msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-15 01:54+0000\n"
-"PO-Revision-Date: 2022-01-25 09:37+0100\n"
+"PO-Revision-Date: 2023-09-20 13:22+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 
@@ -166,7 +166,7 @@ msgstr "Freqüència d'actualització:"
 #: src/kdfconfig.ui:42
 #, kde-format
 msgid " sec"
-msgstr " seg"
+msgstr " s"
 
 #. i18n: ectx: property (text), widget (QCheckBox, mOpenMountCheck)
 #: src/kdfconfig.ui:55
@@ -413,10 +413,3 @@ msgstr "Configuració general"
 #, kde-format
 msgid "Mount Commands"
 msgstr "Ordres de muntatge"
-
-#~ msgid ""
-#~ "A right mouse button click opens a context menu to mount/unmount a device "
-#~ "or to open it in the file manager."
-#~ msgstr ""
-#~ "Un clic amb el botó dret del ratolí obri un menú contextual per a muntar/"
-#~ "desmuntar un dispositiu o obrir-lo en el gestor de fitxer."
