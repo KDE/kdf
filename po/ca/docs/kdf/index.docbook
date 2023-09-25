@@ -116,7 +116,7 @@
 > a l'indicador d'ordres.</para>
 
 <para
->Per executar-la com una miniaplicació a la safata del sistema, empreu <menuchoice
+>Per a executar-la com una miniaplicació a la safata del sistema, empreu <menuchoice
 ><guisubmenu
 >Sistema</guisubmenu
 ><guimenuitem
@@ -306,7 +306,7 @@
 >visible</guilabel
 > o <guilabel
 >ocult</guilabel
-> per fer que un cap es mostri o no.</para
+> per a fer que un cap es mostri o no.</para
 > <para
 >Canvieu la freqüència d'actualització editant el valor. El valor en el quadre és l'interval (en segons) entre les actualitzacions de la finestra del &kdiskfree; per a reflectir l'estat.</para
 > <para
@@ -326,7 +326,7 @@
 ></term>
 <listitem
 ><para
->Permet a l'usuari especificar les ordres de muntatge i desmuntatge per a cada dispositiu, així com la icona usada per representar-lo. Es pot trobar més informació quant a aquestes ordres a les pàgines man de <application
+>Permet a l'usuari especificar les ordres de muntatge i desmuntatge per a cada dispositiu, així com la icona usada per a representar-lo. Es pot trobar més informació quant a aquestes ordres a les pàgines man de <application
 >mount</application
 > (escriviu <userinput
 ><command
