@@ -34,7 +34,7 @@ msgstr "adrian@chaves.io"
 #: src/disklist.cpp:314
 #, kde-format
 msgid "could not execute [%1]"
-msgstr "Non se puido executar [%1]."
+msgstr "Non foi posíbel executar [%1]."
 
 #: src/disks.cpp:262
 #, kde-format
@@ -48,7 +48,7 @@ msgstr ""
 #: src/disks.cpp:283
 #, kde-format
 msgid "could not execute %1"
-msgstr "Non se puido executar %1."
+msgstr "Non foi posíbel executar %1."
 
 #: src/kdf.cpp:26
 #, kde-format
