@@ -50,7 +50,7 @@ int main(int argc, char **argv)
     //Fixes blurry icons with fractional scaling
     QApplication app(argc, argv);
 
-    KLocalizedString::setApplicationDomain("kdf");
+    KLocalizedString::setApplicationDomain(QByteArrayLiteral("kdf"));
 
     KAboutData aboutData(QStringLiteral("kdf"),
                          i18n("KDiskFree"),

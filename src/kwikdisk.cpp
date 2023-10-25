@@ -303,7 +303,7 @@ int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
 
-    KLocalizedString::setApplicationDomain("kdf");
+    KLocalizedString::setApplicationDomain(QByteArrayLiteral("kdf"));
 
     KAboutData aboutData(QStringLiteral("kwikdisk"),
                      i18n("KwikDisk"),
