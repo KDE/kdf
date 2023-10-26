@@ -5,6 +5,7 @@
   <project_license>GPL-2.0+</project_license>
   <name>KDiskFree</name>
   <name xml:lang="ar">المساحة المتبقية</name>
+  <name xml:lang="ast">KDiskFree</name>
   <name xml:lang="bg">KDiskFree</name>
   <name xml:lang="ca">KDiskFree</name>
   <name xml:lang="ca-valencia">KDiskFree</name>
@@ -125,6 +126,7 @@
     <screenshot type="default">
       <caption>KDiskFree main window</caption>
       <caption xml:lang="ar">نافذة المساحة المتبقية</caption>
+      <caption xml:lang="ast">Ventana principal de KDiskFree</caption>
       <caption xml:lang="bg">Основен прозорец на KDiskFree</caption>
       <caption xml:lang="ca">Finestra principal del KDiskFree</caption>
       <caption xml:lang="ca-valencia">Finestra principal de KDiskFree</caption>
