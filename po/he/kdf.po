@@ -10,21 +10,22 @@
 #
 # elkana bardugo <ttv200@gmail.com>, 2016.
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
+# SPDX-FileCopyrightText: 2023 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-15 01:54+0000\n"
-"PO-Revision-Date: 2017-05-16 07:04-0400\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
-"Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2023-10-26 09:47+0300\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -37,9 +38,9 @@ msgid "Your emails"
 msgstr "mbd1987@gmail.com"
 
 #: src/disklist.cpp:314
-#, fuzzy, kde-format
+#, kde-format
 msgid "could not execute [%1]"
-msgstr "אין אפשרות להפעיל את [%s]"
+msgstr "לא ניתן להפעיל את [%1]"
 
 #: src/disks.cpp:262
 #, kde-format
@@ -53,7 +54,7 @@ msgstr ""
 #: src/disks.cpp:283
 #, kde-format
 msgid "could not execute %1"
-msgstr "אין אפשרות להפעיל את [%1]"
+msgstr "אין אפשרות להפעיל את %1"
 
 #: src/kdf.cpp:26
 #, kde-format
@@ -69,38 +70,38 @@ msgstr "KDiskFree"
 #: src/kdf.cpp:58
 #, kde-format
 msgid "KDE free disk space utility"
-msgstr "כלי מקום פנוי בדיסק של KDE"
+msgstr "כלי מקום פנוי בכוננים של KDE"
 
 #: src/kdf.cpp:60
 #, kde-format
 msgid "(c) 1998-2001, Michael Kropfberger"
-msgstr ""
+msgstr "(c) 1998‏-2001, מייקל קרופפברגר"
 
 #: src/kdf.cpp:66 src/kwikdisk.cpp:318
 #, kde-format
 msgid "Michael Kropfberger"
-msgstr ""
+msgstr "מייקל קרופפברגר"
 
 #: src/kdfconfig.cpp:32
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "TODO"
 msgid "Icon"
 msgstr "סמל"
 
 #: src/kdfconfig.cpp:33 src/kdfwidget.cpp:55
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Device of the storage"
 msgid "Device"
 msgstr "התקן"
 
 #: src/kdfconfig.cpp:34 src/kdfwidget.cpp:56
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Filesystem on storage"
 msgid "Type"
 msgstr "סוג"
 
 #: src/kdfconfig.cpp:35 src/kdfwidget.cpp:57
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Total size of the storage"
 msgid "Size"
 msgstr "גודל"
@@ -109,52 +110,52 @@ msgstr "גודל"
 #, kde-format
 msgctxt "Mount point of the storage"
 msgid "Mount Point"
-msgstr "נתיב הצבה"
+msgstr "נקודת עיגון"
 
 #: src/kdfconfig.cpp:37 src/kdfwidget.cpp:59
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Free space in storage"
 msgid "Free"
 msgstr "פנוי"
 
 #: src/kdfconfig.cpp:38 src/kdfwidget.cpp:60
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Used storage space in %"
 msgid "Full %"
 msgstr "% בשימוש"
 
 #: src/kdfconfig.cpp:39 src/kdfwidget.cpp:61
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Usage graphical bar"
 msgid "Usage"
-msgstr "שימוש"
+msgstr "ניצולת"
 
 #: src/kdfconfig.cpp:64 src/kdfconfig.cpp:184
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Visible items on device information columns (enable|disable)"
 msgid "visible"
 msgstr "גלוי"
 
 #: src/kdfconfig.cpp:163
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Are items on device information columns visible?"
 msgid "visible"
 msgstr "גלוי"
 
 #: src/kdfconfig.cpp:164
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Are items on device information columns hidden?"
 msgid "hidden"
-msgstr "חבוי"
+msgstr "מוסתר"
 
 #: src/kdfconfig.cpp:201
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Device information item is hidden"
 msgid "hidden"
-msgstr "חבוי"
+msgstr "מוסתר"
 
 #: src/kdfconfig.cpp:202
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Device information item is visible"
 msgid "visible"
 msgstr "גלוי"
@@ -169,25 +170,25 @@ msgstr "תדירות עדכון:"
 #: src/kdfconfig.ui:42
 #, kde-format
 msgid " sec"
-msgstr "שניות"
+msgstr " שנ׳"
 
 #. i18n: ectx: property (text), widget (QCheckBox, mOpenMountCheck)
 #: src/kdfconfig.ui:55
 #, kde-format
 msgid "Open file manager automatically on mount"
-msgstr "פתח את מנהל הקבצים באופן אוטומטי בעת חיבור"
+msgstr "לפתוח את מנהל הקבצים באופן אוטומטי בעת עיגון"
 
 #. i18n: ectx: property (text), widget (QCheckBox, mPopupFullCheck)
 #: src/kdfconfig.ui:62
 #, kde-format
 msgid "Pop up a window when a disk gets critically full"
-msgstr "הקפץ חלון כאשר דיסק מתמלא בצורה חמורה"
+msgstr "להקפיץ חלון כשכונן מתמלא כמעט לגמרי"
 
 #. i18n: ectx: property (text), widget (QCheckBox, mSystemFileManagerCheck)
 #: src/kdfconfig.ui:69
 #, kde-format
 msgid "Use system default file manager"
-msgstr ""
+msgstr "להשתמש במנהל הקבצים כברירת המחדל של המערכת"
 
 #. i18n: ectx: property (text), widget (QLabel, fileManagerEdit)
 #: src/kdfconfig.ui:76
@@ -199,25 +200,25 @@ msgstr "מנהל קבצים (לדוגמה konsole -e mc %m):"
 #: src/kdfconfig.ui:94
 #, kde-format
 msgid "Custom file manager not supported when running as Flatpak."
-msgstr ""
+msgstr "אין תמיכה במנהל קבצים מותאם אישית בעת הפעלה כ־Flatpak."
 
 #: src/kdfitemdelegate.cpp:32 src/kdfwidget.cpp:292
 #, kde-format
 msgctxt "Disk percentage"
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #. i18n: ectx: Menu (file)
 #: src/kdfui.rc:5
 #, kde-format
 msgid "&File"
-msgstr "קובץ"
+msgstr "&קובץ"
 
 #: src/kdfwidget.cpp:58
 #, kde-format
 msgctxt "Mount point of storage"
 msgid "Mount Point"
-msgstr "נתיב הצבה"
+msgstr "נקודת עגינה"
 
 #: src/kdfwidget.cpp:297 src/kdfwidget.cpp:298
 #, kde-format
@@ -225,9 +226,9 @@ msgid "N/A"
 msgstr "לא זמין"
 
 #: src/kdfwidget.cpp:355 src/kwikdisk.cpp:267
-#, fuzzy, kde-format
+#, kde-format
 msgid "Device [%1] on [%2] is critically full."
-msgstr "ההתקן [%1] ב-[%2] מלא בצורה חמורה."
+msgstr "ההתקן [%1] ב־[%2] מלא כמעט לחלוטין."
 
 #: src/kdfwidget.cpp:357
 #, kde-format
@@ -238,22 +239,22 @@ msgstr "אזהרה"
 #: src/kdfwidget.cpp:405
 #, kde-format
 msgid "Mount Device"
-msgstr "הצב התקן"
+msgstr "עיגון התקן"
 
 #: src/kdfwidget.cpp:406
 #, kde-format
 msgid "Unmount Device"
-msgstr "נתק התקן"
+msgstr "ניתוק עיגון התקן"
 
 #: src/kdfwidget.cpp:408
 #, kde-format
 msgid "Open in File Manager"
-msgstr "פתח במנהל הקבצים"
+msgstr "פתיחה במנהל הקבצים"
 
 #: src/kdfwidget.cpp:425 src/kdfwidget.cpp:428
 #, kde-format
 msgid "MOUNTING"
-msgstr "מחבר"
+msgstr "מתבצע עיגון"
 
 #: src/kwikdisk.cpp:60 src/kwikdisk.cpp:309
 #, kde-format
@@ -263,29 +264,29 @@ msgstr "KwikDisk"
 #: src/kwikdisk.cpp:66
 #, kde-format
 msgid "&Start KDiskFree"
-msgstr "ה&פעל את KDiskFree"
+msgstr "ה&פעלת KDiskFree"
 
 #: src/kwikdisk.cpp:70
 #, kde-format
 msgid "&Configure KwikDisk..."
-msgstr "&הגדרות KwikDisk..."
+msgstr "ה&גדרות KwikDisk..."
 
 #: src/kwikdisk.cpp:178
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Unmount the storage device"
 msgid "Unmount"
-msgstr "ניתוק"
+msgstr "ניתוק עיגון"
 
 #: src/kwikdisk.cpp:178
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Mount the storage device"
 msgid "Mount"
-msgstr "חיבור"
+msgstr "עיגון"
 
 #: src/kwikdisk.cpp:201
 #, kde-format
 msgid "You must login as root to mount this disk"
-msgstr "יש להיכנס בתור root כדי לחבר דיסק זה"
+msgstr "יש להיכנס כמשתמש על (root) כדי לעגן כונן זה"
 
 #: src/kwikdisk.cpp:269
 #, kde-format
@@ -296,12 +297,12 @@ msgstr "אזהרה"
 #: src/kwikdisk.cpp:311
 #, kde-format
 msgid "KDE Free disk space utility"
-msgstr "כלי מקום פנוי בדיסק של KDE"
+msgstr "כלי מקום פנוי בכוננים של KDE"
 
 #: src/kwikdisk.cpp:313
 #, kde-format
 msgid "(C) 2004 Stanislav Karchebny"
-msgstr ""
+msgstr "(C) 2004 סטניסלב קרצ׳בני"
 
 #: src/kwikdisk.cpp:319
 #, kde-format
@@ -311,22 +312,22 @@ msgstr "יוצר מקורי"
 #: src/kwikdisk.cpp:321
 #, kde-format
 msgid "Espen Sand"
-msgstr ""
+msgstr "אספן זנד"
 
 #: src/kwikdisk.cpp:322
 #, kde-format
 msgid "KDE 2 changes"
-msgstr "KDE·2·שינויי"
+msgstr "שינויי KDE 2"
 
 #: src/kwikdisk.cpp:323
 #, kde-format
 msgid "Stanislav Karchebny"
-msgstr ""
+msgstr "סטניסלב קרצ׳בני"
 
 #: src/kwikdisk.cpp:324
 #, kde-format
 msgid "KDE 3 changes"
-msgstr "KDE·3·שינויי"
+msgstr "שינויי KDE 3"
 
 #: src/mntconfig.cpp:47 src/mntconfig.cpp:52
 #, kde-format
@@ -336,26 +337,26 @@ msgstr "התקן"
 #: src/mntconfig.cpp:48 src/mntconfig.cpp:54
 #, kde-format
 msgid "Mount Point"
-msgstr "נתיב הצבה"
+msgstr "נקודת עגינה"
 
 #: src/mntconfig.cpp:48
 #, kde-format
 msgid "Mount Command"
-msgstr "פקודת חיבור"
+msgstr "פקודת עיגון"
 
 #: src/mntconfig.cpp:48
 #, kde-format
 msgid "Unmount Command"
-msgstr "פקודת ניתוק"
+msgstr "פקודת ניתוק עיגון"
 
 #: src/mntconfig.cpp:53
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "No device is selected"
 msgid "None"
 msgstr "ללא"
 
 #: src/mntconfig.cpp:55
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "No mount point is selected"
 msgid "None"
 msgstr "ללא"
@@ -368,25 +369,25 @@ msgstr "רק קבצים מקומיים נתמכים."
 #: src/mntconfig.cpp:256
 #, kde-format
 msgid "Only local files are currently supported."
-msgstr "כרגע נתמכים רק קבצים מקומיים."
+msgstr "כרגע רק קבצים מקומיים נתמכים."
 
 #. i18n: ectx: property (text), widget (QLabel, iconNameLabel)
 #: src/mntconfig.ui:20
-#, fuzzy, kde-format
+#, kde-format
 msgid "Icon name:"
-msgstr "סמל"
+msgstr "שם סמל:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountLabel)
 #: src/mntconfig.ui:30
-#, fuzzy, kde-format
+#, kde-format
 msgid "Mount Command:"
-msgstr "פקודת חיבור"
+msgstr "פקודת עיגון:"
 
 #. i18n: ectx: property (text), widget (QLabel, umountLabel)
 #: src/mntconfig.ui:40
-#, fuzzy, kde-format
+#, kde-format
 msgid "Unmount Command:"
-msgstr "פקודת ניתוק"
+msgstr "פקודת ניתוק עיגון:"
 
 #. i18n: ectx: property (text), widget (QPushButton, mDefaultIconButton)
 #: src/mntconfig.ui:50
@@ -397,9 +398,9 @@ msgstr "סמל ברירת מחדל"
 #. i18n: ectx: property (text), widget (QPushButton, mMountButton)
 #. i18n: ectx: property (text), widget (QPushButton, mUmountButton)
 #: src/mntconfig.ui:57 src/mntconfig.ui:64
-#, fuzzy, kde-format
+#, kde-format
 msgid "Get Command..."
-msgstr "בחר פקודת חיבור"
+msgstr "הורדת פקודה…"
 
 #: src/optiondialog.cpp:18
 #, kde-format
@@ -414,7 +415,7 @@ msgstr "הגדרות כלליות"
 #: src/optiondialog.cpp:28
 #, kde-format
 msgid "Mount Commands"
-msgstr "פקודות חיבור"
+msgstr "פקודות עיגון"
 
 #~ msgid ""
 #~ "A right mouse button click opens a context menu to mount/unmount a device "
