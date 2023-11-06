@@ -133,7 +133,7 @@ void MntConfigWidget::applySettings( void )
 {
     mDiskList.applySettings();
 
-    KConfigGroup config(KSharedConfig::openConfig(), "MntConfig");
+    KConfigGroup config(KSharedConfig::openConfig(), QStringLiteral("MntConfig"));
     if( GUI )
     {
         config.writeEntry("Width", width() );
@@ -145,7 +145,7 @@ void MntConfigWidget::applySettings( void )
 
 void MntConfigWidget::loadSettings( void )
 {
-    KConfigGroup config = KSharedConfig::openConfig()->group("MntConfig");
+    KConfigGroup config = KSharedConfig::openConfig()->group(QStringLiteral("MntConfig"));
     if( !mInitializing && GUI )
     {
         if( isWindow() )

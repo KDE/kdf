@@ -109,7 +109,7 @@ void KDFConfigWidget::closeEvent(QCloseEvent *)
 
 void KDFConfigWidget::applySettings( void )
 {
-    KConfigGroup config(KSharedConfig::openConfig(), "KDFConfig");
+    KConfigGroup config(KSharedConfig::openConfig(), QStringLiteral("KDFConfig"));
 
     if( GUI )
     {
@@ -141,7 +141,7 @@ void KDFConfigWidget::applySettings( void )
 
 void KDFConfigWidget::loadSettings( void )
 {
-    KConfigGroup config(KSharedConfig::openConfig(), "KDFConfig");
+    KConfigGroup config(KSharedConfig::openConfig(), QStringLiteral("KDFConfig"));
 
     if( GUI )
     {

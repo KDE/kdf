@@ -29,7 +29,7 @@ CStdOption::~CStdOption()
 
 void CStdOption::updateConfiguration()
 {
-    KConfigGroup config(KSharedConfig::openConfig(), "KDFConfig");
+    KConfigGroup config(KSharedConfig::openConfig(), QStringLiteral("KDFConfig"));
     mFileManager = config.readPathEntry(
                        "FileManagerCommand", mDefaultFileManager );
     mUpdateFrequency = config.readEntry(
@@ -45,7 +45,7 @@ void CStdOption::updateConfiguration()
 
 void CStdOption::writeConfiguration()
 {
-    KConfigGroup config(KSharedConfig::openConfig(), "KDFConfig");
+    KConfigGroup config(KSharedConfig::openConfig(), QStringLiteral("KDFConfig"));
     config.writeEntry( "UpdateFrequency", mUpdateFrequency );
     config.writePathEntry( "FileManagerCommand", mFileManager );
     config.writeEntry( "PopupIfFull", mPopupIfFull );
@@ -57,7 +57,7 @@ void CStdOption::writeConfiguration()
 
 void CStdOption::writeDefaultFileManager()
 {
-    KConfigGroup config(KSharedConfig::openConfig(), "KDFConfig");
+    KConfigGroup config(KSharedConfig::openConfig(), QStringLiteral("KDFConfig"));
     config.writePathEntry( "FileManagerCommand", mDefaultFileManager );
     config.sync();
 }

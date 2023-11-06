@@ -84,7 +84,7 @@ void DiskList::applySettings()
 {
     qCDebug(KDF);
 
-    KConfigGroup group(config, "DiskList");
+    KConfigGroup group(config, QStringLiteral("DiskList"));
     QString key;
 
     DisksConstIterator itr = disksConstIteratorBegin();
@@ -113,7 +113,7 @@ void DiskList::loadSettings()
 {
     qCDebug(KDF);
 
-    const KConfigGroup group(config, "DiskList");
+    const KConfigGroup group(config, QStringLiteral("DiskList"));
     QString key;
 
     DisksConstIterator itr = disksConstIteratorBegin();

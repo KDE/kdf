@@ -137,7 +137,7 @@ void KDFWidget::settingsChanged( void )
 void KDFWidget::applySettings( void )
 {
     KConfig m_config;
-    KConfigGroup config( &m_config, "KDiskFree" );
+    KConfigGroup config( &m_config, QLatin1String("KDiskFree" ));
 
     if( GUI )
     {
@@ -171,13 +171,13 @@ void KDFWidget::loadSettings( void )
 
     if(GUI)
     {
-        KConfigGroup config(KSharedConfig::openConfig(), "KDiskFree");
+        KConfigGroup config(KSharedConfig::openConfig(), QStringLiteral("KDiskFree"));
         for (const Column &c : std::as_const(m_columnList)){
             int width = config.readEntry( c.name, c.defaultWidth );
             m_listWidget->setColumnWidth( c.number, width );
         }
 
-        KConfigGroup config_visible(KSharedConfig::openConfig(), "KDFConfig");
+        KConfigGroup config_visible(KSharedConfig::openConfig(), QStringLiteral("KDFConfig"));
         for (const Column &c : std::as_const(m_columnList)){
             bool visible = config_visible.readEntry( c.name , true );
             m_listWidget->setColumnHidden( c.number, !visible );
