@@ -316,7 +316,7 @@
 >Dosya Yöneticisini Aç</guimenuitem
 > açılır menüsü seçildiğinde, çalıştırılacak olan komutu denetler.</para>
 <para
->İki onay kutusu vardır. Bir aygıt bağlandığında, bir dosya yöneticisi penceresinin otomatik olarak açılıp açılmayacağını denetler. Diğeriyse bir disk kritik bir biçimde dolduğunda bir uyarı penceresinin açılmasına neden olur.</para>
+>İki onay kutusu vardır. Bir aygıt bağlandığında, bir dosya yöneticisi penceresinin kendiliğinden açılıp açılmayacağını denetler. Diğeriyse bir disk kritik bir biçimde dolduğunda bir uyarı penceresinin açılmasına neden olur.</para>
 </listitem>
 </varlistentry>
 <varlistentry>
