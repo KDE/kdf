@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-27 00:52+0000\n"
-"PO-Revision-Date: 2023-03-21 22:43+01\n"
+"PO-Revision-Date: 2023-09-18 07:15+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -38,7 +38,7 @@ msgstr "&Dosiero"
 #: src/disklist.cpp:314
 #, kde-format
 msgid "could not execute [%1]"
-msgstr ""
+msgstr "ne povis efektivigi [%1]"
 
 #: src/disks.cpp:262
 #, kde-format
@@ -46,13 +46,13 @@ msgid ""
 "Called: %1\n"
 "\n"
 msgstr ""
-"vokita: %1\n"
+"Vokita: %1\n"
 "\n"
 
 #: src/disks.cpp:283
 #, kde-format
 msgid "could not execute %1"
-msgstr ""
+msgstr "ne povis efektivigi %1"
 
 #: src/kcmdf.cpp:49
 #, kde-format
@@ -80,7 +80,7 @@ msgstr "KDE-ilo por informiĝi pri la diskspaco"
 #: src/kdf.cpp:63
 #, kde-format
 msgid "(c) 1998-2001, Michael Kropfberger"
-msgstr ""
+msgstr "(c) 1998-2001, Michael Kropfberger"
 
 #: src/kdf.cpp:69 src/kwikdisk.cpp:318
 #, kde-format
@@ -193,7 +193,7 @@ msgstr "Montru fenestron, kiam disko estas preskaŭ plena"
 #: src/kdfconfig.ui:69
 #, kde-format
 msgid "Use system default file manager"
-msgstr ""
+msgstr "Uzi sistemdefaŭltan dosiermastrumilon"
 
 #. i18n: ectx: property (text), widget (QLabel, fileManagerEdit)
 #: src/kdfconfig.ui:76
@@ -205,13 +205,13 @@ msgstr "Dosieradministrilo (ekz. \"konsole -e mc %m\"):"
 #: src/kdfconfig.ui:94
 #, kde-format
 msgid "Custom file manager not supported when running as Flatpak."
-msgstr ""
+msgstr "Propra dosiermastrumilo ne subtenata kiam rulanta kiel Flatpak."
 
 #: src/kdfitemdelegate.cpp:32 src/kdfwidget.cpp:292
 #, kde-format
 msgctxt "Disk percentage"
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #: src/kdfwidget.cpp:58
 #, kde-format
@@ -258,29 +258,29 @@ msgstr "Kroĉante"
 #: src/kwikdisk.cpp:60 src/kwikdisk.cpp:309
 #, kde-format
 msgid "KwikDisk"
-msgstr ""
+msgstr "KwikDisk"
 
 #: src/kwikdisk.cpp:66
 #, kde-format
 msgid "&Start KDiskFree"
-msgstr "&Lanĉu Diskspacmontrilon"
+msgstr "&Lanĉi KDiskFree"
 
 #: src/kwikdisk.cpp:70
 #, kde-format
 msgid "&Configure KwikDisk..."
-msgstr ""
+msgstr "&Agordi KwikDisk..."
 
 #: src/kwikdisk.cpp:178
 #, kde-format
 msgctxt "Unmount the storage device"
 msgid "Unmount"
-msgstr "Malkroĉu"
+msgstr "Malkroĉi"
 
 #: src/kwikdisk.cpp:178
 #, kde-format
 msgctxt "Mount the storage device"
 msgid "Mount"
-msgstr "Kroĉu"
+msgstr "Kroĉi"
 
 #: src/kwikdisk.cpp:201
 #, kde-format
@@ -296,12 +296,12 @@ msgstr "Averto"
 #: src/kwikdisk.cpp:311
 #, kde-format
 msgid "KDE Free disk space utility"
-msgstr ""
+msgstr "Utilaĵo pri libera diskospaco de KDE"
 
 #: src/kwikdisk.cpp:313
 #, kde-format
 msgid "(C) 2004 Stanislav Karchebny"
-msgstr ""
+msgstr "(C) 2004 Stanislav Karchebny"
 
 #: src/kwikdisk.cpp:319
 #, kde-format
@@ -316,7 +316,7 @@ msgstr "Espen Sand"
 #: src/kwikdisk.cpp:322
 #, kde-format
 msgid "KDE 2 changes"
-msgstr ""
+msgstr "Ŝanĝoj por KDE 2"
 
 #: src/kwikdisk.cpp:323
 #, kde-format
@@ -326,7 +326,7 @@ msgstr "Stanislav Karchebny"
 #: src/kwikdisk.cpp:324
 #, kde-format
 msgid "KDE 3 changes"
-msgstr ""
+msgstr "Ŝanĝoj por KDE 3"
 
 #: src/mntconfig.cpp:47 src/mntconfig.cpp:52
 #, kde-format
@@ -392,14 +392,14 @@ msgstr "Malkroĉkomando:"
 #: src/mntconfig.ui:50
 #, kde-format
 msgid "Default Icon"
-msgstr ""
+msgstr "Defaŭlta Piktogramo"
 
 #. i18n: ectx: property (text), widget (QPushButton, mMountButton)
 #. i18n: ectx: property (text), widget (QPushButton, mUmountButton)
 #: src/mntconfig.ui:57 src/mntconfig.ui:64
 #, kde-format
 msgid "Get Command..."
-msgstr ""
+msgstr "Ekhavi Komandon..."
 
 #: src/optiondialog.cpp:18
 #, kde-format
