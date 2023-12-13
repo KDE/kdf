@@ -312,7 +312,7 @@ int main(int argc, char **argv)
                      KAboutLicense::GPL,
                      i18n("(C) 2004 Stanislav Karchebny"),
                      QString(),
-                     QStringLiteral("http://utils.kde.org/projects/kdf"),
+                     QStringLiteral("https://apps.kde.org/kdf"),
                      QStringLiteral("Stanislav.Karchebny@kdemail.net"));
 
     aboutData.addAuthor(i18n("Michael Kropfberger"),

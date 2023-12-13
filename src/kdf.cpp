@@ -59,7 +59,7 @@ int main(int argc, char **argv)
                          KAboutLicense::GPL,
                          i18n("(c) 1998-2001, Michael Kropfberger"),
                          QString(),
-                         QStringLiteral("http://utils.kde.org/projects/kdf"),
+                         QStringLiteral("https://apps.kde.org/kdf"),
                          QString()
                         );
 

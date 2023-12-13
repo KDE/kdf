@@ -124,7 +124,7 @@
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kdf</url>
   <url type="donation">https://www.kde.org/community/donations/?app=kdf&amp;source=appdata</url>
   <url type="help">https://docs.kde.org/?application=kdf</url>
-  <url type="homepage">https://utils.kde.org/projects/kdf/</url>
+  <url type="homepage">https://apps.kde.org/kdf</url>
   <screenshots>
     <screenshot type="default">
       <caption>KDiskFree main window</caption>
