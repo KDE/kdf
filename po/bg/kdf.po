@@ -411,10 +411,3 @@ msgstr "Общи настройки"
 #, kde-format
 msgid "Mount Commands"
 msgstr "Команди за монтиране"
-
-#~ msgid ""
-#~ "A right mouse button click opens a context menu to mount/unmount a device "
-#~ "or to open it in the file manager."
-#~ msgstr ""
-#~ "Десният бутон на мишката извиква меня за монтиране, демонтиране или "
-#~ "отваряне във файлов браузър."
