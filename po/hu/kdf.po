@@ -1,28 +1,30 @@
 # Marcell Lengyel <miketkf@yahoo.com>, 1999.
 #
+# SPDX-FileCopyrightText: 2024 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-15 01:54+0000\n"
-"PO-Revision-Date: 2009-12-22 20:20+0100\n"
-"Last-Translator: Tamas Szanto <taszanto@gmail.com>\n"
+"PO-Revision-Date: 2024-02-11 20:42+0100\n"
+"Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-lista@sophia.jpte.hu>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Lengyel Marcell,Szántó Tamás"
+msgstr "Kiszel Kristóf"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "miketkf@yahoo.com,taszanto@gmail.com"
+msgstr "ulysses@fsf.hu"
 
 #: src/disklist.cpp:314
 #, kde-format
@@ -175,7 +177,7 @@ msgstr "Figyelmeztető ablak, ha a lemez nagyon tele van"
 #: src/kdfconfig.ui:69
 #, kde-format
 msgid "Use system default file manager"
-msgstr ""
+msgstr "Az alapértelmezett fájlkezelő használata"
 
 #. i18n: ectx: property (text), widget (QLabel, fileManagerEdit)
 #: src/kdfconfig.ui:76
@@ -187,13 +189,13 @@ msgstr "Fájlkezelő (pl. konsole -e mc %m):"
 #: src/kdfconfig.ui:94
 #, kde-format
 msgid "Custom file manager not supported when running as Flatpak."
-msgstr ""
+msgstr "Az egyéni fájlkezelő nem támogatott Flatpakként futtatva."
 
 #: src/kdfitemdelegate.cpp:32 src/kdfwidget.cpp:292
 #, kde-format
 msgctxt "Disk percentage"
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #. i18n: ectx: Menu (file)
 #: src/kdfui.rc:5
@@ -256,7 +258,7 @@ msgstr "A KDiskFree in&dítása"
 #: src/kwikdisk.cpp:70
 #, kde-format
 msgid "&Configure KwikDisk..."
-msgstr "Beá&llítások..."
+msgstr "Beá&llítások…"
 
 #: src/kwikdisk.cpp:178
 #, kde-format
@@ -387,7 +389,7 @@ msgstr "Alapértelmezett ikon"
 #: src/mntconfig.ui:57 src/mntconfig.ui:64
 #, kde-format
 msgid "Get Command..."
-msgstr "Parancs..."
+msgstr "Parancs…"
 
 #: src/optiondialog.cpp:18
 #, kde-format
