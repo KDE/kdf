@@ -22,6 +22,7 @@
   <name xml:lang="fr">KDiskFree</name>
   <name xml:lang="gl">KDiskFree</name>
   <name xml:lang="he">KDiskFree</name>
+  <name xml:lang="hu">KDiskFree</name>
   <name xml:lang="ia">KDiskFree</name>
   <name xml:lang="id">KDiskFree</name>
   <name xml:lang="is">KDiskFree</name>
@@ -60,6 +61,7 @@
   <summary xml:lang="fr">Visualiser l'occupation du disque</summary>
   <summary xml:lang="gl">Visor do uso dos discos</summary>
   <summary xml:lang="he">הצגת ניצולת כונן</summary>
+  <summary xml:lang="hu">Lemezhasználat megjelenítése</summary>
   <summary xml:lang="ia">Vide uso de disco</summary>
   <summary xml:lang="id">Tampilan Penggunaan Disk</summary>
   <summary xml:lang="is">Skoða nýtni á diskum</summary>
@@ -100,6 +102,7 @@
     <p xml:lang="fr">KDiskFree affiche les systèmes de fichiers disponibles (partitions du disque dur, lecteurs disquettes/CD/DVD, etc.) ainsi que des informations sur leur capacité, l'espace disponible, leur type et leur point de montage. L'outil vous permet également de monter, de libérer et d'afficher les lecteurs dans un gestionnaire de fichiers.</p>
     <p xml:lang="gl">KDiskFree mostra os dispositivos de ficheiros dispoñíbeis (particións de discos duros, lectores de disquetes e CD, etc.) xunto con información sobre a súa capacidade, espazo libre, tipo e punto de montaxe. Tamén permite montar e desmontar lectores e velos no xestor de ficheiros.</p>
     <p xml:lang="he">KDisKFree מציג את התקני הקבצים הזמינים (מחיצות כוננים קשיחים, כוננים חיצוניים, תקליטורים וכו׳) לצד מידע על הקיבולת שלהם, המקום הפנוי, הסוג ונקודת העיגון. הוא מאפשר גם לעגן ולנתק כוננים ולצפות בהם במנהל הקבצים.</p>
+    <p xml:lang="hu">A KDiskFree megjeleníti a rendelkezésre álló fájleszközöket (merevlemez-partíciók, floppy- és CD-meghajtók stb.), valamint a kapacitásukra, szabad helyükre, típusukra és csatlakoztatási pontjaikra vonatkozó információkat. Lehetővé teszi továbbá a meghajtók csatlakoztatását és leválasztását, valamint a fájlkezelőben való megtekintésüket.</p>
     <p xml:lang="ia">KDiskFree monstra dispositivos de file disponibile (partitiones de disco dur, disquettes e drives de CD, etc.) conjunctemente con lor capacitate, spatio libere, typo e puncto de montage. Anque permitte que on pote montar e dismontar drives e vide illos in  le gerente de files.</p>
     <p xml:lang="id">KDiskFree menampilkan peranti file yang tersedia (partisi hard drive, floppy dan drive CD, dll.) bersama dengan informasi tentang kapasitas, ruang kosong, jenis dan titik kaitnya. Ini juga memungkinkan kamu untuk mengait dan melepas drive dan melihatnya di file manager.</p>
     <p xml:lang="is">KDiskFree birtir tiltæk skráatæki (disksneiðar á hörðum diskum, disklingum og CD-drifum, o.s.frv.) ásamt upplýsingum um rýmd þeirra, laust pláss, tegund og tengipunkt. Það gerir einnig kleift að tengja drif í skráakerfi eða aftengja og að skoða þau í skráastjóra.</p>
@@ -146,6 +149,7 @@
       <caption xml:lang="fr">Fenêtre principale de KDiskFree</caption>
       <caption xml:lang="gl">Xanela principal de KDiskFree</caption>
       <caption xml:lang="he">החלון הראשי של KDiskFree</caption>
+      <caption xml:lang="hu">A KDiskFree főablaka</caption>
       <caption xml:lang="ia">Fenestra principal de KDiskFree</caption>
       <caption xml:lang="id">Jendela utama KDiskFree</caption>
       <caption xml:lang="is">Aðalgluggi KDiskFree</caption>
