@@ -5,31 +5,32 @@
 # Maris Nartiss <maris.kde@gmail.com>, 2007.
 # Viesturs Zarins <viesturs.zarins@mii.lu.lv>, 2007, 2008, 2010.
 # Viesturs Zariņš <viesturs.zarins@mii.lu.lv>, 2009.
+# SPDX-FileCopyrightText: 2024 Toms Trasuns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-15 01:54+0000\n"
-"PO-Revision-Date: 2010-01-09 15:52+0200\n"
-"Last-Translator: Viesturs Zarins <viesturs.zarins@mii.lu.lv>\n"
-"Language-Team: Latvian <locale@laka.lv>\n"
+"PO-Revision-Date: 2024-03-04 17:44+0200\n"
+"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.0\n"
+"X-Generator: Lokalize 23.08.5\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Andris Maziks, Rihards Priedītis"
+msgstr "Andris Maziks, Rihards Priedītis, Toms Trasūns"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "andris.m@delfi.lv, RPrieditis@inbox.lv"
+msgstr "andris.m@delfi.lv, RPrieditis@inbox.lv, toms.trasuns@posteo.net"
 
 #: src/disklist.cpp:314
 #, kde-format
@@ -54,7 +55,7 @@ msgstr "nevar izpildīt [%1]"
 #, kde-format
 msgctxt "Update action"
 msgid "&Update"
-msgstr "&Atjaunot"
+msgstr "&Pārlādēt"
 
 #: src/kdf.cpp:56
 #, kde-format
@@ -64,12 +65,12 @@ msgstr "KDiskFree"
 #: src/kdf.cpp:58
 #, kde-format
 msgid "KDE free disk space utility"
-msgstr "KDE brīvās diska vietas utilīta"
+msgstr "KDE brīvās diska vietas utilītprogramma"
 
 #: src/kdf.cpp:60
 #, kde-format
 msgid "(c) 1998-2001, Michael Kropfberger"
-msgstr "(c) 1998-2001, Michael Kropfberger"
+msgstr "(c) 1998—2001, Michael Kropfberger"
 
 #: src/kdf.cpp:66 src/kwikdisk.cpp:318
 #, kde-format
@@ -164,13 +165,13 @@ msgstr "Atjaunināšanas biežums:"
 #: src/kdfconfig.ui:42
 #, kde-format
 msgid " sec"
-msgstr " sek"
+msgstr " sek."
 
 #. i18n: ectx: property (text), widget (QCheckBox, mOpenMountCheck)
 #: src/kdfconfig.ui:55
 #, kde-format
 msgid "Open file manager automatically on mount"
-msgstr "Montējot automātiski atvērt failu pārvaldnieku"
+msgstr "Montējot automātiski atvērt datņu pārvaldnieku"
 
 #. i18n: ectx: property (text), widget (QCheckBox, mPopupFullCheck)
 #: src/kdfconfig.ui:62
@@ -182,31 +183,33 @@ msgstr "Parādīt logu, kad disks ir kritiski pilns"
 #: src/kdfconfig.ui:69
 #, kde-format
 msgid "Use system default file manager"
-msgstr ""
+msgstr "Izmantot sistēmas noklusēto datņu pārvaldnieku"
 
 #. i18n: ectx: property (text), widget (QLabel, fileManagerEdit)
 #: src/kdfconfig.ui:76
 #, no-c-format, kde-format
 msgid "File manager (e.g. konsole -e mc %m):"
-msgstr "Failu Pārvaldnieks (piemēram, konsole -e mc %m):"
+msgstr "Datņu pārvaldnieks (piemēram, „konsole -e mc %m“):"
 
 #. i18n: ectx: property (text), widget (QLabel, mFlatpakLabel)
 #: src/kdfconfig.ui:94
 #, kde-format
 msgid "Custom file manager not supported when running as Flatpak."
 msgstr ""
+"Nav atbalstīta pielāgotu datņu pārvaldnieku izvēle, programmu palaižot kā "
+"„Flatpak“."
 
 #: src/kdfitemdelegate.cpp:32 src/kdfwidget.cpp:292
 #, kde-format
 msgctxt "Disk percentage"
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #. i18n: ectx: Menu (file)
 #: src/kdfui.rc:5
 #, kde-format
 msgid "&File"
-msgstr "&Fails"
+msgstr "&Datne"
 
 #: src/kdfwidget.cpp:58
 #, kde-format
@@ -238,17 +241,17 @@ msgstr "Montēt ierīci"
 #: src/kdfwidget.cpp:406
 #, kde-format
 msgid "Unmount Device"
-msgstr "Nomontēt ierīci"
+msgstr "Atmontēt ierīci"
 
 #: src/kdfwidget.cpp:408
 #, kde-format
 msgid "Open in File Manager"
-msgstr "Atvērt faila pārvaldnieku"
+msgstr "Atvērt datņu pārvaldnieku"
 
 #: src/kdfwidget.cpp:425 src/kdfwidget.cpp:428
 #, kde-format
 msgid "MOUNTING"
-msgstr "MONTĒŠANA"
+msgstr "PIEMONTĒŠANA"
 
 #: src/kwikdisk.cpp:60 src/kwikdisk.cpp:309
 #, kde-format
@@ -258,7 +261,7 @@ msgstr "KwikDisk"
 #: src/kwikdisk.cpp:66
 #, kde-format
 msgid "&Start KDiskFree"
-msgstr "&Izpildīt KDiskFree"
+msgstr "&Palaist „KDiskFree“"
 
 #: src/kwikdisk.cpp:70
 #, kde-format
@@ -269,18 +272,18 @@ msgstr "&Konfigurēt KwikDisk..."
 #, kde-format
 msgctxt "Unmount the storage device"
 msgid "Unmount"
-msgstr "Nomontēt"
+msgstr "Atmontēt"
 
 #: src/kwikdisk.cpp:178
 #, kde-format
 msgctxt "Mount the storage device"
 msgid "Mount"
-msgstr "Montēt"
+msgstr "Piemontēt"
 
 #: src/kwikdisk.cpp:201
 #, kde-format
 msgid "You must login as root to mount this disk"
-msgstr "Jums jābūt root, lai montētu šo disku"
+msgstr "Jums jābūt saknes lietotājam, lai piemontētu šo disku"
 
 #: src/kwikdisk.cpp:269
 #, kde-format
@@ -291,7 +294,7 @@ msgstr "Uzmanību"
 #: src/kwikdisk.cpp:311
 #, kde-format
 msgid "KDE Free disk space utility"
-msgstr "KDE brīvās diska vieta utilīta"
+msgstr "KDE brīvās diska vieta utilītprogramma"
 
 #: src/kwikdisk.cpp:313
 #, kde-format
@@ -336,12 +339,12 @@ msgstr "Montēšanas punkts"
 #: src/mntconfig.cpp:48
 #, kde-format
 msgid "Mount Command"
-msgstr "Montēšanas komanda"
+msgstr "Piemontēšanas komanda"
 
 #: src/mntconfig.cpp:48
 #, kde-format
 msgid "Unmount Command"
-msgstr "Nomontēšanas komanda"
+msgstr "Atmontēšanas komanda"
 
 #: src/mntconfig.cpp:53
 #, kde-format
@@ -358,12 +361,12 @@ msgstr "Nav"
 #: src/mntconfig.cpp:240
 #, kde-format
 msgid "Only local files supported."
-msgstr "Tikai lokālie faili tiek atbalstīti."
+msgstr "Programma atbalsta ir tikai lokālās datnes."
 
 #: src/mntconfig.cpp:256
 #, kde-format
 msgid "Only local files are currently supported."
-msgstr "Šobrīd tiek atbalstīti tikai lokāli faili."
+msgstr "Šobrīd programma atbalsta tikai lokālās datnes."
 
 #. i18n: ectx: property (text), widget (QLabel, iconNameLabel)
 #: src/mntconfig.ui:20
@@ -375,19 +378,19 @@ msgstr "Ikonas nosaukums:"
 #: src/mntconfig.ui:30
 #, kde-format
 msgid "Mount Command:"
-msgstr "Montēšanas komanda:"
+msgstr "Piemontēšanas komanda:"
 
 #. i18n: ectx: property (text), widget (QLabel, umountLabel)
 #: src/mntconfig.ui:40
 #, kde-format
 msgid "Unmount Command:"
-msgstr "Nomontēšanas komanda:"
+msgstr "Atmontēšanas komanda:"
 
 #. i18n: ectx: property (text), widget (QPushButton, mDefaultIconButton)
 #: src/mntconfig.ui:50
 #, kde-format
 msgid "Default Icon"
-msgstr "Noklusētā ikona"
+msgstr "Noklusējuma ikona"
 
 #. i18n: ectx: property (text), widget (QPushButton, mMountButton)
 #. i18n: ectx: property (text), widget (QPushButton, mUmountButton)
