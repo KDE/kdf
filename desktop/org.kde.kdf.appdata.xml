@@ -29,6 +29,7 @@
   <name xml:lang="it">KDiskFree</name>
   <name xml:lang="ka">KDiskFree</name>
   <name xml:lang="ko">KDiskFree</name>
+  <name xml:lang="lv">KDiskFree</name>
   <name xml:lang="nl">KDiskFree</name>
   <name xml:lang="nn">KDiskFree</name>
   <name xml:lang="pl">KDiskFree</name>
@@ -68,6 +69,7 @@
   <summary xml:lang="it">Visualizza l'utilizzo del disco</summary>
   <summary xml:lang="ka">დისკის გამოყენების ინფორმაციის ნახვა</summary>
   <summary xml:lang="ko">디스크 사용량 보기</summary>
+  <summary xml:lang="lv">Skatīt diska lietojumu</summary>
   <summary xml:lang="nl">Schijfgebruik bekijken</summary>
   <summary xml:lang="nn">Vis diskbruk</summary>
   <summary xml:lang="pl">Informacja o wolnym miejscu na dyskach</summary>
@@ -109,6 +111,7 @@
     <p xml:lang="it">KDiskFree mostra i dispositivi file disponibili (partizioni dei dischi fissi, unità a dischetti e lettori CD, eccetera) insieme ad informazioni sulla loro capacità, sullo spazio libero, sul tipo e sul punto di montaggio. Permette anche di montare e di smontare le unità e di visualizzarle in un gestore di file.</p>
     <p xml:lang="ka">KDiskFree ხელმისაწვდომ მოწყობილობებზე (მყარ დისკებზე, დისკეტებზე, CD-ზე, და ა.შ.) თავისუფალ ადგილს აჩვენებს. მოცულობასთან ერთად ასევე ნაჩვენებია მისი მოცულობა, თავისუფალი ადგილი, ტიპი და მიმაგრების ადგილი. ასევე საშუალებას გაძლევთ, მიამაგროთ და მოხსნათ დისკები, ან ფაილების მმართველში გახსნათ ისინი.</p>
     <p xml:lang="ko">KDiskFree는 하드 드라이브 파티션, CD 및 플로피 드라이브 등 저장 장치의 크기, 사용 가능한 공간, 마운트 지점 등 정보를 표시합니다. 장치 마운트를 관리하고 파일 관리자로 열 수 있습니다.</p>
+    <p xml:lang="lv">„KDiskFree“ parāda pieejamās krātuves ierīces (cietā diska nodalījumus, disketes un CD diskdziņus) līdz ar informāciju par to ietilpību, brīvo vietu, tipu un montēšanas punktu. Tāpat šī programma ļauj piemontēt un atmontēt ierīces un tās aplūkot datņu pārvaldniekā.</p>
     <p xml:lang="nl">KDiskFree toont de beschikbare apparaten voor bestandsopslag (vaste-schijfpartities, diskette- en -stations, USB-sticks, cd-station, etc.), met informatie over hun capaciteit, vrije ruimte, type en aankoppelpunt. Het geeft u ook de mogelijkheid om schijven aan- en af te koppelen en ze in een bestandsbeheerder te bekijken.</p>
     <p xml:lang="nn">KDiskFree viser lagringseiningar – for eksempel harddiskpartisjonar, diskettar og CD-plater – med informasjon om kapasitet, plassbruk, type og monteringspunkt. Det kan òg montera og avmontera einingar og opna dei i filhandsamaren.</p>
     <p xml:lang="pl">KDiskFree wyświetla dostępne urządzenia plikowe (partycje dysków twardych, dyskietki i napędy CD, itp.) wraz z informacją o ich pojemności, wolnej przestrzeni, rodzaju i punkcie podpięcia. Umożliwia podpinanie i odpinanie napędów, a także przeglądanie ich w przeglądarce plików.</p>
@@ -156,6 +159,7 @@
       <caption xml:lang="it">Finestra principale di KDiskFree</caption>
       <caption xml:lang="ka">KDiskFree -ის მთავარი ფანჯარა</caption>
       <caption xml:lang="ko">KDiskFree 주 창</caption>
+      <caption xml:lang="lv">„KDiskFree“ galvenais logs</caption>
       <caption xml:lang="nl">Hoofdvenster van KDiskFree</caption>
       <caption xml:lang="nn">Hovudvindauge for KDiskFree</caption>
       <caption xml:lang="pl">Okno główne KDiskFree</caption>
