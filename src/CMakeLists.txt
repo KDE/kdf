@@ -45,10 +45,9 @@ target_link_libraries(kdfprivate PUBLIC
     KF6::IconThemes
     KF6::KIOCore
     KF6::WidgetsAddons
+    KF6::IconWidgets
+    KF6::StatusNotifierItem
 )
-
-target_link_libraries(kdfprivate PUBLIC Qt6::Core5Compat KF6::IconWidgets KF6::StatusNotifierItem)
-
 
 set_target_properties(kdfprivate PROPERTIES
     VERSION ${KDFPRIVATE_VERSION}

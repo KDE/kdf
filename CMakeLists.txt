@@ -43,8 +43,6 @@ find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED
     Widgets
 )
 
-find_package(Qt6Core5Compat)
-
 find_package(KF6 ${KF_MIN_VERSION} REQUIRED
     ConfigWidgets
     CoreAddons

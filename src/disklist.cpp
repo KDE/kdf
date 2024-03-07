@@ -17,7 +17,7 @@
 
 #include <QTextStream>
 #include <QFile>
-#include <QRegExp>
+#include <QRegularExpression>
 
 #include <math.h>
 #include <stdlib.h>
@@ -204,11 +204,11 @@ int DiskList::readFSTAB()
 		{
 			if (path.exists())
 			{
-				QRegExp uuid( QLatin1String( "UUID=(\\S+)(\\s+)" ));
+				const QRegularExpression uuid( QLatin1String( "UUID=(\\S+)(\\s+)" ));
 				QString extracted ;
-				if (uuid.indexIn(s) != -1)
+				if (const auto uuidMatch = uuid.match(s); uuidMatch.hasMatch())
 				{
-					extracted = uuid.cap(1);
+					extracted = uuidMatch.captured(1);
 				}
 
 				if (! extracted.isEmpty() )
