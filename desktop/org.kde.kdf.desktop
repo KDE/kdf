@@ -191,5 +191,4 @@ Comment[zh_CN]=显示硬盘和其他存储设备的信息
 Comment[zh_TW]=顯示關於磁碟或其他儲存裝置的資訊
 X-DocPath=kdf/index.html
 StartupNotify=true
-X-DBUS-StartupType=Multi
 Categories=Qt;KDE;System;
