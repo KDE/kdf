@@ -1,0 +1,379 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&kdiskfree;">
+  <!ENTITY % Slovenian "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kdf" lang="&language;">
+
+<bookinfo>
+<title
+>&kdiskfree; Priročnik</title>
+
+<authorgroup>
+<author
+>&Jonathan.Singer; &Jonathan.Singer.mail; </author>
+
+<author
+>&Michael.Kropfberger; &Michael.Kropfberger.mail; </author>
+
+<othercredit role="translator"
+><firstname
+>Luka</firstname
+><surname
+>Puhar</surname
+><affiliation
+><address
+><email
+>puhar.luka@gmail.com</email
+></address
+></affiliation
+><contrib
+>Prevod</contrib
+></othercredit
+> 
+
+</authorgroup>
+
+<copyright>
+<year
+>2000-2002</year>
+<holder
+>&Jonathan.Singer;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>13.04.2016</date>
+<releaseinfo
+>Aplikacije 16.08</releaseinfo>
+
+<abstract
+><para
+>&kdiskfree; prikaže razpoložljive datotečne naprave in informacije o njih.</para>
+
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdf</keyword>
+<keyword
+>kdeutils</keyword>
+<keyword
+>diski</keyword>
+<keyword
+>naprave</keyword>
+<keyword
+>priklopi</keyword>
+<keyword
+>odklopi</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Uvod</title>
+
+<para
+>&kdiskfree; prikaže razpoložljive datotečne naprave (particije trdega diska, diskete in diske, ključke USB &etc;) skupaj z informacijami o njihovi zmogljivosti, prostem prostoru, vrsti in priključni točki. Omogoča tudi priklop in odklop diskov ter njihov ogled v upravitelju datotek.</para>
+
+<para
+>&kdiskfree; je podoben &systemsettings; Modul Storage Devices, vendar zavzame manj prostora na zaslonu. Uporabno je, če želite ohranjati okno &kdiskfree; na voljo ves čas.</para>
+
+</chapter>
+
+<chapter id="using-kdf">
+<title
+>Uporaba &kdiskfree;</title>
+
+<sect1 id="starting-kdf">
+<title
+>Zagon &kdiskfree;</title
+> 
+
+<para
+>V ukazno vrstico vnesite <userinput
+><command
+>kdf</command
+></userinput
+> ali izberite <guimenuitem
+>KDiskFree</guimenuitem
+> iz skupine <guisubmenu
+>Sistem</guisubmenu
+> v zaganjalniku programa. Na voljo so standardne možnosti ukazov &Qt; in &kde;, ki jih lahko naštejete z vnosom <userinput
+><command
+>kdf</command
+> <option
+>--help</option
+></userinput
+> v ukazno vrstico.</para>
+
+<para
+>Če želite aplikacijo zagnati kot applet v sistemskem predalu, uporabite <menuchoice
+><guisubmenu
+>Sistem</guisubmenu
+><guimenuitem
+>KwikDisk</guimenuitem
+></menuchoice
+> v zaganjalniku aplikacije.</para>
+
+<para
+>Funkcije &kdiskfree; so na voljo tudi v modulu &systemsettings; <guilabel
+>Naprave za shranjevanje</guilabel
+>.</para>
+</sect1>
+
+<sect1 id="main-window">
+<title
+>Glavno okno</title>
+
+<para
+>The main &kdiskfree; window displays the available file devices.</para>
+
+<para
+>Običajno so vključeni naslednji podatki:</para>
+<screenshot>
+<screeninfo
+>&kdiskfree; Zaslon</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="kdf.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>&kdiskfree; Zaslon</phrase>
+          </textobject>
+        </mediaobject>
+</screenshot>
+
+<itemizedlist>
+<listitem
+><para
+>ikona, ki označuje vrsto shranjevanja</para
+></listitem>
+<listitem
+><para
+>ime naprave</para
+></listitem>
+<listitem
+><para
+>vrsta datotečnega sistema</para
+></listitem>
+<listitem
+><para
+>skupna velikost</para
+></listitem>
+<listitem
+><para
+>priklopna točka</para
+></listitem>
+<listitem
+><para
+>prosti prostor na disku</para
+></listitem>
+<listitem
+><para
+>odstotek uporabljenega prostora v obliki števila in grafa.</para
+></listitem>
+</itemizedlist>
+
+<para
+><mousebutton
+>Levi</mousebutton
+> klik na glavo določenega stolpca razvrsti naprave glede na to spremenljivko. Drugi <mousebutton
+>levi</mousebutton
+> klik razvrsti v nasprotnem vrstnem redu.</para>
+
+<para
+>S klikom z &RMB; na vrstico se odpre meni. Če ta naprava trenutno ni priklopljena, je na voljo možnost <guimenuitem
+>Priklopi napravo</guimenuitem
+>. Če je naprava nameščena, jo lahko odstranite z izbiro <guimenuitem
+>Odklopi Napravo</guimenuitem
+>. Z izbiro možnosti <guimenuitem
+>Odpri v upravitelju datotek</guimenuitem
+> se odpre novo okno z grafičnim prikazom datotek v tej napravi.</para>
+<para
+>Nastavitev upravitelja datotek, ki ga uporablja &kdiskfree;, je neodvisna od izbire v modulu &systemsettings; <guilabel
+>Privzete aplikacije</guilabel
+>.</para>
+</sect1>
+
+<sect1 id="menus-and-configuration">
+<title
+>Menijska vrstica in konfiguracija</title>
+
+<sect2>
+<title
+>Meni za datoteke</title>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+><keycap
+>F5</keycap
+></shortcut
+> <guimenu
+>Datoteka</guimenu
+> <guimenuitem
+>Posodobi</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Takoj posodobi zaslon, da odraža trenutno stanje</action
+></para
+></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Datoteka</guimenu
+> <guimenuitem
+>Izhod</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Zapre</action
+> &kdiskfree;</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Poleg tega ima &kdiskfree; nekatere skupne elemente menija &kde; <guimenu
+>Nastavitve</guimenu
+> in <guimenu
+>Pomoč</guimenu
+>, za več informacij preberite poglavja o <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Menij Nastavitve</ulink
+> in <ulink url="help:/fundamentals/menus.html#menus-help"
+>Menij Pomoč</ulink
+> v &kde; Osnovah. </para>
+
+</sect2>
+
+<sect2>
+<title
+>Pogovorno okno Nastavitve</title>
+
+<screenshot>
+<screeninfo
+>Konfiguracija &kdiskfree; Zaslon</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="kdf_config.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Konfigurirajte &kdiskfree; Zaslon</phrase>
+          </textobject>
+        </mediaobject>
+</screenshot>
+
+<para
+>To pogovorno okno ima dva zavihka: <guilabel
+>Splošne nastavitve</guilabel
+> in <guilabel
+>Ukazi za Priklop</guilabel
+></para>
+<variablelist>
+<varlistentry>
+<term
+>Splošne nastavitve</term
+> <listitem
+><para
+>Kliknite na besedo <guilabel
+>vidno</guilabel
+> ali <guilabel
+>skrito</guilabel
+>, da vklopite ali izklopite prikaz podatkovnega polja.</para
+> <para
+>Z urejanjem vrednosti spremenite pogostost posodabljanja. Vrednost v polju je interval (v sekundah) med posodobitvami prikaza &kdiskfree;, ki odraža trenutno stanje.</para
+> <para
+>Nastavitev <guilabel
+>Upravitelj datotek</guilabel
+> nadzoruje ukaz, ki se izvede, ko je izbrana postavka <guimenuitem
+>Odpri upravitelj datotek</guimenuitem
+> v priročnem meniju.</para>
+<para
+>Na voljo sta tudi dve potrditveni polji. Eno določa, ali se bo ob priključku naprave samodejno odprlo okno upravitelja datotek. Drugo povzroči, da se ob kritični polnosti diska prikaže opozorilno okno.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Priključni ukazi</guilabel
+></term>
+<listitem
+><para
+>Uporabniku omogoča, da določi ukaze za priklop in odklop določene naprave ter ikono, ki jo predstavlja. Več informacij o teh ukazih najdete na strani man za <application
+>mount</application
+> (v ukazni vrstici vnesite <userinput
+><command
+>man</command
+> <option
+>mount</option
+></userinput
+>).</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="credits">
+<title
+>Zasluge in licenca</title>
+
+<para
+>&kdiskfree;</para>
+
+<para
+>Program Copyright &copy; 1998-2000 &Michael.Kropfberger; &Michael.Kropfberger.mail;</para>
+
+<para
+>Avtorske pravice dokumetnacije &copy; 1998-2000 &Michael.Kropfberger; &Michael.Kropfberger.mail;</para>
+
+<para
+>Prevod: Luka Puhar<email
+>puhar.luka@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index; 
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->
