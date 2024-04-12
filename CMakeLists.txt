@@ -63,7 +63,7 @@ set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
     "Tools to generate documentation"
     TYPE OPTIONAL
 )
-
+add_definitions(-DQT_NO_CONTEXTLESS_CONNECT)
 ecm_set_disabled_deprecation_versions(QT 6.6
     KF 5.240
 )
