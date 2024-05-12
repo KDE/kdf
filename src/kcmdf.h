@@ -6,7 +6,6 @@
 
 #ifndef KCMDF_H
 #define KCMDF_H
-#include "kcmutils_version.h"
 #include <KCModule>
 
 #include "kdfwidget.h"
