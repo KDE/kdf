@@ -266,7 +266,7 @@ msgstr "&Inicia KDiskFree"
 #: src/kwikdisk.cpp:70
 #, kde-format
 msgid "&Configure KwikDisk..."
-msgstr "&Configura KwikDisk..."
+msgstr "&Configura KwikDisk…"
 
 #: src/kwikdisk.cpp:178
 #, kde-format
@@ -397,7 +397,7 @@ msgstr "Icona predeterminada"
 #: src/mntconfig.ui:57 src/mntconfig.ui:64
 #, kde-format
 msgid "Get Command..."
-msgstr "Recupera l'ordre..."
+msgstr "Recupera l'ordre…"
 
 #: src/optiondialog.cpp:18
 #, kde-format
