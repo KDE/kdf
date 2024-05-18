@@ -315,12 +315,12 @@ int main(int argc, char **argv)
                      QStringLiteral("https://apps.kde.org/kdf"),
                      QStringLiteral("Stanislav.Karchebny@kdemail.net"));
 
-    aboutData.addAuthor(i18n("Michael Kropfberger"),
+    aboutData.addAuthor(i18nc("@info:credit", "Michael Kropfberger"),
                     i18n("Original author"),
                     QStringLiteral("michael.kropfberger@gmx.net"));
-    aboutData.addAuthor(i18n("Espen Sand"),
+    aboutData.addAuthor(i18nc("@info:credit", "Espen Sand"),
                     i18n("KDE 2 changes"));
-    aboutData.addAuthor(i18n("Stanislav Karchebny"),
+    aboutData.addAuthor(i18nc("@info:credit", "Stanislav Karchebny"),
                     i18n("KDE 3 changes"),
                     QStringLiteral("Stanislav.Karchebny@kdemail.net"));
 

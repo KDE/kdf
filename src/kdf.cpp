@@ -63,7 +63,7 @@ int main(int argc, char **argv)
                          QString()
                         );
 
-    aboutData.addAuthor(i18n("Michael Kropfberger"),
+    aboutData.addAuthor(i18nc("@info:credit", "Michael Kropfberger"),
                         QString(),
                         QStringLiteral("michael.kropfberger@gmx.net"));
 
