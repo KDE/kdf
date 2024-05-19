@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-15 01:54+0000\n"
+"POT-Creation-Date: 2024-05-19 00:40+0000\n"
 "PO-Revision-Date: 2009-06-24 12:08+0300\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@lists.kde.org>\n"
@@ -68,7 +68,9 @@ msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr "(c) 1998-2001, Michael Kropfberger"
 
 #: src/kdf.cpp:66 src/kwikdisk.cpp:318
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Michael Kropfberger"
+msgctxt "@info:credit"
 msgid "Michael Kropfberger"
 msgstr "Michael Kropfberger"
 
@@ -300,7 +302,9 @@ msgid "Original author"
 msgstr "Autor original"
 
 #: src/kwikdisk.cpp:321
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Espen Sand"
+msgctxt "@info:credit"
 msgid "Espen Sand"
 msgstr "Espen Sand"
 
@@ -310,7 +314,9 @@ msgid "KDE 2 changes"
 msgstr "Modificări pentru KDE 2"
 
 #: src/kwikdisk.cpp:323
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Stanislav Karchebny"
+msgctxt "@info:credit"
 msgid "Stanislav Karchebny"
 msgstr "Stanislav Karchebny"
 

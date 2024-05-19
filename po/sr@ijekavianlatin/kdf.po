@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-15 01:54+0000\n"
+"POT-Creation-Date: 2024-05-19 00:40+0000\n"
 "PO-Revision-Date: 2017-09-28 18:00+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -74,7 +74,9 @@ msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr "© 1998–2001, Mihael Kropfberger"
 
 #: src/kdf.cpp:66 src/kwikdisk.cpp:318
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Michael Kropfberger"
+msgctxt "@info:credit"
 msgid "Michael Kropfberger"
 msgstr "Mihael Kropfberger"
 
@@ -315,7 +317,9 @@ msgid "Original author"
 msgstr "Prvobitni autor"
 
 #: src/kwikdisk.cpp:321
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Espen Sand"
+msgctxt "@info:credit"
 msgid "Espen Sand"
 msgstr "Espen Sand"
 
@@ -325,7 +329,9 @@ msgid "KDE 2 changes"
 msgstr "Promene za KDE2"
 
 #: src/kwikdisk.cpp:323
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Stanislav Karchebny"
+msgctxt "@info:credit"
 msgid "Stanislav Karchebny"
 msgstr "Stanislav Karčebnji"
 

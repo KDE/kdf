@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-15 01:54+0000\n"
+"POT-Creation-Date: 2024-05-19 00:40+0000\n"
 "PO-Revision-Date: 2002-10-14 14:37SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -81,6 +81,7 @@ msgstr ""
 
 #: src/kdf.cpp:66 src/kwikdisk.cpp:318
 #, kde-format
+msgctxt "@info:credit"
 msgid "Michael Kropfberger"
 msgstr ""
 
@@ -329,6 +330,7 @@ msgstr ""
 
 #: src/kwikdisk.cpp:321
 #, kde-format
+msgctxt "@info:credit"
 msgid "Espen Sand"
 msgstr ""
 
@@ -339,6 +341,7 @@ msgstr ""
 
 #: src/kwikdisk.cpp:323
 #, kde-format
+msgctxt "@info:credit"
 msgid "Stanislav Karchebny"
 msgstr ""
 

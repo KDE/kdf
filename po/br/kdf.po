@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeutils/kdf.pot\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-15 01:54+0000\n"
+"POT-Creation-Date: 2024-05-19 00:40+0000\n"
 "PO-Revision-Date: 2004-09-20 15:44+0200\n"
 "Last-Translator: Thierry Vignaud <tvignaud@mandriva.com>\n"
 "Language-Team: br <LL@li.org>\n"
@@ -68,6 +68,7 @@ msgstr ""
 
 #: src/kdf.cpp:66 src/kwikdisk.cpp:318
 #, kde-format
+msgctxt "@info:credit"
 msgid "Michael Kropfberger"
 msgstr ""
 
@@ -318,6 +319,7 @@ msgstr "Oberour kentañ"
 
 #: src/kwikdisk.cpp:321
 #, kde-format
+msgctxt "@info:credit"
 msgid "Espen Sand"
 msgstr ""
 
@@ -328,6 +330,7 @@ msgstr "Kemmoù KDE 2"
 
 #: src/kwikdisk.cpp:323
 #, kde-format
+msgctxt "@info:credit"
 msgid "Stanislav Karchebny"
 msgstr ""
 

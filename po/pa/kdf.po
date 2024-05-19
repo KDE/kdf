@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-15 01:54+0000\n"
+"POT-Creation-Date: 2024-05-19 00:40+0000\n"
 "PO-Revision-Date: 2010-01-31 10:31+0530\n"
 "Last-Translator: A S Alam <aalam@users.sf.net>\n"
 "Language-Team: ਪੰਜਾਬੀ <punjabi-users@lists.sf.net>\n"
@@ -69,9 +69,11 @@ msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr "(c) 1998-2001, Michael Kropfberger"
 
 #: src/kdf.cpp:66 src/kwikdisk.cpp:318
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "(c) 1998-2001, Michael Kropfberger"
+msgctxt "@info:credit"
 msgid "Michael Kropfberger"
-msgstr ""
+msgstr "(c) 1998-2001, Michael Kropfberger"
 
 #: src/kdfconfig.cpp:32
 #, kde-format
@@ -301,7 +303,9 @@ msgid "Original author"
 msgstr "ਅਸਲੀ ਲੇਖਕ"
 
 #: src/kwikdisk.cpp:321
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Espen Sand"
+msgctxt "@info:credit"
 msgid "Espen Sand"
 msgstr "ਇਸਪਿਨ ਸੈਂਡ"
 
@@ -311,9 +315,11 @@ msgid "KDE 2 changes"
 msgstr "KDE 2 ਬਦਲਾਅ"
 
 #: src/kwikdisk.cpp:323
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "(C) 2004 Stanislav Karchebny"
+msgctxt "@info:credit"
 msgid "Stanislav Karchebny"
-msgstr ""
+msgstr "(C) 2004 Stanislav Karchebny"
 
 #: src/kwikdisk.cpp:324
 #, kde-format

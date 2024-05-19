@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-15 01:54+0000\n"
+"POT-Creation-Date: 2024-05-19 00:40+0000\n"
 "PO-Revision-Date: 2007-09-03 15:25+0330\n"
 "Last-Translator: Nazanin Kazemi <kazemi@itland.ir>\n"
 "Language-Team: Persian <kde-i18n-fa@kde.org>\n"
@@ -72,6 +72,7 @@ msgstr ""
 
 #: src/kdf.cpp:66 src/kwikdisk.cpp:318
 #, kde-format
+msgctxt "@info:credit"
 msgid "Michael Kropfberger"
 msgstr ""
 
@@ -305,6 +306,7 @@ msgstr "نویسنده اصلی"
 
 #: src/kwikdisk.cpp:321
 #, kde-format
+msgctxt "@info:credit"
 msgid "Espen Sand"
 msgstr ""
 
@@ -315,6 +317,7 @@ msgstr "تغییرات KDE ۲"
 
 #: src/kwikdisk.cpp:323
 #, kde-format
+msgctxt "@info:credit"
 msgid "Stanislav Karchebny"
 msgstr ""
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-15 01:54+0000\n"
+"POT-Creation-Date: 2024-05-19 00:40+0000\n"
 "PO-Revision-Date: 2007-08-27 14:53+0545\n"
 "Last-Translator: Narayan Kumar Magar <narayan@mpp.org.np>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -73,7 +73,9 @@ msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr "(c) 1998-2001, माइकल क्रोप्फ्बर्गर"
 
 #: src/kdf.cpp:66 src/kwikdisk.cpp:318
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Michael Kropfberger"
+msgctxt "@info:credit"
 msgid "Michael Kropfberger"
 msgstr "माइकल क्रोप्फ्बर्गर"
 
@@ -323,7 +325,9 @@ msgid "Original author"
 msgstr "मौलिक लेखक"
 
 #: src/kwikdisk.cpp:321
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Espen Sand"
+msgctxt "@info:credit"
 msgid "Espen Sand"
 msgstr "एस्पेन सान्ड"
 
@@ -333,7 +337,9 @@ msgid "KDE 2 changes"
 msgstr "केडीई 2 परिवर्तन"
 
 #: src/kwikdisk.cpp:323
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Stanislav Karchebny"
+msgctxt "@info:credit"
 msgid "Stanislav Karchebny"
 msgstr "स्तानिस्लभ कार्चेब्नि"
 

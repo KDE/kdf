@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-15 01:54+0000\n"
+"POT-Creation-Date: 2024-05-19 00:40+0000\n"
 "PO-Revision-Date: 2006-01-25 18:27+0100\n"
 "Last-Translator: Bozidar Proevski <bobibobi@freemail.com.mk>\n"
 "Language-Team: Macedonian <mkde-l10n@lists.sourceforge.net>\n"
@@ -72,6 +72,7 @@ msgstr ""
 
 #: src/kdf.cpp:66 src/kwikdisk.cpp:318
 #, kde-format
+msgctxt "@info:credit"
 msgid "Michael Kropfberger"
 msgstr ""
 
@@ -320,6 +321,7 @@ msgstr "Оригинален автор"
 
 #: src/kwikdisk.cpp:321
 #, kde-format
+msgctxt "@info:credit"
 msgid "Espen Sand"
 msgstr ""
 
@@ -330,6 +332,7 @@ msgstr "Промени од KDE 2"
 
 #: src/kwikdisk.cpp:323
 #, kde-format
+msgctxt "@info:credit"
 msgid "Stanislav Karchebny"
 msgstr ""
 
