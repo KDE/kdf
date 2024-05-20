@@ -68,8 +68,7 @@ msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr "(c) 1998-2001, Michael Kropfberger"
 
 #: src/kdf.cpp:66 src/kwikdisk.cpp:318
-#, fuzzy, kde-format
-#| msgid "Michael Kropfberger"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Michael Kropfberger"
 msgstr "Michael Kropfberger"
@@ -302,8 +301,7 @@ msgid "Original author"
 msgstr "原始作者"
 
 #: src/kwikdisk.cpp:321
-#, fuzzy, kde-format
-#| msgid "Espen Sand"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Espen Sand"
 msgstr "Espen Sand"
@@ -314,8 +312,7 @@ msgid "KDE 2 changes"
 msgstr "KDE 2 更改"
 
 #: src/kwikdisk.cpp:323
-#, fuzzy, kde-format
-#| msgid "Stanislav Karchebny"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Stanislav Karchebny"
 msgstr "Stanislav Karchebny"

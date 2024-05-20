@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kdeutils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-19 00:40+0000\n"
-"PO-Revision-Date: 2024-02-09 17:46+0300\n"
+"PO-Revision-Date: 2024-05-19 22:36+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.01.95\n"
+"X-Generator: Lokalize 24.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -73,11 +73,10 @@ msgstr "KDE boş disk alanı izlencesi"
 #: src/kdf.cpp:60
 #, kde-format
 msgid "(c) 1998-2001, Michael Kropfberger"
-msgstr "(c) 1998-2001, Michael Kropfberger"
+msgstr "(c) 1998–2001, Michael Kropfberger"
 
 #: src/kdf.cpp:66 src/kwikdisk.cpp:318
-#, fuzzy, kde-format
-#| msgid "Michael Kropfberger"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Michael Kropfberger"
 msgstr "Michael Kropfberger"
@@ -311,8 +310,7 @@ msgid "Original author"
 msgstr "Asıl yazar"
 
 #: src/kwikdisk.cpp:321
-#, fuzzy, kde-format
-#| msgid "Espen Sand"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Espen Sand"
 msgstr "Espen Sand"
@@ -323,11 +321,10 @@ msgid "KDE 2 changes"
 msgstr "KDE 2 değişiklikleri"
 
 #: src/kwikdisk.cpp:323
-#, fuzzy, kde-format
-#| msgid "Stanislav Karchebny"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Stanislav Karchebny"
-msgstr "Stanislav Karchebny"
+msgstr "Stanislav Karçebniy"
 
 #: src/kwikdisk.cpp:324
 #, kde-format
