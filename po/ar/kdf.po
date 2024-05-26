@@ -7,22 +7,22 @@
 # Fahad Al-Saidi <fahad.alsaidi@gmail.com>, 2007.
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
 # Youness BOUTYOUR <niceboy@linuxac.org>, 2008.
-# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2010, 2022.
+# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2010, 2022, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-19 00:40+0000\n"
-"PO-Revision-Date: 2022-02-05 14:58+0400\n"
+"PO-Revision-Date: 2024-05-25 18:04+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
-"Language-Team: ar\n"
+"Language-Team: \n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Lokalize 21.07.70\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -77,11 +77,10 @@ msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr "حقوق الملكية(c) 1998-2001, Michael Kropfberger"
 
 #: src/kdf.cpp:66 src/kwikdisk.cpp:318
-#, fuzzy, kde-format
-#| msgid "Michael Kropfberger"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Michael Kropfberger"
-msgstr "Michael Kropfberger"
+msgstr "مايكل كروبفبرجر"
 
 #: src/kdfconfig.cpp:32
 #, kde-format
@@ -123,7 +122,7 @@ msgstr "متفرّغ"
 #, kde-format
 msgctxt "Used storage space in %"
 msgid "Full %"
-msgstr "المستخدم %"
+msgstr "المستخدم ٪"
 
 #: src/kdfconfig.cpp:39 src/kdfwidget.cpp:61
 #, kde-format
@@ -311,11 +310,10 @@ msgid "Original author"
 msgstr "المؤلف الأصلي"
 
 #: src/kwikdisk.cpp:321
-#, fuzzy, kde-format
-#| msgid "Espen Sand"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Espen Sand"
-msgstr "Espen Sand"
+msgstr "أسبن ساند"
 
 #: src/kwikdisk.cpp:322
 #, kde-format
@@ -323,11 +321,10 @@ msgid "KDE 2 changes"
 msgstr "تغييرات كدى 2"
 
 #: src/kwikdisk.cpp:323
-#, fuzzy, kde-format
-#| msgid "Stanislav Karchebny"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Stanislav Karchebny"
-msgstr "Stanislav Karchebny"
+msgstr "ستانيسلاف كارشيبني"
 
 #: src/kwikdisk.cpp:324
 #, kde-format
