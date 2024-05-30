@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Lukáš Tinkl <ltinkl@redhat.com>, 2010.
 # Vít Pelčák <vit@pelcak.org>, 2010, 2011, 2016.
-# Vit Pelcak <vit@pelcak.org>, 2022.
+# SPDX-FileCopyrightText: 2022, 2024 Vit Pelcak <vit@pelcak.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-19 00:40+0000\n"
-"PO-Revision-Date: 2022-01-26 12:54+0100\n"
+"PO-Revision-Date: 2024-05-29 11:27+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.12.1\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -73,7 +73,7 @@ msgstr "(c) 1998-2001, Michael Kropfberger"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Michael Kropfberger"
-msgstr ""
+msgstr "Michael Kropfberger"
 
 #: src/kdfconfig.cpp:32
 #, kde-format
@@ -306,7 +306,7 @@ msgstr "Původní autor"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Espen Sand"
-msgstr ""
+msgstr "Espen Sand"
 
 #: src/kwikdisk.cpp:322
 #, kde-format
@@ -317,7 +317,7 @@ msgstr "Změny v KDE 2"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Stanislav Karchebny"
-msgstr ""
+msgstr "Stanislav Karchebny"
 
 #: src/kwikdisk.cpp:324
 #, kde-format
