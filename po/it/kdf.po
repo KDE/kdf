@@ -4,14 +4,14 @@
 # Andrea Rizzi <rizzi@kde.org>, 2004.
 # Nicola Ruggero <nixprog.adsl@tiscali.it>, 2005.
 # Nicola Ruggero <nicola@nxnt.org>, 2006, 2008, 2009, 2010.
-# Luigi Toscano <luigi.toscano@tiscali.it>, 2017, 2022.
+# Luigi Toscano <luigi.toscano@tiscali.it>, 2017, 2022, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-19 00:40+0000\n"
-"PO-Revision-Date: 2022-01-29 00:27+0100\n"
+"PO-Revision-Date: 2024-05-21 15:48+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.08.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -72,8 +72,7 @@ msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr "(c) 1998-2001, Michael Kropfberger"
 
 #: src/kdf.cpp:66 src/kwikdisk.cpp:318
-#, fuzzy, kde-format
-#| msgid "Michael Kropfberger"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Michael Kropfberger"
 msgstr "Michael Kropfberger"
@@ -308,8 +307,7 @@ msgid "Original author"
 msgstr "Autore originale"
 
 #: src/kwikdisk.cpp:321
-#, fuzzy, kde-format
-#| msgid "Espen Sand"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Espen Sand"
 msgstr "Espen Sand"
@@ -320,8 +318,7 @@ msgid "KDE 2 changes"
 msgstr "Modifiche KDE 2"
 
 #: src/kwikdisk.cpp:323
-#, fuzzy, kde-format
-#| msgid "Stanislav Karchebny"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Stanislav Karchebny"
 msgstr "Stanislav Karchebny"
