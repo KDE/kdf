@@ -13,7 +13,7 @@ if(NOT UNIX)
 endif(NOT UNIX)
 
 set (QT_MIN_VERSION "6.5.0")
-set (KF_MIN_VERSION "5.240.0")
+set (KF_MIN_VERSION "6.3")
 
 find_package(ECM ${KF_MIN_VERSION} CONFIG REQUIRED)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake)
@@ -64,8 +64,8 @@ set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
     TYPE OPTIONAL
 )
 add_definitions(-DQT_NO_CONTEXTLESS_CONNECT)
-ecm_set_disabled_deprecation_versions(QT 6.6
-    KF 5.240
+ecm_set_disabled_deprecation_versions(QT 6.7
+    KF 6.4
 )
 
 if (CMAKE_UNITY_BUILD)
