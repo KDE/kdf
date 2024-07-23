@@ -416,13 +416,3 @@ msgstr "Arranjament general"
 #, kde-format
 msgid "Mount Commands"
 msgstr "Ordres de muntatge"
-
-#~ msgid ""
-#~ "A right mouse button click opens a context menu to mount/unmount a device "
-#~ "or to open it in the file manager."
-#~ msgstr ""
-#~ "Un clic amb el botó dret del ratolí obre un menú contextual per a muntar/"
-#~ "desmuntar un dispositiu o obrir-lo en el gestor de fitxer."
-
-#~ msgid "A test application"
-#~ msgstr "Una aplicació de prova"
