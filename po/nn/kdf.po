@@ -1,21 +1,20 @@
 # Translation of kdf to Norwegian Nynorsk
 #
 # Gaute Hvoslef Kvalnes <gaute@verdsveven.com>, 1999, 2000, 2002, 2004.
-# Karl Ove Hufthammer <karl@huftis.org>, 2007, 2008, 2016, 2018, 2022.
 # Eirik U. Birkeland <eirbir@gmail.com>, 2008, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-19 00:40+0000\n"
-"PO-Revision-Date: 2022-07-02 13:33+0200\n"
+"PO-Revision-Date: 2024-07-26 15:11+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.04.2\n"
+"X-Generator: Lokalize 24.11.70\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
@@ -72,8 +71,7 @@ msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr "© 1998–2001 Michael Kropfberger"
 
 #: src/kdf.cpp:66 src/kwikdisk.cpp:318
-#, fuzzy, kde-format
-#| msgid "Michael Kropfberger"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Michael Kropfberger"
 msgstr "Michael Kropfberger"
@@ -307,8 +305,7 @@ msgid "Original author"
 msgstr "Opphavsperson"
 
 #: src/kwikdisk.cpp:321
-#, fuzzy, kde-format
-#| msgid "Espen Sand"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Espen Sand"
 msgstr "Espen Sand"
@@ -319,8 +316,7 @@ msgid "KDE 2 changes"
 msgstr "Endringar i KDE 2"
 
 #: src/kwikdisk.cpp:323
-#, fuzzy, kde-format
-#| msgid "Stanislav Karchebny"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Stanislav Karchebny"
 msgstr "Stanislav Karchebny"
