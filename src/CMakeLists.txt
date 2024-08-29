@@ -47,6 +47,7 @@ target_link_libraries(kdfprivate PUBLIC
     KF6::WidgetsAddons
     KF6::IconWidgets
     KF6::StatusNotifierItem
+    KF6::Crash
 )
 
 set_target_properties(kdfprivate PROPERTIES

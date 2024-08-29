@@ -12,6 +12,7 @@
 #include <KStandardAction>
 #include <KActionCollection>
 #include <KLocalizedString>
+#include <KCrash>
 
 #include <QApplication>
 #include <QCommandLineParser>
@@ -74,6 +75,8 @@ int main(int argc, char **argv)
 
     KAboutData::setApplicationData(aboutData);
     QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("kdf")));
+
+    KCrash::initialize();
 
     // do the command line parsing
     parser.process(app);

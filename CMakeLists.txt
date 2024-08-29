@@ -55,6 +55,7 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED
     WidgetsAddons
     XmlGui
     StatusNotifierItem
+    Crash
 )
 
 
