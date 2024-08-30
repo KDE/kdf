@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-19 00:40+0000\n"
+"POT-Creation-Date: 2024-08-30 00:42+0000\n"
 "PO-Revision-Date: 2006-01-15 01:25+0100\n"
 "Last-Translator: Mashrab Kuvatov <kmashrab@uni-bremen.de>\n"
 "Language-Team: Uzbek <floss-uz-l10n@googlegroups.com>\n"
@@ -43,28 +43,28 @@ msgstr ""
 msgid "could not execute %1"
 msgstr "%1 буйруғини бажариб бўлмади"
 
-#: src/kdf.cpp:26
+#: src/kdf.cpp:27
 #, kde-format
 msgctxt "Update action"
 msgid "&Update"
 msgstr ""
 
-#: src/kdf.cpp:56
+#: src/kdf.cpp:57
 #, kde-format
 msgid "KDiskFree"
 msgstr "KDiskFree"
 
-#: src/kdf.cpp:58
+#: src/kdf.cpp:59
 #, kde-format
 msgid "KDE free disk space utility"
 msgstr ""
 
-#: src/kdf.cpp:60
+#: src/kdf.cpp:61
 #, kde-format
 msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr ""
 
-#: src/kdf.cpp:66 src/kwikdisk.cpp:318
+#: src/kdf.cpp:67 src/kwikdisk.cpp:318
 #, kde-format
 msgctxt "@info:credit"
 msgid "Michael Kropfberger"

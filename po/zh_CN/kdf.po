@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-19 00:40+0000\n"
+"POT-Creation-Date: 2024-08-30 00:42+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -46,28 +46,28 @@ msgstr ""
 msgid "could not execute %1"
 msgstr "无法执行 %1"
 
-#: src/kdf.cpp:26
+#: src/kdf.cpp:27
 #, kde-format
 msgctxt "Update action"
 msgid "&Update"
 msgstr "更新(&U)"
 
-#: src/kdf.cpp:56
+#: src/kdf.cpp:57
 #, kde-format
 msgid "KDiskFree"
 msgstr "KDiskFree"
 
-#: src/kdf.cpp:58
+#: src/kdf.cpp:59
 #, kde-format
 msgid "KDE free disk space utility"
 msgstr "KDE 剩余磁盘空间工具"
 
-#: src/kdf.cpp:60
+#: src/kdf.cpp:61
 #, kde-format
 msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr "(c) 1998-2001, Michael Kropfberger"
 
-#: src/kdf.cpp:66 src/kwikdisk.cpp:318
+#: src/kdf.cpp:67 src/kwikdisk.cpp:318
 #, kde-format
 msgctxt "@info:credit"
 msgid "Michael Kropfberger"
