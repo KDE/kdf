@@ -17,24 +17,23 @@ class KDFPRIVATE_EXPORT COptionDialog : public KPageDialog
 {
     Q_OBJECT
 
-    public:
-        explicit COptionDialog( QWidget *parent=nullptr );
-        ~COptionDialog() override;
+public:
+    explicit COptionDialog(QWidget *parent = nullptr);
+    ~COptionDialog() override;
 
-    protected Q_SLOTS:
-        void slotOk();
-        void slotApply();
-        void slotChanged();
-        void slotHelp();
+protected Q_SLOTS:
+    void slotOk();
+    void slotApply();
+    void slotChanged();
+    void slotHelp();
 
-    Q_SIGNALS:
-        void valueChanged();
+Q_SIGNALS:
+    void valueChanged();
 
-    private:
-        KDFConfigWidget *mConf = nullptr;
-        MntConfigWidget *mMnt = nullptr;
-        bool dataChanged;
+private:
+    KDFConfigWidget *mConf = nullptr;
+    MntConfigWidget *mMnt = nullptr;
+    bool dataChanged;
 };
 
 #endif
-

@@ -15,28 +15,28 @@
 #include <KLocalizedString>
 #include <KProcess>
 
-#include <QTextStream>
 #include <QFile>
 #include <QRegularExpression>
+#include <QTextStream>
 
 #include <math.h>
 #include <stdlib.h>
 
-static const QLatin1Char Blank = QLatin1Char( ' ' );
-static const QLatin1Char Delimiter = QLatin1Char( '#' );
+static const QLatin1Char Blank = QLatin1Char(' ');
+static const QLatin1Char Delimiter = QLatin1Char('#');
 
 /***************************************************************************
-  * constructor
-**/
+ * constructor
+ **/
 DiskList::DiskList(QObject *parent)
-        : QObject(parent), dfProc(new KProcess(this))
+    : QObject(parent)
+    , dfProc(new KProcess(this))
 {
     qCDebug(KDF);
 
     updatesDisabled = false;
 
-    if (No_FS_Type)
-    {
+    if (No_FS_Type) {
         qCDebug(KDF) << "df gives no FS_TYPE";
     }
 
@@ -44,23 +44,20 @@ DiskList::DiskList(QObject *parent)
 
     // BackgroundProcesses ****************************************
     dfProc->setOutputChannelMode(KProcess::MergedChannels);
-    connect(dfProc,SIGNAL(finished(int,QProcess::ExitStatus)),
-            this, SLOT(dfDone()) );
+    connect(dfProc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(dfDone()));
 
-    readingDFStdErrOut=false;
+    readingDFStdErrOut = false;
     config = KSharedConfig::openConfig();
     loadSettings();
 }
 
-
 /***************************************************************************
-  * destructor
-**/
+ * destructor
+ **/
 DiskList::~DiskList()
 {
     dfProc->disconnect();
-    if( dfProc->state() == QProcess::Running )
-    {
+    if (dfProc->state() == QProcess::Running) {
         dfProc->terminate();
         dfProc->waitForFinished();
     }
@@ -78,8 +75,8 @@ void DiskList::setUpdatesDisabled(bool disable)
 }
 
 /***************************************************************************
-  * saves the KConfig for special mount/umount scripts
-**/
+ * saves the KConfig for special mount/umount scripts
+ **/
 void DiskList::applySettings()
 {
     qCDebug(KDF);
@@ -89,26 +86,24 @@ void DiskList::applySettings()
 
     DisksConstIterator itr = disksConstIteratorBegin();
     DisksConstIterator end = disksConstIteratorEnd();
-    for (; itr != end; ++itr)
-    {
-        DiskEntry * disk = *itr;
+    for (; itr != end; ++itr) {
+        DiskEntry *disk = *itr;
 
         key = QLatin1String("Mount") + Separator + disk->deviceName() + Separator + disk->mountPoint();
-        group.writePathEntry(key,disk->mountCommand());
+        group.writePathEntry(key, disk->mountCommand());
 
         key = QLatin1String("Umount") + Separator + disk->deviceName() + Separator + disk->mountPoint();
-        group.writePathEntry(key,disk->umountCommand());
+        group.writePathEntry(key, disk->umountCommand());
 
         key = QLatin1String("Icon") + Separator + disk->deviceName() + Separator + disk->mountPoint();
-        group.writePathEntry(key,disk->realIconName());
+        group.writePathEntry(key, disk->realIconName());
     }
     group.sync();
 }
 
-
 /***************************************************************************
-  * reads the KConfig for special mount/umount scripts
-**/
+ * reads the KConfig for special mount/umount scripts
+ **/
 void DiskList::loadSettings()
 {
     qCDebug(KDF);
@@ -118,9 +113,8 @@ void DiskList::loadSettings()
 
     DisksConstIterator itr = disksConstIteratorBegin();
     DisksConstIterator end = disksConstIteratorEnd();
-    for (; itr != end; ++itr)
-    {
-        DiskEntry * disk = *itr;
+    for (; itr != end; ++itr) {
+        DiskEntry *disk = *itr;
 
         key = QLatin1String("Mount") + Separator + disk->deviceName() + Separator + disk->mountPoint();
         disk->setMountCommand(group.readPathEntry(key, QString()));
@@ -129,38 +123,31 @@ void DiskList::loadSettings()
         disk->setUmountCommand(group.readPathEntry(key, QString()));
 
         key = QLatin1String("Icon") + Separator + disk->deviceName() + Separator + disk->mountPoint();
-        QString icon=group.readPathEntry(key, QString());
+        QString icon = group.readPathEntry(key, QString());
         if (!icon.isEmpty())
             disk->setIconName(icon);
     }
 }
 
-
-static QString expandEscapes(const QString& s) {
+static QString expandEscapes(const QString &s)
+{
     QString rc;
-    for (int i = 0; i < s.length(); i++)
-    {
-        if (s[i] == QLatin1Char( '\\' ))
-        {
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == QLatin1Char('\\')) {
             i++;
-            QChar str=s.at(i);
-            if( str == QLatin1Char( '\\' ))
-                rc += QLatin1Char( '\\' );
-            else if( str == QLatin1Char( '0' ))
-            {
-                rc += QLatin1Char( s.mid(i,3).toULongLong(nullptr, 8) );
+            QChar str = s.at(i);
+            if (str == QLatin1Char('\\'))
+                rc += QLatin1Char('\\');
+            else if (str == QLatin1Char('0')) {
+                rc += QLatin1Char(s.mid(i, 3).toULongLong(nullptr, 8));
                 i += 2;
-            }
-            else
-            {
+            } else {
                 // give up and not process anything else because I'm too lazy
                 // to implement other escapes
-                rc += QLatin1Char( '\\' );
+                rc += QLatin1Char('\\');
                 rc += s[i];
             }
-        }
-        else
-        {
+        } else {
             rc += s[i];
         }
     }
@@ -168,8 +155,8 @@ static QString expandEscapes(const QString& s) {
 }
 
 /***************************************************************************
-  * tries to figure out the possibly mounted fs
-**/
+ * tries to figure out the possibly mounted fs
+ **/
 int DiskList::readFSTAB()
 {
     qCDebug(KDF);
@@ -178,118 +165,91 @@ int DiskList::readFSTAB()
         return -1;
 
     QFile f(FSTAB);
-    if ( f.open(QIODevice::ReadOnly) )
-    {
-        QTextStream t (&f);
+    if (f.open(QIODevice::ReadOnly)) {
+        QTextStream t(&f);
         QString s;
         DiskEntry *disk;
 
-        //disks->clear(); // ############
+        // disks->clear(); // ############
 
-        while (! t.atEnd())
-        {
-            s=t.readLine();
-            s=s.simplified();
+        while (!t.atEnd()) {
+            s = t.readLine();
+            s = s.simplified();
 
-	    if ( (!s.isEmpty() ) && (s.indexOf(Delimiter)!=0) )
-	    {
+            if ((!s.isEmpty()) && (s.indexOf(Delimiter) != 0)) {
                 // not empty or commented out by '#'
                 qCDebug(KDF) << "GOT: [" << s << "]";
                 disk = new DiskEntry();
                 disk->setMounted(false);
-		QFile path(QStringLiteral( "/dev/disk/by-uuid/" ));
-		// We need to remove UUID=
-		// TODO: Fix for other OS if using UUID and not using /dev/disk/by-uuid/
-		if ( s.contains(QLatin1String( "UUID=" )) )
-		{
-			if (path.exists())
-			{
-				const QRegularExpression uuid( QLatin1String( "UUID=(\\S+)(\\s+)" ));
-				QString extracted ;
-				if (const auto uuidMatch = uuid.match(s); uuidMatch.hasMatch())
-				{
-					extracted = uuidMatch.captured(1);
-				}
+                QFile path(QStringLiteral("/dev/disk/by-uuid/"));
+                // We need to remove UUID=
+                // TODO: Fix for other OS if using UUID and not using /dev/disk/by-uuid/
+                if (s.contains(QLatin1String("UUID="))) {
+                    if (path.exists()) {
+                        const QRegularExpression uuid(QLatin1String("UUID=(\\S+)(\\s+)"));
+                        QString extracted;
+                        if (const auto uuidMatch = uuid.match(s); uuidMatch.hasMatch()) {
+                            extracted = uuidMatch.captured(1);
+                        }
 
-				if (! extracted.isEmpty() )
-				{
-					QString device = path.fileName() + extracted;
-					QFile file(device);
+                        if (!extracted.isEmpty()) {
+                            QString device = path.fileName() + extracted;
+                            QFile file(device);
 
-					if ( file.exists() )
-					{
-						QString filesym = file.symLinkTarget();
-						disk->setDeviceName(filesym);
-					}
-					else
-					{
-						qCDebug(KDF) << "The device does not seems to exist";
-						continue;
-					}
-				}
-				else
-				{
-					qCDebug(KDF) << "Invalid UUID";
-					continue;
-				}
-			}
-			else
-			{
-				qCDebug(KDF) << "UUID OK but there is no /dev/disk/by-uuid/";
-				continue;
-			}
-		}
-		else
-		{
-			disk->setDeviceName(expandEscapes(s.left(s.indexOf(Blank))));
-		}
-
-		s.remove(0,s.indexOf(Blank)+1 );
-#ifdef _OS_SOLARIS_
-                //device to fsck
-                s.remove(0,s.indexOf(Blank)+1 );
-#endif
-		disk->setMountPoint(expandEscapes(s.left(s.indexOf(Blank))));
-		s.remove(0,s.indexOf(Blank)+1 );
-		disk->setFsType(s.left(s.indexOf(Blank)) );
-		s.remove(0,s.indexOf(Blank)+1 );
-                disk->setMountOptions(s.left(s.indexOf(Blank)) );
-                s.remove(0,s.indexOf(Blank)+1 );
-
-                if ( (disk->deviceName() != QLatin1String( "none" ))
-                        && (disk->fsType() != QLatin1String( "swap" ))
-                        && (disk->fsType() != QLatin1String( "sysfs" ))
-                        && (disk->fsType() != QLatin1String( "rootfs" ))
-                        && (disk->fsType() != QLatin1String( "tmpfs" ))
-                        && (disk->fsType() != QLatin1String( "debugfs" ))
-                        && (disk->fsType() != QLatin1String( "devtmpfs" ))
-                        && (disk->mountPoint() != QLatin1String( "/dev/swap" ))
-                        && (disk->mountPoint() != QLatin1String( "/dev/pts" ))
-                        && (disk->mountPoint() != QLatin1String( "/dev/shm" ))
-                        && (!disk->mountPoint().startsWith(QLatin1String( "/sys/" )) )
-                        && (!disk->mountPoint().startsWith(QLatin1String( "/proc/" )) ) )
-                {
-                    replaceDeviceEntry(disk);
+                            if (file.exists()) {
+                                QString filesym = file.symLinkTarget();
+                                disk->setDeviceName(filesym);
+                            } else {
+                                qCDebug(KDF) << "The device does not seems to exist";
+                                continue;
+                            }
+                        } else {
+                            qCDebug(KDF) << "Invalid UUID";
+                            continue;
+                        }
+                    } else {
+                        qCDebug(KDF) << "UUID OK but there is no /dev/disk/by-uuid/";
+                        continue;
+                    }
+                } else {
+                    disk->setDeviceName(expandEscapes(s.left(s.indexOf(Blank))));
                 }
-                else
-                {
+
+                s.remove(0, s.indexOf(Blank) + 1);
+#ifdef _OS_SOLARIS_
+                // device to fsck
+                s.remove(0, s.indexOf(Blank) + 1);
+#endif
+                disk->setMountPoint(expandEscapes(s.left(s.indexOf(Blank))));
+                s.remove(0, s.indexOf(Blank) + 1);
+                disk->setFsType(s.left(s.indexOf(Blank)));
+                s.remove(0, s.indexOf(Blank) + 1);
+                disk->setMountOptions(s.left(s.indexOf(Blank)));
+                s.remove(0, s.indexOf(Blank) + 1);
+
+                if ((disk->deviceName() != QLatin1String("none")) && (disk->fsType() != QLatin1String("swap")) && (disk->fsType() != QLatin1String("sysfs"))
+                    && (disk->fsType() != QLatin1String("rootfs")) && (disk->fsType() != QLatin1String("tmpfs")) && (disk->fsType() != QLatin1String("debugfs"))
+                    && (disk->fsType() != QLatin1String("devtmpfs")) && (disk->mountPoint() != QLatin1String("/dev/swap"))
+                    && (disk->mountPoint() != QLatin1String("/dev/pts")) && (disk->mountPoint() != QLatin1String("/dev/shm"))
+                    && (!disk->mountPoint().startsWith(QLatin1String("/sys/"))) && (!disk->mountPoint().startsWith(QLatin1String("/proc/")))) {
+                    replaceDeviceEntry(disk);
+                } else {
                     delete disk;
                 }
 
-            } //if not empty
-        } //while
+            } // if not empty
+        } // while
         f.close();
-    } //if f.open
+    } // if f.open
 
-    loadSettings(); //to get the mountCommands
+    loadSettings(); // to get the mountCommands
 
     return 1;
 }
 
-
 /***************************************************************************
-  * reads the df-commands results
-**/
+ * reads the df-commands results
+ **/
 int DiskList::readDF()
 {
     qCDebug(KDF);
@@ -300,14 +260,14 @@ int DiskList::readDF()
     dfProc->clearProgram();
 
     QStringList dfenv;
-    dfenv << QStringLiteral( "LANG=en_US" );
-    dfenv << QStringLiteral( "LC_ALL=en_US" );
-    dfenv << QStringLiteral( "LC_MESSAGES=en_US" );
-    dfenv << QStringLiteral( "LC_TYPE=en_US" );
-    dfenv << QStringLiteral( "LANGUAGE=en_US" );
-    dfenv << QStringLiteral( "LC_ALL=POSIX" );
+    dfenv << QStringLiteral("LANG=en_US");
+    dfenv << QStringLiteral("LC_ALL=en_US");
+    dfenv << QStringLiteral("LC_MESSAGES=en_US");
+    dfenv << QStringLiteral("LC_TYPE=en_US");
+    dfenv << QStringLiteral("LANGUAGE=en_US");
+    dfenv << QStringLiteral("LC_ALL=POSIX");
     dfProc->setEnvironment(dfenv);
-    dfProc->setProgram(DF_Command,QString(DF_Args).split(QLatin1Char( ' ' )));
+    dfProc->setProgram(DF_Command, QString(DF_Args).split(QLatin1Char(' ')));
     dfProc->start();
 
     if (!dfProc->waitForStarted(-1))
@@ -316,133 +276,109 @@ int DiskList::readDF()
     return 1;
 }
 
-
 /***************************************************************************
-  * is called, when the df-command has finished
-**/
+ * is called, when the df-command has finished
+ **/
 void DiskList::dfDone()
 {
     qCDebug(KDF);
 
     if (updatesDisabled)
-        return; //Don't touch the data for now..
+        return; // Don't touch the data for now..
 
-    readingDFStdErrOut=true;
+    readingDFStdErrOut = true;
 
     DisksConstIterator itr = disksConstIteratorBegin();
     DisksConstIterator end = disksConstIteratorEnd();
-    for (; itr != end; ++itr)
-    {
-        DiskEntry * disk = *itr;
-        disk->setMounted(false);  // set all devs unmounted
+    for (; itr != end; ++itr) {
+        DiskEntry *disk = *itr;
+        disk->setMounted(false); // set all devs unmounted
     }
 
     QString dfStringErrOut = QString::fromLatin1(dfProc->readAllStandardOutput());
-    QTextStream t (&dfStringErrOut, QIODevice::ReadOnly);
+    QTextStream t(&dfStringErrOut, QIODevice::ReadOnly);
 
     qCDebug(KDF) << t.status();
 
     QString s;
-    while ( !t.atEnd() )
-    {
+    while (!t.atEnd()) {
         s = t.readLine();
-        if ( s.left(10) == QLatin1String( "Filesystem" ) )
+        if (s.left(10) == QLatin1String("Filesystem"))
             break;
     }
-    if ( t.atEnd() )
-        qFatal("Error running df command... got [%s]",qPrintable(s));
+    if (t.atEnd())
+        qFatal("Error running df command... got [%s]", qPrintable(s));
 
-    while ( !t.atEnd() )
-    {
-        QString u,v;
+    while (!t.atEnd()) {
+        QString u, v;
         DiskEntry *disk;
-        s=t.readLine();
-        s=s.simplified();
-        if ( !s.isEmpty() )
-        {
-            disk = new DiskEntry(); //Q_CHECK_PTR(disk);
+        s = t.readLine();
+        s = s.simplified();
+        if (!s.isEmpty()) {
+            disk = new DiskEntry(); // Q_CHECK_PTR(disk);
 
-            if (!s.contains(Blank))      // devicename was too long, rest in next line
-                if ( !t.atEnd() )
-                {       // just appends the next line
-                    v=t.readLine();
-                    s.append(v );
-                    s=s.simplified();
-                }//if silly linefeed
+            if (!s.contains(Blank)) // devicename was too long, rest in next line
+                if (!t.atEnd()) { // just appends the next line
+                    v = t.readLine();
+                    s.append(v);
+                    s = s.simplified();
+                } // if silly linefeed
 
+            disk->setDeviceName(s.left(s.indexOf(Blank)));
+            s.remove(0, s.indexOf(Blank) + 1);
 
-            disk->setDeviceName(s.left(s.indexOf(Blank)) );
-            s.remove(0,s.indexOf(Blank)+1 );
-
-            if (No_FS_Type)
-            {
-                disk->setFsType(QStringLiteral( "?" ));
-            }
-            else
-            {
-                disk->setFsType(s.left(s.indexOf(Blank)) );
-                s.remove(0,s.indexOf(Blank)+1 );
+            if (No_FS_Type) {
+                disk->setFsType(QStringLiteral("?"));
+            } else {
+                disk->setFsType(s.left(s.indexOf(Blank)));
+                s.remove(0, s.indexOf(Blank) + 1);
             };
 
-            u=s.left(s.indexOf(Blank));
-            disk->setKBSize(u.toULongLong() );
-            s.remove(0,s.indexOf(Blank)+1 );
+            u = s.left(s.indexOf(Blank));
+            disk->setKBSize(u.toULongLong());
+            s.remove(0, s.indexOf(Blank) + 1);
 
-            u=s.left(s.indexOf(Blank));
-            disk->setKBUsed(u.toULongLong() );
-            s.remove(0,s.indexOf(Blank)+1 );
+            u = s.left(s.indexOf(Blank));
+            disk->setKBUsed(u.toULongLong());
+            s.remove(0, s.indexOf(Blank) + 1);
 
-            u=s.left(s.indexOf(Blank));
-            disk->setKBAvail(u.toULongLong() );
-            s.remove(0,s.indexOf(Blank)+1 );
+            u = s.left(s.indexOf(Blank));
+            disk->setKBAvail(u.toULongLong());
+            s.remove(0, s.indexOf(Blank) + 1);
 
-
-            s.remove(0,s.indexOf(Blank)+1 );  // delete the capacity 94%
+            s.remove(0, s.indexOf(Blank) + 1); // delete the capacity 94%
             disk->setMountPoint(s);
 
-            if ( (disk->kBSize() > 0)
-                    && (disk->deviceName() != QLatin1String( "none" ))
-                    && (disk->fsType() != QLatin1String( "swap" ))
-                    && (disk->fsType() != QLatin1String( "sysfs" ))
-                    && (disk->fsType() != QLatin1String( "rootfs" ))
-                    && (disk->fsType() != QLatin1String( "tmpfs" ))
-                    && (disk->fsType() != QLatin1String( "debugfs" ))
-                    && (disk->fsType() != QLatin1String( "devtmpfs" ))
-                    && (disk->mountPoint() != QLatin1String( "/dev/swap" ))
-                    && (disk->mountPoint() != QLatin1String( "/dev/pts" ))
-                    && (disk->mountPoint() != QLatin1String( "/dev/shm" ))
-                    && (!disk->mountPoint().startsWith(QLatin1String( "/sys/" )) )
-                    && (!disk->mountPoint().startsWith(QLatin1String( "/proc/" )) ) )
-            {
-                disk->setMounted(true);    // it is now mounted (df lists only mounted)
+            if ((disk->kBSize() > 0) && (disk->deviceName() != QLatin1String("none")) && (disk->fsType() != QLatin1String("swap"))
+                && (disk->fsType() != QLatin1String("sysfs")) && (disk->fsType() != QLatin1String("rootfs")) && (disk->fsType() != QLatin1String("tmpfs"))
+                && (disk->fsType() != QLatin1String("debugfs")) && (disk->fsType() != QLatin1String("devtmpfs"))
+                && (disk->mountPoint() != QLatin1String("/dev/swap")) && (disk->mountPoint() != QLatin1String("/dev/pts"))
+                && (disk->mountPoint() != QLatin1String("/dev/shm")) && (!disk->mountPoint().startsWith(QLatin1String("/sys/")))
+                && (!disk->mountPoint().startsWith(QLatin1String("/proc/")))) {
+                disk->setMounted(true); // it is now mounted (df lists only mounted)
                 replaceDeviceEntry(disk);
-            }
-            else
-            {
+            } else {
                 delete disk;
             }
 
-        }//if not header
-    }//while further lines available
+        } // if not header
+    } // while further lines available
 
-    readingDFStdErrOut=false;
-    loadSettings(); //to get the mountCommands
+    readingDFStdErrOut = false;
+    loadSettings(); // to get the mountCommands
     Q_EMIT readDFDone();
 }
 
-int DiskList::find( DiskEntry* item )
+int DiskList::find(DiskEntry *item)
 {
-
     int pos = -1;
     int i = 0;
 
     DisksConstIterator itr = disksConstIteratorBegin();
     DisksConstIterator end = disksConstIteratorEnd();
-    for (; itr != end; ++itr)
-    {
-        DiskEntry * disk = *itr;
-        if ( *item==*disk )
-        {
+    for (; itr != end; ++itr) {
+        DiskEntry *disk = *itr;
+        if (*item == *disk) {
             pos = i;
             break;
         }
@@ -469,11 +405,10 @@ void DiskList::deleteAllMountedAt(const QString &mountpoint)
 }
 
 /***************************************************************************
-  * updates or creates a new DiskEntry in the KDFList and TabListBox
-**/
-void DiskList::replaceDeviceEntry(DiskEntry * disk)
+ * updates or creates a new DiskEntry in the KDFList and TabListBox
+ **/
+void DiskList::replaceDeviceEntry(DiskEntry *disk)
 {
-
     //
     // The 'disks' may already contain the 'disk'. If it do
     // we will replace some data. Otherwise 'disk' will be added to the list
@@ -484,28 +419,24 @@ void DiskList::replaceDeviceEntry(DiskEntry * disk)
 
     DisksConstIterator itr = disksConstIteratorBegin();
     DisksConstIterator end = disksConstIteratorEnd();
-    for (; itr != end; ++itr)
-    {
-        DiskEntry * item = *itr;
-        if( disk->realCompare(*item) )
-        {
+    for (; itr != end; ++itr) {
+        DiskEntry *item = *itr;
+        if (disk->realCompare(*item)) {
             pos = i;
             break;
         }
         i++;
     }
 
-    if ((pos == -1) && (disk->mounted()) )
+    if ((pos == -1) && (disk->mounted()))
         // no matching entry found for mounted disk
-        if ((disk->fsType() == QLatin1String( "?" )) || (disk->fsType() == QLatin1String( "cachefs" )))
-        {
-            //search for fitting cachefs-entry in static /etc/vfstab-data
-            DiskEntry* olddisk;
+        if ((disk->fsType() == QLatin1String("?")) || (disk->fsType() == QLatin1String("cachefs"))) {
+            // search for fitting cachefs-entry in static /etc/vfstab-data
+            DiskEntry *olddisk;
 
             DisksConstIterator itr = disksConstIteratorBegin();
             DisksConstIterator end = disksConstIteratorEnd();
-            for (; itr != end; ++itr)
-            {
+            for (; itr != end; ++itr) {
                 int p;
                 // cachefs deviceNames have no / behind the host-column
                 // eg. /cache/cache/.cfs_mnt_points/srv:_home_jesus
@@ -513,47 +444,37 @@ void DiskList::replaceDeviceEntry(DiskEntry * disk)
                 olddisk = *itr;
 
                 QString odiskName = olddisk->deviceName();
-                int ci=odiskName.indexOf(QLatin1Char( ':' )); // goto host-column
-                while ((ci =odiskName.indexOf(QLatin1Char( '/' ),ci)) > 0)
-                {
-                    odiskName.replace(ci,1,QStringLiteral( "_" ));
-                }//while
+                int ci = odiskName.indexOf(QLatin1Char(':')); // goto host-column
+                while ((ci = odiskName.indexOf(QLatin1Char('/'), ci)) > 0) {
+                    odiskName.replace(ci, 1, QStringLiteral("_"));
+                } // while
                 // check if there is something that is exactly the tail
                 // eg. [srv:/tmp3] is exact tail of [/cache/.cfs_mnt_points/srv:_tmp3]
-                if ( ( (p=disk->deviceName().lastIndexOf(odiskName
-                          ,disk->deviceName().length()) )
-                        != -1)
-                        && (p + odiskName.length()
-                            == disk->deviceName().length()) )
-                {
-                    pos = disks->indexOf(disk); //store the actual position
+                if (((p = disk->deviceName().lastIndexOf(odiskName, disk->deviceName().length())) != -1)
+                    && (p + odiskName.length() == disk->deviceName().length())) {
+                    pos = disks->indexOf(disk); // store the actual position
                     disk->setDeviceName(olddisk->deviceName());
                 }
-                //else  olddisk=disks->next();
-            }// while
-        }// if fsType == "?" or "cachefs"
-
+                // else  olddisk=disks->next();
+            } // while
+        } // if fsType == "?" or "cachefs"
 
 #ifdef No_FS_Type
-    if (pos != -1)
-    {
-        DiskEntry * olddisk = disks->at(pos);
+    if (pos != -1) {
+        DiskEntry *olddisk = disks->at(pos);
         if (olddisk)
             disk->setFsType(olddisk->fsType());
     }
 #endif
 
-    if (pos != -1)
-    {  // replace
-        DiskEntry * olddisk = disks->at(pos);
-        if ( (olddisk->mountOptions().contains(QLatin1String( "user" ))) &&
-                ( disk->mountOptions().contains(QLatin1String( "user" ))) )
-        {
+    if (pos != -1) { // replace
+        DiskEntry *olddisk = disks->at(pos);
+        if ((olddisk->mountOptions().contains(QLatin1String("user"))) && (disk->mountOptions().contains(QLatin1String("user")))) {
             // add "user" option to new diskEntry
-            QString s=disk->mountOptions();
-            if (s.length()>0)
-                s.append(QLatin1String( "," ));
-            s.append(QLatin1String( "user" ));
+            QString s = disk->mountOptions();
+            if (s.length() > 0)
+                s.append(QLatin1String(","));
+            s.append(QLatin1String("user"));
             disk->setMountOptions(s);
         }
         disk->setMountCommand(olddisk->mountCommand());
@@ -563,41 +484,30 @@ void DiskList::replaceDeviceEntry(DiskEntry * disk)
         // Keep the shorter one then, /dev/hda1 looks better than /dev/ide/host0/bus0/target0/lun0/part1
         // but redefine "shorter" to be the number of slashes in the path as a count on characters
         // breaks legitimate symlinks created by udev
-        if ( disk->deviceName().count( QLatin1Char( '/' ) ) > olddisk->deviceName().count( QLatin1Char( '/' ) ) )
+        if (disk->deviceName().count(QLatin1Char('/')) > olddisk->deviceName().count(QLatin1Char('/')))
             disk->setDeviceName(olddisk->deviceName());
 
-        //FStab after an older DF ... needed for critFull
-        //so the DF-KBUsed survive a FStab lookup...
-        //but also an unmounted disk may then have a kbused set...
-        if ( (olddisk->mounted()) && (!disk->mounted()) )
-        {
+        // FStab after an older DF ... needed for critFull
+        // so the DF-KBUsed survive a FStab lookup...
+        // but also an unmounted disk may then have a kbused set...
+        if ((olddisk->mounted()) && (!disk->mounted())) {
             disk->setKBSize(olddisk->kBSize());
             disk->setKBUsed(olddisk->kBUsed());
             disk->setKBAvail(olddisk->kBAvail());
         }
-        if ( (olddisk->percentFull() != -1) &&
-                (olddisk->percentFull() <  Full_Percent) &&
-                (disk->percentFull() >= Full_Percent) )
-        {
-            qCDebug(KDF) << "Device " << disk->deviceName()
-                         << " is critFull! " << olddisk->percentFull()
-                         << "--" << disk->percentFull();
+        if ((olddisk->percentFull() != -1) && (olddisk->percentFull() < Full_Percent) && (disk->percentFull() >= Full_Percent)) {
+            qCDebug(KDF) << "Device " << disk->deviceName() << " is critFull! " << olddisk->percentFull() << "--" << disk->percentFull();
             Q_EMIT criticallyFull(disk);
         }
 
-        //Take the diskentry from the list and delete it properly
-        DiskEntry * tmp = disks->takeAt(pos);
+        // Take the diskentry from the list and delete it properly
+        DiskEntry *tmp = disks->takeAt(pos);
         delete tmp;
 
-        disks->insert(pos,disk);
-    }
-    else
-    {
+        disks->insert(pos, disk);
+    } else {
         disks->append(disk);
-    }//if
-
+    } // if
 }
-
-
 
 #include "moc_disklist.cpp"

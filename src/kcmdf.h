@@ -3,13 +3,12 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-
 #ifndef KCMDF_H
 #define KCMDF_H
 #include <KCModule>
 
-#include "kdfwidget.h"
 #include "kdfconfig.h"
+#include "kdfwidget.h"
 #include "mntconfig.h"
 
 class KPluginMetaData;
@@ -17,15 +16,14 @@ class KDiskFreeWidget : public KCModule
 {
     Q_OBJECT
 
-    public:
-        explicit KDiskFreeWidget(QObject *parent, const KPluginMetaData &data);
-        ~KDiskFreeWidget() override;
+public:
+    explicit KDiskFreeWidget(QObject *parent, const KPluginMetaData &data);
+    ~KDiskFreeWidget() override;
 
-    private:
-        KDFWidget *mKdf;
-        KDFConfigWidget *mMcw;
-        MntConfigWidget *mKcw;
+private:
+    KDFWidget *mKdf;
+    KDFConfigWidget *mMcw;
+    MntConfigWidget *mKcw;
 };
 
 #endif
-

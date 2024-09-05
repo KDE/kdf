@@ -7,24 +7,24 @@
 
 #include "kdf_version.h"
 #include <KAboutData>
-#include <KXMLGUIFactory>
-#include <KStandardShortcut>
-#include <KStandardAction>
 #include <KActionCollection>
-#include <KLocalizedString>
 #include <KCrash>
+#include <KLocalizedString>
+#include <KStandardAction>
+#include <KStandardShortcut>
+#include <KXMLGUIFactory>
 
 #include <QApplication>
 #include <QCommandLineParser>
 
 /***************************************************************/
 KDFTopLevel::KDFTopLevel(QWidget *)
-        : KXmlGuiWindow(nullptr)
+    : KXmlGuiWindow(nullptr)
 {
-    kdf = new KDFWidget(this,false);
+    kdf = new KDFWidget(this, false);
     Q_CHECK_PTR(kdf);
-    QAction *action = actionCollection()->addAction( QStringLiteral("updatedf"));
-    action->setText( i18nc( "Update action", "&Update" ) );
+    QAction *action = actionCollection()->addAction(QStringLiteral("updatedf"));
+    action->setText(i18nc("Update action", "&Update"));
     actionCollection()->setDefaultShortcuts(action, KStandardShortcut::reload());
     connect(action, &QAction::triggered, kdf, &KDFWidget::updateDF);
 
@@ -37,18 +37,16 @@ KDFTopLevel::KDFTopLevel(QWidget *)
     setupGUI(KXmlGuiWindow::Keys | StatusBar | Save | Create);
 }
 
-
 void KDFTopLevel::closeEvent(QCloseEvent *event)
 {
     kdf->applySettings();
     KXmlGuiWindow::closeEvent(event);
 }
 
-
 /***************************************************************/
 int main(int argc, char **argv)
 {
-    //Fixes blurry icons with fractional scaling
+    // Fixes blurry icons with fractional scaling
     QApplication app(argc, argv);
 
     KLocalizedString::setApplicationDomain(QByteArrayLiteral("kdf"));
@@ -61,12 +59,9 @@ int main(int argc, char **argv)
                          i18n("(c) 1998-2001, Michael Kropfberger"),
                          QString(),
                          QStringLiteral("https://apps.kde.org/kdf"),
-                         QString()
-                        );
+                         QString());
 
-    aboutData.addAuthor(i18nc("@info:credit", "Michael Kropfberger"),
-                        QString(),
-                        QStringLiteral("michael.kropfberger@gmx.net"));
+    aboutData.addAuthor(i18nc("@info:credit", "Michael Kropfberger"), QString(), QStringLiteral("michael.kropfberger@gmx.net"));
 
     QCommandLineParser parser;
     parser.setApplicationDescription(aboutData.shortDescription());
@@ -84,17 +79,14 @@ int main(int argc, char **argv)
     // handle standard options
     aboutData.processCommandLine(&parser);
 
-    if( app.isSessionRestored() ) //SessionManagement
+    if (app.isSessionRestored()) // SessionManagement
     {
-        for( int n=1; KDFTopLevel::canBeRestored(n); n++ )
-        {
+        for (int n = 1; KDFTopLevel::canBeRestored(n); n++) {
             KDFTopLevel *ktl = new KDFTopLevel();
             Q_CHECK_PTR(ktl);
             ktl->restore(n);
         }
-    }
-    else
-    {
+    } else {
         KDFTopLevel *ktl = new KDFTopLevel();
         Q_CHECK_PTR(ktl);
         ktl->show();
@@ -102,7 +94,5 @@ int main(int argc, char **argv)
 
     return app.exec();
 }
-
-
 
 #include "moc_kdf.cpp"

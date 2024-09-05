@@ -11,57 +11,56 @@
 #define KWIKDISK_H
 
 #include "disklist.h"
-#include "stdoption.h"
 #include "optiondialog.h"
+#include "stdoption.h"
 
 #include <KStatusNotifierItem>
 
 class QActionGroup;
 
 /**
-* @short Application Main Window (however in Tray)
-* @version 0.2
-*/
+ * @short Application Main Window (however in Tray)
+ * @version 0.2
+ */
 
 class KwikDisk : public KStatusNotifierItem
 {
     Q_OBJECT
 
-    public:
-        KwikDisk();
+public:
+    KwikDisk();
 
-    public Q_SLOTS:
-        void activate(const QPoint &pos) override;
+public Q_SLOTS:
+    void activate(const QPoint &pos) override;
 
-    private Q_SLOTS:
-        void updateDFDone();
-        void criticallyFull(DiskEntry*);
-        void toggleMount(QAction*);
-        void loadSettings();
-        void changeSettings();
-        void startKDF();
-        void invokeHelp();
-        void clearDeviceActions();
+private Q_SLOTS:
+    void updateDFDone();
+    void criticallyFull(DiskEntry *);
+    void toggleMount(QAction *);
+    void loadSettings();
+    void changeSettings();
+    void startKDF();
+    void invokeHelp();
+    void clearDeviceActions();
 
-    private:
-        void timerEvent(QTimerEvent *) override;
-        void enterEvent(QEvent *);
-        void leaveEvent(QEvent *);
+private:
+    void timerEvent(QTimerEvent *) override;
+    void enterEvent(QEvent *);
+    void leaveEvent(QEvent *);
 
-        void setUpdateFrequency(int frequency);
+    void setUpdateFrequency(int frequency);
 
-        void updateDF();
+    void updateDF();
 
-        DiskList       m_diskList;
-        CStdOption     m_options;
-        bool           m_readingDF;
-        bool           m_dirty;
-        bool           m_menuVisible;
-        bool           m_inside;
-        COptionDialog *m_optionDialog;
-        QActionGroup * m_actionGroup;
-        QAction * m_actionSeparator;
+    DiskList m_diskList;
+    CStdOption m_options;
+    bool m_readingDF;
+    bool m_dirty;
+    bool m_menuVisible;
+    bool m_inside;
+    COptionDialog *m_optionDialog;
+    QActionGroup *m_actionGroup;
+    QAction *m_actionSeparator;
 };
 
 #endif // _KWIKDISK_H_
-

@@ -11,17 +11,20 @@
 
 class QPainter;
 
-class KDFItemDelegate: public QStyledItemDelegate
+class KDFItemDelegate : public QStyledItemDelegate
 {
     Q_OBJECT
 
-    public:
-        explicit KDFItemDelegate(QObject * parent = nullptr): QStyledItemDelegate(parent) {}
-        ~KDFItemDelegate() override {}
+public:
+    explicit KDFItemDelegate(QObject *parent = nullptr)
+        : QStyledItemDelegate(parent)
+    {
+    }
+    ~KDFItemDelegate() override
+    {
+    }
 
-        void paint(QPainter *painter, const QStyleOptionViewItem &option,
-            const QModelIndex &index) const override;
-
+    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 };
 
 #endif

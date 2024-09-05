@@ -9,18 +9,18 @@
 
 #include <QSortFilterProxyModel>
 
-class KDFSortFilterProxyModel: public QSortFilterProxyModel
+class KDFSortFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 
-    public:
-        explicit KDFSortFilterProxyModel(QObject * parent = nullptr):
-            QSortFilterProxyModel(parent){}
+public:
+    explicit KDFSortFilterProxyModel(QObject *parent = nullptr)
+        : QSortFilterProxyModel(parent)
+    {
+    }
 
-    protected:
-        bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
-
+protected:
+    bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
 };
 
 #endif
-

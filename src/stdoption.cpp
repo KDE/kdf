@@ -12,8 +12,7 @@
 #include <KConfigGroup>
 #include <KSharedConfig>
 
-
-QString CStdOption::mDefaultFileManager = QStringLiteral( "dolphin %m" );
+QString CStdOption::mDefaultFileManager = QStringLiteral("dolphin %m");
 int CStdOption::mDefaultUpdateFrequency = 60;
 
 CStdOption::CStdOption()
@@ -21,115 +20,93 @@ CStdOption::CStdOption()
     setDefault();
 }
 
-
 CStdOption::~CStdOption()
 {
 }
 
-
 void CStdOption::updateConfiguration()
 {
     KConfigGroup config(KSharedConfig::openConfig(), QStringLiteral("KDFConfig"));
-    mFileManager = config.readPathEntry(
-                       "FileManagerCommand", mDefaultFileManager );
-    mUpdateFrequency = config.readEntry(
-                           "UpdateFrequency", mDefaultUpdateFrequency );
-    mPopupIfFull = config.readEntry(
-                       "PopupIfFull", true );
-    mOpenFileManagerOnMount = config.readEntry(
-                                  "OpenFileMgrOnMount", false );
-    mUseSystemFileManager = config.readEntry(
-                       "UseSystemFileMgr", true);
+    mFileManager = config.readPathEntry("FileManagerCommand", mDefaultFileManager);
+    mUpdateFrequency = config.readEntry("UpdateFrequency", mDefaultUpdateFrequency);
+    mPopupIfFull = config.readEntry("PopupIfFull", true);
+    mOpenFileManagerOnMount = config.readEntry("OpenFileMgrOnMount", false);
+    mUseSystemFileManager = config.readEntry("UseSystemFileMgr", true);
 }
-
 
 void CStdOption::writeConfiguration()
 {
     KConfigGroup config(KSharedConfig::openConfig(), QStringLiteral("KDFConfig"));
-    config.writeEntry( "UpdateFrequency", mUpdateFrequency );
-    config.writePathEntry( "FileManagerCommand", mFileManager );
-    config.writeEntry( "PopupIfFull", mPopupIfFull );
-    config.writeEntry( "OpenFileMgrOnMount", mOpenFileManagerOnMount );
-    config.writeEntry( "UseSystemFileMgr", mUseSystemFileManager);
+    config.writeEntry("UpdateFrequency", mUpdateFrequency);
+    config.writePathEntry("FileManagerCommand", mFileManager);
+    config.writeEntry("PopupIfFull", mPopupIfFull);
+    config.writeEntry("OpenFileMgrOnMount", mOpenFileManagerOnMount);
+    config.writeEntry("UseSystemFileMgr", mUseSystemFileManager);
     config.sync();
 }
-
 
 void CStdOption::writeDefaultFileManager()
 {
     KConfigGroup config(KSharedConfig::openConfig(), QStringLiteral("KDFConfig"));
-    config.writePathEntry( "FileManagerCommand", mDefaultFileManager );
+    config.writePathEntry("FileManagerCommand", mDefaultFileManager);
     config.sync();
 }
 
-
-
 QString CStdOption::fileManager() const
 {
-    return( mFileManager );
+    return (mFileManager);
 }
-
 
 int CStdOption::updateFrequency() const
 {
-    return( mUpdateFrequency );
+    return (mUpdateFrequency);
 }
-
 
 bool CStdOption::popupIfFull() const
 {
-    return( mPopupIfFull );
+    return (mPopupIfFull);
 }
-
 
 bool CStdOption::openFileManager() const
 {
-    return( mOpenFileManagerOnMount );
+    return (mOpenFileManagerOnMount);
 }
-
 
 bool CStdOption::useSystemFileManager() const
 {
-    return( mUseSystemFileManager );
+    return (mUseSystemFileManager);
 }
-
 
 void CStdOption::setDefault()
 {
-    mFileManager     = mDefaultFileManager;
+    mFileManager = mDefaultFileManager;
     mUpdateFrequency = mDefaultUpdateFrequency;
-    mPopupIfFull     = true;
+    mPopupIfFull = true;
     mOpenFileManagerOnMount = false;
-    mUseSystemFileManager   = true;
+    mUseSystemFileManager = true;
 }
 
-
-void CStdOption::setFileManager( const QString &fileManager )
+void CStdOption::setFileManager(const QString &fileManager)
 {
     mFileManager = fileManager;
 }
 
-
-void CStdOption::setUpdateFrequency( int frequency )
+void CStdOption::setUpdateFrequency(int frequency)
 {
     mUpdateFrequency = frequency;
 }
 
-
-void CStdOption::setPopupIfFull( bool popupIfFull )
+void CStdOption::setPopupIfFull(bool popupIfFull)
 {
     mPopupIfFull = popupIfFull;
 }
 
-
-void CStdOption::setOpenFileManager( bool openFileManagerOnMount )
+void CStdOption::setOpenFileManager(bool openFileManagerOnMount)
 {
     mOpenFileManagerOnMount = openFileManagerOnMount;
 }
 
-
-void CStdOption::setUseSystemFileManager( bool useSystemFileManager )
+void CStdOption::setUseSystemFileManager(bool useSystemFileManager)
 {
     mUseSystemFileManager = useSystemFileManager;
 }
-

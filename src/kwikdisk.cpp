@@ -21,18 +21,18 @@
 #include <KAboutData>
 #include <KDialogJobUiDelegate>
 #include <KHelpClient>
-#include <KMessageBox>
 #include <KIO/CommandLauncherJob>
-#include <KShell>
 #include <KLocalizedString>
+#include <KMessageBox>
+#include <KShell>
 
+#include <QAbstractEventDispatcher>
+#include <QActionGroup>
 #include <QApplication>
 #include <QCommandLineParser>
-#include <QAbstractEventDispatcher>
+#include <QMenu>
 #include <QPainter>
 #include <QPixmap>
-#include <QActionGroup>
-#include <QMenu>
 #include <QProcess>
 
 #include <unistd.h>
@@ -40,38 +40,31 @@
 /*****************************************************************************/
 
 KwikDisk::KwikDisk()
-        : KStatusNotifierItem()
-        , m_readingDF(false)
-        , m_dirty(true)
-        , m_inside(false)
-        , m_optionDialog(nullptr)
+    : KStatusNotifierItem()
+    , m_readingDF(false)
+    , m_dirty(true)
+    , m_inside(false)
+    , m_optionDialog(nullptr)
 {
     qCDebug(KDF);
 
     setIconByName(QStringLiteral("kdf"));
 
-    connect( &m_diskList, &DiskList::readDFDone, this, &KwikDisk::updateDFDone );
-    connect( &m_diskList, &DiskList::criticallyFull,
-             this, &KwikDisk::criticallyFull );
+    connect(&m_diskList, &DiskList::readDFDone, this, &KwikDisk::updateDFDone);
+    connect(&m_diskList, &DiskList::criticallyFull, this, &KwikDisk::criticallyFull);
 
-    m_actionGroup = new QActionGroup( this );
-    connect( m_actionGroup, &QActionGroup::triggered , this, &KwikDisk::toggleMount );
+    m_actionGroup = new QActionGroup(this);
+    connect(m_actionGroup, &QActionGroup::triggered, this, &KwikDisk::toggleMount);
 
     QMenu *contextMenu = new QMenu(i18n("KwikDisk"));
 
     m_actionSeparator = contextMenu->addSeparator();
 
-    contextMenu->addAction(
-        QIcon::fromTheme(QStringLiteral( "kdf" )),
-        i18n("&Start KDiskFree"), this, &KwikDisk::startKDF);
+    contextMenu->addAction(QIcon::fromTheme(QStringLiteral("kdf")), i18n("&Start KDiskFree"), this, &KwikDisk::startKDF);
 
-    contextMenu->addAction(
-        QIcon::fromTheme(QStringLiteral( "configure" )),
-        i18n("&Configure KwikDisk..."), this, &KwikDisk::changeSettings);
+    contextMenu->addAction(QIcon::fromTheme(QStringLiteral("configure")), i18n("&Configure KwikDisk..."), this, &KwikDisk::changeSettings);
 
-    contextMenu->addAction(
-        QIcon::fromTheme(QStringLiteral( "help-contents" )),
-        KStandardGuiItem::help().text(), this, &KwikDisk::invokeHelp);
+    contextMenu->addAction(QIcon::fromTheme(QStringLiteral("help-contents")), KStandardGuiItem::help().text(), this, &KwikDisk::invokeHelp);
 
     setContextMenu(contextMenu);
 
@@ -98,7 +91,7 @@ void KwikDisk::activate(const QPoint &pos)
     Q_UNUSED(pos);
     qCDebug(KDF);
 
-    if( m_dirty )
+    if (m_dirty)
         updateDF();
 }
 
@@ -107,7 +100,7 @@ void KwikDisk::loadSettings()
     qCDebug(KDF);
 
     m_options.updateConfiguration();
-    setUpdateFrequency( m_options.updateFrequency() );
+    setUpdateFrequency(m_options.updateFrequency());
 }
 
 void KwikDisk::setUpdateFrequency(int frequency)
@@ -119,8 +112,7 @@ void KwikDisk::setUpdateFrequency(int frequency)
     // larger than zero.
     //
     QAbstractEventDispatcher::instance()->unregisterTimers(this);
-    if( frequency > 0 )
-    {
+    if (frequency > 0) {
         startTimer(frequency * 1000);
     }
 }
@@ -147,13 +139,12 @@ void KwikDisk::updateDF()
 
 void KwikDisk::clearDeviceActions()
 {
-    QList<QAction*> listActions = m_actionGroup->actions();
-    QMutableListIterator<QAction*> it(listActions);
-    while( it.hasNext() )
-    {
-        QAction * action = it.next();
-        m_actionGroup->removeAction( action );
-        contextMenu()->removeAction( action );
+    QList<QAction *> listActions = m_actionGroup->actions();
+    QMutableListIterator<QAction *> it(listActions);
+    while (it.hasNext()) {
+        QAction *action = it.next();
+        m_actionGroup->removeAction(action);
+        contextMenu()->removeAction(action);
         delete action;
     }
 }
@@ -162,7 +153,7 @@ void KwikDisk::updateDFDone()
     qCDebug(KDF);
 
     m_readingDF = false;
-    m_dirty     = false;
+    m_dirty = false;
 
     clearDeviceActions();
 
@@ -170,87 +161,75 @@ void KwikDisk::updateDFDone()
 
     DisksConstIterator itr = m_diskList.disksConstIteratorBegin();
     DisksConstIterator end = m_diskList.disksConstIteratorEnd();
-    for (; itr != end; ++itr)
-    {
-        DiskEntry * disk = *itr;
+    for (; itr != end; ++itr) {
+        DiskEntry *disk = *itr;
 
         QString toolTipText = QStringLiteral("%1 (%2) %3 on %4")
-          .arg( disk->mounted() ? i18nc("Unmount the storage device", "Unmount") : i18nc("Mount the storage device", "Mount") )
-          .arg( disk->fsType().trimmed() ).arg( disk->deviceName().trimmed() ).arg( disk->mountPoint().trimmed() );
+                                  .arg(disk->mounted() ? i18nc("Unmount the storage device", "Unmount") : i18nc("Mount the storage device", "Mount"))
+                                  .arg(disk->fsType().trimmed())
+                                  .arg(disk->deviceName().trimmed())
+                                  .arg(disk->mountPoint().trimmed());
 
         QString entryName = disk->mountPoint().trimmed();
-        if( disk->mounted() )
-        {
+        if (disk->mounted()) {
             entryName += QStringLiteral("\t[%1]").arg(disk->prettyKBAvail());
         }
 
-        QAction * action = new QAction(entryName, m_actionGroup);
-        action->setToolTip( toolTipText );
-        action->setData( itemNo );
+        QAction *action = new QAction(entryName, m_actionGroup);
+        action->setToolTip(toolTipText);
+        action->setData(itemNo);
         itemNo++;
 
-        QPixmap pix = QIcon::fromTheme(disk->iconName()).pixmap(QSize(32,32));
+        QPixmap pix = QIcon::fromTheme(disk->iconName()).pixmap(QSize(32, 32));
 
-        if( getuid() !=0 && !disk->mountOptions().contains(QLatin1String( "user" ),Qt::CaseInsensitive) )
-        {
-            QPainter painter( &pix );
-            QPixmap lockedPixmap = QIcon::fromTheme(QStringLiteral( "object-locked" )).pixmap(QSize(16,16));
-            painter.drawPixmap( QRect(0,0,16,16) , lockedPixmap, QRect(0,0,16,16));
+        if (getuid() != 0 && !disk->mountOptions().contains(QLatin1String("user"), Qt::CaseInsensitive)) {
+            QPainter painter(&pix);
+            QPixmap lockedPixmap = QIcon::fromTheme(QStringLiteral("object-locked")).pixmap(QSize(16, 16));
+            painter.drawPixmap(QRect(0, 0, 16, 16), lockedPixmap, QRect(0, 0, 16, 16));
             painter.end();
 
             toolTipText = i18n("You must login as root to mount this disk");
-            action->setToolTip( toolTipText );
+            action->setToolTip(toolTipText);
         }
 
-        if( disk->mounted() )
-        {
-            QPainter painter ( &pix );
-            QPixmap mountedPixmap = QIcon::fromTheme(QStringLiteral( "emblem-mounted" )).pixmap(QSize(16,16));
-            painter.drawPixmap( QRect(8,8,16,16) , mountedPixmap, QRect(0,0,16,16) );
+        if (disk->mounted()) {
+            QPainter painter(&pix);
+            QPixmap mountedPixmap = QIcon::fromTheme(QStringLiteral("emblem-mounted")).pixmap(QSize(16, 16));
+            painter.drawPixmap(QRect(8, 8, 16, 16), mountedPixmap, QRect(0, 0, 16, 16));
             painter.end();
         }
 
-        action->setIcon( pix );
-
+        action->setIcon(pix);
     }
 
-    contextMenu()->insertActions( m_actionSeparator, m_actionGroup->actions() );
-
+    contextMenu()->insertActions(m_actionSeparator, m_actionGroup->actions());
 }
 
-void KwikDisk::toggleMount(QAction * action)
+void KwikDisk::toggleMount(QAction *action)
 {
     qCDebug(KDF);
-    if ( !action )
+    if (!action)
         return;
 
-    DiskEntry *disk = m_diskList.at( action->data().toInt() );
-    if( disk == nullptr )
-    {
+    DiskEntry *disk = m_diskList.at(action->data().toInt());
+    if (disk == nullptr) {
         return;
     }
 
     int val = disk->toggleMount();
-    if( val != 0 )
-    {
+    if (val != 0) {
         KMessageBox::error(nullptr, disk->lastSysError());
-    }
-    else if( m_options.openFileManager() && ( disk->mounted() ) )
-    {
+    } else if (m_options.openFileManager() && (disk->mounted())) {
         qCDebug(KDF) << "opening filemanager";
-        if( !m_options.fileManager().isEmpty() )
-        {
+        if (!m_options.fileManager().isEmpty()) {
             QString cmd = m_options.fileManager();
-            int pos = cmd.indexOf(QLatin1String( "%m" ));
-            if( pos > 0 )
-            {
-                cmd.replace( pos, 2, KShell::quoteArg(disk->mountPoint()) );
+            int pos = cmd.indexOf(QLatin1String("%m"));
+            if (pos > 0) {
+                cmd.replace(pos, 2, KShell::quoteArg(disk->mountPoint()));
+            } else {
+                cmd += QLatin1Char(' ') + KShell::quoteArg(disk->mountPoint());
             }
-            else
-            {
-                cmd += QLatin1Char( ' ' ) + KShell::quoteArg(disk->mountPoint());
-            }
-            QStringList argList = cmd.split(QLatin1Char( ' ' ), Qt::SkipEmptyParts);
+            QStringList argList = cmd.split(QLatin1Char(' '), Qt::SkipEmptyParts);
             cmd = argList.takeFirst();
             QProcess::startDetached(cmd, argList);
         }
@@ -262,23 +241,19 @@ void KwikDisk::criticallyFull(DiskEntry *disk)
 {
     qCDebug(KDF);
 
-    if( m_options.popupIfFull())
-    {
-        QString msg = i18n("Device [%1] on [%2] is critically full.",
-                           disk->deviceName(), disk->mountPoint());
-        KMessageBox::error( nullptr, msg, i18nc("Device is getting critically full", "Warning"));
+    if (m_options.popupIfFull()) {
+        QString msg = i18n("Device [%1] on [%2] is critically full.", disk->deviceName(), disk->mountPoint());
+        KMessageBox::error(nullptr, msg, i18nc("Device is getting critically full", "Warning"));
     }
 }
 
 void KwikDisk::changeSettings()
 {
-    if( m_optionDialog == nullptr )
-    {
+    if (m_optionDialog == nullptr) {
         m_optionDialog = new COptionDialog(nullptr);
-        if( !m_optionDialog )
+        if (!m_optionDialog)
             return;
-        connect(m_optionDialog, &COptionDialog::valueChanged,
-                this, &KwikDisk::loadSettings);
+        connect(m_optionDialog, &COptionDialog::valueChanged, this, &KwikDisk::loadSettings);
     }
     m_optionDialog->show();
 }
@@ -306,23 +281,18 @@ int main(int argc, char **argv)
     KLocalizedString::setApplicationDomain(QByteArrayLiteral("kdf"));
 
     KAboutData aboutData(QStringLiteral("kwikdisk"),
-                     i18n("KwikDisk"),
-                     QStringLiteral(KDF_VERSION_STRING),
-                     i18n("KDE Free disk space utility"),
-                     KAboutLicense::GPL,
-                     i18n("(C) 2004 Stanislav Karchebny"),
-                     QString(),
-                     QStringLiteral("https://apps.kde.org/kdf"),
-                     QStringLiteral("Stanislav.Karchebny@kdemail.net"));
+                         i18n("KwikDisk"),
+                         QStringLiteral(KDF_VERSION_STRING),
+                         i18n("KDE Free disk space utility"),
+                         KAboutLicense::GPL,
+                         i18n("(C) 2004 Stanislav Karchebny"),
+                         QString(),
+                         QStringLiteral("https://apps.kde.org/kdf"),
+                         QStringLiteral("Stanislav.Karchebny@kdemail.net"));
 
-    aboutData.addAuthor(i18nc("@info:credit", "Michael Kropfberger"),
-                    i18n("Original author"),
-                    QStringLiteral("michael.kropfberger@gmx.net"));
-    aboutData.addAuthor(i18nc("@info:credit", "Espen Sand"),
-                    i18n("KDE 2 changes"));
-    aboutData.addAuthor(i18nc("@info:credit", "Stanislav Karchebny"),
-                    i18n("KDE 3 changes"),
-                    QStringLiteral("Stanislav.Karchebny@kdemail.net"));
+    aboutData.addAuthor(i18nc("@info:credit", "Michael Kropfberger"), i18n("Original author"), QStringLiteral("michael.kropfberger@gmx.net"));
+    aboutData.addAuthor(i18nc("@info:credit", "Espen Sand"), i18n("KDE 2 changes"));
+    aboutData.addAuthor(i18nc("@info:credit", "Stanislav Karchebny"), i18n("KDE 3 changes"), QStringLiteral("Stanislav.Karchebny@kdemail.net"));
 
     QCommandLineParser parser;
     parser.setApplicationDescription(aboutData.shortDescription());
@@ -339,15 +309,13 @@ int main(int argc, char **argv)
 
     KwikDisk mainWin;
 
-    //Avoid quit when closing the KwikDisk Settings dialog
-    app.setQuitOnLastWindowClosed( false );
+    // Avoid quit when closing the KwikDisk Settings dialog
+    app.setQuitOnLastWindowClosed(false);
 
     // mainWin has WDestructiveClose flag by default, so it will delete itself.
     return app.exec();
 }
 
 /*****************************************************************************/
-
-
 
 #include "moc_kwikdisk.cpp"

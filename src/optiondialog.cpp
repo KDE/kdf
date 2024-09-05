@@ -12,41 +12,38 @@
 
 #include <KHelpClient>
 
-COptionDialog::COptionDialog( QWidget *parent )
-        :KPageDialog( parent )
+COptionDialog::COptionDialog(QWidget *parent)
+    : KPageDialog(parent)
 {
-    setWindowTitle( i18n("Configure") );
-    setStandardButtons( QDialogButtonBox::Help|QDialogButtonBox::Apply|QDialogButtonBox::Ok|QDialogButtonBox::Cancel );
-    setFaceType( KPageDialog::Tabbed );
+    setWindowTitle(i18n("Configure"));
+    setStandardButtons(QDialogButtonBox::Help | QDialogButtonBox::Apply | QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+    setFaceType(KPageDialog::Tabbed);
 
-    mConf = new KDFConfigWidget( this );
-    connect( mConf, &KDFConfigWidget::configChanged, this, &COptionDialog::slotChanged );
-    addPage( mConf, i18n("General Settings") );
+    mConf = new KDFConfigWidget(this);
+    connect(mConf, &KDFConfigWidget::configChanged, this, &COptionDialog::slotChanged);
+    addPage(mConf, i18n("General Settings"));
 
-    mMnt = new MntConfigWidget( this );
-    connect( mMnt, &MntConfigWidget::configChanged, this, &COptionDialog::slotChanged );
-    addPage( mMnt, i18n("Mount Commands") );
+    mMnt = new MntConfigWidget(this);
+    connect(mMnt, &MntConfigWidget::configChanged, this, &COptionDialog::slotChanged);
+    addPage(mMnt, i18n("Mount Commands"));
 
     button(QDialogButtonBox::Apply)->setEnabled(false);
     dataChanged = false;
-    connect(button(QDialogButtonBox::Ok), &QAbstractButton::clicked,this,&COptionDialog::slotOk);
-    connect(button(QDialogButtonBox::Apply), &QAbstractButton::clicked,this,&COptionDialog::slotApply);
+    connect(button(QDialogButtonBox::Ok), &QAbstractButton::clicked, this, &COptionDialog::slotOk);
+    connect(button(QDialogButtonBox::Apply), &QAbstractButton::clicked, this, &COptionDialog::slotApply);
     connect(button(QDialogButtonBox::Help), &QAbstractButton::clicked, this, &COptionDialog::slotHelp);
 }
-
 
 COptionDialog::~COptionDialog()
 {
 }
 
-
 void COptionDialog::slotOk()
 {
-    if( dataChanged )
+    if (dataChanged)
         slotApply();
     accept();
 }
-
 
 void COptionDialog::slotApply()
 {
@@ -67,7 +64,5 @@ void COptionDialog::slotHelp()
 {
     KHelpClient::invokeHelp(QLatin1String(""), QStringLiteral("kdf"));
 }
-
-
 
 #include "moc_optiondialog.cpp"

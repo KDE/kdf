@@ -16,14 +16,14 @@
 
 K_PLUGIN_CLASS_WITH_JSON(KDiskFreeWidget, "kcm_kdf.json")
 
-KDiskFreeWidget::KDiskFreeWidget( QObject *parent, const KPluginMetaData &data)
-        : KCModule( parent, data)
+KDiskFreeWidget::KDiskFreeWidget(QObject *parent, const KPluginMetaData &data)
+    : KCModule(parent, data)
 {
     setButtons(Help);
-    QVBoxLayout *topLayout = new QVBoxLayout( widget() );
+    QVBoxLayout *topLayout = new QVBoxLayout(widget());
     topLayout->setContentsMargins({});
-    mKdf = new KDFWidget( widget(), false );
-    topLayout->addWidget( mKdf );
+    mKdf = new KDFWidget(widget(), false);
+    topLayout->addWidget(mKdf);
 }
 
 KDiskFreeWidget::~KDiskFreeWidget()

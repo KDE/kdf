@@ -8,10 +8,9 @@
 #ifndef KDFCONFIG_H
 #define KDFCONFIG_H
 
-#include "ui_kdfconfig.h"
-#include "stdoption.h"
 #include "kdfwidget.h"
-
+#include "stdoption.h"
+#include "ui_kdfconfig.h"
 
 class QCloseEvent;
 class QPixmap;
@@ -20,40 +19,38 @@ class QTreeWidgetItem;
 
 class Column;
 
-class KDFConfigWidget : public QWidget,
-                        private Ui_KDFConfigWidget
+class KDFConfigWidget : public QWidget, private Ui_KDFConfigWidget
 {
     Q_OBJECT
 
-    public:
-        explicit KDFConfigWidget( QWidget *parent=nullptr, bool init=false);
-        ~KDFConfigWidget() override;
+public:
+    explicit KDFConfigWidget(QWidget *parent = nullptr, bool init = false);
+    ~KDFConfigWidget() override;
 
-    public Q_SLOTS:
-        void loadSettings( void );
-        void applySettings( void );
-        void defaultsBtnClicked( void );
+public Q_SLOTS:
+    void loadSettings(void);
+    void applySettings(void);
+    void defaultsBtnClicked(void);
 
-    protected Q_SLOTS:
-        void slotChanged();
+protected Q_SLOTS:
+    void slotChanged();
 
-    private Q_SLOTS:
-        void toggleListText( QTreeWidgetItem *item, int column );
+private Q_SLOTS:
+    void toggleListText(QTreeWidgetItem *item, int column);
 
-    protected:
-        void closeEvent( QCloseEvent * ) override;
+protected:
+    void closeEvent(QCloseEvent *) override;
 
-    private:
-        CStdOption mStd;
+private:
+    CStdOption mStd;
 
-        QPixmap iconVisible;
-        QPixmap iconHidden;
+    QPixmap iconVisible;
+    QPixmap iconHidden;
 
-        QList<Column> m_columnList;
+    QList<Column> m_columnList;
 
-    Q_SIGNALS:
-        void configChanged();
+Q_SIGNALS:
+    void configChanged();
 };
 
 #endif
-

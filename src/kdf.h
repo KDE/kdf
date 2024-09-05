@@ -15,15 +15,17 @@ class KDFTopLevel : public KXmlGuiWindow
 {
     Q_OBJECT
 
-    public:
-        explicit KDFTopLevel(QWidget *parent= nullptr);
-        ~KDFTopLevel() override { }
+public:
+    explicit KDFTopLevel(QWidget *parent = nullptr);
+    ~KDFTopLevel() override
+    {
+    }
 
-    protected:
-        void closeEvent(QCloseEvent *event) override;
-    protected:
-        KDFWidget* kdf;
+protected:
+    void closeEvent(QCloseEvent *event) override;
+
+protected:
+    KDFWidget *kdf;
 };
 
 #endif
-
