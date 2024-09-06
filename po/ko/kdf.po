@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-30 00:42+0000\n"
+"POT-Creation-Date: 2024-09-06 00:42+0000\n"
 "PO-Revision-Date: 2024-08-19 22:54+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -28,12 +28,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde@peremen.name"
 
-#: src/disklist.cpp:314
+#: src/disklist.cpp:274
 #, kde-format
 msgid "could not execute [%1]"
 msgstr "실행할 수 없음 [%1]"
 
-#: src/disks.cpp:262
+#: src/disks.cpp:249
 #, kde-format
 msgid ""
 "Called: %1\n"
@@ -42,7 +42,7 @@ msgstr ""
 "요청: %1\n"
 "\n"
 
-#: src/disks.cpp:283
+#: src/disks.cpp:269
 #, kde-format
 msgid "could not execute %1"
 msgstr "실행할 수 없음 [%1]"
@@ -53,100 +53,100 @@ msgctxt "Update action"
 msgid "&Update"
 msgstr "업데이트(&U)"
 
-#: src/kdf.cpp:57
+#: src/kdf.cpp:55
 #, kde-format
 msgid "KDiskFree"
 msgstr "KDiskFree"
 
-#: src/kdf.cpp:59
+#: src/kdf.cpp:57
 #, kde-format
 msgid "KDE free disk space utility"
 msgstr "KDE 디스크 용량 확인 유틸리티"
 
-#: src/kdf.cpp:61
+#: src/kdf.cpp:59
 #, kde-format
 msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr "(c) 1998-2001, Michael Kropfberger"
 
-#: src/kdf.cpp:67 src/kwikdisk.cpp:318
+#: src/kdf.cpp:64 src/kwikdisk.cpp:293
 #, kde-format
 msgctxt "@info:credit"
 msgid "Michael Kropfberger"
 msgstr "Michael Kropfberger"
 
-#: src/kdfconfig.cpp:32
+#: src/kdfconfig.cpp:30
 #, kde-format
 msgctxt "TODO"
 msgid "Icon"
 msgstr "아이콘"
 
-#: src/kdfconfig.cpp:33 src/kdfwidget.cpp:55
+#: src/kdfconfig.cpp:31 src/kdfwidget.cpp:53
 #, kde-format
 msgctxt "Device of the storage"
 msgid "Device"
 msgstr "장치"
 
-#: src/kdfconfig.cpp:34 src/kdfwidget.cpp:56
+#: src/kdfconfig.cpp:32 src/kdfwidget.cpp:54
 #, kde-format
 msgctxt "Filesystem on storage"
 msgid "Type"
 msgstr "형식"
 
-#: src/kdfconfig.cpp:35 src/kdfwidget.cpp:57
+#: src/kdfconfig.cpp:33 src/kdfwidget.cpp:55
 #, kde-format
 msgctxt "Total size of the storage"
 msgid "Size"
 msgstr "크기"
 
-#: src/kdfconfig.cpp:36
+#: src/kdfconfig.cpp:34
 #, kde-format
 msgctxt "Mount point of the storage"
 msgid "Mount Point"
 msgstr "마운트 지점"
 
-#: src/kdfconfig.cpp:37 src/kdfwidget.cpp:59
+#: src/kdfconfig.cpp:35 src/kdfwidget.cpp:57
 #, kde-format
 msgctxt "Free space in storage"
 msgid "Free"
 msgstr "남은 공간"
 
-#: src/kdfconfig.cpp:38 src/kdfwidget.cpp:60
+#: src/kdfconfig.cpp:36 src/kdfwidget.cpp:58
 #, kde-format
 msgctxt "Used storage space in %"
 msgid "Full %"
 msgstr "사용한 %"
 
-#: src/kdfconfig.cpp:39 src/kdfwidget.cpp:61
+#: src/kdfconfig.cpp:37 src/kdfwidget.cpp:59
 #, kde-format
 msgctxt "Usage graphical bar"
 msgid "Usage"
 msgstr "사용량"
 
-#: src/kdfconfig.cpp:64 src/kdfconfig.cpp:184
+#: src/kdfconfig.cpp:57 src/kdfconfig.cpp:164
 #, kde-format
 msgctxt "Visible items on device information columns (enable|disable)"
 msgid "visible"
 msgstr "볼 수 있음"
 
-#: src/kdfconfig.cpp:163
+#: src/kdfconfig.cpp:145
 #, kde-format
 msgctxt "Are items on device information columns visible?"
 msgid "visible"
 msgstr "보임"
 
-#: src/kdfconfig.cpp:164
+#: src/kdfconfig.cpp:146
 #, kde-format
 msgctxt "Are items on device information columns hidden?"
 msgid "hidden"
 msgstr "숨김"
 
-#: src/kdfconfig.cpp:201
+#: src/kdfconfig.cpp:180
 #, kde-format
 msgctxt "Device information item is hidden"
 msgid "hidden"
 msgstr "숨김"
 
-#: src/kdfconfig.cpp:202
+#: src/kdfconfig.cpp:180
 #, kde-format
 msgctxt "Device information item is visible"
 msgid "visible"
@@ -195,7 +195,7 @@ msgid "Custom file manager not supported when running as Flatpak."
 msgstr ""
 "Flatpak으로 실행 중일 때에는 사용자 정의 파일 관리자를 지원하지 않습니다."
 
-#: src/kdfitemdelegate.cpp:32 src/kdfwidget.cpp:292
+#: src/kdfitemdelegate.cpp:28 src/kdfwidget.cpp:271
 #, kde-format
 msgctxt "Disk percentage"
 msgid "%1%"
@@ -207,161 +207,161 @@ msgstr "%1%"
 msgid "&File"
 msgstr "파일(&F)"
 
-#: src/kdfwidget.cpp:58
+#: src/kdfwidget.cpp:56
 #, kde-format
 msgctxt "Mount point of storage"
 msgid "Mount Point"
 msgstr "마운트 지점"
 
-#: src/kdfwidget.cpp:297 src/kdfwidget.cpp:298
+#: src/kdfwidget.cpp:274 src/kdfwidget.cpp:275
 #, kde-format
 msgid "N/A"
 msgstr "없음"
 
-#: src/kdfwidget.cpp:355 src/kwikdisk.cpp:267
+#: src/kdfwidget.cpp:329 src/kwikdisk.cpp:245
 #, kde-format
 msgid "Device [%1] on [%2] is critically full."
 msgstr "[%2]의 장치 [%1]이 가득 찼습니다."
 
-#: src/kdfwidget.cpp:357
+#: src/kdfwidget.cpp:330
 #, kde-format
 msgctxt "Warning device getting critically full"
 msgid "Warning"
 msgstr "경고"
 
-#: src/kdfwidget.cpp:405
+#: src/kdfwidget.cpp:376
 #, kde-format
 msgid "Mount Device"
 msgstr "장치 마운트"
 
-#: src/kdfwidget.cpp:406
+#: src/kdfwidget.cpp:377
 #, kde-format
 msgid "Unmount Device"
 msgstr "장치 마운트 해제"
 
-#: src/kdfwidget.cpp:408
+#: src/kdfwidget.cpp:379
 #, kde-format
 msgid "Open in File Manager"
 msgstr "파일 관리자에서 열기"
 
-#: src/kdfwidget.cpp:425 src/kdfwidget.cpp:428
+#: src/kdfwidget.cpp:393 src/kdfwidget.cpp:396
 #, kde-format
 msgid "MOUNTING"
 msgstr "마운트하는 중"
 
-#: src/kwikdisk.cpp:60 src/kwikdisk.cpp:309
+#: src/kwikdisk.cpp:59 src/kwikdisk.cpp:284
 #, kde-format
 msgid "KwikDisk"
 msgstr "KwikDisk"
 
-#: src/kwikdisk.cpp:66
+#: src/kwikdisk.cpp:63
 #, kde-format
 msgid "&Start KDiskFree"
 msgstr "KDiskFree 실행(&S)"
 
-#: src/kwikdisk.cpp:70
+#: src/kwikdisk.cpp:65
 #, kde-format
 msgid "&Configure KwikDisk..."
 msgstr "KwikDisk 설정(&C)..."
 
-#: src/kwikdisk.cpp:178
+#: src/kwikdisk.cpp:168
 #, kde-format
 msgctxt "Unmount the storage device"
 msgid "Unmount"
 msgstr "마운트 해제"
 
-#: src/kwikdisk.cpp:178
+#: src/kwikdisk.cpp:168
 #, kde-format
 msgctxt "Mount the storage device"
 msgid "Mount"
 msgstr "마운트"
 
-#: src/kwikdisk.cpp:201
+#: src/kwikdisk.cpp:191
 #, kde-format
 msgid "You must login as root to mount this disk"
 msgstr "이 디스크를 마운트하려면 루트로 로그인해야 합니다"
 
-#: src/kwikdisk.cpp:269
+#: src/kwikdisk.cpp:246
 #, kde-format
 msgctxt "Device is getting critically full"
 msgid "Warning"
 msgstr "경고"
 
-#: src/kwikdisk.cpp:311
+#: src/kwikdisk.cpp:286
 #, kde-format
 msgid "KDE Free disk space utility"
 msgstr "KDE 디스크 용량 확인 유틸리티"
 
-#: src/kwikdisk.cpp:313
+#: src/kwikdisk.cpp:288
 #, kde-format
 msgid "(C) 2004 Stanislav Karchebny"
 msgstr "(C) 2004 Stanislav Karchebny"
 
-#: src/kwikdisk.cpp:319
+#: src/kwikdisk.cpp:293
 #, kde-format
 msgid "Original author"
 msgstr "원 작성자"
 
-#: src/kwikdisk.cpp:321
+#: src/kwikdisk.cpp:294
 #, kde-format
 msgctxt "@info:credit"
 msgid "Espen Sand"
 msgstr "Espen Sand"
 
-#: src/kwikdisk.cpp:322
+#: src/kwikdisk.cpp:294
 #, kde-format
 msgid "KDE 2 changes"
 msgstr "KDE 2 변경"
 
-#: src/kwikdisk.cpp:323
+#: src/kwikdisk.cpp:295
 #, kde-format
 msgctxt "@info:credit"
 msgid "Stanislav Karchebny"
 msgstr "Stanislav Karchebny"
 
-#: src/kwikdisk.cpp:324
+#: src/kwikdisk.cpp:295
 #, kde-format
 msgid "KDE 3 changes"
 msgstr "KDE 3 변경"
 
-#: src/mntconfig.cpp:47 src/mntconfig.cpp:52
+#: src/mntconfig.cpp:46 src/mntconfig.cpp:51
 #, kde-format
 msgid "Device"
 msgstr "장치"
 
-#: src/mntconfig.cpp:48 src/mntconfig.cpp:54
+#: src/mntconfig.cpp:46 src/mntconfig.cpp:53
 #, kde-format
 msgid "Mount Point"
 msgstr "마운트 지점"
 
-#: src/mntconfig.cpp:48
+#: src/mntconfig.cpp:46
 #, kde-format
 msgid "Mount Command"
 msgstr "마운트 명령"
 
-#: src/mntconfig.cpp:48
+#: src/mntconfig.cpp:47
 #, kde-format
 msgid "Unmount Command"
 msgstr "마운트 해제 명령"
 
-#: src/mntconfig.cpp:53
+#: src/mntconfig.cpp:52
 #, kde-format
 msgctxt "No device is selected"
 msgid "None"
 msgstr "없음"
 
-#: src/mntconfig.cpp:55
+#: src/mntconfig.cpp:54
 #, kde-format
 msgctxt "No mount point is selected"
 msgid "None"
 msgstr "없음"
 
-#: src/mntconfig.cpp:240
+#: src/mntconfig.cpp:220
 #, kde-format
 msgid "Only local files supported."
 msgstr "로컬 파일만 지원합니다."
 
-#: src/mntconfig.cpp:256
+#: src/mntconfig.cpp:235
 #, kde-format
 msgid "Only local files are currently supported."
 msgstr "아직까지는 로컬 파일만 지원합니다."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-30 00:42+0000\n"
+"POT-Creation-Date: 2024-09-06 00:42+0000\n"
 "PO-Revision-Date: 2007-05-02 07:47+0530\n"
 "Last-Translator: ம ஸ்ரீ ராமதாஸ்  <shriramadhas@gmail.com>\n"
 "Language-Team: தமிழ்  <ubuntu-l10n-tam@lists.ubuntu.com>\n"
@@ -27,13 +27,13 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "rajan_agnel@yahoo.co.in,shafi6_loyola@yahoo.co.in"
 
-#: src/disklist.cpp:314
+#: src/disklist.cpp:274
 #, fuzzy, kde-format
 #| msgid "could not execute [%s]"
 msgid "could not execute [%1]"
 msgstr "செயல்படுத்த இயலவில்லை்விலைலை [%s]"
 
-#: src/disks.cpp:262
+#: src/disks.cpp:249
 #, kde-format
 msgid ""
 "Called: %1\n"
@@ -42,7 +42,7 @@ msgstr ""
 "அழைக்கபட்டது: %1\n"
 "\n"
 
-#: src/disks.cpp:283
+#: src/disks.cpp:269
 #, kde-format
 msgid "could not execute %1"
 msgstr "%1ஐ செயல்படுத்த இயலியவில்லை"
@@ -53,112 +53,112 @@ msgctxt "Update action"
 msgid "&Update"
 msgstr ""
 
-#: src/kdf.cpp:57
+#: src/kdf.cpp:55
 #, kde-format
 msgid "KDiskFree"
 msgstr "KDiskFree"
 
-#: src/kdf.cpp:59
+#: src/kdf.cpp:57
 #, kde-format
 msgid "KDE free disk space utility"
 msgstr "KDE காலியான வட்டு இடம் பயன்பாடு"
 
-#: src/kdf.cpp:61
+#: src/kdf.cpp:59
 #, kde-format
 msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr ""
 
-#: src/kdf.cpp:67 src/kwikdisk.cpp:318
+#: src/kdf.cpp:64 src/kwikdisk.cpp:293
 #, kde-format
 msgctxt "@info:credit"
 msgid "Michael Kropfberger"
 msgstr ""
 
-#: src/kdfconfig.cpp:32
+#: src/kdfconfig.cpp:30
 #, fuzzy, kde-format
 #| msgid "Icon"
 msgctxt "TODO"
 msgid "Icon"
 msgstr "குறும்படம்"
 
-#: src/kdfconfig.cpp:33 src/kdfwidget.cpp:55
+#: src/kdfconfig.cpp:31 src/kdfwidget.cpp:53
 #, fuzzy, kde-format
 #| msgid "Device"
 msgctxt "Device of the storage"
 msgid "Device"
 msgstr "சாதனம்"
 
-#: src/kdfconfig.cpp:34 src/kdfwidget.cpp:56
+#: src/kdfconfig.cpp:32 src/kdfwidget.cpp:54
 #, fuzzy, kde-format
 #| msgid "Type"
 msgctxt "Filesystem on storage"
 msgid "Type"
 msgstr "வகை"
 
-#: src/kdfconfig.cpp:35 src/kdfwidget.cpp:57
+#: src/kdfconfig.cpp:33 src/kdfwidget.cpp:55
 #, fuzzy, kde-format
 #| msgid "Size"
 msgctxt "Total size of the storage"
 msgid "Size"
 msgstr "அளவு"
 
-#: src/kdfconfig.cpp:36
+#: src/kdfconfig.cpp:34
 #, fuzzy, kde-format
 #| msgid "Mount Point"
 msgctxt "Mount point of the storage"
 msgid "Mount Point"
 msgstr "மேலேற்றப் புள்ளி"
 
-#: src/kdfconfig.cpp:37 src/kdfwidget.cpp:59
+#: src/kdfconfig.cpp:35 src/kdfwidget.cpp:57
 #, fuzzy, kde-format
 #| msgid "Free"
 msgctxt "Free space in storage"
 msgid "Free"
 msgstr "காலியான"
 
-#: src/kdfconfig.cpp:38 src/kdfwidget.cpp:60
+#: src/kdfconfig.cpp:36 src/kdfwidget.cpp:58
 #, fuzzy, kde-format
 #| msgid "Full %"
 msgctxt "Used storage space in %"
 msgid "Full %"
 msgstr "முழுமையான %"
 
-#: src/kdfconfig.cpp:39 src/kdfwidget.cpp:61
+#: src/kdfconfig.cpp:37 src/kdfwidget.cpp:59
 #, fuzzy, kde-format
 #| msgid "Usage"
 msgctxt "Usage graphical bar"
 msgid "Usage"
 msgstr "பயன்பாடு"
 
-#: src/kdfconfig.cpp:64 src/kdfconfig.cpp:184
+#: src/kdfconfig.cpp:57 src/kdfconfig.cpp:164
 #, fuzzy, kde-format
 #| msgid "visible"
 msgctxt "Visible items on device information columns (enable|disable)"
 msgid "visible"
 msgstr "காணமுடிந்த"
 
-#: src/kdfconfig.cpp:163
+#: src/kdfconfig.cpp:145
 #, fuzzy, kde-format
 #| msgid "visible"
 msgctxt "Are items on device information columns visible?"
 msgid "visible"
 msgstr "காணமுடிந்த"
 
-#: src/kdfconfig.cpp:164
+#: src/kdfconfig.cpp:146
 #, fuzzy, kde-format
 #| msgid "hidden"
 msgctxt "Are items on device information columns hidden?"
 msgid "hidden"
 msgstr "மறைந்த"
 
-#: src/kdfconfig.cpp:201
+#: src/kdfconfig.cpp:180
 #, fuzzy, kde-format
 #| msgid "hidden"
 msgctxt "Device information item is hidden"
 msgid "hidden"
 msgstr "மறைந்த"
 
-#: src/kdfconfig.cpp:202
+#: src/kdfconfig.cpp:180
 #, fuzzy, kde-format
 #| msgid "visible"
 msgctxt "Device information item is visible"
@@ -207,7 +207,7 @@ msgstr "கோப்பு மேலாளர் (e.g.. konsole -e mc %m)"
 msgid "Custom file manager not supported when running as Flatpak."
 msgstr ""
 
-#: src/kdfitemdelegate.cpp:32 src/kdfwidget.cpp:292
+#: src/kdfitemdelegate.cpp:28 src/kdfwidget.cpp:271
 #, kde-format
 msgctxt "Disk percentage"
 msgid "%1%"
@@ -219,166 +219,166 @@ msgstr ""
 msgid "&File"
 msgstr ""
 
-#: src/kdfwidget.cpp:58
+#: src/kdfwidget.cpp:56
 #, fuzzy, kde-format
 #| msgid "Mount Point"
 msgctxt "Mount point of storage"
 msgid "Mount Point"
 msgstr "மேலேற்றப் புள்ளி"
 
-#: src/kdfwidget.cpp:297 src/kdfwidget.cpp:298
+#: src/kdfwidget.cpp:274 src/kdfwidget.cpp:275
 #, kde-format
 msgid "N/A"
 msgstr "பொருந்தாத"
 
-#: src/kdfwidget.cpp:355 src/kwikdisk.cpp:267
+#: src/kdfwidget.cpp:329 src/kwikdisk.cpp:245
 #, fuzzy, kde-format
 msgid "Device [%1] on [%2] is critically full."
 msgstr " [%2] ' ன் மேல் [%1]'ன் சாதனம் நெருக்கடியாக முழுமையாகிறது !"
 
-#: src/kdfwidget.cpp:357
+#: src/kdfwidget.cpp:330
 #, kde-format
 msgctxt "Warning device getting critically full"
 msgid "Warning"
 msgstr ""
 
-#: src/kdfwidget.cpp:405
+#: src/kdfwidget.cpp:376
 #, kde-format
 msgid "Mount Device"
 msgstr "சாதனத்தை மேலேற்று"
 
-#: src/kdfwidget.cpp:406
+#: src/kdfwidget.cpp:377
 #, kde-format
 msgid "Unmount Device"
 msgstr "சாதனத்தை கீழிறக்கு"
 
-#: src/kdfwidget.cpp:408
+#: src/kdfwidget.cpp:379
 #, kde-format
 msgid "Open in File Manager"
 msgstr "கோப்புமேலாளரைத் திற"
 
-#: src/kdfwidget.cpp:425 src/kdfwidget.cpp:428
+#: src/kdfwidget.cpp:393 src/kdfwidget.cpp:396
 #, kde-format
 msgid "MOUNTING"
 msgstr "மேலேற்றுகிறது"
 
-#: src/kwikdisk.cpp:60 src/kwikdisk.cpp:309
+#: src/kwikdisk.cpp:59 src/kwikdisk.cpp:284
 #, kde-format
 msgid "KwikDisk"
 msgstr "Kவிக்தட்டு"
 
-#: src/kwikdisk.cpp:66
+#: src/kwikdisk.cpp:63
 #, kde-format
 msgid "&Start KDiskFree"
 msgstr "KDiskFree &தொடங்கு"
 
-#: src/kwikdisk.cpp:70
+#: src/kwikdisk.cpp:65
 #, kde-format
 msgid "&Configure KwikDisk..."
 msgstr "&Kwik தட்டை வடிவமை..."
 
-#: src/kwikdisk.cpp:178
+#: src/kwikdisk.cpp:168
 #, fuzzy, kde-format
 #| msgid "Unmount"
 msgctxt "Unmount the storage device"
 msgid "Unmount"
 msgstr "கீழிறக்கு"
 
-#: src/kwikdisk.cpp:178
+#: src/kwikdisk.cpp:168
 #, fuzzy, kde-format
 #| msgid "Mount"
 msgctxt "Mount the storage device"
 msgid "Mount"
 msgstr "மேலேற்று"
 
-#: src/kwikdisk.cpp:201
+#: src/kwikdisk.cpp:191
 #, kde-format
 msgid "You must login as root to mount this disk"
 msgstr " இந்த வட்டை மேலேற்ற நீங்கள் வேராக நுழைய வேண்டும்"
 
-#: src/kwikdisk.cpp:269
+#: src/kwikdisk.cpp:246
 #, kde-format
 msgctxt "Device is getting critically full"
 msgid "Warning"
 msgstr ""
 
-#: src/kwikdisk.cpp:311
+#: src/kwikdisk.cpp:286
 #, kde-format
 msgid "KDE Free disk space utility"
 msgstr "கேடியி காலியான வட்டு இடம் பயன்பாடு"
 
-#: src/kwikdisk.cpp:313
+#: src/kwikdisk.cpp:288
 #, kde-format
 msgid "(C) 2004 Stanislav Karchebny"
 msgstr ""
 
-#: src/kwikdisk.cpp:319
+#: src/kwikdisk.cpp:293
 #, kde-format
 msgid "Original author"
 msgstr "உண்மையான ஆசிரியர்"
 
-#: src/kwikdisk.cpp:321
+#: src/kwikdisk.cpp:294
 #, kde-format
 msgctxt "@info:credit"
 msgid "Espen Sand"
 msgstr ""
 
-#: src/kwikdisk.cpp:322
+#: src/kwikdisk.cpp:294
 #, kde-format
 msgid "KDE 2 changes"
 msgstr "கேடியி 2 மாற்றங்கள்"
 
-#: src/kwikdisk.cpp:323
+#: src/kwikdisk.cpp:295
 #, kde-format
 msgctxt "@info:credit"
 msgid "Stanislav Karchebny"
 msgstr ""
 
-#: src/kwikdisk.cpp:324
+#: src/kwikdisk.cpp:295
 #, kde-format
 msgid "KDE 3 changes"
 msgstr "கேடியி 3 மாற்றங்கள்"
 
-#: src/mntconfig.cpp:47 src/mntconfig.cpp:52
+#: src/mntconfig.cpp:46 src/mntconfig.cpp:51
 #, kde-format
 msgid "Device"
 msgstr "சாதனம்"
 
-#: src/mntconfig.cpp:48 src/mntconfig.cpp:54
+#: src/mntconfig.cpp:46 src/mntconfig.cpp:53
 #, kde-format
 msgid "Mount Point"
 msgstr "மேலேற்றப் புள்ளி"
 
-#: src/mntconfig.cpp:48
+#: src/mntconfig.cpp:46
 #, kde-format
 msgid "Mount Command"
 msgstr "மேலேற்ற கட்டளை"
 
-#: src/mntconfig.cpp:48
+#: src/mntconfig.cpp:47
 #, kde-format
 msgid "Unmount Command"
 msgstr "கீழிறக்க கட்டளை"
 
-#: src/mntconfig.cpp:53
+#: src/mntconfig.cpp:52
 #, fuzzy, kde-format
 #| msgid "None"
 msgctxt "No device is selected"
 msgid "None"
 msgstr "எதுவுமில்லை"
 
-#: src/mntconfig.cpp:55
+#: src/mntconfig.cpp:54
 #, fuzzy, kde-format
 #| msgid "None"
 msgctxt "No mount point is selected"
 msgid "None"
 msgstr "எதுவுமில்லை"
 
-#: src/mntconfig.cpp:240
+#: src/mntconfig.cpp:220
 #, kde-format
 msgid "Only local files supported."
 msgstr "உள்ளமை கோப்புகள் மட்டும் தான் உதவபடும்."
 
-#: src/mntconfig.cpp:256
+#: src/mntconfig.cpp:235
 #, kde-format
 msgid "Only local files are currently supported."
 msgstr "தற்போது உள்ளமை கோப்புகள் மட்டுமே ஆதரிக்கப்படும்."

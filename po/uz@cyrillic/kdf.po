@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-30 00:42+0000\n"
+"POT-Creation-Date: 2024-09-06 00:42+0000\n"
 "PO-Revision-Date: 2006-01-15 01:25+0100\n"
 "Last-Translator: Mashrab Kuvatov <kmashrab@uni-bremen.de>\n"
 "Language-Team: Uzbek <floss-uz-l10n@googlegroups.com>\n"
@@ -25,20 +25,20 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kmashrab@uni-bremen.de"
 
-#: src/disklist.cpp:314
+#: src/disklist.cpp:274
 #, fuzzy, kde-format
 #| msgid "could not execute [%s]"
 msgid "could not execute [%1]"
 msgstr "%s буйруғини бажариб бўлмади"
 
-#: src/disks.cpp:262
+#: src/disks.cpp:249
 #, kde-format
 msgid ""
 "Called: %1\n"
 "\n"
 msgstr ""
 
-#: src/disks.cpp:283
+#: src/disks.cpp:269
 #, kde-format
 msgid "could not execute %1"
 msgstr "%1 буйруғини бажариб бўлмади"
@@ -49,108 +49,108 @@ msgctxt "Update action"
 msgid "&Update"
 msgstr ""
 
-#: src/kdf.cpp:57
+#: src/kdf.cpp:55
 #, kde-format
 msgid "KDiskFree"
 msgstr "KDiskFree"
 
-#: src/kdf.cpp:59
+#: src/kdf.cpp:57
 #, kde-format
 msgid "KDE free disk space utility"
 msgstr ""
 
-#: src/kdf.cpp:61
+#: src/kdf.cpp:59
 #, kde-format
 msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr ""
 
-#: src/kdf.cpp:67 src/kwikdisk.cpp:318
+#: src/kdf.cpp:64 src/kwikdisk.cpp:293
 #, kde-format
 msgctxt "@info:credit"
 msgid "Michael Kropfberger"
 msgstr ""
 
-#: src/kdfconfig.cpp:32
+#: src/kdfconfig.cpp:30
 #, fuzzy, kde-format
 #| msgid "Icon"
 msgctxt "TODO"
 msgid "Icon"
 msgstr "Нишонча"
 
-#: src/kdfconfig.cpp:33 src/kdfwidget.cpp:55
+#: src/kdfconfig.cpp:31 src/kdfwidget.cpp:53
 #, fuzzy, kde-format
 #| msgid "Device"
 msgctxt "Device of the storage"
 msgid "Device"
 msgstr "Ускуна"
 
-#: src/kdfconfig.cpp:34 src/kdfwidget.cpp:56
+#: src/kdfconfig.cpp:32 src/kdfwidget.cpp:54
 #, fuzzy, kde-format
 #| msgid "Type"
 msgctxt "Filesystem on storage"
 msgid "Type"
 msgstr "Тури"
 
-#: src/kdfconfig.cpp:35 src/kdfwidget.cpp:57
+#: src/kdfconfig.cpp:33 src/kdfwidget.cpp:55
 #, fuzzy, kde-format
 #| msgid "Size"
 msgctxt "Total size of the storage"
 msgid "Size"
 msgstr "Ҳажми"
 
-#: src/kdfconfig.cpp:36
+#: src/kdfconfig.cpp:34
 #, fuzzy, kde-format
 #| msgid "Mount Point"
 msgctxt "Mount point of the storage"
 msgid "Mount Point"
 msgstr "Улаш нуқтаси"
 
-#: src/kdfconfig.cpp:37 src/kdfwidget.cpp:59
+#: src/kdfconfig.cpp:35 src/kdfwidget.cpp:57
 #, fuzzy, kde-format
 #| msgid "Free"
 msgctxt "Free space in storage"
 msgid "Free"
 msgstr "Бўш"
 
-#: src/kdfconfig.cpp:38 src/kdfwidget.cpp:60
+#: src/kdfconfig.cpp:36 src/kdfwidget.cpp:58
 #, fuzzy, kde-format
 #| msgid "Full %"
 msgctxt "Used storage space in %"
 msgid "Full %"
 msgstr "Банд %"
 
-#: src/kdfconfig.cpp:39 src/kdfwidget.cpp:61
+#: src/kdfconfig.cpp:37 src/kdfwidget.cpp:59
 #, fuzzy, kde-format
 #| msgid "Usage"
 msgctxt "Usage graphical bar"
 msgid "Usage"
 msgstr "Фойдаланилган"
 
-#: src/kdfconfig.cpp:64 src/kdfconfig.cpp:184
+#: src/kdfconfig.cpp:57 src/kdfconfig.cpp:164
 #, kde-format
 msgctxt "Visible items on device information columns (enable|disable)"
 msgid "visible"
 msgstr ""
 
-#: src/kdfconfig.cpp:163
+#: src/kdfconfig.cpp:145
 #, kde-format
 msgctxt "Are items on device information columns visible?"
 msgid "visible"
 msgstr ""
 
-#: src/kdfconfig.cpp:164
+#: src/kdfconfig.cpp:146
 #, kde-format
 msgctxt "Are items on device information columns hidden?"
 msgid "hidden"
 msgstr ""
 
-#: src/kdfconfig.cpp:201
+#: src/kdfconfig.cpp:180
 #, kde-format
 msgctxt "Device information item is hidden"
 msgid "hidden"
 msgstr ""
 
-#: src/kdfconfig.cpp:202
+#: src/kdfconfig.cpp:180
 #, kde-format
 msgctxt "Device information item is visible"
 msgid "visible"
@@ -198,7 +198,7 @@ msgstr "Файл бошқарувчиси (м-н konsole -e mc %m):"
 msgid "Custom file manager not supported when running as Flatpak."
 msgstr ""
 
-#: src/kdfitemdelegate.cpp:32 src/kdfwidget.cpp:292
+#: src/kdfitemdelegate.cpp:28 src/kdfwidget.cpp:271
 #, kde-format
 msgctxt "Disk percentage"
 msgid "%1%"
@@ -210,166 +210,166 @@ msgstr ""
 msgid "&File"
 msgstr ""
 
-#: src/kdfwidget.cpp:58
+#: src/kdfwidget.cpp:56
 #, fuzzy, kde-format
 #| msgid "Mount Point"
 msgctxt "Mount point of storage"
 msgid "Mount Point"
 msgstr "Улаш нуқтаси"
 
-#: src/kdfwidget.cpp:297 src/kdfwidget.cpp:298
+#: src/kdfwidget.cpp:274 src/kdfwidget.cpp:275
 #, kde-format
 msgid "N/A"
 msgstr ""
 
-#: src/kdfwidget.cpp:355 src/kwikdisk.cpp:267
+#: src/kdfwidget.cpp:329 src/kwikdisk.cpp:245
 #, kde-format
 msgid "Device [%1] on [%2] is critically full."
 msgstr ""
 
-#: src/kdfwidget.cpp:357
+#: src/kdfwidget.cpp:330
 #, kde-format
 msgctxt "Warning device getting critically full"
 msgid "Warning"
 msgstr ""
 
-#: src/kdfwidget.cpp:405
+#: src/kdfwidget.cpp:376
 #, kde-format
 msgid "Mount Device"
 msgstr "Ускунани улаш"
 
-#: src/kdfwidget.cpp:406
+#: src/kdfwidget.cpp:377
 #, kde-format
 msgid "Unmount Device"
 msgstr "Ускунани узиш"
 
-#: src/kdfwidget.cpp:408
+#: src/kdfwidget.cpp:379
 #, kde-format
 msgid "Open in File Manager"
 msgstr "Файл бошқарувчида очиш"
 
-#: src/kdfwidget.cpp:425 src/kdfwidget.cpp:428
+#: src/kdfwidget.cpp:393 src/kdfwidget.cpp:396
 #, kde-format
 msgid "MOUNTING"
 msgstr ""
 
-#: src/kwikdisk.cpp:60 src/kwikdisk.cpp:309
+#: src/kwikdisk.cpp:59 src/kwikdisk.cpp:284
 #, kde-format
 msgid "KwikDisk"
 msgstr ""
 
-#: src/kwikdisk.cpp:66
+#: src/kwikdisk.cpp:63
 #, kde-format
 msgid "&Start KDiskFree"
 msgstr ""
 
-#: src/kwikdisk.cpp:70
+#: src/kwikdisk.cpp:65
 #, kde-format
 msgid "&Configure KwikDisk..."
 msgstr "KwikDisk &мосламаси"
 
-#: src/kwikdisk.cpp:178
+#: src/kwikdisk.cpp:168
 #, fuzzy, kde-format
 #| msgid "Unmount"
 msgctxt "Unmount the storage device"
 msgid "Unmount"
 msgstr "Узиш"
 
-#: src/kwikdisk.cpp:178
+#: src/kwikdisk.cpp:168
 #, fuzzy, kde-format
 #| msgid "Mount"
 msgctxt "Mount the storage device"
 msgid "Mount"
 msgstr "Улаш"
 
-#: src/kwikdisk.cpp:201
+#: src/kwikdisk.cpp:191
 #, kde-format
 msgid "You must login as root to mount this disk"
 msgstr "Бу дискни улаш учун сизга бошқарувчининг имтиёзлари керак"
 
-#: src/kwikdisk.cpp:269
+#: src/kwikdisk.cpp:246
 #, kde-format
 msgctxt "Device is getting critically full"
 msgid "Warning"
 msgstr ""
 
-#: src/kwikdisk.cpp:311
+#: src/kwikdisk.cpp:286
 #, kde-format
 msgid "KDE Free disk space utility"
 msgstr ""
 
-#: src/kwikdisk.cpp:313
+#: src/kwikdisk.cpp:288
 #, kde-format
 msgid "(C) 2004 Stanislav Karchebny"
 msgstr ""
 
-#: src/kwikdisk.cpp:319
+#: src/kwikdisk.cpp:293
 #, kde-format
 msgid "Original author"
 msgstr "Биринчи муаллиф"
 
-#: src/kwikdisk.cpp:321
+#: src/kwikdisk.cpp:294
 #, kde-format
 msgctxt "@info:credit"
 msgid "Espen Sand"
 msgstr ""
 
-#: src/kwikdisk.cpp:322
+#: src/kwikdisk.cpp:294
 #, kde-format
 msgid "KDE 2 changes"
 msgstr ""
 
-#: src/kwikdisk.cpp:323
+#: src/kwikdisk.cpp:295
 #, kde-format
 msgctxt "@info:credit"
 msgid "Stanislav Karchebny"
 msgstr ""
 
-#: src/kwikdisk.cpp:324
+#: src/kwikdisk.cpp:295
 #, kde-format
 msgid "KDE 3 changes"
 msgstr ""
 
-#: src/mntconfig.cpp:47 src/mntconfig.cpp:52
+#: src/mntconfig.cpp:46 src/mntconfig.cpp:51
 #, kde-format
 msgid "Device"
 msgstr "Ускуна"
 
-#: src/mntconfig.cpp:48 src/mntconfig.cpp:54
+#: src/mntconfig.cpp:46 src/mntconfig.cpp:53
 #, kde-format
 msgid "Mount Point"
 msgstr "Улаш нуқтаси"
 
-#: src/mntconfig.cpp:48
+#: src/mntconfig.cpp:46
 #, kde-format
 msgid "Mount Command"
 msgstr "Улаш буйруғи"
 
-#: src/mntconfig.cpp:48
+#: src/mntconfig.cpp:47
 #, kde-format
 msgid "Unmount Command"
 msgstr "Узиш буйруғи"
 
-#: src/mntconfig.cpp:53
+#: src/mntconfig.cpp:52
 #, fuzzy, kde-format
 #| msgid "None"
 msgctxt "No device is selected"
 msgid "None"
 msgstr "Йўқ"
 
-#: src/mntconfig.cpp:55
+#: src/mntconfig.cpp:54
 #, fuzzy, kde-format
 #| msgid "None"
 msgctxt "No mount point is selected"
 msgid "None"
 msgstr "Йўқ"
 
-#: src/mntconfig.cpp:240
+#: src/mntconfig.cpp:220
 #, kde-format
 msgid "Only local files supported."
 msgstr "Фақат локал файллар қўлланган."
 
-#: src/mntconfig.cpp:256
+#: src/mntconfig.cpp:235
 #, kde-format
 msgid "Only local files are currently supported."
 msgstr "Ҳозирча фақат локал файллар қўлланган."
