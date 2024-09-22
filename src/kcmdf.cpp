@@ -26,10 +26,6 @@ KDiskFreeWidget::KDiskFreeWidget( QObject *parent, const KPluginMetaData &data)
     topLayout->addWidget( mKdf );
 }
 
-KDiskFreeWidget::~KDiskFreeWidget()
-{
-    mKdf->applySettings();
-}
 #include "kcmdf.moc"
 
 #include "moc_kcmdf.cpp"

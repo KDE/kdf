@@ -20,8 +20,6 @@ class KDFTopLevel : public KXmlGuiWindow
         ~KDFTopLevel() override { }
 
     protected:
-        void closeEvent(QCloseEvent *event) override;
-    protected:
         KDFWidget* kdf;
 };
 
