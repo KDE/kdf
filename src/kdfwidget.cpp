@@ -95,6 +95,8 @@ KDFWidget::KDFWidget(QWidget *parent, bool init)
 
 KDFWidget::~KDFWidget()
 {
+    applySettings();
+
     delete m_listModel;
     delete m_sortModel;
     delete m_itemDelegate;
@@ -113,7 +115,6 @@ void KDFWidget::makeColumns(void)
 /******************************************************************/
 void KDFWidget::closeEvent(QCloseEvent *)
 {
-    applySettings();
     qApp->quit();
 }
 

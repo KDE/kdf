@@ -18,7 +18,6 @@ class KDiskFreeWidget : public KCModule
 
 public:
     explicit KDiskFreeWidget(QObject *parent, const KPluginMetaData &data);
-    ~KDiskFreeWidget() override;
 
 private:
     KDFWidget *mKdf;

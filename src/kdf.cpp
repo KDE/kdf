@@ -37,12 +37,6 @@ KDFTopLevel::KDFTopLevel(QWidget *)
     setupGUI(KXmlGuiWindow::Keys | StatusBar | Save | Create);
 }
 
-void KDFTopLevel::closeEvent(QCloseEvent *event)
-{
-    kdf->applySettings();
-    KXmlGuiWindow::closeEvent(event);
-}
-
 /***************************************************************/
 int main(int argc, char **argv)
 {
