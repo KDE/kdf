@@ -1,0 +1,153 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Slovenian "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="block-devices" lang="&language;">
+<title
+>Bločne naprave</title>
+
+<articleinfo>
+
+<authorgroup>
+<author
+><firstname
+>Mike</firstname
+> <surname
+>McBride</surname
+> </author>
+<othercredit role="translator"
+><firstname
+>Matej</firstname
+><surname
+>Badalič</surname
+><affiliation
+><address
+><email
+>matej_badalic@slo.net</email
+></address
+></affiliation
+><contrib
+>Prevod:</contrib
+></othercredit
+> <othercredit role="translator"
+><firstname
+>Luka</firstname
+><surname
+>Puhar</surname
+><affiliation
+><address
+><email
+>puhar.luka@gmail.com</email
+></address
+></affiliation
+><contrib
+>Prevod</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>14.04.2016</date>
+<releaseinfo
+>Aplikacije 16.04</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KControl</keyword>
+<keyword
+>Bločne naprave</keyword>
+<keyword
+>Prostor na disku</keyword>
+</keywordset>
+</articleinfo>
+
+<sect1>
+<title
+>Naprave za shranjevanje</title>
+
+<para
+>Ta modul prikazuje datotečne naprave, ki so na voljo, ter nekatere informacije o vsaki napravi. Omogoča vam tudi nadzor nad priklopnimi točkami in priklopljenimi/odklopljenimi napravami. </para>
+
+<para
+>Ponavadi so prikazane naslednje informacije v tem zavihku: </para>
+
+<itemizedlist>
+<listitem
+><para
+>ikona, ki prikazuje tip shranitvenega prostora</para
+></listitem>
+<listitem
+><para
+>ime naprave</para
+></listitem>
+<listitem
+><para
+>vrsta datotečnega sistema</para
+></listitem>
+<listitem
+><para
+>celotna velikost</para
+></listitem>
+<listitem
+><para
+>priklopna točka</para
+></listitem>
+<listitem
+><para
+>nezaseden prostor diska</para
+></listitem>
+<listitem
+><para
+>procent uporabljenega prostora v obliki številke in grafa.</para
+></listitem>
+</itemizedlist>
+
+<para
+><mousebutton
+>Levi</mousebutton
+> klik na glavo določenegastolpca, bo razvrstil naprave v zvezi s tistim kriterijem. Drugi<mousebutton
+>levi</mousebutton
+> klik razporedi po obratnem vrstnem redu. </para>
+
+<para
+><mousebutton
+>Desni</mousebutton
+> klik na vrstico odpre meni. Če ta naprava trenutno ni priklopljena, je na voljo možnost <guimenuitem
+>Priklopi napravo</guimenuitem
+>. Če je naprava nameščena, jo lahko odstranite z izbiro <guimenuitem
+>Odklopi napravo</guimenuitem
+>. Z izbiro možnosti <guimenuitem
+>Odpri v upravljalniku datotek </guimenuitem
+> se odpre novo okno z grafičnim prikazom datotek v tej napravi. </para>
+
+<para
+>Ustrezne ukaze za priklop in odklop ter način odpiranja upravitelja datotek iz kontekstnega menija lahko nastavite v aplikaciji &kdiskfree;. </para>
+
+<sect2>
+<title
+>Avtor razdelka</title>
+
+<para
+>To poglavje je spremenjeno iz dokumentacije <application
+>kdf</application
+>, katere avtor je &Jonathan.Singer; &Jonathan.Singer.mail;</para>
+
+<para
+>Spremenjeno za &kde; 2.0 od &Mike.McBride; &Mike.McBride.mail;</para>
+<para
+>Prevod: Luka Puhar<email
+>puhar.luka@gmail.com</email
+> inAndrej Vernekar <email
+>andrej.vernekar@moj.net</email
+></para
+> 
+
+</sect2>
+</sect1>
+</article>
+
