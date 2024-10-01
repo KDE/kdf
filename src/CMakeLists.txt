@@ -47,7 +47,6 @@ target_link_libraries(kdfprivate PUBLIC
     KF6::WidgetsAddons
     KF6::IconWidgets
     KF6::StatusNotifierItem
-    KF6::Crash
 )
 
 set_target_properties(kdfprivate PROPERTIES
@@ -74,6 +73,7 @@ target_link_libraries(kdf
     Qt::Core
     KF6::KCMUtils
     KF6::XmlGui
+    KF6::Crash
 )
 
 install(TARGETS kdf  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
