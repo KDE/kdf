@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-06 00:42+0000\n"
+"POT-Creation-Date: 2024-10-06 00:42+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -52,22 +52,22 @@ msgctxt "Update action"
 msgid "&Update"
 msgstr "更新(&U)"
 
-#: src/kdf.cpp:55
+#: src/kdf.cpp:49
 #, kde-format
 msgid "KDiskFree"
 msgstr "KDiskFree"
 
-#: src/kdf.cpp:57
+#: src/kdf.cpp:51
 #, kde-format
 msgid "KDE free disk space utility"
 msgstr "KDE 剩余磁盘空间工具"
 
-#: src/kdf.cpp:59
+#: src/kdf.cpp:53
 #, kde-format
 msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr "(c) 1998-2001, Michael Kropfberger"
 
-#: src/kdf.cpp:64 src/kwikdisk.cpp:293
+#: src/kdf.cpp:58 src/kwikdisk.cpp:293
 #, kde-format
 msgctxt "@info:credit"
 msgid "Michael Kropfberger"
@@ -193,7 +193,7 @@ msgstr "文件管理器 (如 konsole -e mc %m)："
 msgid "Custom file manager not supported when running as Flatpak."
 msgstr "作为 Flatpak 运行时不支持自定义文件管理器。"
 
-#: src/kdfitemdelegate.cpp:28 src/kdfwidget.cpp:271
+#: src/kdfitemdelegate.cpp:28 src/kdfwidget.cpp:272
 #, kde-format
 msgctxt "Disk percentage"
 msgid "%1%"
@@ -211,38 +211,38 @@ msgctxt "Mount point of storage"
 msgid "Mount Point"
 msgstr "挂载点"
 
-#: src/kdfwidget.cpp:274 src/kdfwidget.cpp:275
+#: src/kdfwidget.cpp:275 src/kdfwidget.cpp:276
 #, kde-format
 msgid "N/A"
 msgstr "不可用"
 
-#: src/kdfwidget.cpp:329 src/kwikdisk.cpp:245
+#: src/kdfwidget.cpp:330 src/kwikdisk.cpp:245
 #, kde-format
 msgid "Device [%1] on [%2] is critically full."
 msgstr "[%2] 上的设备 [%1] 剩余空间危急。"
 
-#: src/kdfwidget.cpp:330
+#: src/kdfwidget.cpp:331
 #, kde-format
 msgctxt "Warning device getting critically full"
 msgid "Warning"
 msgstr "警告"
 
-#: src/kdfwidget.cpp:376
+#: src/kdfwidget.cpp:377
 #, kde-format
 msgid "Mount Device"
 msgstr "挂载设备"
 
-#: src/kdfwidget.cpp:377
+#: src/kdfwidget.cpp:378
 #, kde-format
 msgid "Unmount Device"
 msgstr "卸载设备"
 
-#: src/kdfwidget.cpp:379
+#: src/kdfwidget.cpp:380
 #, kde-format
 msgid "Open in File Manager"
 msgstr "在文件管理器中打开"
 
-#: src/kdfwidget.cpp:393 src/kdfwidget.cpp:396
+#: src/kdfwidget.cpp:394 src/kdfwidget.cpp:397
 #, kde-format
 msgid "MOUNTING"
 msgstr "正在挂载"

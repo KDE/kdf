@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-06 00:42+0000\n"
+"POT-Creation-Date: 2024-10-06 00:42+0000\n"
 "PO-Revision-Date: 2022-03-26 22:52+0000\n"
 "Last-Translator: Pedro Morais <morais@kde.org>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
@@ -49,22 +49,22 @@ msgctxt "Update action"
 msgid "&Update"
 msgstr "Act&ualizar"
 
-#: src/kdf.cpp:55
+#: src/kdf.cpp:49
 #, kde-format
 msgid "KDiskFree"
 msgstr "KDiskFree"
 
-#: src/kdf.cpp:57
+#: src/kdf.cpp:51
 #, kde-format
 msgid "KDE free disk space utility"
 msgstr "Utilitário de gestão do espaço livre do disco do KDE"
 
-#: src/kdf.cpp:59
+#: src/kdf.cpp:53
 #, kde-format
 msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr "(c) 1998-2001, Michael Kropfberger"
 
-#: src/kdf.cpp:64 src/kwikdisk.cpp:293
+#: src/kdf.cpp:58 src/kwikdisk.cpp:293
 #, fuzzy, kde-format
 #| msgid "Michael Kropfberger"
 msgctxt "@info:credit"
@@ -194,7 +194,7 @@ msgstr ""
 "Um gestor de ficheiros personalizado não é suportado ao executar como "
 "Flatpak."
 
-#: src/kdfitemdelegate.cpp:28 src/kdfwidget.cpp:271
+#: src/kdfitemdelegate.cpp:28 src/kdfwidget.cpp:272
 #, kde-format
 msgctxt "Disk percentage"
 msgid "%1%"
@@ -212,38 +212,38 @@ msgctxt "Mount point of storage"
 msgid "Mount Point"
 msgstr "Ponto de Montagem"
 
-#: src/kdfwidget.cpp:274 src/kdfwidget.cpp:275
+#: src/kdfwidget.cpp:275 src/kdfwidget.cpp:276
 #, kde-format
 msgid "N/A"
 msgstr "N/D"
 
-#: src/kdfwidget.cpp:329 src/kwikdisk.cpp:245
+#: src/kdfwidget.cpp:330 src/kwikdisk.cpp:245
 #, kde-format
 msgid "Device [%1] on [%2] is critically full."
 msgstr "O dispositivo [%1] em [%2] está com um nível de utilização crítico."
 
-#: src/kdfwidget.cpp:330
+#: src/kdfwidget.cpp:331
 #, kde-format
 msgctxt "Warning device getting critically full"
 msgid "Warning"
 msgstr "Aviso"
 
-#: src/kdfwidget.cpp:376
+#: src/kdfwidget.cpp:377
 #, kde-format
 msgid "Mount Device"
 msgstr "Montar o Dispositivo"
 
-#: src/kdfwidget.cpp:377
+#: src/kdfwidget.cpp:378
 #, kde-format
 msgid "Unmount Device"
 msgstr "Desmontar o Dispositivo"
 
-#: src/kdfwidget.cpp:379
+#: src/kdfwidget.cpp:380
 #, kde-format
 msgid "Open in File Manager"
 msgstr "Abrir no Gestor de Ficheiros"
 
-#: src/kdfwidget.cpp:393 src/kdfwidget.cpp:396
+#: src/kdfwidget.cpp:394 src/kdfwidget.cpp:397
 #, kde-format
 msgid "MOUNTING"
 msgstr "A MONTAR"

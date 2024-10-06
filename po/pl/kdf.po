@@ -1,5 +1,5 @@
 # translation of kdf.po to
-# Version: $Revision: 1689624 $
+# Version: $Revision: 1692237 $
 # translation of kdf.po to Polish
 # KTranslator Generated File
 # SPDX-FileCopyrightText: 2015, 2016, 2017, 2022, 2024 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-06 00:42+0000\n"
+"POT-Creation-Date: 2024-10-06 00:42+0000\n"
 "PO-Revision-Date: 2024-07-20 10:30+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -57,22 +57,22 @@ msgctxt "Update action"
 msgid "&Update"
 msgstr "&Uaktualnij"
 
-#: src/kdf.cpp:55
+#: src/kdf.cpp:49
 #, kde-format
 msgid "KDiskFree"
 msgstr "KDiskFree"
 
-#: src/kdf.cpp:57
+#: src/kdf.cpp:51
 #, kde-format
 msgid "KDE free disk space utility"
 msgstr "Kontrola wolnego miejsca na dysku dla KDE"
 
-#: src/kdf.cpp:59
+#: src/kdf.cpp:53
 #, kde-format
 msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr "(c) 1998-2001, Michael Kropfberger"
 
-#: src/kdf.cpp:64 src/kwikdisk.cpp:293
+#: src/kdf.cpp:58 src/kwikdisk.cpp:293
 #, kde-format
 msgctxt "@info:credit"
 msgid "Michael Kropfberger"
@@ -199,7 +199,7 @@ msgid "Custom file manager not supported when running as Flatpak."
 msgstr ""
 "Własne zarządzanie plikami jest nieobsługiwane, gdy uruchomiono z Flatpaka."
 
-#: src/kdfitemdelegate.cpp:28 src/kdfwidget.cpp:271
+#: src/kdfitemdelegate.cpp:28 src/kdfwidget.cpp:272
 #, kde-format
 msgctxt "Disk percentage"
 msgid "%1%"
@@ -217,38 +217,38 @@ msgctxt "Mount point of storage"
 msgid "Mount Point"
 msgstr "Punkt podpięcia"
 
-#: src/kdfwidget.cpp:274 src/kdfwidget.cpp:275
+#: src/kdfwidget.cpp:275 src/kdfwidget.cpp:276
 #, kde-format
 msgid "N/A"
 msgstr "brak"
 
-#: src/kdfwidget.cpp:329 src/kwikdisk.cpp:245
+#: src/kdfwidget.cpp:330 src/kwikdisk.cpp:245
 #, kde-format
 msgid "Device [%1] on [%2] is critically full."
 msgstr "Urządzenie [%1]  na [%2] jest prawie zapełnione."
 
-#: src/kdfwidget.cpp:330
+#: src/kdfwidget.cpp:331
 #, kde-format
 msgctxt "Warning device getting critically full"
 msgid "Warning"
 msgstr "Ostrzeżenie"
 
-#: src/kdfwidget.cpp:376
+#: src/kdfwidget.cpp:377
 #, kde-format
 msgid "Mount Device"
 msgstr "Podepnij urządzenie"
 
-#: src/kdfwidget.cpp:377
+#: src/kdfwidget.cpp:378
 #, kde-format
 msgid "Unmount Device"
 msgstr "Odepnij urządzenie"
 
-#: src/kdfwidget.cpp:379
+#: src/kdfwidget.cpp:380
 #, kde-format
 msgid "Open in File Manager"
 msgstr "Otwórz w przeglądarce plików"
 
-#: src/kdfwidget.cpp:393 src/kdfwidget.cpp:396
+#: src/kdfwidget.cpp:394 src/kdfwidget.cpp:397
 #, kde-format
 msgid "MOUNTING"
 msgstr "PODPINANIE"
