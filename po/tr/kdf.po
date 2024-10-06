@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeutils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-19 00:40+0000\n"
+"POT-Creation-Date: 2024-10-06 02:33+0000\n"
 "PO-Revision-Date: 2024-05-19 22:36+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -60,22 +60,22 @@ msgctxt "Update action"
 msgid "&Update"
 msgstr "&Güncelle"
 
-#: src/kdf.cpp:56
+#: src/kdf.cpp:48
 #, kde-format
 msgid "KDiskFree"
 msgstr "K Boş Alan"
 
-#: src/kdf.cpp:58
+#: src/kdf.cpp:50
 #, kde-format
 msgid "KDE free disk space utility"
 msgstr "KDE boş disk alanı izlencesi"
 
-#: src/kdf.cpp:60
+#: src/kdf.cpp:52
 #, kde-format
 msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr "(c) 1998–2001, Michael Kropfberger"
 
-#: src/kdf.cpp:66 src/kwikdisk.cpp:318
+#: src/kdf.cpp:58 src/kwikdisk.cpp:318
 #, kde-format
 msgctxt "@info:credit"
 msgid "Michael Kropfberger"

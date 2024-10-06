@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-19 00:40+0000\n"
+"POT-Creation-Date: 2024-10-06 02:33+0000\n"
 "PO-Revision-Date: 2022-02-21 19:41+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -70,22 +70,22 @@ msgstr "&Päivitä"
 
 # pmap: =/gen=KDiskFreen/
 # pmap: =/elat=KDiskFreestä/
-#: src/kdf.cpp:56
+#: src/kdf.cpp:48
 #, kde-format
 msgid "KDiskFree"
 msgstr "KDiskFree"
 
-#: src/kdf.cpp:58
+#: src/kdf.cpp:50
 #, kde-format
 msgid "KDE free disk space utility"
 msgstr "Vapaan levytilan kertova KDE:n työkalu"
 
-#: src/kdf.cpp:60
+#: src/kdf.cpp:52
 #, kde-format
 msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr "© 1998–2001 Michael Kropfberger"
 
-#: src/kdf.cpp:66 src/kwikdisk.cpp:318
+#: src/kdf.cpp:58 src/kwikdisk.cpp:318
 #, fuzzy, kde-format
 #| msgid "Michael Kropfberger"
 msgctxt "@info:credit"

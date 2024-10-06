@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-19 00:40+0000\n"
+"POT-Creation-Date: 2024-10-06 02:33+0000\n"
 "PO-Revision-Date: 2011-01-05 11:31+0100\n"
 "Last-Translator: Manfred Wiese <m.j.wiese@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -54,22 +54,22 @@ msgctxt "Update action"
 msgid "&Update"
 msgstr "&Opfrischen"
 
-#: src/kdf.cpp:56
+#: src/kdf.cpp:48
 #, kde-format
 msgid "KDiskFree"
 msgstr "KDiskFree"
 
-#: src/kdf.cpp:58
+#: src/kdf.cpp:50
 #, kde-format
 msgid "KDE free disk space utility"
 msgstr "KDE-Warktüüch för fre'en Fastplaatplatz"
 
-#: src/kdf.cpp:60
+#: src/kdf.cpp:52
 #, kde-format
 msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr "© 1998-2001, Michael Kropfberger"
 
-#: src/kdf.cpp:66 src/kwikdisk.cpp:318
+#: src/kdf.cpp:58 src/kwikdisk.cpp:318
 #, fuzzy, kde-format
 #| msgid "Michael Kropfberger"
 msgctxt "@info:credit"
