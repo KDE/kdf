@@ -20,7 +20,13 @@ class MntConfigWidget : public QWidget, private Ui_MntConfigWidget
     Q_OBJECT
 
 public:
-    enum ColType { IconCol = 0, DeviceCol = 1, MountPointCol = 2, MountCommandCol = 3, UmountCommandCol = 4 };
+    enum ColType {
+        IconCol = 0,
+        DeviceCol = 1,
+        MountPointCol = 2,
+        MountCommandCol = 3,
+        UmountCommandCol = 4
+    };
 
     explicit MntConfigWidget(QWidget *parent = nullptr, bool init = false);
     ~MntConfigWidget() override;

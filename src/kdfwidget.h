@@ -49,7 +49,16 @@ public:
     explicit KDFWidget(QWidget *parent = nullptr, bool init = false);
     ~KDFWidget() override;
 
-    enum ColumnNumber { IconCol = 0, DeviceCol = 1, TypeCol = 2, SizeCol = 3, MountPointCol = 4, FreeCol = 5, FullCol = 6, UsageBarCol = 7 };
+    enum ColumnNumber {
+        IconCol = 0,
+        DeviceCol = 1,
+        TypeCol = 2,
+        SizeCol = 3,
+        MountPointCol = 4,
+        FreeCol = 5,
+        FullCol = 6,
+        UsageBarCol = 7
+    };
 
 public Q_SLOTS:
     void settingsChanged(void);
