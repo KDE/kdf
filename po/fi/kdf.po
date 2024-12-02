@@ -8,7 +8,7 @@
 # Teemu Rytilahti <teemu.rytilahti@kde-fi.org>, 2008.
 # Jorma Karvonen <karvonen.jorma@gmail.com>, 2010.
 # Lasse Liehu <lasse.liehu@gmail.com>, 2010, 2013, 2014, 2016.
-# Tommi Nieminen <translator@legisign.org>, 2019, 2022.
+# SPDX-FileCopyrightText: 2019, 2022, 2024 Tommi Nieminen <translator@legisign.org>
 # Copyright © 2003, 2005, 2008 Free Software Foundation, Inc.
 #
 # KDE Finnish translation sprint participants:
@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-06 00:42+0000\n"
-"PO-Revision-Date: 2022-02-21 19:41+0200\n"
+"PO-Revision-Date: 2024-10-20 14:29+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -26,8 +26,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-POT-Import-Date: 2012-12-01 22:25:40+0000\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -86,11 +85,10 @@ msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr "© 1998–2001 Michael Kropfberger"
 
 #: src/kdf.cpp:58 src/kwikdisk.cpp:293
-#, fuzzy, kde-format
-#| msgid "Michael Kropfberger"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Michael Kropfberger"
-msgstr "Michael Kropfberger"
+msgstr " Michael Kropfberger"
 
 #: src/kdfconfig.cpp:30
 #, kde-format
@@ -320,8 +318,7 @@ msgid "Original author"
 msgstr "Alkuperäinen tekijä"
 
 #: src/kwikdisk.cpp:294
-#, fuzzy, kde-format
-#| msgid "Espen Sand"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Espen Sand"
 msgstr "Espen Sand"
@@ -332,8 +329,7 @@ msgid "KDE 2 changes"
 msgstr "KDE 2 -muutokset"
 
 #: src/kwikdisk.cpp:295
-#, fuzzy, kde-format
-#| msgid "Stanislav Karchebny"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Stanislav Karchebny"
 msgstr "Stanislav Karchebny"
