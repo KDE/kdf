@@ -39,6 +39,7 @@
   <name xml:lang="pt">KDiskFree</name>
   <name xml:lang="pt-BR">KDiskFree</name>
   <name xml:lang="ru">KDiskFree</name>
+  <name xml:lang="sa">KDiskFree इति</name>
   <name xml:lang="sk">KDiskFree</name>
   <name xml:lang="sl">KDiskFree</name>
   <name xml:lang="sv">Kdiskfree</name>
@@ -79,6 +80,7 @@
   <summary xml:lang="pt">Visualização do Uso do Disco</summary>
   <summary xml:lang="pt-BR">Visualização do uso do disco</summary>
   <summary xml:lang="ru">Статистика использования дисков</summary>
+  <summary xml:lang="sa">डिस्कस्य उपयोगं पश्यन्तु</summary>
   <summary xml:lang="sk">Zobraziť využitie disku</summary>
   <summary xml:lang="sl">Pogled porabe diska</summary>
   <summary xml:lang="sv">Visa hårddiskanvändning</summary>
@@ -121,6 +123,7 @@
     <p xml:lang="pt">O KDiskFree mostra os dispositivos de ficheiros disponíveis (partições de discos rígidos, unidades de disquetes e CD's, etc.) em conjunto com informações sobre a sua capacidade, espaço livre, tipo e ponto de montagem. Também lhe permite montar e desmontar as unidades e vê-las num gestor de ficheiros.</p>
     <p xml:lang="pt-BR">O KDiskFree mostra os dispositivos de arquivos disponíveis (partições de discos rígidos, unidades de disquetes e CDs, dispositivos USB, etc.) juntamente com informações sobre sua capacidade, espaço livre, tipo e ponto de montagem. Também permite a montagem e desmontagem de unidades e visualizá-las em um gerenciador de arquivos.</p>
     <p xml:lang="ru">KDiskFree служит для просмотра информации о доступных файловых устройствах (таких как разделы жёсткого диска, дискеты и приводы компакт-дисков): объём, доступное свободное место, тип и точка подключения. Кроме того, приложение позволяет подключать и отключать диски и открывать их для просмотра в приложении для управления файлами.</p>
+    <p xml:lang="sa">KDiskFree उपलब्धानि सञ्चिकायन्त्राणि (हार्डड्राइवविभाजनं, फ्लॉपी तथा सीडीड्राइव् इत्यादयः) तेषां क्षमता, मुक्तस्थानं, प्रकारः, माउण्ट्-बिन्दुः च इति सूचनाभिः सह प्रदर्शयति । इदं भवन्तं ड्राइव्-माउण्ट्-अनमाउण्ट्-करणं च सञ्चिका-प्रबन्धके द्रष्टुं च शक्नोति ।</p>
     <p xml:lang="sk">KDiskFree zobrazuje dostuné zariadenia na súbory (pevné disky, partície, diskety, CD, atď.) tak isto informácie o ich kapacite, voľnom mieste, type a prípojnom bode. Tiež vám umožnuje pripájať a odpájať disky a prehliadať ich v správcovi súborov.</p>
     <p xml:lang="sl">KDiskFree prikazuje razpoložljive enote hrambe datotek (particije trdega diska, diskete in pogone CD-jev itd.), skupaj s podatki o njihovi kapaciteti, prostem prostoru, vrsti in mestu priključitve. Omogoča vam tudi, da lahko pogone priklopite in odklopite ter si jih ogledate v upravitelju datotek.</p>
     <p xml:lang="sv">Kdiskfree visar tillgängliga filenheter (hårddiskpartitioner, diskett- och cd-enheter, etc.) tillsammans med information om deras kapacitet, ledigt utrymme, typ och monteringsplats. Det låter dig också montera och avmontera enheter och visa dem i en filhanterare.</p>
@@ -169,6 +172,7 @@
       <caption xml:lang="pt">Janela principal do KDiskFree</caption>
       <caption xml:lang="pt-BR">Janela principal do KDiskFree</caption>
       <caption xml:lang="ru">Главное окно приложения KDiskFree</caption>
+      <caption xml:lang="sa">KDiskFree मुख्य विण्डो</caption>
       <caption xml:lang="sk">Hlavné okno KDiskFree</caption>
       <caption xml:lang="sl">Glavno okno KDiskFree</caption>
       <caption xml:lang="sv">Huvudfönstret i Kdiskfree</caption>
