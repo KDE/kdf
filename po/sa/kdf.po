@@ -1,0 +1,410 @@
+# Sanskrit translations for kdf package.
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the kdf package.
+# Kali <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdf\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2024-10-06 00:42+0000\n"
+"PO-Revision-Date: 2024-12-13 19:09+0530\n"
+"Last-Translator: Kali <EMAIL@ADDRESS>\n"
+"Language-Team: Sanskrit\n"
+"Language: sa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+
+#: src/disklist.cpp:274
+#, kde-format
+msgid "could not execute [%1]"
+msgstr "निष्पादयितुं न शक्तवान् [%1] ।"
+
+#: src/disks.cpp:249
+#, kde-format
+msgid ""
+"Called: %1\n"
+"\n"
+msgstr ""
+"आहूतः: %1\n"
+"\n"
+
+#: src/disks.cpp:269
+#, kde-format
+msgid "could not execute %1"
+msgstr "%1 निष्पादयितुं न शक्तवान्"
+
+#: src/kdf.cpp:27
+#, kde-format
+msgctxt "Update action"
+msgid "&Update"
+msgstr ""
+
+#: src/kdf.cpp:49
+#, kde-format
+msgid "KDiskFree"
+msgstr "KDiskFree इति"
+
+#: src/kdf.cpp:51
+#, kde-format
+msgid "KDE free disk space utility"
+msgstr "KDE मुक्तडिस्कस्थानस्य उपयोगिता"
+
+#: src/kdf.cpp:53
+#, kde-format
+msgid "(c) 1998-2001, Michael Kropfberger"
+msgstr "(ग) 1998-2001, माइकल क्रोप्फबर्गर"
+
+#: src/kdf.cpp:58 src/kwikdisk.cpp:293
+#, kde-format
+msgctxt "@info:credit"
+msgid "Michael Kropfberger"
+msgstr ""
+
+#: src/kdfconfig.cpp:30
+#, kde-format
+msgctxt "TODO"
+msgid "Icon"
+msgstr ""
+
+#: src/kdfconfig.cpp:31 src/kdfwidget.cpp:53
+#, kde-format
+msgctxt "Device of the storage"
+msgid "Device"
+msgstr "उपकरणम्‌"
+
+#: src/kdfconfig.cpp:32 src/kdfwidget.cpp:54
+#, kde-format
+msgctxt "Filesystem on storage"
+msgid "Type"
+msgstr ""
+
+#: src/kdfconfig.cpp:33 src/kdfwidget.cpp:55
+#, kde-format
+msgctxt "Total size of the storage"
+msgid "Size"
+msgstr ""
+
+#: src/kdfconfig.cpp:34
+#, kde-format
+msgctxt "Mount point of the storage"
+msgid "Mount Point"
+msgstr "माउण्ट् प्वाइण्ट्"
+
+#: src/kdfconfig.cpp:35 src/kdfwidget.cpp:57
+#, kde-format
+msgctxt "Free space in storage"
+msgid "Free"
+msgstr ""
+
+#: src/kdfconfig.cpp:36 src/kdfwidget.cpp:58
+#, kde-format
+msgctxt "Used storage space in %"
+msgid "Full %"
+msgstr ""
+
+#: src/kdfconfig.cpp:37 src/kdfwidget.cpp:59
+#, kde-format
+msgctxt "Usage graphical bar"
+msgid "Usage"
+msgstr ""
+
+#: src/kdfconfig.cpp:57 src/kdfconfig.cpp:164
+#, kde-format
+msgctxt "Visible items on device information columns (enable|disable)"
+msgid "visible"
+msgstr ""
+
+#: src/kdfconfig.cpp:145
+#, kde-format
+msgctxt "Are items on device information columns visible?"
+msgid "visible"
+msgstr ""
+
+#: src/kdfconfig.cpp:146
+#, kde-format
+msgctxt "Are items on device information columns hidden?"
+msgid "hidden"
+msgstr ""
+
+#: src/kdfconfig.cpp:180
+#, kde-format
+msgctxt "Device information item is hidden"
+msgid "hidden"
+msgstr ""
+
+#: src/kdfconfig.cpp:180
+#, kde-format
+msgctxt "Device information item is visible"
+msgid "visible"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, updateLabel)
+#: src/kdfconfig.ui:35
+#, kde-format
+msgid "Update frequency:"
+msgstr "अद्यतन आवृत्तिः : १."
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, m_updateSpinBox)
+#: src/kdfconfig.ui:42
+#, kde-format
+msgid " sec"
+msgstr " सेक"
+
+#. i18n: ectx: property (text), widget (QCheckBox, mOpenMountCheck)
+#: src/kdfconfig.ui:55
+#, kde-format
+msgid "Open file manager automatically on mount"
+msgstr "माउण्ट् इत्यत्र स्वयमेव सञ्चिकाप्रबन्धकं उद्घाटयन्तु"
+
+#. i18n: ectx: property (text), widget (QCheckBox, mPopupFullCheck)
+#: src/kdfconfig.ui:62
+#, kde-format
+msgid "Pop up a window when a disk gets critically full"
+msgstr "यदा डिस्कः गम्भीररूपेण पूर्णः भवति तदा विण्डो पॉप अप कुर्वन्तु"
+
+#. i18n: ectx: property (text), widget (QCheckBox, mSystemFileManagerCheck)
+#: src/kdfconfig.ui:69
+#, kde-format
+msgid "Use system default file manager"
+msgstr "सिस्टम् पूर्वनिर्धारितसञ्चिकाप्रबन्धकस्य उपयोगं कुर्वन्तु"
+
+#. i18n: ectx: property (text), widget (QLabel, fileManagerEdit)
+#: src/kdfconfig.ui:76
+#, no-c-format, kde-format
+msgid "File manager (e.g. konsole -e mc %m):"
+msgstr "सञ्चिकाप्रबन्धकः (उदा. konsole -e mc %m):"
+
+#. i18n: ectx: property (text), widget (QLabel, mFlatpakLabel)
+#: src/kdfconfig.ui:94
+#, kde-format
+msgid "Custom file manager not supported when running as Flatpak."
+msgstr "Flatpak इत्यस्य रूपेण चालनसमये कस्टम् सञ्चिकाप्रबन्धकः समर्थितः नास्ति ।"
+
+#: src/kdfitemdelegate.cpp:28 src/kdfwidget.cpp:272
+#, kde-format
+msgctxt "Disk percentage"
+msgid "%1%"
+msgstr ""
+
+#. i18n: ectx: Menu (file)
+#: src/kdfui.rc:5
+#, kde-format
+msgid "&File"
+msgstr "&संचिका"
+
+#: src/kdfwidget.cpp:56
+#, kde-format
+msgctxt "Mount point of storage"
+msgid "Mount Point"
+msgstr "माउण्ट् प्वाइण्ट्"
+
+#: src/kdfwidget.cpp:275 src/kdfwidget.cpp:276
+#, kde-format
+msgid "N/A"
+msgstr "न/अ"
+
+#: src/kdfwidget.cpp:330 src/kwikdisk.cpp:245
+#, kde-format
+msgid "Device [%1] on [%2] is critically full."
+msgstr "[%2] इत्यत्र यन्त्रं [%1] समीक्षात्मकरूपेण पूर्णम् अस्ति ।"
+
+#: src/kdfwidget.cpp:331
+#, kde-format
+msgctxt "Warning device getting critically full"
+msgid "Warning"
+msgstr ""
+
+#: src/kdfwidget.cpp:377
+#, kde-format
+msgid "Mount Device"
+msgstr "माउण्ट् डिवाइस"
+
+#: src/kdfwidget.cpp:378
+#, kde-format
+msgid "Unmount Device"
+msgstr "उपकरणं अनमाउण्ट् कुर्वन्तु"
+
+#: src/kdfwidget.cpp:380
+#, kde-format
+msgid "Open in File Manager"
+msgstr "सञ्चिकाप्रबन्धके उद्घाटयन्तु"
+
+#: src/kdfwidget.cpp:394 src/kdfwidget.cpp:397
+#, kde-format
+msgid "MOUNTING"
+msgstr "MOUNTING इति"
+
+#: src/kwikdisk.cpp:59 src/kwikdisk.cpp:284
+#, kde-format
+msgid "KwikDisk"
+msgstr "क्विकडिस्क"
+
+#: src/kwikdisk.cpp:63
+#, kde-format
+msgid "&Start KDiskFree"
+msgstr "&KDiskFree आरभत"
+
+#: src/kwikdisk.cpp:65
+#, kde-format
+msgid "&Configure KwikDisk..."
+msgstr "&KwikDisk विन्यस्तं कुर्वन्तु..."
+
+#: src/kwikdisk.cpp:168
+#, kde-format
+msgctxt "Unmount the storage device"
+msgid "Unmount"
+msgstr ""
+
+#: src/kwikdisk.cpp:168
+#, kde-format
+msgctxt "Mount the storage device"
+msgid "Mount"
+msgstr ""
+
+#: src/kwikdisk.cpp:191
+#, kde-format
+msgid "You must login as root to mount this disk"
+msgstr "एतत् डिस्कं माउण्ट् कर्तुं भवता root इति रूपेण प्रवेशः करणीयः"
+
+#: src/kwikdisk.cpp:246
+#, kde-format
+msgctxt "Device is getting critically full"
+msgid "Warning"
+msgstr ""
+
+#: src/kwikdisk.cpp:286
+#, kde-format
+msgid "KDE Free disk space utility"
+msgstr "KDE मुक्तडिस्कस्थानस्य उपयोगिता"
+
+#: src/kwikdisk.cpp:288
+#, kde-format
+msgid "(C) 2004 Stanislav Karchebny"
+msgstr "(ग) 2004 स्तानिस्लाव कर्चेबनी"
+
+#: src/kwikdisk.cpp:293
+#, kde-format
+msgid "Original author"
+msgstr "मूल लेखक"
+
+#: src/kwikdisk.cpp:294
+#, kde-format
+msgctxt "@info:credit"
+msgid "Espen Sand"
+msgstr ""
+
+#: src/kwikdisk.cpp:294
+#, kde-format
+msgid "KDE 2 changes"
+msgstr "WHERE २ परिवर्तनं भवति"
+
+#: src/kwikdisk.cpp:295
+#, kde-format
+msgctxt "@info:credit"
+msgid "Stanislav Karchebny"
+msgstr ""
+
+#: src/kwikdisk.cpp:295
+#, kde-format
+msgid "KDE 3 changes"
+msgstr "WHERE ३ परिवर्तनं भवति"
+
+#: src/mntconfig.cpp:46 src/mntconfig.cpp:51
+#, kde-format
+msgid "Device"
+msgstr "उपकरणम्‌"
+
+#: src/mntconfig.cpp:46 src/mntconfig.cpp:53
+#, kde-format
+msgid "Mount Point"
+msgstr "माउण्ट् प्वाइण्ट्"
+
+#: src/mntconfig.cpp:46
+#, kde-format
+msgid "Mount Command"
+msgstr "माउण्ट् कमाण्ड्"
+
+#: src/mntconfig.cpp:47
+#, kde-format
+msgid "Unmount Command"
+msgstr "Unmount Command इति"
+
+#: src/mntconfig.cpp:52
+#, kde-format
+msgctxt "No device is selected"
+msgid "None"
+msgstr ""
+
+#: src/mntconfig.cpp:54
+#, kde-format
+msgctxt "No mount point is selected"
+msgid "None"
+msgstr ""
+
+#: src/mntconfig.cpp:220
+#, kde-format
+msgid "Only local files supported."
+msgstr "केवलं स्थानीयसञ्चिकाः समर्थिताः ।"
+
+#: src/mntconfig.cpp:235
+#, kde-format
+msgid "Only local files are currently supported."
+msgstr "केवलं स्थानीयसञ्चिकाः एव सम्प्रति समर्थिताः सन्ति ।"
+
+#. i18n: ectx: property (text), widget (QLabel, iconNameLabel)
+#: src/mntconfig.ui:20
+#, kde-format
+msgid "Icon name:"
+msgstr "चिह्ननाम : १."
+
+#. i18n: ectx: property (text), widget (QLabel, mountLabel)
+#: src/mntconfig.ui:30
+#, kde-format
+msgid "Mount Command:"
+msgstr "माउण्ट् आदेशः : १."
+
+#. i18n: ectx: property (text), widget (QLabel, umountLabel)
+#: src/mntconfig.ui:40
+#, kde-format
+msgid "Unmount Command:"
+msgstr "Unmount आदेशः : १."
+
+#. i18n: ectx: property (text), widget (QPushButton, mDefaultIconButton)
+#: src/mntconfig.ui:50
+#, kde-format
+msgid "Default Icon"
+msgstr "पूर्वनिर्धारित चिह्न"
+
+#. i18n: ectx: property (text), widget (QPushButton, mMountButton)
+#. i18n: ectx: property (text), widget (QPushButton, mUmountButton)
+#: src/mntconfig.ui:57 src/mntconfig.ui:64
+#, kde-format
+msgid "Get Command..."
+msgstr "Get Command..."
+
+#: src/optiondialog.cpp:18
+#, kde-format
+msgid "Configure"
+msgstr "विन्यस्तं कुर्वन्तु"
+
+#: src/optiondialog.cpp:24
+#, kde-format
+msgid "General Settings"
+msgstr "सामान्य सेटिंग्स्"
+
+#: src/optiondialog.cpp:28
+#, kde-format
+msgid "Mount Commands"
+msgstr "माउण्ट् आदेशाः"
