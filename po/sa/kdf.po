@@ -3,28 +3,31 @@
 # This file is distributed under the same license as the kdf package.
 # Kali <EMAIL@ADDRESS>, 2024.
 #
+# SPDX-FileCopyrightText: 2024 kali <skkalwar999@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-06 00:42+0000\n"
-"PO-Revision-Date: 2024-12-13 19:09+0530\n"
-"Last-Translator: Kali <EMAIL@ADDRESS>\n"
-"Language-Team: Sanskrit\n"
+"PO-Revision-Date: 2024-12-14 01:08+0530\n"
+"Last-Translator: kali <skkalwar999@gmail.com>\n"
+"Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "भवतः नामानि"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "भवतः ईमेलपत्राणि"
 
 #: src/disklist.cpp:274
 #, kde-format
@@ -49,7 +52,7 @@ msgstr "%1 निष्पादयितुं न शक्तवान्"
 #, kde-format
 msgctxt "Update action"
 msgid "&Update"
-msgstr ""
+msgstr "&अद्यतन"
 
 #: src/kdf.cpp:49
 #, kde-format
@@ -70,13 +73,13 @@ msgstr "(ग) 1998-2001, माइकल क्रोप्फबर्गर"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Michael Kropfberger"
-msgstr ""
+msgstr "माइकल क्रॉप्फ्बर्गर"
 
 #: src/kdfconfig.cpp:30
 #, kde-format
 msgctxt "TODO"
 msgid "Icon"
-msgstr ""
+msgstr "चिह्नम्"
 
 #: src/kdfconfig.cpp:31 src/kdfwidget.cpp:53
 #, kde-format
@@ -88,13 +91,13 @@ msgstr "उपकरणम्‌"
 #, kde-format
 msgctxt "Filesystem on storage"
 msgid "Type"
-msgstr ""
+msgstr "प्रकारः"
 
 #: src/kdfconfig.cpp:33 src/kdfwidget.cpp:55
 #, kde-format
 msgctxt "Total size of the storage"
 msgid "Size"
-msgstr ""
+msgstr "आकृति"
 
 #: src/kdfconfig.cpp:34
 #, kde-format
@@ -106,49 +109,49 @@ msgstr "माउण्ट् प्वाइण्ट्"
 #, kde-format
 msgctxt "Free space in storage"
 msgid "Free"
-msgstr ""
+msgstr "निःशुल्कः"
 
 #: src/kdfconfig.cpp:36 src/kdfwidget.cpp:58
 #, kde-format
 msgctxt "Used storage space in %"
 msgid "Full %"
-msgstr ""
+msgstr "पूर्ण %"
 
 #: src/kdfconfig.cpp:37 src/kdfwidget.cpp:59
 #, kde-format
 msgctxt "Usage graphical bar"
 msgid "Usage"
-msgstr ""
+msgstr "प्रयोगः"
 
 #: src/kdfconfig.cpp:57 src/kdfconfig.cpp:164
 #, kde-format
 msgctxt "Visible items on device information columns (enable|disable)"
 msgid "visible"
-msgstr ""
+msgstr "दृश्यमानम्"
 
 #: src/kdfconfig.cpp:145
 #, kde-format
 msgctxt "Are items on device information columns visible?"
 msgid "visible"
-msgstr ""
+msgstr "दृश्यमानम्"
 
 #: src/kdfconfig.cpp:146
 #, kde-format
 msgctxt "Are items on device information columns hidden?"
 msgid "hidden"
-msgstr ""
+msgstr "अदृष्ट"
 
 #: src/kdfconfig.cpp:180
 #, kde-format
 msgctxt "Device information item is hidden"
 msgid "hidden"
-msgstr ""
+msgstr "अदृष्ट"
 
 #: src/kdfconfig.cpp:180
 #, kde-format
 msgctxt "Device information item is visible"
 msgid "visible"
-msgstr ""
+msgstr "दृश्यमानम्"
 
 #. i18n: ectx: property (text), widget (QLabel, updateLabel)
 #: src/kdfconfig.ui:35
@@ -196,7 +199,7 @@ msgstr "Flatpak इत्यस्य रूपेण चालनसमये �
 #, kde-format
 msgctxt "Disk percentage"
 msgid "%1%"
-msgstr ""
+msgstr "%1% २."
 
 #. i18n: ectx: Menu (file)
 #: src/kdfui.rc:5
@@ -224,7 +227,7 @@ msgstr "[%2] इत्यत्र यन्त्रं [%1] समीक्ष
 #, kde-format
 msgctxt "Warning device getting critically full"
 msgid "Warning"
-msgstr ""
+msgstr "चेतवानी"
 
 #: src/kdfwidget.cpp:377
 #, kde-format
@@ -265,13 +268,13 @@ msgstr "&KwikDisk विन्यस्तं कुर्वन्तु..."
 #, kde-format
 msgctxt "Unmount the storage device"
 msgid "Unmount"
-msgstr ""
+msgstr "अनमाउंट"
 
 #: src/kwikdisk.cpp:168
 #, kde-format
 msgctxt "Mount the storage device"
 msgid "Mount"
-msgstr ""
+msgstr "माउण्ट्"
 
 #: src/kwikdisk.cpp:191
 #, kde-format
@@ -282,7 +285,7 @@ msgstr "एतत् डिस्कं माउण्ट् कर्तुं
 #, kde-format
 msgctxt "Device is getting critically full"
 msgid "Warning"
-msgstr ""
+msgstr "चेतवानी"
 
 #: src/kwikdisk.cpp:286
 #, kde-format
@@ -303,7 +306,7 @@ msgstr "मूल लेखक"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Espen Sand"
-msgstr ""
+msgstr "एस्पेन रेत"
 
 #: src/kwikdisk.cpp:294
 #, kde-format
@@ -314,7 +317,7 @@ msgstr "WHERE २ परिवर्तनं भवति"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Stanislav Karchebny"
-msgstr ""
+msgstr "स्तानिस्लाव कर्चेबनी"
 
 #: src/kwikdisk.cpp:295
 #, kde-format
@@ -345,13 +348,13 @@ msgstr "Unmount Command इति"
 #, kde-format
 msgctxt "No device is selected"
 msgid "None"
-msgstr ""
+msgstr "न कश्चित्"
 
 #: src/mntconfig.cpp:54
 #, kde-format
 msgctxt "No mount point is selected"
 msgid "None"
-msgstr ""
+msgstr "न कश्चित्"
 
 #: src/mntconfig.cpp:220
 #, kde-format
