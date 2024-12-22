@@ -38,7 +38,7 @@ ki18n_wrap_ui(kdfprivate_SRCS
 add_library(kdfprivate ${kdfprivate_SRCS})
 generate_export_header(kdfprivate BASE_NAME kdfprivate)
 target_link_libraries(kdfprivate PUBLIC
-    Qt6::Core
+    Qt::Core
     KF6::Completion
     KF6::ConfigWidgets
     KF6::I18n
@@ -92,7 +92,7 @@ add_executable(kwikdisk ${kwikdisk_SRCS})
 
 target_link_libraries(kwikdisk
     kdfprivate
-    Qt6::Core
+    Qt::Core
     KF6::KIOWidgets
     KF6::Notifications
 )
@@ -111,7 +111,7 @@ ecm_qt_declare_logging_category(kcm_kdf_PART_SRCS
 add_library(kcm_kdf MODULE ${kcm_kdf_PART_SRCS})
 target_link_libraries(kcm_kdf
     kdfprivate
-    Qt6::Core
+    Qt::Core
     KF6::KCMUtils
 )
 
