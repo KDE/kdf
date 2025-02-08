@@ -71,7 +71,7 @@ set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
 )
 add_definitions(-DQT_NO_CONTEXTLESS_CONNECT)
 ecm_set_disabled_deprecation_versions(QT 6.8.0
-    KF 6.10
+    KF 6.11.0
 )
 
 if (CMAKE_UNITY_BUILD)
