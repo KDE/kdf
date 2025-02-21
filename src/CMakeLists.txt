@@ -43,7 +43,10 @@ target_link_libraries(kdfprivate PUBLIC
     KF6::ConfigWidgets
     KF6::I18n
     KF6::IconThemes
+    KF6::JobWidgets
     KF6::KIOCore
+    KF6::KIOGui
+    KF6::Service
     KF6::WidgetsAddons
     KF6::IconWidgets
     KF6::StatusNotifierItem

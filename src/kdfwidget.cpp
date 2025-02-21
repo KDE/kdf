@@ -18,9 +18,13 @@
 #include "optiondialog.h"
 
 #include <KConfigGroup>
+#include <KDialogJobUiDelegate>
 #include <KHelpClient>
 #include <KMessageBox>
+#include <KService>
 #include <KShell>
+
+#include <KIO/ApplicationLauncherJob>
 
 #include <QAbstractEventDispatcher>
 #include <QDesktopServices>
@@ -381,6 +385,14 @@ void KDFWidget::contextMenuRequested(const QPoint &p)
     mountPointAction->setEnabled(!disk->mounted());
     umountPointAction->setEnabled(disk->mounted());
     openFileManagerAction->setEnabled(disk->mounted());
+
+    QAction *filelightAction = nullptr;
+    KService::Ptr filelight = KService::serviceByDesktopName(QStringLiteral("org.kde.filelight"));
+    if (filelight) {
+        filelightAction = mPopup->addAction(QIcon::fromTheme(filelight->icon()), i18nc("@action:inmenu", "Explore in %1", filelight->name()));
+        filelightAction->setEnabled(disk->mounted());
+    }
+
     QAction *position = mPopup->exec(m_listWidget->mapToGlobal(p));
 
     bool openFileManager = false;
@@ -411,6 +423,11 @@ void KDFWidget::contextMenuRequested(const QPoint &p)
         mDiskList.deleteAllMountedAt(disk->mountPoint());
     } else if (position == openFileManagerAction) {
         openFileManager = true;
+    } else if (position == filelightAction) {
+        auto *job = new KIO::ApplicationLauncherJob(filelight);
+        job->setUrls({QUrl::fromLocalFile(disk->mountPoint())});
+        job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window()));
+        job->start();
     }
 
     if (openFileManager) {
