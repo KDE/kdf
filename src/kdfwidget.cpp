@@ -374,10 +374,10 @@ void KDFWidget::contextMenuRequested(const QPoint &p)
 
     mPopup = new QMenu(nullptr);
     mPopup->setTitle(disk->mountPoint());
-    QAction *mountPointAction = mPopup->addAction(i18n("Mount Device"));
-    QAction *umountPointAction = mPopup->addAction(i18n("Unmount Device"));
+    QAction *mountPointAction = mPopup->addAction(QIcon::fromTheme(QStringLiteral("media-mount")), i18n("Mount Device"));
+    QAction *umountPointAction = mPopup->addAction(QIcon::fromTheme(QStringLiteral("media-eject")), i18n("Unmount Device"));
     mPopup->addSeparator();
-    QAction *openFileManagerAction = mPopup->addAction(i18n("Open in File Manager"));
+    QAction *openFileManagerAction = mPopup->addAction(QIcon::fromTheme(QStringLiteral("system-file-manager")), i18n("Open in File Manager"));
     mountPointAction->setEnabled(!disk->mounted());
     umountPointAction->setEnabled(disk->mounted());
     openFileManagerAction->setEnabled(disk->mounted());

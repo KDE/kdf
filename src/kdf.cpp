@@ -24,6 +24,7 @@ KDFTopLevel::KDFTopLevel(QWidget *)
     kdf = new KDFWidget(this, false);
     Q_CHECK_PTR(kdf);
     QAction *action = actionCollection()->addAction(QStringLiteral("updatedf"));
+    action->setIcon(QIcon::fromTheme(QStringLiteral("view-refresh")));
     action->setText(i18nc("Update action", "&Update"));
     actionCollection()->setDefaultShortcuts(action, KStandardShortcut::reload());
     connect(action, &QAction::triggered, kdf, &KDFWidget::updateDF);
