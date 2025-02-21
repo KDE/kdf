@@ -30,6 +30,7 @@ void KDFItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
             if (progress >= Full_Percent) {
                 QPalette p(bar.palette());
                 p.setBrush(QPalette::Highlight, QBrush(Qt::red));
+                p.setBrush(QPalette::Accent, QBrush(Qt::red));
                 bar.setPalette(p);
             }
 
