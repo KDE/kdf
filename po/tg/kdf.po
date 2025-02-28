@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-06 00:42+0000\n"
+"POT-Creation-Date: 2025-02-28 00:44+0000\n"
 "PO-Revision-Date: 2019-09-29 12:28+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -52,28 +52,28 @@ msgstr ""
 msgid "could not execute %1"
 msgstr "иҷро нашуда истодааст %s"
 
-#: src/kdf.cpp:27
+#: src/kdf.cpp:28
 #, kde-format
 msgctxt "Update action"
 msgid "&Update"
 msgstr ""
 
-#: src/kdf.cpp:49
+#: src/kdf.cpp:50
 #, kde-format
 msgid "KDiskFree"
 msgstr "KDiskFree"
 
-#: src/kdf.cpp:51
+#: src/kdf.cpp:52
 #, kde-format
 msgid "KDE free disk space utility"
 msgstr "Барномаи пуштибони муайяннамоии фазои озоди диск барои KDE"
 
-#: src/kdf.cpp:53
+#: src/kdf.cpp:54
 #, kde-format
 msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr ""
 
-#: src/kdf.cpp:58 src/kwikdisk.cpp:293
+#: src/kdf.cpp:59 src/kwikdisk.cpp:293
 #, kde-format
 msgctxt "@info:credit"
 msgid "Michael Kropfberger"
@@ -86,21 +86,21 @@ msgctxt "TODO"
 msgid "Icon"
 msgstr "Тасвир"
 
-#: src/kdfconfig.cpp:31 src/kdfwidget.cpp:53
+#: src/kdfconfig.cpp:31 src/kdfwidget.cpp:57
 #, fuzzy, kde-format
 #| msgid "Device"
 msgctxt "Device of the storage"
 msgid "Device"
 msgstr "Дастгоҳ"
 
-#: src/kdfconfig.cpp:32 src/kdfwidget.cpp:54
+#: src/kdfconfig.cpp:32 src/kdfwidget.cpp:58
 #, fuzzy, kde-format
 #| msgid "Type"
 msgctxt "Filesystem on storage"
 msgid "Type"
 msgstr "Навъ"
 
-#: src/kdfconfig.cpp:33 src/kdfwidget.cpp:55
+#: src/kdfconfig.cpp:33 src/kdfwidget.cpp:59
 #, fuzzy, kde-format
 #| msgid "Size"
 msgctxt "Total size of the storage"
@@ -114,21 +114,21 @@ msgctxt "Mount point of the storage"
 msgid "Mount Point"
 msgstr "Нуқтаи Васлшавӣ"
 
-#: src/kdfconfig.cpp:35 src/kdfwidget.cpp:57
+#: src/kdfconfig.cpp:35 src/kdfwidget.cpp:61
 #, fuzzy, kde-format
 #| msgid "Free"
 msgctxt "Free space in storage"
 msgid "Free"
 msgstr "Озод"
 
-#: src/kdfconfig.cpp:36 src/kdfwidget.cpp:58
+#: src/kdfconfig.cpp:36 src/kdfwidget.cpp:62
 #, fuzzy, kde-format
 #| msgid "Full %"
 msgctxt "Used storage space in %"
 msgid "Full %"
 msgstr "Пур %"
 
-#: src/kdfconfig.cpp:37 src/kdfwidget.cpp:59
+#: src/kdfconfig.cpp:37 src/kdfwidget.cpp:63
 #, fuzzy, kde-format
 #| msgid "Usage"
 msgctxt "Usage graphical bar"
@@ -212,7 +212,7 @@ msgstr "Мудири файлӣ (масалан konsole -e mc %m):"
 msgid "Custom file manager not supported when running as Flatpak."
 msgstr ""
 
-#: src/kdfitemdelegate.cpp:28 src/kdfwidget.cpp:272
+#: src/kdfitemdelegate.cpp:28 src/kdfwidget.cpp:276
 #, kde-format
 msgctxt "Disk percentage"
 msgid "%1%"
@@ -224,45 +224,51 @@ msgstr ""
 msgid "&File"
 msgstr ""
 
-#: src/kdfwidget.cpp:56
+#: src/kdfwidget.cpp:60
 #, fuzzy, kde-format
 #| msgid "Mount Point"
 msgctxt "Mount point of storage"
 msgid "Mount Point"
 msgstr "Нуқтаи Васлшавӣ"
 
-#: src/kdfwidget.cpp:275 src/kdfwidget.cpp:276
+#: src/kdfwidget.cpp:279 src/kdfwidget.cpp:280
 #, kde-format
 msgid "N/A"
 msgstr "Р/Ш"
 
-#: src/kdfwidget.cpp:330 src/kwikdisk.cpp:245
+#: src/kdfwidget.cpp:334 src/kwikdisk.cpp:245
 #, fuzzy, kde-format
 msgid "Device [%1] on [%2] is critically full."
 msgstr "Дастгоҳи [%1] дар [%2] қариб, ки пур шудааст!"
 
-#: src/kdfwidget.cpp:331
+#: src/kdfwidget.cpp:335
 #, kde-format
 msgctxt "Warning device getting critically full"
 msgid "Warning"
 msgstr ""
 
-#: src/kdfwidget.cpp:377
+#: src/kdfwidget.cpp:381
 #, kde-format
 msgid "Mount Device"
 msgstr "Дстгоҳи Насбкунӣ"
 
-#: src/kdfwidget.cpp:378
+#: src/kdfwidget.cpp:382
 #, kde-format
 msgid "Unmount Device"
 msgstr "Дастгоҳи Кандакунии Насбшавӣ"
 
-#: src/kdfwidget.cpp:380
+#: src/kdfwidget.cpp:384
 #, kde-format
 msgid "Open in File Manager"
 msgstr "Кушодан дар Мудири Файл"
 
-#: src/kdfwidget.cpp:394 src/kdfwidget.cpp:397
+#: src/kdfwidget.cpp:392
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Explore in %1"
+msgstr ""
+
+#: src/kdfwidget.cpp:406 src/kdfwidget.cpp:409
 #, kde-format
 msgid "MOUNTING"
 msgstr "НАСБКУНӢ"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-06 00:42+0000\n"
+"POT-Creation-Date: 2025-02-28 00:44+0000\n"
 "PO-Revision-Date: 2007-08-27 14:53+0545\n"
 "Last-Translator: Narayan Kumar Magar <narayan@mpp.org.np>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -50,29 +50,29 @@ msgstr ""
 msgid "could not execute %1"
 msgstr "%1 कार्यान्वयन गर्न सकेन"
 
-#: src/kdf.cpp:27
+#: src/kdf.cpp:28
 #, fuzzy, kde-format
 #| msgid "&Update"
 msgctxt "Update action"
 msgid "&Update"
 msgstr "अध्यावधिक गर्नुहोस्"
 
-#: src/kdf.cpp:49
+#: src/kdf.cpp:50
 #, kde-format
 msgid "KDiskFree"
 msgstr "केडीई खाली डिस्क"
 
-#: src/kdf.cpp:51
+#: src/kdf.cpp:52
 #, kde-format
 msgid "KDE free disk space utility"
 msgstr "केडीई खाली डिस्क स्थान उपयोगिता"
 
-#: src/kdf.cpp:53
+#: src/kdf.cpp:54
 #, kde-format
 msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr "(c) 1998-2001, माइकल क्रोप्फ्बर्गर"
 
-#: src/kdf.cpp:58 src/kwikdisk.cpp:293
+#: src/kdf.cpp:59 src/kwikdisk.cpp:293
 #, fuzzy, kde-format
 #| msgid "Michael Kropfberger"
 msgctxt "@info:credit"
@@ -86,21 +86,21 @@ msgctxt "TODO"
 msgid "Icon"
 msgstr "प्रतिमा"
 
-#: src/kdfconfig.cpp:31 src/kdfwidget.cpp:53
+#: src/kdfconfig.cpp:31 src/kdfwidget.cpp:57
 #, fuzzy, kde-format
 #| msgid "Device"
 msgctxt "Device of the storage"
 msgid "Device"
 msgstr "यन्त्र"
 
-#: src/kdfconfig.cpp:32 src/kdfwidget.cpp:54
+#: src/kdfconfig.cpp:32 src/kdfwidget.cpp:58
 #, fuzzy, kde-format
 #| msgid "Type"
 msgctxt "Filesystem on storage"
 msgid "Type"
 msgstr "प्रकार"
 
-#: src/kdfconfig.cpp:33 src/kdfwidget.cpp:55
+#: src/kdfconfig.cpp:33 src/kdfwidget.cpp:59
 #, fuzzy, kde-format
 #| msgid "Size"
 msgctxt "Total size of the storage"
@@ -114,21 +114,21 @@ msgctxt "Mount point of the storage"
 msgid "Mount Point"
 msgstr "माउन्ट बिन्दु"
 
-#: src/kdfconfig.cpp:35 src/kdfwidget.cpp:57
+#: src/kdfconfig.cpp:35 src/kdfwidget.cpp:61
 #, fuzzy, kde-format
 #| msgid "Free"
 msgctxt "Free space in storage"
 msgid "Free"
 msgstr "स्वतन्त्र"
 
-#: src/kdfconfig.cpp:36 src/kdfwidget.cpp:58
+#: src/kdfconfig.cpp:36 src/kdfwidget.cpp:62
 #, fuzzy, kde-format
 #| msgid "Full %"
 msgctxt "Used storage space in %"
 msgid "Full %"
 msgstr "पूरा %"
 
-#: src/kdfconfig.cpp:37 src/kdfwidget.cpp:59
+#: src/kdfconfig.cpp:37 src/kdfwidget.cpp:63
 #, fuzzy, kde-format
 #| msgid "Usage"
 msgctxt "Usage graphical bar"
@@ -212,7 +212,7 @@ msgstr "फाइल प्रबन्धक (उदाहरण. konsole -e mc
 msgid "Custom file manager not supported when running as Flatpak."
 msgstr ""
 
-#: src/kdfitemdelegate.cpp:28 src/kdfwidget.cpp:272
+#: src/kdfitemdelegate.cpp:28 src/kdfwidget.cpp:276
 #, kde-format
 msgctxt "Disk percentage"
 msgid "%1%"
@@ -224,46 +224,52 @@ msgstr ""
 msgid "&File"
 msgstr "फाइल"
 
-#: src/kdfwidget.cpp:56
+#: src/kdfwidget.cpp:60
 #, fuzzy, kde-format
 #| msgid "Mount Point"
 msgctxt "Mount point of storage"
 msgid "Mount Point"
 msgstr "माउन्ट बिन्दु"
 
-#: src/kdfwidget.cpp:275 src/kdfwidget.cpp:276
+#: src/kdfwidget.cpp:279 src/kdfwidget.cpp:280
 #, kde-format
 msgid "N/A"
 msgstr "N/A"
 
-#: src/kdfwidget.cpp:330 src/kwikdisk.cpp:245
+#: src/kdfwidget.cpp:334 src/kwikdisk.cpp:245
 #, kde-format
 msgid "Device [%1] on [%2] is critically full."
 msgstr "[%2] मा यन्त्र[%1] संकटपूर्ण रूपमा भरिएको छ ।"
 
-#: src/kdfwidget.cpp:331
+#: src/kdfwidget.cpp:335
 #, fuzzy, kde-format
 #| msgid "Warning"
 msgctxt "Warning device getting critically full"
 msgid "Warning"
 msgstr "चेतावनी"
 
-#: src/kdfwidget.cpp:377
+#: src/kdfwidget.cpp:381
 #, kde-format
 msgid "Mount Device"
 msgstr "यन्त्र माउन्ट गर्नुहोस्"
 
-#: src/kdfwidget.cpp:378
+#: src/kdfwidget.cpp:382
 #, kde-format
 msgid "Unmount Device"
 msgstr "यन्त्र अनमाउन्ट गर्नुहोस्"
 
-#: src/kdfwidget.cpp:380
+#: src/kdfwidget.cpp:384
 #, kde-format
 msgid "Open in File Manager"
 msgstr "फाइल प्रबन्धकमा खोल्नुहोस्"
 
-#: src/kdfwidget.cpp:394 src/kdfwidget.cpp:397
+#: src/kdfwidget.cpp:392
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Explore in %1"
+msgstr ""
+
+#: src/kdfwidget.cpp:406 src/kdfwidget.cpp:409
 #, kde-format
 msgid "MOUNTING"
 msgstr "माउन्ट गर्दै"

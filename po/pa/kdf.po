@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-06 00:42+0000\n"
+"POT-Creation-Date: 2025-02-28 00:44+0000\n"
 "PO-Revision-Date: 2010-01-31 10:31+0530\n"
 "Last-Translator: A S Alam <aalam@users.sf.net>\n"
 "Language-Team: ਪੰਜਾਬੀ <punjabi-users@lists.sf.net>\n"
@@ -47,28 +47,28 @@ msgstr ""
 msgid "could not execute %1"
 msgstr "%1 ਚਲਾਇਆ ਨਹੀਂ ਜਾ ਸਕਿਆ"
 
-#: src/kdf.cpp:27
+#: src/kdf.cpp:28
 #, kde-format
 msgctxt "Update action"
 msgid "&Update"
 msgstr "ਅੱਪਡੇਟ ਕਰੋ(&U)"
 
-#: src/kdf.cpp:49
+#: src/kdf.cpp:50
 #, kde-format
 msgid "KDiskFree"
 msgstr "ਕੇ-ਡਿਸਕ-ਖਾਲੀ"
 
-#: src/kdf.cpp:51
+#: src/kdf.cpp:52
 #, kde-format
 msgid "KDE free disk space utility"
 msgstr "KDE ਖਾਲੀ ਡਿਸਕ ਥਾਂ ਸਹੂਲਤ"
 
-#: src/kdf.cpp:53
+#: src/kdf.cpp:54
 #, kde-format
 msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr "(c) 1998-2001, Michael Kropfberger"
 
-#: src/kdf.cpp:58 src/kwikdisk.cpp:293
+#: src/kdf.cpp:59 src/kwikdisk.cpp:293
 #, fuzzy, kde-format
 #| msgid "(c) 1998-2001, Michael Kropfberger"
 msgctxt "@info:credit"
@@ -81,19 +81,19 @@ msgctxt "TODO"
 msgid "Icon"
 msgstr "ਆਈਕਾਨ"
 
-#: src/kdfconfig.cpp:31 src/kdfwidget.cpp:53
+#: src/kdfconfig.cpp:31 src/kdfwidget.cpp:57
 #, kde-format
 msgctxt "Device of the storage"
 msgid "Device"
 msgstr "ਜੰਤਰ"
 
-#: src/kdfconfig.cpp:32 src/kdfwidget.cpp:54
+#: src/kdfconfig.cpp:32 src/kdfwidget.cpp:58
 #, kde-format
 msgctxt "Filesystem on storage"
 msgid "Type"
 msgstr "ਟਾਈਪ"
 
-#: src/kdfconfig.cpp:33 src/kdfwidget.cpp:55
+#: src/kdfconfig.cpp:33 src/kdfwidget.cpp:59
 #, kde-format
 msgctxt "Total size of the storage"
 msgid "Size"
@@ -105,19 +105,19 @@ msgctxt "Mount point of the storage"
 msgid "Mount Point"
 msgstr "ਮਾਊਟ ਪੁਆਇੰਟ"
 
-#: src/kdfconfig.cpp:35 src/kdfwidget.cpp:57
+#: src/kdfconfig.cpp:35 src/kdfwidget.cpp:61
 #, kde-format
 msgctxt "Free space in storage"
 msgid "Free"
 msgstr "ਖਾਲੀ"
 
-#: src/kdfconfig.cpp:36 src/kdfwidget.cpp:58
+#: src/kdfconfig.cpp:36 src/kdfwidget.cpp:62
 #, kde-format
 msgctxt "Used storage space in %"
 msgid "Full %"
 msgstr "ਭਰੀ %"
 
-#: src/kdfconfig.cpp:37 src/kdfwidget.cpp:59
+#: src/kdfconfig.cpp:37 src/kdfwidget.cpp:63
 #, kde-format
 msgctxt "Usage graphical bar"
 msgid "Usage"
@@ -195,7 +195,7 @@ msgstr "ਫਾਇਲ ਮੈਨੇਜਰ (ਜਿਵੇਂ konsole -e mc %m):"
 msgid "Custom file manager not supported when running as Flatpak."
 msgstr ""
 
-#: src/kdfitemdelegate.cpp:28 src/kdfwidget.cpp:272
+#: src/kdfitemdelegate.cpp:28 src/kdfwidget.cpp:276
 #, kde-format
 msgctxt "Disk percentage"
 msgid "%1%"
@@ -207,44 +207,50 @@ msgstr ""
 msgid "&File"
 msgstr "ਫਾਇਲ(&F)"
 
-#: src/kdfwidget.cpp:56
+#: src/kdfwidget.cpp:60
 #, kde-format
 msgctxt "Mount point of storage"
 msgid "Mount Point"
 msgstr "ਮਾਊਟ ਪੁਆਇੰਟ"
 
-#: src/kdfwidget.cpp:275 src/kdfwidget.cpp:276
+#: src/kdfwidget.cpp:279 src/kdfwidget.cpp:280
 #, kde-format
 msgid "N/A"
 msgstr "ਉਪਲੱਬਧ ਨਹੀਂ"
 
-#: src/kdfwidget.cpp:330 src/kwikdisk.cpp:245
+#: src/kdfwidget.cpp:334 src/kwikdisk.cpp:245
 #, kde-format
 msgid "Device [%1] on [%2] is critically full."
 msgstr "ਜੰਤਰ [%1] ਉੱਤੇ [%2] ਨਾਜ਼ੁਕ ਰੂਪ ਵਿੱਚ ਭਰ ਗਈ ਹੈ।"
 
-#: src/kdfwidget.cpp:331
+#: src/kdfwidget.cpp:335
 #, kde-format
 msgctxt "Warning device getting critically full"
 msgid "Warning"
 msgstr "ਚੇਤਾਵਨੀ"
 
-#: src/kdfwidget.cpp:377
+#: src/kdfwidget.cpp:381
 #, kde-format
 msgid "Mount Device"
 msgstr "ਮਾਊਂਟ ਜੰਤਰ"
 
-#: src/kdfwidget.cpp:378
+#: src/kdfwidget.cpp:382
 #, kde-format
 msgid "Unmount Device"
 msgstr "ਜੰਤਰ ਅਣ-ਮਾਊਂਟ ਕਰੋ"
 
-#: src/kdfwidget.cpp:380
+#: src/kdfwidget.cpp:384
 #, kde-format
 msgid "Open in File Manager"
 msgstr "ਫਾਇਲ ਮੈਨੇਜਰ ਵਿੱਚ ਖੋਲ੍ਹੋ"
 
-#: src/kdfwidget.cpp:394 src/kdfwidget.cpp:397
+#: src/kdfwidget.cpp:392
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Explore in %1"
+msgstr ""
+
+#: src/kdfwidget.cpp:406 src/kdfwidget.cpp:409
 #, kde-format
 msgid "MOUNTING"
 msgstr "ਮਾਊਂਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
