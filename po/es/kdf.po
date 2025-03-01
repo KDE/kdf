@@ -1,16 +1,13 @@
-# translation of kdf.po to Spanish
-# Translation to spanish
-# Copyright (C) 2000-2002
+# Translation of kdf.po to Spanish
 #
-# Pablo de Vicente <vicente@oan.es>, 2000-2002.
-# SPDX-FileCopyrightText: 2003, 2024 Eloy Cuadra <eloihr2@eresmas.com>
-# Eloy Cuadra <ecuadra@eloihr.net>, 2004, 2007, 2008, 2009, 2016, 2022.
+# SPDX-FileCopyrightText: 2000-2002 Pablo de Vicente <vicente@oan.es>
+# SPDX-FileCopyrightText: 2003, 2004, 2007, 2008, 2009, 2016, 2022, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-28 00:44+0000\n"
-"PO-Revision-Date: 2024-05-19 16:32+0200\n"
+"PO-Revision-Date: 2025-03-01 01:04+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -18,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "First-Translator: Valux (Carlos Calzada Grau) <carlos@valux.org>\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.12.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -252,7 +249,7 @@ msgstr "Abrir en el gestor de archivos"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Explore in %1"
-msgstr ""
+msgstr "Explorar en %1"
 
 #: src/kdfwidget.cpp:406 src/kdfwidget.cpp:409
 #, kde-format
@@ -272,7 +269,7 @@ msgstr "&Iniciar KDiskFree"
 #: src/kwikdisk.cpp:65
 #, kde-format
 msgid "&Configure KwikDisk..."
-msgstr "&Configurar KwikDisk..."
+msgstr "&Configurar KwikDisk…"
 
 #: src/kwikdisk.cpp:168
 #, kde-format
@@ -405,7 +402,7 @@ msgstr "Icono por omisión"
 #: src/mntconfig.ui:57 src/mntconfig.ui:64
 #, kde-format
 msgid "Get Command..."
-msgstr "Obtener orden..."
+msgstr "Obtener orden…"
 
 #: src/optiondialog.cpp:18
 #, kde-format

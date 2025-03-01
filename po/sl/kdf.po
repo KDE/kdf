@@ -2,7 +2,7 @@
 # translation of kdf.po to Slovenian
 # SLOVENIAN TRANSLATION OF KDF.
 # Copyright (C) 2001,2002,2003, 2004, 2005 Free Software Foundation, Inc.
-# $Id: kdf.po 1703921 2025-02-28 01:19:48Z scripty $
+# $Id: kdf.po 1703972 2025-03-01 01:30:30Z scripty $
 # $Source$
 #
 # Roman Maurer <roman.maurer@hermes.si>, 2000.
@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-28 00:44+0000\n"
-"PO-Revision-Date: 2024-05-19 07:31+0200\n"
+"PO-Revision-Date: 2025-02-28 07:23+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -27,7 +27,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -260,7 +260,7 @@ msgstr "Odpri v upravljalniku datotek"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Explore in %1"
-msgstr ""
+msgstr "Razišči v %1"
 
 #: src/kdfwidget.cpp:406 src/kdfwidget.cpp:409
 #, kde-format
