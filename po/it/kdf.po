@@ -4,7 +4,7 @@
 # Andrea Rizzi <rizzi@kde.org>, 2004.
 # Nicola Ruggero <nixprog.adsl@tiscali.it>, 2005.
 # Nicola Ruggero <nicola@nxnt.org>, 2006, 2008, 2009, 2010.
-# Luigi Toscano <luigi.toscano@tiscali.it>, 2017, 2022, 2024.
+# SPDX-FileCopyrightText: 2017, 2022, 2024, 2025 Luigi Toscano <luigi.toscano@tiscali.it>
 #
 msgid ""
 msgstr ""
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 25.03.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
