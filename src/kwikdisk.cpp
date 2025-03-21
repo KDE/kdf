@@ -300,6 +300,7 @@ int main(int argc, char **argv)
     aboutData.setupCommandLine(&parser);
 
     KAboutData::setApplicationData(aboutData);
+    QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("kwikdisk")));
 
     // do the command line parsing
     parser.process(app);
