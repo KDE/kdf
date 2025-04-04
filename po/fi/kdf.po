@@ -8,7 +8,7 @@
 # Teemu Rytilahti <teemu.rytilahti@kde-fi.org>, 2008.
 # Jorma Karvonen <karvonen.jorma@gmail.com>, 2010.
 # Lasse Liehu <lasse.liehu@gmail.com>, 2010, 2013, 2014, 2016.
-# SPDX-FileCopyrightText: 2019, 2022, 2024 Tommi Nieminen <translator@legisign.org>
+# SPDX-FileCopyrightText: 2019, 2022, 2024, 2025 Tommi Nieminen <translator@legisign.org>
 # Copyright © 2003, 2005, 2008 Free Software Foundation, Inc.
 #
 # KDE Finnish translation sprint participants:
@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-28 00:44+0000\n"
-"PO-Revision-Date: 2024-10-20 14:29+0300\n"
+"PO-Revision-Date: 2025-04-03 17:32+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -263,7 +263,7 @@ msgstr "Avaa tiedostonhallinta"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Explore in %1"
-msgstr ""
+msgstr "Tarkastele ohjelmassa %1"
 
 #: src/kdfwidget.cpp:406 src/kdfwidget.cpp:409
 #, kde-format
