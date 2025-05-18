@@ -1,4 +1,6 @@
-# Translation of kdf.po to Spanish
+# Spanish translations for kdf.po package.
+# Copyright (C) 2000-2025 This file is copyright:
+# This file is distributed under the same license as the kdf package.
 #
 # SPDX-FileCopyrightText: 2000-2002 Pablo de Vicente <vicente@oan.es>
 # SPDX-FileCopyrightText: 2003, 2004, 2007, 2008, 2009, 2016, 2022, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
@@ -7,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-28 00:44+0000\n"
-"PO-Revision-Date: 2025-03-01 01:04+0100\n"
+"PO-Revision-Date: 2025-05-17 12:24+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -418,13 +420,3 @@ msgstr "Configuración general"
 #, kde-format
 msgid "Mount Commands"
 msgstr "Órdenes de montaje"
-
-#~ msgid ""
-#~ "A right mouse button click opens a context menu to mount/unmount a device "
-#~ "or to open it in the file manager."
-#~ msgstr ""
-#~ "Un clic del botón derecho del ratón abre un menú de contexto para montar/"
-#~ "desmontar un dispositivo o para abrirlo en el gestor de archivos."
-
-#~ msgid "A test application"
-#~ msgstr "Una aplicación de prueba"
