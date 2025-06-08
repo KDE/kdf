@@ -240,7 +240,7 @@ msgstr "卸载设备"
 #: src/kdfwidget.cpp:384
 #, kde-format
 msgid "Open in File Manager"
-msgstr "在文件管理器中打开"
+msgstr "用文件管理器打开"
 
 #: src/kdfwidget.cpp:392
 #, kde-format
