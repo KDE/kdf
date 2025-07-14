@@ -178,7 +178,7 @@ msgstr "როცა დისკი კრიტიკულად სავს
 #: src/kdfconfig.ui:69
 #, kde-format
 msgid "Use system default file manager"
-msgstr "სისტემის ნაგულისხმები ფაილების მმართველის გამოყენება"
+msgstr "სისტემის ნაგულისხმევი ფაილების მმართველის გამოყენება"
 
 #. i18n: ectx: property (text), widget (QLabel, fileManagerEdit)
 #: src/kdfconfig.ui:76
@@ -392,7 +392,7 @@ msgstr "მოხსნის ბრძანება:"
 #: src/mntconfig.ui:50
 #, kde-format
 msgid "Default Icon"
-msgstr "ნაგულისხმები ხატულა"
+msgstr "ნაგულისხმევი ხატულა"
 
 #. i18n: ectx: property (text), widget (QPushButton, mMountButton)
 #. i18n: ectx: property (text), widget (QPushButton, mUmountButton)
