@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-28 00:44+0000\n"
-"PO-Revision-Date: 2025-02-12 23:59-0300\n"
+"PO-Revision-Date: 2025-08-03 01:29-0300\n"
 "Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -255,7 +255,7 @@ msgstr "Abrir no gerenciador de arquivos"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Explore in %1"
-msgstr ""
+msgstr "Explorar no %1"
 
 #: src/kdfwidget.cpp:406 src/kdfwidget.cpp:409
 #, kde-format
