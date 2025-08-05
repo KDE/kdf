@@ -176,7 +176,7 @@ msgstr "ث"
 #: src/kdfconfig.ui:55
 #, kde-format
 msgid "Open file manager automatically on mount"
-msgstr "افتح مدير الملفات تلقائيا عند الضم"
+msgstr "افتح مدير الملفات آليّا عند الضم"
 
 #. i18n: ectx: property (text), widget (QCheckBox, mPopupFullCheck)
 #: src/kdfconfig.ui:62
