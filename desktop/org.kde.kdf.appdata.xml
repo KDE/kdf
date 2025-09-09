@@ -45,7 +45,6 @@
   <name xml:lang="sv">Kdiskfree</name>
   <name xml:lang="tr">K Boş Alan</name>
   <name xml:lang="uk">KDiskFree</name>
-  <name xml:lang="x-test">xxKDiskFreexx</name>
   <name xml:lang="zh-CN">KDiskFree 磁盘占用查看器</name>
   <name xml:lang="zh-TW">KDiskFree</name>
   <summary>View Disk Usage</summary>
@@ -86,7 +85,6 @@
   <summary xml:lang="sv">Visa hårddiskanvändning</summary>
   <summary xml:lang="tr">Disk Kullanımı Görüntüleyicisi</summary>
   <summary xml:lang="uk">Перегляд використання диска</summary>
-  <summary xml:lang="x-test">xxView Disk Usagexx</summary>
   <summary xml:lang="zh-CN">查看磁盘使用情况</summary>
   <summary xml:lang="zh-TW">檢視磁碟用量</summary>
   <description>
@@ -129,7 +127,6 @@
     <p xml:lang="sv">Kdiskfree visar tillgängliga filenheter (hårddiskpartitioner, diskett- och cd-enheter, etc.) tillsammans med information om deras kapacitet, ledigt utrymme, typ och monteringsplats. Det låter dig också montera och avmontera enheter och visa dem i en filhanterare.</p>
     <p xml:lang="tr">K Boş Alan, kullanılabilir aygıtları (sabit disk bölüntüleri, disket ve CD sürücüler vb.) sığaları, boş alan, tür ve bağlanma noktaları gibi bilgiler ile listeler. Ayrıca sürücüleri bağlayıp çıkarmanızı ve bir dosya yöneticisinde görüntülemenizi sağlar.</p>
     <p xml:lang="uk">KDiskFree показує список доступних файлових пристроїв (розділів жорсткого диска, пристроїв читання гнучких дисків, компакт-дисків, флеш-карток USB тощо), а також інформацію щодо їх місткості, вільного місця, типу і точки монтування. Ця програма також надає вам можливість монтувати, демонтувати пристрої і переглядати їх вміст у програмі для роботи з файлами.</p>
-    <p xml:lang="x-test">xxKDiskFree displays the available file devices (hard drive partitions, floppy and CD drives, etc.) along with information on their capacity, free space, type and mount point. It also allows you to mount and unmount drives and view them in a file manager.xx</p>
     <p xml:lang="zh-CN">KDiskFree 可以显示所有可用的文件设备 (硬盘分区、软盘和 CD 驱动器等)，并显示它们的总容量、可用空间、文件系统类型和挂载点。您还可以通过它挂载/卸载驱动器，并在文件管理器中查看它们。</p>
     <p xml:lang="zh-TW">KDiskFree 會顯示可用的檔案裝置（硬碟分割區、軟碟、CD 等等）以及它們的大小、剩餘空間、類型與掛載點。它也讓您可以掛載或卸載磁碟，或是在檔案管理員裡檢視它們。</p>
   </description>
@@ -178,7 +175,6 @@
       <caption xml:lang="sv">Huvudfönstret i Kdiskfree</caption>
       <caption xml:lang="tr">K Boş Alan ana penceresi</caption>
       <caption xml:lang="uk">Головне вікно KDiskFree</caption>
-      <caption xml:lang="x-test">xxKDiskFree main windowxx</caption>
       <caption xml:lang="zh-CN">KDiskFree 主窗口</caption>
       <caption xml:lang="zh-TW">KDiskFree 主視窗</caption>
       <image>https://cdn.kde.org/screenshots/kdf/kdf.png</image>
