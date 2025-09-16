@@ -119,7 +119,7 @@ msgstr "已用 %"
 #, kde-format
 msgctxt "Usage graphical bar"
 msgid "Usage"
-msgstr "使用情况"
+msgstr "使用率"
 
 #: src/kdfconfig.cpp:57 src/kdfconfig.cpp:164
 #, kde-format
