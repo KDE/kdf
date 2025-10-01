@@ -36,7 +36,7 @@
         "Description[sv]": "Visar monterade enheters diskanvändning",
         "Description[tr]": "Bağlı aygıtların disk kullanımlarını gösterir",
         "Description[uk]": "Показує ступінь використання змонтованих пристроїв",
-        "Description[zh_CN]": "显示已挂载设备的磁盘使用情况",
+        "Description[zh_CN]": "显示已挂载设备的磁盘使用率",
         "Description[zh_TW]": "顯示已掛載裝置的磁碟用量",
         "Icon": "kdf",
         "Name": "Storage Devices",
