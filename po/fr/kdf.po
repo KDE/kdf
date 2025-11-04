@@ -185,7 +185,7 @@ msgstr "Ouvrir automatiquement le gestionnaire de fichiers lors du montage"
 #, kde-format
 msgid "Pop up a window when a disk gets critically full"
 msgstr ""
-"Faire apparaître une fenêtre d'avertissement lorsque le disque est "
+"Faire apparaitre une fenêtre d'avertissement lorsque le disque est "
 "dangereusement plein"
 
 #. i18n: ectx: property (text), widget (QCheckBox, mSystemFileManagerCheck)
