@@ -102,7 +102,7 @@
 > dans un terminal.</para>
 
 <para
->Pour utiliser l'application comme un composant graphique de la boîte à icônes, utiliser <menuchoice
+>Pour utiliser l'application comme un composant graphique de la boite à icônes, utiliser <menuchoice
 ><guisubmenu
 >Système</guisubmenu
 ><guimenuitem
@@ -178,7 +178,7 @@
 > trie les périphériques dans l'ordre inverse.</para>
 
 <para
->Un clic avec le &BGS; sur une ligne fait apparaître un menu. Si le périphérique n'est pas actuellement monté, l'option <guimenuitem
+>Un clic avec le &BGS; sur une ligne fait apparaitre un menu. Si le périphérique n'est pas actuellement monté, l'option <guimenuitem
 >Monter le périphérique</guimenuitem
 > est disponible. Si le périphérique est monté, il peut être libéré en choisissant <guimenuitem
 >Libérer le périphérique</guimenuitem
@@ -260,7 +260,7 @@
 
 <sect2>
 <title
->La boîte de dialogue de configuration</title>
+>La boite de dialogue de configuration</title>
 
 <screenshot>
 <screeninfo
@@ -302,7 +302,7 @@
 >Ouvrir le gestionnaire de fichiers</guimenuitem
 > est sélectionnée.</para>
 <para
->Il y a aussi deux cases à cocher. Une contrôle si la fenêtre du gestionnaire de fichiers sera automatiquement ouverte lorsqu'un périphérique est monté. L'autre permet d'afficher une boîte d'alerte si un disque est rempli de manière critique.</para>
+>Il y a aussi deux cases à cocher. Une contrôle si la fenêtre du gestionnaire de fichiers sera automatiquement ouverte lorsqu'un périphérique est monté. L'autre permet d'afficher une boite d'alerte si un disque est rempli de manière critique.</para>
 </listitem>
 </varlistentry>
 <varlistentry>
