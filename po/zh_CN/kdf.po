@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/kdf/kdf.pot\n"
-"X-Crowdin-File-ID: 44857\n"
+"X-Crowdin-File: /kf6-stable/messages/kdf/kdf.pot\n"
+"X-Crowdin-File-ID: 52156\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -107,7 +107,7 @@ msgstr "挂载点"
 #, kde-format
 msgctxt "Free space in storage"
 msgid "Free"
-msgstr "空闲"
+msgstr "剩余"
 
 #: src/kdfconfig.cpp:36 src/kdfwidget.cpp:62
 #, kde-format
