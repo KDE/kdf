@@ -107,7 +107,7 @@ msgstr "挂载点"
 #, kde-format
 msgctxt "Free space in storage"
 msgid "Free"
-msgstr "空闲"
+msgstr "剩余"
 
 #: src/kdfconfig.cpp:36 src/kdfwidget.cpp:62
 #, kde-format
