@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-28 00:44+0000\n"
-"PO-Revision-Date: 2025-03-26 18:08+0900\n"
+"PO-Revision-Date: 2025-11-13 22:56+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.11.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -69,7 +69,7 @@ msgstr "KDiskFree 磁碟空間程式"
 #: src/kdf.cpp:52
 #, kde-format
 msgid "KDE free disk space utility"
-msgstr "KDE 磁碟空間公用程式"
+msgstr "KDE 可用磁碟空間工具程式"
 
 #: src/kdf.cpp:54
 #, kde-format
@@ -110,7 +110,7 @@ msgstr "大小"
 #, kde-format
 msgctxt "Mount point of the storage"
 msgid "Mount Point"
-msgstr "裝載點"
+msgstr "掛載點"
 
 #: src/kdfconfig.cpp:35 src/kdfwidget.cpp:61
 #, kde-format
@@ -176,13 +176,13 @@ msgstr " 秒"
 #: src/kdfconfig.ui:55
 #, kde-format
 msgid "Open file manager automatically on mount"
-msgstr "裝置裝載時自動啟動檔案總管"
+msgstr "裝置掛載時自動啟動檔案管理員"
 
 #. i18n: ectx: property (text), widget (QCheckBox, mPopupFullCheck)
 #: src/kdfconfig.ui:62
 #, kde-format
 msgid "Pop up a window when a disk gets critically full"
-msgstr "當磁碟空間快滿時，產生一彈跳視窗通知"
+msgstr "當磁碟空間快滿時，彈出視窗來進行通知"
 
 #. i18n: ectx: property (text), widget (QCheckBox, mSystemFileManagerCheck)
 #: src/kdfconfig.ui:69
@@ -194,7 +194,7 @@ msgstr "使用系統預設檔案管理員"
 #: src/kdfconfig.ui:76
 #, no-c-format, kde-format
 msgid "File manager (e.g. konsole -e mc %m):"
-msgstr "檔案總管（範例: konsole -e mc %m）"
+msgstr "檔案管理員（範例: konsole -e mc %m）"
 
 #. i18n: ectx: property (text), widget (QLabel, mFlatpakLabel)
 #: src/kdfconfig.ui:94
@@ -218,7 +218,7 @@ msgstr "檔案(&F)"
 #, kde-format
 msgctxt "Mount point of storage"
 msgid "Mount Point"
-msgstr "裝載點"
+msgstr "掛載點"
 
 #: src/kdfwidget.cpp:279 src/kdfwidget.cpp:280
 #, kde-format
@@ -239,7 +239,7 @@ msgstr "警告"
 #: src/kdfwidget.cpp:381
 #, kde-format
 msgid "Mount Device"
-msgstr "裝載裝置"
+msgstr "掛載裝置"
 
 #: src/kdfwidget.cpp:382
 #, kde-format
@@ -249,7 +249,7 @@ msgstr "卸載裝置"
 #: src/kdfwidget.cpp:384
 #, kde-format
 msgid "Open in File Manager"
-msgstr "在檔案總管中開啟"
+msgstr "在檔案管理員中開啟"
 
 #: src/kdfwidget.cpp:392
 #, kde-format
@@ -260,7 +260,7 @@ msgstr "在 %1 瀏覽"
 #: src/kdfwidget.cpp:406 src/kdfwidget.cpp:409
 #, kde-format
 msgid "MOUNTING"
-msgstr "裝載中"
+msgstr "掛載中"
 
 #: src/kwikdisk.cpp:59 src/kwikdisk.cpp:284
 #, kde-format
@@ -287,12 +287,12 @@ msgstr "卸載"
 #, kde-format
 msgctxt "Mount the storage device"
 msgid "Mount"
-msgstr "裝載"
+msgstr "掛載"
 
 #: src/kwikdisk.cpp:191
 #, kde-format
 msgid "You must login as root to mount this disk"
-msgstr "抱歉，請使用 root 身分裝載該裝置"
+msgstr "抱歉，請使用 root 身分掛載該裝置"
 
 #: src/kwikdisk.cpp:246
 #, kde-format
@@ -345,12 +345,12 @@ msgstr "裝置"
 #: src/mntconfig.cpp:46 src/mntconfig.cpp:53
 #, kde-format
 msgid "Mount Point"
-msgstr "裝載點"
+msgstr "掛載點"
 
 #: src/mntconfig.cpp:46
 #, kde-format
 msgid "Mount Command"
-msgstr "裝載命令"
+msgstr "掛載命令"
 
 #: src/mntconfig.cpp:47
 #, kde-format
@@ -389,7 +389,7 @@ msgstr "圖示名稱："
 #: src/mntconfig.ui:30
 #, kde-format
 msgid "Mount Command:"
-msgstr "裝載命令："
+msgstr "掛載命令："
 
 #. i18n: ectx: property (text), widget (QLabel, umountLabel)
 #: src/mntconfig.ui:40
@@ -423,7 +423,7 @@ msgstr "一般設定"
 #: src/optiondialog.cpp:28
 #, kde-format
 msgid "Mount Commands"
-msgstr "裝載命令"
+msgstr "掛載命令"
 
 #~ msgid ""
 #~ "A right mouse button click opens a context menu to mount/unmount a device "
