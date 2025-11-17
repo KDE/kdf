@@ -2,7 +2,7 @@
 # translation of kdf.po to Slovenian
 # SLOVENIAN TRANSLATION OF KDF.
 # Copyright (C) 2001,2002,2003, 2004, 2005 Free Software Foundation, Inc.
-# $Id: kdf.po 1703972 2025-03-01 01:30:30Z scripty $
+# $Id: kdf.po 1723120 2025-11-17 15:24:07Z scripty $
 # $Source$
 #
 # Roman Maurer <roman.maurer@hermes.si>, 2000.
@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-28 00:44+0000\n"
+"POT-Creation-Date: 2025-11-17 14:43+0000\n"
 "PO-Revision-Date: 2025-02-28 07:23+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"

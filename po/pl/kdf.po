@@ -1,5 +1,5 @@
 # translation of kdf.po to
-# Version: $Revision: 1709616 $
+# Version: $Revision: 1723120 $
 # translation of kdf.po to Polish
 # KTranslator Generated File
 # SPDX-FileCopyrightText: 2015, 2016, 2017, 2022, 2024, 2025 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-28 00:44+0000\n"
+"POT-Creation-Date: 2025-11-17 14:43+0000\n"
 "PO-Revision-Date: 2025-03-15 10:38+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
