@@ -48,7 +48,7 @@
 >&FDLNotice;</legalnotice>
 
 <date
->2016-04-13</date>
+>2016‒04‒13</date>
 <releaseinfo
 >Uygulamalar 16.08</releaseinfo>
 
@@ -82,10 +82,10 @@
 >Giriş</title>
 
 <para
->&kdiskfree; kullanılabilir dosya aygıtlarını (sabit sürücü bölüntüleri, disket ve &CD; sürücüleri, USB bellekler &etc;) kapasite, boş alan, tür ve bağlama noktası hakkında bilgileriyle birlikte görüntüler. Ayrıca sürücüleri bağlamanıza ve çıkarmanıza; bir dosya yöneticisinde görüntülemenize olanak tanır.</para>
+>&kdiskfree; kullanılabilir dosya aygıtlarını (sabit sürücü bölüntüleri, disket ve &CD; sürücüleri, USB bellekler &etc;) sığa, boş alan, tür ve bağlama noktası hakkında bilgileriyle birlikte görüntüler. Ayrıca sürücüleri bağlamanıza ve çıkarmanıza; bir dosya yöneticisinde görüntülemenize olanak tanır.</para>
 
 <para
->&kdiskfree;, &systemsettings;'in Depolama Aygıtları modülüne benzerdir, ancak daha az ekran alanı kullanır. &kdiskfree; penceresini hep açık tutmak istediğinizde oldukça kullanışlıdır.</para>
+>&kdiskfree;, &systemsettings;’nın Depolama Aygıtları modülüne benzerdir, ancak daha az ekran alanı kullanır. &kdiskfree; penceresini hep açık tutmak istediğinizde oldukça kullanışlıdır.</para>
 
 </chapter>
 
@@ -95,7 +95,7 @@
 
 <sect1 id="starting-kdf">
 <title
->&kdiskfree;'ı Başlatmak</title
+>&kdiskfree;’ı Başlatmak</title
 > 
 
 <para
@@ -107,7 +107,7 @@
 >Sistem</guisubmenu
 > alt grubundan <guimenuitem
 >K Boş Alan</guimenuitem
->'ı seçin. Standart &Qt; ve &kde; komut seçenekleri kullanılabilirdir ve komut isteminde <userinput
+>’ı seçin. Standart &Qt; ve &kde; komut seçenekleri kullanılabilirdir ve komut isteminde <userinput
 ><command
 >kdf</command
 > <option
@@ -252,7 +252,7 @@
 ></term>
 <listitem
 ><para
->&kdiskfree;'ı <action
+>&kdiskfree;’ı <action
 >kapatır</action
 ></para
 ></listitem>
@@ -352,7 +352,7 @@
 >&kdiskfree;</para>
 
 <para
->Program Telif Hakkı &copy; 1998-2000 &Michael.Kropfberger; &Michael.Kropfberger.mail;</para>
+>Program Telif Hakkı &copy; 1998–2000 &Michael.Kropfberger; &Michael.Kropfberger.mail;</para>
 
 <para
 >Belgelendirme Telif Hakkı &copy; 2000 &Jonathan.Singer; &Jonathan.Singer.mail;</para>
