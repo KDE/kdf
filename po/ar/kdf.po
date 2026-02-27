@@ -7,13 +7,13 @@
 # Fahad Al-Saidi <fahad.alsaidi@gmail.com>, 2007.
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
 # Youness BOUTYOUR <niceboy@linuxac.org>, 2008.
-# SPDX-FileCopyrightText: 2010, 2022, 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2010, 2022, 2024, 2025, 2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:43+0000\n"
-"PO-Revision-Date: 2025-03-02 10:44+0400\n"
+"PO-Revision-Date: 2026-02-26 12:25+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -110,7 +110,7 @@ msgstr "الحجم"
 #, kde-format
 msgctxt "Mount point of the storage"
 msgid "Mount Point"
-msgstr "نقطة الضم"
+msgstr "نقطة الوصل"
 
 #: src/kdfconfig.cpp:35 src/kdfwidget.cpp:61
 #, kde-format
@@ -176,7 +176,7 @@ msgstr "ث"
 #: src/kdfconfig.ui:55
 #, kde-format
 msgid "Open file manager automatically on mount"
-msgstr "افتح مدير الملفات آليّا عند الضم"
+msgstr "افتح مدير الملفات آليّا عند الوصل"
 
 #. i18n: ectx: property (text), widget (QCheckBox, mPopupFullCheck)
 #: src/kdfconfig.ui:62
@@ -218,7 +218,7 @@ msgstr "&ملف"
 #, kde-format
 msgctxt "Mount point of storage"
 msgid "Mount Point"
-msgstr "نقطة الضم"
+msgstr "نقطة الوصل"
 
 #: src/kdfwidget.cpp:279 src/kdfwidget.cpp:280
 #, kde-format
@@ -239,12 +239,12 @@ msgstr "تحذير"
 #: src/kdfwidget.cpp:381
 #, kde-format
 msgid "Mount Device"
-msgstr "ضم الجهاز"
+msgstr "وصل الجهاز"
 
 #: src/kdfwidget.cpp:382
 #, kde-format
 msgid "Unmount Device"
-msgstr "إلغاء ضم الجهاز"
+msgstr "إلغاء وصل الجهاز"
 
 #: src/kdfwidget.cpp:384
 #, kde-format
@@ -260,7 +260,7 @@ msgstr "استكشف في %1"
 #: src/kdfwidget.cpp:406 src/kdfwidget.cpp:409
 #, kde-format
 msgid "MOUNTING"
-msgstr "الضم"
+msgstr "الوصل"
 
 #: src/kwikdisk.cpp:59 src/kwikdisk.cpp:284
 #, kde-format
@@ -281,13 +281,13 @@ msgstr "&إعداد KwikDisk..."
 #, kde-format
 msgctxt "Unmount the storage device"
 msgid "Unmount"
-msgstr "إلغاء الضم"
+msgstr "إلغاء الوصل"
 
 #: src/kwikdisk.cpp:168
 #, kde-format
 msgctxt "Mount the storage device"
 msgid "Mount"
-msgstr "ضم"
+msgstr "صِل"
 
 #: src/kwikdisk.cpp:191
 #, kde-format
@@ -345,17 +345,17 @@ msgstr "الجهاز"
 #: src/mntconfig.cpp:46 src/mntconfig.cpp:53
 #, kde-format
 msgid "Mount Point"
-msgstr "نقطة الضم"
+msgstr "نقطة الوصل"
 
 #: src/mntconfig.cpp:46
 #, kde-format
 msgid "Mount Command"
-msgstr "أمر الضم"
+msgstr "أمر الوصل"
 
 #: src/mntconfig.cpp:47
 #, kde-format
 msgid "Unmount Command"
-msgstr "أمر الغاء الضم"
+msgstr "أمر إلغاء الوصل"
 
 #: src/mntconfig.cpp:52
 #, kde-format
@@ -389,13 +389,13 @@ msgstr "اسم الأيقونة:"
 #: src/mntconfig.ui:30
 #, kde-format
 msgid "Mount Command:"
-msgstr "أمر الضم:"
+msgstr "أمر الوصل:"
 
 #. i18n: ectx: property (text), widget (QLabel, umountLabel)
 #: src/mntconfig.ui:40
 #, kde-format
 msgid "Unmount Command:"
-msgstr "أمر الغاء الضم:"
+msgstr "أمر إلغاء الوصل:"
 
 #. i18n: ectx: property (text), widget (QPushButton, mDefaultIconButton)
 #: src/mntconfig.ui:50
@@ -423,7 +423,7 @@ msgstr "الإعدادات العامة"
 #: src/optiondialog.cpp:28
 #, kde-format
 msgid "Mount Commands"
-msgstr "أوامر الضم"
+msgstr "أوامر الوصل"
 
 #~ msgid ""
 #~ "A right mouse button click opens a context menu to mount/unmount a device "
