@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:55+0000\n"
-"PO-Revision-Date: 2017-09-04 09:53+0200\n"
+"PO-Revision-Date: 2026-03-08 01:28+0200\n"
 "Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -19,17 +19,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Poedit 3.8\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Eugenijus Agvila,Liudas Ališauskas"
+msgstr "Eugenijus Agvila, Liudas Ališauskas, Моо"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "eugenijus@agvila.lt,liudas@akmc.lt"
+msgstr "eugenijus@agvila.lt, liudas@akmc.lt, <>"
 
 #: src/disklist.cpp:274
 #, kde-format
@@ -54,7 +54,7 @@ msgstr "nepavyksta įvykdyti %1"
 #, kde-format
 msgctxt "Update action"
 msgid "&Update"
-msgstr "&Atnaujinti"
+msgstr "Atna&ujinti"
 
 #: src/kdf.cpp:50
 #, kde-format
@@ -64,16 +64,15 @@ msgstr "KDiskFree"
 #: src/kdf.cpp:52
 #, kde-format
 msgid "KDE free disk space utility"
-msgstr "KDE laisvos vietos diske priemonė"
+msgstr "KDE laisvos vietos diske paslaugų programa"
 
 #: src/kdf.cpp:54
 #, kde-format
 msgid "(c) 1998-2001, Michael Kropfberger"
-msgstr "(c) 1998-2001, Michael Kropfberger"
+msgstr "(c) 1998–2001, Michael Kropfberger"
 
 #: src/kdf.cpp:59 src/kwikdisk.cpp:293
-#, fuzzy, kde-format
-#| msgid "Michael Kropfberger"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Michael Kropfberger"
 msgstr "Michael Kropfberger"
@@ -82,7 +81,7 @@ msgstr "Michael Kropfberger"
 #, kde-format
 msgctxt "TODO"
 msgid "Icon"
-msgstr "Ženkliukas"
+msgstr "Piktograma"
 
 #: src/kdfconfig.cpp:31 src/kdfwidget.cpp:57
 #, kde-format
@@ -106,7 +105,7 @@ msgstr "Dydis"
 #, kde-format
 msgctxt "Mount point of the storage"
 msgid "Mount Point"
-msgstr "Prijungimo vieta"
+msgstr "Prijungimo taškas"
 
 #: src/kdfconfig.cpp:35 src/kdfwidget.cpp:61
 #, kde-format
@@ -142,13 +141,13 @@ msgstr "matoma"
 #, kde-format
 msgctxt "Are items on device information columns hidden?"
 msgid "hidden"
-msgstr "slepiama"
+msgstr "paslėpta"
 
 #: src/kdfconfig.cpp:180
 #, kde-format
 msgctxt "Device information item is hidden"
 msgid "hidden"
-msgstr "slepiama"
+msgstr "paslėpta"
 
 #: src/kdfconfig.cpp:180
 #, kde-format
@@ -172,7 +171,7 @@ msgstr " sek."
 #: src/kdfconfig.ui:55
 #, kde-format
 msgid "Open file manager automatically on mount"
-msgstr "Atidaryti failų tvarkyklę automatiškai laikmenos prijungimo metu"
+msgstr "Laikmenos prijungimo metu automatiškai atverti failų tvarkytuvę"
 
 #. i18n: ectx: property (text), widget (QCheckBox, mPopupFullCheck)
 #: src/kdfconfig.ui:62
@@ -184,25 +183,25 @@ msgstr "Parodyti pranešimą, kai diskas pasieks kritinį užpildymą"
 #: src/kdfconfig.ui:69
 #, kde-format
 msgid "Use system default file manager"
-msgstr ""
+msgstr "Naudoti sistemos numatytąją failų tvarkytuvę"
 
 #. i18n: ectx: property (text), widget (QLabel, fileManagerEdit)
 #: src/kdfconfig.ui:76
 #, no-c-format, kde-format
 msgid "File manager (e.g. konsole -e mc %m):"
-msgstr "Failų tvarkyklė (pvz.,. konsole -e mc %m)"
+msgstr "Failų tvarkytuvė (pvz., konsole -e mc %m):"
 
 #. i18n: ectx: property (text), widget (QLabel, mFlatpakLabel)
 #: src/kdfconfig.ui:94
 #, kde-format
 msgid "Custom file manager not supported when running as Flatpak."
-msgstr ""
+msgstr "Tinkinta failų tvarkytuvė nepalaikoma, kai paleidžiama kaip Flatpak."
 
 #: src/kdfitemdelegate.cpp:28 src/kdfwidget.cpp:276
 #, kde-format
 msgctxt "Disk percentage"
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #. i18n: ectx: Menu (file)
 #: src/kdfui.rc:5
@@ -214,17 +213,17 @@ msgstr "&Failas"
 #, kde-format
 msgctxt "Mount point of storage"
 msgid "Mount Point"
-msgstr "Prijungimo vieta"
+msgstr "Prijungimo taškas"
 
 #: src/kdfwidget.cpp:279 src/kdfwidget.cpp:280
 #, kde-format
 msgid "N/A"
-msgstr "N/G"
+msgstr "Neprieinama"
 
 #: src/kdfwidget.cpp:334 src/kwikdisk.cpp:245
 #, kde-format
 msgid "Device [%1] on [%2] is critically full."
-msgstr "Įrenginys [%1] kuris randasi [%2] yra kritiškai užpildytas."
+msgstr "Įrenginys [%1] ties [%2] yra kritiškai užpildytas."
 
 #: src/kdfwidget.cpp:335
 #, kde-format
@@ -235,23 +234,23 @@ msgstr "Įspėjimas"
 #: src/kdfwidget.cpp:381
 #, kde-format
 msgid "Mount Device"
-msgstr "Prijungti laikmeną"
+msgstr "Prijungti įrenginį"
 
 #: src/kdfwidget.cpp:382
 #, kde-format
 msgid "Unmount Device"
-msgstr "Atjungti laikmeną"
+msgstr "Atjungti įrenginį"
 
 #: src/kdfwidget.cpp:384
 #, kde-format
 msgid "Open in File Manager"
-msgstr "Paleisti failų tvarkyklėje"
+msgstr "Atverti failų tvarkytuvėje"
 
 #: src/kdfwidget.cpp:392
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Explore in %1"
-msgstr ""
+msgstr "Naršyti %1 programoje"
 
 #: src/kdfwidget.cpp:406 src/kdfwidget.cpp:409
 #, kde-format
@@ -288,18 +287,20 @@ msgstr "Prijungti"
 #: src/kwikdisk.cpp:191
 #, kde-format
 msgid "You must login as root to mount this disk"
-msgstr "Norint prijungti šį diską, reikia root teisių"
+msgstr ""
+"Norėdami prijungti šį diską, privalote prisijungti kaip pagrindinis "
+"naudotojas (root)"
 
 #: src/kwikdisk.cpp:246
 #, kde-format
 msgctxt "Device is getting critically full"
 msgid "Warning"
-msgstr "Dėmesio"
+msgstr "Įspėjimas"
 
 #: src/kwikdisk.cpp:286
 #, kde-format
 msgid "KDE Free disk space utility"
-msgstr "KDE laisvos vietos diske priemonė"
+msgstr "KDE laisvos vietos diske paslaugų programa"
 
 #: src/kwikdisk.cpp:288
 #, kde-format
@@ -312,8 +313,7 @@ msgid "Original author"
 msgstr "Pradinis autorius"
 
 #: src/kwikdisk.cpp:294
-#, fuzzy, kde-format
-#| msgid "Espen Sand"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Espen Sand"
 msgstr "Espen Sand"
@@ -324,8 +324,7 @@ msgid "KDE 2 changes"
 msgstr "KDE 2 pakeitimai"
 
 #: src/kwikdisk.cpp:295
-#, fuzzy, kde-format
-#| msgid "Stanislav Karchebny"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Stanislav Karchebny"
 msgstr "Stanislav Karchebny"
@@ -343,7 +342,7 @@ msgstr "Įrenginys"
 #: src/mntconfig.cpp:46 src/mntconfig.cpp:53
 #, kde-format
 msgid "Mount Point"
-msgstr "Prijungimo vieta"
+msgstr "Prijungimo taškas"
 
 #: src/mntconfig.cpp:46
 #, kde-format
@@ -381,7 +380,7 @@ msgstr "Šiuo metu palaikomi tik vietiniai failai."
 #: src/mntconfig.ui:20
 #, kde-format
 msgid "Icon name:"
-msgstr "Ženkliuko pavadinimas:"
+msgstr "Piktogramos pavadinimas:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountLabel)
 #: src/mntconfig.ui:30
@@ -399,7 +398,7 @@ msgstr "Atjungimo komanda:"
 #: src/mntconfig.ui:50
 #, kde-format
 msgid "Default Icon"
-msgstr "Numatytas ženkliukas"
+msgstr "Numatytoji piktograma"
 
 #. i18n: ectx: property (text), widget (QPushButton, mMountButton)
 #. i18n: ectx: property (text), widget (QPushButton, mUmountButton)
