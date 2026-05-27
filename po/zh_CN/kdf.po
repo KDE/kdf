@@ -173,7 +173,7 @@ msgstr "挂载时自动打开文件管理器"
 #: src/kdfconfig.ui:62
 #, kde-format
 msgid "Pop up a window when a disk gets critically full"
-msgstr "当磁盘剩余空间危急时弹窗提醒"
+msgstr "当磁盘剩余空间极小时弹窗提醒"
 
 #. i18n: ectx: property (text), widget (QCheckBox, mSystemFileManagerCheck)
 #: src/kdfconfig.ui:69
@@ -219,7 +219,7 @@ msgstr "不可用"
 #: src/kdfwidget.cpp:334 src/kwikdisk.cpp:245
 #, kde-format
 msgid "Device [%1] on [%2] is critically full."
-msgstr "[%2] 上的设备 [%1] 剩余空间危急。"
+msgstr "[%2] 上的设备 [%1] 剩余空间极小。"
 
 #: src/kdfwidget.cpp:335
 #, kde-format
