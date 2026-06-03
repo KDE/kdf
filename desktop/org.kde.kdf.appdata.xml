@@ -45,6 +45,7 @@
   <name xml:lang="sl">KDiskFree</name>
   <name xml:lang="sv">Kdiskfree</name>
   <name xml:lang="tr">K Boş Alan</name>
+  <name xml:lang="ug">KDiskFree دىسكا بوشلۇقى كۆرگۈچ</name>
   <name xml:lang="uk">KDiskFree</name>
   <name xml:lang="zh-CN">KDiskFree 磁盘占用查看器</name>
   <name xml:lang="zh-TW">KDiskFree</name>
@@ -86,6 +87,7 @@
   <summary xml:lang="sl">Pogled porabe diska</summary>
   <summary xml:lang="sv">Visa hårddiskanvändning</summary>
   <summary xml:lang="tr">Disk Kullanımı Görüntüleyicisi</summary>
+  <summary xml:lang="ug">دىسكىنىڭ ئىشلىتىلىشىنى كۆرسىتىدۇ</summary>
   <summary xml:lang="uk">Перегляд використання диска</summary>
   <summary xml:lang="zh-CN">查看磁盘使用率</summary>
   <summary xml:lang="zh-TW">檢視磁碟用量</summary>
