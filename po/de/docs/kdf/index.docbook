@@ -85,7 +85,7 @@
 >&kdiskfree; zeigt die verfügbaren Plattenbereiche an (Partitionen auf Festplatten, Disketten, &CD;-Laufwerke, USB-Sticks &etc;). Zu jedem Bereich wird die Gesamtgröße, der freie Bereich, das Dateisystem und der Ort des Einhängens ins Dateisystem (Einhängepunkt) angezeigt. Mit &kdiskfree; können auch (sofern die Berechtigung vorhanden ist) Laufwerke ein- bzw. ausgehängt und die Dateiverwaltung mit der Anzeige für dieses Laufwerk geöffnet werden.</para>
 
 <para
->&kdiskfree; hat Ähnlichkeiten mit dem Modul „Speicher-Geräte“ aus den &systemsettings; braucht aber weniger Platz auf dem Bildschirm und ist deshalb nützlich, wenn immer ein &kdiskfree;-Fenster geöffnet sein soll.</para>
+>&kdiskfree; hat Ähnlichkeiten mit dem Modul „Speicher-Geräte“ aus den &systemsettings; benötigt aber weniger Platz auf dem Bildschirm und ist deshalb nützlich, wenn immer ein &kdiskfree;-Fenster geöffnet sein soll.</para>
 
 </chapter>
 
