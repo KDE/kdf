@@ -193,7 +193,7 @@ msgstr "Standard-Dateiverwaltungsprogramm des Systems verwenden"
 #: src/kdfconfig.ui:76
 #, no-c-format, kde-format
 msgid "File manager (e.g. konsole -e mc %m):"
-msgstr "Dateiverwaltung (z. B. konsole -e mc %m):"
+msgstr "Dateiverwaltung (z. B. konsole -e mc %m):"
 
 #. i18n: ectx: property (text), widget (QLabel, mFlatpakLabel)
 #: src/kdfconfig.ui:94
