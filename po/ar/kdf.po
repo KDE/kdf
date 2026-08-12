@@ -194,7 +194,7 @@ msgstr "اختر مدير الملفات المبدئي للنظام"
 #: src/kdfconfig.ui:76
 #, no-c-format, kde-format
 msgid "File manager (e.g. konsole -e mc %m):"
-msgstr "مدير الملفات ( مثلاً konsole -e mc %m):"
+msgstr "مدير الملفات ( مثلًا konsole -e mc %m):"
 
 #. i18n: ectx: property (text), widget (QLabel, mFlatpakLabel)
 #: src/kdfconfig.ui:94
