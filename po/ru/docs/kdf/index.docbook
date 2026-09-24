@@ -1,17 +1,16 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
   <!ENTITY kappname "&kdiskfree;">
-  <!ENTITY package "kdeutils">
   <!ENTITY % Russian "INCLUDE"
 > <!-- change language only here -->
   <!ENTITY % addindex "IGNORE">
 ]>
 
-<book lang="&language;">
+<book id="kdf" lang="&language;">
 
 <bookinfo>
 <title
->Руководство &kdiskfree;</title>
+>Руководство пользователя &kdiskfree;</title>
 
 <authorgroup>
 <author
@@ -49,9 +48,9 @@
 >&FDLNotice;</legalnotice>
 
 <date
->12 января 2010 г.</date>
+>13 апреля 2016 г.</date>
 <releaseinfo
->v0.11 (&kde; 4.4)</releaseinfo>
+>Приложения KDE 16.08</releaseinfo>
 
 <abstract
 ><para
@@ -83,10 +82,10 @@
 >Введение</title>
 
 <para
->&kdiskfree; отображает информацию о доступных файловых устройствах (жестких дисках, дискетах, &CD;, &etc;) совместно с информацией о их размере, свободном пространстве, типе и точке монтирования. Это позволяет вам монтировать, отмонтировать устройства и открывать их в файловом менеджере.</para>
+>&kdiskfree; показывает доступные файловые устройства (разделы жёстких дисков, дисководы гибких дисков и &CD;-дисководы, USB-накопители &etc;) вместе с информацией об их размере, свободном пространстве, типе и точке монтирования. Также можно монтировать и отмонтировать устройства и открывать их в файловом менеджере.</para>
 
 <para
->&kdiskfree; аналогичен модулю разделов дисков в Центре информации о системе, но занимает на экране меньше места. Это бывает полезно, если вы хотите держать &kdiskfree; на экране постоянно.</para>
+>&kdiskfree; аналогичен модулю «Устройства хранения данных» приложения «Параметры системы», но занимает на экране меньше места. Это полезно, если окно &kdiskfree; должно быть доступно постоянно.</para>
 
 </chapter>
 
@@ -105,12 +104,10 @@
 >kdf</command
 ></userinput
 > либо выберите <guimenuitem
->KDiskFree (Статистика использования дисков</guimenuitem
-> в меню <guimenu
->K</guimenu
-> <guisubmenu
+>KDiskFree</guimenuitem
+> в группе <guisubmenu
 >Система</guisubmenu
->. Поддерживаются стандартные для &Qt; и &kde; параметры командной строки, список которых можно получить, введя в командной строке <userinput
+> меню запуска приложений. Поддерживаются стандартные для &Qt; и &kde; параметры командной строки, список которых можно получить, введя в командной строке <userinput
 ><command
 >kdf</command
 > <option
@@ -118,6 +115,19 @@
 ></userinput
 >.</para>
 
+<para
+>Чтобы запустить приложение как апплет в системном лотке, выберите <menuchoice
+><guisubmenu
+>Система</guisubmenu
+><guimenuitem
+>KwikDisk</guimenuitem
+></menuchoice
+> в меню запуска приложений.</para>
+
+<para
+>Возможности &kdiskfree; также доступны в модуле <guilabel
+>Устройства хранения данных</guilabel
+> приложения «Параметры системы».</para>
 </sect1>
 
 <sect1 id="main-window">
@@ -174,14 +184,6 @@
 ></listitem>
 </itemizedlist>
 
-<!--! new screenshot
-<para
->In the picture above, four devices are shown: one reiserfs-formatted
-hard drive partition mounted at the file system root (<filename
-class="directory"
->/</filename
->), two &CD-ROM;'s, and a floppy drive.</para>
--->
 <para
 >Щелчок <mousebutton
 >левой</mousebutton
@@ -195,24 +197,29 @@ class="directory"
 >. Выбор <guimenuitem
 >Открыть в диспетчере файлов</guimenuitem
 > открывает новое окно с графическим представлением файлов на этом устройстве.</para>
-
+<para
+>Диспетчер файлов, используемый &kdiskfree;, задаётся независимо от выбора в модуле <guilabel
+>Приложения по умолчанию</guilabel
+> приложения «Параметры системы».</para>
 </sect1>
 
-<sect1 id="the-menus">
+<sect1 id="menus-and-configuration">
 <title
->Меню &kdiskfree;</title>
+>Строка меню и настройка</title>
 
 <sect2>
 <title
->Меню <guimenu
->Файл</guimenu
-></title>
+>Меню «Файл»</title>
 
 <variablelist>
 <varlistentry>
 <term>
 <menuchoice
-><guimenu
+><shortcut
+><keycap
+>F5</keycap
+></shortcut
+> <guimenu
 >Файл</guimenu
 > <guimenuitem
 >Обновить</guimenuitem
@@ -250,44 +257,23 @@ class="directory"
 </varlistentry>
 </variablelist>
 
+<para
+>Кроме того, &kdiskfree; содержит некоторые общие для &kde; пункты меню <guimenu
+>Настройка</guimenu
+> и <guimenu
+>Справка</guimenu
+>; подробнее см. разделы <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Меню «Настройка»</ulink
+> и <ulink url="help:/fundamentals/menus.html#menus-help"
+>Меню «Справка»</ulink
+> документа «Основы &kde;». </para>
+
 </sect2>
 
 <sect2>
 <title
->Меню и диалог <guimenu
->Настройка</guimenu
-></title>
+>Окно настройки</title>
 
-<variablelist>
-<varlistentry>
-<term>
-<menuchoice
-><guimenu
->Настройка</guimenu
-> <guimenuitem
->Комбинации клавиш...</guimenuitem
-></menuchoice>
-</term>
-<listitem>
-<para
->Открывает стандартное для KDE диалоговое окно настройки комбинаций клавиш.</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term>
-<menuchoice
-><guimenu
->Настройка</guimenu
-> <guimenuitem
->Настроить KDiskFree...</guimenuitem
-> </menuchoice>
-</term>
-<listitem
-><para
-><action
->Открывает диалог настройки</action
-></para>
 <screenshot>
 <screeninfo
 >Окно настройки &kdiskfree;</screeninfo>
@@ -348,17 +334,8 @@ class="directory"
 ></listitem>
 </varlistentry>
 </variablelist>
-</listitem>
-</varlistentry>
-</variablelist>
-</sect2>
 
-<sect2>
-<title
->Меню <guimenu
->Справка</guimenu
-></title>
-&help.menu.documentation; </sect2>
+</sect2>
 
 </sect1>
 </chapter>
@@ -380,8 +357,7 @@ class="directory"
 >Перевод на русский: Олег Баталов <email
 >batalov@twiga.kz</email
 ></para
-> 
-&underFDL; &underGPL; </chapter>
+> &underFDL; &underGPL; </chapter>
 
 &documentation.index; 
 </book>
