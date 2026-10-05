@@ -82,7 +82,7 @@
 >В окне этого модуля настройки показаны доступные файловые устройства и информация о каждом из них. Здесь также можно управлять точками монтирования, подключать и отключать устройства. </para>
 
 <para
->Обычно в этой вкладке отображается следующая информация: </para>
+>Обычно в этой вкладке показывается следующая информация: </para>
 
 <itemizedlist>
 <listitem
@@ -111,7 +111,7 @@
 ></listitem>
 <listitem
 ><para
->процент заполнения пространства, в числовом и графическом отображении.</para
+>процент заполнения пространства, в числовом и графическом виде.</para
 ></listitem>
 </itemizedlist>
 
@@ -148,15 +148,15 @@
 >.</para>
 
 <para
->Переработка для KDE 2.0: Mike McBride <email
+>Переработка для &kde; 2.0: Mike McBride <email
 >mpmcbride7@yahoo.com</email
 >.</para>
 <para
->Ольга Миронова<email
+>Ольга Миронова <email
 >omiro@basealt.ru</email
 ></para
 ><para
->Oleg Batalov<email
+>Oleg Batalov <email
 >olegbatalov@mail.ru</email
 ></para
 > 

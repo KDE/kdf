@@ -4,13 +4,14 @@
 # Toplica Tanaskovic <toptan@kde.org.yu>, 2004.
 # Slobodan Simic <slsimic@gmail.com>, 2009.
 # Dalibor Djuric <dalibor.djuric@mozilla-srbija.org>, 2010.
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:55+0000\n"
-"PO-Revision-Date: 2017-09-28 18:00+0200\n"
-"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"PO-Revision-Date: 2026-10-04 23:13+0200\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr@ijekavianlatin\n"
 "MIME-Version: 1.0\n"
@@ -26,12 +27,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Aleksandar Dezelin,Časlav Ilić"
+msgstr "Aleksandar Dezelin,Časlav Ilić,Nemanja Hiršl"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "deza@ptt.yu,caslav.ilic@gmx.net"
+msgstr "deza@ptt.yu,caslav.ilic@gmx.net,nemhirsl@gmail.com"
 
 #: src/disklist.cpp:274
 #, kde-format
@@ -74,8 +75,7 @@ msgid "(c) 1998-2001, Michael Kropfberger"
 msgstr "© 1998–2001, Mihael Kropfberger"
 
 #: src/kdf.cpp:59 src/kwikdisk.cpp:293
-#, fuzzy, kde-format
-#| msgid "Michael Kropfberger"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Michael Kropfberger"
 msgstr "Mihael Kropfberger"
@@ -195,7 +195,7 @@ msgstr "Prikaži prozor kada se disk kritično popuni"
 #: src/kdfconfig.ui:69
 #, kde-format
 msgid "Use system default file manager"
-msgstr ""
+msgstr "Koristi podrazumijevani sistemski menadžer fajlova"
 
 #. i18n: ectx: property (text), widget (QLabel, fileManagerEdit)
 #: src/kdfconfig.ui:76
@@ -207,7 +207,7 @@ msgstr "Menadžer fajlova (npr. „konsole -e mc %m“):"
 #: src/kdfconfig.ui:94
 #, kde-format
 msgid "Custom file manager not supported when running as Flatpak."
-msgstr ""
+msgstr "Poseban menadžer fajlova nije podržan kada program radi kao Flatpak."
 
 #: src/kdfitemdelegate.cpp:28 src/kdfwidget.cpp:276
 #, kde-format
@@ -262,7 +262,7 @@ msgstr "Otvori u menadžeru fajlova"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Explore in %1"
-msgstr ""
+msgstr "Istraži u programu %1"
 
 #: src/kdfwidget.cpp:406 src/kdfwidget.cpp:409
 #, kde-format
@@ -323,8 +323,7 @@ msgid "Original author"
 msgstr "Prvobitni autor"
 
 #: src/kwikdisk.cpp:294
-#, fuzzy, kde-format
-#| msgid "Espen Sand"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Espen Sand"
 msgstr "Espen Sand"
@@ -332,11 +331,10 @@ msgstr "Espen Sand"
 #: src/kwikdisk.cpp:294
 #, kde-format
 msgid "KDE 2 changes"
-msgstr "Promene za KDE2"
+msgstr "Promjene za KDE2"
 
 #: src/kwikdisk.cpp:295
-#, fuzzy, kde-format
-#| msgid "Stanislav Karchebny"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Stanislav Karchebny"
 msgstr "Stanislav Karčebnji"
@@ -344,7 +342,7 @@ msgstr "Stanislav Karčebnji"
 #: src/kwikdisk.cpp:295
 #, kde-format
 msgid "KDE 3 changes"
-msgstr "Promene za KDE3"
+msgstr "Promjene za KDE3"
 
 # >> @title:column
 #: src/mntconfig.cpp:46 src/mntconfig.cpp:51
@@ -438,10 +436,3 @@ msgstr "Opšte postavke"
 #, kde-format
 msgid "Mount Commands"
 msgstr "Naredbe montiranja"
-
-#~ msgid ""
-#~ "A right mouse button click opens a context menu to mount/unmount a device "
-#~ "or to open it in the file manager."
-#~ msgstr ""
-#~ "Klik desnim dugmetom miša poziva kontekstni meni iz kojeg možete "
-#~ "montirati i demontirati uređaj ili ga otvoriti u menadžeru fajlova."
