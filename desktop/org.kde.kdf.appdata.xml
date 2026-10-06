@@ -43,6 +43,10 @@
   <name xml:lang="sa">KDiskFree इति</name>
   <name xml:lang="sk">KDiskFree</name>
   <name xml:lang="sl">KDiskFree</name>
+  <name xml:lang="sr">К‑диск‑простор</name>
+  <name xml:lang="sr-Latn">K‑disk‑prostor</name>
+  <name xml:lang="sr-ijekavian">К‑диск‑простор</name>
+  <name xml:lang="sr-ijekavianlatin">K‑disk‑prostor</name>
   <name xml:lang="sv">Kdiskfree</name>
   <name xml:lang="tr">K Boş Alan</name>
   <name xml:lang="ug">KDiskFree دىسكا بوشلۇقى كۆرگۈچ</name>
@@ -85,6 +89,10 @@
   <summary xml:lang="sa">डिस्कस्य उपयोगं पश्यन्तु</summary>
   <summary xml:lang="sk">Zobraziť využitie disku</summary>
   <summary xml:lang="sl">Pogled porabe diska</summary>
+  <summary xml:lang="sr">Приказ попуњености дискова</summary>
+  <summary xml:lang="sr-Latn">Prikaz popunjenosti diskova</summary>
+  <summary xml:lang="sr-ijekavian">Приказ попуњености дискова</summary>
+  <summary xml:lang="sr-ijekavianlatin">Prikaz popunjenosti diskova</summary>
   <summary xml:lang="sv">Visa hårddiskanvändning</summary>
   <summary xml:lang="tr">Disk Kullanımı Görüntüleyicisi</summary>
   <summary xml:lang="ug">دىسكىنىڭ ئىشلىتىلىشىنى كۆرسىتىدۇ</summary>
@@ -130,6 +138,10 @@
     <p xml:lang="sa">KDiskFree उपलब्धानि सञ्चिकायन्त्राणि (हार्डड्राइवविभाजनं, फ्लॉपी तथा सीडीड्राइव् इत्यादयः) तेषां क्षमता, मुक्तस्थानं, प्रकारः, माउण्ट्-बिन्दुः च इति सूचनाभिः सह प्रदर्शयति । इदं भवन्तं ड्राइव्-माउण्ट्-अनमाउण्ट्-करणं च सञ्चिका-प्रबन्धके द्रष्टुं च शक्नोति ।</p>
     <p xml:lang="sk">KDiskFree zobrazuje dostuné zariadenia na súbory (pevné disky, partície, diskety, CD, atď.) tak isto informácie o ich kapacite, voľnom mieste, type a prípojnom bode. Tiež vám umožnuje pripájať a odpájať disky a prehliadať ich v správcovi súborov.</p>
     <p xml:lang="sl">KDiskFree prikazuje razpoložljive enote hrambe datotek (particije trdega diska, diskete in pogone CD-jev itd.), skupaj s podatki o njihovi kapaciteti, prostem prostoru, vrsti in mestu priključitve. Omogoča vam tudi, da lahko pogone priklopite in odklopite ter si jih ogledate v upravitelju datotek.</p>
+    <p xml:lang="sr">К‑диск‑простор приказује доступне складишне уређаје (партиције хард диска, флопи и ЦД јединице итд.) заједно са подацима о њиховом капацитету, слободном простору, типу и тачки монтирања. Такође омогућава да монтирате и демонтирате јединице и да их прегледате у менаџеру фајлова.</p>
+    <p xml:lang="sr-Latn">K‑disk‑prostor prikazuje dostupne skladišne uređaje (particije hard diska, flopi i CD jedinice itd.) zajedno sa podacima o njihovom kapacitetu, slobodnom prostoru, tipu i tački montiranja. Takođe omogućava da montirate i demontirate jedinice i da ih pregledate u menadžeru fajlova.</p>
+    <p xml:lang="sr-ijekavian">К‑диск‑простор приказује доступне складишне уређаје (партиције хард диска, флопи и ЦД јединице итд.) заједно са подацима о њиховом капацитету, слободном простору, типу и тачки монтирања. Такође омогућава да монтирате и демонтирате јединице и да их прегледате у менаџеру фајлова.</p>
+    <p xml:lang="sr-ijekavianlatin">K‑disk‑prostor prikazuje dostupne skladišne uređaje (particije hard diska, flopi i CD jedinice itd.) zajedno sa podacima o njihovom kapacitetu, slobodnom prostoru, tipu i tački montiranja. Takođe omogućava da montirate i demontirate jedinice i da ih pregledate u menadžeru fajlova.</p>
     <p xml:lang="sv">Kdiskfree visar tillgängliga filenheter (hårddiskpartitioner, diskett- och cd-enheter, etc.) tillsammans med information om deras kapacitet, ledigt utrymme, typ och monteringsplats. Det låter dig också montera och avmontera enheter och visa dem i en filhanterare.</p>
     <p xml:lang="tr">K Boş Alan, kullanılabilir aygıtları (sabit disk bölüntüleri, disket ve CD sürücüler vb.) sığaları, boş alan, tür ve bağlanma noktaları gibi bilgiler ile listeler. Ayrıca sürücüleri bağlayıp çıkarmanızı ve bir dosya yöneticisinde görüntülemenizi sağlar.</p>
     <p xml:lang="uk">KDiskFree показує список доступних файлових пристроїв (розділів жорсткого диска, пристроїв читання гнучких дисків, компакт-дисків, флеш-карток USB тощо), а також інформацію щодо їх місткості, вільного місця, типу і точки монтування. Ця програма також надає вам можливість монтувати, демонтувати пристрої і переглядати їх вміст у програмі для роботи з файлами.</p>
@@ -179,6 +191,10 @@
       <caption xml:lang="sa">KDiskFree मुख्य विण्डो</caption>
       <caption xml:lang="sk">Hlavné okno KDiskFree</caption>
       <caption xml:lang="sl">Glavno okno KDiskFree</caption>
+      <caption xml:lang="sr">Главни прозор К‑диск‑простора</caption>
+      <caption xml:lang="sr-Latn">Glavni prozor K‑disk‑prostora</caption>
+      <caption xml:lang="sr-ijekavian">Главни прозор К‑диск‑простора</caption>
+      <caption xml:lang="sr-ijekavianlatin">Glavni prozor K‑disk‑prostora</caption>
       <caption xml:lang="sv">Huvudfönstret i Kdiskfree</caption>
       <caption xml:lang="tr">K Boş Alan ana penceresi</caption>
       <caption xml:lang="uk">Головне вікно KDiskFree</caption>
