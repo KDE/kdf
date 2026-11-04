@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdf\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:55+0000\n"
-"PO-Revision-Date: 2026-09-23 06:56+0900\n"
+"PO-Revision-Date: 2026-11-02 09:28-0500\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.9\n"
+"X-Generator: Poedit 3.10\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -66,13 +66,13 @@ msgstr "KDE ئەركىن دىسكا بوشلۇقى قورالى"
 #: src/kdf.cpp:54
 #, kde-format
 msgid "(c) 1998-2001, Michael Kropfberger"
-msgstr ""
+msgstr "(c) 1998-2001, Michael Kropfberger"
 
 #: src/kdf.cpp:59 src/kwikdisk.cpp:293
 #, kde-format
 msgctxt "@info:credit"
 msgid "Michael Kropfberger"
-msgstr ""
+msgstr "Michael Kropfberger"
 
 #: src/kdfconfig.cpp:30
 #, kde-format
@@ -156,7 +156,7 @@ msgstr "ئاشكارا"
 #: src/kdfconfig.ui:35
 #, kde-format
 msgid "Update frequency:"
-msgstr "يېڭىلاش چاستوتىسى:"
+msgstr "يېڭىلاش قەرەلى:"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, m_updateSpinBox)
 #: src/kdfconfig.ui:42
@@ -199,7 +199,7 @@ msgstr ""
 #, kde-format
 msgctxt "Disk percentage"
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #. i18n: ectx: Menu (file)
 #: src/kdfui.rc:5
@@ -258,7 +258,7 @@ msgstr "ئېگەرلەۋاتىدۇ"
 #: src/kwikdisk.cpp:59 src/kwikdisk.cpp:284
 #, kde-format
 msgid "KwikDisk"
-msgstr ""
+msgstr "KwikDisk"
 
 #: src/kwikdisk.cpp:63
 #, kde-format
@@ -302,7 +302,7 @@ msgstr "KDE ئەركىن دىسكا بوشلۇقى قورالى"
 #: src/kwikdisk.cpp:288
 #, kde-format
 msgid "(C) 2004 Stanislav Karchebny"
-msgstr ""
+msgstr "(C) 2004 Stanislav Karchebny"
 
 #: src/kwikdisk.cpp:293
 #, kde-format
@@ -313,7 +313,7 @@ msgstr "ئەسلى يازغۇچى"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Espen Sand"
-msgstr ""
+msgstr "Espen Sand"
 
 #: src/kwikdisk.cpp:294
 #, kde-format
@@ -324,7 +324,7 @@ msgstr "KDE 2 ئۆزگىرىشى"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Stanislav Karchebny"
-msgstr ""
+msgstr "Stanislav Karchebny"
 
 #: src/kwikdisk.cpp:295
 #, kde-format
