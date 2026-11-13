@@ -1,0 +1,137 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Arabic "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="block-devices" lang="&language;">
+<title
+>أجهزة كتلية</title>
+
+<articleinfo>
+
+<authorgroup>
+<author
+><firstname
+>Mike</firstname
+> <surname
+>McBride</surname
+> </author>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2016-04-14</date>
+<releaseinfo
+>تطبيقات 16.04</releaseinfo>
+
+<keywordset>
+<keyword
+>كيدي</keyword>
+<keyword
+>KControl</keyword>
+<keyword
+>أجهزة كتلية</keyword>
+<keyword
+>مساحة القرص</keyword>
+</keywordset>
+</articleinfo>
+
+<sect1>
+<title
+>أجهزة تخزين</title>
+
+<para
+>تعرض نافذة الوحدة أجهزة الملفات المتاحة وبعض المعلومات عن كل جهاز. كما تسمح لك بالتحكم في نقاط الوصل، ووصل/فصل الأجهزة. </para>
+
+<para
+>عادةً، تُعرض المعلومات التالية في هذه اللوحة: </para>
+
+<itemizedlist>
+<listitem
+><para
+>أيقونة تصور نوع التخزين</para
+></listitem>
+<listitem
+><para
+>اسم الجهاز</para
+></listitem>
+<listitem
+><para
+>نوع نظام الملفات</para
+></listitem>
+<listitem
+><para
+>الحجم الكليّ</para
+></listitem>
+<listitem
+><para
+>نقطة وصْل</para
+></listitem>
+<listitem
+><para
+>مساحة القرص الحرة</para
+></listitem>
+<listitem
+><para
+>النسبة المئوية للمساحة المستخدمة كرقم وكرسم بياني.</para
+></listitem>
+</itemizedlist>
+
+<para
+>النقر <mousebutton
+>الأيسر</mousebutton
+> على رأس عمود معين يرتب الأجهزة وفقًا لذلك المتغير. النقر <mousebutton
+>الأيسر</mousebutton
+> مرة ثانية يرتب بترتيب عكسي. </para>
+
+<para
+>النقر <mousebutton
+>الأيمن</mousebutton
+> على صف يظهر قائمة. إذا لم يكن ذلك الجهاز موصولًا حاليًا، يتوفر الخيار <guimenuitem
+>وصل الجهاز</guimenuitem
+>. إذا كان الجهاز موصولًا، يمكن فصله باختيار <guimenuitem
+>فصل الجهاز</guimenuitem
+>. اختيار <guimenuitem
+>افتح في مدير الملفات</guimenuitem
+> يفتح نافذة جديدة بعرض رسومي للملفات على ذلك الجهاز. </para>
+
+<para
+>يمكن ضبط أوامر الوصل والفصل المناسبة، وكيفية فتح مدير الملفات من قائمة السياق، من تطبيق &kdiskfree;. </para>
+
+<sect2>
+<title
+>مؤلف القسم</title>
+
+<para
+>هذا القسم معدل من توثيق <application
+>kdf</application
+> الذي كتبه &Jonathan.Singer; &Jonathan.Singer.mail;</para>
+
+<para
+>معدل لـ &kde; 2.0 بواسطة &Mike.McBride; &Mike.McBride.mail;</para>
+<para
+>الترجمة: زايد السعيدي <email
+>zayed.alsaidi@gmail.com</email
+></para
+> 
+
+</sect2>
+</sect1>
+</article>
+

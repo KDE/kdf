@@ -1,0 +1,379 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&kdiskfree;">
+  <!ENTITY % Arabic "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kdf" lang="&language;">
+
+<bookinfo>
+<title
+>دليل المساحة المتبقية</title>
+
+<authorgroup>
+<author
+>&Jonathan.Singer; &Jonathan.Singer.mail; </author>
+
+<author
+>&Michael.Kropfberger; &Michael.Kropfberger.mail; </author>
+
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+
+</authorgroup>
+
+<copyright>
+<year
+>2000-2002</year>
+<holder
+>&Jonathan.Singer;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2016-04-13</date>
+<releaseinfo
+>تطبيقات 16.08</releaseinfo>
+
+<abstract
+><para
+>يعرض المساحة المتبقية أجهزة الملفات المتاحة، إلى جانب معلومات عنها.</para>
+
+</abstract>
+
+<keywordset>
+<keyword
+>كيدي</keyword>
+<keyword
+>kdf</keyword>
+<keyword
+>kdeutils</keyword>
+<keyword
+>أقراص</keyword>
+<keyword
+>أجهزة</keyword>
+<keyword
+>صِل</keyword>
+<keyword
+>فك الوصل</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>مقدمة</title>
+
+<para
+>يعرض المساحة المتبقية أجهزة الملفات المتاحة (أقسام القرص الصلب، ومحركات الأقراص المرنة و&CD;، وأقراص USB وغيرها) إلى جانب معلومات عن سعتها، ومساحتها الحرة، ونوعها، ونقطة الوصل. كما يتيح لك وصل وفصل الأقراص وعرضها في مدير ملفات.</para>
+
+<para
+>يشبه المساحة المتبقية وحدة أجهزة التخزين في &systemsettings;، لكنه يشغل مساحة شاشة أقل. وهو مفيد إذا أردت إبقاء نافذة المساحة المتبقية متاحة في جميع الأوقات.</para>
+
+</chapter>
+
+<chapter id="using-kdf">
+<title
+>استخدام المساحة المتبقية</title>
+
+<sect1 id="starting-kdf">
+<title
+>بدء المساحة المتبقية</title
+> 
+
+<para
+>اكتب <userinput
+><command
+>kdf</command
+></userinput
+> في سطر الأوامر أو اختر <guimenuitem
+>KDiskFree</guimenuitem
+> من مجموعة <guisubmenu
+>النظام</guisubmenu
+> في مشغل التطبيقات. تتوفر خيارات الأوامر القياسية لـ&Qt; و&kde;، ويمكن سردها بإدخال <userinput
+><command
+>kdf</command
+> <option
+>--help</option
+></userinput
+> في سطر الأوامر.</para>
+
+<para
+>لتشغيل التطبيق كملحق في علبة النظام، استخدم <menuchoice
+><guisubmenu
+>النظام</guisubmenu
+><guimenuitem
+>KwikDisk</guimenuitem
+></menuchoice
+> في مشغل التطبيقات.</para>
+
+<para
+>ميزات المساحة المتبقية متوفرة أيضًا في وحدة &systemsettings; <guilabel
+>أجهزة التخزين</guilabel
+>.</para>
+</sect1>
+
+<sect1 id="main-window">
+<title
+>النافذة الرئيسة</title>
+
+<para
+>تعرض النافذة الرئيسة لـالمساحة المتبقية أجهزة الملفات المتاحة.</para>
+
+<para
+>عادةً، تُضمن المعلومات التالية:</para>
+<screenshot>
+<screeninfo
+>شاشة المساحة المتبقية</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="kdf.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>شاشة المساحة المتبقية</phrase>
+          </textobject>
+        </mediaobject>
+</screenshot>
+
+<itemizedlist>
+<listitem
+><para
+>أيقونة تصور نوع التخزين</para
+></listitem>
+<listitem
+><para
+>اسم الجهاز</para
+></listitem>
+<listitem
+><para
+>نوع نظام الملفات</para
+></listitem>
+<listitem
+><para
+>الحجم الكليّ</para
+></listitem>
+<listitem
+><para
+>نقطة وصْل</para
+></listitem>
+<listitem
+><para
+>مساحة القرص الحرة</para
+></listitem>
+<listitem
+><para
+>النسبة المئوية للمساحة المستخدمة كرقم وكرسم بياني.</para
+></listitem>
+</itemizedlist>
+
+<para
+>النقر <mousebutton
+>الأيسر</mousebutton
+> على رأس عمود معين يرتب الأجهزة وفقًا لذلك المتغير. النقر <mousebutton
+>الأيسر</mousebutton
+> مرة ثانية يرتب بالترتيب المعاكس.</para>
+
+<para
+>النقر بالزر الأيمن للفأرة على صف يظهر قائمة. إذا لم يكن ذلك الجهاز موصولًا حاليًا، يتوفر خيار <guimenuitem
+>وصل الجهاز</guimenuitem
+>. إذا كان الجهاز موصولًا، يمكن فصله باختيار <guimenuitem
+>فصل الجهاز</guimenuitem
+>. اختيار <guimenuitem
+>فتح في مدير الملفات</guimenuitem
+> يفتح نافذة جديدة بعرض رسومي للملفات على ذلك الجهاز.</para>
+<para
+>إعداد مدير الملفات المستخدم بواسطة المساحة المتبقية مستقل عن الاختيار في وحدة &systemsettings; <guilabel
+>التطبيقات المبدئية</guilabel
+>.</para>
+</sect1>
+
+<sect1 id="menus-and-configuration">
+<title
+>شريط القوائم والضبط</title>
+
+<sect2>
+<title
+>قائمة ملف</title>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+><keycap
+>F5</keycap
+></shortcut
+> <guimenu
+>ملف</guimenu
+> <guimenuitem
+>تحديث</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>يحدث العرض فورًا ليعكس الحالة الحالية</action
+></para
+></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>ملف</guimenu
+> <guimenuitem
+>أنهِ</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>يغلق</action
+> المساحة المتبقية</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>بالإضافة إلى ذلك، يحتوي المساحة المتبقية على بعض عناصر القوائم الشائعة لـ&kde; <guimenu
+>إعدادات</guimenu
+> و<guimenu
+>مساعدة</guimenu
+>، لمزيد من المعلومات اقرأ الأقسام حول <ulink url="help:/fundamentals/menus.html#menus-settings"
+>قائمة الإعدادات</ulink
+> و<ulink url="help:/fundamentals/menus.html#menus-help"
+>قائمة المساعدة</ulink
+> من أساسيات &kde;. </para>
+
+</sect2>
+
+<sect2>
+<title
+>حوار الإعدادات</title>
+
+<screenshot>
+<screeninfo
+>شاشة ضبط المساحة المتبقية</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="kdf_config.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>شاشة ضبط المساحة المتبقية</phrase>
+          </textobject>
+        </mediaobject>
+</screenshot>
+
+<para
+>يحتوي هذا الحوار على نافذتين مبوبتين، <guilabel
+>الإعدادات العامة</guilabel
+> و<guilabel
+>أوامر الوصل</guilabel
+></para>
+<variablelist>
+<varlistentry>
+<term
+>الإعدادات العامة</term
+> <listitem
+><para
+>انقر على الكلمة <guilabel
+>مرئي</guilabel
+> أو <guilabel
+>مخفي</guilabel
+> لتشغيل أو إيقاف عرض حقل بيانات.</para
+> <para
+>غيّر تردد التحديث بتحرير القيمة. القيمة في المربع هي الفاصل الزمني (بالثواني) بين تحديثات عرض المساحة المتبقية ليعكس الحالة الحالية.</para
+> <para
+>يتحكم إعداد <guilabel
+>مدير الملفات</guilabel
+> في الأمر المنفذ عند اختيار عنصر القائمة المنبثقة <guimenuitem
+>فتح مدير الملفات</guimenuitem
+>.</para>
+<para
+>يوجد أيضًا مربعا اختيار. يتحكم الأول في فتح نافذة مدير ملفات آلي عند وصل جهاز. ويسبب الآخر ظهور نافذة تنبيه إذا امتلأ قرص بشكل خطير.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>أوامر الوصل</guilabel
+></term>
+<listitem
+><para
+>يسمح للمستخدم بتحديد أوامر الوصل والفصل لجهاز معين، بالإضافة إلى الأيقونة المستخدمة لتمثيله. يمكن العثور على مزيد من المعلومات حول هذه الأوامر في صفحة الدليل لأمر <application
+>mount</application
+> (اكتب <userinput
+><command
+>man</command
+> <option
+>mount</option
+></userinput
+> في موجه سطر الأوامر).</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="credits">
+<title
+>الحقوق والترخيص</title>
+
+<para
+>المساحة المتبقية</para>
+
+<para
+>حقوق نشر البرنامج &copy; 1998-2000 &Michael.Kropfberger; &Michael.Kropfberger.mail;</para>
+
+<para
+>حقوق نشر التوثيق &copy; 2000 &Jonathan.Singer; &Jonathan.Singer.mail;</para>
+
+<para
+>الترجمة: زايد السعيدي <email
+>zayed.alsaidi@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index; 
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->
