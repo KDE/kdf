@@ -1,5 +1,5 @@
 # translation of kdf.po to
-# Version: $Revision: 1723076 $
+# Version: $Revision$
 # translation of kdf.po to Polish
 # KTranslator Generated File
 # SPDX-FileCopyrightText: 2015, 2016, 2017, 2022, 2024, 2025 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
