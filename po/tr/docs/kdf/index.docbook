@@ -106,7 +106,7 @@
 > yazın veya uygulama başlatıcısındaki <guisubmenu
 >Sistem</guisubmenu
 > alt grubundan <guimenuitem
->K Boş Alan</guimenuitem
+>KDiskFree</guimenuitem
 >’ı seçin. Standart &Qt; ve &kde; komut seçenekleri kullanılabilirdir ve komut isteminde <userinput
 ><command
 >kdf</command
@@ -201,7 +201,7 @@
 > seçeneği, o aygıttaki dosyaların grafiksel bir görünümünü sunan yeni bir pencere açar.</para>
 <para
 >&kdiskfree; tarafından kullanılan dosya yöneticisi ayarı, <guilabel
->Öntanımlı Uygulamalar</guilabel
+>Varsayılan Uygulamalar</guilabel
 > &systemsettings; modülündeki seçenekten bağımsızdır.</para>
 </sect1>
 
